@@ -1,0 +1,56 @@
+{
+  "displayName": "Siege",
+  "fluxCapacitors": 7,
+  "fluxVents": 10,
+  "hullId": "bge_koenig",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "bge_koenig_siege",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler2": "bge_grappler",
+        "left_grappler3": "bge_grappler",
+        "right_grappler2": "bge_grappler",
+        "right_grappler3": "bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mdl_kin_left": "lrg_pincer",
+        "lrg_mdl_kin_right": "lrg_pincer",
+        "lrg_out_kin_left": "lrg_pincer",
+        "lrg_out_kin_right": "lrg_pincer"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mand_left": "lrg_mand",
+        "lrg_mand_right": "lrg_mand",
+        "sml_mand_left": "sml_mand",
+        "sml_mand_right": "sml_mand"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "left_grappler": "bge_grappler_pd",
+        "pd_out_left": "bge_grappler_pd",
+        "pd_out_right": "bge_grappler_pd",
+        "right_grappler": "bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ]
+}

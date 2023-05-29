@@ -1,0 +1,14 @@
+name,id,unlocked,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,sprite
+BGE Carapace,BGECarapace,,1000,1000,1000,1000,data.hullmods.BGECarapace,,graphics/hullmods/carapace.png
+,,,,,,,,,
+BGE Enhanced Reflexes,enhanced_reflexes,TRUE,0,0,0,0,data.hullmods.enhanced_reflexes,,graphics/hullmods/carapace.png
+,,,,,,,,,
+BGE Muscle Flexibility,muscleflexibility,TRUE,0,0,0,0,data.hullmods.muscleflexibility,,graphics/hullmods/carapace.png
+,,,,,,,,,
+BGE Muscle Endurance,muscleendurance,TRUE,0,0,0,0,data.hullmods.muscleendurance,,graphics/hullmods/carapace.png
+,,,,,,,,,
+BGE Accelerated Metabolism,acceleratedmetabolism,TRUE,0,0,0,0,data.hullmods.acceleratedmetabolism,,graphics/hullmods/carapace.png
+,,,,,,,,,
+BGE Thickened Shell,thickenedshell,TRUE,0,0,0,0,data.hullmods.thickenedshell,,graphics/hullmods/carapace.png
+,,,,,,,,,
+BGE Antimatter Fat Layer,antimatterfatlayer,TRUE,0,0,0,0,data.hullmods.antimatterfatlayer,,graphics/hullmods/carapace.png

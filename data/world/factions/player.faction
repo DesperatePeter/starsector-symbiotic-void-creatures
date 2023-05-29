@@ -1,0 +1,18 @@
+{
+	"id":"player",
+	"color":[155,255,0,255],
+	"displayName":"Your",
+	"shipNamePrefix":"ISS",
+	"shipNameSources":{
+		"ALL":1,
+	},
+	"names":{
+	},
+	"portraits":{
+		"standard_male":[
+		
+		],
+		"standard_female":[
+		],
+	}
+}

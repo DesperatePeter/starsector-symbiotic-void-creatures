@@ -1,0 +1,44 @@
+{
+    "displayName": "Standard",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "bge_krieger",
+    "hullMods": [],
+    "variantId": "bge_krieger_standard",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "left_grappler": "bge_grappler",
+                "right_grappler": "bge_grappler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "left_med_uni1": "med_scythe",
+                "left_med_uni2": "med_scythe",
+                "right_med_uni1": "med_scythe",
+                "right_med_uni2": "med_scythe"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "left_mand": "sml_mand",
+                "right_mand": "sml_mand"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "left_pd": "bge_grappler_pd",
+                "right_pd": "bge_grappler_pd"
+            }
+        }
+    ]
+}

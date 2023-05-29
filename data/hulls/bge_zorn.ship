@@ -1,0 +1,380 @@
+{
+  "bounds": [
+    -19.5,
+    10,
+    -6,
+    52,
+    3,
+    54,
+    22.5,
+    29,
+    15,
+    4,
+    15,
+    -4,
+    22.5,
+    -29,
+    3,
+    -54,
+    -6,
+    -52,
+    -19.5,
+    -10
+  ],
+  "builtInMods": [
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "tentacle_right_medium_barbed_short",
+    "WS0002": "tentacle_left_medium_barbed_short",
+    "WS0003": "tentacle_left_tiny_dark",
+    "WS0004": "tentacle_right_tiny_dark",
+    "WS0005": "tentacle_left_medium_dark",
+    "WS0006": "tentacle_left_micro_dark",
+    "WS0007": "tentacle_right_micro_dark",
+    "WS0008": "zorn_head",
+    "WS0009": "tentacle_right_medium_dark",
+    "WS0010": "tentacle_left_medium_barbed",
+    "WS0011": "tentacle_right_medium_barbed",
+    "head": "zorn",
+    "left_mand": "adv_sml_mand",
+    "left_tentacle1": "tentacle_left_small",
+    "left_tentacle2": "tentacle_left_medium",
+    "right_mand": "adv_sml_mand",
+    "right_tentacle1": "tentacle_right_small",
+    "right_tentacle2": "tentacle_right_medium"
+  },
+  "center": [
+    60,
+    27.5
+  ],
+  "collisionRadius": 56.135994,
+  "engineSlots": [],
+  "height": 55,
+  "hullId": "bge_zorn",
+  "hullName": "Zorn",
+  "hullSize": "FRIGATE",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 59.808025,
+  "spriteName": "graphics/ships/Zorn.png",
+  "style": "BIOLOGICAL",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 46.081001,
+      "arc": 58.602001,
+      "id": "right_med_uni2",
+      "locations": [
+        11.5,
+        -26
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": -46.081001,
+      "arc": 58.602001,
+      "id": "left_med_uni2",
+      "locations": [
+        11.5,
+        26
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": -29.745001,
+      "arc": 59.490002,
+      "id": "left_med_uni",
+      "locations": [
+        0.5,
+        44
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 29.745001,
+      "arc": 59.490002,
+      "id": "right_med_uni",
+      "locations": [
+        0.5,
+        -44
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": -10.305,
+      "arc": 90,
+      "id": "left_grappler",
+      "locations": [
+        -3.5,
+        20.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 10.305,
+      "arc": 90,
+      "id": "right_grappler",
+      "locations": [
+        -3.5,
+        -20.5
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -171.253845,
+      "arc": 37.878006,
+      "id": "left_tentacle1",
+      "locations": [
+        -33,
+        27
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 171.253845,
+      "arc": 37.878006,
+      "id": "right_tentacle1",
+      "locations": [
+        -33,
+        -27
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -90,
+      "arc": 180,
+      "id": "right_pd",
+      "locations": [
+        5,
+        -27
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 90,
+      "arc": 180,
+      "id": "left_pd",
+      "locations": [
+        5,
+        27
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "BALLISTIC"
+    },
+    {
+      "angle": 161.565048,
+      "arc": 37.878006,
+      "id": "left_tentacle2",
+      "locations": [
+        -34.5,
+        33.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -161.565048,
+      "arc": 37.878006,
+      "id": "right_tentacle2",
+      "locations": [
+        -34.5,
+        -33.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 146.309937,
+      "arc": 37.878006,
+      "id": "WS0001",
+      "locations": [
+        -23,
+        30
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -146.309937,
+      "arc": 37.878006,
+      "id": "WS0002",
+      "locations": [
+        -23,
+        -30
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 159.775146,
+      "arc": 37.878006,
+      "id": "WS0003",
+      "locations": [
+        -18.5,
+        35.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -159.775146,
+      "arc": 37.878006,
+      "id": "WS0004",
+      "locations": [
+        -18.5,
+        -35.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 0,
+      "arc": 37.878006,
+      "id": "head",
+      "locations": [
+        0,
+        -0
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 146,
+      "arc": 37.878006,
+      "id": "WS0006",
+      "locations": [
+        -7,
+        56.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -146,
+      "arc": 37.878006,
+      "id": "WS0007",
+      "locations": [
+        -7,
+        -56.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "left_mand",
+      "locations": [
+        -6.5,
+        9.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -0,
+      "arc": 0,
+      "id": "right_mand",
+      "locations": [
+        -6.5,
+        -9.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": 0,
+      "arc": 37.878006,
+      "id": "WS0008",
+      "locations": [
+        -1,
+        -0
+      ],
+      "mount": "TURRET",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -153.5,
+      "arc": 37.877998,
+      "id": "WS0005",
+      "locations": [
+        -25.5,
+        -46
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 153.5,
+      "arc": 37.877998,
+      "id": "WS0009",
+      "locations": [
+        -25.5,
+        46
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": -154,
+      "arc": 37.877998,
+      "id": "WS0010",
+      "locations": [
+        -26.5,
+        -53.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    },
+    {
+      "angle": 154,
+      "arc": 37.877998,
+      "id": "WS0011",
+      "locations": [
+        -26.5,
+        53.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "DECORATIVE"
+    }
+  ],
+  "width": 120
+}

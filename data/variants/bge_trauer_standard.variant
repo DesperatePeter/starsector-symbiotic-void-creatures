@@ -1,0 +1,46 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "bge_trauer",
+  "hullMods": [],
+  "variantId": "bge_trauer_standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0017": "bge_grappler",
+        "WS0018": "bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "adv_med_scythe",
+        "WS0002": "adv_med_scythe",
+        "WS0003": "adv_med_scythe",
+        "WS0004": "adv_med_scythe"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0013": "adv_lrg_mand",
+        "WS0014": "adv_lrg_mand",
+        "WS0015": "adv_sml_mand",
+        "WS0016": "adv_sml_mand"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0019": "bge_grappler_pd",
+        "WS0020": "bge_grappler_pd"
+      }
+    }
+  ]
+}

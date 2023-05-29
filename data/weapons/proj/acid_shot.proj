@@ -1,0 +1,19 @@
+{
+	"id":"acid_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC",
+        #"onHitEffect":"data.scripts.weapons.AcidOnHitEffect",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":30.0,
+	"width":7.5,
+	"hitGlowRadius":25,
+	"fadeTime":0.15,
+	#"fringeColor":[255,155,125,255],
+	#"coreColor":[255,255,200,150],
+	"fringeColor":[17,255,0,0],
+	"coreColor":[17,255,0,0],	
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"bulletSprite":"graphics/missiles/flechette_sml.png"
+}

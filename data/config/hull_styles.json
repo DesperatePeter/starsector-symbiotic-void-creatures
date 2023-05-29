@@ -1,0 +1,23 @@
+{
+	# The following hull style ids are reserved and can not be used:
+	# "sounds", "DEFAULT", "FIGHTER", "FRIGATE", "DESTROYER", "CRUISER", "CAPITAL_SHIP"
+	
+
+	"BIOLOGICAL":{
+		"hyperspaceJitterColor":[100,165,255,200],
+		"baseCampaignExplosionColor":[200,0,0,85],
+		"baseCombatExplosionColor":[200,0,0,150],
+		"fighterRepairFlickerColor":[200,0,0,150],
+		"weaponDisabledExplosionColor":[200,0,0,85],
+		"shieldRingColor":[255,255,255,0],
+		"shieldInnerColor":[125,125,255,0],
+		"fluxVentCoreColor":[200,0,0,255],
+		"fluxVentFringeColor":[200,0,0,255],
+	},
+
+
+	
+}
+
+
+

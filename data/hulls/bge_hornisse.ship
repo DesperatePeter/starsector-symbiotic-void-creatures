@@ -1,0 +1,95 @@
+{
+  "bounds": [
+    -4.5,
+    -10.5,
+    10.5,
+    -0,
+    -4.5,
+    10.5
+  ],
+  "builtInMods": [
+   "BGECarapace"
+  ],
+  "center": [
+    14.5,
+    13
+  ],
+  "collisionRadius": 14.916434,
+  "engineSlots": [
+    {
+      "angle": 180,
+      "contrailSize": 2,
+      "length": 2,
+      "location": [
+        -2,
+        3
+      ],
+      "style": "CUSTOM",
+      "styleId": "BGE",
+      "width": 2
+    },
+    {
+      "angle": -180,
+      "contrailSize": 2,
+      "length": 2,
+      "location": [
+        -2,
+        -3
+      ],
+      "style": "CUSTOM",
+      "styleId": "BGE",
+      "width": 2
+    }
+  ],
+  "height": 26,
+  "hullId": "bge_hornisse",
+  "hullName": "Hornisse",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 16.800297,
+  "spriteName": "graphics/ships/Hornisse.png",
+  "style": "BIOLOGICAL",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "grappler",
+      "locations": [
+        -2,
+        -0
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": 20.556045,
+      "arc": 0,
+      "id": "left_mand",
+      "locations": [
+        -0.5,
+        5.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    },
+    {
+      "angle": -20.556045,
+      "arc": 0,
+      "id": "right_mand",
+      "locations": [
+        -0.5,
+        -5.5
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "UNIVERSAL"
+    }
+  ],
+  "width": 29
+}

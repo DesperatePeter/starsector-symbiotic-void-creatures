@@ -1,0 +1,31 @@
+{
+	"specClass":"beam",
+	"id":"tentacle_left_small",
+	"type":"DECORATIVE",
+	"size":"SMALL",
+        "height": 1.0,
+        "renderBelowAllWeapons": true,
+        "everyFrameEffect":"tecrys.svc.plugins.DecoWeaponSpeedBasedFin",
+	"turretSprite":"graphics/weapons/animated/tentacle_left_small/tentacle_left_huge_00.png",
+	"hardpointSprite":"graphics/weapons/animated/tentacle_left_small/tentacle_left_huge_00.png",
+        "numFrames":40,	
+	"frameRate":25,
+	"turretOffsets": [
+-33,
+
+2.5],
+
+	"turretAngleOffsets":[0],
+	"hardpointOffsets": [
+-15,2.5],
+	"hardpointAngleOffsets":[0],
+
+	"fringeColor":[255,255,255,255],
+	"coreColor":[255,255,255,255],
+	#"glowColor":[255,255,255,255],
+
+	"width":1.0,
+	"textureType":ROUGH,
+	"textureScrollSpeed":1.0,
+	"pixelsPerTexel":1.0,
+}

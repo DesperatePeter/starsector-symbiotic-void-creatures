@@ -1,0 +1,25 @@
+{
+	"specClass":"beam",
+	"id":"deco_feeler_r",
+	"type":"DECORATIVE",
+	"size":"MEDIUM",
+        "height": 124.0,
+	"everyFrameEffect":"tecrys.svc.plugins.RotatingDishArc",
+
+	"turretSprite":"graphics/weapons/deco/deco_feeler_r.png",
+	"hardpointSprite":"graphics/weapons/deco/deco_feeler_r.png",
+
+	"turretOffsets": [20,0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets": [20,100],
+	"hardpointAngleOffsets":[0],
+
+	"fringeColor":[255,255,255,255],
+	"coreColor":[255,255,255,255],
+	#"glowColor":[255,255,255,255],
+
+	"width":124.0,
+	"textureType":ROUGH,
+	"textureScrollSpeed":1.0,
+	"pixelsPerTexel":1.0,
+}

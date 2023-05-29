@@ -1,0 +1,31 @@
+{
+
+	"system_adrenaline_rush":[
+		{"file":"sounds/fleshreforminglikesound3.ogg","pitch":2.0,"volume":0.5},
+
+	],	
+
+	"system_berzerk":[
+		{"file":"sounds/Roar7.ogg","pitch":2.0,"volume":0.1},
+
+	],	
+
+	"weapon_grappler":[
+		{"file":"sounds/Whip.ogg","pitch":1.5,"volume":0.3},
+
+	],	
+	"weapon_scythe":[
+		{"file":"sounds/syctheswipeofsorts5.ogg","pitch":2,"volume":0.6},
+
+	],	
+
+	"weapon_pincer":[
+		{"file":"sounds/syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.6},
+
+	],	
+
+	"weapon_acid":[
+		{"file":"sounds/growlsound6.ogg","pitch":4,"volume":0.2},
+
+	],	
+}

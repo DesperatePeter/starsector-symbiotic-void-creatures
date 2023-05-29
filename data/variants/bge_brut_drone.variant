@@ -1,0 +1,27 @@
+{
+  "displayName": "Drone",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "bge_brut",
+  "hullMods": [],
+  "variantId": "bge_brut_drone",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Grappler": "bge_mini_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "sml_mand",
+        "WS0002": "sml_mand",
+        "WS0003": "sml_mand",
+        "WS0004": "sml_mand"
+      }
+    }
+  ]
+}

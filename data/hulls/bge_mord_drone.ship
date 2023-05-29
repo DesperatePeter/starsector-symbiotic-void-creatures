@@ -1,0 +1,114 @@
+{
+  "bounds": [
+    -7,
+    2.5,
+    8.5,
+    10.5,
+    8.5,
+    -10.5,
+    -7,
+    -2.5
+  ],
+  "builtInMods": [
+    
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "sml_mand",
+    "WS0002": "sml_mand"
+  },
+  "center": [
+    3.5,
+    9.5
+  ],
+  "collisionRadius": 10.606602,
+  "engineSlots": [
+    {
+      "angle": -151.389542,
+      "contrailSize": 2,
+      "length": 4.5,
+      "location": [
+        -4,
+        -1.5
+      ],
+      "style": "CUSTOM",
+      "styleId": "BGE",
+      "width": 2
+    },
+    {
+      "angle": 151.389542,
+      "contrailSize": 2,
+      "length": 4.5,
+      "location": [
+        -4,
+        1.5
+      ],
+      "style": "CUSTOM",
+      "styleId": "BGE",
+      "width": 2
+    }
+  ],
+  "height": 19,
+  "hullId": "bge_mord_drone",
+  "hullName": "Mord",
+  "hullSize": "FIGHTER",
+  "shieldCenter": [
+    0,
+    -0
+  ],
+  "shieldRadius": 11.661903,
+  "spriteName": "graphics/ships/Mord.png",
+  "style": "BIOLOGICAL",
+  "viewOffset": 0,
+  "weaponSlots": [
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "Grappler1",
+      "locations": [
+        -1.5,
+        2.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": -0,
+      "arc": 0,
+      "id": "Grappler2",
+      "locations": [
+        -1.5,
+        -2.5
+      ],
+      "mount": "HIDDEN",
+      "size": "SMALL",
+      "type": "ENERGY"
+    },
+    {
+      "angle": 0,
+      "arc": 0,
+      "id": "WS0001",
+      "locations": [
+        2.5,
+        1
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    },
+    {
+      "angle": -0,
+      "arc": 0,
+      "id": "WS0002",
+      "locations": [
+        2.5,
+        -1
+      ],
+      "mount": "HARDPOINT",
+      "size": "SMALL",
+      "type": "BUILT_IN"
+    }
+  ],
+  "width": 7
+}

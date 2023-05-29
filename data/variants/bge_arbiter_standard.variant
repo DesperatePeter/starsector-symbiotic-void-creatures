@@ -1,0 +1,47 @@
+{
+  "displayName": "Standard",
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "hullId": "bge_arbiter",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "bge_arbiter_standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler": "bge_grappler",
+        "right_grappler": "bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "left_lrg_uni": "lrg_scythe",
+        "left_med_uni": "med_scythe",
+        "right_lrg_uni": "lrg_scythe",
+        "right_med_uni": "med_scythe"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_lrg_mand": "lrg_mand",
+        "left_sml_mand": "sml_mand",
+        "right_lrg_mand": "lrg_mand",
+        "right_sml_mand": "sml_mand"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "left_sml_pd": "bge_grappler_pd",
+        "right_sml_pd": "bge_grappler_pd"
+      }
+    }
+  ]
+}

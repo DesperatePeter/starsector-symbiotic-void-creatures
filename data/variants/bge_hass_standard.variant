@@ -1,0 +1,51 @@
+{
+  "displayName": "Assault",
+  "fluxCapacitors": 7,
+  "fluxVents": 10,
+  "hullId": "bge_hass",
+  "hullMods": [],
+  "quality": 0,
+  "variantId": "bge_hass_standard",
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler2": "bge_grappler",
+        "left_grappler3": "bge_grappler",
+        "right_grappler2": "bge_grappler",
+        "right_grappler3": "bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "lrg_mdl_kin_left": "adv_lrg_scythe",
+        "lrg_mdl_kin_right": "adv_lrg_scythe",
+        "lrg_out_kin_left": "adv_lrg_scythe",
+        "lrg_out_kin_right": "adv_lrg_scythe"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mand_left": "adv_lrg_mand",
+        "lrg_mand_right": "adv_lrg_mand",
+        "sml_mand_left": "adv_sml_mand",
+        "sml_mand_right": "adv_sml_mand"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "left_grappler": "bge_grappler_pd",
+        "pd_out_left": "bge_grappler_pd",
+        "pd_out_right": "bge_grappler_pd",
+        "right_grappler": "bge_grappler_pd"
+      }
+    }
+  ]
+}

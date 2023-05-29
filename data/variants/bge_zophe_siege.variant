@@ -1,0 +1,44 @@
+{
+    "displayName": "Siege",
+    "fluxCapacitors": 0,
+    "fluxVents": 0,
+    "hullId": "bge_zophe",
+    "hullMods": [],
+    "variantId": "bge_zophe_siege",
+    "weaponGroups": [
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "grappler": "bge_grappler",
+                "grappler2": "bge_grappler"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "left_med_uni": "med_pincer",
+                "right_med_uni": "med_pincer"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "LINKED",
+            "weapons": {
+                "left_lrg_mand": "lrg_mand",
+                "left_sml_mand": "sml_mand",
+                "right_lrg_mand": "lrg_mand",
+                "right_sml_mand": "sml_mand"
+            }
+        },
+        {
+            "autofire": true,
+            "mode": "ALTERNATING",
+            "weapons": {
+                "left_sml_pd": "bge_grappler_pd",
+                "right_sml_pd": "bge_grappler_pd"
+            }
+        }
+    ]
+}

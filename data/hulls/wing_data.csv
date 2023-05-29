@@ -1,0 +1,4 @@
+id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackRunRange,num,role,role desc,refit,base value,,,,,,,,,,,,,number
+bge_hornisse_standard_wing,bge_hornisse_standard,"fighter4, fighter, mid",2,,6,12,V,4000,500,,2,FIGHTER,Heavy Interceptor,10,10000,,,,,,,,,,,,,3
+bge_nymphe_standard_wing,bge_nymphe_standard,"fighter4, fighter, mid",2,,6,12,V,4000,500,,2,FIGHTER,Heavy Interceptor,10,10000,,,,,,,,,,,,,3
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,
