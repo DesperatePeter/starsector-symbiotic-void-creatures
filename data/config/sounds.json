@@ -11,21 +11,57 @@
 	],	
 
 	"weapon_grappler":[
-		{"file":"sounds/Whip.ogg","pitch":1.5,"volume":0.3},
+		{"file":"sounds/Whip.ogg","pitch":1,"volume":0.15},
 
 	],	
 	"weapon_scythe":[
-		{"file":"sounds/syctheswipeofsorts5.ogg","pitch":2,"volume":0.6},
-
+		{"file":"sounds/syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
 	],	
 
 	"weapon_pincer":[
-		{"file":"sounds/syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.6},
-
+		{"file":"sounds/syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
 	],	
 
 	"weapon_acid":[
 		{"file":"sounds/growlsound6.ogg","pitch":4,"volume":0.2},
 
 	],	
+		"engine_tentacle_loop":[
+		{"file":"sounds/fleshreforminglikesound3.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/fleshreforminglikesound.ogg","pitch":1,"volume":0.5},	
+
+	],	
+			"engine_tentacle_accelerate":[
+		{"file":"sounds/Roar20.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/Roar1.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/Roar5.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/Roar6.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.1},
+		{"file":"sounds/Roar12.ogg","pitch":1,"volume":0.1},
+
+	],	
+				"creature_emp_loop":[
+		{"file":"sounds/Roar15.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/Roar17.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/Roar18.ogg","pitch":1,"volume":0.2},		
+		{"file":"sounds/growlsound6.ogg","pitch":1,"volume":0.2},
+	],	
+					"creature_pain":[
+		{"file":"sounds/Roar20.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/Roar1.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/Roar4.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/Roar5.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/Roar6.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/Roar12.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.3},
+	],	
+}
 }

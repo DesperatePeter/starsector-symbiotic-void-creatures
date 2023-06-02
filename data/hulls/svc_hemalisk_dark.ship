@@ -1,0 +1,310 @@
+{
+  "hullName": "Umbra Hemalisk",
+  "hullId": "svc_hemalisk_dark",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/Zorn.png",
+  "style": "BIOLOGICAL",
+  "height": 88,
+  "width": 112,
+  "center": [56, 51],
+  "collisionRadius": 56.135994,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 59.808025,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace",
+    "do_not_back_off"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_tentacle_right_medium_barbed_short",
+    "WS0002": "svc_tentacle_left_medium_barbed_short",
+    "WS0003": "svc_tentacle_left_tiny_dark",
+    "WS0004": "svc_tentacle_right_tiny_dark",
+    "WS0005": "svc_tentacle_left_medium_dark",
+    "WS0006": "svc_tentacle_left_micro_dark",
+    "WS0007": "svc_tentacle_right_micro_dark",
+    "WS0008": "svc_zorn_head",
+    "WS0009": "svc_tentacle_right_medium_dark",
+    "WS0010": "svc_tentacle_left_medium_barbed",
+    "WS0011": "svc_tentacle_right_medium_barbed",
+    "head": "svc_zorn",
+    "left_grappler": "svc_bge_grappler",
+    "left_mand": "svc_adv_sml_mand_l",
+    "left_med_uni": "svc_adv_med_scythe_l",
+    "left_med_uni2": "svc_adv_med_scythe_l",
+    "left_pd": "svc_bge_grappler_pd",
+    "left_tentacle1": "svc_tentacle_left_small",
+    "left_tentacle2": "svc_tentacle_left_medium",
+    "right_grappler": "svc_bge_grappler",
+    "right_mand": "svc_adv_sml_mand_r",
+    "right_med_uni": "svc_adv_med_scythe_r",
+    "right_med_uni2": "svc_adv_med_scythe_r",
+    "right_pd": "svc_bge_grappler_pd",
+    "right_tentacle1": "svc_tentacle_right_small",
+    "right_tentacle2": "svc_tentacle_right_medium"
+  },
+  "weaponSlots": [
+    {
+      "id": "right_med_uni2",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 58.602001,
+      "angle": 46.081001,
+      "locations": [21.5, -27],
+      "renderOrderMod": 4
+    },
+    {
+      "id": "left_med_uni2",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 58.602001,
+      "angle": -46.081001,
+      "locations": [21.5, 27],
+      "renderOrderMod": 4
+    },
+    {
+      "id": "left_med_uni",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 59.490002,
+      "angle": -29.745001,
+      "locations": [10, 45.5],
+      "renderOrderMod": 4
+    },
+    {
+      "id": "right_med_uni",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 59.490002,
+      "angle": 29.745001,
+      "locations": [10, -45.5],
+      "renderOrderMod": 4
+    },
+    {
+      "id": "left_grappler",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": -10.305,
+      "locations": [5, 19.5],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "right_grappler",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 90,
+      "angle": 10.305,
+      "locations": [5, -19.5],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "left_tentacle1",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.878006,
+      "angle": -171.253845,
+      "locations": [-22.5, 22.5]
+    },
+    {
+      "id": "right_tentacle1",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": 171.253998,
+      "locations": [-22.5, -22.5],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "right_pd",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -90,
+      "locations": [13.5, -29.5],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "left_pd",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 90,
+      "locations": [13.5, 29.5],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "left_tentacle2",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.878006,
+      "angle": 161.565048,
+      "locations": [-24, 31.5]
+    },
+    {
+      "id": "right_tentacle2",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.878006,
+      "angle": -161.565048,
+      "locations": [-24, -31.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": 146.309998,
+      "locations": [-19, 29]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.878006,
+      "angle": -146.309937,
+      "locations": [-19, -29]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": 159.774994,
+      "locations": [-10.5, 34],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": -159.774994,
+      "locations": [-10.5, -34],
+      "renderOrderMod": 1
+    },
+    {
+      "id": "head",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 37.877998,
+      "angle": 0,
+      "locations": [-7, 0],
+      "renderOrderMod": 2
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.878006,
+      "angle": 146,
+      "locations": [3, 55.5]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.878006,
+      "angle": -146,
+      "locations": [3, -55.5]
+    },
+    {
+      "id": "left_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [6, 12],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "right_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -0,
+      "locations": [6, -12],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 37.877998,
+      "angle": 0,
+      "locations": [9, 0],
+      "renderOrderMod": 4
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": -153.5,
+      "locations": [-13.5, -45.5]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": 153.5,
+      "locations": [-13.5, 45.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": -154,
+      "locations": [-14, -53.5]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 37.877998,
+      "angle": 154,
+      "locations": [-14, 53.5]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    -11, 10,
+    2.5, 52,
+    11.5, 54,
+    31, 29,
+    23.5, 4,
+    23.5, -4,
+    31, -29,
+    11.5, -54,
+    2.5, -52,
+    -11, -10
+  ]
+}

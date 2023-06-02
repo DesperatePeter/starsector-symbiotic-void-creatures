@@ -1,111 +1,120 @@
 name,id,tier,rarity,base value,range,damage/second,damage/shot,emp,impact,turn rate,OPs,ammo,ammo/sec,reload size,type,energy/shot,energy/second,chargeup,chargedown,burst size,burst delay,min spread,max spread,spread/shot,spread decay/sec,beam speed,proj speed,launch speed,flight time,proj hitpoints,autofireAccBonus,extraArcForAI,hints,tags,groupTag,tech/manufacturer,for weapon tooltip>>,primaryRoleStr,speedStr,trackingStr,turnRateStr,accuracyStr,customPrimary,customPrimaryHL,customAncillary,customAncillaryHL,noDPSInTooltip,number
-Feelers,deco_feeler_l,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,20
-Feelers,deco_feeler_r,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,21
-large Mandible,lrg_mand,2,,2500,20,50,100,,-20,60,12,,,,OTHER,0,,0,0.5,1,,0,0,0,0,,80,,,30,,,PD,,,,,General,,,,,,,,,,24
-Sense,lrg_scythe,2,,2500,130,130,270,,0,60,12,,,,OTHER,0,,0,1.4,1,,0,0,0,0,,80,,,30,,,PD,,,,,General,,,,,,,,,,25
-Sichel,med_scythe,2,,1500,105,70,150,,0,60,8,,,,OTHER,0,,0,1.4,1,,0,0,0,0,,80,,,30,,,PD,,,,,General,,,,,,,,,,28
-Greifer,bge_grappler,2,,1000,800,25,,25,0,20,2,,,,OTHER,,10,0,0.25,,,0,0,0,0,4500,,,,,,,,,,,,,,,,,,,,,,1006
-left Antena,antena_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,29
-right Antena,antena_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,30
-left Shell,koenig_shell_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,31
-right Shell,koenig_shell_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,32
-left long fin,long_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,33
-right long fin,long_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,34
-left long fin2,long_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,35
-right long fin2,long_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,36
-Koenig eyes,koenig_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,37
-Koenig fin left,koenigfinleft,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,38
-Koenig fin right,koenigfinright,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,39
-small Mandible,sml_mand,2,,2500,20,,70,,-20,20,12,,,,OTHER,4,,,0.5,,,,,,,,80,,,30,,,PD,,,,,,,,,,,,,,,41
-Wächter Shell,waechtershell,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
-Wächter Shell 2,waechtershell2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,43
-Mini Greifer,bge_mini_grappler,2,,3000,300,25,,25,0,20,10,,,,KINETIC,,80,0,0.25,1,2,,,,,3500,,,,,,,"PD,ANTI_FTR",,,,,,,,,,,,,,,1007
-right translucent fin,trans_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4400
-left translucent fin,trans_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4401
-Zange,lrg_pincer,2,,6500,130,,450,250,2000,60,12,,,,HIGH_EXPLOSIVE,150,,0,2,,,,,,,,160,,,30,,,USE_VS_FRIGATES,,,,,,,,,,,,,,,44
-Schere,med_pincer,2,,5500,105,,80,120,2000,60,12,,,,HIGH_EXPLOSIVE,80,,0,2,,,,,,,,160,,,30,,,USE_VS_FRIGATES,,,,,,,,,,,,,,,46
-left long fin small,long_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,48
-right long fin small,long_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,49
-left long fin small2,long_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,50
-right long fin small2,long_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,51
-right translucent fin2,trans_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4402
-left translucent fin2,trans_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4403
-right small translucent fin,trans_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4404
-left small translucent fin,trans_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4405
-right small translucent fin2,trans_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4406
-left small translucent fin2,trans_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
-Mord Greifer,bge_mord_grappler,2,,3000,300,25,,25,0,20,10,,,,KINETIC,,80,0,0.25,,1,,,,,3500,,,,,,,"PD,ANTI_FTR",,,,,,,,,,,,,,,1009
-Arbiter,arbiter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,53
-Koenig,koenig,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,54
-Flusskrebs,flusskrebs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,55
-Vergifter,vergifter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,56
-Waechter,waechter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,57
-Zophe,zophe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
-Waechter eyes,waechter_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,59
-right Stinger,stinger_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4408
-left Stinger,stinger_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4409
-Krieger,krieger,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,60
-Saeurespucker,acidthrower,3,,3000,600,,5,,1,15,10,60,1,,HIGH_EXPLOSIVE,5,,0,6,50,0,30,60,3,5,,800,1200,,10,,,,,,,,,,,,,,,,,,5.75
-Spawner,spawner,0,,150,1500,,200,,20,30,4,50,,,HIGH_EXPLOSIVE,0,,0,5,5,0.2,0,0,0,0,,250,50,,50,,,,,,,,,,,,,,,,,,11
-Werfer,bge_grappler_pd,2,,1000,450,25,,25,0,20,4,,,,FRAGMENTATION,,180,0,0.25,1,1.5,,,,,4500,,,,,,,"PD,ANTI_FTR",,,,,,,,,,,,,,,1010
-adv Sense,adv_lrg_scythe,2,,2500,130,,270,,1000,60,12,,,,OTHER,90,,,1.4,,,,,,,,160,,,30,,,"PD, DIRECT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,61
-adv Sichel,adv_med_scythe,2,,1500,105,,150,,200,60,8,,,,OTHER,50,,,1.4,,,,,,,,160,,,30,,,"PD, DIRECT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,64
-adv large Mandible,adv_lrg_mand,2,,2500,20,,100,,-20,60,12,,,,OTHER,6,,,0.5,,,,,,,,80,,,30,,,"PD, DIRECT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,66
-adv small Mandible,adv_sml_mand,2,,2500,20,,70,,-20,20,12,,,,OTHER,4,,,0.5,,,,,,,,80,,,30,,,"PD, DIRECT_AIM, DO_NOT_CONSERVE, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,68
-tentacle_left_gargantuan,tentacle_left_gargantuan,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4408
-tentacle_right_gargantuan,tentacle_right_gargantuan,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4409
-tentacle_left_huge,tentacle_left_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4410
-tentacle_right_huge,tentacle_right_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4411
-tentacle_left_large,tentacle_left_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4412
-tentacle_right_large,tentacle_right_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4413
-tentacle_left_medium,tentacle_left_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4414
-tentacle_right_medium,tentacle_right_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4415
-tentacle_left_small,tentacle_left_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4416
-tentacle_right_small,tentacle_right_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4417
-tentacle_left_tiny,tentacle_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4418
-tentacle_right_tiny,tentacle_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4419
-tentacle_left_gargantuan_barbed,tentacle_left_gargantuan_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4420
-tentacle_right_gargantuan_barbed,tentacle_right_gargantuan_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4421
-tentacle_left_huge_barbed,tentacle_left_huge_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4422
-tentacle_right_huge_barbed,tentacle_right_huge_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4423
-tentacle_left_large_barbed,tentacle_left_large_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4424
-tentacle_right_large_barbed,tentacle_right_large_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4425
-tentacle_left_medium_barbed,tentacle_left_medium_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4426
-tentacle_right_medium_barbed,tentacle_right_medium_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4427
-tentacle_left_small_barbed,tentacle_left_small_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4428
-tentacle_right_small_barbed,tentacle_right_small_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4429
-tentacle_left_tiny_barbed,tentacle_left_tiny_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4430
-tentacle_right_tiny_barbed,tentacle_right_tiny_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4431
-Zorn,zorn,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,65
-Zorn Head,zorn_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
-tentacle_left_medium_barbed_short,tentacle_left_medium_barbed_short,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4432
-tentacle_right_medium_barbed_short,tentacle_right_medium_barbed_short,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4433
-Rache,rache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,67
-Rache Head,rache_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,68
-tentacle_left_huge_dark,tentacle_left_huge_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4434
-tentacle_right_huge_dark,tentacle_right_huge_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4435
-tentacle_left_large_dark,tentacle_left_large_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4436
-tentacle_right_large_dark,tentacle_right_large_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4437
-tentacle_left_medium_dark,tentacle_left_medium_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4438
-tentacle_right_medium_dark,tentacle_right_medium_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4439
-tentacle_left_small_dark,tentacle_left_small_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4440
-tentacle_right_small_dark,tentacle_right_small_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4441
-tentacle_left_tiny_dark,tentacle_left_tiny_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4442
-tentacle_right_tiny_dark,tentacle_right_tiny_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4443
-tentacle_left_micro_dark,tentacle_left_micro_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4444
-tentacle_right_micro_dark,tentacle_right_micro_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4445
-dark_fin_left_huge,dark_fin_left_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4446
-dark_fin_right_huge,dark_fin_right_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4447
-dark_fin_left_large,dark_fin_left_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4448
-dark_fin_right_large,dark_fin_right_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4449
-dark_fin_left_medium,dark_fin_left_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4450
-dark_fin_right_medium,dark_fin_right_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4451
-dark_fin_left_small,dark_fin_left_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4452
-dark_fin_right_small,dark_fin_right_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4453
-dark_fin_left_tiny,dark_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4454
-dark_fin_right_tiny,dark_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4455
-Trauer,trauer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,69
-Verzweiflung,verzweiflung,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,70
-Gewalt,gewalt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,71
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+small Mandible,svc_sml_mand_l,2,,2500,60,,70,,50,0,0,,,,HIGH_EXPLOSIVE,4,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,,,,,,,,,,,41
+small Mandible,svc_sml_mand_r,2,,2500,60,,70,,50,0,0,,,,HIGH_EXPLOSIVE,4,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,,,,,,,,,,,41
+large Mandible,svc_lrg_mand_l,2,,2500,60,,100,,50,0,0,,,,HIGH_EXPLOSIVE,6,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,General,,,,,,,,,,24
+large Mandible,svc_lrg_mand_r,2,,2500,60,,100,,50,0,0,,,,HIGH_EXPLOSIVE,6,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,General,,,,,,,,,,24
+Scythe,svc_med_scythe_l,2,,1500,115,,300,,500,60,0,,,,HIGH_EXPLOSIVE,30,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,General,,,,,,,,,,28
+Scythe,svc_med_scythe_r,2,,1500,115,,300,,500,60,0,,,,HIGH_EXPLOSIVE,30,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,General,,,,,,,,,,28
+Scythe Claw,svc_lrg_scythe_l,2,,2500,140,,430,,1000,60,0,,,,HIGH_EXPLOSIVE,70,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,General,,,,,,,,,,25
+Scythe Claw,svc_lrg_scythe_r,2,,2500,140,,430,,1000,60,0,,,,HIGH_EXPLOSIVE,70,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,General,,,,,,,,,,25
+Umbra small Mandible,svc_adv_sml_mand_l,2,,2500,60,,70,,50,0,0,,,,HIGH_EXPLOSIVE,4,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,,,,,,,,,,,68
+Umbra small Mandible,svc_adv_sml_mand_r,2,,2500,60,,70,,50,0,0,,,,HIGH_EXPLOSIVE,4,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,,,,,,,,,,,68
+Umbra large Mandible,svc_adv_lrg_mand_l,2,,2500,60,,100,,50,0,0,,,,HIGH_EXPLOSIVE,6,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,,,,,,,,,,,66
+Umbra large Mandible,svc_adv_lrg_mand_r,2,,2500,60,,100,,50,0,0,,,,HIGH_EXPLOSIVE,6,,0,0.5,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM",,,,,,,,,,,,,,,66
+Umbra Scythe,svc_adv_med_scythe_l,2,,1500,115,,300,,500,60,0,,,,HIGH_EXPLOSIVE,30,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,64
+Umbra Scythe,svc_adv_med_scythe_r,2,,1500,115,,300,,500,60,0,,,,HIGH_EXPLOSIVE,30,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,64
+Umbra Scythe Claw,svc_adv_lrg_scythe_l,2,,2500,140,,430,,1000,60,0,,,,HIGH_EXPLOSIVE,70,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,61
+Umbra Scythe Claw,svc_adv_lrg_scythe_r,2,,2500,140,,430,,1000,60,0,,,,HIGH_EXPLOSIVE,70,,0,1,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,61
+Pincer,svc_med_pincer_l,2,,5500,115,,80,120,2000,60,0,,,,HIGH_EXPLOSIVE,80,,0,2,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, USE_VS_FRIGATES, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,46
+Pincer,svc_med_pincer_r,2,,5500,115,,80,120,2000,60,0,,,,HIGH_EXPLOSIVE,80,,0,2,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, USE_VS_FRIGATES, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,46
+Pincer Claw,svc_lrg_pincer_l,2,,6500,150,,450,250,2000,60,0,,,,HIGH_EXPLOSIVE,150,,0,2,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, USE_VS_FRIGATES, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,44
+Pincer Claw,svc_lrg_pincer_r,2,,6500,150,,450,250,2000,60,0,,,,HIGH_EXPLOSIVE,150,,0,2,,,,,,,,150,,,30,,,"PD, FIRE_WHEN_INEFFICIENT, USE_VS_FRIGATES, FIRE_WHEN_INEFFICIENT",,,,,,,,,,,,,,,44
+Grappler Tendril,svc_bge_grappler,2,,1000,900,25,,25,0,20,2,,,,OTHER,,10,0.5,1,1,1,0,0,0,0,4500,,,,,,,,,,,,,,,,,,,,,,1006
+Mini Tendril,svc_bge_mini_grappler,2,,3000,300,25,,25,0,20,10,,,,KINETIC,,80,0,0.25,1,1,,,,,3500,,,,,,,"PD,ANTI_FTR",,,,,,,,,,,,,,,1007
+Mord Tendril,svc_bge_mord_grappler,2,,3000,300,25,,25,0,20,10,,,,KINETIC,,80,0,0.25,,1,,,,,3500,,,,,,,"PD,ANTI_FTR",,,,,,,,,,,,,,,1009
+Acid Spitter,svc_acidthrower,3,,3000,600,,5,,1,15,10,60,1,,HIGH_EXPLOSIVE,5,,0,6,50,0,30,60,3,5,,800,1200,,10,,,,,,,,,,,,,,,,,,5.75
+Spawner,svc_spawner,0,,150,1500,,200,,20,30,4,50,,,HIGH_EXPLOSIVE,0,,0,5,5,0.2,0,0,0,0,,250,50,,50,,,,,,,,,,,,,,,,,,11
+Tentacle Whip,svc_bge_grappler_pd,2,,1000,450,25,,25,0,20,4,,,,FRAGMENTATION,,180,0,0.25,0.25,0.75,,,,,4500,,,,,,,"PD,ANTI_FTR",,,,,,,,,,,,,,,1010
+tentacle_left_gargantuan,svc_tentacle_left_gargantuan,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4408
+tentacle_right_gargantuan,svc_tentacle_right_gargantuan,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4409
+tentacle_left_huge,svc_tentacle_left_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4410
+tentacle_right_huge,svc_tentacle_right_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4411
+tentacle_left_large,svc_tentacle_left_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4412
+tentacle_right_large,svc_tentacle_right_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4413
+tentacle_left_medium,svc_tentacle_left_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4414
+tentacle_right_medium,svc_tentacle_right_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4415
+tentacle_left_small,svc_tentacle_left_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4416
+tentacle_right_small,svc_tentacle_right_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4417
+tentacle_left_tiny,svc_tentacle_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4418
+tentacle_right_tiny,svc_tentacle_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4419
+tentacle_left_gargantuan_barbed,svc_tentacle_left_gargantuan_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4420
+tentacle_right_gargantuan_barbed,svc_tentacle_right_gargantuan_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4421
+tentacle_left_huge_barbed,svc_tentacle_left_huge_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4422
+tentacle_right_huge_barbed,svc_tentacle_right_huge_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4423
+tentacle_left_large_barbed,svc_tentacle_left_large_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4424
+tentacle_right_large_barbed,svc_tentacle_right_large_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4425
+tentacle_left_medium_barbed,svc_tentacle_left_medium_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4426
+tentacle_right_medium_barbed,svc_tentacle_right_medium_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4427
+tentacle_left_small_barbed,svc_tentacle_left_small_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4428
+tentacle_right_small_barbed,svc_tentacle_right_small_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4429
+tentacle_left_tiny_barbed,svc_tentacle_left_tiny_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4430
+tentacle_right_tiny_barbed,svc_tentacle_right_tiny_barbed,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4431
+tentacle_left_medium_barbed_short,svc_tentacle_left_medium_barbed_short,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4432
+tentacle_right_medium_barbed_short,svc_tentacle_right_medium_barbed_short,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4433
+tentacle_left_huge_dark,svc_tentacle_left_huge_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4434
+tentacle_right_huge_dark,svc_tentacle_right_huge_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4435
+tentacle_left_large_dark,svc_tentacle_left_large_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4436
+tentacle_right_large_dark,svc_tentacle_right_large_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4437
+tentacle_left_medium_dark,svc_tentacle_left_medium_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4438
+tentacle_right_medium_dark,svc_tentacle_right_medium_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4439
+tentacle_left_small_dark,svc_tentacle_left_small_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4440
+tentacle_right_small_dark,svc_tentacle_right_small_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4441
+tentacle_left_tiny_dark,svc_tentacle_left_tiny_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4442
+tentacle_right_tiny_dark,svc_tentacle_right_tiny_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4443
+tentacle_left_micro_dark,svc_tentacle_left_micro_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4444
+tentacle_right_micro_dark,svc_tentacle_right_micro_dark,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4445
+dark_fin_left_huge,svc_dark_fin_left_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4446
+dark_fin_right_huge,svc_dark_fin_right_huge,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4447
+dark_fin_left_large,svc_dark_fin_left_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4448
+dark_fin_right_large,svc_dark_fin_right_large,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4449
+dark_fin_left_medium,svc_dark_fin_left_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4450
+dark_fin_right_medium,svc_dark_fin_right_medium,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4451
+dark_fin_left_small,svc_dark_fin_left_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4452
+dark_fin_right_small,svc_dark_fin_right_small,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4453
+dark_fin_left_tiny,svc_dark_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4454
+dark_fin_right_tiny,svc_dark_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4455
+Trauer,svc_trauer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,69
+Verzweiflung,svc_verzweiflung,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,70
+Gewalt,svc_gewalt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,71
+Zorn,svc_zorn,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,65
+Zorn Head,svc_zorn_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Rache,svc_rache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,67
+Rache Head,svc_rache_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,68
+left Antena,svc_antena_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,29
+right Antena,svc_antena_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,30
+left Shell,svc_koenig_shell_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,31
+right Shell,svc_koenig_shell_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,32
+left long fin,svc_long_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,33
+right long fin,svc_long_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,34
+left long fin2,svc_long_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,35
+right long fin2,svc_long_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,36
+Koenig eyes,svc_koenig_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,37
+Koenig fin left,svc_koenigfinleft,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,38
+Koenig fin right,svc_koenigfinright,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,39
+Arbiter,svc_arbiter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,53
+Koenig,svc_koenig,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,54
+Flusskrebs,svc_flusskrebs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,55
+Vergifter,svc_vergifter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,56
+Waechter,svc_waechter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,57
+Zophe,svc_zophe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
+Waechter eyes,svc_waechter_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,59
+right Stinger,svc_stinger_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4408
+left Stinger,svc_stinger_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4409
+Krieger,svc_krieger,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,60
+left long fin small,svc_long_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,48
+right long fin small,svc_long_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,49
+left long fin small2,svc_long_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,50
+right long fin small2,svc_long_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,51
+right translucent fin2,svc_trans_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4402
+left translucent fin2,svc_trans_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4403
+right small translucent fin,svc_trans_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4404
+left small translucent fin,svc_trans_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4405
+right small translucent fin2,svc_trans_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4406
+left small translucent fin2,svc_trans_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
+Feelers,svc_deco_feeler_l,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,20
+Feelers,svc_deco_feeler_r,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,21
+Wächter Shell,svc_waechtershell,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
+Wächter Shell 2,svc_waechtershell2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,43
+right translucent fin,svc_trans_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4400
+left translucent fin,svc_trans_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4401
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

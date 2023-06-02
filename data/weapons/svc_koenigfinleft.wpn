@@ -1,0 +1,30 @@
+{
+	"specClass":"beam",
+	"id":"svc_koenigfinleft",
+	"type":"DECORATIVE",
+	"size":"SMALL",
+        "height": 1.0,
+	"everyFrameEffect":"tecrys.svc.plugins.RotatingDishArc",
+
+	"turretSprite":"graphics/weapons/deco/koenigfinleft.png",
+	"hardpointSprite":"graphics/weapons/deco/koenigfinleft.png",
+
+	"turretOffsets": [
+20,
+
+0],
+
+	"turretAngleOffsets":[0],
+	"hardpointOffsets": [
+20,-200],
+	"hardpointAngleOffsets":[0],
+
+	"fringeColor":[255,255,255,255],
+	"coreColor":[255,255,255,255],
+	#"glowColor":[255,255,255,255],
+
+	"width":1.0,
+	"textureType":ROUGH,
+	"textureScrollSpeed":1.0,
+	"pixelsPerTexel":1.0,
+}

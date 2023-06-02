@@ -1,0 +1,60 @@
+{
+  "animationType": "SMOKE",
+  "autocharge": true,
+  "barrelMode": "ALTERNATING",
+  "fireSoundOne": "weapon_acid",
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "hardpointGunSprite": "graphics/weapons/acid.png",
+  "hardpointOffsets": [
+    24,
+    -3,
+    24,
+    3,
+    24,
+    0
+  ],
+  "hardpointSprite": "graphics/weapons/acid.png",
+  "id": "svc_acidthrower",
+  "projectileSpecId": "svc_acid_shot",
+  "renderHints": [
+    "RENDER_BARREL_BELOW"
+  ],
+  "size": "MEDIUM",
+  "smokeSpec": {
+    "blowbackDuration": 2,
+    "blowbackLength": -600,
+    "blowbackParticleCount": 50,
+    "blowbackSpread": 5,
+    "cloudDuration": 3,
+    "cloudParticleCount": 50,
+    "cloudRadius": 2,
+    "particleColor": [
+      0,
+      255,
+      0,
+      80
+    ],
+    "particleSizeMin": 5,
+    "particleSizeRange": 15
+  },
+  "specClass": "projectile",
+  "specialWeaponGlowHeight": 30,
+  "specialWeaponGlowWidth": 10,
+  "textureType": ROUGH,
+  "turretAngleOffsets": [
+    0
+  ],
+  "turretGunSprite": "graphics/weapons/acid.png",
+  "turretOffsets": [
+    17,
+    -3,
+    17,
+    3,
+    17,
+    0
+  ],
+  "turretSprite": "graphics/weapons/acid.png",
+  "type": "ENERGY"
+}

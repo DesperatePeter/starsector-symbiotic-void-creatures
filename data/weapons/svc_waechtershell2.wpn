@@ -1,0 +1,29 @@
+{
+	"specClass":"beam",
+	"id":"svc_waechtershell2",
+	"type":"DECORATIVE",
+	"size":"MEDIUM",
+        "height": 1.0,
+
+	"turretSprite":"graphics/weapons/deco/waechtershell2.png",
+	"hardpointSprite":"graphics/weapons/deco/waechtershell2.png",
+
+	"turretOffsets": [
+20,
+
+0],
+
+	"turretAngleOffsets":[0],
+	"hardpointOffsets": [
+20,-200],
+	"hardpointAngleOffsets":[0],
+
+	#"fringeColor":[255,255,255,255],
+	#"coreColor":[255,255,255,255],
+	#"glowColor":[255,255,255,255],
+
+	"width":1.0,
+	"textureType":ROUGH,
+	"textureScrollSpeed":1.0,
+	"pixelsPerTexel":1.0,
+}

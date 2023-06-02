@@ -1,0 +1,55 @@
+{
+  "variantId": "svc_pupacyst_dark_scythed",
+  "hullId": "svc_pupacyst_dark",
+  "displayName": "Scythed",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "grappler": "svc_bge_grappler",
+        "grappler2": "svc_bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_sml_pd": "svc_bge_grappler_pd",
+        "right_sml_pd": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_lrg_mand": "svc_adv_lrg_mand_l",
+        "left_sml_mand": "svc_adv_sml_mand_l",
+        "right_lrg_mand": "svc_adv_lrg_mand_r",
+        "right_sml_mand": "svc_adv_sml_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni": "svc_adv_med_scythe_l"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "right_med_uni": "svc_adv_med_scythe_r"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -1,0 +1,479 @@
+{
+  "hullName": "Umbra Keratinos",
+  "hullId": "svc_keratinos_dark",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/Gewalt.png",
+  "style": "BIOLOGICAL",
+  "height": 136,
+  "width": 264,
+  "center": [132, 68],
+  "collisionRadius": 133.526215,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 142.682343,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace",
+    "do_not_back_off"
+  ],
+  "builtInWeapons": {
+    "Waechter": "svc_gewalt",
+    "left_grappler": "svc_bge_grappler_pd",
+    "left_grappler2": "svc_bge_grappler",
+    "left_grappler3": "svc_bge_grappler",
+    "left_lrg_uni": "svc_adv_lrg_scythe_l",
+    "left_med_uni1": "svc_adv_med_scythe_l",
+    "left_med_uni2": "svc_adv_med_scythe_l",
+    "left_small_mand": "svc_adv_sml_mand_l",
+    "left_sml_mand2": "svc_adv_lrg_mand_l",
+    "left_sml_mand3": "svc_adv_lrg_mand_l",
+    "right_grappler": "svc_bge_grappler_pd",
+    "right_grappler2": "svc_bge_grappler",
+    "right_grappler3": "svc_bge_grappler",
+    "right_lrg_uni": "svc_adv_lrg_scythe_r",
+    "right_med_uni": "svc_adv_med_scythe_r",
+    "right_med_uni_1": "svc_adv_med_scythe_r",
+    "right_sml_mand": "svc_adv_sml_mand_r",
+    "right_sml_mand2": "svc_adv_lrg_mand_r",
+    "right_sml_mand3": "svc_adv_lrg_mand_r"
+  },
+  "weaponSlots": [
+    {
+      "id": "left_small_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 8,
+      "locations": [47, 11]
+    },
+    {
+      "id": "right_sml_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -8,
+      "locations": [47, -11]
+    },
+    {
+      "id": "left_med_uni1",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 83.973999,
+      "angle": -49.398998,
+      "locations": [43, 32]
+    },
+    {
+      "id": "right_med_uni_1",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 83.973999,
+      "angle": 49.398998,
+      "locations": [43, -32]
+    },
+    {
+      "id": "left_med_uni2",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 69.574997,
+      "angle": -37.404999,
+      "locations": [44.5, 49]
+    },
+    {
+      "id": "right_med_uni",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 69.574997,
+      "angle": 37.404999,
+      "locations": [44.5, -49]
+    },
+    {
+      "id": "left_lrg_uni",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 91.763001,
+      "angle": -39,
+      "locations": [25.5, 72.5]
+    },
+    {
+      "id": "right_lrg_uni",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 91.763001,
+      "angle": 39,
+      "locations": [25.5, -72.5]
+    },
+    {
+      "id": "left_grappler",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 180.895004,
+      "angle": 90,
+      "locations": [3.5, 68.5]
+    },
+    {
+      "id": "right_grappler",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 180.895004,
+      "angle": -90,
+      "locations": [3.5, -68.5]
+    },
+    {
+      "id": "Eyes",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [47.5, 0]
+    },
+    {
+      "id": "left_antenna",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -22.833654,
+      "locations": [35.5, 20.5]
+    },
+    {
+      "id": "right_antenna",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 22.833654,
+      "locations": [35.5, -20.5]
+    },
+    {
+      "id": "left_sml_mand2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -5.5,
+      "locations": [43.5, 13.5]
+    },
+    {
+      "id": "right_sml_mand2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 5.5,
+      "locations": [43.5, -13.5]
+    },
+    {
+      "id": "left_sml_mand3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 11.5,
+      "locations": [38, 11]
+    },
+    {
+      "id": "right_sml_mand3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -11.5,
+      "locations": [38, -11]
+    },
+    {
+      "id": "shell",
+      "size": "LARGE",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 0,
+      "locations": [-37.5, 0]
+    },
+    {
+      "id": "left_long_fin",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": -141.339996,
+      "locations": [-24, -3.5]
+    },
+    {
+      "id": "right_long_fin",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 141.339996,
+      "locations": [-24, 3.5]
+    },
+    {
+      "id": "left_long_fin2",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": -151.699005,
+      "locations": [-31, -3]
+    },
+    {
+      "id": "right_long_fin2",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 151.699005,
+      "locations": [-31, 3]
+    },
+    {
+      "id": "left_long_fin3",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": -151,
+      "locations": [-10.5, -49]
+    },
+    {
+      "id": "right_long_fin3",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 151,
+      "locations": [-10.5, 49]
+    },
+    {
+      "id": "waechtershell2",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 0,
+      "locations": [-19.5, 0]
+    },
+    {
+      "id": "left_long_fin4",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": -161.565002,
+      "locations": [-37.5, -2]
+    },
+    {
+      "id": "right_long_fin4",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 161.565002,
+      "locations": [-37.5, 2]
+    },
+    {
+      "id": "right_grappler2",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 37.483002,
+      "angle": 7.431,
+      "locations": [8, -9.5]
+    },
+    {
+      "id": "left_grappler2",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 37.483002,
+      "angle": -7.431,
+      "locations": [8, 9.5]
+    },
+    {
+      "id": "left_grappler3",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 68.494003,
+      "angle": -31.608,
+      "locations": [19.5, 44]
+    },
+    {
+      "id": "right_grappler3",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 68.494003,
+      "angle": 31.608,
+      "locations": [19.5, -44]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": 172.147003,
+      "locations": [-46.5, 4]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 180,
+      "angle": -172.147003,
+      "locations": [-46.5, -4]
+    },
+    {
+      "id": "Waechter",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 37.482681,
+      "angle": 0,
+      "locations": [0, 0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-14.5, 68],
+      "length": 3,
+      "width": 11,
+      "angle": 180,
+      "contrailSize": 11,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-14.5, -64],
+      "length": 3,
+      "width": 11,
+      "angle": -180,
+      "contrailSize": 11,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-17.5, 85.5],
+      "length": 3,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-17.5, -81.5],
+      "length": 3,
+      "width": 8,
+      "angle": -180,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-18.5, 101.5],
+      "length": 3.135047,
+      "width": 7.790117,
+      "angle": 143,
+      "contrailSize": 7.790117,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-18.5, -97.5],
+      "length": 3.135047,
+      "width": 7.790117,
+      "angle": -143,
+      "contrailSize": 7.790117,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-16, 125.5],
+      "length": 3.319036,
+      "width": 9.588326,
+      "angle": 155.658905,
+      "contrailSize": 9.588326,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-16, -121.5],
+      "length": 3.319036,
+      "width": 9.588326,
+      "angle": -155.658905,
+      "contrailSize": 9.588326,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-12.5, 49],
+      "length": 5.059208,
+      "width": 9.089426,
+      "angle": -159,
+      "contrailSize": 9.089426,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    },
+    {
+      "location": [-12.5, -45],
+      "length": 5.059208,
+      "width": 9.089426,
+      "angle": 159,
+      "contrailSize": 9.089426,
+      "style": "CUSTOM",
+      "styleId": "BGE_ADV"
+    }
+  ],
+  "bounds": [
+    -61, -4,
+    -33.5, -18,
+    -3, -20,
+    -2, -26,
+    -24.5, -27.5,
+    -31, -38,
+    -7.5, -43,
+    -19.5, -59.5,
+    -28.5, -78.5,
+    -39, -86,
+    -36, -102.5,
+    -16.5, -98.5,
+    -21.5, -119,
+    -7.5, -128,
+    34, -104.5,
+    52, -85,
+    58, -39,
+    48.5, -17,
+    68.5, -4.5,
+    68.5, 4.5,
+    48.5, 17,
+    58, 39,
+    52, 85,
+    34, 104.5,
+    -7.5, 128,
+    -21.5, 119,
+    -16.5, 98.5,
+    -36, 102.5,
+    -39, 86,
+    -28.5, 78.5,
+    -19.5, 59.5,
+    -7.5, 43,
+    -31, 38,
+    -24.5, 27.5,
+    -2, 26,
+    -3, 20,
+    -33.5, 18,
+    -61, 4
+  ]
+}
