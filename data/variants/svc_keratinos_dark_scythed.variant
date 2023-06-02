@@ -1,0 +1,63 @@
+{
+  "variantId": "svc_keratinos_dark_scythed",
+  "hullId": "svc_keratinos_dark",
+  "displayName": "Scythed",
+  "goalVariant": false,
+  "fluxCapacitors": 4,
+  "fluxVents": 4,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler2": "svc_bge_grappler",
+        "left_grappler3": "svc_bge_grappler",
+        "right_grappler2": "svc_bge_grappler",
+        "right_grappler3": "svc_bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_lrg_uni": "svc_adv_lrg_scythe_l",
+        "left_small_mand": "svc_adv_sml_mand_l",
+        "left_sml_mand2": "svc_adv_lrg_mand_l",
+        "left_sml_mand3": "svc_adv_lrg_mand_l",
+        "right_lrg_uni": "svc_adv_lrg_scythe_r",
+        "right_sml_mand": "svc_adv_sml_mand_r",
+        "right_sml_mand2": "svc_adv_lrg_mand_r",
+        "right_sml_mand3": "svc_adv_lrg_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni1": "svc_adv_med_scythe_l",
+        "right_med_uni": "svc_adv_med_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni2": "svc_adv_med_scythe_l",
+        "right_med_uni_1": "svc_adv_med_scythe_r"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

@@ -1,0 +1,18 @@
+{
+	"id":"svc_lrg_pincer_left_shot",
+	"specClass":"projectile",
+	"spawnType":"BALLISTIC",
+        #"onHitEffect":"data.scripts.weapons.DisableShieldOnHitEffect",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":20.0,
+	"width":20,
+	"fadeTime":0.8,
+	"fringeColor":[0,0,0,0],
+	"coreColor":[255,0,255,0],
+	"glowColor":[0,0,0,0],
+	"glowRadius":0,
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":20.0,
+	"sprite":"graphics/weapons/Proj/lrg_mand_left.png"
+}

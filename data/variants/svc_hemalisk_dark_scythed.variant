@@ -1,0 +1,67 @@
+{
+  "variantId": "svc_hemalisk_dark_scythed",
+  "hullId": "svc_hemalisk_dark",
+  "displayName": "Scythed",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler": "svc_bge_grappler",
+        "right_grappler": "svc_bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_pd": "svc_bge_grappler_pd",
+        "right_pd": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_mand": "svc_adv_sml_mand_l",
+        "right_mand": "svc_adv_sml_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni": "svc_adv_med_scythe_l"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni2": "svc_adv_med_scythe_l"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "right_med_uni": "svc_adv_med_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "right_med_uni2": "svc_adv_med_scythe_r"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

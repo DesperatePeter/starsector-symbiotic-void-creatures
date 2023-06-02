@@ -44,7 +44,7 @@ public class Greifer_effect implements BeamEffectPlugin
 
                         if(ship != beam.getSource())
                         {
-                            force = 15 - (source.getMass() /255);				
+                            force = 37 - (source.getMass() /25);				
 							
                             dir = (Vector2f) VectorUtils.getDirectionalVector(beam.getSource().getLocation(), ship.getLocation()).scale(force);
                             Vector2f.add(source.getVelocity(), dir, source.getVelocity());
@@ -54,7 +54,7 @@ public class Greifer_effect implements BeamEffectPlugin
                     {
                         if(target != beam.getSource())
                         {
-                            force = Math.max(1 / target.getMass() * 15000f, 0.01f);
+                            force = Math.max(1 / target.getMass() * 8000f, 0.01f);
                             dir = (Vector2f) VectorUtils.getDirectionalVector(beam.getSource().getLocation(), target.getLocation()).scale(force);
                             Vector2f.add(target.getVelocity(), dir, target.getVelocity());     
                         }

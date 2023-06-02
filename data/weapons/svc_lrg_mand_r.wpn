@@ -1,0 +1,26 @@
+{
+	"id":"svc_lrg_mand_r",  # this id must match what's in the spreadsheet
+	"specClass":"projectile",
+	"type":"ENERGY",
+	"size":"MEDIUM",
+	"turretSprite":"graphics/weapons/animated/lrg_mand_right/lrg_mand_right_00.png",
+	"hardpointSprite":"graphics/weapons/animated/lrg_mand_right/lrg_mand_right_00.png",	
+	        "everyFrameEffect":"tecrys.svc.weapons.BaseAnimateOnFireEffect",
+	"numFrames":8,	
+	"frameRate":3,
+        "turretOffsets":[10, 0],
+	"turretAngleOffsets":[0],
+	"hardpointOffsets":[15, 0],
+	"hardpointAngleOffsets":[0],
+	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
+	"animationType":"GLOW",
+	"muzzleFlashSpec":{"length":50.0,   # only used if animationType = MUZZLE_FLASH
+					   "spread":5.0,
+					   "particleSizeMin":15.0,
+					   "particleSizeRange":10.0,
+					   "particleDuration":0.12,
+					   "particleCount":15,
+					   "particleColor":[155,100,255,255]},	
+	"projectileSpecId":"svc_lrg_mand_left_shot",  # projectile that will be fired
+	#"fireSoundTwo":"weapon_scythe",	
+}

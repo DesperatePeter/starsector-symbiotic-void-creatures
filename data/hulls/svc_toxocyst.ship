@@ -1,0 +1,304 @@
+{
+  "hullName": "Toxocyst",
+  "hullId": "svc_toxocyst",
+  "hullSize": "FRIGATE",
+  "spriteName": "graphics/ships/Vergifter.png",
+  "style": "BIOLOGICAL",
+  "height": 117,
+  "width": 132,
+  "center": [66, 56],
+  "collisionRadius": 70.178345,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 76.557167,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace",
+    "do_not_back_off"
+  ],
+  "builtInWeapons": {
+    "Vergifter": "svc_vergifter",
+    "WS0001": "svc_koenig_eyes",
+    "left_fin": "svc_trans_fin_left_sml",
+    "left_fin2": "svc_trans_fin_left_sml2",
+    "left_grappler": "svc_bge_grappler",
+    "left_hind_fin": "svc_long_fin_left_sml",
+    "left_hind_fin2": "svc_long_fin_left_sml2",
+    "left_mand": "svc_sml_mand_l",
+    "left_med_uni": "svc_med_scythe_l",
+    "left_pd": "svc_bge_grappler_pd",
+    "right_fin": "svc_trans_fin_right_sml",
+    "right_fin2": "svc_trans_fin_right_sml2",
+    "right_grappler": "svc_bge_grappler",
+    "right_hind_fin": "svc_long_fin_right_sml",
+    "right_hind_fin2": "svc_long_fin_right_sml2",
+    "right_mand": "svc_sml_mand_r",
+    "right_med_uni": "svc_med_scythe_r",
+    "right_pd": "svc_bge_grappler_pd"
+  },
+  "weaponSlots": [
+    {
+      "id": "left_med_uni",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 75.762001,
+      "angle": -22.694,
+      "locations": [24, 23.5]
+    },
+    {
+      "id": "right_med_uni",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 75.762001,
+      "angle": 22.694,
+      "locations": [24, -23.5]
+    },
+    {
+      "id": "right_grappler",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 45,
+      "angle": 0,
+      "locations": [13, -34]
+    },
+    {
+      "id": "left_grappler",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 45,
+      "angle": -0,
+      "locations": [13, 34]
+    },
+    {
+      "id": "left_fin",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": -158.962494,
+      "locations": [2.5, 22.5]
+    },
+    {
+      "id": "right_fin",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": 158.962494,
+      "locations": [2.5, -22.5]
+    },
+    {
+      "id": "right_fin2",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": 171.253845,
+      "locations": [-3.5, -12]
+    },
+    {
+      "id": "left_fin2",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": -171.253845,
+      "locations": [-3.5, 12]
+    },
+    {
+      "id": "right_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 23.962488,
+      "locations": [15, -15]
+    },
+    {
+      "id": "left_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -23.962488,
+      "locations": [15, 15]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [9, 0]
+    },
+    {
+      "id": "left_hind_fin",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": -135,
+      "locations": [-36, -15.5]
+    },
+    {
+      "id": "right_hind_fin",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": 135,
+      "locations": [-36, 15.5]
+    },
+    {
+      "id": "right_hind_fin2",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": 135,
+      "locations": [-28, 12]
+    },
+    {
+      "id": "left_hind_fin2",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 75.762413,
+      "angle": -135,
+      "locations": [-28, -12]
+    },
+    {
+      "id": "Vergifter",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 0,
+      "angle": 0,
+      "locations": [3, 0]
+    },
+    {
+      "id": "left_pd",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": 90,
+      "locations": [-5, 48]
+    },
+    {
+      "id": "right_pd",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 180,
+      "angle": -90,
+      "locations": [-5, -48]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-1.5, -55.5],
+      "length": 7.083289,
+      "width": 9.450295,
+      "angle": -127.073074,
+      "contrailSize": 9.450295,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-1.5, 55.5],
+      "length": 7.083289,
+      "width": 9.450295,
+      "angle": 127.073074,
+      "contrailSize": 9.450295,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-36.5, -44.5],
+      "length": 7.505501,
+      "width": 4.43507,
+      "angle": 133.02507,
+      "contrailSize": 4.43507,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-36.5, 44.5],
+      "length": 7.505501,
+      "width": 4.43507,
+      "angle": -133.02507,
+      "contrailSize": 4.43507,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-7.5, -38.5],
+      "length": 5.338783,
+      "width": 3.315056,
+      "angle": 152.447189,
+      "contrailSize": 3.315056,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-7.5, 38.5],
+      "length": 5.338783,
+      "width": 3.315056,
+      "angle": -152.447189,
+      "contrailSize": 3.315056,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-1, 23.5],
+      "length": 5.338783,
+      "width": 3.315056,
+      "angle": 177.39743,
+      "contrailSize": 3.315056,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-1, -23.5],
+      "length": 5.338783,
+      "width": 3.315056,
+      "angle": -177.39743,
+      "contrailSize": 3.315056,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
+  "bounds": [
+    -23, 5,
+    -39.5, 15.5,
+    -20, 19.5,
+    -3, 8.5,
+    6, 31,
+    -44, 48,
+    -9.5, 55.5,
+    26.5, 48.5,
+    49.5, 34.5,
+    56, 11,
+    44.5, 7,
+    20.5, 10.5,
+    28, 4,
+    28, -4,
+    20.5, -10.5,
+    44.5, -7,
+    56, -11,
+    49.5, -34.5,
+    26.5, -48.5,
+    -9.5, -55.5,
+    -44, -48,
+    6, -31,
+    -3, -8.5,
+    -20, -19.5,
+    -39.5, -15.5,
+    -23, -5
+  ]
+}
