@@ -1,11 +1,11 @@
 {
-	id:"svc",
-	"displayName":"Void Creatures",
-	"displayNameWithArticle":"the Void Creatures",
-	"displayNameLong":"Symbiotic Void Creatures",
-	"displayNameLongWithArticle":"the Symbiotic Void Creatures",
-	"entityNamePrefix":"Void Creature",
-	"personNamePrefix":"Void",
+	id:"uvc",
+	"displayName":"Umbra Creatures",
+	"displayNameWithArticle":"the Umbra Creatures",
+	"displayNameLong":"Umbra Void Creatures",
+	"displayNameLongWithArticle":"the Umbra Void Creatures",
+	"entityNamePrefix":"Umbra Creature",
+	"personNamePrefix":"Umbra",
 	"personNamePrefixAOrAn":"a",
 	"displayNameIsOrAre":"are",
 	
@@ -42,12 +42,12 @@
 	},
 	# ships the faction gets access to when importing S&W out-of-faction
 	"shipsWhenImporting":{
-		"tags":["svc_bunt"],
+		"tags":["svc_dark"],
 		"hulls":[
 		],
 	},
 	"knownShips":{
-		"tags":["svc_bunt"],
+		"tags":["svc_dark"],
 		"hulls":[
 		],
 	},
@@ -58,7 +58,7 @@
 		],
 	},
 	"knownFighters":{
-		"tags":["svc_bunt"],
+		"tags":["svc_dark"],
 		"fighters":[
 		],
 	},
@@ -68,7 +68,7 @@
 		],
 	},
 	"knownWeapons":{
-		"tags":["svc_bunt"],
+		"tags":["svc_dark"],
 		"weapons":[
 		],
 	},
@@ -78,7 +78,7 @@
 		],
 	},
 	"knownHullMods":{
-		"tags":["svc_bunt"],
+		"tags":["svc_dark"],
 		"hullMods":[
 		],
 	},
