@@ -10,6 +10,10 @@
     "jars":["jars/SymbioticVoidCreatures.jar"],
     "modPlugin":"tecrys.svc.SVCModPlugin",
     "dependencies": [
+			{
+			"id": "shaderLib",
+			"name": "GraphicsLib"
+		},
         {
             "id": "lw_lazylib",
             "name": "LazyLib",
