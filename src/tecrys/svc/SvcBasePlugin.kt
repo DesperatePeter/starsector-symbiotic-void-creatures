@@ -3,6 +3,7 @@ package tecrys.svc
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.thoughtworks.xstream.XStream
+import tecrys.svc.world.SVCFleetSpawner
 import tecrys.svc.world.SVCGen
 
 
@@ -27,6 +28,13 @@ class SvcBasePlugin : BaseModPlugin() {
 
         }
 
+    }
+
+    override fun onGameLoad(newGame: Boolean) {
+        Global.getSector().addTransientScript(SVCFleetSpawner())
+        if(newGame){
+            initSVC()
+        }
     }
 
     /**
