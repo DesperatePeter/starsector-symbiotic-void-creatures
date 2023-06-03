@@ -6,6 +6,8 @@ import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
+import org.dark.graphics.plugins.ShipDestructionEffects;
+import org.dark.shaders.util.ShaderLib;
 import org.lwjgl.util.vector.Vector2f;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -111,6 +113,7 @@ public class BGECarapace extends BaseHullMod {
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
         String tmp;
+        ShipDestructionEffects.suppressEffects(ship, true, false);
         for (Iterator iter = BLOCKED_HULLMODS.iterator(); iter.hasNext();) {
             tmp = (String) iter.next();
             if (ship.getVariant().getHullMods().contains(tmp)) {
