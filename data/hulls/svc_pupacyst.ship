@@ -16,7 +16,6 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
-    "Zophe": "svc_zophe",
     "eyes": "svc_koenig_eyes",
     "grappler": "svc_bge_grappler",
     "grappler2": "svc_bge_grappler",

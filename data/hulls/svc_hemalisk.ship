@@ -17,7 +17,6 @@
   ],
   "builtInWeapons": {
     "Eyes": "svc_koenig_eyes",
-    "Krieger": "svc_krieger",
     "WS0001": "svc_stinger_right",
     "WS0002": "svc_stinger_left",
     "left_fin1": "svc_long_fin_left_sml2",

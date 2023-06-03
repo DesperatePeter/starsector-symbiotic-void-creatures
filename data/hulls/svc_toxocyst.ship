@@ -16,7 +16,6 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
-    "Vergifter": "svc_vergifter",
     "WS0001": "svc_koenig_eyes",
     "left_fin": "svc_trans_fin_left_sml",
     "left_fin2": "svc_trans_fin_left_sml2",

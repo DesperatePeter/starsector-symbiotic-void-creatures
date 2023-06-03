@@ -16,7 +16,6 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
-    "Arbiter": "svc_arbiter",
     "eyes": "svc_koenig_eyes",
     "left_grappler": "svc_bge_grappler",
     "left_grappler2": "svc_bge_grappler",

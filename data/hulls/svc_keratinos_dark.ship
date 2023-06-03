@@ -334,94 +334,94 @@
   ],
   "engineSlots": [
     {
-      "location": [-14.5, 68],
-      "length": 3,
-      "width": 11,
+      "location": [-6, 66],
+      "length": 5.5,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 11,
+      "contrailSize": 14,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-14.5, -64],
-      "length": 3,
-      "width": 11,
+      "location": [-6, -66],
+      "length": 5.5,
+      "width": 14,
       "angle": -180,
-      "contrailSize": 11,
+      "contrailSize": 14,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-17.5, 85.5],
-      "length": 3,
-      "width": 8,
+      "location": [-9, 83.5],
+      "length": 5.5,
+      "width": 14,
       "angle": 180,
-      "contrailSize": 8,
+      "contrailSize": 14,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-17.5, -81.5],
-      "length": 3,
-      "width": 8,
+      "location": [-9, -83.5],
+      "length": 5.5,
+      "width": 14,
       "angle": -180,
-      "contrailSize": 8,
+      "contrailSize": 14,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-18.5, 101.5],
-      "length": 3.135047,
-      "width": 7.790117,
+      "location": [-10, 99.5],
+      "length": 8.315647,
+      "width": 13.76227,
       "angle": 143,
-      "contrailSize": 7.790117,
+      "contrailSize": 13.76227,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-18.5, -97.5],
-      "length": 3.135047,
-      "width": 7.790117,
+      "location": [-10, -99.5],
+      "length": 8.315647,
+      "width": 13.76227,
       "angle": -143,
-      "contrailSize": 7.790117,
+      "contrailSize": 13.76227,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-16, 125.5],
-      "length": 3.319036,
-      "width": 9.588326,
-      "angle": 155.658905,
-      "contrailSize": 9.588326,
+      "location": [-7.5, 123.5],
+      "length": 8.763899,
+      "width": 9.632047,
+      "angle": 155.660004,
+      "contrailSize": 9.632047,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-16, -121.5],
-      "length": 3.319036,
-      "width": 9.588326,
-      "angle": -155.658905,
-      "contrailSize": 9.588326,
+      "location": [-7.5, -123.5],
+      "length": 8.763899,
+      "width": 9.632047,
+      "angle": -155.660004,
+      "contrailSize": 9.632047,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-12.5, 49],
-      "length": 5.059208,
-      "width": 9.089426,
+      "location": [-4, 47],
+      "length": 6.681146,
+      "width": 12.627318,
       "angle": -159,
-      "contrailSize": 9.089426,
+      "contrailSize": 12.627318,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     },
     {
-      "location": [-12.5, -45],
-      "length": 5.059208,
-      "width": 9.089426,
+      "location": [-4, -47],
+      "length": 6.681146,
+      "width": 12.627318,
       "angle": 159,
-      "contrailSize": 9.089426,
+      "contrailSize": 12.627318,
       "style": "CUSTOM",
-      "styleId": "BGE_ADV"
+      "styleId": "BGE"
     }
   ],
   "bounds": [

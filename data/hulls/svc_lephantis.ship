@@ -16,7 +16,6 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
-    "Koenig": "svc_koenig",
     "antena_left": "svc_antena_left",
     "antena_right": "svc_antena_right",
     "eyes": "svc_koenig_eyes",

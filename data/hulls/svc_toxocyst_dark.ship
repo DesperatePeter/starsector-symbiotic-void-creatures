@@ -33,8 +33,7 @@
     "WS0015": "svc_dark_fin_left_tiny",
     "WS0016": "svc_dark_fin_right_tiny",
     "WS0017": "svc_dark_fin_left_tiny",
-    "WS0018": "svc_dark_fin_right_tiny",
-    "WS0019": "svc_verzweiflung"
+    "WS0018": "svc_dark_fin_right_tiny"
   },
   "weaponSlots": [
     {
@@ -209,7 +208,62 @@
       "locations": [0, -0]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [-18.5, 63],
+      "length": 6.81,
+      "width": 10.22,
+      "angle": 146.5,
+      "contrailSize": 10.22,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-18.5, -63],
+      "length": 6.81,
+      "width": 10.22,
+      "angle": -146.5,
+      "contrailSize": 10.22,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-38, -16],
+      "length": 6.81,
+      "width": 10.22,
+      "angle": -146.5,
+      "contrailSize": 10.22,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-38, 16],
+      "length": 6.81,
+      "width": 10.22,
+      "angle": 146.5,
+      "contrailSize": 10.22,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [0.5, 21],
+      "length": 6.81,
+      "width": 10.22,
+      "angle": 159,
+      "contrailSize": 10.22,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [0.5, -21],
+      "length": 6.81,
+      "width": 10.22,
+      "angle": -159,
+      "contrailSize": 10.22,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
   "bounds": [
     -23.5, 6,
     -37.5, 11,

@@ -20,8 +20,6 @@
     "WS0002": "svc_tentacle_right_gargantuan",
     "WS0003": "svc_tentacle_right_huge_dark",
     "WS0004": "svc_tentacle_left_huge_dark",
-    "WS0005": "svc_rache",
-    "WS0006": "svc_rache_head",
     "WS0007": "svc_adv_lrg_mand_l",
     "WS0008": "svc_adv_lrg_mand_r",
     "WS0009": "svc_adv_sml_mand_r",
@@ -367,7 +365,98 @@
       "locations": [53.5, -63]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [95.5, 69.5],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": 143,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [95.5, -69.5],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": -143,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [15.5, -22],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": -153.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [15.5, 22],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": 153.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [88, -50],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": -162.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [88, 50],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": 162.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [17, -22],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": -153.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [17, 22],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": 153.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [48.5, -39.5],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": -153.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [48.5, 39.5],
+      "length": 7.89,
+      "width": 10.64,
+      "angle": 153.5,
+      "contrailSize": 10.64,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
   "bounds": [
     -109.5, 1.5,
     -88.5, 12.5,
