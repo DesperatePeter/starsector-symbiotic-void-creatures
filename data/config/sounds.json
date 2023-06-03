@@ -11,7 +11,7 @@
 	],	
 
 	"weapon_grappler":[
-		{"file":"sounds/Whip.ogg","pitch":1,"volume":0.15},
+		{"file":"sounds/Whip.ogg","pitch":0.8,"volume":0.1},
 
 	],	
 	"weapon_scythe":[

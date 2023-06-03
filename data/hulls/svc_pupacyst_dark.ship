@@ -16,18 +16,20 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
+    "WS0001": "svc_dark_fin_right_huge",
+    "WS0002": "svc_dark_fin_left_huge",
     "grappler": "svc_bge_grappler",
     "grappler2": "svc_bge_grappler",
-    "left_long_fin": "svc_long_fin_left2",
+    "left_long_fin": "svc_tentacle_left_large_dark",
     "left_lrg_mand": "svc_adv_lrg_mand_l",
     "left_med_uni": "svc_adv_med_scythe_l",
-    "left_sml_fin": "svc_long_fin_left_sml",
+    "left_sml_fin": "svc_tentacle_right_medium_barbed_short",
     "left_sml_mand": "svc_adv_sml_mand_l",
     "left_sml_pd": "svc_bge_grappler_pd",
-    "right_long_fin": "svc_long_fin_right2",
+    "right_long_fin": "svc_tentacle_right_large_dark",
     "right_lrg_mand": "svc_adv_lrg_mand_r",
     "right_med_uni": "svc_adv_med_scythe_r",
-    "right_sml_fin": "svc_long_fin_right_sml",
+    "right_sml_fin": "svc_tentacle_left_medium_barbed_short",
     "right_sml_mand": "svc_adv_sml_mand_r",
     "right_sml_pd": "svc_bge_grappler_pd"
   },
@@ -115,21 +117,21 @@
     },
     {
       "id": "left_long_fin",
-      "size": "MEDIUM",
+      "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 40,
-      "angle": 178.531204,
-      "locations": [16, 13]
+      "angle": -128.5,
+      "locations": [11, -27.5]
     },
     {
       "id": "right_long_fin",
-      "size": "MEDIUM",
+      "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 40,
-      "angle": -178.531204,
-      "locations": [16, -13]
+      "angle": 128.5,
+      "locations": [11, 27.5]
     },
     {
       "id": "eyes",
@@ -151,21 +153,21 @@
     },
     {
       "id": "left_sml_fin",
-      "size": "MEDIUM",
+      "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 40,
-      "angle": 178.531204,
-      "locations": [-1, 11]
+      "angle": -168.5,
+      "locations": [-85.5, -35]
     },
     {
       "id": "right_sml_fin",
-      "size": "MEDIUM",
+      "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 40,
-      "angle": -178.531204,
-      "locations": [-1, -11]
+      "angle": 168.5,
+      "locations": [-85.5, 35]
     },
     {
       "id": "Zophe",
@@ -175,6 +177,26 @@
       "arc": 40,
       "angle": 0,
       "locations": [-3.5, 0]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 40,
+      "angle": -3,
+      "locations": [-25, -82.5],
+      "renderOrderMod": 2
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 40,
+      "angle": 3,
+      "locations": [-25, 82.5],
+      "renderOrderMod": 2
     }
   ],
   "engineSlots": [
@@ -252,37 +274,41 @@
     }
   ],
   "bounds": [
-    -100.5, 5.5,
-    -80.5, 28,
-    -66.5, 35.5,
-    -59, 23.5,
-    -38, 28.5,
-    -11.5, 13,
-    35, 22.5,
-    59, 9.5,
+    -86.5, 17,
+    -62, 33,
+    -61.5, 22.5,
+    -52.5, 22,
+    -45.5, 29,
+    -33.5, 24.5,
+    -3.5, 8.5,
+    18, 21.5,
+    43, 20,
+    57.5, 7,
     69.5, 22,
-    40.5, 42,
-    -42, 58.5,
+    40, 43.5,
+    -40.5, 59,
     -33.5, 64.5,
-    21, 61,
-    70.5, 41,
-    85.5, 18.5,
-    83, 5,
-    83, -5,
-    85.5, -18.5,
-    70.5, -41,
-    21, -61,
+    19.5, 59.5,
+    65.5, 41.5,
+    85, 18,
+    78.5, 11.5,
+    78.5, -11.5,
+    85, -18,
+    65.5, -41.5,
+    19.5, -59.5,
     -33.5, -64.5,
-    -42, -58.5,
-    40.5, -42,
+    -40.5, -59,
+    40, -43.5,
     69.5, -22,
-    59, -9.5,
-    35, -22.5,
-    -11.5, -13,
-    -38, -28.5,
-    -59, -23.5,
-    -66.5, -35.5,
-    -80.5, -28,
-    -100.5, -5.5
+    57.5, -7,
+    43, -20,
+    18, -21.5,
+    -3.5, -8.5,
+    -33.5, -24.5,
+    -45.5, -29,
+    -52.5, -22,
+    -61.5, -22.5,
+    -62, -33,
+    -86.5, -17
   ]
 }
