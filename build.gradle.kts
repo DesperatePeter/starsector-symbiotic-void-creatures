@@ -33,7 +33,7 @@ val modAuthor = "Art, animation and design: Tecrys. Coding: DesperatePeter. Codi
 val modDescription = "This mod introduces alien wildlife and the Biomancy Genetic Engineering faction developing ships on the bases of genetic material of said wildlife."
 val gameVersion = "0.96a-RC10"
 val jars = arrayOf("jars/$jarFileName")
-val modPlugin = "tecrys.svc.SVCModPlugin"
+val modPlugin = "tecrys.svc.SvcBasePlugin"
 val isUtilityMod = false
 val masterVersionFile = "FIXME!! https://raw.githubusercontent.com/githubname/githubrepo/master/$modId.version"
 val modThreadId = "FIXME"
@@ -135,7 +135,7 @@ tasks {
                         "description": "${modDescription}",
                         "gameVersion": "${gameVersion}",
                         "jars":[${jars.joinToString() { "\"$it\"" }}],
-                        "modPlugin":"${modPlugin}",
+                        "modPlugin":"$modPlugin",
                         "dependencies": [
                             {
                                 "id": "lw_lazylib",

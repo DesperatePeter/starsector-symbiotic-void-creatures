@@ -47,7 +47,7 @@
 		],
 	},
 	"knownShips":{
-		"tags":["svc_bunt"],
+		"tags":["svc"],
 		"hulls":[
 		],
 	},
@@ -107,12 +107,19 @@
 			"coordinated_maneuvers",
 		],
 	},
-	#"shipRoles":{
-		#"remnantStation1":{
-			#"remnant_station2_Damaged":10,
-			#"remnant_station2_Standard":10,
-		#},
-	#},
+	"shipRoles":{
+        "combatSmall" : {
+            "svc_hemalisk_dark_scythed" : 10, "svc_hemalisk_scythed" : 10, "svc_toxocyst_dark_scythed" : 10, "svc_toxocyst_scythed" : 10,
+        },
+        "combatMedium" : {
+                    "svc_arbiter_dark_scythed" : 10, "svc_arbiter_scythed" : 10, "svc_keratinos_dark_scythed" : 10, "svc_keratinos_scythed" : 10,
+                },
+        "combatLarge" : {
+                             "svc_lephantis_dark_scythed" : 10, "svc_lephantis_scythed" : 10,
+                         },
+
+
+	},
 	"illegalCommodities":[
 	],
 	"music":{

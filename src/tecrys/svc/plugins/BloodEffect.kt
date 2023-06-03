@@ -7,6 +7,7 @@ import com.fs.starfarer.api.combat.WeaponAPI.WeaponSize
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lwjgl.util.vector.Vector2f
+import tecrys.svc.SVC_BASE_HULLMOD_ID
 import java.awt.Color
 
 class BloodEffect : BaseEveryFrameCombatPlugin() {
@@ -37,7 +38,7 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
     }
 
     var engine: CombatEngineAPI? = null
-    val interval = IntervalUtil(0.1f, 0.3f)
+    private val interval = IntervalUtil(0.1f, 0.3f)
 
     override fun init(engine: CombatEngineAPI?) {
         this.engine = engine
@@ -48,7 +49,7 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
         if(eng.isPaused) return
         interval.advance(amount)
         if(!interval.intervalElapsed()) return
-        eng.ships?.filter { it.variant.hasHullMod("BGECarapace") }?.filterNotNull()?.forEach { ship ->
+        eng.ships?.filter { it.variant.hasHullMod(SVC_BASE_HULLMOD_ID) }?.filterNotNull()?.forEach { ship ->
             ship.allWeapons?.filterNotNull()?.filter {
                 it.isDisabled || ship.isHulk
             }?.forEach { w ->
