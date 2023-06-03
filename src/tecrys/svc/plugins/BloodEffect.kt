@@ -17,13 +17,17 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
             WeaponSize.LARGE to 2.5f
         )
 
+        private const val AVERAGE_SMOKE_SIZE = 10f
+        private const val SMOKE_SIZE_VARIANCE = 5f
+        private const val VELOCITY_MAGNITUDE = 10f
+
         fun getRandomizedSmokeSize(weapon: WeaponAPI) : Float {
-            return (magnitudeBySize[weapon.size] ?: 1f) * (0.2f + 0.1f * Math.random()).toFloat()
+            return (magnitudeBySize[weapon.size] ?: 1f) * (AVERAGE_SMOKE_SIZE + SMOKE_SIZE_VARIANCE * (Math.random() - 0.5f)).toFloat()
         }
         fun getRandomizedVelocity() : Vector2f {
             val toReturn = Vector2f(Math.random().toFloat() - 0.5f, Math.random().toFloat() - 0.5f)
             toReturn.normalise()
-            toReturn.scale(5f)
+            toReturn.scale(VELOCITY_MAGNITUDE)
             return toReturn
         }
     }
@@ -45,9 +49,7 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
                 it.isDisabled || ship.isHulk
             }?.forEach { w ->
                 eng.addSmokeParticle(w.location, getRandomizedVelocity(), getRandomizedSmokeSize(w),
-                    0.05f,
-                    4.0f,
-                    Color(200, 0, 0, 200))
+                    0.25f, 4.0f, Color(200, 0, 0, 200))
             }
         }
     }
