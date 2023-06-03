@@ -7,6 +7,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import org.dark.graphics.plugins.ShipDestructionEffects;
+import org.dark.graphics.plugins.WeaponDamageSmoke;
 import org.dark.shaders.util.ShaderLib;
 import org.lwjgl.util.vector.Vector2f;
 import java.util.HashSet;
