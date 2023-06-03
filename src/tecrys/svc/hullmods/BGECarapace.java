@@ -10,6 +10,8 @@ import org.dark.graphics.plugins.ShipDestructionEffects;
 import org.dark.graphics.plugins.WeaponDamageSmoke;
 import org.dark.shaders.util.ShaderLib;
 import org.lwjgl.util.vector.Vector2f;
+
+import java.awt.*;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -115,6 +117,7 @@ public class BGECarapace extends BaseHullMod {
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
         String tmp;
         ShipDestructionEffects.suppressEffects(ship, true, false);
+        ship.setExplosionFlashColorOverride(Color.RED);
         for (Iterator iter = BLOCKED_HULLMODS.iterator(); iter.hasNext();) {
             tmp = (String) iter.next();
             if (ship.getVariant().getHullMods().contains(tmp)) {
