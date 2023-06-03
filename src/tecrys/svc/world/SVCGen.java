@@ -1,8 +1,10 @@
 /*    */ package tecrys.svc.world;
 /*    */ 
-/*    */ import com.fs.starfarer.api.campaign.FactionAPI;
+/*    */ import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.FactionAPI;
 /*    */ import com.fs.starfarer.api.campaign.SectorAPI;
 /*    */ import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
+import org.apache.log4j.Level;
 import tecrys.svc.ConstantsKt;
 
 /*    */
@@ -21,6 +23,11 @@ import tecrys.svc.ConstantsKt;
 /*    */   public static void initFactionRelationships(SectorAPI sector)
 /*    */   {
 /* 21 */     FactionAPI bge = sector.getFaction(ConstantsKt.SVC_FACTION_ID);
+             FactionAPI uvc = sector.getFaction(ConstantsKt.UVC_FACTION_ID);
+             if(uvc == null || bge == null){
+                 Global.getLogger(SVCGen.class).log(Level.ERROR, "Unable to get UVC and SVC factions from sector");
+                 return;
+             }
 /* 22 */     FactionAPI player = sector.getFaction("player");
 /* 23 */     FactionAPI hegemony = sector.getFaction("hegemony");
 /* 24 */     FactionAPI tritachyon = sector.getFaction("tritachyon");
@@ -51,6 +58,7 @@ import tecrys.svc.ConstantsKt;
 /* 49 */     bge.setRelationship("neutrinocorp", -0.5F);
 /* 50 */     bge.setRelationship("interstellarimperium", -0.5F);
 /* 51 */     bge.setRelationship("diableavionics", -0.5F);
+             bge.setRelationship(ConstantsKt.UVC_FACTION_ID, -0.5f);
 /*    */   }
 /*    */ }
 

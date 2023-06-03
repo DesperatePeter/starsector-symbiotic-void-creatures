@@ -9,6 +9,7 @@
 # User-specific stuff
 .idea/
 .run/
+.run/*
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
