@@ -212,8 +212,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 160.857605,
-      "angle": -173.290161,
-      "locations": [-11.5, 67]
+      "angle": 163,
+      "locations": [-33, 52.5]
     },
     {
       "id": "fin_right",
@@ -221,8 +221,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 160.857605,
-      "angle": 173.290161,
-      "locations": [-11.5, -67]
+      "angle": -163,
+      "locations": [-33, -52.5]
     },
     {
       "id": "fin_left2",
@@ -231,7 +231,7 @@
       "mount": "HARDPOINT",
       "arc": 160.857605,
       "angle": -170.537674,
-      "locations": [7, 96.5]
+      "locations": [-10, 227]
     },
     {
       "id": "fin_right2",
@@ -240,7 +240,7 @@
       "mount": "HARDPOINT",
       "arc": 160.857605,
       "angle": 170.537674,
-      "locations": [7, -96.5]
+      "locations": [-10, -227]
     },
     {
       "id": "eyes",
@@ -257,8 +257,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 30.136976,
-      "angle": 180,
-      "locations": [15, 117.5]
+      "angle": -150,
+      "locations": [-12, 159.5]
     },
     {
       "id": "finright",
@@ -266,8 +266,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 30.136976,
-      "angle": -180,
-      "locations": [15, -117.5]
+      "angle": 150,
+      "locations": [-12, -159.5]
     },
     {
       "id": "left_grappler2",
@@ -317,7 +317,7 @@
   ],
   "engineSlots": [
     {
-      "location": [-7.5, 119.5],
+      "location": [22, 84.5],
       "length": 5.068903,
       "width": 15.007493,
       "angle": 152.300522,
@@ -326,7 +326,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-7.5, -49.5],
+      "location": [22, -84.5],
       "length": 5.068903,
       "width": 15.007493,
       "angle": -152.300522,
@@ -335,7 +335,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-13, 106],
+      "location": [16.5, 71],
       "length": 4.78117,
       "width": 20.039003,
       "angle": 164.054611,
@@ -344,7 +344,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-13, -36],
+      "location": [16.5, -71],
       "length": 4.78117,
       "width": 20.039003,
       "angle": -164.054611,
@@ -353,7 +353,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-1, 49],
+      "location": [28.5, 14],
       "length": 6.606543,
       "width": 9.295932,
       "angle": 146.929321,
@@ -362,7 +362,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-1, 21],
+      "location": [28.5, -14],
       "length": 6.606543,
       "width": 9.295932,
       "angle": -146.929321,
@@ -371,7 +371,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-24.5, 56],
+      "location": [5, 21],
       "length": 5.452831,
       "width": 11.877142,
       "angle": 144.566681,
@@ -380,7 +380,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-24.5, 14],
+      "location": [5, -21],
       "length": 5.452831,
       "width": 11.877142,
       "angle": -144.566681,
@@ -389,7 +389,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [9, 136],
+      "location": [38.5, 101],
       "length": 8.2276,
       "width": 11.235053,
       "angle": 163.20163,
@@ -398,7 +398,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [9, -66],
+      "location": [38.5, -101],
       "length": 8.2276,
       "width": 11.235053,
       "angle": -163.20163,
@@ -407,7 +407,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [12.5, 171],
+      "location": [42, 136],
       "length": 7.83925,
       "width": 17.268024,
       "angle": 163.20163,
@@ -416,7 +416,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [12.5, -101],
+      "location": [42, -136],
       "length": 7.83925,
       "width": 17.268024,
       "angle": -163.20163,
@@ -425,7 +425,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-80, 19.5],
+      "location": [-50.5, -15.5],
       "length": 12.536916,
       "width": 17.897011,
       "angle": -138.652222,
@@ -434,7 +434,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-80, 50.5],
+      "location": [-50.5, 15.5],
       "length": 12.536916,
       "width": 17.897011,
       "angle": 138.652222,

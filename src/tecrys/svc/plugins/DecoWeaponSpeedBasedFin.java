@@ -70,11 +70,11 @@ import java.util.List;
       
             AnimationAPI anim = weapon.getAnimation();  
             ShipAPI ship = weapon.getShip();  
-            if (ship.isHulk())  
-            {  
-                anim.setFrame(0);  
-                return;  
-            }  
+            /*            if (ship.isHulk())
+            {
+            anim.setFrame(0);
+            return;
+            }  */
 
 
             // Minor optimization: only update FPS once every tenth a second  

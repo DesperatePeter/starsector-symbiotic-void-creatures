@@ -122,7 +122,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": -128.5,
-      "locations": [11, -27.5]
+      "locations": [52, -33]
     },
     {
       "id": "right_long_fin",
@@ -131,7 +131,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": 128.5,
-      "locations": [11, 27.5]
+      "locations": [52, 33]
     },
     {
       "id": "eyes",
@@ -158,7 +158,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": -168.5,
-      "locations": [-85.5, -35]
+      "locations": [12.5, -26.5]
     },
     {
       "id": "right_sml_fin",
@@ -167,7 +167,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": 168.5,
-      "locations": [-85.5, 35]
+      "locations": [12.5, 26.5]
     },
     {
       "id": "Zophe",
@@ -201,7 +201,7 @@
   ],
   "engineSlots": [
     {
-      "location": [47.5, 30],
+      "location": [40.5, 14.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 133.876694,
@@ -210,7 +210,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [47.5, 1],
+      "location": [40.5, -14.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -133.876694,
@@ -219,7 +219,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [29, 3],
+      "location": [22, -12.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -133.876694,
@@ -228,7 +228,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [29, 28],
+      "location": [22, 12.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 133.876694,
@@ -237,7 +237,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [72.5, 32],
+      "location": [65.5, 16.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 163.009171,
@@ -246,7 +246,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [72.5, -1],
+      "location": [65.5, -16.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -163.009171,
@@ -255,7 +255,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-64, 30.5],
+      "location": [-71, 15],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 167.735229,
@@ -264,7 +264,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-64, 0.5],
+      "location": [-71, -15],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -167.735229,

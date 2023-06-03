@@ -268,7 +268,62 @@
       "locations": [2, 0.5]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [35, 39],
+      "length": 8.214603,
+      "width": 10.774098,
+      "angle": 138,
+      "contrailSize": 10.774098,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [35, -39],
+      "length": 8.214603,
+      "width": 10.774098,
+      "angle": -138,
+      "contrailSize": 10.774098,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-13, -35],
+      "length": 8.214603,
+      "width": 10.774098,
+      "angle": -138,
+      "contrailSize": 10.774098,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-13, 35],
+      "length": 8.214603,
+      "width": 10.774098,
+      "angle": 138,
+      "contrailSize": 10.774098,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-30, -17.5],
+      "length": 8.214603,
+      "width": 10.774098,
+      "angle": -170.5,
+      "contrailSize": 10.774098,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-30, 17.5],
+      "length": 8.214603,
+      "width": 10.774098,
+      "angle": 170.5,
+      "contrailSize": 10.774098,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
   "bounds": [
     -60, 6,
     -88.5, 13,

@@ -7,8 +7,6 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import org.dark.graphics.plugins.ShipDestructionEffects;
-import org.dark.graphics.plugins.WeaponDamageSmoke;
-import org.dark.shaders.util.ShaderLib;
 import org.lwjgl.util.vector.Vector2f;
 
 import java.awt.*;
@@ -28,8 +26,8 @@ public class BGECarapace extends BaseHullMod {
     private static final Set BLOCKED_HULLMODS = new HashSet();
     public static final float DRV_HEALTH_BONUS = 1f;
     public static final float WEP_HEALTH_BONUS = 100f;
-    public static final float FLUX_RESISTANCE = 20f;
-    public static final float HiEx_RESISTANCE = 0.9f;
+    public static final float EMP_RESISTANCE = 50f;
+    public static final float HULL_RESISTANCE = 30f;
 
     static {
         // These hullmods will automatically be removed
@@ -53,9 +51,9 @@ public class BGECarapace extends BaseHullMod {
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
         /*        stats.getWeaponHealthBonus().modifyPercent(id, WEP_HEALTH_BONUS);*/
  /*stats.getEngineHealthBonus().modifyPercent(id, WEP_HEALTH_BONUS);*/
-        stats.getEmpDamageTakenMult().modifyMult(id, 0.5f);
-        stats.getBeamDamageTakenMult().modifyMult(id, 0.7f);
-        stats.getProjectileDamageTakenMult().modifyMult(id, 0.7f);
+        stats.getEmpDamageTakenMult().modifyMult(id, 1f + EMP_RESISTANCE * 0.01f);
+        stats.getHullDamageTakenMult().modifyMult(id, 1f - HULL_RESISTANCE * 0.01f);
+        /*        stats.getProjectileDamageTakenMult().modifyMult(id, 0.7f);*/
         stats.getCombatWeaponRepairTimeMult().modifyMult(id, 0.3f);
         stats.getHullCombatRepairRatePercentPerSecond().modifyFlat(id, 2f);
         stats.getMaxCombatHullRepairFraction().modifyFlat(id, 1f);
@@ -127,15 +125,9 @@ public class BGECarapace extends BaseHullMod {
     }
 
     public String getDescriptionParam(int index, HullSize hullSize) {
-        if (index == 0) {
-            return "" + (int) DRV_HEALTH_BONUS;
-        }
-        if (index == 1) {
-            return "" + (int) WEP_HEALTH_BONUS;
-        }
-        if (index == 2) {
-            return "" + (int) FLUX_RESISTANCE;
-        }
+		if (index == 0) return "" + (int) EMP_RESISTANCE + "%";
+		if (index == 1) return "" + (int) HULL_RESISTANCE + "%";
+
         return null;
     }
 

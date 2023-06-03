@@ -6,7 +6,7 @@
 		"contrailParticleDuration":0.4,
 		"contrailParticleFinalSizeMult":2.5,
 		"contrailMaxSpeedMult":0.2f,
-		"contrailAngularVelocityMult":1f,
+		"contrailAngularVelocityMult":0.2f,
 		"contrailColor":[0,255,85,50],
 		"type":"SMOKE" # GLOW or SMOKE
 	},	

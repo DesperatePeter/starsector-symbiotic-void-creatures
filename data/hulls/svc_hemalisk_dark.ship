@@ -27,7 +27,6 @@
     "WS0009": "svc_tentacle_right_medium_dark",
     "WS0010": "svc_tentacle_left_medium_barbed",
     "WS0011": "svc_tentacle_right_medium_barbed",
-    "head": "svc_zorn",
     "left_grappler": "svc_bge_grappler",
     "left_mand": "svc_adv_sml_mand_l",
     "left_med_uni": "svc_adv_med_scythe_l",
@@ -294,7 +293,80 @@
       "locations": [-14, 53.5]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [6.5, -50],
+      "length": 21.132061,
+      "width": 8.645454,
+      "angle": -147.5,
+      "contrailSize": 8.645454,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [6.5, 50],
+      "length": 21.132061,
+      "width": 8.645454,
+      "angle": 147.5,
+      "contrailSize": 8.645454,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [1, 37],
+      "length": 18.63933,
+      "width": 8.264479,
+      "angle": 164,
+      "contrailSize": 8.264479,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [1, -37],
+      "length": 18.63933,
+      "width": 8.264479,
+      "angle": -164,
+      "contrailSize": 8.264479,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [1.5, -21],
+      "length": 17.527288,
+      "width": 8.495686,
+      "angle": -172.5,
+      "contrailSize": 8.495686,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [1.5, 21],
+      "length": 17.527288,
+      "width": 8.495686,
+      "angle": 172.5,
+      "contrailSize": 8.495686,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-1.5, -3.5],
+      "length": 11.847091,
+      "width": 7.182323,
+      "angle": -153.5,
+      "contrailSize": 7.182323,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-1.5, 3.5],
+      "length": 11.847091,
+      "width": 7.182323,
+      "angle": 153.5,
+      "contrailSize": 7.182323,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
   "bounds": [
     -10.5, 7.5,
     -2, 18,
