@@ -67,6 +67,11 @@ class BGECarapace : BaseHullMod() {
     override fun applyEffectsAfterShipCreation(ship: ShipAPI, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship.explosionFlashColorOverride = Color.RED
+        ship.addListener(ReduceExplosionListener())
+        removeIncompatibleHullmods(ship)
+    }
+
+    private fun removeIncompatibleHullmods(ship: ShipAPI){
         val hullMods = ship.variant.hullMods.toList()
         hullMods.filter {
             Global.getSettings().getHullModSpec(it)?.tags?.contains(DMOD_TAG) == true
@@ -74,7 +79,6 @@ class BGECarapace : BaseHullMod() {
         }.forEach {
             ship.variant.removeMod(it)
         }
-        ship.addListener(ReduceExplosionListener())
     }
 
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
