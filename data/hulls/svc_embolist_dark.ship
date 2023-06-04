@@ -39,7 +39,8 @@
     "WS0021": "svc_tentacle_right_micro_dark",
     "WS0022": "svc_tentacle_left_micro_dark",
     "WS0023": "svc_tentacle_left_small_dark",
-    "WS0024": "svc_tentacle_right_small_dark"
+    "WS0024": "svc_tentacle_right_small_dark",
+    "WS0025": "svc_flusskrebs"
   },
   "weaponSlots": [
     {
@@ -265,7 +266,7 @@
       "mount": "TURRET",
       "arc": 39.307648,
       "angle": 0,
-      "locations": [2, 0.5]
+      "locations": [59, -0]
     }
   ],
   "engineSlots": [

@@ -5,8 +5,8 @@
 	"size":"SMALL",
         "height": 1.0,
         "renderBelowAllWeapons": true,
-	"turretSprite":"graphics/ships/Lobsterdestropinksharp.png",
-	"hardpointSprite":"graphics/ships/Lobsterdestropinksharp.png",
+	"turretSprite":"graphics/weapons/deco/Embolist_head.png",
+	"hardpointSprite":"graphics/weapons/deco/Embolist_head.png",
 
 	"turretOffsets": [
 20,

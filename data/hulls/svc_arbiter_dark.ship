@@ -20,6 +20,8 @@
     "WS0002": "svc_tentacle_right_gargantuan",
     "WS0003": "svc_tentacle_right_huge_dark",
     "WS0004": "svc_tentacle_left_huge_dark",
+    "WS0005": "svc_Arbiter_dark_spike_right",
+    "WS0006": "svc_Arbiter_dark_head",
     "WS0007": "svc_adv_lrg_mand_l",
     "WS0008": "svc_adv_lrg_mand_r",
     "WS0009": "svc_adv_sml_mand_r",
@@ -38,6 +40,9 @@
     "WS0022": "svc_dark_fin_right_tiny",
     "WS0023": "svc_tentacle_right_huge_barbed",
     "WS0024": "svc_tentacle_left_huge_barbed",
+    "WS0025": "svc_Arbiter_dark_spike_left",
+    "WS0026": "svc_Arbiter_dark_armor_left",
+    "WS0027": "svc_Arbiter_dark_armor_right",
     "left_lrg_tent": "svc_tentacle_left_large_barbed",
     "left_lrg_uni": "svc_adv_lrg_scythe_l",
     "left_med_uni": "svc_adv_med_scythe_l",
@@ -53,7 +58,8 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": -12.265,
-      "locations": [107, 25.5]
+      "locations": [107, 25.5],
+      "renderOrderMod": 1
     },
     {
       "id": "right_med_uni",
@@ -62,7 +68,8 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": 12.265,
-      "locations": [107, -25.5]
+      "locations": [107, -25.5],
+      "renderOrderMod": 1
     },
     {
       "id": "left_lrg_uni",
@@ -137,22 +144,13 @@
       "locations": [81, -79]
     },
     {
-      "id": "WS0005",
-      "size": "SMALL",
-      "type": "DECORATIVE",
-      "mount": "TURRET",
-      "arc": 116.173355,
-      "angle": 0,
-      "locations": [1, -0]
-    },
-    {
       "id": "WS0006",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
       "arc": 116.173355,
       "angle": 0,
-      "locations": [72.5, -0]
+      "locations": [104.5, -0]
     },
     {
       "id": "WS0007",
@@ -363,6 +361,42 @@
       "arc": 116.173355,
       "angle": -150,
       "locations": [53.5, -63]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 116.173355,
+      "angle": 0,
+      "locations": [55.5, -37.5]
+    },
+    {
+      "id": "WS0025",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 116.173355,
+      "angle": -0,
+      "locations": [55.5, 37.5]
+    },
+    {
+      "id": "WS0026",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 116.173355,
+      "angle": -0,
+      "locations": [99.5, 47.5]
+    },
+    {
+      "id": "WS0027",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 116.173355,
+      "angle": 0,
+      "locations": [99.5, -47.5]
     }
   ],
   "engineSlots": [

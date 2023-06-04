@@ -1,12 +1,11 @@
 {
 	"specClass":"beam",
-	"id":"svc_arbiter",
+	"id":"svc_Hemalisk_left",
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 1.0,
-        "renderBelowAllWeapons": true,
-	"turretSprite":"graphics/weapons/deco/Arbiter_head.png",
-	"hardpointSprite":"graphics/weapons/deco/Arbiter_head.png",
+	"turretSprite":"graphics/weapons/deco/Hemalisk_left.png",
+	"hardpointSprite":"graphics/weapons/deco/Hemalisk_left.png",
 
 	"turretOffsets": [
 20,

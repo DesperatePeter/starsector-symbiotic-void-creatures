@@ -16,6 +16,7 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
+    "Arbiter": "svc_arbiter",
     "eyes": "svc_koenig_eyes",
     "left_grappler": "svc_bge_grappler",
     "left_grappler2": "svc_bge_grappler",
@@ -288,7 +289,7 @@
       "mount": "TURRET",
       "arc": 223.653,
       "angle": 0,
-      "locations": [-4, -0],
+      "locations": [98.5, -0],
       "renderOrderMod": 5
     }
   ],

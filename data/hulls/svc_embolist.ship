@@ -44,7 +44,8 @@
       "mount": "HARDPOINT",
       "arc": 122.699997,
       "angle": 33.341,
-      "locations": [62, -25]
+      "locations": [62, -25],
+      "renderOrderMod": 5
     },
     {
       "id": "left_med_uni",
@@ -53,7 +54,8 @@
       "mount": "HARDPOINT",
       "arc": 122.699997,
       "angle": -33.341,
-      "locations": [62, 25]
+      "locations": [62, 25],
+      "renderOrderMod": 5
     },
     {
       "id": "right_med_uni2",
@@ -62,7 +64,8 @@
       "mount": "HARDPOINT",
       "arc": 87.752998,
       "angle": 0,
-      "locations": [51.5, -32]
+      "locations": [51.5, -32],
+      "renderOrderMod": 5
     },
     {
       "id": "left_med_uni2",
@@ -71,7 +74,8 @@
       "mount": "HARDPOINT",
       "arc": 87.752998,
       "angle": -0,
-      "locations": [51.5, 32]
+      "locations": [51.5, 32],
+      "renderOrderMod": 5
     },
     {
       "id": "right_mand1",
@@ -134,7 +138,8 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [53, -0.5]
+      "locations": [53, -0.5],
+      "renderOrderMod": 2
     },
     {
       "id": "right_grappler",
@@ -195,9 +200,10 @@
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 43.368923,
+      "arc": 43.369,
       "angle": 0,
-      "locations": [0, -0]
+      "locations": [73, -0.5],
+      "renderOrderMod": 3
     },
     {
       "id": "right_pd",
