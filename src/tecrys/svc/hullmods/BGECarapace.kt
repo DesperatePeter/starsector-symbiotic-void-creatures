@@ -37,6 +37,8 @@ class BGECarapace : BaseHullMod() {
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
+            minCrewMod.modifyMult(id, 0f)
+            maxCrewMod.modifyMult(id, 0f)
         }
     }
 
@@ -69,6 +71,7 @@ class BGECarapace : BaseHullMod() {
         ship.explosionFlashColorOverride = Color.RED
         ship.addListener(ReduceExplosionListener())
         removeIncompatibleHullmods(ship)
+        ship.isInvalidTransferCommandTarget = true
     }
 
     private fun removeIncompatibleHullmods(ship: ShipAPI){
