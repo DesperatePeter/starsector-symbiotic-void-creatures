@@ -29,7 +29,9 @@
 		"AZTEC":1,
 	},
 	"names":{
-		"fringe":1,
+		"BEASTS":1,
+		"ABRAHAMIC":1,
+		"AZTEC":1,
 	},
 	"variantOverrides":{
 	},
@@ -87,7 +89,7 @@
 		"carriers":2,
 		"phaseShips":1,
 		
-		"officerQuality":5,
+		"officerQuality":3,
 		"shipQuality":3,
 		"numShips":1,
 		
@@ -134,14 +136,30 @@
 	#"internalComms":"hegemony_internal",
 	"portraits":{
 		"standard_male":[
-			"graphics/portraits/portrait_ai1b.png",
-			"graphics/portraits/portrait_ai2b.png",
-			"graphics/portraits/portrait_ai3b.png",
+			"graphics/portraits/SVC/svc_portrait_dark_001.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_002.png",
+			"graphics/portraits/SVC/svc_portrait_dark_003.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_004.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_005.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_006.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_007.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_008.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_009.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_010.png",	
+			"graphics/portraits/SVC/svc_portrait_dark_011.png",		
 		],
 		"standard_female":[
-			"graphics/portraits/portrait_ai1b.png",
-			"graphics/portraits/portrait_ai2b.png",
-			"graphics/portraits/portrait_ai3b.png",
+			"graphics/portraits/SVC/svc_portrait_dark_001.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_002.png",
+			"graphics/portraits/SVC/svc_portrait_dark_003.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_004.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_005.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_006.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_007.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_008.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_009.png",			
+			"graphics/portraits/SVC/svc_portrait_dark_010.png",	
+			"graphics/portraits/SVC/svc_portrait_dark_011.png",	
 		],
 	},
 	"ranks":{
