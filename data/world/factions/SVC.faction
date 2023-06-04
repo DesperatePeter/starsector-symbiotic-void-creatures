@@ -13,8 +13,8 @@
 	"crest":"graphics/factions/crest_ai_remnant.png",
 	"shipNamePrefix":"Void",
 	
-	"color":[70,255,235,255],
-	"baseUIColor":[70,255,235,255],
+	"color":[173,130,2,255],
+	"baseUIColor":[173,130,2,255],
 	#"color":[100,100,100,255],
 	#"baseUIColor":[155,155,155,255],
 	
@@ -107,15 +107,15 @@
 			"coordinated_maneuvers",
 		],
 	},
-	"shipRoles":{
+		"shipRoles":{
         "combatSmall" : {
-            "svc_hemalisk_dark_scythed" : 10, "svc_hemalisk_scythed" : 10, "svc_toxocyst_dark_scythed" : 10, "svc_toxocyst_scythed" : 10,
+            "svc_hemalisk_scythed" : 10, "svc_toxocyst_scythed" : 10,
         },
         "combatMedium" : {
-                    "svc_arbiter_dark_scythed" : 10, "svc_arbiter_scythed" : 10, "svc_keratinos_dark_scythed" : 10, "svc_keratinos_scythed" : 10,
+                    "svc_arbiter_scythed" : 10, "svc_embolist_scythed" : 10, "svc_pupacyst_scythed" : 10,
                 },
         "combatLarge" : {
-                             "svc_lephantis_dark_scythed" : 10, "svc_lephantis_scythed" : 10,
+                             "svc_lephantis_scythed" : 10, "svc_keratinos_scythed" : 10,
                          },
 
 
