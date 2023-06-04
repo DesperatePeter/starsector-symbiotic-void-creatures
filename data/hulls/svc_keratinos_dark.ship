@@ -18,6 +18,8 @@
   "builtInWeapons": {
     "WS0001": "svc_tentacle_left_large_barbed",
     "WS0002": "svc_tentacle_right_large_barbed",
+    "WS0003": "svc_Keratinos_right",
+    "WS0004": "svc_Keratinos_left",
     "left_grappler": "svc_bge_grappler_pd",
     "left_grappler2": "svc_bge_grappler",
     "left_grappler3": "svc_bge_grappler",
@@ -53,7 +55,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 8,
-      "locations": [47, 11]
+      "locations": [55.5, 11.5]
     },
     {
       "id": "right_sml_mand",
@@ -62,7 +64,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -8,
-      "locations": [47, -11]
+      "locations": [55.5, -11.5]
     },
     {
       "id": "left_med_uni1",
@@ -170,7 +172,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -5.5,
-      "locations": [43.5, 13.5]
+      "locations": [45.5, 15.5]
     },
     {
       "id": "right_sml_mand2",
@@ -179,7 +181,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 5.5,
-      "locations": [43.5, -13.5]
+      "locations": [45.5, -15.5]
     },
     {
       "id": "left_sml_mand3",
@@ -188,7 +190,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 11.5,
-      "locations": [38, 11]
+      "locations": [40, 12.5]
     },
     {
       "id": "right_sml_mand3",
@@ -197,7 +199,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -11.5,
-      "locations": [38, -11]
+      "locations": [40, -12.5]
     },
     {
       "id": "left_long_fin",
@@ -246,7 +248,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 137,
-      "locations": [-12.5, 49.5],
+      "locations": [-26, 55],
       "renderOrderMod": 1
     },
     {
@@ -256,7 +258,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": -137,
-      "locations": [-12.5, -49.5],
+      "locations": [-26, -55],
       "renderOrderMod": 1
     },
     {
@@ -330,6 +332,24 @@
       "arc": 180,
       "angle": -151.5,
       "locations": [-31, -68]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-27, -75.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -0,
+      "locations": [-27, 75.5]
     }
   ],
   "engineSlots": [

@@ -17,6 +17,7 @@
   ],
   "builtInWeapons": {
     "Eyes": "svc_koenig_eyes",
+    "Krieger": "svc_krieger",
     "WS0001": "svc_stinger_right",
     "WS0002": "svc_stinger_left",
     "left_fin1": "svc_long_fin_left_sml2",
@@ -45,8 +46,9 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 0,
-      "angle": 21.037512,
-      "locations": [23, -13]
+      "angle": 21.038,
+      "locations": [23, -13],
+      "renderOrderMod": 2
     },
     {
       "id": "left_mand",
@@ -54,8 +56,9 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 0,
-      "angle": -21.037512,
-      "locations": [23, 13]
+      "angle": -21.038,
+      "locations": [23, 13],
+      "renderOrderMod": 2
     },
     {
       "id": "right_grappler",
@@ -82,7 +85,8 @@
       "mount": "HARDPOINT",
       "arc": 40.238998,
       "angle": -43.264,
-      "locations": [27, 27]
+      "locations": [27, 27],
+      "renderOrderMod": 2
     },
     {
       "id": "right_med_uni2",
@@ -91,7 +95,8 @@
       "mount": "HARDPOINT",
       "arc": 40.238998,
       "angle": 43.264,
-      "locations": [27, -27]
+      "locations": [27, -27],
+      "renderOrderMod": 2
     },
     {
       "id": "left_med_uni1",
@@ -100,7 +105,8 @@
       "mount": "HARDPOINT",
       "arc": 40.112,
       "angle": -42.709,
-      "locations": [17.5, 51]
+      "locations": [17.5, 51],
+      "renderOrderMod": 2
     },
     {
       "id": "right_med_uni1",
@@ -109,7 +115,8 @@
       "mount": "HARDPOINT",
       "arc": 40.112,
       "angle": 42.709,
-      "locations": [17.5, -51]
+      "locations": [17.5, -51],
+      "renderOrderMod": 2
     },
     {
       "id": "left_fin1",
@@ -136,7 +143,8 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [8.5, -0]
+      "locations": [8.5, -0],
+      "renderOrderMod": 2
     },
     {
       "id": "left_fin2",
@@ -199,7 +207,8 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [0, -0]
+      "locations": [0, -0],
+      "renderOrderMod": 4
     },
     {
       "id": "WS0001",

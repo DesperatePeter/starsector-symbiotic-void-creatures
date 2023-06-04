@@ -1,12 +1,11 @@
 {
 	"specClass":"beam",
-	"id":"svc_arbiter",
+	"id":"svc_Keratinos_right",
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 1.0,
-        "renderBelowAllWeapons": true,
-	"turretSprite":"graphics/weapons/deco/Arbiter_head.png",
-	"hardpointSprite":"graphics/weapons/deco/Arbiter_head.png",
+	"turretSprite":"graphics/weapons/deco/Keratinos_right.png",
+	"hardpointSprite":"graphics/weapons/deco/Keratinos_right.png",
 
 	"turretOffsets": [
 20,

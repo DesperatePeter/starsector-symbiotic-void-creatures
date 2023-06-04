@@ -117,4 +117,13 @@ Wächter Shell,svc_waechtershell,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,
 Wächter Shell 2,svc_waechtershell2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,43
 right translucent fin,svc_trans_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4400
 left translucent fin,svc_trans_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4401
+Umbra Arbiter Head,svc_Arbiter_dark_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Arbiter Spike left,svc_Arbiter_dark_spike_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Arbiter Spike right,svc_Arbiter_dark_spike_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Arbiter Armor left,svc_Arbiter_dark_armor_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Arbiter Armor right,svc_Arbiter_dark_armor_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Hemalisk left,svc_Hemalisk_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Hemalisk right,svc_Hemalisk_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Keratinos left,svc_Keratinos_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+Umbra Keratinos right,svc_Keratinos_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

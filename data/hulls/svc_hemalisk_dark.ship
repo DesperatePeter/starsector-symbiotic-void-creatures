@@ -27,6 +27,8 @@
     "WS0009": "svc_tentacle_right_medium_dark",
     "WS0010": "svc_tentacle_left_medium_barbed",
     "WS0011": "svc_tentacle_right_medium_barbed",
+    "WS0012": "svc_Hemalisk_right",
+    "WS0013": "svc_Hemalisk_left",
     "left_grappler": "svc_bge_grappler",
     "left_mand": "svc_adv_sml_mand_l",
     "left_med_uni": "svc_adv_med_scythe_l",
@@ -291,6 +293,26 @@
       "arc": 37.877998,
       "angle": 154,
       "locations": [-14, 53.5]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 37.877998,
+      "angle": 0,
+      "locations": [2.5, -34.5],
+      "renderOrderMod": 5
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 37.877998,
+      "angle": -0,
+      "locations": [2.5, 34.5],
+      "renderOrderMod": 5
     }
   ],
   "engineSlots": [

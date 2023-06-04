@@ -218,7 +218,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 0,
-      "locations": [-37.5, -0]
+      "locations": [-38.5, -0]
     },
     {
       "id": "left_long_fin",
@@ -364,7 +364,7 @@
       "mount": "TURRET",
       "arc": 37.483002,
       "angle": 0,
-      "locations": [0, -0],
+      "locations": [-0.5, -0],
       "renderOrderMod": 3
     }
   ],
