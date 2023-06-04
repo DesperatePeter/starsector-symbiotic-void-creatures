@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
+import java.awt.Color
 import tecrys.svc.shipsystems.utils.LifeStealListener
 
 class BerserkerFrenzy : BaseShipSystemScript() {
@@ -17,8 +18,10 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         private const val HULL_DAMAGE_TAKEN = 0.9f
         private const val ENGINE_DAMAGE_TAKEN = 0.1f
         private const val WEAPON_DAMAGE_TAKEN = 0.5f
-        private val params = listOf(ROF_BUFF, LIFE_STEAL, MOVEMENT_BUFF, MANEUVER_BUFF, HULL_DAMAGE_TAKEN)
-        private val paramNames = listOf("Rate of fire", "life steal", "speed", "maneuverability", "hull damage taken")
+        private val JITTER_COLOR_ACTIVE = Color(255, 50, 0, 80)
+        private val JITTER_COLOR_INACTIVE = Color(50, 150, 0, 25)
+        private val params = listOf(ROF_BUFF, LIFE_STEAL, MOVEMENT_BUFF, MANEUVER_BUFF, HULL_DAMAGE_TAKEN, ENGINE_DAMAGE_TAKEN, WEAPON_DAMAGE_TAKEN)
+        private val paramNames = listOf("Rate of fire", "life steal", "speed", "maneuverability", "hull damage taken", "engine damage taken", "weapon damage taken")
     }
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -29,7 +32,11 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         val ship = stats?.entity as? ShipAPI ?: return
         when(state){
             ShipSystemStatsScript.State.IN -> applyBuffs(id, ship)
-            ShipSystemStatsScript.State.OUT -> applyOverload(ship)
+            ShipSystemStatsScript.State.OUT -> {
+                applyOverload(ship)
+                jitterShip(ship, id, JITTER_COLOR_INACTIVE, 0.1f)
+            }
+            ShipSystemStatsScript.State.ACTIVE -> jitterShip(ship, id, JITTER_COLOR_ACTIVE, 1.5f)
             else -> return
         }
     }
@@ -51,7 +58,7 @@ class BerserkerFrenzy : BaseShipSystemScript() {
                 it.modifyMult(id, ROF_BUFF)
             }
             maxSpeed.modifyMult(id, MOVEMENT_BUFF)
-            listOf(acceleration, maxTurnRate).forEach {
+            listOf(acceleration, maxTurnRate, deceleration).forEach {
                 it.modifyMult(id, MANEUVER_BUFF)
             }
             hullDamageTakenMult.modifyMult(id, HULL_DAMAGE_TAKEN)
@@ -61,9 +68,14 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         ship.addListener(LifeStealListener(ship, LIFE_STEAL))
     }
 
+    private fun jitterShip(ship: ShipAPI, id: String?, color: Color, intensity: Float){
+        ship.setJitter(id, color, intensity, 2, 10f)
+        ship.setJitterUnder(id, color, intensity, 2, 10f)
+    }
+
     private fun removeBuffs(id: String?, ship: ShipAPI){
         ship.mutableStats?.run {
-            listOf(energyRoFMult, ballisticRoFMult, missileRoFMult, maxSpeed, acceleration,
+            listOf(energyRoFMult, ballisticRoFMult, missileRoFMult, maxSpeed, acceleration, deceleration,
                 maxTurnRate, hullDamageTakenMult, engineDamageTakenMult, weaponDamageTakenMult).forEach {
                 it.unmodify(id)
             }
