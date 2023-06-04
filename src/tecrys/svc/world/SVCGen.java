@@ -59,6 +59,27 @@ import tecrys.svc.ConstantsKt;
 /* 50 */     bge.setRelationship("interstellarimperium", -0.5F);
 /* 51 */     bge.setRelationship("diableavionics", -0.5F);
              bge.setRelationship(ConstantsKt.UVC_FACTION_ID, -0.5f);
+             
+             /* 33 */     uvc.setRelationship(player.getId(), -0.5F);
+/* 34 */     uvc.setRelationship(hegemony.getId(), -0.5F);
+/* 35 */     uvc.setRelationship(tritachyon.getId(), -0.5F);
+/* 36 */     uvc.setRelationship(pirates.getId(), -0.5F);
+/* 37 */     uvc.setRelationship(independent.getId(), -0.5F);
+/* 38 */     uvc.setRelationship(persean.getId(), -0.5F);
+/* 39 */     uvc.setRelationship(church.getId(), -0.5F);
+/* 40 */     uvc.setRelationship(path.getId(), -0.5F);
+/* 41 */     uvc.setRelationship(kol.getId(), -0.5F);
+/* 42 */     uvc.setRelationship(diktat.getId(), -0.5F);
+/* 43 */     uvc.setRelationship("exigency", -0.5F);
+/* 44 */     uvc.setRelationship("shadow_industry", -0.5F);
+/* 45 */     uvc.setRelationship("mayorate", -0.5F);
+/* 46 */     uvc.setRelationship("blackrock", -0.5F);
+/* 47 */     uvc.setRelationship("tiandong", -0.5F);
+/* 48 */     uvc.setRelationship("SCY", -0.5F);
+/* 49 */     uvc.setRelationship("neutrinocorp", -0.5F);
+/* 50 */     uvc.setRelationship("interstellarimperium", -0.5F);
+/* 51 */     uvc.setRelationship("diableavionics", -0.5F);
+             uvc.setRelationship(ConstantsKt.SVC_FACTION_ID, -0.5f);
 /*    */   }
 /*    */ }
 
