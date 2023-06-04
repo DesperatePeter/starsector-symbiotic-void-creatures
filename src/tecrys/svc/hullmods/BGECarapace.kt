@@ -49,7 +49,7 @@ class BGECarapace : BaseHullMod() {
     private fun modifyPowerLevel(ship: ShipAPI) {
         ship.mutableStats?.run {
             val mult = getPowerLevelBasedOnHullLevel(ship.hullLevel)
-            listOf(maxSpeed, damageToCapital, damageToCruisers, damageToDestroyers, damageToFrigates, damageToFighters, damageToMissiles).forEach {
+            listOf(maxSpeed, damageToCapital, energyRoFMult, ballisticRoFMult, missileRoFMult).forEach {
                 it.unmodify(POWER_SCALING_MULT_KEY)
                 it.modifyMult(POWER_SCALING_MULT_KEY, mult)
             }
