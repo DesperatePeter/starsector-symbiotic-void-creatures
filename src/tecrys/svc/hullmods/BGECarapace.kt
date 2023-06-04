@@ -1,11 +1,14 @@
 package tecrys.svc.hullmods
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.impl.campaign.ids.Stats
+
 import org.dark.graphics.plugins.ShipDestructionEffects
+import tecrys.svc.DMOD_TAG
 import java.awt.Color
 
 class BGECarapace : BaseHullMod() {
@@ -64,8 +67,12 @@ class BGECarapace : BaseHullMod() {
     override fun applyEffectsAfterShipCreation(ship: ShipAPI, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship.explosionFlashColorOverride = Color.RED
-        BLOCKED_HULLMODS.forEach {
-            if(ship.variant.hullMods.contains(it)) ship.variant.removeMod(it)
+        val hullMods = ship.variant.hullMods.toList()
+        hullMods.filter {
+            Global.getSettings().getHullModSpec(it)?.tags?.contains(DMOD_TAG) == true
+                    || BLOCKED_HULLMODS.contains(it)
+        }.forEach {
+            ship.variant.removeMod(it)
         }
         ship.addListener(ReduceExplosionListener())
     }
