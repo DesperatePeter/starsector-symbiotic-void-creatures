@@ -1,11 +1,14 @@
 package tecrys.svc.hullmods
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.impl.campaign.ids.Stats
+
 import org.dark.graphics.plugins.ShipDestructionEffects
+import tecrys.svc.DMOD_TAG
 import java.awt.Color
 
 class BGECarapace : BaseHullMod() {
@@ -34,6 +37,8 @@ class BGECarapace : BaseHullMod() {
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
+            minCrewMod.modifyMult(id, 0f)
+            maxCrewMod.modifyMult(id, 0f)
         }
     }
 
@@ -44,7 +49,7 @@ class BGECarapace : BaseHullMod() {
     private fun modifyPowerLevel(ship: ShipAPI) {
         ship.mutableStats?.run {
             val mult = getPowerLevelBasedOnHullLevel(ship.hullLevel)
-            listOf(maxSpeed, fluxDissipation, damageToCapital, damageToCruisers, damageToDestroyers, damageToFrigates, damageToFighters, damageToMissiles).forEach {
+            listOf(maxSpeed, damageToCapital, damageToCruisers, damageToDestroyers, damageToFrigates, damageToFighters, damageToMissiles).forEach {
                 it.unmodify(POWER_SCALING_MULT_KEY)
                 it.modifyMult(POWER_SCALING_MULT_KEY, mult)
             }
@@ -64,10 +69,19 @@ class BGECarapace : BaseHullMod() {
     override fun applyEffectsAfterShipCreation(ship: ShipAPI, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship.explosionFlashColorOverride = Color.RED
-        BLOCKED_HULLMODS.forEach {
-            if(ship.variant.hullMods.contains(it)) ship.variant.removeMod(it)
-        }
         ship.addListener(ReduceExplosionListener())
+        removeIncompatibleHullmods(ship)
+        ship.isInvalidTransferCommandTarget = true
+    }
+
+    private fun removeIncompatibleHullmods(ship: ShipAPI){
+        val hullMods = ship.variant.hullMods.toList()
+        hullMods.filter {
+            Global.getSettings().getHullModSpec(it)?.tags?.contains(DMOD_TAG) == true
+                    || BLOCKED_HULLMODS.contains(it)
+        }.forEach {
+            ship.variant.removeMod(it)
+        }
     }
 
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
