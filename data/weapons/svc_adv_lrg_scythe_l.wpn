@@ -1,7 +1,7 @@
 {
 	"id":"svc_adv_lrg_scythe_l",  # this id must match what's in the spreadsheet
 	"specClass":"projectile",
-	"type":"ENERGY",
+	"type":"BALLISTIC",
 	"size":"MEDIUM",
 		"showDamageWhenDecorative":false,
 	"turretSprite":"graphics/weapons/animated/adv_lrg_scythe_left/adv_lrg_scythe_right_00.png",

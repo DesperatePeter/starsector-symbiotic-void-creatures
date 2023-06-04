@@ -1,7 +1,7 @@
 {
 	"id":"svc_adv_sml_mand_r",  # this id must match what's in the spreadsheet
 	"specClass":"projectile",
-	"type":"ENERGY",
+	"type":"BALLISTIC",
 	"size":"SMALL",
 		"showDamageWhenDecorative":false,
         "renderBelowAllWeapons": true,

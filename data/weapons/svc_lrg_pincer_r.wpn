@@ -1,7 +1,7 @@
 {
 	"id":"svc_lrg_pincer_r",  # this id must match what's in the spreadsheet
 	"specClass":"projectile",
-	"type":"ENERGY",
+	"type":"BALLISTIC",
 	"size":"MEDIUM",
 	"turretSprite":"graphics/weapons/animated/lrg_pincer_right/lrg_pincer_right_00.png",
 	"hardpointSprite":"graphics/weapons/animated/lrg_pincer_right/lrg_pincer_right_00.png",	

@@ -1,7 +1,7 @@
 {
 	"id":"svc_sml_mand_r",  # this id must match what's in the spreadsheet
 	"specClass":"projectile",
-	"type":"ENERGY",
+	"type":"BALLISTIC",
 	"size":"SMALL",
 	"turretSprite":"graphics/weapons/animated/sml_mand_right/sml_mand_left_00.png",
 	"hardpointSprite":"graphics/weapons/animated/sml_mand_right/sml_mand_left_00.png",
