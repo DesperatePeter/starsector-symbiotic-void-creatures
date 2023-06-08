@@ -2,9 +2,12 @@ package tecrys.svc.shipsystems
 
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipCommand
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
+import org.lazywizard.lazylib.ext.minus
+import org.magiclib.kotlin.getPersonalityName
 import java.awt.Color
 import tecrys.svc.shipsystems.utils.LifeStealListener
 
@@ -12,7 +15,7 @@ class BerserkerFrenzy : BaseShipSystemScript() {
 
     companion object{
         private const val ROF_BUFF = 1.25f
-        private const val LIFE_STEAL = 0.2f
+        private const val LIFE_STEAL = 0.1f
         private const val MOVEMENT_BUFF = 1.25f
         private const val MANEUVER_BUFF = 2.0f
         private const val HULL_DAMAGE_TAKEN = 0.9f
@@ -23,6 +26,7 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         private val params = listOf(ROF_BUFF, LIFE_STEAL, MOVEMENT_BUFF, MANEUVER_BUFF, HULL_DAMAGE_TAKEN, ENGINE_DAMAGE_TAKEN, WEAPON_DAMAGE_TAKEN)
         private val paramNames = listOf("Rate of fire", "life steal", "speed", "maneuverability", "hull damage taken", "engine damage taken", "weapon damage taken")
     }
+
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
@@ -36,7 +40,11 @@ class BerserkerFrenzy : BaseShipSystemScript() {
                 applyOverload(ship)
                 jitterShip(ship, id, JITTER_COLOR_INACTIVE, 0.1f)
             }
-            ShipSystemStatsScript.State.ACTIVE -> jitterShip(ship, id, JITTER_COLOR_ACTIVE, 1.5f)
+            ShipSystemStatsScript.State.ACTIVE -> {
+                jitterShip(ship, id, JITTER_COLOR_ACTIVE, 1.5f)
+                ship.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS)
+                ship.blockCommandForOneFrame(ShipCommand.DECELERATE)
+            }
             else -> return
         }
     }

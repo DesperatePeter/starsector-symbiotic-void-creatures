@@ -15,7 +15,7 @@ class LifeStealListener(private val ship: ShipAPI, private val lifeLink: Float) 
         point: Vector2f?,
         shieldHit: Boolean
     ): String? {
-        ship.hitpoints = min(ship.hitpoints + lifeLink * (damage?.damage ?: 0f), ship.maxHitpoints)
+        if(!shieldHit) ship.hitpoints = min(ship.hitpoints + lifeLink * (damage?.damage ?: 0f), ship.maxHitpoints)
         return null
     }
 }
