@@ -4,7 +4,7 @@
 	"type":"BALLISTIC",
 	"size":"SMALL",
 	"displayArcRadius":1000,
-	"beamEffect":"tecrys.svc.weapons.Greifer_effect_pd",
+	"beamEffect":"tecrys.svc.weapons.GreiferEffectPD",
 	"turretSprite":"graphics/weapons/Grappler.png",
 	"turretGlowSprite":"graphics/weapons/Grappler.png",
 	"hardpointSprite":"graphics/weapons/Grappler.png",

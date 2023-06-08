@@ -5,6 +5,8 @@ import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
+import com.fs.starfarer.api.combat.ShipVariantAPI
+import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.ids.Stats
 
 import org.dark.graphics.plugins.ShipDestructionEffects
@@ -42,6 +44,12 @@ class BGECarapace : BaseHullMod() {
         }
     }
 
+    override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
+        member?.let { fm ->
+            removeIncompatibleHullmods(fm.variant)
+        }
+    }
+
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         modifyPowerLevel(ship)
     }
@@ -70,17 +78,16 @@ class BGECarapace : BaseHullMod() {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship.explosionFlashColorOverride = Color.RED
         ship.addListener(ReduceExplosionListener())
-        removeIncompatibleHullmods(ship)
         ship.isInvalidTransferCommandTarget = true
     }
 
-    private fun removeIncompatibleHullmods(ship: ShipAPI){
-        val hullMods = ship.variant.hullMods.toList()
+    private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
+        val hullMods = variant.hullMods.toList()
         hullMods.filter {
             Global.getSettings().getHullModSpec(it)?.tags?.contains(DMOD_TAG) == true
                     || BLOCKED_HULLMODS.contains(it)
         }.forEach {
-            ship.variant.removeMod(it)
+            variant.removeMod(it)
         }
     }
 
