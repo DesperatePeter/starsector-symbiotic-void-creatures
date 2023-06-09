@@ -15,6 +15,6 @@ class GreiferEffectPD : GreiferEffectBase() {
     override fun shouldAffectObjects(): Boolean = false
 
     // Note: these values are taken from the original implementation.
-    override fun computeForceAgainstShip(ship: ShipAPI): Float = max(4000f / (ship.mass + 0.000001f), 0.01f)
+    override fun computeForceAgainstShip(target: ShipAPI, source: ShipAPI): Float = max(4000f / (target.mass + 0.000001f), 0.01f)
     override fun computeForceAgainstObject(entity: CombatEntityAPI): Float = max(5000f / (entity.mass + 0.000001f), 0.5f)
 }

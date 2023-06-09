@@ -15,12 +15,13 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
      * @note Setting this to true can cause the game zo freeze for some reason, mainly against Dooms
      */
     abstract fun shouldAffectObjects(): Boolean
-    abstract fun computeForceAgainstShip(ship: ShipAPI): Float
+    abstract fun computeForceAgainstShip(target: ShipAPI, source: ShipAPI): Float
     open fun computeForceAgainstObject(entity: CombatEntityAPI): Float = 0f
 
     override fun advance(amount: Float, engine: CombatEngineAPI?, beam: BeamAPI?) {
         interval.advance(amount)
         val b = beam ?: return
+        val source = b.source ?: return
         val beamLoc = b.source?.location ?: return
         if(!interval.intervalElapsed()) return
         val target = b.damageTarget ?: return
@@ -34,7 +35,7 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
             if(it.phaseCloak?.isActive == true) return
             if(it == b.source) return // why would the ship target itself? Oo
             // val dv = max(4000f / (it.mass + 0.000001f), 0.01f)
-            dvVec.scale(computeForceAgainstShip(it))
+            dvVec.scale(computeForceAgainstShip(it, source))
             Vector2f.add(it.velocity, dvVec, it.velocity)
             return
         }

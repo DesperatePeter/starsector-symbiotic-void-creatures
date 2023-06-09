@@ -10,6 +10,6 @@ class GreiferEffectFighter : GreiferEffectBase() {
 
     override fun shouldAffectObjects(): Boolean = false
 
-    override fun computeForceAgainstShip(ship: ShipAPI): Float = 60f - ship.mass / 125f
+    override fun computeForceAgainstShip(target: ShipAPI, source: ShipAPI): Float = 60f - target.mass / 125f
     override fun computeForceAgainstObject(entity: CombatEntityAPI): Float = 60f - entity.mass / 125f
 }

@@ -10,5 +10,5 @@ class GreiferEffect : GreiferEffectBase() {
 
     override fun shouldAffectObjects(): Boolean = false
 
-    override fun computeForceAgainstShip(ship: ShipAPI): Float = max(4000f / (ship.mass + 0.000001f), 0.01f)
+    override fun computeForceAgainstShip(target: ShipAPI, source: ShipAPI): Float = max(37f - source.mass / 25f , 0.01f)
 }
