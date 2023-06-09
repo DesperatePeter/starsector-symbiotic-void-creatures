@@ -5,6 +5,8 @@ import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
+import com.fs.starfarer.api.combat.ShipVariantAPI
+import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.ids.Stats
 
 import org.dark.graphics.plugins.ShipDestructionEffects
@@ -14,6 +16,7 @@ import java.awt.Color
 class BGECarapace : BaseHullMod() {
 
     companion object{
+        private const val ENGINE_DAMAGE_TAKEN = 0.1f
         private const val EMP_RESISTANCE = 50f
         private const val HULL_RESISTANCE = 30f
         private const val POWER_SCALING_MIN_HULL = 0.3f
@@ -24,8 +27,6 @@ class BGECarapace : BaseHullMod() {
             "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
     }
 
-    private val nearbyShips: MutableSet<ShipAPI> = HashSet()
-    private var resisting = 0f
 
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.run {
@@ -39,11 +40,19 @@ class BGECarapace : BaseHullMod() {
             dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
             minCrewMod.modifyMult(id, 0f)
             maxCrewMod.modifyMult(id, 0f)
+            engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
+        }
+    }
+
+    override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
+        member?.let { fm ->
+            removeIncompatibleHullmods(fm.variant)
         }
     }
 
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         modifyPowerLevel(ship)
+        ship.captain?.setPersonality("reckless")
     }
 
     private fun modifyPowerLevel(ship: ShipAPI) {
@@ -70,17 +79,16 @@ class BGECarapace : BaseHullMod() {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship.explosionFlashColorOverride = Color.RED
         ship.addListener(ReduceExplosionListener())
-        removeIncompatibleHullmods(ship)
         ship.isInvalidTransferCommandTarget = true
     }
 
-    private fun removeIncompatibleHullmods(ship: ShipAPI){
-        val hullMods = ship.variant.hullMods.toList()
+    private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
+        val hullMods = variant.hullMods.toList()
         hullMods.filter {
             Global.getSettings().getHullModSpec(it)?.tags?.contains(DMOD_TAG) == true
                     || BLOCKED_HULLMODS.contains(it)
         }.forEach {
-            ship.variant.removeMod(it)
+            variant.removeMod(it)
         }
     }
 
