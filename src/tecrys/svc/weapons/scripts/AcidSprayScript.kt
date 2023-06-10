@@ -2,7 +2,6 @@ package tecrys.svc.weapons.scripts
 
 import com.fs.starfarer.api.combat.CombatEngineAPI
 import com.fs.starfarer.api.combat.ShipAPI
-import org.lazywizard.lazylib.CollisionUtils
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
@@ -26,6 +25,7 @@ class AcidSprayScript(
 
     override fun executeOnAdvance(amount: Float) {
         val dmg = ARMOR_DAMAGE_PER_CELL_PER_SECOND * amount
+        var totalDamage = 0f
         CombatUtils.getShipsWithinRange(location, effectRadius).filterNotNull().filter {
             ship.owner != it.owner && it.phaseCloak?.isActive != true
         }.forEach {
@@ -35,10 +35,13 @@ class AcidSprayScript(
                 for(j in row.indices){
                     val loc = it.armorGrid.getLocation(i, j)
                     if((loc - location).length() <= effectRadius){
+                        val previousValue = grid[i][j]
                         grid[i][j] = max(0f, grid[i][j] - dmg)
+                        totalDamage += previousValue - grid[i][j]
                     }
                 }
             }
+            engine.addFloatingDamageText(it.location, totalDamage, Color.YELLOW, it, ship)
         }
     }
 }
