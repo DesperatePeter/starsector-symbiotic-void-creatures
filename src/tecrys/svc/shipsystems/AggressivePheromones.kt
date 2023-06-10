@@ -13,6 +13,7 @@ import tecrys.svc.CombatPlugin
 import tecrys.svc.SVC_VARIANT_TAG
 import java.awt.Color
 import java.lang.ref.WeakReference
+import kotlin.math.min
 
 class AggressivePheromones : BaseShipSystemScript() {
 
@@ -26,6 +27,7 @@ class AggressivePheromones : BaseShipSystemScript() {
     }
 
     private var affectedShips = listOf<WeakReference<ShipAPI>>()
+    private var rampUpAlphaMult = 0.2f
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
@@ -36,7 +38,8 @@ class AggressivePheromones : BaseShipSystemScript() {
         when(state){
             ShipSystemStatsScript.State.IN -> applyBuffs(entity, id)
             ShipSystemStatsScript.State.ACTIVE -> {
-                renderAura(entity)
+                rampUpAlphaMult = min(rampUpAlphaMult + 0.01f, 1f)
+                renderAura(entity, rampUpAlphaMult)
                 removeBuffsFromOutOfRangeShips(entity.location, id)
             }
             ShipSystemStatsScript.State.OUT -> {
@@ -88,6 +91,7 @@ class AggressivePheromones : BaseShipSystemScript() {
     }
 
     override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
+        rampUpAlphaMult = 0.2f
         affectedShips.forEach {
             it.get()?.let { sh ->
                 removeBuffsFromShip(sh, id)
