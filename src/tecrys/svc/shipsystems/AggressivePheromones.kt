@@ -38,7 +38,7 @@ class AggressivePheromones : BaseShipSystemScript() {
         when(state){
             ShipSystemStatsScript.State.IN -> applyBuffs(entity, id)
             ShipSystemStatsScript.State.ACTIVE -> {
-                rampUpAlphaMult = min(rampUpAlphaMult + 0.01f, 1f)
+                rampUpAlphaMult = min(rampUpAlphaMult + 0.005f, 1f)
                 renderAura(entity, rampUpAlphaMult)
                 removeBuffsFromOutOfRangeShips(entity.location, id)
             }
