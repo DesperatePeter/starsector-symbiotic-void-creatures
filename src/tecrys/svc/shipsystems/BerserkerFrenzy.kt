@@ -13,7 +13,7 @@ import tecrys.svc.shipsystems.utils.LifeStealListener
 
 class BerserkerFrenzy : BaseShipSystemScript() {
 
-    companion object{
+    companion object {
         private const val ROF_BUFF = 1.25f
         private const val LIFE_STEAL = 0.1f
         private const val MOVEMENT_BUFF = 1.25f
@@ -23,8 +23,24 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         private const val WEAPON_DAMAGE_TAKEN = 0.5f
         private val JITTER_COLOR_ACTIVE = Color(255, 50, 0, 80)
         private val JITTER_COLOR_INACTIVE = Color(50, 150, 0, 25)
-        private val params = listOf(ROF_BUFF, LIFE_STEAL, MOVEMENT_BUFF, MANEUVER_BUFF, HULL_DAMAGE_TAKEN, ENGINE_DAMAGE_TAKEN, WEAPON_DAMAGE_TAKEN)
-        private val paramNames = listOf("Rate of fire", "life steal", "speed", "maneuverability", "hull damage taken", "engine damage taken", "weapon damage taken")
+        private val params = listOf(
+            ROF_BUFF,
+            LIFE_STEAL,
+            MOVEMENT_BUFF,
+            MANEUVER_BUFF,
+            HULL_DAMAGE_TAKEN,
+            ENGINE_DAMAGE_TAKEN,
+            WEAPON_DAMAGE_TAKEN
+        )
+        private val paramNames = listOf(
+            "Rate of fire",
+            "life steal",
+            "speed",
+            "maneuverability",
+            "hull damage taken",
+            "engine damage taken",
+            "weapon damage taken"
+        )
     }
 
     override fun apply(
@@ -34,27 +50,29 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         effectLevel: Float
     ) {
         val ship = stats?.entity as? ShipAPI ?: return
-        when(state){
+        when (state) {
             ShipSystemStatsScript.State.IN -> applyBuffs(id, ship)
             ShipSystemStatsScript.State.OUT -> {
                 applyOverload(ship)
                 jitterShip(ship, id, JITTER_COLOR_INACTIVE, 0.1f)
             }
+
             ShipSystemStatsScript.State.ACTIVE -> {
                 jitterShip(ship, id, JITTER_COLOR_ACTIVE, 1.5f)
                 ship.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS)
                 ship.blockCommandForOneFrame(ShipCommand.DECELERATE)
             }
+
             else -> return
         }
     }
 
-    private fun applyOverload(ship: ShipAPI){
-        if(ship.fluxTracker.isOverloaded) return
+    private fun applyOverload(ship: ShipAPI) {
+        if (ship.fluxTracker.isOverloaded) return
         ship.fluxTracker.beginOverloadWithTotalBaseDuration(ship.system.chargeDownDur)
     }
 
-    private fun applyBuffs(id: String?, ship: ShipAPI){
+    private fun applyBuffs(id: String?, ship: ShipAPI) {
         ship.engineController?.shipEngines?.forEach {
             it.repair()
         }
@@ -66,7 +84,7 @@ class BerserkerFrenzy : BaseShipSystemScript() {
                 it.modifyMult(id, ROF_BUFF)
             }
             maxSpeed.modifyMult(id, MOVEMENT_BUFF)
-            listOf(acceleration, maxTurnRate, deceleration).forEach {
+            listOf(acceleration, maxTurnRate, deceleration, turnAcceleration).forEach {
                 it.modifyMult(id, MANEUVER_BUFF)
             }
             hullDamageTakenMult.modifyMult(id, HULL_DAMAGE_TAKEN)
@@ -76,15 +94,17 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         ship.addListener(LifeStealListener(ship, LIFE_STEAL))
     }
 
-    private fun jitterShip(ship: ShipAPI, id: String?, color: Color, intensity: Float){
+    private fun jitterShip(ship: ShipAPI, id: String?, color: Color, intensity: Float) {
         ship.setJitter(id, color, intensity, 2, 10f)
         ship.setJitterUnder(id, color, intensity, 2, 10f)
     }
 
-    private fun removeBuffs(id: String?, ship: ShipAPI){
+    private fun removeBuffs(id: String?, ship: ShipAPI) {
         ship.mutableStats?.run {
-            listOf(energyRoFMult, ballisticRoFMult, missileRoFMult, maxSpeed, acceleration, deceleration,
-                maxTurnRate, hullDamageTakenMult, engineDamageTakenMult, weaponDamageTakenMult).forEach {
+            listOf(
+                energyRoFMult, ballisticRoFMult, missileRoFMult, maxSpeed, acceleration, deceleration,
+                maxTurnRate, turnAcceleration, hullDamageTakenMult, engineDamageTakenMult, weaponDamageTakenMult
+            ).forEach {
                 it.unmodify(id)
             }
         }
@@ -102,6 +122,4 @@ class BerserkerFrenzy : BaseShipSystemScript() {
     }
 
     override fun getInfoText(system: ShipSystemAPI?, ship: ShipAPI?): String = "Enter frenzy"
-//        "The ${ship?.hullSpec?.hullName ?: "ship"} briefly enters a berserker rage, gaining improved stats and restoring" +
-//                " hull points when dealing damage. Afterwards, the ship overloads for a brief moment."
 }

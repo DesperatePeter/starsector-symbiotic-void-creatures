@@ -3,6 +3,7 @@
 		#"AdrenalineToggleTracker":"data.scripts.plugins.AdrenalineToggleTracker",
 		#"ProtectionTracker":"data.scripts.plugins.ProtectionTracker",
 		"BloodEffect":"tecrys.svc.plugins.BloodEffect",
+		"SvcCombatPlugin":"tecrys.svc.CombatPlugin",
 		#"ForceShieldDisablePlugin":"data.scripts.plugins.ForceShieldDisablePlugin",		
 		#"Acid":"data.scripts.plugins.Acid",				
 		

@@ -1,0 +1,10 @@
+{
+	"id":"svc_aggressive_pheromones",
+	"type":"STAT_MOD",
+	"aiType":"WEAPON_BOOST",
+
+	"statsScript":"tecrys.svc.shipsystems.AggressivePheromones",
+
+	"useSound":"system_ammo_feeder",
+    "outOfUsesSound":"gun_out_of_ammo",
+}

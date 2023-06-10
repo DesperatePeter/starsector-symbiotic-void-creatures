@@ -1,3 +1,4 @@
 name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,noVent,isPhaseCloak,tags,icon
 Berserker Frenzy,svc_hemalisk_berserk,,,,,,,,,,0.1,8.0,4.0,12.0,,,,,,,,,,TRUE,,,graphics/icons/hullsys/ammo_feeder.png
+Aggressive Pheromones,svc_aggressive_pheromones,,,,,,,,,,0.1,15.0,2.0,25.0,,,,,,,,,,FALSE,,,graphics/icons/hullsys/ammo_feeder.png
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,
