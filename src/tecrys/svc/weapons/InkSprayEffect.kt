@@ -15,14 +15,15 @@ class InkSprayEffect : OnFireEffectPlugin {
         const val EFFECT_DURATION = 6f
         const val EFFECT_RADIUS = 135f
         const val EFFECT_SPEED = 50f
+        const val EFFECT_SPAWN_DISTANCE = EFFECT_RADIUS / 2f
     }
     override fun onFire(projectile: DamagingProjectileAPI?, weapon: WeaponAPI?, engine: CombatEngineAPI?) {
         val w = weapon ?: return
         val e = engine ?: return
         val effectOffset = vectorFromAngleDeg(w.currAngle)
-        effectOffset.scale(w.range)
+        effectOffset.scale(EFFECT_SPAWN_DISTANCE)
         val effectLocation = w.location + effectOffset
-        effectOffset.scale(EFFECT_SPEED / w.range)
+        effectOffset.scale(EFFECT_SPEED / EFFECT_SPAWN_DISTANCE)
         val velocity = w.ship.velocity + effectOffset
         e.addPlugin(InkSprayScript(w.ship, e, effectLocation, velocity, Color(110, 0, 200, 180), EFFECT_RADIUS, EFFECT_DURATION))
     }
