@@ -1,5 +1,6 @@
 package tecrys.svc.shipsystems
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.CombatEntityAPI
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
