@@ -12,7 +12,7 @@ import tecrys.svc.*
 
 class SVCFleetSpawner : EveryFrameScript {
 
-    companion object{
+    companion object {
         const val MAX_NUMBER_OF_ACTIVE_SPAWNED_FLEETS = 100
         val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID, UVC_FACTION_ID)
     }
@@ -23,35 +23,42 @@ class SVCFleetSpawner : EveryFrameScript {
     override fun runWhilePaused(): Boolean = false
 
     override fun advance(amount: Float) {
+        if (Global.getSector()?.memory?.contains("\$svc_hive_queen") == true
+            && Global.getSector()?.memory?.getBoolean("\$svc_hive_queen") == true
+        ) return
         interval.advance(amount)
-        if(!interval.intervalElapsed()) return
+        if (!interval.intervalElapsed()) return
         FACTIONS_TO_SPAWN.forEach { spawnFactionFleetsUntilLimit(it) }
     }
 
     private fun spawnFactionFleetsUntilLimit(faction: String) {
         val numFleets = countFactionFleets(faction)
-         Global.getSector().allLocations?.filter {
-                loc -> loc.planets?.all { it.faction.id == "neutral" } ?: false
+        Global.getSector().allLocations?.filter { loc ->
+            loc.planets?.all { it.faction.id == "neutral" } ?: false
         }?.filter {
             it.fleets.none { loc -> loc.faction.id == faction }
         }?.filterNotNull()?.forEach { loc ->
-            loc.allEntities?.filter { it !is CampaignFleetAPI && it !is CampaignProgressIndicatorAPI && it !is OrbitalStationAPI}
-                ?.randomOrNull()?.let{
-                if(numFleets >= MAX_NUMBER_OF_ACTIVE_SPAWNED_FLEETS) return
-                val fleet = createFactionFleet(faction)
-                if(fleet == null){
-                    Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet null")
-                    return
+            loc.allEntities?.filter { it !is CampaignFleetAPI && it !is CampaignProgressIndicatorAPI && it !is OrbitalStationAPI }
+                ?.randomOrNull()?.let {
+                    if (numFleets >= MAX_NUMBER_OF_ACTIVE_SPAWNED_FLEETS) return
+                    val fleet = createFactionFleet(faction)
+                    if (fleet == null) {
+                        Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet null")
+                        return
+                    }
+                    loc.spawnFleet(it, 10f, 10f, fleet)
+                    if (!Global.getSettings().isDevMode) return
                 }
-                loc.spawnFleet(it, 10f, 10f, fleet)
-                if(!Global.getSettings().isDevMode) return
-            }
         }
     }
 
-    private fun createFactionFleet(factionId: String, minDP: Int = (Math.random() * 300f).toInt(), name: String? = null) : CampaignFleetAPI? {
+    private fun createFactionFleet(
+        factionId: String,
+        minDP: Int = (Math.random() * 300f).toInt(),
+        name: String? = null
+    ): CampaignFleetAPI? {
         val faction = Global.getSector().getFaction(factionId)
-        if(faction == null){
+        if (faction == null) {
             Global.getLogger(this.javaClass).log(Level.ERROR, "Tried to create a fleet for unknown faction $factionId")
             return null
         }
@@ -59,28 +66,29 @@ class SVCFleetSpawner : EveryFrameScript {
         val fleet = Global.getFactory().createEmptyFleet(factionId, n, true)
 
 
-        while (fleet.fleetPoints < minDP){
+        while (fleet.fleetPoints < minDP) {
             val role = listOf("combatSmall", "combatSmall", "combatMedium", "combatLarge").random()
-            if(faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f){
+            if (faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f) {
                 Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet pick null")
                 return null
             }
             fleet.inflateIfNeeded()
         }
-        fleet.addEventListener(object : FleetEventListener{
+        fleet.addEventListener(object : FleetEventListener {
             override fun reportFleetDespawnedToListener(
                 fleet: CampaignFleetAPI?,
                 reason: CampaignEventListener.FleetDespawnReason?,
                 param: Any?
-            ) {}
+            ) {
+            }
 
             override fun reportBattleOccurred(
                 fleet: CampaignFleetAPI?,
                 primaryWinner: CampaignFleetAPI?,
                 battle: BattleAPI?
             ) {
-                if(primaryWinner?.isPlayerFleet == true){
-                    if (!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)){
+                if (primaryWinner?.isPlayerFleet == true) {
+                    if (!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)) {
                         NotificationShower.shouldNotificationBeShown = true
                     }
                     Global.getSector().memory.set(SVC_FLEET_DEFEATED_MEM_KEY, true)
@@ -91,7 +99,7 @@ class SVCFleetSpawner : EveryFrameScript {
         return fleet
     }
 
-    private fun countFactionFleets(faction: String): Int{
+    private fun countFactionFleets(faction: String): Int {
         return Global.getSector().allLocations.sumOf { loc ->
             loc.fleets.filterNotNull().count { it.faction.id == faction }
         }

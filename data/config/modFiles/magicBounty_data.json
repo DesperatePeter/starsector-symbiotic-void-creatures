@@ -28,7 +28,7 @@
         "job_intel_success": "The queen has been dealt with. For now, at least, this seems to have dealt a significant blow to their reproductive capabilites.",
         "job_intel_failure": "You are pretty sure that your employer intended for you to kill the queen, not enslave it.",
         "job_intel_expired": "",
-        "job_forFaction": "",
+        #"job_forFaction": "",
         #"job_deadline": 0,
         "job_credit_reward": 250000,
         "job_reward_scaling": 0,
