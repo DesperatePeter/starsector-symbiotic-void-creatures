@@ -11,7 +11,7 @@ class NotificationShower : EveryFrameScript {
         var shouldNotificationBeShown = false
             set(value) {field = value && !hasNotificationBeenShown}
         private var hasNotificationBeenShown : Boolean
-        by CampaignSettingDelegate<Boolean>("$" + SVC_MOD_ID + "wasNotificationShown", false)
+        by CampaignSettingDelegate("$" + SVC_MOD_ID + "wasNotificationShown", false)
     }
 
     override fun isDone(): Boolean = hasNotificationBeenShown

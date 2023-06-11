@@ -10,5 +10,10 @@
 	},
 		"designTypeColors":{
 		"Biological":[112,135,1,255],
+		},
+	"graphics": {
+		"backgrounds": {
+			"victory_notification_img": "graphics/backgrounds/BGE.jpg"
 		}
+	}
 }

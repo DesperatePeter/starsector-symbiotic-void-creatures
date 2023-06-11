@@ -26,7 +26,7 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
         if(!interval.intervalElapsed()) return
         val target = b.damageTarget ?: return
         val targetLoc = target.location ?: return
-        if(!(b.brightness > 1f)) return
+        if(b.brightness < 0.9f) return
         if(target.velocity == null) return
         val dvVec = VectorUtils.getDirectionalVector(beamLoc, targetLoc)
         (target as? ShipAPI)?.let {
@@ -36,7 +36,7 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
             if(it == b.source) return // why would the ship target itself? Oo
             // val dv = max(4000f / (it.mass + 0.000001f), 0.01f)
             dvVec.scale(computeForceAgainstShip(it, source))
-            Vector2f.add(it.velocity, dvVec, it.velocity)
+            Vector2f.add(source.velocity, dvVec, source.velocity)
             return
         }
         if(shouldAffectObjects()){
