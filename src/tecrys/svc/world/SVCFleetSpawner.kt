@@ -2,14 +2,13 @@ package tecrys.svc.world
 
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.campaign.CampaignFleetAPI
-import com.fs.starfarer.api.campaign.CampaignProgressIndicatorAPI
-import com.fs.starfarer.api.campaign.FactionAPI
-import com.fs.starfarer.api.campaign.OrbitalStationAPI
+import com.fs.starfarer.api.campaign.*
+import com.fs.starfarer.api.campaign.listeners.FleetEventListener
+import com.fs.starfarer.api.campaign.rules.MemoryAPI
+import com.fs.starfarer.api.combat.EngagementResultAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import org.apache.log4j.Level
-import tecrys.svc.SVC_FACTION_ID
-import tecrys.svc.UVC_FACTION_ID
+import tecrys.svc.*
 
 class SVCFleetSpawner : EveryFrameScript {
 
@@ -31,7 +30,7 @@ class SVCFleetSpawner : EveryFrameScript {
 
     private fun spawnFactionFleetsUntilLimit(faction: String) {
         val numFleets = countFactionFleets(faction)
-        Global.getSector().allLocations?.filter {
+         Global.getSector().allLocations?.filter {
                 loc -> loc.planets?.all { it.faction.id == "neutral" } ?: false
         }?.filter {
             it.fleets.none { loc -> loc.faction.id == faction }
@@ -45,7 +44,7 @@ class SVCFleetSpawner : EveryFrameScript {
                     return
                 }
                 loc.spawnFleet(it, 10f, 10f, fleet)
-                return
+                if(!Global.getSettings().isDevMode) return
             }
         }
     }
@@ -68,6 +67,27 @@ class SVCFleetSpawner : EveryFrameScript {
             }
             fleet.inflateIfNeeded()
         }
+        fleet.addEventListener(object : FleetEventListener{
+            override fun reportFleetDespawnedToListener(
+                fleet: CampaignFleetAPI?,
+                reason: CampaignEventListener.FleetDespawnReason?,
+                param: Any?
+            ) {}
+
+            override fun reportBattleOccurred(
+                fleet: CampaignFleetAPI?,
+                primaryWinner: CampaignFleetAPI?,
+                battle: BattleAPI?
+            ) {
+                if(primaryWinner?.isPlayerFleet == true){
+                    if (!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)){
+                        NotificationShower.shouldNotificationBeShown = true
+                    }
+                    Global.getSector().memory.set(SVC_FLEET_DEFEATED_MEM_KEY, true)
+                }
+            }
+
+        })
         return fleet
     }
 
