@@ -1,0 +1,5 @@
+{
+  "svc_notification_strings" : {
+    "svc_voidlings_defeated" : "You have defeated a voidling fleet! Congratulations! You might now get a MagicBounty offered. This text is a placeholder"
+  }
+}
