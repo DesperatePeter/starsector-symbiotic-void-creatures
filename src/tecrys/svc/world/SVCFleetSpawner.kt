@@ -14,7 +14,7 @@ class SVCFleetSpawner : EveryFrameScript {
 
     companion object {
         const val MAX_NUMBER_OF_ACTIVE_SPAWNED_FLEETS = 100
-        val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID, UVC_FACTION_ID)
+        val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID) // UVC_FACTION_ID
     }
 
     private val interval = IntervalUtil(50f, 250f)
