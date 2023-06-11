@@ -1,27 +1,26 @@
 {
   "id": "svc_fangcluster",
   "specClass": "projectile",
-  "projectileSpecId": "vulcan_shot",
+  "projectileSpecId": "svc_teeth_shot",
   "type": "COMPOSITE",
   "size": "MEDIUM",
-  "turretSprite": "graphics/weapons/svc_fangcluster_turret_base.png",
-  "turretGunSprite": "graphics/weapons/svc_fangcluster_shot.png",
-  "turretUnderSprite": "graphics/weapons/svc_fangcluster_under.png",
-  "hardpointSprite": "graphics/weapons/svc_fangcluster_turret_recoil.png",
-  	"renderHints":[RENDER_BARREL_BELOW],
-  "visualRecoil": -5,
+  "turretSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
+  "hardpointSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
+  "renderHints": [
+    RENDER_BARREL_BELOW
+  ],
   "turretOffsets": [
-    1.5,
+    -0.5,
     3.5,
-    1.5,
+    -0.5,
     -3.5,
-    -1.5,
+    -4,
     6.5,
-    -1.5,
+    -4,
     -6.5,
-    -9.5,
+    -11.5,
     4.5,
-    -9.5,
+    -11.5,
     -4.5
   ],
   "turretAngleOffsets": [
@@ -41,19 +40,21 @@
   ],
   "barrelMode": "ALTERNATING",
   "animationType": "MUZZLE_FLASH",
-  "requiresFullCharge": false,
+  "numFrames": 19,
+  "frameRate": 8,
+  "autocharge": true,
   "muzzleFlashSpec": {
-    "length": 30,
-    "spread": 20,
-    "particleSizeMin": 10,
+    "length": 8,
+    "spread": 10,
+    "particleSizeMin": 1,
     "particleSizeRange": 10,
-    "particleDuration": 0.5,
-    "particleCount": 10,
+    "particleDuration": 0.7,
+    "particleCount": 12,
     "particleColor": [
-      255,
-      255,
-      255,
-      255
+      200,
+      0,
+      0,
+      200
     ]
   }
 }
