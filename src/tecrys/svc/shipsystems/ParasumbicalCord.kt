@@ -16,7 +16,8 @@ import java.awt.Color
 
 class ParasumbicalCord: BaseShipSystemScript() {
     companion object{
-        const val SYSTEM_RANGE = 600f
+        const val SYSTEM_SUSTAIN_RANGE = 700f
+        const val SYSTEM_ACTIVATION_RANGE = SYSTEM_SUSTAIN_RANGE -100f
         private val INNER_COLOR = Color.ORANGE
         private val OUTER_COLOR = Color.PINK
         const val INNER_BEAM_WIDTH = 10f
@@ -76,7 +77,7 @@ class ParasumbicalCord: BaseShipSystemScript() {
 
     private fun isActiveTargetInRange(thisShip: ShipAPI): Boolean{
         val tgt = damageSharingListener?.shipTarget?.location ?: return false
-        return (thisShip.location - tgt).length() <= SYSTEM_RANGE
+        return (thisShip.location - tgt).length() <= SYSTEM_SUSTAIN_RANGE
     }
 
     private fun applyEffect(thisShip: ShipAPI, target: ShipAPI){
@@ -96,7 +97,7 @@ class ParasumbicalCord: BaseShipSystemScript() {
     override fun isUsable(system: ShipSystemAPI?, ship: ShipAPI?): Boolean {
         ship?.run {
             val tgt = shipTarget ?: return false
-            return (location - tgt.location).length() <= SYSTEM_RANGE
+            return (location - tgt.location).length() <= SYSTEM_ACTIVATION_RANGE
         }
         return false
     }
