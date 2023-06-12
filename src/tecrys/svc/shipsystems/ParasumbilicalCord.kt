@@ -14,7 +14,7 @@ import tecrys.svc.CombatPlugin
 import tecrys.svc.shipsystems.utils.DamageSharingListener
 import java.awt.Color
 
-class ParasumbicalCord: BaseShipSystemScript() {
+class ParasumbilicalCord: BaseShipSystemScript() {
     companion object{
         const val SYSTEM_SUSTAIN_RANGE = 700f
         const val SYSTEM_ACTIVATION_RANGE = SYSTEM_SUSTAIN_RANGE -100f
