@@ -80,6 +80,7 @@ class BGECarapace : BaseHullMod() {
         ship.explosionFlashColorOverride = Color.RED
         ship.addListener(ReduceExplosionListener())
         ship.isInvalidTransferCommandTarget = true
+        ship.setCustomData("AGC_ApplyCustomShipModes", listOf("Charge"))
     }
 
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
