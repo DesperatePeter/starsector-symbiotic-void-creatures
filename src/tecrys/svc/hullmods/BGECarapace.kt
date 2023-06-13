@@ -81,6 +81,7 @@ class BGECarapace : BaseHullMod() {
         ship.addListener(ReduceExplosionListener())
         ship.isInvalidTransferCommandTarget = true
         ship.setCustomData("AGC_ApplyCustomShipModes", listOf("Charge"))
+        ship.setCustomData("AGC_ApplyCustomOptions", mapOf("svc_inksac" to listOf("BlockBeams", "PrioMissile")))
     }
 
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){

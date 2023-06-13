@@ -1,0 +1,8 @@
+{
+  "AdvancedGunneryControl": {
+    "suggestedWeaponTags" : {
+      "svc_inksac": "BlockBeams,PrioMissile",
+      "svc_fangcluster": "TargetShields"
+    }
+  }
+}
