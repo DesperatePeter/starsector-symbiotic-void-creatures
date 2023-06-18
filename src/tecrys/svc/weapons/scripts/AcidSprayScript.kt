@@ -15,8 +15,9 @@ class AcidSprayScript(
     velocity: Vector2f,
     effectColor: Color,
     effectRadius: Float,
-    duration: Float
-) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration) {
+    duration: Float,
+    effectRadiusGrowth: Float
+) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration, effectRadiusGrowth) {
 
     companion object{
         const val ARMOR_DAMAGE_PER_CELL_PER_SECOND = 10f
@@ -26,7 +27,7 @@ class AcidSprayScript(
     override fun executeOnAdvance(amount: Float) {
         val dmg = ARMOR_DAMAGE_PER_CELL_PER_SECOND * amount
         var totalDamage = 0f
-        CombatUtils.getShipsWithinRange(location, effectRadius).filterNotNull().filter {
+        CombatUtils.getShipsWithinRange(location, currentRadius).filterNotNull().filter {
             ship.owner != it.owner && it.phaseCloak?.isActive != true
         }.forEach {
             val grid = it.armorGrid.grid
@@ -34,7 +35,7 @@ class AcidSprayScript(
                 val row = grid[i]
                 for(j in row.indices){
                     val loc = it.armorGrid.getLocation(i, j)
-                    if((loc - location).length() <= effectRadius){
+                    if((loc - location).length() <= currentRadius){
                         val previousValue = grid[i][j]
                         grid[i][j] = max(0f, grid[i][j] - dmg)
                         totalDamage += previousValue - grid[i][j]

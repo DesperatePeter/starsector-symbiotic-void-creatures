@@ -1,0 +1,8 @@
+{
+	"id":"svc_parasumbilical_cord",
+	"type":"STAT_MOD",
+	"aiType":"ACAUSAL_DISRUPTOR",
+	"statsScript":"tecrys.svc.shipsystems.ParasumbilicalCord",
+	"useSound":"system_quantumdisruptor",
+    "outOfUsesSound":"gun_out_of_ammo",
+}

@@ -1,5 +1,5 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
-Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s increased EMP damage, their bodies take %s reduced damage if weapons fire 
+Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s increased EMP damage, their bodies take %s reduced damage if weapons fire
 is able to break through their carapace and they regenerate quickly if wounded or limbs are damaged.
 They also seem to be unaffected by ship explosions.
 Void Creatures do not explode when disabled or killed.",Very tough carapace protecting the creature from harsh space.,,graphics/hullmods/carapace.png
@@ -15,3 +15,6 @@ BGE Accelerated Metabolism,acceleratedmetabolism,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,da
 BGE Thickened Shell,thickenedshell,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.thickenedshell,,,,graphics/hullmods/carapace.png
 ,,,,,,,,,,,,,,,,,,,
 BGE Antimatter Fat Layer,antimatterfatlayer,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.antimatterfatlayer,,,,graphics/hullmods/carapace.png
+Alpha Voidling,svc_alpha_voidling,,,,"no_drop, no_drop_salvage",Special,,TRUE,TRUE,TRUE,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
+ They are extremely territorial, to the extent that trying to include more than one into a fleet will cause them to constantly fight for dominance,
+  rendering them ineffective for combat.","Only one per fleet allowed.",,graphics/hullmods/carapace.png
