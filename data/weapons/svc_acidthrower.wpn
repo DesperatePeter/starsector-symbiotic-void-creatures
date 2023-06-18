@@ -10,9 +10,6 @@
   "specialWeaponGlowHeight": 30,
   "specialWeaponGlowWidth": 10,
   "visualRecoil": 8,
-  "renderHints": [
-
-  ],
   "turretOffsets": [
     14.5,
     0
@@ -38,16 +35,16 @@
   "autocharge": true,
   "muzzleFlashSpec": {
     "length": 20,
-    "spread": 100,
+    "spread": 10,
     "particleSizeMin": 5,
     "particleSizeRange": 30,
     "particleDuration": 3,
-    "particleCount": 25,
+    "particleCount": 5,
     "particleColor": [
       0,
       255,
       0,
-      80
+      20
     ]
   },
   "fireSoundOne": "svc_weapon_acid"
