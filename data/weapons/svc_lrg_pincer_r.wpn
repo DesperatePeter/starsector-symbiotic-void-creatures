@@ -22,5 +22,5 @@
 					   "particleCount":15,
 					   "particleColor":[155,100,255,255]},	
 	"projectileSpecId":"svc_lrg_pincer_left_shot",  # projectile that will be fired
-	"fireSoundTwo":"weapon_pincer",	
+	"fireSoundTwo":"svc_weapon_pincer",	
 }

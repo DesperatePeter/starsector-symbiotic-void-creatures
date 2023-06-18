@@ -22,11 +22,11 @@ Pincer Claw,svc_lrg_pincer_r,2,,6500,150,,450,250,2000,60,0,,,,HIGH_EXPLOSIVE,15
 Grappler Tendril,svc_bge_grappler,2,,1000,900,25,,25,0,20,2,,,,OTHER,,10,0.5,1,1,1,0,0,0,0,4500,,,,,,,,"no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,1006
 Mini Tendril,svc_bge_mini_grappler,2,,3000,300,25,,25,0,20,10,,,,KINETIC,,80,0,0.25,1,1,,,,,3500,,,,,,,"PD,ANTI_FTR","no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,1007
 Mord Tendril,svc_bge_mord_grappler,2,,3000,300,25,,25,0,20,10,,,,KINETIC,,80,0,0.25,,1,,,,,3500,,,,,,,"PD,ANTI_FTR","no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,1009
-Acid Spitter,svc_acidthrower,3,,3000,600,,5,,1,15,10,60,1,,HIGH_EXPLOSIVE,5,,0,6,50,0,30,60,3,5,,800,1200,,10,,,,"no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,5.75
+Acid Spitter,svc_acidthrower,3,,3000,600,,5,,1,15,10,60,1,,HIGH_EXPLOSIVE,5,,0,6,1,0,30,60,3,5,,800,1200,,10,,,,"no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,5.75
 Spawner,svc_spawner,0,,150,1500,,200,,20,30,4,50,,,HIGH_EXPLOSIVE,0,,0,5,5,0.2,0,0,0,0,,250,50,,50,,,,"no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,11
 Tentacle Whip,svc_bge_grappler_pd,2,,1000,450,25,,25,0,20,4,,,,FRAGMENTATION,,180,0,0.25,0.25,0.75,,,,,4500,,,,,,,"PD,ANTI_FTR","no_sell, no_dealer, no_drop_salvage, restricted",,Biological,,General,,,,,,,,,,1010
 Fang Cluster,svc_fangcluster,3,0.3,800,700,,50,,1,10,8,6,1.7,6,KINETIC,40,,0,1,6,0.15,2,15,0.66,5,,1200,,,10,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, RESET_BARREL_INDEX_ON_BURST",,,,,Anti Shield,,,,,,,,,,3.65
-Ink Sac,svc_inksac,3,0.3,800,600,,0,,1,10,8,6,1.7,6,KINETIC,40,,0,1,6,0.15,2,15,0.66,5,,1200,,,10,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, RESET_BARREL_INDEX_ON_BURST",,,,,Anti Shield,,,,,,,,,,3.65
+Ink Sac,svc_inksac,3,0.3,800,400,,0,,1,10,8,,,,KINETIC,40,,0,1,2,0,2,15,0.66,5,,1200,,,10,,,"PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, RESET_BARREL_INDEX_ON_BURST",,,,,Anti Shield,,,,,,,,,,3.65
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Decoratives:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

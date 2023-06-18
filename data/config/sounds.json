@@ -1,67 +1,71 @@
 {
 
-	"system_adrenaline_rush":[
-		{"file":"sounds/fleshreforminglikesound3.ogg","pitch":2.0,"volume":0.5},
+	"svc_system_adrenaline_rush":[
+		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":2.0,"volume":0.5},
 
 	],	
 
-	"system_berzerk":[
-		{"file":"sounds/Roar7.ogg","pitch":2.0,"volume":0.1},
+	"svc_system_berzerk":[
+		{"file":"sounds/svc_Roar7.ogg","pitch":2.0,"volume":0.1},
 
 	],	
 
-	"weapon_grappler":[
-		{"file":"sounds/Whip.ogg","pitch":0.8,"volume":0.1},
+	"svc_weapon_grappler":[
+		{"file":"sounds/svc_Whip.ogg","pitch":0.8,"volume":0.1},
 
 	],	
-	"weapon_scythe":[
-		{"file":"sounds/syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
-	],	
-
-	"weapon_pincer":[
-		{"file":"sounds/syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
-	],	
-
-	"weapon_acid":[
-		{"file":"sounds/growlsound6.ogg","pitch":4,"volume":0.2},
+		"svc_weapon_inkspray":[
+		{"file":"sounds/svc_inkspray.ogg","pitch":0.8,"volume":0.1},
 
 	],	
-		"engine_tentacle_loop":[
-		{"file":"sounds/fleshreforminglikesound3.ogg","pitch":1,"volume":0.4},
-		{"file":"sounds/fleshreforminglikesound.ogg","pitch":1,"volume":0.5},	
+	"svc_weapon_scythe":[
+		{"file":"sounds/svc_syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
+	],	
+
+	"svc_weapon_pincer":[
+		{"file":"sounds/svc_syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
+	],	
+
+	"svc_weapon_acid":[
+		{"file":"sounds/svc_growlsound6.ogg","pitch":4,"volume":0.2},
 
 	],	
-			"engine_tentacle_accelerate":[
-		{"file":"sounds/Roar20.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/Roar1.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/Roar5.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/Roar6.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.1},
-		{"file":"sounds/Roar12.ogg","pitch":1,"volume":0.1},
+		"svc_engine_tentacle_loop":[
+		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/svc_fleshreforminglikesound.ogg","pitch":1,"volume":0.5},	
 
 	],	
-				"creature_emp_loop":[
-		{"file":"sounds/Roar15.ogg","pitch":1,"volume":0.2},
-		{"file":"sounds/Roar17.ogg","pitch":1,"volume":0.2},
-		{"file":"sounds/Roar18.ogg","pitch":1,"volume":0.2},		
-		{"file":"sounds/growlsound6.ogg","pitch":1,"volume":0.2},
+			"svc_engine_tentacle_accelerate":[
+		{"file":"sounds/svc_Roar20.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/svc_Roar1.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/svc_Roar5.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/svc_Roar6.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.1},
+		{"file":"sounds/svc_Roar12.ogg","pitch":1,"volume":0.1},
+
 	],	
-					"creature_pain":[
-		{"file":"sounds/Roar20.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/Roar1.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/Roar4.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/Roar5.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/Roar6.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.4},
-		{"file":"sounds/Roar12.ogg","pitch":1,"volume":0.4},
-		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/Roar8.ogg","pitch":1,"volume":0.3},
+				"svc_creature_emp_loop":[
+		{"file":"sounds/svc_Roar15.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar17.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar18.ogg","pitch":1,"volume":0.2},		
+		{"file":"sounds/svc_growlsound6.ogg","pitch":1,"volume":0.2},
+	],	
+					"svc_creature_pain":[
+		{"file":"sounds/svc_Roar20.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar1.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar4.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar5.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar6.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/svc_Roar12.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
 	],	
 }
 }

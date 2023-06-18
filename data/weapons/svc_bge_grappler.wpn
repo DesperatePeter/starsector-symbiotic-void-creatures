@@ -25,6 +25,6 @@
 	"textureScrollSpeed":0,
 	"pixelsPerTexel":6.3,
 	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER],
-	"fireSoundOne":"weapon_grappler",
+	"fireSoundOne":"svc_weapon_grappler",
 	#"fireSoundTwo":"laser_loop",
 }

@@ -23,20 +23,20 @@
   "barrelMode": "LINKED",
   "animationType": "MUZZLE_FLASH",
   "numFrames": 27,
-  "frameRate": 8,
+  "frameRate": 12,
   "muzzleFlashSpec": {
-    "length": 100,
-    "spread": 35,
-    "particleSizeMin": 10,
-    "particleSizeRange": 50,
-    "particleDuration": 5,
-    "particleCount": 100,
+    "length": 20,
+    "spread": 100,
+    "particleSizeMin": 5,
+    "particleSizeRange": 30,
+    "particleDuration": 3,
+    "particleCount": 25,
     "particleColor": [
       110,
       0,
       200,
-      180
+      60
     ]
   },
-  "fireSoundOne": "weapon_acid"
+  "fireSoundOne": "svc_weapon_inkspray"
 }

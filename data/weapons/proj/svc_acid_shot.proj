@@ -2,7 +2,7 @@
 	"id":"svc_acid_shot",
 	"specClass":"projectile",
 	"spawnType":"BALLISTIC",
-        #"onHitEffect":"data.scripts.weapons.AcidOnHitEffect",
+        "onFireEffect":"tecrys.svc.weapons.AcidSprayEffect",
 	"collisionClass":"PROJECTILE_FF",
 	"collisionClassByFighter":"PROJECTILE_FIGHTER",
 	"length":30.0,
