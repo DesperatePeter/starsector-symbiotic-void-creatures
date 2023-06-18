@@ -12,7 +12,8 @@ import java.awt.Color
 class AcidSprayEffect: OnFireEffectPlugin {
     companion object{
         private const val EFFECT_DURATION = 2f
-        private const val EFFECT_RADIUS = 100f
+        private const val INITIAL_EFFECT_RADIUS = 25f
+        private const val EFFECT_RADIUS_GROWTH = 50f
         private const val EFFECT_SPEED = 200f
         private val EFFECT_COLOR = Color.GREEN
     }
@@ -20,10 +21,10 @@ class AcidSprayEffect: OnFireEffectPlugin {
         val w = weapon ?: return
         val e = engine ?: return
         val effectOffset = vectorFromAngleDeg(w.currAngle)
-        effectOffset.scale(EFFECT_RADIUS / 2f)
+        effectOffset.scale(INITIAL_EFFECT_RADIUS)
         val effectLocation = w.location + effectOffset
-        effectOffset.scale(EFFECT_SPEED / w.range)
+        effectOffset.scale(EFFECT_SPEED / INITIAL_EFFECT_RADIUS)
         val velocity = w.ship.velocity + effectOffset
-        e.addPlugin(AcidSprayScript(w.ship, e, effectLocation, velocity, EFFECT_COLOR, EFFECT_RADIUS, EFFECT_DURATION))
+        e.addPlugin(AcidSprayScript(w.ship, e, effectLocation, velocity, EFFECT_COLOR, INITIAL_EFFECT_RADIUS, EFFECT_DURATION, EFFECT_RADIUS_GROWTH))
     }
 }
