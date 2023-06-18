@@ -34,15 +34,15 @@
   "frameRate": 12,
   "autocharge": true,
   "muzzleFlashSpec": {
-    "length": 20,
+    "length": 15,
     "spread": 10,
     "particleSizeMin": 5,
-    "particleSizeRange": 30,
+    "particleSizeRange": 15,
     "particleDuration": 3,
-    "particleCount": 5,
+    "particleCount": 3,
     "particleColor": [
-      0,
-      255,
+      104,
+      128,
       0,
       20
     ]

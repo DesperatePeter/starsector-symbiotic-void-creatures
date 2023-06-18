@@ -11,11 +11,11 @@ import java.awt.Color
 
 class AcidSprayEffect: OnFireEffectPlugin {
     companion object{
-        private const val EFFECT_DURATION = 2f
+        private const val EFFECT_DURATION = 3f
         private const val INITIAL_EFFECT_RADIUS = 2f
         private const val EFFECT_RADIUS_GROWTH = 50f
         private const val EFFECT_SPEED = 200f
-        private val EFFECT_COLOR = Color(50, 200, 0, 50)
+        private val EFFECT_COLOR = Color(104, 128, 0, 20)
     }
     override fun onFire(projectile: DamagingProjectileAPI?, weapon: WeaponAPI?, engine: CombatEngineAPI?) {
         val w = weapon ?: return
