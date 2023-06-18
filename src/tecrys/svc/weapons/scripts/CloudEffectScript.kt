@@ -3,7 +3,9 @@ package tecrys.svc.weapons.scripts
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.CombatEngineAPI
+import com.fs.starfarer.api.combat.CombatNebulaAPI
 import com.fs.starfarer.api.input.InputEventAPI
+import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import java.awt.Color
@@ -19,6 +21,7 @@ abstract class CloudEffectScript(
 ) : BaseEveryFrameCombatPlugin() {
     private var hasParticleBeenAdded = false
     protected var currentRadius = initialEffectRadius
+    private val fullDuration = duration
 
     abstract fun executeOnRemoval()
     abstract fun executeOnAdvance(amount: Float)
@@ -34,19 +37,32 @@ abstract class CloudEffectScript(
         }
         // add visual effect
         if (!hasParticleBeenAdded) {
-            val endSizeMult = (initialEffectRadius + (effectRadiusGrowthPerSecond * duration)) / initialEffectRadius
-            engine.addNebulaParticle(
-                location,
-                velocity,
-                2f * initialEffectRadius,
-                endSizeMult,
-                1f,
-                1f,
-                duration,
-                effectColor
-            )
+            fun d(c: Int) = MathUtils.clamp(c + ((Math.random() - 0.5) * 250f).toInt(), 0, 255)
+
+            var tmpDuration = duration
+            while (tmpDuration > duration / 2f){
+                val color = Color( d(effectColor.red),  d(effectColor.green), d(effectColor.blue), effectColor.alpha)
+                val endSizeMult = (initialEffectRadius + (effectRadiusGrowthPerSecond * tmpDuration)) / initialEffectRadius
+                engine.addNebulaParticle(
+                    location,
+                    velocity,
+                    2f * initialEffectRadius,
+                    endSizeMult,
+                    0.5f,
+                    0.8f,
+                    tmpDuration,
+                    color
+                )
+                tmpDuration -= Math.random().toFloat() * (fullDuration * 0.2f)
+            }
+
             hasParticleBeenAdded = true
         }
+//        if(duration/fullDuration < 0.5f && !hasNegParticleBeenAdded){
+//            val endSizeMult = (currentRadius + (effectRadiusGrowthPerSecond * duration)) / currentRadius
+//            engine.addNegativeNebulaParticle(location, velocity, currentRadius, endSizeMult, 1f, 1f, duration, effectColor)
+//            hasNegParticleBeenAdded = true
+//        }
         val dLoc = Vector2f(velocity.x, velocity.y) // make sure we actually copy
         dLoc.scale(amount)
         location += dLoc

@@ -15,7 +15,7 @@ class AcidSprayEffect: OnFireEffectPlugin {
         private const val INITIAL_EFFECT_RADIUS = 2f
         private const val EFFECT_RADIUS_GROWTH = 50f
         private const val EFFECT_SPEED = 200f
-        private val EFFECT_COLOR = Color.GREEN
+        private val EFFECT_COLOR = Color(50, 200, 0, 50)
     }
     override fun onFire(projectile: DamagingProjectileAPI?, weapon: WeaponAPI?, engine: CombatEngineAPI?) {
         val w = weapon ?: return
