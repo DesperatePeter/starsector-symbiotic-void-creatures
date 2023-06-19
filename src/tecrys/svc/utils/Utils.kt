@@ -1,6 +1,10 @@
 package tecrys.svc.utils
 
 import com.fs.starfarer.api.combat.ArmorGridAPI
+import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipwideAIFlags
+import org.lazywizard.lazylib.combat.CombatUtils
+import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
 import kotlin.math.PI
 import kotlin.math.abs
@@ -10,6 +14,17 @@ import kotlin.math.sin
 const val degToRad: Float = PI.toFloat() / 180f
 fun vectorFromAngleDeg(angle: Float): Vector2f {
     return Vector2f(cos(angle * degToRad), sin(angle * degToRad))
+}
+
+fun ShipAPI.getEffectiveShipTarget(): ShipAPI?{
+    shipTarget?.let { return it }
+    (aiFlags?.getCustom(ShipwideAIFlags.AIFlags.MANEUVER_TARGET) as? ShipAPI)?.let { return it }
+    location?.let { loc ->
+        return CombatUtils.getShipsWithinRange(loc, 600f).filterNotNull().filter {
+            it.owner != owner && it.owner != 100
+        }.minByOrNull { (loc - it.location).length() }
+    }
+    return null
 }
 
 fun computeEffectiveArmorAroundIndex(armor: ArmorGridAPI, x: Int, y: Int) : Float{

@@ -12,6 +12,7 @@ import org.lazywizard.lazylib.ext.minus
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.CombatPlugin
 import tecrys.svc.shipsystems.utils.DamageSharingListener
+import tecrys.svc.utils.getEffectiveShipTarget
 import java.awt.Color
 
 class ParasumbilicalCord: BaseShipSystemScript() {
@@ -50,11 +51,11 @@ class ParasumbilicalCord: BaseShipSystemScript() {
 
     private fun onActive(thisShip: ShipAPI){
         if(damageSharingListener == null){
-            thisShip.shipTarget?.let {
+            thisShip.getEffectiveShipTarget()?.let {
                 applyEffect(thisShip, it)
             }
         }
-        if(!isActiveTargetInRange(thisShip)){
+        if(!isActiveTargetInSustainRange(thisShip)){
             unApplyEffect(thisShip)
             thisShip.system?.forceState(ShipSystemAPI.SystemState.OUT, 0.5f)
             return
@@ -75,7 +76,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
         ))
     }
 
-    private fun isActiveTargetInRange(thisShip: ShipAPI): Boolean{
+    private fun isActiveTargetInSustainRange(thisShip: ShipAPI): Boolean{
         val tgt = damageSharingListener?.shipTarget?.location ?: return false
         return (thisShip.location - tgt).length() <= SYSTEM_SUSTAIN_RANGE
     }
@@ -96,7 +97,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
 
     override fun isUsable(system: ShipSystemAPI?, ship: ShipAPI?): Boolean {
         ship?.run {
-            val tgt = shipTarget ?: return false
+            val tgt = getEffectiveShipTarget() ?: return false
             return (location - tgt.location).length() <= SYSTEM_ACTIVATION_RANGE
         }
         return false
@@ -105,7 +106,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
     override fun getInfoText(system: ShipSystemAPI?, ship: ShipAPI?): String {
         return when(system?.state){
             ShipSystemAPI.SystemState.ACTIVE -> "Attached"
-            ShipSystemAPI.SystemState.IDLE -> if(ship?.shipTarget == null) "No target" else if(isUsable(system, ship)) "In Range" else "Out of Range"
+            ShipSystemAPI.SystemState.IDLE -> if(ship?.getEffectiveShipTarget() == null) "No target" else if(isUsable(system, ship)) "In Range" else "Out of Range"
             ShipSystemAPI.SystemState.COOLDOWN -> "Recharging"
             ShipSystemAPI.SystemState.IN -> "Attaching"
             ShipSystemAPI.SystemState.OUT -> "Fading"
