@@ -11,7 +11,7 @@ import java.awt.Color
 
 class AcidSprayEffect: OnFireEffectPlugin {
     companion object{
-        private const val EFFECT_DURATION = 3f
+        private const val EFFECT_DURATION = 2.3f
         private const val INITIAL_EFFECT_RADIUS = 2f
         private const val EFFECT_RADIUS_GROWTH = 50f
         private const val EFFECT_SPEED = 200f

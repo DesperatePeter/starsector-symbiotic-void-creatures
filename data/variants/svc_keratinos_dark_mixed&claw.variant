@@ -1,0 +1,75 @@
+{
+  "variantId": "svc_keratinos_dark_mixed&claw",
+  "hullId": "svc_keratinos_dark",
+  "displayName": "Acid Claw",
+  "goalVariant": false,
+  "fluxCapacitors": 4,
+  "fluxVents": 4,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler3": "svc_bge_grappler",
+        "right_grappler3": "svc_bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Alphaleft1": "svc_fangcluster",
+        "Alpharight1": "svc_fangcluster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_small_mand": "svc_adv_sml_mand_l",
+        "left_sml_mand2": "svc_adv_lrg_mand_l",
+        "left_sml_mand3": "svc_adv_lrg_mand_l",
+        "right_sml_mand": "svc_adv_sml_mand_r",
+        "right_sml_mand2": "svc_adv_lrg_mand_r",
+        "right_sml_mand3": "svc_adv_lrg_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "Alphaleft3": "svc_inksac",
+        "Alpharight3": "svc_inksac"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Alphaleft2": "svc_acidthrower",
+        "Alpharight2": "svc_acidthrower"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni2": "svc_adv_med_scythe_l",
+        "right_med_uni": "svc_adv_med_scythe_r"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

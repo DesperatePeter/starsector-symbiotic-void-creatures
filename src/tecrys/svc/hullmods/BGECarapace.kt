@@ -16,12 +16,12 @@ import java.awt.Color
 class BGECarapace : BaseHullMod() {
 
     companion object{
-        private const val ENGINE_DAMAGE_TAKEN = 0.1f
+        private const val ENGINE_DAMAGE_TAKEN = 0.5f
         private const val EMP_RESISTANCE = 50f
         private const val HULL_RESISTANCE = 30f
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
-        private const val POWER_SCALING_MIN_POWER = 0.7f
+        private const val POWER_SCALING_MIN_POWER = 0.6f
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
         private val BLOCKED_HULLMODS = setOf("turretgyros", "advancedoptics", "autorepair", "dedicated_targeting_core", "targetingunit", "augmentedengines",
             "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
@@ -33,7 +33,7 @@ class BGECarapace : BaseHullMod() {
             empDamageTakenMult.modifyMult(id, 1f + EMP_RESISTANCE * 0.01f)
             hullDamageTakenMult.modifyMult(id, 1f - HULL_RESISTANCE * 0.01f)
             combatWeaponRepairTimeMult.modifyMult(id,0.3f)
-            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 2f)
+            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 1f)
             maxCombatHullRepairFraction.modifyFlat(id, 1f)
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)

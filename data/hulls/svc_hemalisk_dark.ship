@@ -31,15 +31,11 @@
     "WS0013": "svc_Hemalisk_left",
     "left_grappler": "svc_bge_grappler",
     "left_mand": "svc_adv_sml_mand_l",
-    "left_med_uni": "svc_adv_med_scythe_l",
-    "left_med_uni2": "svc_adv_med_scythe_l",
     "left_pd": "svc_bge_grappler_pd",
     "left_tentacle1": "svc_tentacle_left_small",
     "left_tentacle2": "svc_tentacle_left_medium",
     "right_grappler": "svc_bge_grappler",
     "right_mand": "svc_adv_sml_mand_r",
-    "right_med_uni": "svc_adv_med_scythe_r",
-    "right_med_uni2": "svc_adv_med_scythe_r",
     "right_pd": "svc_bge_grappler_pd",
     "right_tentacle1": "svc_tentacle_right_small",
     "right_tentacle2": "svc_tentacle_right_medium"
@@ -313,6 +309,35 @@
       "angle": -0,
       "locations": [2.5, 34.5],
       "renderOrderMod": 5
+    },
+    {
+      "id": "Alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -5,
+      "locations": [8.5, 26.5],
+      "renderOrderMod": 10
+    },
+    {
+      "id": "Alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 5,
+      "locations": [8.5, -26.5],
+      "renderOrderMod": 10
+    },
+    {
+      "id": "Alphamiddle1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-8.5, -0]
     }
   ],
   "engineSlots": [

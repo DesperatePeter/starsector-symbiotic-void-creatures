@@ -16,8 +16,8 @@ class BerserkerFrenzy : BaseShipSystemScript() {
     companion object {
         private const val ROF_BUFF = 1.25f
         private const val LIFE_STEAL = 0.1f
-        private const val MOVEMENT_BUFF = 1.25f
-        private const val MANEUVER_BUFF = 2.0f
+        private const val MOVEMENT_BUFF = 1.0f
+        private const val MANEUVER_BUFF = 1.0f
         private const val HULL_DAMAGE_TAKEN = 0.9f
         private const val ENGINE_DAMAGE_TAKEN = 0.1f
         private const val WEAPON_DAMAGE_TAKEN = 0.5f

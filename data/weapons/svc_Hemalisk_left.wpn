@@ -4,6 +4,7 @@
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 1.0,
+		        "renderBelowAllWeapons": true,
 	"turretSprite":"graphics/weapons/deco/Hemalisk_left.png",
 	"hardpointSprite":"graphics/weapons/deco/Hemalisk_left.png",
 

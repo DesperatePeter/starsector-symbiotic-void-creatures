@@ -21,28 +21,18 @@
     "WS0003": "svc_Keratinos_right",
     "WS0004": "svc_Keratinos_left",
     "left_grappler": "svc_bge_grappler_pd",
-    "left_grappler2": "svc_bge_grappler",
-    "left_grappler3": "svc_bge_grappler",
     "left_long_fin": "svc_tentacle_left_huge",
     "left_long_fin2": "svc_tentacle_right_gargantuan_barbed",
     "left_long_fin3": "svc_tentacle_right_huge_dark",
     "left_long_fin4": "svc_tentacle_left_large",
-    "left_lrg_uni": "svc_adv_lrg_scythe_l",
-    "left_med_uni1": "svc_adv_med_scythe_l",
-    "left_med_uni2": "svc_adv_med_scythe_l",
     "left_small_mand": "svc_adv_sml_mand_l",
     "left_sml_mand2": "svc_adv_lrg_mand_l",
     "left_sml_mand3": "svc_adv_lrg_mand_l",
     "right_grappler": "svc_bge_grappler_pd",
-    "right_grappler2": "svc_bge_grappler",
-    "right_grappler3": "svc_bge_grappler",
     "right_long_fin": "svc_tentacle_right_huge",
     "right_long_fin2": "svc_tentacle_left_gargantuan_barbed",
     "right_long_fin3": "svc_tentacle_left_huge_dark",
     "right_long_fin4": "svc_tentacle_right_large",
-    "right_lrg_uni": "svc_adv_lrg_scythe_r",
-    "right_med_uni": "svc_adv_med_scythe_r",
-    "right_med_uni_1": "svc_adv_med_scythe_r",
     "right_sml_mand": "svc_adv_sml_mand_r",
     "right_sml_mand2": "svc_adv_lrg_mand_r",
     "right_sml_mand3": "svc_adv_lrg_mand_r"
@@ -125,7 +115,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180.895004,
+      "arc": 210,
       "angle": 90,
       "locations": [3.5, 68.5]
     },
@@ -134,7 +124,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180.895004,
+      "arc": 210,
       "angle": -90,
       "locations": [3.5, -68.5]
     },
@@ -302,8 +292,8 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 68.494003,
-      "angle": -31.608,
+      "arc": 72,
+      "angle": -31,
       "locations": [19.5, 44]
     },
     {
@@ -311,8 +301,8 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 68.494003,
-      "angle": 31.608,
+      "arc": 72,
+      "angle": 31,
       "locations": [19.5, -44]
     },
     {
@@ -340,7 +330,8 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [-27, -75.5]
+      "locations": [-27, -75.5],
+      "renderOrderMod": 3
     },
     {
       "id": "WS0004",
@@ -349,7 +340,82 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -0,
-      "locations": [-27, 75.5]
+      "locations": [-27, 75.5],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "Alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -6.5,
+      "locations": [28, 54]
+    },
+    {
+      "id": "Alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 6.5,
+      "locations": [28, -54]
+    },
+    {
+      "id": "Alpharight2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 2.5,
+      "locations": [59.5, -30]
+    },
+    {
+      "id": "Alphaleft2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -2.5,
+      "locations": [59.5, 30]
+    },
+    {
+      "id": "Alpharight3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 90,
+      "angle": -25.5,
+      "locations": [27, -100.5]
+    },
+    {
+      "id": "Alphaleft3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 90,
+      "angle": 25.5,
+      "locations": [27, 100.5]
+    },
+    {
+      "id": "Alpharight4",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 5.5,
+      "locations": [7, -83],
+      "renderOrderMod": 4
+    },
+    {
+      "id": "Alphaleft4",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -5.5,
+      "locations": [7, 83],
+      "renderOrderMod": 4
     }
   ],
   "engineSlots": [

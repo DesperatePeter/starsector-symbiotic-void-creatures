@@ -25,6 +25,6 @@ class InkSprayEffect : OnFireEffectPlugin {
         val effectLocation = w.location + effectOffset
         effectOffset.scale(EFFECT_SPEED / EFFECT_SPAWN_DISTANCE)
         val velocity = w.ship.velocity + effectOffset
-        e.addPlugin(InkSprayScript(w.ship, e, effectLocation, velocity, Color(110, 0, 200, 180), EFFECT_RADIUS, EFFECT_DURATION))
+        e.addPlugin(InkSprayScript(w.ship, e, effectLocation, velocity, Color(110, 0, 200, 40), EFFECT_RADIUS, EFFECT_DURATION))
     }
 }
