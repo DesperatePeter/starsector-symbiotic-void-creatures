@@ -17,7 +17,7 @@ class AcidSprayScript(
     effectRadius: Float,
     duration: Float,
     effectRadiusGrowth: Float
-) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration, effectRadiusGrowth) {
+) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration, effectRadiusGrowth, true, 200f) {
 
     companion object{
         const val ARMOR_DAMAGE_PER_CELL_PER_SECOND = 10f

@@ -17,7 +17,9 @@ abstract class CloudEffectScript(
     protected val effectColor: Color,
     protected val initialEffectRadius: Float,
     private var duration: Float,
-    private val effectRadiusGrowthPerSecond: Float = 0f
+    private val effectRadiusGrowthPerSecond: Float = 0f,
+    private val spawnMultipleNebulae: Boolean = false,
+    private val colorVariation: Float = 0f
 ) : BaseEveryFrameCombatPlugin() {
     private var hasParticleBeenAdded = false
     protected var currentRadius = initialEffectRadius
@@ -37,7 +39,7 @@ abstract class CloudEffectScript(
         }
         // add visual effect
         if (!hasParticleBeenAdded) {
-            fun d(c: Int) = MathUtils.clamp(c + ((Math.random() - 0.5) * 250f).toInt(), 0, 255)
+            fun d(c: Int) = MathUtils.clamp(c + ((Math.random() - 0.5) * colorVariation).toInt(), 0, 255)
 
             var tmpDuration = duration
             while (tmpDuration > duration / 2f){
@@ -54,15 +56,11 @@ abstract class CloudEffectScript(
                     color
                 )
                 tmpDuration -= Math.random().toFloat() * (fullDuration * 0.2f)
+                if(!spawnMultipleNebulae) tmpDuration = 0f
             }
 
             hasParticleBeenAdded = true
         }
-//        if(duration/fullDuration < 0.5f && !hasNegParticleBeenAdded){
-//            val endSizeMult = (currentRadius + (effectRadiusGrowthPerSecond * duration)) / currentRadius
-//            engine.addNegativeNebulaParticle(location, velocity, currentRadius, endSizeMult, 1f, 1f, duration, effectColor)
-//            hasNegParticleBeenAdded = true
-//        }
         val dLoc = Vector2f(velocity.x, velocity.y) // make sure we actually copy
         dLoc.scale(amount)
         location += dLoc
