@@ -22,7 +22,7 @@ class InkSprayScript(
 
     private val ship: ShipAPI, engine: CombatEngineAPI, location: Vector2f, velocity: Vector2f, effectColor: Color,
     effectRadius: Float, duration: Float
-) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration) {
+) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration, 0f, false, 50f) {
 
     companion object {
         private const val EFFECT_ID = "InkDampening"
