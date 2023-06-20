@@ -175,19 +175,19 @@
       "id": "antena_left",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 1,
-      "angle": -19.932537,
-      "locations": [63.5, 12]
+      "angle": -19.933001,
+      "locations": [0, 36.5]
     },
     {
       "id": "antena_right",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 1,
-      "angle": 19.932537,
-      "locations": [63.5, -12]
+      "angle": 19.933001,
+      "locations": [0, -36.5]
     },
     {
       "id": "shell_left",
@@ -232,7 +232,7 @@
       "mount": "HARDPOINT",
       "arc": 160.857605,
       "angle": -170.537674,
-      "locations": [10.5, 96.5]
+      "locations": [1, 102]
     },
     {
       "id": "fin_right2",
@@ -241,7 +241,7 @@
       "mount": "HARDPOINT",
       "arc": 160.857605,
       "angle": 170.537674,
-      "locations": [10.5, -96.5]
+      "locations": [1, -102]
     },
     {
       "id": "eyes",

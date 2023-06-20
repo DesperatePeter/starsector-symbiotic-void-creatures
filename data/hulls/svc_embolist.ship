@@ -166,7 +166,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -177.510452,
-      "locations": [2, -42.5]
+      "locations": [-8, -53]
     },
     {
       "id": "left_fin",
@@ -175,7 +175,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 177.510452,
-      "locations": [2, 42.5]
+      "locations": [-8, 53]
     },
     {
       "id": "right_fin2",
@@ -184,7 +184,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -174.472458,
-      "locations": [-13, -34]
+      "locations": [-21.5, -44.5]
     },
     {
       "id": "left_fin2",
@@ -193,7 +193,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 174.472458,
-      "locations": [-13, 34]
+      "locations": [-21.5, 44.5]
     },
     {
       "id": "Flusskrebs",

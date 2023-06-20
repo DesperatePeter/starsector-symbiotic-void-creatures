@@ -179,19 +179,19 @@
       "id": "antena_left",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 1,
-      "angle": -19.932537,
-      "locations": [60, 12]
+      "angle": -19.933001,
+      "locations": [-3.5, 37.5]
     },
     {
       "id": "antena_right",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 1,
-      "angle": 19.932537,
-      "locations": [60, -12]
+      "angle": 19.933001,
+      "locations": [-3.5, -37.5]
     },
     {
       "id": "shell_left",

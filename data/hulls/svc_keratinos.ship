@@ -161,19 +161,21 @@
       "id": "left_antenna",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 0,
-      "angle": -22.833654,
-      "locations": [38.5, 12.5]
+      "angle": -22.834,
+      "locations": [-24, 42],
+      "renderOrderMod": 5
     },
     {
       "id": "right_antenna",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 0,
       "angle": 22.834,
-      "locations": [38.5, -12.5]
+      "locations": [-24, -42],
+      "renderOrderMod": 5
     },
     {
       "id": "left_sml_mand2",
@@ -227,8 +229,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": -141.340195,
-      "locations": [-24, -3.5]
+      "angle": -137,
+      "locations": [-21, -14.5]
     },
     {
       "id": "right_long_fin",
@@ -236,8 +238,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": 141.340195,
-      "locations": [-24, 3.5]
+      "angle": 137,
+      "locations": [-21, 14.5]
     },
     {
       "id": "left_long_fin2",
@@ -245,8 +247,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": -151.699249,
-      "locations": [-31, -3]
+      "angle": -146.5,
+      "locations": [-27.5, -14]
     },
     {
       "id": "right_long_fin2",
@@ -254,8 +256,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": 151.699249,
-      "locations": [-31, 3]
+      "angle": 146.5,
+      "locations": [-27.5, 14]
     },
     {
       "id": "left_long_fin3",
@@ -264,7 +266,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": -135,
-      "locations": [-16.5, -4.5]
+      "locations": [-12, -15.5]
     },
     {
       "id": "right_long_fin3",
@@ -273,7 +275,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 135,
-      "locations": [-16.5, 4.5]
+      "locations": [-12, 15.5]
     },
     {
       "id": "waechtershell2",
@@ -290,8 +292,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": -161.565048,
-      "locations": [-37.5, -2]
+      "angle": -153.5,
+      "locations": [-34.5, -13]
     },
     {
       "id": "right_long_fin4",
@@ -299,8 +301,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": 161.565048,
-      "locations": [-37.5, 2]
+      "angle": 153.5,
+      "locations": [-34.5, 13]
     },
     {
       "id": "right_grappler2",
@@ -346,8 +348,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": 172.146683,
-      "locations": [-46.5, 4]
+      "angle": 160.5,
+      "locations": [-40.5, 10.5]
     },
     {
       "id": "WS0002",
@@ -355,8 +357,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 180,
-      "angle": -172.146683,
-      "locations": [-46.5, -4]
+      "angle": -160.5,
+      "locations": [-40.5, -10.5]
     },
     {
       "id": "Waechter",
