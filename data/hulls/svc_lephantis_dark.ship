@@ -16,6 +16,9 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
+    "WS0001": "svc_bge_grappler",
+    "WS0002": "svc_adv_med_scythe_r",
+    "WS0003": "svc_adv_med_scythe_l",
     "antena_left": "svc_antena_left",
     "antena_right": "svc_antena_right",
     "fin_left": "svc_trans_fin_left",
@@ -69,7 +72,7 @@
       "mount": "HARDPOINT",
       "arc": 1,
       "angle": -14.470294,
-      "locations": [93.5, 17]
+      "locations": [95.5, 13]
     },
     {
       "id": "sml_mand_right",
@@ -78,7 +81,7 @@
       "mount": "HARDPOINT",
       "arc": 1,
       "angle": 14.470294,
-      "locations": [93.5, -17]
+      "locations": [95.5, -13]
     },
     {
       "id": "lrg_out_kin_left",
@@ -87,7 +90,7 @@
       "mount": "HARDPOINT",
       "arc": 65,
       "angle": -32.5,
-      "locations": [89.5, 40.5]
+      "locations": [82.5, 39.5]
     },
     {
       "id": "lrg_out_kin_right",
@@ -96,7 +99,7 @@
       "mount": "HARDPOINT",
       "arc": 65,
       "angle": 32.5,
-      "locations": [89.5, -40.5]
+      "locations": [82.5, -39.5]
     },
     {
       "id": "lrg_mdl_kin_left",
@@ -105,7 +108,8 @@
       "mount": "HARDPOINT",
       "arc": 60,
       "angle": -35.5,
-      "locations": [108, 78.5]
+      "locations": [103.5, 87.5],
+      "renderOrderMod": 4
     },
     {
       "id": "lrg_mdl_kin_right",
@@ -114,7 +118,8 @@
       "mount": "HARDPOINT",
       "arc": 60,
       "angle": 35.5,
-      "locations": [108, -78.5]
+      "locations": [103.5, -87.5],
+      "renderOrderMod": 4
     },
     {
       "id": "right_grappler",
@@ -122,7 +127,7 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 180,
-      "angle": -90,
+      "angle": -60,
       "locations": [42, -126.5]
     },
     {
@@ -131,7 +136,7 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 180,
-      "angle": 90,
+      "angle": 60,
       "locations": [42, 126.5]
     },
     {
@@ -313,6 +318,35 @@
       "arc": 160.857605,
       "angle": 0,
       "locations": [1.5, 0]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 40,
+      "angle": 0,
+      "locations": [39, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 65,
+      "angle": 32.5,
+      "locations": [104, -67],
+      "renderOrderMod": 3
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 65,
+      "angle": -32.5,
+      "locations": [104, 67],
+      "renderOrderMod": 3
     }
   ],
   "engineSlots": [

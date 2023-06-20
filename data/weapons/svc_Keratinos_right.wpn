@@ -3,10 +3,10 @@
 	"id":"svc_Keratinos_right",
 	"type":"DECORATIVE",
 	"size":"SMALL",
-        "height": 1.0,
+        "height": 0.5,
 	"turretSprite":"graphics/weapons/deco/Keratinos_right.png",
 	"hardpointSprite":"graphics/weapons/deco/Keratinos_right.png",
-
+        "renderBelowAllWeapons": true,
 	"turretOffsets": [
 20,
 

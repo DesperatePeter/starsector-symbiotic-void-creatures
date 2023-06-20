@@ -9,6 +9,7 @@
 	"hardpointSprite":"graphics/weapons/animated/koenig_eyes/kingeyes_00.png",
         "numFrames":24,	
 	"frameRate":1,
+	        "renderBelowAllWeapons": true,
 	"turretOffsets": [
 20,
 

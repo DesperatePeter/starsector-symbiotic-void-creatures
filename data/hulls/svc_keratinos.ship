@@ -57,7 +57,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -21.801409,
-      "locations": [55, 14.5]
+      "locations": [59.5, 13.5]
     },
     {
       "id": "right_sml_mand",
@@ -66,7 +66,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 21.801001,
-      "locations": [55, -14.5]
+      "locations": [59.5, -13.5]
     },
     {
       "id": "left_med_uni1",
@@ -115,7 +115,7 @@
       "mount": "HARDPOINT",
       "arc": 121.491997,
       "angle": -53.745998,
-      "locations": [38.5, 78],
+      "locations": [54, 71.5],
       "renderOrderMod": 6
     },
     {
@@ -125,7 +125,7 @@
       "mount": "HARDPOINT",
       "arc": 121.491997,
       "angle": 53.745998,
-      "locations": [38.5, -78],
+      "locations": [54, -71.5],
       "renderOrderMod": 6
     },
     {
@@ -182,7 +182,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [49, 15]
+      "locations": [52.5, 14]
     },
     {
       "id": "right_sml_mand2",
@@ -191,7 +191,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -0,
-      "locations": [49, -15]
+      "locations": [52.5, -14]
     },
     {
       "id": "left_sml_mand3",
@@ -200,7 +200,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [43, 16]
+      "locations": [48.5, 15]
     },
     {
       "id": "right_sml_mand3",
@@ -209,7 +209,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -0,
-      "locations": [43, -16]
+      "locations": [48.5, -15]
     },
     {
       "id": "shell",
@@ -218,7 +218,8 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 0,
-      "locations": [-38.5, -0]
+      "locations": [-38.5, -0],
+      "renderOrderMod": 5
     },
     {
       "id": "left_long_fin",

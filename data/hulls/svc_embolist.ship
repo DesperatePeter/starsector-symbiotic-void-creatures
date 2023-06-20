@@ -84,7 +84,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 8.530766,
-      "locations": [65, -13.5]
+      "locations": [70, -12.5]
     },
     {
       "id": "left_mand1",
@@ -93,7 +93,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -8.530766,
-      "locations": [65, 13.5]
+      "locations": [70, 12.5]
     },
     {
       "id": "right_mand2",
@@ -102,7 +102,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [59, -17]
+      "locations": [63.5, -16]
     },
     {
       "id": "left_mand2",
@@ -111,7 +111,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -0,
-      "locations": [59, 17]
+      "locations": [63.5, 16]
     },
     {
       "id": "right_long_fin",

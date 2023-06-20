@@ -47,7 +47,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 21.038,
-      "locations": [23, -13],
+      "locations": [22.5, -12.5],
       "renderOrderMod": 2
     },
     {
@@ -57,7 +57,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": -21.038,
-      "locations": [23, 13],
+      "locations": [22.5, 12.5],
       "renderOrderMod": 2
     },
     {
