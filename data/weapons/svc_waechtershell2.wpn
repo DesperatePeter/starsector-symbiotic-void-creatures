@@ -7,7 +7,7 @@
 
 	"turretSprite":"graphics/weapons/deco/waechtershell2.png",
 	"hardpointSprite":"graphics/weapons/deco/waechtershell2.png",
-
+        "renderBelowAllWeapons": true,
 	"turretOffsets": [
 20,
 

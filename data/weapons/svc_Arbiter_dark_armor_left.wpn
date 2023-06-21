@@ -6,7 +6,7 @@
         "height": 1.0,
 	"turretSprite":"graphics/weapons/deco/Arbiter_dark_armor_left.png",
 	"hardpointSprite":"graphics/weapons/deco/Arbiter_dark_armor_left.png",
-
+        "renderBelowAllWeapons": true,
 	"turretOffsets": [
 20,
 

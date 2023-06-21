@@ -52,7 +52,7 @@
       "mount": "HARDPOINT",
       "arc": 1,
       "angle": -5.440332,
-      "locations": [77, 16]
+      "locations": [80.5, 18]
     },
     {
       "id": "lrg_mand_right",
@@ -61,7 +61,7 @@
       "mount": "HARDPOINT",
       "arc": 1,
       "angle": 5.440332,
-      "locations": [77, -16]
+      "locations": [80.5, -18]
     },
     {
       "id": "sml_mand_left",
@@ -70,7 +70,7 @@
       "mount": "HARDPOINT",
       "arc": 1,
       "angle": -14.470294,
-      "locations": [81.5, 12]
+      "locations": [86, 12]
     },
     {
       "id": "sml_mand_right",
@@ -79,7 +79,7 @@
       "mount": "HARDPOINT",
       "arc": 1,
       "angle": 14.470294,
-      "locations": [81.5, -12]
+      "locations": [86, -12]
     },
     {
       "id": "lrg_out_kin_left",
@@ -88,7 +88,7 @@
       "mount": "HARDPOINT",
       "arc": 116.791,
       "angle": -10.62,
-      "locations": [77.5, 36.5]
+      "locations": [94.5, 37.5]
     },
     {
       "id": "lrg_out_kin_right",
@@ -97,7 +97,7 @@
       "mount": "HARDPOINT",
       "arc": 116.791,
       "angle": 10.62,
-      "locations": [77.5, -36.5]
+      "locations": [94.5, -37.5]
     },
     {
       "id": "lrg_mdl_kin_left",
@@ -106,7 +106,7 @@
       "mount": "HARDPOINT",
       "arc": 154.772995,
       "angle": 0,
-      "locations": [83, 72]
+      "locations": [98.5, 79.5]
     },
     {
       "id": "lrg_mdl_kin_right",
@@ -115,7 +115,7 @@
       "mount": "HARDPOINT",
       "arc": 154.772995,
       "angle": -0,
-      "locations": [83, -72]
+      "locations": [98.5, -79.5]
     },
     {
       "id": "right_grappler",
@@ -175,19 +175,19 @@
       "id": "antena_left",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 1,
-      "angle": -19.932537,
-      "locations": [63.5, 12]
+      "angle": -19.933001,
+      "locations": [0, 36.5]
     },
     {
       "id": "antena_right",
       "size": "LARGE",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
+      "mount": "TURRET",
       "arc": 1,
-      "angle": 19.932537,
-      "locations": [63.5, -12]
+      "angle": 19.933001,
+      "locations": [0, -36.5]
     },
     {
       "id": "shell_left",
@@ -232,7 +232,7 @@
       "mount": "HARDPOINT",
       "arc": 160.857605,
       "angle": -170.537674,
-      "locations": [10.5, 96.5]
+      "locations": [1, 102]
     },
     {
       "id": "fin_right2",
@@ -241,7 +241,7 @@
       "mount": "HARDPOINT",
       "arc": 160.857605,
       "angle": 170.537674,
-      "locations": [10.5, -96.5]
+      "locations": [1, -102]
     },
     {
       "id": "eyes",

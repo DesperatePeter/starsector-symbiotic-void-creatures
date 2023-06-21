@@ -5,7 +5,7 @@
 	"size":"MEDIUM",
         "height": 124.0,
 	"everyFrameEffect":"tecrys.svc.plugins.RotatingDishArc",
-
+        "renderBelowAllWeapons": true,
 	"turretSprite":"graphics/weapons/deco/deco_feeler_r.png",
 	"hardpointSprite":"graphics/weapons/deco/deco_feeler_r.png",
 

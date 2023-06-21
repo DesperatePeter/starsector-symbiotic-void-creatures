@@ -26,8 +26,8 @@
     "WS0008": "svc_adv_lrg_mand_r",
     "WS0009": "svc_adv_sml_mand_r",
     "WS0010": "svc_adv_sml_mand_l",
-    "WS0011": "svc_bge_grappler",
-    "WS0012": "svc_bge_grappler",
+    "WS0011": "svc_bge_grappler_pd",
+    "WS0012": "svc_bge_grappler_pd",
     "WS0013": "svc_bge_grappler_pd",
     "WS0014": "svc_bge_grappler_pd",
     "WS0015": "svc_bge_grappler",
@@ -78,7 +78,7 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": -17.103001,
-      "locations": [93, 53.5]
+      "locations": [93.5, 59.5]
     },
     {
       "id": "right_lrg_uni",
@@ -87,7 +87,7 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": 17.103001,
-      "locations": [93, -53.5]
+      "locations": [93.5, -59.5]
     },
     {
       "id": "left_lrg_tent",
@@ -177,7 +177,7 @@
       "mount": "HARDPOINT",
       "arc": 116.173355,
       "angle": 8.130102,
-      "locations": [109, -15.5]
+      "locations": [112, -9.5]
     },
     {
       "id": "WS0010",
@@ -186,7 +186,7 @@
       "mount": "HARDPOINT",
       "arc": 116.173355,
       "angle": -8.130102,
-      "locations": [109, 15.5]
+      "locations": [112, 9.5]
     },
     {
       "id": "WS0011",

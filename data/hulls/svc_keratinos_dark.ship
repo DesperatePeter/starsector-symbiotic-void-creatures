@@ -45,7 +45,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 8,
-      "locations": [55.5, 11.5]
+      "locations": [59, 9]
     },
     {
       "id": "right_sml_mand",
@@ -54,7 +54,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -8,
-      "locations": [55.5, -11.5]
+      "locations": [59, -9]
     },
     {
       "id": "left_med_uni1",
@@ -99,7 +99,7 @@
       "mount": "HARDPOINT",
       "arc": 91.763001,
       "angle": -39,
-      "locations": [25.5, 72.5]
+      "locations": [28, 79]
     },
     {
       "id": "right_lrg_uni",
@@ -108,7 +108,7 @@
       "mount": "HARDPOINT",
       "arc": 91.763001,
       "angle": 39,
-      "locations": [25.5, -72.5]
+      "locations": [28, -79]
     },
     {
       "id": "left_grappler",
@@ -198,7 +198,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": -156.5,
-      "locations": [-52, -116.5],
+      "locations": [-52.5, -128],
       "renderOrderMod": 2
     },
     {
@@ -208,7 +208,7 @@
       "mount": "HARDPOINT",
       "arc": 180,
       "angle": 156.5,
-      "locations": [-52, 116.5],
+      "locations": [-52.5, 128],
       "renderOrderMod": 2
     },
     {

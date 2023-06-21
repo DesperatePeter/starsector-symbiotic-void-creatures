@@ -13,6 +13,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0001": "svc_bge_grappler",
         "left_grappler2": "svc_bge_grappler",
         "left_grappler3": "svc_bge_grappler",
         "right_grappler2": "svc_bge_grappler",
@@ -45,6 +46,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0003": "svc_adv_med_scythe_l",
         "lrg_mdl_kin_left": "svc_adv_lrg_scythe_l"
       }
     },
@@ -59,6 +61,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0002": "svc_adv_med_scythe_r",
         "lrg_out_kin_left": "svc_adv_lrg_scythe_l"
       }
     },

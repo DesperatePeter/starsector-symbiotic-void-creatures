@@ -14,9 +14,7 @@
       "mode": "LINKED",
       "weapons": {
         "WS0011": "svc_bge_grappler",
-        "WS0012": "svc_bge_grappler",
-        "WS0015": "svc_bge_grappler",
-        "WS0016": "svc_bge_grappler"
+        "WS0012": "svc_bge_grappler"
       }
     },
     {
@@ -25,6 +23,8 @@
       "weapons": {
         "WS0013": "svc_bge_grappler_pd",
         "WS0014": "svc_bge_grappler_pd",
+        "WS0015": "svc_bge_grappler_pd",
+        "WS0016": "svc_bge_grappler_pd",
         "WS0017": "svc_bge_grappler_pd",
         "WS0018": "svc_bge_grappler_pd"
       }

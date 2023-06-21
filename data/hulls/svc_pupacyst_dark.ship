@@ -59,7 +59,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": -0,
-      "locations": [74.5, -9.5]
+      "locations": [78.5, -8]
     },
     {
       "id": "left_sml_mand",
@@ -68,7 +68,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": 0,
-      "locations": [74.5, 9.5]
+      "locations": [78.5, 8]
     },
     {
       "id": "left_med_uni",

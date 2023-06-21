@@ -40,7 +40,7 @@
       "mount": "HARDPOINT",
       "arc": 26.784996,
       "angle": 0,
-      "locations": [77, -14]
+      "locations": [81, -15.5]
     },
     {
       "id": "left_lrg_mand",
@@ -49,7 +49,7 @@
       "mount": "HARDPOINT",
       "arc": 26.784996,
       "angle": -0,
-      "locations": [77, 14]
+      "locations": [81, 15.5]
     },
     {
       "id": "right_sml_mand",
@@ -58,7 +58,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": -0,
-      "locations": [80, -8.5]
+      "locations": [86, -9]
     },
     {
       "id": "left_sml_mand",
@@ -67,7 +67,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": 0,
-      "locations": [80, 8.5]
+      "locations": [86, 9]
     },
     {
       "id": "left_med_uni",
