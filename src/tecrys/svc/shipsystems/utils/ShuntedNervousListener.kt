@@ -12,6 +12,7 @@ import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import java.awt.Color
+import kotlin.math.sqrt
 
 class ShuntedNervousListener: DamageTakenModifier {
 
@@ -19,7 +20,8 @@ class ShuntedNervousListener: DamageTakenModifier {
         const val MULT_ID = "svc_shunted_nerves"
     }
 
-    data class DelayedDamageInfo(val relPoint: Vector2f, val shipFacing: Float, val damage: Float, val type: DamageType, val source: Any?)
+    data class DelayedDamageInfo(val relPoint: Vector2f, val shipFacing: Float, val damage: Float,
+                                 val type: DamageType, val source: Any?)
 
     private val delayedDamageInstances = mutableListOf<DelayedDamageInfo>()
     override fun modifyDamageTaken(
@@ -32,7 +34,9 @@ class ShuntedNervousListener: DamageTakenModifier {
         val ship = target as? ShipAPI ?: return null
         if(point == null || damage == null) return null
         if(shieldHit) return null
-        delayedDamageInstances.add(DelayedDamageInfo(point - ship.location, ship.facing, damage.damage, damage.type, param))
+        val relPoint = point - ship.location
+        val dmg = if(damage.isDps) damage.computeDamageDealt(0.1f) else damage.damage
+        delayedDamageInstances.add(DelayedDamageInfo(relPoint, ship.facing, dmg, damage.type, param))
         damage.modifier.modifyMult(MULT_ID, 0f)
         return MULT_ID
     }
@@ -43,7 +47,7 @@ class ShuntedNervousListener: DamageTakenModifier {
         instances.forEach {
             ship.exactBounds.update(ship.location, ship.facing)
             val relPos = VectorUtils.rotate(it.relPoint, ship.facing - it.shipFacing)
-            engine.addHitParticle(relPos + ship.location, Vector2f(0f, 0f), 100f, 10f, Color.YELLOW)
+            engine.addHitParticle(relPos + ship.location, ship.velocity, 10f + 2f*sqrt(it.damage), 10f, Color.YELLOW)
             engine.applyDamage(ship, relPos + ship.location, it.damage, it.type, 0f, true, false, null, false)
         }
         delayedDamageInstances.clear()

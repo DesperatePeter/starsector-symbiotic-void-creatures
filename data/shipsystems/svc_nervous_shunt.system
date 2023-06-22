@@ -1,7 +1,9 @@
 {
 	"id":"svc_nervous_shunt",
 	"type":"STAT_MOD",
-	"aiType":"WEAPON_BOOST",
+
+	"aiType":"CUSTOM",
+	"aiScript": "tecrys.svc.shipsystems.ais.NervousShuntAI",
 
 	"statsScript":"tecrys.svc.shipsystems.ShuntNervousSystem",
 
