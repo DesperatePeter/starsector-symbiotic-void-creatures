@@ -1,90 +1,53 @@
-/*    */ package tecrys.svc.world;
-/*    */ 
-/*    */ import com.fs.starfarer.api.Global;
+package tecrys.svc.world;
+
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.FactionAPI;
-/*    */ import com.fs.starfarer.api.campaign.SectorAPI;
-/*    */ import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
+import com.fs.starfarer.api.campaign.SectorAPI;
+import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 import org.apache.log4j.Level;
 import tecrys.svc.ConstantsKt;
 
-/*    */
-/*    */ 
-/*    */ 
-/*    */ 
-/*    */ public class SVCGen
-/*    */   implements SectorGeneratorPlugin
-/*    */ {
-/*    */   public void generate(SectorAPI sector)
-/*    */   {
-/* 15 */     initFactionRelationships(sector);
-/*    */   }
-/*    */   
-/*    */ 
-/*    */   public static void initFactionRelationships(SectorAPI sector)
-/*    */   {
-/* 21 */     FactionAPI bge = sector.getFaction(ConstantsKt.SVC_FACTION_ID);
-             FactionAPI uvc = sector.getFaction(ConstantsKt.UVC_FACTION_ID);
-             if(uvc == null || bge == null){
-                 Global.getLogger(SVCGen.class).log(Level.ERROR, "Unable to get UVC and SVC factions from sector");
-                 return;
-             }
-/* 22 */     FactionAPI player = sector.getFaction("player");
-/* 23 */     FactionAPI hegemony = sector.getFaction("hegemony");
-/* 24 */     FactionAPI tritachyon = sector.getFaction("tritachyon");
-/* 25 */     FactionAPI pirates = sector.getFaction("pirates");
-/* 26 */     FactionAPI independent = sector.getFaction("independent");
-/* 27 */     FactionAPI church = sector.getFaction("luddic_church");
-/* 28 */     FactionAPI path = sector.getFaction("luddic_path");
-/* 29 */     FactionAPI kol = sector.getFaction("knights_of_ludd");
-/* 30 */     FactionAPI diktat = sector.getFaction("sindrian_diktat");
-/* 31 */     FactionAPI persean = sector.getFaction("persean");
-/*    */     
-/* 33 */     bge.setRelationship(player.getId(), -0.5F);
-/* 34 */     bge.setRelationship(hegemony.getId(), -0.5F);
-/* 35 */     bge.setRelationship(tritachyon.getId(), -0.5F);
-/* 36 */     bge.setRelationship(pirates.getId(), -0.5F);
-/* 37 */     bge.setRelationship(independent.getId(), -0.5F);
-/* 38 */     bge.setRelationship(persean.getId(), -0.5F);
-/* 39 */     bge.setRelationship(church.getId(), -0.5F);
-/* 40 */     bge.setRelationship(path.getId(), -0.5F);
-/* 41 */     bge.setRelationship(kol.getId(), -0.5F);
-/* 42 */     bge.setRelationship(diktat.getId(), -0.5F);
-/* 43 */     bge.setRelationship("exigency", -0.5F);
-/* 44 */     bge.setRelationship("shadow_industry", -0.5F);
-/* 45 */     bge.setRelationship("mayorate", -0.5F);
-/* 46 */     bge.setRelationship("blackrock", -0.5F);
-/* 47 */     bge.setRelationship("tiandong", -0.5F);
-/* 48 */     bge.setRelationship("SCY", -0.5F);
-/* 49 */     bge.setRelationship("neutrinocorp", -0.5F);
-/* 50 */     bge.setRelationship("interstellarimperium", -0.5F);
-/* 51 */     bge.setRelationship("diableavionics", -0.5F);
-             bge.setRelationship(ConstantsKt.UVC_FACTION_ID, -0.5f);
-             
-             /* 33 */     uvc.setRelationship(player.getId(), -0.5F);
-/* 34 */     uvc.setRelationship(hegemony.getId(), -0.5F);
-/* 35 */     uvc.setRelationship(tritachyon.getId(), -0.5F);
-/* 36 */     uvc.setRelationship(pirates.getId(), -0.5F);
-/* 37 */     uvc.setRelationship(independent.getId(), -0.5F);
-/* 38 */     uvc.setRelationship(persean.getId(), -0.5F);
-/* 39 */     uvc.setRelationship(church.getId(), -0.5F);
-/* 40 */     uvc.setRelationship(path.getId(), -0.5F);
-/* 41 */     uvc.setRelationship(kol.getId(), -0.5F);
-/* 42 */     uvc.setRelationship(diktat.getId(), -0.5F);
-/* 43 */     uvc.setRelationship("exigency", -0.5F);
-/* 44 */     uvc.setRelationship("shadow_industry", -0.5F);
-/* 45 */     uvc.setRelationship("mayorate", -0.5F);
-/* 46 */     uvc.setRelationship("blackrock", -0.5F);
-/* 47 */     uvc.setRelationship("tiandong", -0.5F);
-/* 48 */     uvc.setRelationship("SCY", -0.5F);
-/* 49 */     uvc.setRelationship("neutrinocorp", -0.5F);
-/* 50 */     uvc.setRelationship("interstellarimperium", -0.5F);
-/* 51 */     uvc.setRelationship("diableavionics", -0.5F);
-             uvc.setRelationship(ConstantsKt.SVC_FACTION_ID, -0.5f);
-/*    */   }
-/*    */ }
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
-/* Location:              C:\Games\Starsector08a\mods\BGE\jars\BGEMeleeAI.jar!\bge\data\scripts\world\BGEGen.class
- * Java compiler version: 7 (51.0)
- * JD-Core Version:       0.7.1
- */
+public class SVCGen implements SectorGeneratorPlugin {
+    public void generate(SectorAPI sector) {
+        initFactionRelationships(sector);
+    }
+
+
+    public static void initFactionRelationships(SectorAPI sector) {
+        FactionAPI svc = sector.getFaction(ConstantsKt.SVC_FACTION_ID);
+        // FactionAPI uvc = sector.getFaction(ConstantsKt.UVC_FACTION_ID);
+        if (svc == null) {
+            Global.getLogger(SVCGen.class).log(Level.ERROR, "Unable to get SVC faction from sector." +
+                    " Aborting faction initialization.");
+            return;
+        }
+        FactionAPI player = sector.getFaction("player");
+        FactionAPI hegemony = sector.getFaction("hegemony");
+        FactionAPI tritachyon = sector.getFaction("tritachyon");
+        FactionAPI pirates = sector.getFaction("pirates");
+        FactionAPI independent = sector.getFaction("independent");
+        FactionAPI church = sector.getFaction("luddic_church");
+        FactionAPI path = sector.getFaction("luddic_path");
+        FactionAPI kol = sector.getFaction("knights_of_ludd");
+        FactionAPI diktat = sector.getFaction("sindrian_diktat");
+        FactionAPI persean = sector.getFaction("persean");
+
+        List<FactionAPI> hostileFactions = Arrays.asList(player, hegemony, tritachyon, pirates, independent, church, path, kol, diktat, persean);
+        List<String> hostileFactionStrings = Arrays.asList("exigency", "shadow_industry", "mayorate", "blackrock", "tiandong", "SCY", "neutrinocorp", "interstellarimperium", "diableavionics");
+
+        for(String fs : hostileFactionStrings){
+            svc.setRelationship(fs, -0.5F);
+        }
+        for(FactionAPI f : hostileFactions){
+            svc.setRelationship(f.getId(), -0.5F);
+        }
+        svc.setRelationship(ConstantsKt.UVC_FACTION_ID, -0.5f);
+
+
+    }
+}
