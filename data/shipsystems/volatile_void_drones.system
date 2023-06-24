@@ -1,0 +1,23 @@
+{
+	"id":"svc_volatile_void_drones",
+	"type":"STAT_MOD",
+	"aiType":"DRONE_STRIKE",
+
+	"statsScript":"tecrys.svc.shipsystems.VolatileVoidDrones",
+
+	"canNotCauseOverload":true,
+	"runScriptWhileIdle":true,  # this means unapply() never gets called
+
+	"fadeActivationSoundOnChargedown":false,
+	"useSound":"system_termination_sequence",
+	"outOfUsesSound":"gun_out_of_ammo",
+
+	"aiHints":{
+		"threatRange":1200,
+		"threatAmount":8,
+		"threatAngle":0,
+		"threatArc":360,
+		"threatDamage":400,
+		"threatSpeed":350,
+	}
+}
