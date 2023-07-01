@@ -1,0 +1,23 @@
+{
+  "variantId": "svc_mios_mandibles",
+  "hullId": "svc_mios",
+  "displayName": "Gnawing",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0003": "svc_sml_mand_r",
+        "WS0004": "svc_sml_mand_l"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

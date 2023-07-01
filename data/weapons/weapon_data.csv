@@ -110,6 +110,10 @@ left long fin small,svc_long_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,
 right long fin small,svc_long_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,49
 left long fin small2,svc_long_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,50
 right long fin small2,svc_long_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,51
+left long fin tiny,svc_long_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+right long fin tiny,svc_long_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+left long fin tiny2,svc_long_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+right long fin tiny2,svc_long_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 right translucent fin2,svc_trans_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4402
 left translucent fin2,svc_trans_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4403
 right small translucent fin,svc_trans_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4404

@@ -1,0 +1,89 @@
+{
+  "hullName": "Pox",
+  "hullId": "svc_pox",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/Pox.png",
+  "style": "BIOLOGICAL",
+  "height": 22,
+  "width": 12,
+  "center": [6, 11],
+  "collisionRadius": 17.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 17.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_tentacle_left_tiny_barbed",
+    "WS0002": "svc_tentacle_right_tiny_barbed",
+    "Whip": "svc_bge_grappler_pd",
+    "tentacleleft1": "svc_tentacle_left_tiny",
+    "tentacleright1": "svc_tentacle_right_tiny"
+  },
+  "weaponSlots": [
+    {
+      "id": "tentacleright1",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 176.5,
+      "locations": [-17.5, -2.5]
+    },
+    {
+      "id": "tentacleleft1",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -176.5,
+      "locations": [-17.5, 2.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -176.5,
+      "locations": [-11, 4.5],
+      "renderOrderMod": 5
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 176.5,
+      "locations": [-11, -4.5],
+      "renderOrderMod": 5
+    },
+    {
+      "id": "Whip",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 360,
+      "angle": 0,
+      "locations": [4.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-4.5, -0],
+      "length": 9.5,
+      "width": 9,
+      "angle": 180,
+      "contrailSize": 9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
+  "bounds": [
+    9, 6,
+    9, -6,
+    -13.5, -0
+  ]
+}

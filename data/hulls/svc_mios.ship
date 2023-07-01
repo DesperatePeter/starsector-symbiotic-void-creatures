@@ -1,0 +1,117 @@
+{
+  "hullName": "Mios",
+  "hullId": "svc_mios",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/Mios.png",
+  "style": "BIOLOGICAL",
+  "height": 28,
+  "width": 14,
+  "center": [7, 14],
+  "collisionRadius": 16,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 16.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_long_fin_left_tiny2",
+    "WS0002": "svc_long_fin_right_tiny2",
+    "WS0003": "svc_sml_mand_r",
+    "WS0004": "svc_sml_mand_l",
+    "decofinleft": "svc_long_fin_left_tiny",
+    "decofinright": "svc_long_fin_right_tiny"
+  },
+  "weaponSlots": [
+    {
+      "id": "decofinright",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 161.5,
+      "locations": [-5.5, -17.5]
+    },
+    {
+      "id": "decofinleft",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -161.5,
+      "locations": [-5.5, 17.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -147.5,
+      "locations": [-19.5, 11.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 147.5,
+      "locations": [-19.5, -11.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 0,
+      "locations": [5.5, -9.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -0,
+      "locations": [5.5, 9.5]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-1, 4],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": 141.5,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-1, -4],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": -141.5,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-10.5, -0],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": 180,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
+  "bounds": [
+    -12.5, 2.5,
+    6, 6,
+    13, -0,
+    6, -6,
+    -12.5, -2.5
+  ]
+}

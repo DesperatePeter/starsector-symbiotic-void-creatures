@@ -1,0 +1,22 @@
+{
+  "variantId": "svc_pox_whip",
+  "hullId": "svc_pox",
+  "displayName": "Volatile",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Whip": "svc_bge_grappler_pd"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
