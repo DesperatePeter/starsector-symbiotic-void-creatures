@@ -4,7 +4,7 @@
 	"type":"ENERGY",
 	"size":"SMALL",
 	"displayArcRadius":200,
-	"beamEffect":"tecrys.svc.weapons.GreiferEffectFighter",
+	#"beamEffect":"tecrys.svc.weapons.GreiferEffectFighter",
 	"turretSprite":"graphics/weapons/Grappler.png",
 	"turretGlowSprite":"graphics/weapons/Grappler.png",
 	"hardpointSprite":"graphics/weapons/Grappler.png",
