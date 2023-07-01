@@ -16,11 +16,11 @@ fun vectorFromAngleDeg(angle: Float): Vector2f {
     return Vector2f(cos(angle * degToRad), sin(angle * degToRad))
 }
 
-fun ShipAPI.getEffectiveShipTarget(): ShipAPI?{
+fun ShipAPI.getEffectiveShipTarget(fallbackRange: Float = 600f): ShipAPI?{
     shipTarget?.let { return it }
     (aiFlags?.getCustom(ShipwideAIFlags.AIFlags.MANEUVER_TARGET) as? ShipAPI)?.let { return it }
     location?.let { loc ->
-        return CombatUtils.getShipsWithinRange(loc, 600f).filterNotNull().filter {
+        return CombatUtils.getShipsWithinRange(loc, fallbackRange).filterNotNull().filter {
             it.owner != owner && it.owner != 100
         }.minByOrNull { (loc - it.location).length() }
     }
