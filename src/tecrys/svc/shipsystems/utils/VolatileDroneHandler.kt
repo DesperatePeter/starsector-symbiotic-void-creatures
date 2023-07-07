@@ -35,12 +35,14 @@ class VolatileDroneHandler(private val drone: ShipAPI, private val missile: Miss
             if(!isDroneDestroyed){
                 engine.applyDamage(drone, drone.location, 1000000f, DamageType.ENERGY, 0f, true, false, drone, false)
             }
-            if(!missile.didDamage()){
-                missile.explode()
-            }
+
             missile.interruptContrail()
             engine.removeEntity(missile)
             engine.removeEntity(drone)
+            if(!missile.didDamage()){
+                missile.explode()
+            }
+            isDone = true
         }
     }
 

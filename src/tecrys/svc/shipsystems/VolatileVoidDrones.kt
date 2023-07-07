@@ -20,7 +20,7 @@ class VolatileVoidDrones: BaseShipSystemScript(), DroneStrikeStatsAIInfoProvider
 
     companion object{
         const val FAKE_WEAPON_ID = "svc_volatile_drone"
-        const val VOLATILE_WING_ID = "svc_volatile_drones" // FIXME!!
+        const val VOLATILE_WING_ID = "svc_pox_whip_wing"
         val EXPLOSION_FLASH_COLOR: Color = Color.RED
     }
 
@@ -30,7 +30,6 @@ class VolatileVoidDrones: BaseShipSystemScript(), DroneStrikeStatsAIInfoProvider
     private var nextTarget: ShipAPI? = null
     private val initialTarget: ShipAPI?
         get(){
-            if(ship == engine.playerShip) return ship?.shipTarget
             return ship?.getEffectiveShipTarget(getMaxRange(ship))
         }
 
@@ -52,7 +51,7 @@ class VolatileVoidDrones: BaseShipSystemScript(), DroneStrikeStatsAIInfoProvider
         state: ShipSystemStatsScript.State?,
         effectLevel: Float
     ) {
-        if(state == ShipSystemStatsScript.State.IDLE) return
+        if(state != ShipSystemStatsScript.State.ACTIVE) return
         init(stats?.entity as? ShipAPI)
         ship?.let {sh ->
             getDrones(sh).forEach {
@@ -62,7 +61,9 @@ class VolatileVoidDrones: BaseShipSystemScript(), DroneStrikeStatsAIInfoProvider
             }
             initialTarget?.let {
                 fireDrone(it)
-                sh.system?.forceState(ShipSystemAPI.SystemState.OUT, 0f)
+                if(getDrones(sh).isEmpty()) {
+                    sh.system?.forceState(ShipSystemAPI.SystemState.OUT, 0.1f)
+                }
             }
         }
     }
@@ -109,9 +110,9 @@ class VolatileVoidDrones: BaseShipSystemScript(), DroneStrikeStatsAIInfoProvider
         } ?: 0f
     }
 
-    override fun dronesUsefulAsPD(): Boolean = true // FIXME?
+    override fun dronesUsefulAsPD(): Boolean = true
 
-    override fun droneStrikeUsefulVsFighters(): Boolean = false //FIXME?
+    override fun droneStrikeUsefulVsFighters(): Boolean = false
 
     override fun getDrones(ship: ShipAPI?): MutableList<ShipAPI> {
         init(ship)
@@ -122,7 +123,7 @@ class VolatileVoidDrones: BaseShipSystemScript(), DroneStrikeStatsAIInfoProvider
         } ?: mutableListOf()
     }
 
-    override fun getMaxDrones(): Int = 8 //FIXME?
+    override fun getMaxDrones(): Int = 5
 
     override fun setForceNextTarget(forceNextTarget: ShipAPI?) {
         nextTarget = forceNextTarget

@@ -81,7 +81,7 @@ dependencies {
     if (File(starsectorModDirectory).exists()) {
         compileOnly(fileTree(starsectorModDirectory) {
             include("**/*.jar")
-            exclude("**/$jarFileName", "**/lib/*", "**/libs/*")
+            exclude("**/$jarFileName", "**/lib/*", "**/libs/*", "**/dokka/*")
         })
     } else {
         println("$starsectorModDirectory did not exist, not adding mod folder dependencies.")
