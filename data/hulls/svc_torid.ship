@@ -1,0 +1,96 @@
+{
+  "hullName": "Torid",
+  "hullId": "svc_torid",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/Torid.png",
+  "style": "BIOLOGICAL",
+  "height": 32,
+  "width": 20,
+  "center": [10, 16],
+  "collisionRadius": 18,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 18,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_trans_fin_right_tiny2",
+    "WS0002": "svc_trans_fin_left_tiny2",
+    "WS0004": "svc_inksac",
+    "leftfin": "svc_trans_fin_left_tiny",
+    "rightfin": "svc_trans_fin_right_tiny"
+  },
+  "weaponSlots": [
+    {
+      "id": "rightfin",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -155,
+      "locations": [-7, -12.5]
+    },
+    {
+      "id": "leftfin",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 155,
+      "locations": [-7, 12.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 175,
+      "locations": [-16.5, -9.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -175,
+      "locations": [-16.5, 9.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [9.5, -0]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-15, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-12.5, -0],
+      "length": 7.5,
+      "width": 8,
+      "angle": 180,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
+  "bounds": [
+    6.5, 8.5,
+    6.5, -8.5,
+    -16, -0
+  ]
+}

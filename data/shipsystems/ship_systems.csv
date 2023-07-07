@@ -4,4 +4,4 @@ Aggressive Pheromones,svc_aggressive_pheromones,,,,,,,,,,0.1,15.0,2.0,25.0,,,,,,
 Parasumbilical Cord,svc_parasumbilical_cord,,,,,,,,,,0.1,10.0,0.5,25.0,,,,,,,,,,FALSE,,,graphics/icons/hullsys/ammo_feeder.png
 Nervous Shunt,svc_nervous_shunt,,,,,,,,,,0.1,5.0,0.1,25.0,,,,,,,,,,FALSE,,,graphics/icons/hullsys/ammo_feeder.png
 Volatile Void Drones,svc_volatile_void_drones,,,,,,,,,,0.1,0.1,0.1,0.5,,,,,,,,,,FALSE,,,graphics/icons/hullsys/ammo_feeder.png
-,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Torid Guard Drones,svc_torid_drones,,,,,,,,10,,0,,0,0,,,,,,,,,,,,,graphics/icons/hullsys/drone_pd_mid.png
