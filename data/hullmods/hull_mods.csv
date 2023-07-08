@@ -18,3 +18,4 @@ BGE Antimatter Fat Layer,antimatterfatlayer,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hu
 Alpha Voidling,svc_alpha_voidling,,,,"no_drop, no_drop_salvage",Special,,,,,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
  They are extremely territorial, to the extent that trying to include more than one into a fleet will cause them to constantly fight for dominance,
   rendering them ineffective for combat.",Only one per fleet allowed.,,graphics/hullmods/alpha.png
+Control Collar,svc_controlcollar_hm,,,,"no_drop, no_drop_salvage",Special,,,,,0,0,0,0,data.hullmods.svc_controlcollar_hm,,,,graphics/hullmods/controlcollar.png

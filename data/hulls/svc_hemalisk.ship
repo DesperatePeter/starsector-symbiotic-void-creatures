@@ -37,7 +37,8 @@
     "right_med_uni2": "svc_med_scythe_r",
     "right_pd": "svc_bge_grappler_pd",
     "stinger_left": "svc_stinger_left",
-    "stinger_right": "svc_stinger_right"
+    "stinger_right": "svc_stinger_right",
+    "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
   "weaponSlots": [
     {
@@ -245,6 +246,16 @@
       "arc": 180,
       "angle": 90,
       "locations": [-5.5, 7.5]
+    },
+    {
+      "id": "svc_controlcollar",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-5, 3],
+      "renderOrderMod": 10
     }
   ],
   "engineSlots": [
