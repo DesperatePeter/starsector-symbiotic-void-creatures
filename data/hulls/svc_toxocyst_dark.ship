@@ -33,7 +33,8 @@
     "WS0016": "svc_dark_fin_right_tiny",
     "WS0017": "svc_dark_fin_left_tiny",
     "WS0018": "svc_dark_fin_right_tiny",
-    "WS0019": "svc_zorn_head"
+    "WS0019": "svc_zorn_head",
+    "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
   "weaponSlots": [
     {
@@ -234,6 +235,16 @@
       "arc": 30,
       "angle": 0,
       "locations": [-4, -0]
+    },
+    {
+      "id": "svc_controlcollar",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 0,
+      "angle": 0,
+      "locations": [5, 3],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

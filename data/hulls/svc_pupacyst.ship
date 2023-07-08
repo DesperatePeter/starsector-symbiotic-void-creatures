@@ -30,7 +30,8 @@
     "right_med_uni": "svc_med_scythe_r",
     "right_sml_fin": "svc_long_fin_right_sml",
     "right_sml_mand": "svc_sml_mand_r",
-    "right_sml_pd": "svc_bge_grappler_pd"
+    "right_sml_pd": "svc_bge_grappler_pd",
+    "svc_controlcollar": "svc_ctrl_cllr_lrg"
   },
   "weaponSlots": [
     {
@@ -169,13 +170,14 @@
       "locations": [2.5, -11]
     },
     {
-      "id": "Zophe",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
       "arc": 40,
       "angle": 0,
-      "locations": [0, -0]
+      "locations": [55.5, -0.5],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

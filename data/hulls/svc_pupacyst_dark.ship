@@ -31,7 +31,8 @@
     "right_lrg_mand": "svc_adv_lrg_mand_r",
     "right_sml_fin": "svc_tentacle_left_medium_barbed_short",
     "right_sml_mand": "svc_adv_sml_mand_r",
-    "right_sml_pd": "svc_bge_grappler_pd"
+    "right_sml_pd": "svc_bge_grappler_pd",
+    "svc_controlcollar": "svc_ctrl_cllr_lrg"
   },
   "weaponSlots": [
     {
@@ -171,13 +172,14 @@
       "locations": [12.5, 26.5]
     },
     {
-      "id": "Zophe",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
       "arc": 40,
       "angle": 0,
-      "locations": [-3.5, 0]
+      "locations": [66, -0],
+      "renderOrderMod": 20
     },
     {
       "id": "WS0001",
@@ -215,7 +217,8 @@
       "mount": "HARDPOINT",
       "arc": 26.785,
       "angle": 0,
-      "locations": [44.5, -0]
+      "locations": [44.5, -0],
+      "renderOrderMod": 50
     }
   ],
   "engineSlots": [

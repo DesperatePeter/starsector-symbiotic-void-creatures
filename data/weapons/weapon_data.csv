@@ -141,3 +141,5 @@ Umbra Hemalisk right,svc_Hemalisk_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,
 Umbra Keratinos left,svc_Keratinos_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 Umbra Keratinos right,svc_Keratinos_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 control collar small,svc_ctrl_cllr_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+control collar medium,svc_ctrl_cllr_med,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+control collar large,svc_ctrl_cllr_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66

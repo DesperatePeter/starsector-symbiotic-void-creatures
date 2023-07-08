@@ -32,7 +32,8 @@
     "right_hind_fin2": "svc_long_fin_right_sml2",
     "right_mand": "svc_sml_mand_r",
     "right_med_uni": "svc_med_scythe_r",
-    "right_pd": "svc_bge_grappler_pd"
+    "right_pd": "svc_bge_grappler_pd",
+    "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
   "weaponSlots": [
     {
@@ -171,13 +172,14 @@
       "locations": [-28, -12]
     },
     {
-      "id": "Vergifter",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [3, 0]
+      "locations": [4.5, 3],
+      "renderOrderMod": 20
     },
     {
       "id": "left_pd",
