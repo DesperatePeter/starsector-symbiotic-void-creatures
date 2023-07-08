@@ -41,8 +41,8 @@ class SVCFleetSpawner : EveryFrameScript {
         }?.filterNotNull()?.forEach { loc ->
             loc.allEntities?.filter { it !is CampaignFleetAPI && it !is CampaignProgressIndicatorAPI && it !is OrbitalStationAPI }
                 ?.randomOrNull()?.let {
-                    if (numFleets >= MAX_NUMBER_OF_ACTIVE_SPAWNED_FLEETS) return
-                    val fleet = createFactionFleet(faction)
+                    if (numFleets >= FleetSpawnParameters.maxFleetCount) return
+                    val fleet = createFactionFleet(faction, FleetSpawnParameters.fleetSize.toInt())
                     if (fleet == null) {
                         Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet null")
                         return
@@ -55,7 +55,7 @@ class SVCFleetSpawner : EveryFrameScript {
 
     private fun createFactionFleet(
         factionId: String,
-        minDP: Int = (Math.random() * 300f).toInt(),
+        minDP: Int,
         name: String? = null
     ): CampaignFleetAPI? {
         val faction = Global.getSector().getFaction(factionId)
@@ -68,7 +68,7 @@ class SVCFleetSpawner : EveryFrameScript {
 
 
         while (fleet.fleetPoints < minDP) {
-            val role = listOf("combatSmall", "combatSmall", "combatMedium", "combatLarge").random()
+            val role = FleetSpawnParameters.combatRole
             if (faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f) {
                 Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet pick null")
                 return null
