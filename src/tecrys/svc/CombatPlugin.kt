@@ -44,6 +44,8 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
                 setSize(s.width / viewMult, (10f + 2f * s.height) / viewMult)
                 setAdditiveBlend()
                 angle = s.angleDeg - 90f
+                // 32 x 256, lower 128 empty
+                // renderRegionAtCenter()
                 renderAtCenter(viewport.convertWorldXtoScreenX(s.pos.x), viewport.convertWorldYtoScreenY(s.pos.y))
             }
         }

@@ -23,6 +23,7 @@ class SVCFleetSpawner : EveryFrameScript {
     override fun runWhilePaused(): Boolean = false
 
     override fun advance(amount: Float) {
+        if(Global.getSector().isPaused) return
         if (Global.getSector()?.memory?.contains("\$svc_hive_queen") == true
             && Global.getSector()?.memory?.getBoolean("\$svc_hive_queen") == true
         ) return
