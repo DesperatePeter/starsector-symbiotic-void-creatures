@@ -23,6 +23,7 @@ class BGECarapace : BaseHullMod() {
         private const val POWER_SCALING_MAX_HULL = 0.9f
         private const val POWER_SCALING_MIN_POWER = 0.6f
         private const val CONTROL_COLLAR_ID = "svc_controlcollar"
+        private const val CONTROL_COLLAR_HULLMOD_ID = "svc_controlcollar_hm"
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
         private val BLOCKED_HULLMODS = setOf("turretgyros", "advancedoptics", "autorepair", "dedicated_targeting_core", "targetingunit", "augmentedengines",
             "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
@@ -48,15 +49,16 @@ class BGECarapace : BaseHullMod() {
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
         member?.let { fm ->
             removeIncompatibleHullmods(fm.variant)
+            addControlCollarIfPlayer(fm)
         }
     }
 
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
         if(ship.originalOwner == 0) return
         ship.allWeapons.filter {
-                w -> w.isDecorative && w.id == CONTROL_COLLAR_ID
+                w -> w.isDecorative && w.slot.id == CONTROL_COLLAR_ID
         }.forEach {
-                w -> w.sprite.alphaMult = 0f
+                w -> w.sprite.color = Color(0, 0, 0, 0)
         }
     }
 
@@ -102,6 +104,13 @@ class BGECarapace : BaseHullMod() {
         }.forEach {
             variant.removeMod(it)
         }
+    }
+
+    private fun addControlCollarIfPlayer(member: FleetMemberAPI){
+        if(member.owner != 0) return
+        val hullMods = member.variant.hullMods.toList()
+        if(hullMods.contains(CONTROL_COLLAR_HULLMOD_ID)) return
+        member.variant.addMod(CONTROL_COLLAR_HULLMOD_ID)
     }
 
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
