@@ -16,7 +16,7 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
-    "svc_controlcollar": "svc_ctrl_cllr_sml",
+    "svc_controlcollar": "svc_ctrl_cllr_sml",
     "Eyes": "svc_koenig_eyes",
     "Krieger": "svc_krieger",
     "WS0001": "svc_stinger_right",
@@ -248,7 +248,7 @@
       "locations": [-5.5, 7.5]
     },
     {
-      "id": "svc_controlcollar",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
