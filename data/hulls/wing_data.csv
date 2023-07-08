@@ -1,3 +1,3 @@
 id,variant,tags,tier,rarity,fleet pts,op cost,formation,range,attackRunRange,attackPositionOffset,num,role,role desc,refit,base value,,,,,,,,,,,,,number
-svc_pox_whip_wing,svc_pox_whip,"svc, svc_suicide, auto_fighter, bomber",0,,0,0,CLAW,4000,1000,500,5,BOMBER,Volatile Drone,5,0,,,,,,,,,,,,,
-svc_mios_mandibles_wing,svc_mios_mandibles,"svc, stay_in_front_of_ship, auto_fighter",0,,0,0,V,4000,1000,500,2,INTERCEPTOR,Biter,14,0,,,,,,,,,,,,,
+svc_pox_whip_wing,svc_pox_whip,"svc, stay_in_front_of_ship, svc_suicide, auto_fighter",0,,6,8,CLAW,4000,1000,500,5,SUPPORT,Volatile Drone,5,0,,,,,,,,,,,,,
+svc_mios_mandibles_wing,svc_mios_mandibles,"svc, stay_in_front_of_ship, auto_fighter",0,,8,12,V,4000,1000,500,2,INTERCEPTOR,Biter,14,0,,,,,,,,,,,,,

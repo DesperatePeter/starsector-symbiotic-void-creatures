@@ -1,7 +1,7 @@
 {
-  "variantId": "svc_pupacyst_dark_scythed",
+  "variantId": "svc_pupacyst_dark_acid",
   "hullId": "svc_pupacyst_dark",
-  "displayName": "Scythed",
+  "displayName": "Acidic",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,
@@ -39,15 +39,13 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni": "svc_adv_med_scythe_l"
+        "Alphamiddle": "svc_acidthrower"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "right_med_uni": "svc_adv_med_scythe_r"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

@@ -44,11 +44,7 @@
     "WS0026": "svc_Arbiter_dark_armor_left",
     "WS0027": "svc_Arbiter_dark_armor_right",
     "left_lrg_tent": "svc_tentacle_left_large_barbed",
-    "left_lrg_uni": "svc_adv_lrg_scythe_l",
-    "left_med_uni": "svc_adv_med_scythe_l",
-    "right_lrg_tent": "svc_tentacle_right_large_barbed",
-    "right_lrg_uni": "svc_adv_lrg_scythe_r",
-    "right_med_uni": "svc_adv_med_scythe_r"
+    "right_lrg_tent": "svc_tentacle_right_large_barbed"
   },
   "weaponSlots": [
     {
@@ -148,9 +144,10 @@
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 116.173355,
+      "arc": 116.172997,
       "angle": 0,
-      "locations": [104.5, -0]
+      "locations": [104.5, -0],
+      "renderOrderMod": 5
     },
     {
       "id": "WS0007",
@@ -397,6 +394,33 @@
       "arc": 116.173355,
       "angle": 0,
       "locations": [99.5, -47.5]
+    },
+    {
+      "id": "alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": -2,
+      "locations": [88.5, 35.5]
+    },
+    {
+      "id": "alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": 2,
+      "locations": [88.5, -35.5]
+    },
+    {
+      "id": "alphamiddle",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 2,
+      "angle": 0,
+      "locations": [81.5, -0]
     }
   ],
   "engineSlots": [
