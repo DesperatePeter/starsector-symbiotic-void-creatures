@@ -22,6 +22,7 @@ class BGECarapace : BaseHullMod() {
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
         private const val POWER_SCALING_MIN_POWER = 0.6f
+        private const val CONTROL_COLLAR_ID = "svc_controlcollar"
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
         private val BLOCKED_HULLMODS = setOf("turretgyros", "advancedoptics", "autorepair", "dedicated_targeting_core", "targetingunit", "augmentedengines",
             "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
@@ -50,8 +51,18 @@ class BGECarapace : BaseHullMod() {
         }
     }
 
+    private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
+        if(ship.originalOwner == 0) return
+        ship.allWeapons.filter {
+                w -> w.isDecorative && w.id == CONTROL_COLLAR_ID
+        }.forEach {
+                w -> w.sprite.alphaMult = 0f
+        }
+    }
+
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         modifyPowerLevel(ship)
+        hideControlCollarIfNotPlayer(ship)
         ship.captain?.setPersonality("reckless")
     }
 
