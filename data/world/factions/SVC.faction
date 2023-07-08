@@ -44,7 +44,7 @@
 	},
 	# ships the faction gets access to when importing S&W out-of-faction
 	"shipsWhenImporting":{
-		"tags":["svc_bunt"],
+		"tags":["svc"],
 		"hulls":[
 		],
 	},
@@ -60,7 +60,7 @@
 		],
 	},
 	"knownFighters":{
-		"tags":["svc_bunt"],
+		"tags":["svc"],
 		"fighters":[
 		],
 	},
@@ -70,7 +70,7 @@
 		],
 	},
 	"knownWeapons":{
-		"tags":["svc_bunt"],
+		"tags":["svc"],
 		"weapons":[
 		],
 	},
@@ -80,7 +80,7 @@
 		],
 	},
 	"knownHullMods":{
-		"tags":["svc_bunt"],
+		"tags":["svc"],
 		"hullMods":[
 		],
 	},
@@ -118,6 +118,15 @@
                 },
         "combatLarge" : {
                              "svc_lephantis_scythed" : 10, "svc_keratinos_scythed" : 10,
+                         },
+		"combatEliteSmall" : {
+            "svc_hemalisk_dark_scythed" : 0.1, "svc_toxocyst_dark_scythed" : 0.1,
+        },
+        "combatEliteMedium" : {
+                    "svc_arbiter_dark_scythed" : 0.1, "svc_embolist_dark_scythed" : 0.1, "svc_pupacyst_dark_scythed" : 0.1,
+                },
+        "combaElitetLarge" : {
+                             "svc_lephantis_dark_scythed" : 0.1, "svc_keratinos_dark_scythed" : 0.1,
                          },
 
 
