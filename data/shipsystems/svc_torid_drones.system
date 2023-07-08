@@ -15,7 +15,7 @@
 		 "defaultFacing":"MATCH_SHIP_FACING",	# MATCH_DRONE_HEADING, MATCH_SHIP_HEADING, MATCH_SHIP_FACING, AWAY_FROM_SHIP
 		 "faceEnemy":true,
 		 "holdRoamRange":0,
-		 "freeRoamRange":150,
+		 "freeRoamRange":0,
 		 "targetPriority":[MISSILE, FIGHTER, SHIP],
 		 "initialOrbitAngle":30,
 		 "orbitRadius":100, 				# plus ship radius
@@ -26,7 +26,7 @@
 		 "defaultFacing":"MATCH_SHIP_FACING",	# MATCH_DRONE_HEADING, MATCH_SHIP_HEADING, MATCH_SHIP_FACING, AWAY_FROM_SHIP
 		 "faceEnemy":true,
 		 "holdRoamRange":0,
-		 "freeRoamRange":150,
+		 "freeRoamRange":0,
 		 "targetPriority":[MISSILE, FIGHTER, SHIP],
 		 "initialOrbitAngle":330,
 		 "orbitRadius":100, 				# plus ship radius

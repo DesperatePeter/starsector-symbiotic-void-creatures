@@ -16,6 +16,7 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
+    "svc_controlcollar": "svc_ctrl_cllr_sml",
     "Eyes": "svc_koenig_eyes",
     "Krieger": "svc_krieger",
     "WS0001": "svc_stinger_right",
@@ -37,8 +38,7 @@
     "right_med_uni2": "svc_med_scythe_r",
     "right_pd": "svc_bge_grappler_pd",
     "stinger_left": "svc_stinger_left",
-    "stinger_right": "svc_stinger_right",
-    "svc_controlcollar": "svc_ctrl_cllr_sml"
+    "stinger_right": "svc_stinger_right"
   },
   "weaponSlots": [
     {
@@ -248,14 +248,14 @@
       "locations": [-5.5, 7.5]
     },
     {
-      "id": "svc_controlcollar",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
       "locations": [-5, 3],
-      "renderOrderMod": 10
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [
