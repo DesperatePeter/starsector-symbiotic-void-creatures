@@ -14,6 +14,9 @@
 	"graphics": {
 		"backgrounds": {
 			"victory_notification_img": "graphics/backgrounds/BGE.jpg"
+		},
+		"beams": {
+			"svc_parasumbilical_beam": "graphics/weapons/beams/svc_parasumbilical_beam.png"
 		}
 	}
 }

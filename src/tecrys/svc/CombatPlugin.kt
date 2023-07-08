@@ -19,7 +19,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     private var pulseTimer = 0f
     companion object{
         data class AuraInfo(val center: Vector2f, val radius: Float, val color: Color)
-        data class RenderableSprite(val sprite: SpriteAPI, val color: Color, val width: Float, val height: Float, val angleDeg: Float, val pos: Vector2f)
+        data class RenderableSprite(val sprite: SpriteAPI, val alpha: Float, val width: Float, val height: Float, val angleDeg: Float, val pos: Vector2f)
         val aurasToRenderOneFrame = mutableListOf<AuraInfo>()
         val spritesToRenderOneFrame = mutableListOf<RenderableSprite>()
         private const val CIRCLE_POINTS = 50
@@ -40,8 +40,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         preRender()
         spritesToRenderOneFrame.forEach { s->
             s.sprite.run {
-                color = s.color
-                alphaMult = s.color.alpha.toFloat() / 255f
+                alphaMult = s.alpha
                 setSize(s.width / viewMult, (10f + 2f * s.height) / viewMult)
                 setAdditiveBlend()
                 angle = s.angleDeg - 90f

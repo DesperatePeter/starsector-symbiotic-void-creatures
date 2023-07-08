@@ -19,14 +19,11 @@ class ParasumbilicalCord: BaseShipSystemScript() {
     companion object{
         const val SYSTEM_SUSTAIN_RANGE = 700f
         const val SYSTEM_ACTIVATION_RANGE = SYSTEM_SUSTAIN_RANGE -100f
-        private val INNER_COLOR = Color.ORANGE
-        private val OUTER_COLOR = Color.PINK
-        const val INNER_BEAM_WIDTH = 10f
-        const val OUTER_BEAM_WIDTH = 20f
+        const val INNER_BEAM_WIDTH = 30f
     }
 
-    private val innerSprite = Global.getSettings().getSprite("beams", "fakeBeamCore")
-    private val outerSprite = Global.getSettings().getSprite("beams", "fakeBeamFringe")
+    private val innerSprite = Global.getSettings().getSprite("beams", "svc_parasumbilical_beam")
+    // private val outerSprite = Global.getSettings().getSprite("beams", "fakeBeamFringe")
 
     private var damageSharingListener: DamageSharingListener? = null
     override fun apply(
@@ -69,10 +66,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
         val target = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, targetShip) ?: return
         val line = target - origin
         CombatPlugin.spritesToRenderOneFrame.add(CombatPlugin.Companion.RenderableSprite(
-            innerSprite, INNER_COLOR.setAlpha((INNER_COLOR.alpha * alphaMult).toInt()), INNER_BEAM_WIDTH, line.length(), VectorUtils.getAngle(origin, target), origin
-        ))
-        CombatPlugin.spritesToRenderOneFrame.add(CombatPlugin.Companion.RenderableSprite(
-            outerSprite, OUTER_COLOR.setAlpha((OUTER_COLOR.alpha * alphaMult).toInt()), OUTER_BEAM_WIDTH, line.length(), VectorUtils.getAngle(origin, target), origin
+            innerSprite, alphaMult, INNER_BEAM_WIDTH, line.length(), VectorUtils.getAngle(origin, target), origin
         ))
     }
 
