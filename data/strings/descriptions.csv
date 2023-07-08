@@ -23,15 +23,49 @@ svc_acidthrower,WEAPON,,,,,
 svc_fangcluster,WEAPON,,,,,
 svc_inksac,WEAPON,,,,,
 ,,,,,,
-svc_hemalisk_berserk,SHIP_SYSTEM,,,,,
-svc_aggressive_pheromones,SHIP_SYSTEM,,,,,
-svc_parasumbilical_cord,SHIP_SYSTEM,,,,,
-svc_nervous_shunt,SHIP_SYSTEM,,,,,
-svc_volatile_void_drones,SHIP_SYSTEM,,,,,
-svc_torid_drones,SHIP_SYSTEM,,,,,
+svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal.",,,,
+svc_aggressive_pheromones,SHIP_SYSTEM,Increases speed and fire rate for all allies in a large area around Lephantis.,,,,
+svc_parasumbilical_cord,SHIP_SYSTEM,Attaches a parasumbilical cord to an enemy diverting halve of non-armour damage taken to the enemy.,,,,
+svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,
+svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
+svc_torid_drones,SHIP_SYSTEM,A helpful Torid drone with an Ink Sac relying on being fed by Pupacyst.,,,,
 ,,,,,,
-,,,,,,
-,,,,,,
+svc_arbiter,SHIP,,,,,
+svc_embolist,SHIP,"The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
+
+Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
+
+Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
+svc_hemalisk,SHIP,,,,,
+svc_keratinos,SHIP,,,,,
+svc_lephantis,SHIP,,,,,
+svc_pupacyst,SHIP,,,,,
+svc_toxocyst,SHIP,"The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
+
+Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
+Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
+svc_arbiter_dark,SHIP,,,,,
+svc_embolist_dark,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
+
+The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
+
+Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
+
+Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
+svc_hemalisk_dark,SHIP,,,,,
+svc_keratinos_dark,SHIP,,,,,
+svc_lephantis_dark,SHIP,,,,,
+svc_pupacyst_dark,SHIP,,,,,
+svc_toxocyst_dark,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
+
+The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
+
+Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
+Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
+,SHIP,,,,,
+svc_mios,SHIP,,,,,
+svc_pox,SHIP,,,,,
+svc_torid,SHIP,,,,,
 ,,,,,,
 ,,,,,,
 ,,,,,,

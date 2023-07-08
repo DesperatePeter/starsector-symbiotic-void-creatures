@@ -45,7 +45,8 @@
     "WS0026": "svc_Arbiter_dark_armor_left",
     "WS0027": "svc_Arbiter_dark_armor_right",
     "left_lrg_tent": "svc_tentacle_left_large_barbed",
-    "right_lrg_tent": "svc_tentacle_right_large_barbed"
+    "right_lrg_tent": "svc_tentacle_right_large_barbed",
+    "svc_controlcollar": "svc_ctrl_cllr_med"
   },
   "weaponSlots": [
     {
@@ -422,6 +423,16 @@
       "arc": 2,
       "angle": 0,
       "locations": [81.5, -0]
+    },
+    {
+      "id": "svc_controlcollar",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 116.172997,
+      "angle": 180,
+      "locations": [98, -0],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

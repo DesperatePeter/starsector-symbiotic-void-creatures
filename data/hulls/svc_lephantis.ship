@@ -42,7 +42,8 @@
     "shell_left": "svc_koenig_shell_left",
     "shell_right": "svc_koenig_shell_right",
     "sml_mand_left": "svc_sml_mand_l",
-    "sml_mand_right": "svc_sml_mand_r"
+    "sml_mand_right": "svc_sml_mand_r",
+    "svc_controlcollar": "svc_ctrl_cllr_lrg"
   },
   "weaponSlots": [
     {
@@ -178,7 +179,8 @@
       "mount": "TURRET",
       "arc": 1,
       "angle": -19.933001,
-      "locations": [0, 36.5]
+      "locations": [0, 36.5],
+      "renderOrderMod": 50
     },
     {
       "id": "antena_right",
@@ -187,7 +189,8 @@
       "mount": "TURRET",
       "arc": 1,
       "angle": 19.933001,
-      "locations": [0, -36.5]
+      "locations": [0, -36.5],
+      "renderOrderMod": 50
     },
     {
       "id": "shell_left",
@@ -307,13 +310,14 @@
       "locations": [47.5, -86]
     },
     {
-      "id": "Koenig",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
       "arc": 160.858002,
       "angle": 0,
-      "locations": [5, 0]
+      "locations": [70, -0],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

@@ -37,7 +37,8 @@
     "WS0022": "svc_tentacle_left_micro_dark",
     "WS0023": "svc_tentacle_left_small_dark",
     "WS0024": "svc_tentacle_right_small_dark",
-    "WS0025": "svc_flusskrebs"
+    "WS0025": "svc_flusskrebs",
+    "svc_controlcollar": "svc_ctrl_cllr_lrg"
   },
   "weaponSlots": [
     {
@@ -292,6 +293,16 @@
       "arc": 15,
       "angle": 6.5,
       "locations": [42.5, -36]
+    },
+    {
+      "id": "svc_controlcollar",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 39.307999,
+      "angle": 180,
+      "locations": [39, -0],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

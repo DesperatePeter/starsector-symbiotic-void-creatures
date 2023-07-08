@@ -54,7 +54,7 @@ class BGECarapace : BaseHullMod() {
     }
 
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
-        if(ship.originalOwner == 0) return
+        if(ship.originalOwner == 0 || ship.originalOwner == -1) return
         ship.allWeapons.filter {
                 w -> w.isDecorative && w.slot.id == CONTROL_COLLAR_ID
         }.forEach {

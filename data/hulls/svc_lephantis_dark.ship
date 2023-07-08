@@ -39,7 +39,8 @@
     "right_grappler2": "svc_bge_grappler",
     "right_grappler3": "svc_bge_grappler",
     "sml_mand_left": "svc_adv_sml_mand_l",
-    "sml_mand_right": "svc_adv_sml_mand_r"
+    "sml_mand_right": "svc_adv_sml_mand_r",
+    "svc_controlcollar": "svc_ctrl_cllr_lrg"
   },
   "weaponSlots": [
     {
@@ -177,7 +178,8 @@
       "mount": "TURRET",
       "arc": 1,
       "angle": -19.933001,
-      "locations": [-3.5, 37.5]
+      "locations": [-3.5, 37.5],
+      "renderOrderMod": 50
     },
     {
       "id": "antena_right",
@@ -186,7 +188,8 @@
       "mount": "TURRET",
       "arc": 1,
       "angle": 19.933001,
-      "locations": [-3.5, -37.5]
+      "locations": [-3.5, -37.5],
+      "renderOrderMod": 50
     },
     {
       "id": "shell_left",
@@ -306,13 +309,14 @@
       "locations": [44, -86]
     },
     {
-      "id": "Koenig",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 160.857605,
+      "arc": 160.858002,
       "angle": 0,
-      "locations": [1.5, 0]
+      "locations": [68.5, -0],
+      "renderOrderMod": 20
     },
     {
       "id": "WS0001",

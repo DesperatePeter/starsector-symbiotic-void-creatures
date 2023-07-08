@@ -39,7 +39,8 @@
     "right_mand": "svc_adv_sml_mand_r",
     "right_pd": "svc_bge_grappler_pd",
     "right_tentacle1": "svc_tentacle_right_small",
-    "right_tentacle2": "svc_tentacle_right_medium"
+    "right_tentacle2": "svc_tentacle_right_medium",
+    "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
   "weaponSlots": [
     {
@@ -198,14 +199,14 @@
       "renderOrderMod": 1
     },
     {
-      "id": "head",
+      "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
       "arc": 37.877998,
       "angle": 0,
-      "locations": [-7, 0],
-      "renderOrderMod": 2
+      "locations": [0.5, 3],
+      "renderOrderMod": 20
     },
     {
       "id": "WS0006",
