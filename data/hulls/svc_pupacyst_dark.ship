@@ -13,22 +13,22 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-    "do_not_back_off"
+    "do_not_back_off",
+    "svc_alpha_voidling"
   ],
   "builtInWeapons": {
     "WS0001": "svc_dark_fin_right_huge",
     "WS0002": "svc_dark_fin_left_huge",
+    "eyes": "svc_zophe",
     "grappler": "svc_bge_grappler",
     "grappler2": "svc_bge_grappler",
     "left_long_fin": "svc_tentacle_left_large_dark",
     "left_lrg_mand": "svc_adv_lrg_mand_l",
-    "left_med_uni": "svc_adv_med_scythe_l",
     "left_sml_fin": "svc_tentacle_right_medium_barbed_short",
     "left_sml_mand": "svc_adv_sml_mand_l",
     "left_sml_pd": "svc_bge_grappler_pd",
     "right_long_fin": "svc_tentacle_right_large_dark",
     "right_lrg_mand": "svc_adv_lrg_mand_r",
-    "right_med_uni": "svc_adv_med_scythe_r",
     "right_sml_fin": "svc_tentacle_left_medium_barbed_short",
     "right_sml_mand": "svc_adv_sml_mand_r",
     "right_sml_pd": "svc_bge_grappler_pd"
@@ -41,7 +41,7 @@
       "mount": "HARDPOINT",
       "arc": 26.784996,
       "angle": 0,
-      "locations": [64.5, -12.5]
+      "locations": [70, -10.5]
     },
     {
       "id": "left_lrg_mand",
@@ -50,7 +50,7 @@
       "mount": "HARDPOINT",
       "arc": 26.784996,
       "angle": -0,
-      "locations": [64.5, 12.5]
+      "locations": [70, 10.5]
     },
     {
       "id": "right_sml_mand",
@@ -59,7 +59,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": -0,
-      "locations": [78.5, -8]
+      "locations": [81.5, -8.5]
     },
     {
       "id": "left_sml_mand",
@@ -68,7 +68,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": 0,
-      "locations": [78.5, 8]
+      "locations": [81.5, 8.5]
     },
     {
       "id": "left_med_uni",
@@ -139,8 +139,9 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 180,
-      "locations": [71.5, -0.5]
+      "angle": 0,
+      "locations": [73.5, -0],
+      "renderOrderMod": 5
     },
     {
       "id": "grappler2",
@@ -197,6 +198,24 @@
       "angle": 3,
       "locations": [-25, 82.5],
       "renderOrderMod": 2
+    },
+    {
+      "id": "Alphamiddle",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 2,
+      "angle": 0,
+      "locations": [56.5, -0]
+    },
+    {
+      "id": "Alphamiddle2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 26.785,
+      "angle": 0,
+      "locations": [44.5, -0]
     }
   ],
   "engineSlots": [

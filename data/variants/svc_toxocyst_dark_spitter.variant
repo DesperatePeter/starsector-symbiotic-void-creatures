@@ -1,7 +1,7 @@
 {
-  "variantId": "svc_pupacyst_scythed",
-  "hullId": "svc_pupacyst",
-  "displayName": "Scythed",
+  "variantId": "svc_toxocyst_dark_spitter",
+  "hullId": "svc_toxocyst_dark",
+  "displayName": "Spitting",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,
@@ -13,46 +13,42 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "grappler": "svc_bge_grappler",
-        "grappler2": "svc_bge_grappler"
+        "WS0003": "svc_bge_grappler",
+        "WS0004": "svc_bge_grappler"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_lrg_mand": "svc_lrg_mand_l",
-        "left_sml_mand": "svc_sml_mand_l",
-        "right_lrg_mand": "svc_lrg_mand_r",
-        "right_sml_mand": "svc_sml_mand_r"
+        "WS0005": "svc_bge_grappler_pd",
+        "WS0006": "svc_bge_grappler_pd"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_sml_pd": "svc_bge_grappler_pd",
-        "right_sml_pd": "svc_bge_grappler_pd"
+        "WS0001": "svc_adv_sml_mand_r",
+        "WS0002": "svc_adv_sml_mand_l"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni": "svc_med_scythe_l"
+        "Alphaleft1": "svc_acidthrower",
+        "Alpharight1": "svc_acidthrower"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "right_med_uni": "svc_med_scythe_r"
+        "Alphamiddle": "svc_inksac"
       }
     }
   ],
   "modules": [],
-  "wings": [
-    "svc_mios_mandibles_wing",
-    "svc_pox_whip_wing"
-  ]
+  "wings": []
 }

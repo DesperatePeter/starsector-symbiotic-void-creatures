@@ -1,0 +1,66 @@
+{
+  "variantId": "svc_embolist_dark_spitter",
+  "hullId": "svc_embolist_dark",
+  "displayName": "Spitting",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0017": "svc_bge_grappler",
+        "WS0018": "svc_bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0019": "svc_bge_grappler_pd",
+        "WS0020": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0013": "svc_adv_sml_mand_l",
+        "WS0014": "svc_adv_sml_mand_r",
+        "WS0015": "svc_adv_lrg_mand_l",
+        "WS0016": "svc_adv_lrg_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Alphaleft1": "svc_acidthrower",
+        "Alpharight1": "svc_acidthrower"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Alphamiddle": "svc_inksac"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

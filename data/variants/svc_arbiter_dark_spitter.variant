@@ -1,7 +1,7 @@
 {
-  "variantId": "svc_arbiter_dark_scythed",
+  "variantId": "svc_arbiter_dark_spitter",
   "hullId": "svc_arbiter_dark",
-  "displayName": "Scythed",
+  "displayName": "Spitting",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,
@@ -13,18 +13,18 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0011": "svc_bge_grappler_pd",
-        "WS0012": "svc_bge_grappler_pd"
+        "WS0015": "svc_bge_grappler",
+        "WS0016": "svc_bge_grappler"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0011": "svc_bge_grappler_pd",
+        "WS0012": "svc_bge_grappler_pd",
         "WS0013": "svc_bge_grappler_pd",
         "WS0014": "svc_bge_grappler_pd",
-        "WS0015": "svc_bge_grappler",
-        "WS0016": "svc_bge_grappler",
         "WS0017": "svc_bge_grappler_pd",
         "WS0018": "svc_bge_grappler_pd"
       }
@@ -43,29 +43,26 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_lrg_uni": "svc_adv_lrg_scythe_l"
+        "alphaleft1": "svc_inksac",
+        "alpharight1": "svc_inksac"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni": "svc_adv_med_scythe_l"
+        "alphamiddle": "svc_acidthrower"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "right_lrg_uni": "svc_adv_lrg_scythe_r"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "right_med_uni": "svc_adv_med_scythe_r"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

@@ -13,13 +13,10 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-    "do_not_back_off"
+    "do_not_back_off",
+    "svc_alpha_voidling"
   ],
   "builtInWeapons": {
-    "WS0001": "svc_adv_med_scythe_r",
-    "WS0002": "svc_adv_med_scythe_l",
-    "WS0003": "svc_adv_med_scythe_r",
-    "WS0004": "svc_adv_med_scythe_l",
     "WS0005": "svc_dark_fin_left_medium",
     "WS0006": "svc_dark_fin_right_medium",
     "WS0007": "svc_dark_fin_right_small",
@@ -264,9 +261,37 @@
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 39.307648,
+      "arc": 39.307999,
       "angle": 0,
-      "locations": [59, -0]
+      "locations": [59, -0],
+      "renderOrderMod": 5
+    },
+    {
+      "id": "Alphamiddle",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [38.5, -0]
+    },
+    {
+      "id": "Alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": -6.5,
+      "locations": [42.5, 36]
+    },
+    {
+      "id": "Alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": 6.5,
+      "locations": [42.5, -36]
     }
   ],
   "engineSlots": [

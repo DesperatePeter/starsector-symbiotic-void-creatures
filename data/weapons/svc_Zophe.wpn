@@ -5,8 +5,8 @@
 	"size":"SMALL",
         "height": 1.0,
         "renderBelowAllWeapons": true,
-	"turretSprite":"graphics/ships/Zophe2.png",
-	"hardpointSprite":"graphics/ships/Zophe2.png",
+	"turretSprite":"graphics/weapons/deco/pupacysthead.png",
+	"hardpointSprite":"graphics/weapons/deco/pupacysthead.png",
 
 	"turretOffsets": [
 20,

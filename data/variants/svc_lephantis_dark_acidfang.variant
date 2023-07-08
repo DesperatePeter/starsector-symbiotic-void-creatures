@@ -1,0 +1,81 @@
+{
+  "variantId": "svc_lephantis_dark_acidfang",
+  "hullId": "svc_lephantis_dark",
+  "displayName": "Acidfang",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "svc_bge_grappler",
+        "left_grappler2": "svc_bge_grappler",
+        "left_grappler3": "svc_bge_grappler",
+        "right_grappler2": "svc_bge_grappler",
+        "right_grappler3": "svc_bge_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0004": "svc_inksac",
+        "WS0005": "svc_inksac",
+        "left_grappler": "svc_bge_grappler_pd",
+        "pd_in_left": "svc_bge_grappler_pd",
+        "pd_in_right": "svc_bge_grappler_pd",
+        "pd_out_left": "svc_bge_grappler_pd",
+        "pd_out_right": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mand_left": "svc_adv_lrg_mand_l",
+        "lrg_mand_right": "svc_adv_lrg_mand_r",
+        "sml_mand_left": "svc_adv_sml_mand_l",
+        "sml_mand_right": "svc_adv_sml_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "alphaleft1": "svc_fangcluster",
+        "alphaleft2": "svc_fangcluster",
+        "alpharight1": "svc_fangcluster",
+        "alpharight2": "svc_fangcluster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "alphaleft3": "svc_acidthrower",
+        "alpharight3": "svc_acidthrower"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mdl_kin_left": "svc_adv_lrg_scythe_l",
+        "lrg_mdl_kin_right": "svc_adv_lrg_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
