@@ -121,6 +121,10 @@ right small translucent fin,svc_trans_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 left small translucent fin,svc_trans_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4405
 right small translucent fin2,svc_trans_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4406
 left small translucent fin2,svc_trans_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
+right tiny translucent fin,svc_trans_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
+left tiny translucent fin,svc_trans_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
+right tiny translucent fin2,svc_trans_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
+left tiny translucent fin2,svc_trans_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
 Feelers,svc_deco_feeler_l,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,20
 Feelers,svc_deco_feeler_r,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,21
 W�chter Shell,svc_waechtershell,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42

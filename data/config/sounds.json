@@ -37,35 +37,35 @@
 
 	],	
 		"svc_engine_tentacle_loop":[
-		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":1,"volume":0.4},
-		{"file":"sounds/svc_fleshreforminglikesound.ogg","pitch":1,"volume":0.5},	
+		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_fleshreforminglikesound.ogg","pitch":1,"volume":0.4},	
 
 	],	
 			"svc_engine_tentacle_accelerate":[
-		{"file":"sounds/svc_Roar20.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/svc_Roar1.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/svc_Roar5.ogg","pitch":1,"volume":0.05},
-		{"file":"sounds/svc_Roar6.ogg","pitch":1,"volume":0.05},
+		{"file":"sounds/svc_Roar20.ogg","pitch":1,"volume":0.04},
+		{"file":"sounds/svc_Roar1.ogg","pitch":1,"volume":0.04},
+		{"file":"sounds/svc_Roar5.ogg","pitch":1,"volume":0.04},
+		{"file":"sounds/svc_Roar6.ogg","pitch":1,"volume":0.04},
 		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.1},
 		{"file":"sounds/svc_Roar12.ogg","pitch":1,"volume":0.1},
 
 	],	
 				"svc_creature_emp_loop":[
-		{"file":"sounds/svc_Roar15.ogg","pitch":1,"volume":0.2},
-		{"file":"sounds/svc_Roar17.ogg","pitch":1,"volume":0.2},
-		{"file":"sounds/svc_Roar18.ogg","pitch":1,"volume":0.2},		
-		{"file":"sounds/svc_growlsound6.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar15.ogg","pitch":1,"volume":0.1},
+		{"file":"sounds/svc_Roar17.ogg","pitch":1,"volume":0.1},
+		{"file":"sounds/svc_Roar18.ogg","pitch":1,"volume":0.1},		
+		{"file":"sounds/svc_growlsound6.ogg","pitch":1,"volume":0.1},
 	],	
 					"svc_creature_pain":[
-		{"file":"sounds/svc_Roar20.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/svc_Roar1.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/svc_Roar4.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/svc_Roar5.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/svc_Roar6.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.4},
-		{"file":"sounds/svc_Roar12.ogg","pitch":1,"volume":0.4},
+		{"file":"sounds/svc_Roar20.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar1.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar4.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar5.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar6.ogg","pitch":1,"volume":0.2},
 		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
-		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar12.ogg","pitch":1,"volume":0.3},
+		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.2},
 	],	
 }
 }
