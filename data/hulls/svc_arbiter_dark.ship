@@ -13,7 +13,8 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-    "do_not_back_off"
+    "do_not_back_off",
+    "svc_alpha_voidling"
   ],
   "builtInWeapons": {
     "WS0001": "svc_tentacle_left_gargantuan",
