@@ -12,9 +12,11 @@ class FleetSpawnParameters {
         private const val FLEET_SIZE_SCALING = 1f           // How quickly voidling fleet size scales with spawn power
         private const val MIN_FLEET_SIZE = 10f
         private const val MAX_FLEET_SIZE = 300f
-        private const val BASE_MAX_FLEET_COUNT = 3
-        private const val FINAL_MAX_FLEET_COUNT = 15
+
         private const val CYCLE_ZERO = 206
+        private const val BASE_MAX_FLEET_COUNT = 10
+        private const val FINAL_MAX_FLEET_COUNT = 30
+
         // weights when spawn power is 0 (negative weights are the same as 0, but make things appear later)
         private val combatRoleBaseWeights = mapOf(
             "combatSmall" to 1f,
