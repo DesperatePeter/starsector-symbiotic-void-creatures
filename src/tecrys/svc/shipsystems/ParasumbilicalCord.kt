@@ -1,6 +1,7 @@
 package tecrys.svc.shipsystems
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.combat.CombatEntityAPI
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
@@ -9,9 +10,12 @@ import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.lazywizard.lazylib.CollisionUtils
 import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.minus
+import org.lazywizard.lazylib.ext.plus
+import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.CombatPlugin
 import tecrys.svc.shipsystems.utils.DamageSharingListener
+import tecrys.svc.shipsystems.utils.ParasumbilicalRenderer
 import tecrys.svc.utils.getEffectiveShipTarget
 import java.awt.Color
 
@@ -26,6 +30,9 @@ class ParasumbilicalCord: BaseShipSystemScript() {
     // private val outerSprite = Global.getSettings().getSprite("beams", "fakeBeamFringe")
 
     private var damageSharingListener: DamageSharingListener? = null
+    private var renderPlugin: ParasumbilicalRenderer? = null
+    private var rendererCombatEntity: CombatEntityAPI? = null
+
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
@@ -62,11 +69,14 @@ class ParasumbilicalCord: BaseShipSystemScript() {
 
     private fun renderCord(thisShip: ShipAPI, alphaMult: Float){
         val targetShip = damageSharingListener?.shipTarget ?: return
-        val origin = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, thisShip) ?: return
-        val target = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, targetShip) ?: return
+//        val origin = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, thisShip) ?: return
+//        val target = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, targetShip) ?: return
+        val origin = thisShip.location
+        val target = targetShip.location
         val line = target - origin
-        CombatPlugin.spritesToRenderOneFrame.add(CombatPlugin.Companion.RenderableSprite(
-            innerSprite, alphaMult, INNER_BEAM_WIDTH, line.length(), VectorUtils.getAngle(origin, target), origin
+        val center = origin + Vector2f(line.x * 0.5f, line.y * 0.5f)
+        renderPlugin?.spritesToRenderOneFrame?.add(ParasumbilicalRenderer.RenderableSprite(
+            innerSprite, alphaMult, INNER_BEAM_WIDTH, line.length(), VectorUtils.getAngle(origin, target), center
         ))
     }
 
@@ -79,12 +89,19 @@ class ParasumbilicalCord: BaseShipSystemScript() {
         if(damageSharingListener != null) unApplyEffect(thisShip)
         damageSharingListener = DamageSharingListener(target)
         thisShip.addListener(damageSharingListener)
+        if(renderPlugin == null){
+            renderPlugin = ParasumbilicalRenderer()
+            rendererCombatEntity = Global.getCombatEngine().addLayeredRenderingPlugin(renderPlugin)
+        }
     }
 
     private fun unApplyEffect(thisShip: ShipAPI){
         damageSharingListener?.run {
             thisShip.removeListener(this)
         }
+        rendererCombatEntity.let { Global.getCombatEngine().removeEntity(it) }
+        rendererCombatEntity = null
+        renderPlugin = null
         damageSharingListener = null
     }
 

@@ -19,9 +19,8 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     private var pulseTimer = 0f
     companion object{
         data class AuraInfo(val center: Vector2f, val radius: Float, val color: Color)
-        data class RenderableSprite(val sprite: SpriteAPI, val alpha: Float, val width: Float, val height: Float, val angleDeg: Float, val pos: Vector2f)
+
         val aurasToRenderOneFrame = mutableListOf<AuraInfo>()
-        val spritesToRenderOneFrame = mutableListOf<RenderableSprite>()
         private const val CIRCLE_POINTS = 50
         private fun multiplyAlpha(color: Color, mult: Float): Color{
             return color.setAlpha((color.alpha * mult).toInt())
@@ -32,28 +31,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         if(pulseTimer >= 1000000000f) pulseTimer = 0f
 
         renderAuras(viewport)
-        renderSprites(viewport)
     }
-
-    private fun renderSprites(viewport: ViewportAPI?){
-        val viewMult = viewport?.viewMult ?: return
-        preRender()
-        spritesToRenderOneFrame.forEach { s->
-            s.sprite.run {
-                alphaMult = s.alpha
-                setSize(s.width / viewMult, (10f + 2f * s.height) / viewMult)
-                setAdditiveBlend()
-                angle = s.angleDeg - 90f
-                // 32 x 256, lower 128 empty
-                // renderRegionAtCenter()
-                renderAtCenter(viewport.convertWorldXtoScreenX(s.pos.x), viewport.convertWorldYtoScreenY(s.pos.y))
-            }
-        }
-        postRender()
-        if(Global.getCombatEngine()?.isPaused != true)
-        spritesToRenderOneFrame.clear()
-    }
-
     private fun renderAuras(viewport: ViewportAPI?){
         val viewMult = viewport?.viewMult ?: return
         preRender()
