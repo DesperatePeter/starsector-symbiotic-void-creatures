@@ -1,6 +1,8 @@
 {
   "svc_notification_strings" : {
     "svc_voidlings_defeated_title" : "Voidling Encounter",
-    "svc_voidlings_defeated_text" : "You have defeated a voidling fleet! Congratulations! You might now get a MagicBounty offered. This text is a placeholder"
+    "svc_voidlings_defeated_text" : "You have defeated a voidling fleet! Congratulations! You might now get a MagicBounty offered. This text is a placeholder",
+    "svc_magic_bounty_defeated_title" : "Elite Voidling Swarm defeated!",
+    "svc_magic_bounty_defeated_text" : "You have defeated the elite voidling swarm! As of the current early development stage, you have successfully defeated the Voidlings! In the future, there will be additional content. You now have the chance to decide if you want new Voidlings to keep spawning or not."
   }
 }

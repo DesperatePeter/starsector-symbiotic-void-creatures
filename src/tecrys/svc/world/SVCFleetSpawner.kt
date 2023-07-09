@@ -4,17 +4,16 @@ import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.campaign.listeners.FleetEventListener
-import com.fs.starfarer.api.campaign.rules.MemoryAPI
-import com.fs.starfarer.api.combat.EngagementResultAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import org.apache.log4j.Level
 import tecrys.svc.*
+import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
+import tecrys.svc.world.notifications.NotificationShower
 
 class SVCFleetSpawner : EveryFrameScript {
 
     companion object {
-        const val MAX_NUMBER_OF_ACTIVE_SPAWNED_FLEETS = 100
-        val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID) // UVC_FACTION_ID
+        val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID)
     }
 
     private val interval = IntervalUtil(50f, 250f)
@@ -24,9 +23,7 @@ class SVCFleetSpawner : EveryFrameScript {
 
     override fun advance(amount: Float) {
         if(Global.getSector().isPaused) return
-        if (Global.getSector()?.memory?.contains("\$svc_hive_queen") == true
-            && Global.getSector()?.memory?.getBoolean("\$svc_hive_queen") == true
-        ) return
+        if (!DefeatedMagicBountyDialog.shouldSpawnVoidlings) return
         interval.advance(amount)
         if (!interval.intervalElapsed()) return
         FACTIONS_TO_SPAWN.forEach { spawnFactionFleetsUntilLimit(it) }
@@ -90,8 +87,9 @@ class SVCFleetSpawner : EveryFrameScript {
             ) {
                 if (primaryWinner?.isPlayerFleet == true) {
                     if (!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)) {
-                        NotificationShower.shouldNotificationBeShown = true
+                        NotificationShower.showNotificationOnce("voidlings_defeated")
                     }
+                    // mem-key enables magic bounty
                     Global.getSector().memory.set(SVC_FLEET_DEFEATED_MEM_KEY, true)
                 }
             }

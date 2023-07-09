@@ -3,7 +3,7 @@ package tecrys.svc
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.thoughtworks.xstream.XStream
-import tecrys.svc.world.NotificationShower
+import tecrys.svc.world.notifications.NotificationShower
 import tecrys.svc.world.SVCFleetSpawner
 import tecrys.svc.world.SVCGen
 
