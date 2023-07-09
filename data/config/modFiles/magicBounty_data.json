@@ -1,5 +1,5 @@
 {
-    "svc_hive_queen":{
+    "svc_alpha_small":{
     
         #"required_mods_id": ["symbiotic_void_creatures"],
 
@@ -22,17 +22,17 @@
         
         #BOUNTY DESCRIPTION
         
-        "job_name": "Eliminate the queen!",
-        "job_description": "Placeholder!\nSo, I see you also had a run-in with the so-called Symbiotic Void Creatures, sometimes referred to by their nickname voidlings.\nThey are starting to become a real nuisance to the sector and are threatening to disrupt out operations.\nNeedless to say, they cannot be allowed to spread further. Unfortunately, nobody seems to have any idea where they came from, what they are and what drives them.\nBut we did at the very least manage to learn on thing: They appear to reproduce via some sort of hive-queen.\nOur hope is that eliminating said queen could stop, or at the very least slow down, their spread throughout the sector.\nAnd who knows, maybe eliminating the queen might even help uncover some of their secrets.\nGiven that you have already dealt with these voidlings before, I can think of no better candidate for this job!",
+        "job_name": "Eliminate the Alpha!",
+        "job_description": "So, I see you had a run-in with the so-called Symbiotic Void Creatures, also known as Voidlings by some.\nThey are starting to become a real nuisance to the sector and are threatening to disrupt our operations.\nNeedless to say, they cannot be allowed to spread any further. Unfortunately, nobody seems to have any idea where they came from, what they are and what drives them.\nBut we did at the very least manage to learn on thing: They behave like pack animals led by a dominant male, an Alpha.\nOur research suggests killing the Alpha would lead to in-fighting among the rest of the pack, significantly slowing down their spread throughout the sector.\nGiven that you have already dealt with these voidlings before, I can think of no better candidate for this job!",
         "job_comm_reply": "",
-        "job_intel_success": "The queen has been dealt with. For now, at least, this seems to have dealt a significant blow to their reproductive capabilites.",
-        "job_intel_failure": "You are pretty sure that your employer intended for you to kill the queen, not enslave it.",
+        "job_intel_success": "The alpha has been dealt with. For now, at least, this seems to have reduced territorial advancement of Void Creatures.",
+        "job_intel_failure": "You are pretty sure that your employer intended for you to kill the alpha, not enslave it.",
         "job_intel_expired": "",
         #"job_forFaction": "",
         #"job_deadline": 0,
-        "job_credit_reward": 250000,
+        "job_credit_reward": 50000,
         "job_reward_scaling": 0,
-        "job_reputation_reward":5,
+        "job_reputation_reward":2,
         #"job_item_reward": {"svc_void_queen":1,},
         "job_type":"destruction",
         "job_show_type": true,
@@ -50,35 +50,241 @@
 
         #TARGET COMMANDER (OPTIONAL)
         
-        "target_first_name":"Void",
-        "target_last_name":"Queen",
+        "target_first_name":"Alpha",
+        "target_last_name":"Voidling",
         #"target_portrait":"", # TODO
-        "target_gender":"FEMALE",
+        "target_gender":"MALE",
         "target_rank": "citizen",
         "target_post": "spacer",
         "target_personality": "reckless",
         "target_aiCoreId": null,
-        "target_level": 7,
-        "target_elite_skills":3,
+        "target_level": 4,
+        "target_elite_skills":1,
         "target_skill_preference": "NO_ENERGY_YES_BALLISTIC_NO_MISSILE_YES_DEFENSE",
         #"target_skills": {"skill":1,},
     
     
         #TARGET FLEET
         
-        "fleet_name":"Void Queen's Armada",
+        "fleet_name":"Alpha's Pack",
         "fleet_faction": "svc",
-        "fleet_flagship_variant":"svc_lephantis_scythed",
-        "fleet_flagship_name":"Void Queen",
+        "fleet_flagship_variant":["svc_embolist_dark_scythed", "svc_toxocyst_dark_scythed", "svc_hemalisk_dark_scythed"],
+        "fleet_flagship_name":"",
         "fleet_flagship_alwaysRecoverable": false,
         "fleet_flagship_autofit": false,
         "fleet_preset_ships": {
-            "svc_toxocyst_scythed":4,
-            "svc_pupacyst_scythed":2,
-            "svc_keratinos_scythed":2,
-            "svc_hemalisk_scythed":6,
+            "svc_toxocyst_scythed":1,
+            "svc_pupacyst_scythed":1,
+            "svc_hemalisk_scythed":2,
+            "svc_embolist_scythed":1,
+        },
+        "fleet_preset_autofit": false,
+        "fleet_scaling_multiplier": 0,
+        "fleet_min_FP": 0,
+        #"fleet_composition_faction": "faction",
+        "fleet_composition_quality": 2,
+        "fleet_transponder": false,
+		"fleet_no_retreat": true,
+        "fleet_behavior": "AGGRESSIVE",
+        #"fleet_musicSetId": null,
+        
+        #LOCATION
+        
+        #"location_entitiesID": ["location1",],
+        #"location_marketFactions": ["faction",],
+        "location_distance": "FAR",
+        #"location_themes": ["procgen_no_theme", "procgen_no_theme_pulsar_blackhole",],
+        "location_themes_blacklist": ["theme_already_occupied", "theme_already_colonized", "theme_hidden"],
+        #"location_entities": ["entity",],
+        "location_prioritizeUnexplored": true,
+        "location_defaultToAnyEntity": true,
+    },
+	
+	 "svc_alpha_medium":{
+    
+        #"required_mods_id": ["symbiotic_void_creatures"],
+
+        #TRIGGERS (ALL OPTIONAL)
+        
+        #"trigger_market_id": [],
+        "trigger_marketFaction_any": ["independent", "hegemony", "tritachyon", "luddic_church", "persean_league"],
+        #"trigger_marketFaction_alliedWith": true,
+        #"trigger_marketFaction_none": [],
+        #"trigger_marketFaction_enemyWith": false,
+        #"trigger_market_minSize": 0,
+        #"trigger_player_minLevel": 0,
+        #"trigger_min_fleet_size": 0,
+        #"trigger_min_days_elapsed": 0,
+        "trigger_weight_mult": 1.0,
+        "trigger_memKeys_all": {"$svc_alpha_small_succeeded":true,},
+        # "trigger_memKeys_any": {"$key":true,},
+        #"trigger_playerRelationship_atLeast": {"faction":0.0,},
+        #"trigger_playerRelationship_atMost": {"faction":0.0,},
+        
+        #BOUNTY DESCRIPTION
+        
+        "job_name": "A bigger one appeared ... kill it!",
+        "job_description": "It seems in-fighting among Void Creatures has led to the rise of a stronger Alpha.\nSince last time you dealt with these vermin quickly we hopeed you could repeat that feat once more for us.\nNeedless to say, you will be properly compensated for this task.",
+        "job_comm_reply": "",
+        "job_intel_success": "The alpha has been dealt with. For now, at least, this seems to have reduced territorial advancement of Void Creatures.",
+        "job_intel_failure": "You are pretty sure that your employer intended for you to kill the alpha, not enslave it.",
+        "job_intel_expired": "",
+        #"job_forFaction": "",
+        #"job_deadline": 0,
+        "job_credit_reward": 150000,
+        "job_reward_scaling": 0,
+        "job_reputation_reward":2,
+        #"job_item_reward": {"svc_void_queen":1,},
+        "job_type":"destruction",
+        "job_show_type": true,
+        "job_show_captain": false,
+        "job_show_fleet": "flagship",
+        "job_show_distance": "vague",
+        "job_show_arrow": false,
+        "job_difficultyDescription": "auto",
+        "job_pick_option": "",
+        #"job_pick_script": "data.script.script",
+        #"job_memKey":"$key",
+        #"job_conclusion_script":"data.script.script", # TODO
+        
+		#"existing_target_memkey":"$memKey",
+
+        #TARGET COMMANDER (OPTIONAL)
+        
+        "target_first_name":"Alpha",
+        "target_last_name":"Voidling",
+        #"target_portrait":"", # TODO
+        "target_gender":"MALE",
+        "target_rank": "citizen",
+        "target_post": "spacer",
+        "target_personality": "reckless",
+        "target_aiCoreId": null,
+        "target_level": 4,
+        "target_elite_skills":1,
+        "target_skill_preference": "NO_ENERGY_YES_BALLISTIC_NO_MISSILE_YES_DEFENSE",
+        #"target_skills": {"skill":1,},
+    
+    
+        #TARGET FLEET
+        
+        "fleet_name":"Alpha's Pack",
+        "fleet_faction": "svc",
+        "fleet_flagship_variant":["svc_arbiter_dark_scythed", "svc_pupacyst_dark_acid", "svc_embolist_dark_acidfang"],
+        "fleet_flagship_name":"",
+        "fleet_flagship_alwaysRecoverable": false,
+        "fleet_flagship_autofit": false,
+        "fleet_preset_ships": {
+            "svc_toxocyst_scythed":2,
+            "svc_pupacyst_scythed":1,
+            "svc_hemalisk_scythed":2,
             "svc_embolist_scythed":2,
-            "svc_arbiter_scythed":1
+			"svc_keratinos_scythed":1,
+			"svc_arbiter_scythed":1,
+        },
+        "fleet_preset_autofit": false,
+        "fleet_scaling_multiplier": 0,
+        "fleet_min_FP": 0,
+        #"fleet_composition_faction": "faction",
+        "fleet_composition_quality": 2,
+        "fleet_transponder": false,
+		"fleet_no_retreat": true,
+        "fleet_behavior": "AGGRESSIVE",
+        #"fleet_musicSetId": null,
+        
+        #LOCATION
+        
+        #"location_entitiesID": ["location1",],
+        #"location_marketFactions": ["faction",],
+        "location_distance": "FAR",
+        #"location_themes": ["procgen_no_theme", "procgen_no_theme_pulsar_blackhole",],
+        "location_themes_blacklist": ["theme_already_occupied", "theme_already_colonized", "theme_hidden"],
+        #"location_entities": ["entity",],
+        "location_prioritizeUnexplored": true,
+        "location_defaultToAnyEntity": true,
+    },
+	
+	
+		 "svc_alpha_large":{
+    
+        #"required_mods_id": ["symbiotic_void_creatures"],
+
+        #TRIGGERS (ALL OPTIONAL)
+        
+        #"trigger_market_id": [],
+        "trigger_marketFaction_any": ["independent", "hegemony", "tritachyon", "luddic_church", "persean_league"],
+        #"trigger_marketFaction_alliedWith": true,
+        #"trigger_marketFaction_none": [],
+        #"trigger_marketFaction_enemyWith": false,
+        #"trigger_market_minSize": 0,
+        #"trigger_player_minLevel": 0,
+        #"trigger_min_fleet_size": 0,
+        #"trigger_min_days_elapsed": 0,
+        "trigger_weight_mult": 1.0,
+        "trigger_memKeys_all": {"$svc_alpha_medium_succeeded":true,},
+        # "trigger_memKeys_any": {"$key":true,},
+        #"trigger_playerRelationship_atLeast": {"faction":0.0,},
+        #"trigger_playerRelationship_atMost": {"faction":0.0,},
+        
+        #BOUNTY DESCRIPTION
+        
+        "job_name": "Exterminator requested!",
+        "job_description": "It seems in-fighting among Void Creatures has led to the rise of a stronger Alpha.\nSince last time you dealt with these vermin quickly we hopeed you could repeat that feat once more for us.\nNeedless to say, you will be properly compensated for this task.",
+        "job_comm_reply": "",
+        "job_intel_success": "The alpha has been dealt with. For now, at least, this seems to have reduced territorial advancement of Void Creatures.",
+        "job_intel_failure": "You are pretty sure that your employer intended for you to kill the alpha, not enslave it.",
+        "job_intel_expired": "",
+        #"job_forFaction": "",
+        #"job_deadline": 0,
+        "job_credit_reward": 250000,
+        "job_reward_scaling": 0,
+        "job_reputation_reward":2,
+        #"job_item_reward": {"svc_void_queen":1,},
+        "job_type":"destruction",
+        "job_show_type": true,
+        "job_show_captain": false,
+        "job_show_fleet": "flagship",
+        "job_show_distance": "vague",
+        "job_show_arrow": false,
+        "job_difficultyDescription": "auto",
+        "job_pick_option": "",
+        #"job_pick_script": "data.script.script",
+        #"job_memKey":"$key",
+        #"job_conclusion_script":"data.script.script", # TODO
+        
+		#"existing_target_memkey":"$memKey",
+
+        #TARGET COMMANDER (OPTIONAL)
+        
+        "target_first_name":"Alpha",
+        "target_last_name":"Voidling",
+        #"target_portrait":"", # TODO
+        "target_gender":"MALE",
+        "target_rank": "citizen",
+        "target_post": "spacer",
+        "target_personality": "reckless",
+        "target_aiCoreId": null,
+        "target_level": 4,
+        "target_elite_skills":1,
+        "target_skill_preference": "NO_ENERGY_YES_BALLISTIC_NO_MISSILE_YES_DEFENSE",
+        #"target_skills": {"skill":1,},
+    
+    
+        #TARGET FLEET
+        
+        "fleet_name":"Alpha's Pack",
+        "fleet_faction": "svc",
+        "fleet_flagship_variant":["svc_keratinos_dark_mixed&claw", "svc_keratinos_dark_scythed", "svc_lephantis_dark_acidfang", "svc_lephantis_dark_scythed"],
+        "fleet_flagship_name":"",
+        "fleet_flagship_alwaysRecoverable": false,
+        "fleet_flagship_autofit": false,
+        "fleet_preset_ships": {
+            "svc_toxocyst_scythed":2,
+            "svc_pupacyst_scythed":2,
+            "svc_hemalisk_scythed":3,
+            "svc_embolist_scythed":3,
+			"svc_keratinos_scythed":2,
+			"svc_arbiter_scythed":2,
+			"svc_lephantis_scythed":1,			
         },
         "fleet_preset_autofit": false,
         "fleet_scaling_multiplier": 0,
