@@ -14,9 +14,14 @@ class SVCFleetSpawner : EveryFrameScript {
 
     companion object {
         val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID)
+        fun countFactionFleets(faction: String): Int {
+            return Global.getSector().allLocations.sumOf { loc ->
+                loc.fleets.filterNotNull().count { it.faction.id == faction }
+            }
+        }
     }
 
-    private val interval = IntervalUtil(50f, 250f)
+    private val interval = IntervalUtil(10f, 30f)
     override fun isDone(): Boolean = false
 
     override fun runWhilePaused(): Boolean = false
@@ -96,12 +101,6 @@ class SVCFleetSpawner : EveryFrameScript {
 
         })
         return fleet
-    }
-
-    private fun countFactionFleets(faction: String): Int {
-        return Global.getSector().allLocations.sumOf { loc ->
-            loc.fleets.filterNotNull().count { it.faction.id == faction }
-        }
     }
 
 }

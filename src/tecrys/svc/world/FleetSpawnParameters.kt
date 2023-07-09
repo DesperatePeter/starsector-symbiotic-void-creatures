@@ -14,6 +14,7 @@ class FleetSpawnParameters {
         private const val MAX_FLEET_SIZE = 300f
         private const val BASE_MAX_FLEET_COUNT = 3
         private const val FINAL_MAX_FLEET_COUNT = 15
+        private const val CYCLE_ZERO = 206
         // weights when spawn power is 0 (negative weights are the same as 0, but make things appear later)
         private val combatRoleBaseWeights = mapOf(
             "combatSmall" to 1f,
@@ -48,7 +49,7 @@ class FleetSpawnParameters {
         private val fleetStrength: Float
             get() = Global.getSector()?.playerFleet?.effectiveStrength ?: 0f
         private val campaignCyclesElapsed: Float
-            get() = Global.getSector()?.clock?.cycle?.toFloat() ?: 0f
+            get() = Global.getSector()?.clock?.cycle?.minus(CYCLE_ZERO)?.toFloat() ?: 0f
         private val spawnPower: Float
             get() {
                 return min(
