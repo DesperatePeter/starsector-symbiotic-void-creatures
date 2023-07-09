@@ -48,14 +48,14 @@ class FleetSpawnParameters {
         /**
          * a number roughly in the magnitude of 10~1000
          */
-        private val fleetStrength: Float
+        private val playerFleetStrength: Float
             get() = Global.getSector()?.playerFleet?.effectiveStrength ?: 0f
         private val campaignCyclesElapsed: Float
             get() = Global.getSector()?.clock?.cycle?.minus(CYCLE_ZERO)?.toFloat() ?: 0f
         private val spawnPower: Float
             get() {
                 return min(
-                    fleetStrength * FLEET_STRENGTH_SCALING + campaignCyclesElapsed * CYCLES_ELAPSED_SCALING,
+                    playerFleetStrength * FLEET_STRENGTH_SCALING + campaignCyclesElapsed * CYCLES_ELAPSED_SCALING,
                     MAX_SPAWN_POWER)
             }
 
@@ -85,6 +85,19 @@ class FleetSpawnParameters {
                 if (diceRoll <= 0f) return it.key
             }
             return itemsWithWeights.keys.last()
+        }
+
+        fun logParameters(){
+            val logString = "" +
+                    "\n###################################" +
+                    "\n---------FLEET SPAWN PARAMS--------" +
+                    "\nplayer fleet strength: $playerFleetStrength" +
+                    "\ncycles elapsed: $campaignCyclesElapsed" +
+                    "\nspawn power: $spawnPower (max 300)" +
+                    "\nsample fleet size: $fleetSize" +
+                    "\nmax fleet count: $maxFleetCount" +
+                    "\nnumber of spawned fleets: ${SVCFleetSpawner.countFactionFleets("svc")}"
+            Global.getLogger(this::class.java).info(logString)
         }
     }
 
