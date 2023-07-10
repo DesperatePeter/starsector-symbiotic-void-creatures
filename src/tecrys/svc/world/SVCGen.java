@@ -36,8 +36,9 @@ public class SVCGen implements SectorGeneratorPlugin {
         FactionAPI kol = sector.getFaction("knights_of_ludd");
         FactionAPI diktat = sector.getFaction("sindrian_diktat");
         FactionAPI persean = sector.getFaction("persean");
+        FactionAPI remnant = sector.getFaction("remnant");
 
-        List<FactionAPI> hostileFactions = Arrays.asList(player, hegemony, tritachyon, pirates, independent, church, path, kol, diktat, persean);
+        List<FactionAPI> hostileFactions = Arrays.asList(player, hegemony, tritachyon, pirates, independent, church, path, kol, diktat, persean, remnant);
         List<String> hostileFactionStrings = Arrays.asList("exigency", "shadow_industry", "mayorate", "blackrock", "tiandong", "SCY", "neutrinocorp", "interstellarimperium", "diableavionics");
 
         for(String fs : hostileFactionStrings){
