@@ -26,8 +26,9 @@ class BGECarapace : BaseHullMod() {
         private const val CONTROL_COLLAR_ID = "svc_controlcollar"
         private const val CONTROL_COLLAR_HULLMOD_ID = "svc_controlcollar_hm"
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
-        private val BLOCKED_HULLMODS = setOf("turretgyros", "advancedoptics", "autorepair", "dedicated_targeting_core", "targetingunit", "augmentedengines",
-            "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
+        private val ALLOWED_HULLMODS = setOf("BGECarapace", "enhanced_reflexes", "muscleflexibility", "muscleendurance",
+            "acceleratedmetabolism", "thickenedshell", "antimatterfatlayer", "svc_alpha_voidling", "svc_controlcollar_hm",
+            "do_not_back_off", "ML_incompatibleHullmodWarning")
     }
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.variant?.let {
@@ -55,7 +56,7 @@ class BGECarapace : BaseHullMod() {
     }
 
     override fun isApplicableToShip(ship: ShipAPI?): Boolean {
-        return ship?.variant?.hullMods?.none { BLOCKED_HULLMODS.contains(it) } ?: false
+        return ship?.variant?.hullMods?.all { ALLOWED_HULLMODS.contains(it) } ?: false
     }
 
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
@@ -98,8 +99,8 @@ class BGECarapace : BaseHullMod() {
     }
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
         val hullMods = variant.hullMods.toList()
-        hullMods.filter {
-            BLOCKED_HULLMODS.contains(it)
+        hullMods.filterNot {
+            ALLOWED_HULLMODS.contains(it)
         }.forEach {
             MagicIncompatibleHullmods.removeHullmodWithWarning(variant, it, SVC_BASE_HULLMOD_ID)
         }
