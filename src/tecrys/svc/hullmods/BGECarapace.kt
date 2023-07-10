@@ -28,7 +28,7 @@ class BGECarapace : BaseHullMod() {
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
         private val ALLOWED_HULLMODS = setOf("BGECarapace", "enhanced_reflexes", "muscleflexibility", "muscleendurance",
             "acceleratedmetabolism", "thickenedshell", "antimatterfatlayer", "svc_alpha_voidling", "svc_controlcollar_hm",
-            "do_not_back_off", "ML_incompatibleHullmodWarning")
+            "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface")
     }
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.variant?.let {
