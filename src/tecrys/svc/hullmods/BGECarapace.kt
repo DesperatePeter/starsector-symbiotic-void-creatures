@@ -1,5 +1,4 @@
 package tecrys.svc.hullmods
-
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
@@ -14,9 +13,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.dark.graphics.plugins.ShipDestructionEffects
 import tecrys.svc.DMOD_TAG
 import java.awt.Color
-
 class BGECarapace : BaseHullMod() {
-
     companion object{
         private const val ENGINE_DAMAGE_TAKEN = 0.5f
         private const val EMP_RESISTANCE = 50f
@@ -30,8 +27,6 @@ class BGECarapace : BaseHullMod() {
         private val BLOCKED_HULLMODS = setOf("turretgyros", "advancedoptics", "autorepair", "dedicated_targeting_core", "targetingunit", "augmentedengines",
             "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
     }
-
-
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.run {
             empDamageTakenMult.modifyMult(id, 1f + EMP_RESISTANCE * 0.01f)
@@ -47,14 +42,12 @@ class BGECarapace : BaseHullMod() {
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
         }
     }
-
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
         member?.let { fm ->
             removeIncompatibleHullmods(fm.variant)
             addControlCollarIfPlayer(fm)
         }
     }
-
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
         if(ship.originalOwner == 0 || ship.originalOwner == -1) return
         ship.allWeapons.filter {
@@ -63,13 +56,11 @@ class BGECarapace : BaseHullMod() {
                 w -> w.sprite.color = Color(0, 0, 0, 0)
         }
     }
-
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         modifyPowerLevel(ship)
         hideControlCollarIfNotPlayer(ship)
         ship.captain?.setPersonality("reckless")
     }
-
     private fun modifyPowerLevel(ship: ShipAPI) {
         ship.mutableStats?.run {
             val mult = getPowerLevelBasedOnHullLevel(ship.hullLevel)
@@ -79,7 +70,6 @@ class BGECarapace : BaseHullMod() {
             }
         }
     }
-
     private fun getPowerLevelBasedOnHullLevel(hull: Float): Float{
         return when{
             hull <= POWER_SCALING_MIN_HULL -> POWER_SCALING_MIN_POWER
@@ -89,7 +79,6 @@ class BGECarapace : BaseHullMod() {
         // e.g. with max = 0.6, min = 0.4, hull = 0.5, minPower = 0.5
         // 1 - (0.6 - 0.5) / (0.6 - 0.4) * (1 - 0.5) = 1 - 0.1 / 0.2 * 0.5 = 0.75
     }
-
     override fun applyEffectsAfterShipCreation(ship: ShipAPI, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship.explosionFlashColorOverride = Color.RED
@@ -97,7 +86,6 @@ class BGECarapace : BaseHullMod() {
         ship.setCustomData("AGC_ApplyCustomShipModes", listOf("Charge"))
         ship.setCustomData("AGC_ApplyCustomOptions", mapOf("svc_inksac" to listOf("BlockBeams", "PrioMissile")))
     }
-
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
         val hullMods = variant.hullMods.toList()
         hullMods.filter {
@@ -118,7 +106,6 @@ class BGECarapace : BaseHullMod() {
         if(hullMods.contains(CONTROL_COLLAR_HULLMOD_ID)) return
         member.variant.addMod(CONTROL_COLLAR_HULLMOD_ID)
     }
-
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
         return when(index){
             0 -> "${EMP_RESISTANCE.toInt()}%"
