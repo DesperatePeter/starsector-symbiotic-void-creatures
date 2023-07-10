@@ -12,11 +12,11 @@ import com.fs.starfarer.api.ui.PositionAPI
 import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
 
-abstract class NotificationDialogBase(private val text: String, private val title: String, private val spriteName: String?): InteractionDialogPlugin {
+abstract class NotificationDialogBase(private val text: String, private val title: String, private val spriteName: String?, private val paramPadding: Float, private val imageHeight: Float): InteractionDialogPlugin {
     protected var dialog: InteractionDialogAPI? = null
     override fun init(dialog: InteractionDialogAPI?) {
         this.dialog = dialog
-        val panel = dialog?.visualPanel?.showCustomPanel(1210f, 650f, object : CustomUIPanelPlugin {
+        val panel = dialog?.visualPanel?.showCustomPanel(1210f, imageHeight + paramPadding + 10f, object : CustomUIPanelPlugin {
             override fun positionChanged(position: PositionAPI?) {}
             override fun renderBelow(alphaMult: Float) {}
             override fun render(alphaMult: Float) {}
@@ -25,11 +25,11 @@ abstract class NotificationDialogBase(private val text: String, private val titl
             override fun buttonPressed(buttonId: Any?) {}
         })
         panel?.position?.inTMid(20f)
-        val imgBox = panel?.createUIElement(1200f, 640f, false)
+        val imgBox = panel?.createUIElement(1200f, imageHeight + paramPadding, false)
         imgBox?.addTitle(title)
         imgBox?.addPara(text, 10f)
         spriteName?.let {
-            imgBox?.addImage(it, 10f)
+            imgBox?.addImage(it, 20f)
         }
 
         panel?.addUIElement(imgBox)

@@ -9,7 +9,7 @@ import tecrys.svc.utils.CampaignSettingDelegate
 class DefeatedMagicBountyDialog: NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_magic_bounty_defeated_text"),
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_magic_bounty_defeated_title"),
-    Global.getSettings().getSpriteName("backgrounds", "victory_notification_img")
+    Global.getSettings().getSpriteName("backgrounds", "victory_notification_img"), 80f, 500f
 ) {
     companion object{
         var shouldSpawnVoidlings by CampaignSettingDelegate("$" + SVC_MOD_ID + "allowSpawningVoidlingFleets", true)
@@ -17,7 +17,7 @@ class DefeatedMagicBountyDialog: NotificationDialogBase(
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
             addOption("Stop Spawning", false)
-            addOption("continue Spawning", true)
+            addOption("Continue Spawning", true)
         }
     }
 

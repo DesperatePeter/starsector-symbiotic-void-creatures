@@ -67,7 +67,10 @@ class FleetSpawnParameters {
 
 
         val maxFleetCount: Int
-            get() = BASE_MAX_FLEET_COUNT + ((spawnPower / MAX_SPAWN_POWER) * (FINAL_MAX_FLEET_COUNT - BASE_MAX_FLEET_COUNT)).toInt()
+            get() {
+                if(Global.getSettings().isDevMode) return 1000
+                return BASE_MAX_FLEET_COUNT + ((spawnPower / MAX_SPAWN_POWER) * (FINAL_MAX_FLEET_COUNT - BASE_MAX_FLEET_COUNT)).toInt()
+            }
         val combatRole: String
             get() {
                 val combatRoleWeights = combatRoleBaseWeights.mapValues {
