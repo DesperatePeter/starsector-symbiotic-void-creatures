@@ -38,8 +38,8 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
                 setSize(s.width / viewMult, (s.height + 60f)  / viewMult)
                 setAdditiveBlend()
                 angle = s.angleDeg - 90f
-                setTexHeight(TEX_HEIGHT)
-                setTexWidth(TEX_WIDTH)
+                setTexHeight(1f)
+                setTexWidth(1f)
                 setTexY(0f)
                 setTexX(counter)
                 renderAtCenter(s.pos.x, s.pos.y)

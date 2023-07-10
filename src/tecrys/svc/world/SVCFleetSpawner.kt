@@ -32,6 +32,7 @@ class SVCFleetSpawner : EveryFrameScript {
         interval.advance(amount)
         if (!interval.intervalElapsed()) return
         FACTIONS_TO_SPAWN.forEach { spawnFactionFleetsUntilLimit(it) }
+        FleetSpawnParameters.logParameters()
     }
 
     private fun spawnFactionFleetsUntilLimit(faction: String) {

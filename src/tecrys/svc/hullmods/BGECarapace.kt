@@ -7,7 +7,9 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
+import com.fs.starfarer.api.impl.campaign.DModManager
 import com.fs.starfarer.api.impl.campaign.ids.Stats
+import com.fs.starfarer.api.impl.campaign.ids.Tags
 
 import org.dark.graphics.plugins.ShipDestructionEffects
 import tecrys.svc.DMOD_TAG
@@ -99,10 +101,14 @@ class BGECarapace : BaseHullMod() {
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
         val hullMods = variant.hullMods.toList()
         hullMods.filter {
-            Global.getSettings().getHullModSpec(it)?.tags?.contains(DMOD_TAG) == true
-                    || BLOCKED_HULLMODS.contains(it)
+            BLOCKED_HULLMODS.contains(it)
         }.forEach {
             variant.removeMod(it)
+        }
+        hullMods.forEach {
+            if(DModManager.getMod(it).hasTag(Tags.HULLMOD_DMOD)){
+                DModManager.removeDMod(variant, it)
+            }
         }
     }
 
