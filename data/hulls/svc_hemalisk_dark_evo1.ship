@@ -1,6 +1,6 @@
 {
   "hullName": "Hemalisk Alpha",
-  "hullId": "svc_hemalisk_dark",
+  "hullId": "svc_hemalisk_dark_evo1",
   "hullSize": "FRIGATE",
   "spriteName": "graphics/ships/Zorn.png",
   "style": "BIOLOGICAL",
@@ -17,6 +17,9 @@
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
+    "Alphaleft1": "svc_fangcluster",
+    "Alphamiddle1": "svc_inksac",
+    "Alpharight1": "svc_fangcluster",
     "WS0001": "svc_tentacle_right_medium_barbed_short",
     "WS0002": "svc_tentacle_left_medium_barbed_short",
     "WS0003": "svc_tentacle_left_tiny_dark",
@@ -32,61 +35,17 @@
     "WS0013": "svc_Hemalisk_left",
     "left_grappler": "svc_bge_grappler",
     "left_mand": "svc_adv_sml_mand_l",
-    "left_med_uni": "svc_adv_med_scythe_l",
-    "left_med_uni2": "svc_adv_med_scythe_l",
     "left_pd": "svc_bge_grappler_pd",
     "left_tentacle1": "svc_tentacle_left_small",
     "left_tentacle2": "svc_tentacle_left_medium",
     "right_grappler": "svc_bge_grappler",
     "right_mand": "svc_adv_sml_mand_r",
-    "right_med_uni": "svc_adv_med_scythe_r",
-    "right_med_uni2": "svc_adv_med_scythe_r",
     "right_pd": "svc_bge_grappler_pd",
     "right_tentacle1": "svc_tentacle_right_small",
     "right_tentacle2": "svc_tentacle_right_medium",
     "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
   "weaponSlots": [
-    {
-      "id": "right_med_uni2",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 58.602001,
-      "angle": 46.081001,
-      "locations": [21.5, -27],
-      "renderOrderMod": 4
-    },
-    {
-      "id": "left_med_uni2",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 58.602001,
-      "angle": -46.081001,
-      "locations": [21.5, 27],
-      "renderOrderMod": 4
-    },
-    {
-      "id": "left_med_uni",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 59.490002,
-      "angle": -29.745001,
-      "locations": [10, 45.5],
-      "renderOrderMod": 4
-    },
-    {
-      "id": "right_med_uni",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 59.490002,
-      "angle": 29.745001,
-      "locations": [10, -45.5],
-      "renderOrderMod": 4
-    },
     {
       "id": "left_grappler",
       "size": "SMALL",
@@ -315,6 +274,35 @@
       "angle": -0,
       "locations": [2.5, 34.5],
       "renderOrderMod": 5
+    },
+    {
+      "id": "Alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -5,
+      "locations": [8.5, 26.5],
+      "renderOrderMod": 10
+    },
+    {
+      "id": "Alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 5,
+      "locations": [8.5, -26.5],
+      "renderOrderMod": 10
+    },
+    {
+      "id": "Alphamiddle1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [-8.5, -0]
     }
   ],
   "engineSlots": [

@@ -169,7 +169,7 @@
         
         "fleet_name":"Alpha's Pack",
         "fleet_faction": "svc",
-        "fleet_flagship_variant":["svc_arbiter_dark_scythed", "svc_pupacyst_dark_acid", "svc_embolist_dark_acidfang"],
+        "fleet_flagship_variant":["svc_arbiter_dark_scythed", "svc_pupacyst_dark_evo2_acidic", "svc_embolist_dark_evo1_acidfang"],
         "fleet_flagship_name":"",
         "fleet_flagship_alwaysRecoverable": false,
         "fleet_flagship_autofit": false,
@@ -273,7 +273,7 @@
         
         "fleet_name":"Alpha's Pack",
         "fleet_faction": "svc",
-        "fleet_flagship_variant":["svc_keratinos_dark_mixed&claw", "svc_keratinos_dark_scythed", "svc_lephantis_dark_acidfang", "svc_lephantis_dark_scythed"],
+        "fleet_flagship_variant":["svc_keratinos_dark_evo1_acidclaw", "svc_keratinos_dark_scythed", "svc_lephantis_dark_evo1_acidfang", "svc_lephantis_dark_scythed"],
         "fleet_flagship_name":"",
         "fleet_flagship_alwaysRecoverable": false,
         "fleet_flagship_autofit": false,

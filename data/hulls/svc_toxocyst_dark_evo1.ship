@@ -1,6 +1,6 @@
 {
   "hullName": "Toxocyst Alpha",
-  "hullId": "svc_toxocyst_dark",
+  "hullId": "svc_toxocyst_dark_evo1",
   "hullSize": "FRIGATE",
   "spriteName": "graphics/ships/Verzweiflung.png",
   "style": "BIOLOGICAL",
@@ -17,14 +17,15 @@
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
+    "Alphaleft1": "svc_acidthrower",
+    "Alphamiddle": "svc_inksac",
+    "Alpharight1": "svc_acidthrower",
     "WS0001": "svc_adv_sml_mand_r",
     "WS0002": "svc_adv_sml_mand_l",
     "WS0003": "svc_bge_grappler",
     "WS0004": "svc_bge_grappler",
     "WS0005": "svc_bge_grappler_pd",
     "WS0006": "svc_bge_grappler_pd",
-    "WS0007": "svc_adv_med_scythe_l",
-    "WS0008": "svc_adv_med_scythe_r",
     "WS0009": "svc_tentacle_left_small_barbed",
     "WS0010": "svc_tentacle_right_small_barbed",
     "WS0011": "svc_tentacle_right_medium",
@@ -92,24 +93,6 @@
       "arc": 180,
       "angle": 90,
       "locations": [-5, 54.5]
-    },
-    {
-      "id": "WS0007",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 75.821999,
-      "angle": -28.216999,
-      "locations": [23.5, 23.5]
-    },
-    {
-      "id": "WS0008",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 75.821999,
-      "angle": 28.216999,
-      "locations": [23.5, -23.5]
     },
     {
       "id": "WS0009",
@@ -210,6 +193,33 @@
       "angle": 0,
       "locations": [15.5, -0],
       "renderOrderMod": 5
+    },
+    {
+      "id": "Alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 6.5,
+      "locations": [21.5, -24.5]
+    },
+    {
+      "id": "Alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -6.5,
+      "locations": [21.5, 24.5]
+    },
+    {
+      "id": "Alphamiddle",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 0,
+      "locations": [-4, -0]
     },
     {
       "id": "svc_controlcollar",

@@ -1,10 +1,10 @@
 {
-  "variantId": "svc_pupacyst_dark_acid",
-  "hullId": "svc_pupacyst_dark",
-  "displayName": "Acidic",
+  "variantId": "svc_pupacyst_dark_evo1_fanged",
+  "hullId": "svc_pupacyst_dark_evo1",
+  "displayName": "Fanged",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 13,
+  "fluxVents": 13,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -39,7 +39,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Alphamiddle": "svc_acidthrower"
+        "Alphamiddle2": "svc_fangcluster"
       }
     },
     {

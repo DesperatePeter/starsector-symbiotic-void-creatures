@@ -1,6 +1,6 @@
 {
   "hullName": "Keratinos Alpha",
-  "hullId": "svc_keratinos_dark",
+  "hullId": "svc_keratinos_dark_evo1",
   "hullSize": "CRUISER",
   "spriteName": "graphics/ships/Gewalt.png",
   "style": "BIOLOGICAL",
@@ -17,33 +17,33 @@
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
+    "Alphaleft1": "svc_fangcluster",
+    "Alphaleft2": "svc_acidthrower",
+    "Alphaleft3": "svc_inksac",
+    "Alpharight1": "svc_fangcluster",
+    "Alpharight2": "svc_acidthrower",
+    "Alpharight3": "svc_inksac",
     "WS0001": "svc_tentacle_left_large_barbed",
     "WS0002": "svc_tentacle_right_large_barbed",
     "WS0003": "svc_Keratinos_right",
     "WS0004": "svc_Keratinos_left",
     "left_grappler": "svc_bge_grappler_pd",
-    "left_grappler2": "svc_bge_grappler",
     "left_grappler3": "svc_bge_grappler",
     "left_long_fin": "svc_tentacle_left_huge",
     "left_long_fin2": "svc_tentacle_right_gargantuan_barbed",
     "left_long_fin3": "svc_tentacle_right_huge_dark",
     "left_long_fin4": "svc_tentacle_left_large",
-    "left_lrg_uni": "svc_adv_lrg_scythe_l",
-    "left_med_uni1": "svc_adv_med_scythe_l",
     "left_med_uni2": "svc_adv_med_scythe_l",
     "left_small_mand": "svc_adv_sml_mand_l",
     "left_sml_mand2": "svc_adv_lrg_mand_l",
     "left_sml_mand3": "svc_adv_lrg_mand_l",
     "right_grappler": "svc_bge_grappler_pd",
-    "right_grappler2": "svc_bge_grappler",
     "right_grappler3": "svc_bge_grappler",
     "right_long_fin": "svc_tentacle_right_huge",
     "right_long_fin2": "svc_tentacle_left_gargantuan_barbed",
     "right_long_fin3": "svc_tentacle_left_huge_dark",
     "right_long_fin4": "svc_tentacle_right_large",
-    "right_lrg_uni": "svc_adv_lrg_scythe_r",
     "right_med_uni": "svc_adv_med_scythe_r",
-    "right_med_uni_1": "svc_adv_med_scythe_r",
     "right_sml_mand": "svc_adv_sml_mand_r",
     "right_sml_mand2": "svc_adv_lrg_mand_r",
     "right_sml_mand3": "svc_adv_lrg_mand_r",
@@ -69,24 +69,6 @@
       "locations": [59, -9]
     },
     {
-      "id": "left_med_uni1",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 83.973999,
-      "angle": -49.398998,
-      "locations": [43, 32]
-    },
-    {
-      "id": "right_med_uni_1",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 83.973999,
-      "angle": 49.398998,
-      "locations": [43, -32]
-    },
-    {
       "id": "left_med_uni2",
       "size": "SMALL",
       "type": "BUILT_IN",
@@ -103,24 +85,6 @@
       "arc": 69.574997,
       "angle": 37.404999,
       "locations": [44.5, -49]
-    },
-    {
-      "id": "left_lrg_uni",
-      "size": "MEDIUM",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 91.763001,
-      "angle": -39,
-      "locations": [28, 79]
-    },
-    {
-      "id": "right_lrg_uni",
-      "size": "MEDIUM",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 91.763001,
-      "angle": 39,
-      "locations": [28, -79]
     },
     {
       "id": "left_grappler",
@@ -282,24 +246,6 @@
       "locations": [-28.5, 46]
     },
     {
-      "id": "right_grappler2",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 37.483002,
-      "angle": 7.431,
-      "locations": [8, -9.5]
-    },
-    {
-      "id": "left_grappler2",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 37.483002,
-      "angle": -7.431,
-      "locations": [8, 9.5]
-    },
-    {
       "id": "left_grappler3",
       "size": "SMALL",
       "type": "BUILT_IN",
@@ -354,6 +300,60 @@
       "angle": -0,
       "locations": [-27, 75.5],
       "renderOrderMod": 3
+    },
+    {
+      "id": "Alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -6.5,
+      "locations": [28, 54]
+    },
+    {
+      "id": "Alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 6.5,
+      "locations": [28, -54]
+    },
+    {
+      "id": "Alpharight2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 2.5,
+      "locations": [59.5, -30]
+    },
+    {
+      "id": "Alphaleft2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -2.5,
+      "locations": [59.5, 30]
+    },
+    {
+      "id": "Alpharight3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 90,
+      "angle": -25.5,
+      "locations": [27, -100.5]
+    },
+    {
+      "id": "Alphaleft3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 90,
+      "angle": 25.5,
+      "locations": [27, 100.5]
     },
     {
       "id": "svc_controlcollar",

@@ -3,8 +3,8 @@
   "hullId": "svc_lephantis_dark",
   "displayName": "Scythed",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 30,
+  "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -46,14 +46,15 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "svc_adv_med_scythe_l",
-        "lrg_mdl_kin_left": "svc_adv_lrg_scythe_l"
+        "WS0002": "svc_adv_med_scythe_r",
+        "WS0003": "svc_adv_med_scythe_l"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "lrg_mdl_kin_left": "svc_adv_lrg_scythe_l",
         "lrg_mdl_kin_right": "svc_adv_lrg_scythe_r"
       }
     },
@@ -61,16 +62,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "svc_adv_med_scythe_r",
-        "lrg_out_kin_left": "svc_adv_lrg_scythe_l"
+        "lrg_out_kin_left": "svc_adv_lrg_scythe_l",
+        "lrg_out_kin_right": "svc_adv_lrg_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "lrg_out_kin_right": "svc_adv_lrg_scythe_r"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

@@ -1,6 +1,6 @@
 {
   "hullName": "Lephantis Alpha",
-  "hullId": "svc_lephantis_dark",
+  "hullId": "svc_lephantis_dark_evo1",
   "hullSize": "CAPITAL_SHIP",
   "spriteName": "graphics/ships/Hass.png",
   "style": "BIOLOGICAL",
@@ -18,8 +18,14 @@
   ],
   "builtInWeapons": {
     "WS0001": "svc_bge_grappler",
-    "WS0002": "svc_adv_med_scythe_r",
-    "WS0003": "svc_adv_med_scythe_l",
+    "WS0004": "svc_inksac",
+    "WS0005": "svc_inksac",
+    "alphaleft1": "svc_fangcluster",
+    "alphaleft2": "svc_fangcluster",
+    "alphaleft3": "svc_acidthrower",
+    "alpharight1": "svc_fangcluster",
+    "alpharight2": "svc_fangcluster",
+    "alpharight3": "svc_acidthrower",
     "antena_left": "svc_antena_left",
     "antena_right": "svc_antena_right",
     "fin_left": "svc_trans_fin_left",
@@ -35,8 +41,6 @@
     "lrg_mand_right": "svc_adv_lrg_mand_r",
     "lrg_mdl_kin_left": "svc_adv_lrg_scythe_l",
     "lrg_mdl_kin_right": "svc_adv_lrg_scythe_r",
-    "lrg_out_kin_left": "svc_adv_lrg_scythe_l",
-    "lrg_out_kin_right": "svc_adv_lrg_scythe_r",
     "pd_in_left": "svc_bge_grappler_pd",
     "pd_in_right": "svc_bge_grappler_pd",
     "pd_out_left": "svc_bge_grappler_pd",
@@ -84,24 +88,6 @@
       "arc": 1,
       "angle": 14.470294,
       "locations": [95.5, -13]
-    },
-    {
-      "id": "lrg_out_kin_left",
-      "size": "MEDIUM",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 65,
-      "angle": -32.5,
-      "locations": [82.5, 39.5]
-    },
-    {
-      "id": "lrg_out_kin_right",
-      "size": "MEDIUM",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 65,
-      "angle": 32.5,
-      "locations": [82.5, -39.5]
     },
     {
       "id": "lrg_mdl_kin_left",
@@ -334,24 +320,76 @@
       "locations": [39, -0]
     },
     {
-      "id": "WS0002",
-      "size": "SMALL",
+      "id": "alpharight1",
+      "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 65,
-      "angle": 32.5,
-      "locations": [104, -67],
-      "renderOrderMod": 3
+      "arc": 20,
+      "angle": 10.5,
+      "locations": [101.5, -143]
     },
     {
-      "id": "WS0003",
-      "size": "SMALL",
+      "id": "alphaleft1",
+      "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 65,
-      "angle": -32.5,
-      "locations": [104, 67],
-      "renderOrderMod": 3
+      "arc": 20,
+      "angle": -10.5,
+      "locations": [101.5, 143]
+    },
+    {
+      "id": "alpharight2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 20,
+      "angle": 6,
+      "locations": [59, -113.5]
+    },
+    {
+      "id": "alphaleft2",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 20,
+      "angle": -6,
+      "locations": [59, 113.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 96,
+      "angle": -21.5,
+      "locations": [78, -176]
+    },
+    {
+      "id": "WS0005",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 96,
+      "angle": 21.5,
+      "locations": [78, 176]
+    },
+    {
+      "id": "alpharight3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 5,
+      "locations": [99.5, -33]
+    },
+    {
+      "id": "alphaleft3",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -5,
+      "locations": [99.5, 33]
     }
   ],
   "engineSlots": [

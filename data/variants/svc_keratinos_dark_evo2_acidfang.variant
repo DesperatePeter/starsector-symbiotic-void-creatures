@@ -1,10 +1,10 @@
 {
-  "variantId": "svc_keratinos_dark_mixed&claw",
-  "hullId": "svc_keratinos_dark",
-  "displayName": "Acid Claw",
+  "variantId": "svc_keratinos_dark_evo2_acidfang",
+  "hullId": "svc_keratinos_dark_evo2",
+  "displayName": "Acidfang",
   "goalVariant": false,
-  "fluxCapacitors": 4,
-  "fluxVents": 4,
+  "fluxCapacitors": 22,
+  "fluxVents": 22,
   "quality": 0,
   "permaMods": [],
   "hullMods": [],
@@ -21,8 +21,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Alphaleft1": "svc_fangcluster",
-        "Alpharight1": "svc_fangcluster"
+        "Alphaleft2": "svc_acidthrower",
+        "Alpharight2": "svc_acidthrower"
       }
     },
     {
@@ -41,6 +41,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "Alphaleft3": "svc_inksac",
+        "Alpharight3": "svc_inksac",
         "left_grappler": "svc_bge_grappler_pd",
         "right_grappler": "svc_bge_grappler_pd"
       }
@@ -49,25 +51,21 @@
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "Alphaleft3": "svc_inksac",
-        "Alpharight3": "svc_inksac"
+        "Alphaleft1": "svc_fangcluster",
+        "Alphaleft4": "svc_fangcluster",
+        "Alpharight1": "svc_fangcluster",
+        "Alpharight4": "svc_fangcluster"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "Alphaleft2": "svc_acidthrower",
-        "Alpharight2": "svc_acidthrower"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "left_med_uni2": "svc_adv_med_scythe_l",
-        "right_med_uni": "svc_adv_med_scythe_r"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

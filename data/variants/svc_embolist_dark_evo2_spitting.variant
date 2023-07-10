@@ -1,10 +1,10 @@
 {
-  "variantId": "svc_hemalisk_dark_fanged",
-  "hullId": "svc_hemalisk_dark",
-  "displayName": "Ink Fang",
+  "variantId": "svc_embolist_dark_evo2_spitting",
+  "hullId": "svc_embolist_dark_evo2",
+  "displayName": "Spitting",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 13,
+  "fluxVents": 13,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -13,40 +13,41 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_grappler": "svc_bge_grappler",
-        "right_grappler": "svc_bge_grappler"
+        "WS0017": "svc_bge_grappler",
+        "WS0018": "svc_bge_grappler"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Alphaleft1": "svc_fangcluster",
-        "Alpharight1": "svc_fangcluster"
+        "Alphamiddle": "svc_inksac",
+        "WS0019": "svc_bge_grappler_pd",
+        "WS0020": "svc_bge_grappler_pd"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Alphamiddle1": "svc_inksac"
+        "WS0013": "svc_adv_sml_mand_l",
+        "WS0014": "svc_adv_sml_mand_r",
+        "WS0015": "svc_adv_lrg_mand_l",
+        "WS0016": "svc_adv_lrg_mand_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_pd": "svc_bge_grappler_pd",
-        "right_pd": "svc_bge_grappler_pd"
+        "Alphaleft1": "svc_acidthrower",
+        "Alpharight1": "svc_acidthrower"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "left_mand": "svc_adv_sml_mand_l",
-        "right_mand": "svc_adv_sml_mand_r"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,

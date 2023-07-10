@@ -3,8 +3,8 @@
   "hullId": "svc_pupacyst_dark",
   "displayName": "Scythed",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 13,
+  "fluxVents": 13,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -39,15 +39,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni": "svc_adv_med_scythe_l"
+        "left_med_uni": "svc_adv_med_scythe_l",
+        "right_med_uni": "svc_adv_med_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "right_med_uni": "svc_adv_med_scythe_r"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

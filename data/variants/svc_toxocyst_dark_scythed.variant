@@ -3,8 +3,8 @@
   "hullId": "svc_toxocyst_dark",
   "displayName": "Scythed",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 10,
+  "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -37,15 +37,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0007": "svc_adv_med_scythe_l"
+        "WS0007": "svc_adv_med_scythe_l",
+        "WS0008": "svc_adv_med_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "WS0008": "svc_adv_med_scythe_r"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

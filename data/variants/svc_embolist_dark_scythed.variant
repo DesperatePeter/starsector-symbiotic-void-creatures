@@ -39,13 +39,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "svc_adv_med_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
+        "WS0001": "svc_adv_med_scythe_r",
         "WS0002": "svc_adv_med_scythe_l"
       }
     },
@@ -53,15 +47,19 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "svc_adv_med_scythe_r"
+        "WS0003": "svc_adv_med_scythe_r",
+        "WS0004": "svc_adv_med_scythe_l"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "WS0004": "svc_adv_med_scythe_l"
-      }
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
     }
   ],
   "modules": [],
