@@ -42,7 +42,7 @@ class SVCFleetSpawner : EveryFrameScript {
             loc.planets?.all { it.faction.id == "neutral" } ?: false
         }?.filter {
             it.fleets.none { loc -> loc.faction.id == faction }
-        }?.filterNotNull()?.forEach { loc ->
+        }?.filterNotNull()?.shuffled()?.forEach { loc ->
             loc.allEntities?.filter { it !is CampaignFleetAPI && it !is CampaignProgressIndicatorAPI && it !is OrbitalStationAPI }
                 ?.randomOrNull()?.let {
                     if (numFleets >= FleetSpawnParameters.maxFleetCount) return
