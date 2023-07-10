@@ -105,7 +105,8 @@ class FleetSpawnParameters {
                     "\nsample fleet size: $fleetSize" +
                     "\nmax fleet count: $maxFleetCount" +
                     "\nnumber of spawned fleets: ${SVCFleetSpawner.countFactionFleets("svc")}" +
-                    "\n\nFLEET LOCATIONS"
+                    "\n\nFLEET LOCATIONS" +
+                    "\nCoordinates: Star/Center has coordinates 0,0. positive x => right, positive y => above"
 
             SVCFleetSpawner.getFactionFleets("svc").forEach {
                 logString += "\n${it.containingLocation.name}(x = ${it.location.x}, y = ${it.location.y})"
