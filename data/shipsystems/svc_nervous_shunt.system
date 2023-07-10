@@ -3,7 +3,7 @@
 	"type":"STAT_MOD",
 
 	"aiType":"CUSTOM",
-	"aiScript": "tecrys.svc.shipsystems.ais.NervousShuntAI",
+	"aiScript":"tecrys.svc.shipsystems.ais.NervousShuntAI",
 
 	"statsScript":"tecrys.svc.shipsystems.ShuntNervousSystem",
 

@@ -1,7 +1,9 @@
 {
 	"id":"svc_hemalisk_berserk",
 	"type":"STAT_MOD",
-	"aiType":"WEAPON_BOOST",
+
+	"aiType":"CUSTOM",
+	"aiScript":"tecrys.svc.shipsystems.ais.BerserkerFrenzyAI",
 
 	"statsScript":"tecrys.svc.shipsystems.BerserkerFrenzy",
 	"weaponGlowColor":[255,200,0,155],
