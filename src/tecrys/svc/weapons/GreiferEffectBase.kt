@@ -3,6 +3,7 @@ package tecrys.svc.weapons
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.VectorUtils
+import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
 
 abstract class GreiferEffectBase : BeamEffectPlugin {
@@ -10,6 +11,13 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
     private val interval = IntervalUtil(0.1f, 0.2f)
     abstract fun shouldAffectFighters(): Boolean
     abstract fun shouldAffectShips(): Boolean
+
+    open fun useRubberBandForce(): Boolean = true
+
+    private fun computeRubberBandAdjustmentFactor(sourceLoc: Vector2f, targetLoc: Vector2f, range: Float): Float{
+        val distance = (targetLoc - sourceLoc).length()
+        return 0.5f + 0.75f * (distance/range)
+    }
 
     /**
      * @note Setting this to true can cause the game zo freeze for some reason, mainly against Dooms
@@ -36,6 +44,9 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
             if(it == b.source) return // why would the ship target itself? Oo
             // val dv = max(4000f / (it.mass + 0.000001f), 0.01f)
             dvVec.scale(computeForceAgainstShip(it, source))
+            if(useRubberBandForce()){
+                dvVec.scale(computeRubberBandAdjustmentFactor(beamLoc, targetLoc, b.weapon.range))
+            }
             Vector2f.add(source.velocity, dvVec, source.velocity)
             return
         }
