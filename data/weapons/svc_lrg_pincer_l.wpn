@@ -12,6 +12,7 @@
 	"turretAngleOffsets":[0],
 	"hardpointOffsets":[0, 0],
 	"hardpointAngleOffsets":[0],
+		"displayArcRadius":1,
 	"barrelMode":"ALTERNATING", # or LINKED.  whether barrels fire at the same time or alternate.
 	"animationType":"GLOW",
 	"muzzleFlashSpec":{"length":50.0,   # only used if animationType = MUZZLE_FLASH
