@@ -11,7 +11,9 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 
 import org.dark.graphics.plugins.ShipDestructionEffects
+import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.DMOD_TAG
+import tecrys.svc.SVC_BASE_HULLMOD_ID
 import java.awt.Color
 class BGECarapace : BaseHullMod() {
     companion object{
@@ -28,6 +30,9 @@ class BGECarapace : BaseHullMod() {
             "blast_doors", "unstable_injector", "reinforcedhull", "heavyarmor", "fluxshunt", "auxiliarythrusters", "insulatedengine")
     }
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
+        stats?.variant?.let {
+            removeIncompatibleHullmods(it)
+        }
         stats?.run {
             empDamageTakenMult.modifyMult(id, 1f + EMP_RESISTANCE * 0.01f)
             hullDamageTakenMult.modifyMult(id, 1f - HULL_RESISTANCE * 0.01f)
@@ -44,10 +49,15 @@ class BGECarapace : BaseHullMod() {
     }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
         member?.let { fm ->
-            removeIncompatibleHullmods(fm.variant)
+            // removeIncompatibleHullmods(fm.variant)
             addControlCollarIfPlayer(fm)
         }
     }
+
+    override fun isApplicableToShip(ship: ShipAPI?): Boolean {
+        return ship?.variant?.hullMods?.none { BLOCKED_HULLMODS.contains(it) } ?: false
+    }
+
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
         if(ship.originalOwner == 0 || ship.originalOwner == -1) return
         ship.allWeapons.filter {
@@ -91,7 +101,7 @@ class BGECarapace : BaseHullMod() {
         hullMods.filter {
             BLOCKED_HULLMODS.contains(it)
         }.forEach {
-            variant.removeMod(it)
+            MagicIncompatibleHullmods.removeHullmodWithWarning(variant, it, SVC_BASE_HULLMOD_ID)
         }
         hullMods.forEach {
             if(DModManager.getMod(it).hasTag(Tags.HULLMOD_DMOD)){
