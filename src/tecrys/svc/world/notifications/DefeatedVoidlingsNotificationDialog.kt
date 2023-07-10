@@ -15,7 +15,7 @@ import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
 class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_text"),
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_title"),
-    Global.getSettings().getSpriteName("backgrounds", "svc_encounter"), 180f, 400f) {
+    Global.getSettings().getSpriteName("backgrounds", "svc_encounter")) {
 
     override fun addOptions(options: OptionPanelAPI) {
         options.run {

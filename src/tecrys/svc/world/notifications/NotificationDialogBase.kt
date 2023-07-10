@@ -11,12 +11,24 @@ import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.ui.PositionAPI
 import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
+import kotlin.math.max
 
-abstract class NotificationDialogBase(private val text: String, private val title: String, private val spriteName: String?, private val paramPadding: Float, private val imageHeight: Float): InteractionDialogPlugin {
+abstract class NotificationDialogBase(private val text: String, private val title: String, private val spriteName: String?): InteractionDialogPlugin {
     protected var dialog: InteractionDialogAPI? = null
+
+    companion object{
+        const val PANEL_WIDTH = 1200f
+    }
     override fun init(dialog: InteractionDialogAPI?) {
         this.dialog = dialog
-        val panel = dialog?.visualPanel?.showCustomPanel(1210f, imageHeight + paramPadding + 10f, object : CustomUIPanelPlugin {
+        var imgHeight = 600f
+        var imgWidth = 10f
+        spriteName?.let {
+            imgHeight = Global.getSettings().getSprite(spriteName).height
+            imgHeight = max(imgHeight, 600f)
+            imgWidth = Global.getSettings().getSprite(spriteName).width
+        }
+        val panel = dialog?.visualPanel?.showCustomPanel(PANEL_WIDTH + 10f,  imgHeight + 10f, object : CustomUIPanelPlugin {
             override fun positionChanged(position: PositionAPI?) {}
             override fun renderBelow(alphaMult: Float) {}
             override fun render(alphaMult: Float) {}
@@ -25,14 +37,21 @@ abstract class NotificationDialogBase(private val text: String, private val titl
             override fun buttonPressed(buttonId: Any?) {}
         })
         panel?.position?.inTMid(20f)
-        val imgBox = panel?.createUIElement(1200f, imageHeight + paramPadding, false)
-        imgBox?.addTitle(title)
-        imgBox?.addPara(text, 10f)
-        spriteName?.let {
-            imgBox?.addImage(it, 20f)
-        }
 
-        panel?.addUIElement(imgBox)
+        val imgBox = panel?.createUIElement(imgWidth + 10f, imgHeight + 10f, false)
+
+        spriteName?.let {
+            imgBox?.addImage(it, 5f)
+        }
+        panel?.addUIElement(imgBox)?.inTL(1f, 1f)
+
+        val textBox = panel?.createUIElement(PANEL_WIDTH - imgWidth - 10f, imgHeight + 10f, false)
+
+        textBox?.addTitle(title)
+        textBox?.addPara(text, 10f)
+
+        panel?.addUIElement(textBox)?.rightOfMid(imgBox, 1f)
+
         dialog?.optionPanel?.let { addOptions(it) }
     }
 
