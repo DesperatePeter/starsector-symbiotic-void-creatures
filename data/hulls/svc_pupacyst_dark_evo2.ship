@@ -1,6 +1,6 @@
 {
   "hullName": "Pupacyst Alpha",
-  "hullId": "svc_pupacyst_dark",
+  "hullId": "svc_pupacyst_dark_evo2",
   "hullSize": "DESTROYER",
   "spriteName": "graphics/ships/Mut.png",
   "style": "BIOLOGICAL",
@@ -17,6 +17,7 @@
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
+    "Alphamiddle": "svc_acidthrower",
     "WS0001": "svc_dark_fin_right_huge",
     "WS0002": "svc_dark_fin_left_huge",
     "eyes": "svc_zophe",
@@ -24,13 +25,11 @@
     "grappler2": "svc_bge_grappler",
     "left_long_fin": "svc_tentacle_left_large_dark",
     "left_lrg_mand": "svc_adv_lrg_mand_l",
-    "left_med_uni": "svc_adv_med_scythe_l",
     "left_sml_fin": "svc_tentacle_right_medium_barbed_short",
     "left_sml_mand": "svc_adv_sml_mand_l",
     "left_sml_pd": "svc_bge_grappler_pd",
     "right_long_fin": "svc_tentacle_right_large_dark",
     "right_lrg_mand": "svc_adv_lrg_mand_r",
-    "right_med_uni": "svc_adv_med_scythe_r",
     "right_sml_fin": "svc_tentacle_left_medium_barbed_short",
     "right_sml_mand": "svc_adv_sml_mand_r",
     "right_sml_pd": "svc_bge_grappler_pd",
@@ -72,24 +71,6 @@
       "arc": 29.241749,
       "angle": 0,
       "locations": [81.5, 8.5]
-    },
-    {
-      "id": "left_med_uni",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 108.421997,
-      "angle": -0,
-      "locations": [70, 21]
-    },
-    {
-      "id": "right_med_uni",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 108.421997,
-      "angle": 0,
-      "locations": [70, -21]
     },
     {
       "id": "grappler",
@@ -202,6 +183,15 @@
       "angle": 3,
       "locations": [-25, 82.5],
       "renderOrderMod": 2
+    },
+    {
+      "id": "Alphamiddle",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 2,
+      "angle": 0,
+      "locations": [56.5, -0]
     }
   ],
   "engineSlots": [

@@ -1,6 +1,6 @@
 {
-  "hullName": "Arbiter Aplha",
-  "hullId": "svc_arbiter_dark",
+  "hullName": "Arbiter Alpha",
+  "hullId": "svc_arbiter_dark_evo1",
   "hullSize": "CRUISER",
   "spriteName": "graphics/ships/Rache.png",
   "style": "BIOLOGICAL",
@@ -44,53 +44,14 @@
     "WS0025": "svc_Arbiter_dark_spike_left",
     "WS0026": "svc_Arbiter_dark_armor_left",
     "WS0027": "svc_Arbiter_dark_armor_right",
+    "alphaleft1": "svc_inksac",
+    "alphamiddle": "svc_acidthrower",
+    "alpharight1": "svc_inksac",
     "left_lrg_tent": "svc_tentacle_left_large_barbed",
-    "left_lrg_uni": "svc_adv_lrg_scythe_l",
-    "left_med_uni": "svc_adv_med_scythe_l",
     "right_lrg_tent": "svc_tentacle_right_large_barbed",
-    "right_lrg_uni": "svc_adv_lrg_scythe_r",
-    "right_med_uni": "svc_adv_med_scythe_r",
     "svc_controlcollar": "svc_ctrl_cllr_med"
   },
   "weaponSlots": [
-    {
-      "id": "left_med_uni",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 10,
-      "angle": -12.265,
-      "locations": [107, 25.5],
-      "renderOrderMod": 1
-    },
-    {
-      "id": "right_med_uni",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 10,
-      "angle": 12.265,
-      "locations": [107, -25.5],
-      "renderOrderMod": 1
-    },
-    {
-      "id": "left_lrg_uni",
-      "size": "MEDIUM",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 10,
-      "angle": -17.103001,
-      "locations": [93.5, 59.5]
-    },
-    {
-      "id": "right_lrg_uni",
-      "size": "MEDIUM",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 10,
-      "angle": 17.103001,
-      "locations": [93.5, -59.5]
-    },
     {
       "id": "left_lrg_tent",
       "size": "SMALL",
@@ -400,6 +361,33 @@
       "arc": 116.173355,
       "angle": 0,
       "locations": [99.5, -47.5]
+    },
+    {
+      "id": "alphaleft1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": -2,
+      "locations": [88.5, 35.5]
+    },
+    {
+      "id": "alpharight1",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": 2,
+      "locations": [88.5, -35.5]
+    },
+    {
+      "id": "alphamiddle",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 2,
+      "angle": 0,
+      "locations": [81.5, -0]
     },
     {
       "id": "svc_controlcollar",

@@ -1,10 +1,10 @@
 {
-  "variantId": "svc_lephantis_dark_acidfang",
-  "hullId": "svc_lephantis_dark",
+  "variantId": "svc_lephantis_dark_evo1_acidfang",
+  "hullId": "svc_lephantis_dark_evo1",
   "displayName": "Acidfang",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 30,
+  "fluxVents": 30,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -24,8 +24,6 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0004": "svc_inksac",
-        "WS0005": "svc_inksac",
         "left_grappler": "svc_bge_grappler_pd",
         "pd_in_left": "svc_bge_grappler_pd",
         "pd_in_right": "svc_bge_grappler_pd",
@@ -48,18 +46,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "alphaleft1": "svc_fangcluster",
-        "alphaleft2": "svc_fangcluster",
-        "alpharight1": "svc_fangcluster",
-        "alpharight2": "svc_fangcluster"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "alphaleft3": "svc_acidthrower",
-        "alpharight3": "svc_acidthrower"
+        "WS0004": "svc_inksac",
+        "WS0005": "svc_inksac"
       }
     },
     {
@@ -73,7 +61,20 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "alphaleft1": "svc_fangcluster",
+        "alphaleft2": "svc_fangcluster",
+        "alpharight1": "svc_fangcluster",
+        "alpharight2": "svc_fangcluster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "alphaleft3": "svc_acidthrower",
+        "alpharight3": "svc_acidthrower"
+      }
     }
   ],
   "modules": [],

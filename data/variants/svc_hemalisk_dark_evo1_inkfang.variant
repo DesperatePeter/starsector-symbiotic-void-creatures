@@ -1,7 +1,7 @@
 {
-  "variantId": "svc_hemalisk_dark_scythed",
-  "hullId": "svc_hemalisk_dark",
-  "displayName": "Scythed",
+  "variantId": "svc_hemalisk_dark_evo1_inkfang",
+  "hullId": "svc_hemalisk_dark_evo1",
+  "displayName": "Inkfang",
   "goalVariant": false,
   "fluxCapacitors": 10,
   "fluxVents": 10,
@@ -21,16 +21,15 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni2": "svc_adv_med_scythe_l",
-        "right_med_uni2": "svc_adv_med_scythe_r"
+        "Alphaleft1": "svc_fangcluster",
+        "Alpharight1": "svc_fangcluster"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni": "svc_adv_med_scythe_l",
-        "right_med_uni": "svc_adv_med_scythe_r"
+        "Alphamiddle1": "svc_inksac"
       }
     },
     {
