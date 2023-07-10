@@ -15,9 +15,10 @@ class SVCFleetSpawner : EveryFrameScript {
     companion object {
         val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID)
         fun countFactionFleets(faction: String): Int {
-            return Global.getSector().allLocations.sumOf { loc ->
-                loc.fleets.filterNotNull().count { it.faction.id == faction }
-            }
+            return getFactionFleets(faction).count()
+        }
+        fun getFactionFleets(faction: String): List<CampaignFleetAPI>{
+            return Global.getSector().allLocations.map { it.fleets.filter { fleet -> fleet.faction.id == faction } }.flatten()
         }
     }
 

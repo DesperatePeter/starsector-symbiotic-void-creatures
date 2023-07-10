@@ -5,8 +5,9 @@ import org.lazywizard.lazylib.MathUtils
 import kotlin.math.min
 
 class FleetSpawnParameters {
-    companion object{
-        private const val MAX_SPAWN_POWER = 300f            // spawn power is a combination of time elapsed and player fleet strength. it's the basis for all other values
+    companion object {
+        private const val MAX_SPAWN_POWER =
+            300f            // spawn power is a combination of time elapsed and player fleet strength. it's the basis for all other values
         private const val FLEET_STRENGTH_SCALING = 0.5f     // How quickly spawn power scales with player fleet strength
         private const val CYCLES_ELAPSED_SCALING = 10f      // how quickly spawn power scales with time elapsed
         private const val FLEET_SIZE_SCALING = 1f           // How quickly voidling fleet size scales with spawn power
@@ -29,6 +30,7 @@ class FleetSpawnParameters {
             "combatEliteMediumEvolved" to -0.1f,
             "combatEliteLargeEvolved" to -0.15f,
         )
+
         // weights when spawn power is max
         private val combatRoleFinalWeights = mapOf(
             "combatSmall" to 0.3f,
@@ -43,7 +45,8 @@ class FleetSpawnParameters {
         )
 
         private val combatRoleScaling = combatRoleFinalWeights.mapValues {
-            (it.value - (combatRoleBaseWeights[it.key] ?: 0f)) / MAX_SPAWN_POWER }
+            (it.value - (combatRoleBaseWeights[it.key] ?: 0f)) / MAX_SPAWN_POWER
+        }
 
         /**
          * a number roughly in the magnitude of 10~1000
@@ -56,7 +59,8 @@ class FleetSpawnParameters {
             get() {
                 return min(
                     playerFleetStrength * FLEET_STRENGTH_SCALING + campaignCyclesElapsed * CYCLES_ELAPSED_SCALING,
-                    MAX_SPAWN_POWER)
+                    MAX_SPAWN_POWER
+                )
             }
 
         private val randomizedSpawnPower: Float
@@ -68,7 +72,7 @@ class FleetSpawnParameters {
 
         val maxFleetCount: Int
             get() {
-                if(Global.getSettings().isDevMode) return 1000
+                if (Global.getSettings().isDevMode) return 1000
                 return BASE_MAX_FLEET_COUNT + ((spawnPower / MAX_SPAWN_POWER) * (FINAL_MAX_FLEET_COUNT - BASE_MAX_FLEET_COUNT)).toInt()
             }
         val combatRole: String
@@ -80,26 +84,35 @@ class FleetSpawnParameters {
             }
 
 
-        private fun<T> getWeightedRandom(itemsWithWeights: Map<T, Float>): T{
+        private fun <T> getWeightedRandom(itemsWithWeights: Map<T, Float>): T {
             val total = itemsWithWeights.values.sum()
             var diceRoll = Math.random() * total
-            itemsWithWeights.forEach{
+            itemsWithWeights.forEach {
                 diceRoll -= it.value
                 if (diceRoll <= 0f) return it.key
             }
             return itemsWithWeights.keys.last()
         }
 
-        fun logParameters(){
-            val logString = "" +
-                    "\n###################################" +
-                    "\n---------FLEET SPAWN PARAMS--------" +
+        fun logParameters() {
+            var logString = ""
+
+            logString += "\n\n#####################################" +
+                    "\n---------SVC FLEET SPAWN INFO--------" +
                     "\nplayer fleet strength: $playerFleetStrength" +
                     "\ncycles elapsed: $campaignCyclesElapsed" +
                     "\nspawn power: $spawnPower (max 300)" +
                     "\nsample fleet size: $fleetSize" +
                     "\nmax fleet count: $maxFleetCount" +
-                    "\nnumber of spawned fleets: ${SVCFleetSpawner.countFactionFleets("svc")}"
+                    "\nnumber of spawned fleets: ${SVCFleetSpawner.countFactionFleets("svc")}" +
+                    "\n\nFLEET LOCATIONS"
+
+            SVCFleetSpawner.getFactionFleets("svc").forEach {
+                logString += "\n${it.containingLocation.name}(x = ${it.location.x}, y = ${it.location.y})"
+            }
+            logString += "\n-------END OF FLEET SPAWN INFO-------" +
+                    "\n#####################################\n"
+
             Global.getLogger(this::class.java).info(logString)
         }
     }
