@@ -15,8 +15,8 @@ class FleetSpawnParameters {
         private const val FLAT_SPAWN_POWER = 5f             // will be added on top of scaling spawn power
 
         private const val CYCLE_ZERO = 206
-        private const val BASE_MAX_FLEET_COUNT = 10
-        private const val FINAL_MAX_FLEET_COUNT = 30
+        private const val BASE_MAX_FLEET_COUNT = 20
+        private const val FINAL_MAX_FLEET_COUNT = 50
 
         // weights when spawn power is 0 (negative weights are the same as 0, but make things appear later)
         private val combatRoleBaseWeights = mapOf(
