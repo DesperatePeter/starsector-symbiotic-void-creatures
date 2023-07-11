@@ -10,3 +10,6 @@ DO_NOT_USE
 .flac$
 ^.github/
 banner.png$
+^libs/
+^build.gradle.kts
+^src
