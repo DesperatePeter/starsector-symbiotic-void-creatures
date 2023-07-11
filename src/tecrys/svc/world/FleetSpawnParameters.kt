@@ -6,13 +6,13 @@ import kotlin.math.min
 
 class FleetSpawnParameters {
     companion object {
-        private const val MAX_SPAWN_POWER =
-            300f            // spawn power is a combination of time elapsed and player fleet strength. it's the basis for all other values
+        private const val MAX_SPAWN_POWER = 250f            // spawn power is a combination of time elapsed and player fleet strength. it's the basis for all other values
         private const val FLEET_STRENGTH_SCALING = 0.5f     // How quickly spawn power scales with player fleet strength
         private const val CYCLES_ELAPSED_SCALING = 10f      // how quickly spawn power scales with time elapsed
         private const val FLEET_SIZE_SCALING = 1f           // How quickly voidling fleet size scales with spawn power
         private const val MIN_FLEET_SIZE = 10f
         private const val MAX_FLEET_SIZE = 300f
+        private const val FLAT_SPAWN_POWER = 5f             // will be added on top of scaling spawn power
 
         private const val CYCLE_ZERO = 206
         private const val BASE_MAX_FLEET_COUNT = 10
@@ -58,7 +58,7 @@ class FleetSpawnParameters {
         private val spawnPower: Float
             get() {
                 return min(
-                    playerFleetStrength * FLEET_STRENGTH_SCALING + campaignCyclesElapsed * CYCLES_ELAPSED_SCALING,
+                    FLAT_SPAWN_POWER + playerFleetStrength * FLEET_STRENGTH_SCALING + campaignCyclesElapsed * CYCLES_ELAPSED_SCALING,
                     MAX_SPAWN_POWER
                 )
             }
@@ -101,7 +101,7 @@ class FleetSpawnParameters {
                     "\n---------SVC FLEET SPAWN INFO--------" +
                     "\nplayer fleet strength: $playerFleetStrength" +
                     "\ncycles elapsed: $campaignCyclesElapsed" +
-                    "\nspawn power: $spawnPower (max 300)" +
+                    "\nspawn power: $spawnPower (max $MAX_SPAWN_POWER)" +
                     "\nsample fleet size: $fleetSize" +
                     "\nmax fleet count: $maxFleetCount" +
                     "\nnumber of spawned fleets: ${SVCFleetSpawner.countFactionFleets("svc")}" +
