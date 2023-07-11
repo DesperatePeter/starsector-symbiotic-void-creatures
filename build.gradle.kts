@@ -29,7 +29,7 @@ val shouldAutomaticallyCreateMetadataFiles = true
 val modVersion = "0.0.0"
 val jarFileName = "${modName.replace(" ", "-")}.jar"
 val modId = "symbiotic_void_creatures"
-val modAuthor = "Art, animation and design: Tecrys. Coding: DesperatePeter. Coding for original version: Debido, LazyWizard, Sundog, Deathfly, Xenoargh, Mesotronik & Tartiflette. Sound: SniZupGun, freesfx.co.uk, zapsplat.com, freesound.org. "
+val modAuthor = "Tecrys & DesperatePeter"
 val modDescription = "This mod introduces alien wildlife and the Biomancy Genetic Engineering faction developing ships on the bases of genetic material of said wildlife."
 val gameVersion = "0.96a-RC10"
 val jars = arrayOf("jars/$jarFileName")
@@ -145,6 +145,10 @@ tasks {
                             {
                                 "id": "shaderLib",
                                 "name": "GraphicsLib"
+                            },
+                            {
+                                "id" : "MagicLib",
+                                "name" : "MagicLib"
                             }
                         ]
                     }

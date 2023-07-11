@@ -2,10 +2,10 @@
 {
     "id": "symbiotic_void_creatures",
     "name": "SymbioticVoidCreatures",
-    "author": "Art, animation and design: Tecrys. Coding: DesperatePeter. Coding for original version: Debido, LazyWizard, Sundog, Deathfly, Xenoargh, Mesotronik & Tartiflette. Writing: DesperatePeter, Tecrys & Captain Milo. Sound: SniZupGun, freesfx.co.uk, zapsplat.com, freesound.org. ",
+    "author": "Tecrys & DesperatePeter",
     "utility": "false",
     "version": { "major":"0", "minor": "0", "patch": "0" },
-    "description": "[REDACTED] aren't the only things lurking in the fringes of space.",
+    "description": "This mod introduces alien wildlife and the Biomancy Genetic Engineering faction developing ships on the bases of genetic material of said wildlife.",
     "gameVersion": "0.96a-RC10",
     "jars":["jars/SymbioticVoidCreatures.jar"],
     "modPlugin":"tecrys.svc.SvcBasePlugin",
@@ -18,6 +18,10 @@
         {
             "id": "shaderLib",
             "name": "GraphicsLib"
+        },
+        {
+            "id" : "MagicLib",
+            "name" : "MagicLib"
         }
     ]
 }
