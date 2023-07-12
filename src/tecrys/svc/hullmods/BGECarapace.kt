@@ -11,6 +11,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Stats
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 
 import org.dark.graphics.plugins.ShipDestructionEffects
+import org.lazywizard.lazylib.ext.campaign.contains
 import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.DMOD_TAG
 import tecrys.svc.SVC_BASE_HULLMOD_ID
@@ -112,7 +113,10 @@ class BGECarapace : BaseHullMod() {
     }
 
     private fun addControlCollarIfPlayer(member: FleetMemberAPI){
-        if(member.owner != 0) return
+        member.id?.let {
+            if(!Global.getSector().playerFleet.contains(it)) return
+        } ?: return
+
         val hullMods = member.variant.hullMods.toList()
         if(hullMods.contains(CONTROL_COLLAR_HULLMOD_ID)) return
         member.variant.addMod(CONTROL_COLLAR_HULLMOD_ID)
