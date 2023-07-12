@@ -27,7 +27,6 @@ class ParasumbilicalCord: BaseShipSystemScript() {
     }
 
     private val innerSprite = Global.getSettings().getSprite("beams", "svc_parasumbilical_beam")
-    // private val outerSprite = Global.getSettings().getSprite("beams", "fakeBeamFringe")
 
     private var damageSharingListener: DamageSharingListener? = null
     private var renderPlugin: ParasumbilicalRenderer? = null
@@ -69,8 +68,6 @@ class ParasumbilicalCord: BaseShipSystemScript() {
 
     private fun renderCord(thisShip: ShipAPI, alphaMult: Float){
         val targetShip = damageSharingListener?.shipTarget ?: return
-//        val origin = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, thisShip) ?: return
-//        val target = CollisionUtils.getCollisionPoint(thisShip.location, targetShip.location, targetShip) ?: return
         val origin = thisShip.location
         val target = targetShip.location
         val line = target - origin

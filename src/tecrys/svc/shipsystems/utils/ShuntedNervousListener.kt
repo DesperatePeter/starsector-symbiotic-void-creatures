@@ -41,6 +41,9 @@ class ShuntedNervousListener: DamageTakenModifier {
         return MULT_ID
     }
 
+    /**
+     * make sure to call AFTER removing the listener!
+     */
     fun applyDelayedDamaged(ship: ShipAPI){
         val engine = Global.getCombatEngine() ?: return
         val instances = delayedDamageInstances.toList()

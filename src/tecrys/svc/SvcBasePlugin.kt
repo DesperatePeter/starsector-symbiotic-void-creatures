@@ -24,7 +24,6 @@ class SvcBasePlugin : BaseModPlugin() {
 
         } catch (ex: ClassNotFoundException) {
 
-            /*  41 */
             SVCGen().generate(Global.getSector())
 
         }

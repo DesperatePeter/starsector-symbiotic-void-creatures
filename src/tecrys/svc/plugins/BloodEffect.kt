@@ -12,7 +12,7 @@ import java.awt.Color
 
 class BloodEffect : BaseEveryFrameCombatPlugin() {
     companion object{
-        val magnitudeBySize = mapOf(
+        private val magnitudeBySize = mapOf(
             WeaponSize.SMALL to 1f,
             WeaponSize.MEDIUM to 1.5f,
             WeaponSize.LARGE to 2.5f

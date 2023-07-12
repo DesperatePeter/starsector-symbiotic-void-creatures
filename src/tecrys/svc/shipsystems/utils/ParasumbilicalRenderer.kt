@@ -38,16 +38,12 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
                 setSize(s.width / viewMult, (s.height + 60f)  / viewMult)
                 setAdditiveBlend()
                 angle = s.angleDeg - 90f
+                // trial and error based texture mechanics
                 setTexHeight(1f)
                 setTexWidth(1f)
                 setTexY(0f)
                 setTexX(counter)
                 renderAtCenter(s.pos.x, s.pos.y)
-
-
-                // 32 x 256, lower 128 empty
-                // renderRegionAtCenter()
-                // renderAtCenter(viewport.convertWorldXtoScreenX(s.pos.x), viewport.convertWorldYtoScreenY(s.pos.y))
             }
         }
         if(Global.getCombatEngine()?.isPaused != true)

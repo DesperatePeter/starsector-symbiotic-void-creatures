@@ -7,7 +7,7 @@ import kotlin.math.min
 class FleetSpawnParameters {
     companion object {
         private const val MAX_SPAWN_POWER = 250f            // spawn power is a combination of time elapsed and player fleet strength. it's the basis for all other values
-        private const val FLEET_STRENGTH_SCALING = 0.5f     // How quickly spawn power scales with player fleet strength
+        private const val FLEET_STRENGTH_SCALING = 0.6f     // How quickly spawn power scales with player fleet strength
         private const val CYCLES_ELAPSED_SCALING = 10f      // how quickly spawn power scales with time elapsed
         private const val FLEET_SIZE_SCALING = 1f           // How quickly voidling fleet size scales with spawn power
         private const val MIN_FLEET_SIZE = 10f

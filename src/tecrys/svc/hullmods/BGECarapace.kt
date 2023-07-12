@@ -13,7 +13,6 @@ import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import org.magiclib.util.MagicIncompatibleHullmods
-import tecrys.svc.DMOD_TAG
 import tecrys.svc.SVC_BASE_HULLMOD_ID
 import java.awt.Color
 class BGECarapace : BaseHullMod() {
@@ -51,7 +50,6 @@ class BGECarapace : BaseHullMod() {
     }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
         member?.let { fm ->
-            // removeIncompatibleHullmods(fm.variant)
             addControlCollarIfPlayer(fm)
         }
     }
