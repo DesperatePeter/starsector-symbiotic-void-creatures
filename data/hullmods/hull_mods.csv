@@ -5,17 +5,6 @@ They also seem to be unaffected by ship explosions.
 Void Creatures do not explode when disabled or killed.
 Void Creatures cannot have hullmods designed for regular ships.",Very tough carapace protecting the creature from harsh space.,,graphics/hullmods/carapace.png
 ,,,,,,,,,,,,,,,,,,,
-BGE Enhanced Reflexes,enhanced_reflexes,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.enhanced_reflexes,,,,graphics/hullmods/carapace.png
-,,,,,,,,,,,,,,,,,,,
-BGE Muscle Flexibility,muscleflexibility,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.muscleflexibility,,,,graphics/hullmods/carapace.png
-,,,,,,,,,,,,,,,,,,,
-BGE Muscle Endurance,muscleendurance,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.muscleendurance,,,,graphics/hullmods/carapace.png
-,,,,,,,,,,,,,,,,,,,
-BGE Accelerated Metabolism,acceleratedmetabolism,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.acceleratedmetabolism,,,,graphics/hullmods/carapace.png
-,,,,,,,,,,,,,,,,,,,
-BGE Thickened Shell,thickenedshell,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.thickenedshell,,,,graphics/hullmods/carapace.png
-,,,,,,,,,,,,,,,,,,,
-BGE Antimatter Fat Layer,antimatterfatlayer,,,,,,,TRUE,TRUE,TRUE,0,0,0,0,data.hullmods.antimatterfatlayer,,,,graphics/hullmods/carapace.png
 Alpha Voidling,svc_alpha_voidling,,,,"no_drop, no_drop_salvage",Special,,,,,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
  They are extremely territorial, to the extent that trying to include more than one into a fleet will cause them to constantly fight for dominance,
   rendering them ineffective for combat.",Only one per fleet allowed.,,graphics/hullmods/alpha.png
