@@ -16,10 +16,10 @@ svc_adv_med_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until i
 svc_adv_lrg_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
 svc_adv_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
 ,,,,,,
-svc_bge_grappler,WEAPON,"This orifice houses a tendril. When the tendril extends it enters P-Space reaching tremendous speeds through time-dilation making it look like a beam. Through unknown means it accelerates the creature when the tendril latches onto its prey.",,,,
+svc_bge_grappler,WEAPON,This orifice houses a tendril. When the tendril extends it enters P-Space reaching tremendous speeds through time-dilation making it look like a beam. Through unknown means it accelerates the creature when the tendril latches onto its prey.,,,,
 svc_bge_grappler_pd,WEAPON,This orifice houses a tendril. Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,
-svc_acidthrower,WEAPON,"An organic weapon, which uses internal chemical processes to emit a highly corrosive gas in a cone. The gas slowly melts away armor and can penetrate shields, but has no effect on exposed hull. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer.","Anti-Armor",,,
-svc_fangcluster,WEAPON,"An organic weapon, the design of which appears almost a bit too intricate to be the result of Darwinian evolution. The weapon features a number of tubes that contain projectiles made from an enamel-like substance produced by internal glands and a biological spring-loading mechanism, that is able to convert biological energy into potential energy. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer.","Anti-Shield",,,
+svc_acidthrower,WEAPON,"An organic weapon, which uses internal chemical processes to emit a highly corrosive gas in a cone. The gas slowly melts away armor and can penetrate shields, but has no effect on exposed hull. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer.",Anti-Armor,,,
+svc_fangcluster,WEAPON,"An organic weapon, the design of which appears almost a bit too intricate to be the result of Darwinian evolution. The weapon features a number of tubes that contain projectiles made from an enamel-like substance produced by internal glands and a biological spring-loading mechanism, that is able to convert biological energy into potential energy. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer.",Anti-Shield,,,
 svc_inksac,WEAPON,"An organic gland, capable of emitting a sort of ink-cloud with an enigmatic chemical composition. The special particles that form this ink cloud seem to attract and absorb all kinds of energy, significantly reducing the effectiveness of beams, causing missiles engines to flame out and even being able to slightly reduce the impact energy of projectiles. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer. Note: The AGC-tag BlockBeams is recommended for this weapon.",Anti-Beam,,,
 ,,,,,,
 svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal.",,,,
@@ -29,22 +29,23 @@ svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which a
 svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
 svc_torid_drones,SHIP_SYSTEM,A helpful Torid drone with an Ink Sac relying on being fed by Pupacyst.,,,,
 ,,,,,,
-svc_arbiter,SHIP,,,,,
+svc_arbiter,SHIP,Arbiters provide shelter for smaller voidlings similar to seahorses.,,,,
 svc_embolist,SHIP,"The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
 
 Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
 
 Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk,SHIP,,,,,
-svc_keratinos,SHIP,,,,,
-svc_lephantis,SHIP,,,,,
-svc_pupacyst,SHIP,,,,,
+svc_hemalisk,SHIP,"Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
+",,,,
+svc_keratinos,SHIP,These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.,,,,
+svc_lephantis,SHIP,Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.,,,,
+svc_pupacyst,SHIP,Pupacysts act as surrogates and provide nutrients for smaller Voidlings.,,,,
 svc_toxocyst,SHIP,"The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
 
 Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
 Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
 ,,,,,,
-svc_arbiter_dark,SHIP,,,,,
+svc_arbiter_dark,SHIP,This is an Alpha male. Arbiters provide shelter for smaller voidlings similar to seahorses.,,,,
 svc_embolist_dark,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
 
 The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
@@ -52,10 +53,11 @@ The Embolist's predatory strategy revolves around identifying and infiltrating v
 Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
 
 Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_dark,SHIP,,,,,
-svc_keratinos_dark,SHIP,,,,,
-svc_lephantis_dark,SHIP,,,,,
-svc_pupacyst_dark,SHIP,,,,,
+svc_hemalisk_dark,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
+",,,,
+svc_keratinos_dark,SHIP,This is an Alpha male. These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.,,,,
+svc_lephantis_dark,SHIP,This is an Alpha male. Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.,,,,
+svc_pupacyst_dark,SHIP,This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.,,,,
 svc_toxocyst_dark,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
 
 The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
@@ -63,7 +65,7 @@ The Toxocyst is a vicious ambush predator that lurks in the depths of the void. 
 Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
 Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
 ,,,,,,
-svc_arbiter_dark_evo1,SHIP,,,,,
+svc_arbiter_dark_evo1,SHIP,This is an Alpha male. Arbiters provide shelter for smaller voidlings similar to seahorses.,,,,
 svc_embolist_dark_evo1,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
 
 The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
@@ -71,10 +73,11 @@ The Embolist's predatory strategy revolves around identifying and infiltrating v
 Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
 
 Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_dark_evo1,SHIP,,,,,
-svc_keratinos_dark_evo1,SHIP,,,,,
-svc_lephantis_dark_evo1,SHIP,,,,,
-svc_pupacyst_dark_evo1,SHIP,,,,,
+svc_hemalisk_dark_evo1,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
+",,,,
+svc_keratinos_dark_evo1,SHIP,This is an Alpha male. These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.,,,,
+svc_lephantis_dark_evo1,SHIP,This is an Alpha male. Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.,,,,
+svc_pupacyst_dark_evo1,SHIP,This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.,,,,
 svc_toxocyst_dark_evo1,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
 
 The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
@@ -82,7 +85,7 @@ The Toxocyst is a vicious ambush predator that lurks in the depths of the void. 
 Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
 Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
 ,,,,,,
-svc_arbiter_dark_evo2,SHIP,,,,,
+svc_arbiter_dark_evo2,SHIP,This is an Alpha male. Arbiters provide shelter for smaller voidlings similar to seahorses.,,,,
 svc_embolist_dark_evo2,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
 
 The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
@@ -90,9 +93,10 @@ The Embolist's predatory strategy revolves around identifying and infiltrating v
 Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
 
 Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_dark_evo2,SHIP,,,,,
-svc_keratinos_dark_evo2,SHIP,,,,,
-svc_pupacyst_dark_evo2,SHIP,,,,,
+svc_hemalisk_dark_evo2,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
+",,,,
+svc_keratinos_dark_evo2,SHIP,This is an Alpha male. These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.,,,,
+svc_pupacyst_dark_evo2,SHIP,This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.,,,,
 svc_toxocyst_dark_evo2,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
 
 The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
