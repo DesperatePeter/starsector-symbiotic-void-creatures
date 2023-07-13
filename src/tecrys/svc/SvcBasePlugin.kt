@@ -5,7 +5,7 @@ import com.fs.starfarer.api.Global
 import com.thoughtworks.xstream.XStream
 import tecrys.svc.world.notifications.NotificationShower
 import tecrys.svc.world.SVCFleetSpawner
-import tecrys.svc.world.SVCGen
+import tecrys.svc.world.SectorGen
 
 
 /**
@@ -24,7 +24,7 @@ class SvcBasePlugin : BaseModPlugin() {
 
         } catch (ex: ClassNotFoundException) {
 
-            SVCGen().generate(Global.getSector())
+            SectorGen().generate(Global.getSector())
 
         }
 
