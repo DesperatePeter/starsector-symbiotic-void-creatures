@@ -8,7 +8,9 @@ import tecrys.svc.MAGIC_SETTINGS_RELATIONS_KEY
 import tecrys.svc.SVC_FACTION_ID
 
 class SectorGen: SectorGeneratorPlugin {
-    private val relationshipToSet = -0.5f
+    companion object{
+        private const val RELATIONSHIP_TO_SET = -0.8f
+    }
     override fun generate(sector: SectorAPI?) {
         val ignoredFactions = MagicSettings.getList(MAGIC_SETTINGS_MOD_KEY, MAGIC_SETTINGS_RELATIONS_KEY) +
                 listOf(SVC_FACTION_ID)
@@ -17,8 +19,8 @@ class SectorGen: SectorGeneratorPlugin {
                 allFactions.filterNotNull().filterNot {
                 ignoredFactions.contains(it.id)
             }.forEach {
-                svc.setRelationship(it.id, relationshipToSet)
-                it.setRelationship(SVC_FACTION_ID, relationshipToSet)
+                svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
+                it.setRelationship(SVC_FACTION_ID, RELATIONSHIP_TO_SET)
             }
         }
     }
