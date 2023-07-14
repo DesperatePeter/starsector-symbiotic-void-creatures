@@ -6,6 +6,8 @@ import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.campaign.listeners.FleetEventListener
 import com.fs.starfarer.api.util.IntervalUtil
 import org.apache.log4j.Level
+import org.lwjgl.util.vector.Vector2f
+import org.magiclib.kotlin.findNearestPlanetTo
 import tecrys.svc.*
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
 import tecrys.svc.world.notifications.NotificationShower
@@ -14,6 +16,8 @@ class SVCFleetSpawner : EveryFrameScript {
 
     companion object {
         val FACTIONS_TO_SPAWN = listOf(SVC_FACTION_ID)
+        const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
+        const val MAX_GOTO_ASSIGNMENT_DURATION = 1000f
         fun countFactionFleets(faction: String): Int {
             return getFactionFleets(faction).count()
         }
@@ -51,10 +55,26 @@ class SVCFleetSpawner : EveryFrameScript {
                         Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet null")
                         return
                     }
-                    loc.spawnFleet(it, 10f, 10f, fleet)
+                    it.containingLocation.addEntity(fleet)
+                    fleet.setLocation(it.location.x, it.location.y)
+
+                    addAssignments(fleet)
+
+                    fleet.forceSync()
                     if (!Global.getSettings().isDevMode) return
                 }
         }
+    }
+
+    private fun addAssignments(fleet: CampaignFleetAPI){
+        fleet.addAssignment(FleetAssignment.GO_TO_LOCATION,
+            fleet.findNearestPlanetTo(requireGasGiant = false,allowStars = true),
+            MAX_GOTO_ASSIGNMENT_DURATION
+        )
+        fleet.addAssignment(FleetAssignment.ORBIT_AGGRESSIVE,
+            fleet.findNearestPlanetTo(requireGasGiant = false,allowStars = true),
+            MAX_ORBIT_ASSIGNMENT_DURATION
+        )
     }
 
     private fun createFactionFleet(
