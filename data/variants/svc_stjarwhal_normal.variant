@@ -1,0 +1,14 @@
+{
+  "variantId": "svc_stjarwhal_normal",
+  "hullId": "svc_stjarwhal",
+  "displayName": "",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [],
+  "wings": []
+}

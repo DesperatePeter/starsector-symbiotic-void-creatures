@@ -1,0 +1,33 @@
+{
+	"specClass":"beam",
+	"id":"svc_whale_flipper_r",
+	"type":"DECORATIVE",
+	"size":"SMALL",
+        "height": 1.0,
+        "renderBelowAllWeapons": true,
+		     "everyFrameEffect":"tecrys.svc.weapons.scripts.tentacle_engine_02",
+	#"everyFrameEffect":"tecrys.svc.plugins.RotatingDishArcr",
+	"turretSprite":"",
+	"hardpointSprite":"graphics/weapons/deco/svc_whaletentacle.png",
+
+	"turretOffsets": [
+10,
+
+128],
+
+	"turretAngleOffsets":[0],
+	"hardpointOffsets": [
+48,
+
+150],
+	"hardpointAngleOffsets":[0],
+
+	#"fringeColor":[255,255,255,255],
+	#"coreColor":[255,255,255,255],
+	#"glowColor":[255,255,255,255],
+
+	"width":1.0,
+	"textureType":ROUGH,
+	"textureScrollSpeed":1.0,
+	"pixelsPerTexel":1.0,
+}

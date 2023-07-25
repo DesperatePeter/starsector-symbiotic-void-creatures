@@ -4,6 +4,7 @@
 		#"ProtectionTracker":"data.scripts.plugins.ProtectionTracker",
 		"BloodEffect":"tecrys.svc.plugins.BloodEffect",
 		"SvcCombatPlugin":"tecrys.svc.CombatPlugin",
+		"tentacle_render":"tecrys.svc.plugins.tentacle_render",		
 		#"ForceShieldDisablePlugin":"data.scripts.plugins.ForceShieldDisablePlugin",		
 		#"Acid":"data.scripts.plugins.Acid",				
 		
