@@ -54,6 +54,7 @@ Future features will likely include:
 
 - Art, animation, writing and design: Tecrys.
 - Writing, programming: DesperatePeter.
+- Programming: banano_of_doom_7070.
 
 ### Original Version (unreleased):
 
