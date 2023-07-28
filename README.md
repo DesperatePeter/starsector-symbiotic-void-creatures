@@ -55,11 +55,11 @@ Future features will likely include:
 - Art, animation, writing and design: Tecrys.
 - Writing, programming: DesperatePeter.
 - Programming: banano_of_doom_7070.
+- Sound: SniZupGun, freesfx.co.uk, zapsplat.com, freesound.org, quicksounds.com.
 
 ### Original Version (unreleased):
 
 - Programming: Debido, LazyWizard, Sundog, Deathfly, Xenoargh, Mesotronik & Tartiflette. 
-- Sound: SniZupGun, freesfx.co.uk, zapsplat.com, freesound.org.
 
 
 ## Used licensed material

@@ -143,6 +143,17 @@ Umbra Keratinos right,svc_Keratinos_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,
 control collar small,svc_ctrl_cllr_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 control collar medium,svc_ctrl_cllr_med,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 control collar large,svc_ctrl_cllr_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale tentacle 1 left large,svc_whale_tentacle_l_lrg,,,8,,,,,,5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale flipper left large,svc_whale_flipper_l_lrg,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale flipper right large,svc_whale_flipper_r_lrg,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 whale tentacle 1 left,svc_whale_tentacle_l,,,8,,,,,,15,,,,,,,,,,,,,,,,,,,,,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE",,,,,,,,,,,,,,,
 whale flipper left,svc_whale_flipper_l,,,2,,,,,,12,,,,,,,,,,,,,,,,,,,,,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE",,,,,,,,,,,,,,,
 whale flipper right,svc_whale_flipper_r,,,2,,,,,,12,,,,,,,,,,,,,,,,,,,,,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE",,,,,,,,,,,,,,,
+whale tentacle 1 left small,svc_whale_tentacle_l_sml,,,8,,,,,,5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale flipper left small,svc_whale_flipper_l_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale flipper right small,svc_whale_flipper_r_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

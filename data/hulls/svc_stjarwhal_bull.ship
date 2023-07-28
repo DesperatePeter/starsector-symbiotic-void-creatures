@@ -1,0 +1,193 @@
+{
+  "hullName": "Stjarwhal Bull",
+  "hullId": "svc_stjarwhal_bull",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/ships/svc_spacewhale_bull.png",
+  "style": "BIOLOGICAL",
+  "height": 323,
+  "width": 108,
+  "center": [54, 167],
+  "collisionRadius": 164,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 164,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_whale_tentacle_l_lrg",
+    "WS0002": "svc_whale_tentacle_l_lrg",
+    "WS0003": "svc_whale_tentacle_l_lrg",
+    "WS0004": "svc_whale_tentacle_l_lrg",
+    "WS0005": "svc_whale_tentacle_l_lrg",
+    "WS0006": "svc_whale_tentacle_l_lrg",
+    "WS0007": "svc_whale_tentacle_l_lrg",
+    "WS0008": "svc_whale_tentacle_l_lrg",
+    "WS0009": "svc_whale_flipper_r_lrg",
+    "WS0010": "svc_whale_flipper_l_lrg",
+    "WS0011": "svc_whale_flipper_r_lrg",
+    "WS0012": "svc_whale_flipper_l_lrg",
+    "WS0013": "svc_whale_flipper_r_lrg",
+    "WS0014": "svc_whale_flipper_l_lrg",
+    "WS0015": "svc_whale_flipper_r_lrg",
+    "WS0016": "svc_whale_flipper_l_lrg"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": -173.5,
+      "locations": [-131, -4.5]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": 173.5,
+      "locations": [-131, 4.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": -173.5,
+      "locations": [-101, -23.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": 173.5,
+      "locations": [-101, 23.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": -173.5,
+      "locations": [-95, -9]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": 173.5,
+      "locations": [-95, 9]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": -173.5,
+      "locations": [-66, -31.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": 173.5,
+      "locations": [-66, 31.5]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -122,
+      "locations": [-23.5, -29.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 122,
+      "locations": [-23.5, 29.5]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -119,
+      "locations": [-15.5, -33.5]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 119,
+      "locations": [-15.5, 33.5]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -123.5,
+      "locations": [-0.5, -33.5]
+    },
+    {
+      "id": "WS0014",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 123.5,
+      "locations": [-0.5, 33.5]
+    },
+    {
+      "id": "WS0015",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -119.5,
+      "locations": [17.5, -25.5]
+    },
+    {
+      "id": "WS0016",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 119.5,
+      "locations": [17.5, 25.5]
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    -82.5, 44.5,
+    -48.5, 52.5,
+    89, 35.5,
+    151.5, 11.5,
+    151.5, -11.5,
+    89, -35.5,
+    -48.5, -52.5,
+    -82.5, -44.5,
+    -146, -0
+  ]
+}
