@@ -1,0 +1,158 @@
+{
+	id:"vwl",
+	"displayName":"Void Wildlife",
+	"displayNameWithArticle":"the Void Wildlife",
+	"displayNameLong":"Void Wildlife",
+	"displayNameLongWithArticle":"the Void Wildlife",
+	#"entityNamePrefix":"Void Creature",
+	#"personNamePrefix":"Void",
+	"personNamePrefixAOrAn":"a",
+	"displayNameIsOrAre":"are",
+	
+	"logo":"graphics/factions/ai_remnant.png",
+	"crest":"graphics/factions/crest_ai_remnant.png",
+	#"shipNamePrefix":"Void",
+	
+	"color":[0, 251, 255,255],
+	"baseUIColor":[0, 251, 255,255],
+	#"color":[100,100,100,255],
+	#"baseUIColor":[155,155,155,255],
+	
+	#"darkUIColor":[31,94,112,175],
+	#"gridUIColor":[70,200,255,75],
+	
+	"showInIntelTab":false,
+	
+	"shipNameSources":{
+		"BEASTS":1,
+		"ABRAHAMIC":1,
+		"AZTEC":1,
+	},
+	"names":{
+		"BEASTS":1,
+		"ABRAHAMIC":1,
+		"AZTEC":1,
+	},
+	"variantOverrides":{
+	},
+	# multiplier for how often hulls show up in the faction's fleets
+	"hullFrequency":{
+		"tags":{
+		},
+		"hulls":{
+		},
+	},
+	# ships the faction gets access to when importing S&W out-of-faction
+	"shipsWhenImporting":{
+		"tags":["vwl"],
+		"hulls":[
+		],
+	},
+	"knownShips":{
+		"tags":["vwl"],
+		"hulls":[
+		],
+	},
+	# listing ships here will make the faction mostly use them even if other hulls become available
+	"priorityShips":{
+		"tags":[],
+		"hulls":[
+		],
+	},
+	"knownFighters":{
+		"tags":["vwl"],
+		"fighters":[
+		],
+	},
+	"priorityFighters":{
+		"tags":[],
+		"fighters":[
+		],
+	},
+	"knownWeapons":{
+		"tags":["vwl"],
+		"weapons":[
+		],
+	},
+	"priorityWeapons":{
+		"tags":[],
+		"weapons":[
+		],
+	},
+	"knownHullMods":{
+		"tags":["vwl"],
+		"hullMods":[
+		],
+	},
+	"factionDoctrine":{
+		"warships":4,
+		"carriers":2,
+		"phaseShips":1,
+		
+		"officerQuality":1,
+		"shipQuality":3,
+		"numShips":1,
+		
+		"shipSize":4,
+		
+		"aggression":3, # doesn't matter since automated ships are super aggressive regardless
+		
+		"combatFreighterProbability":0,     				# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":1,				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":1,   # as part of normal combat lineup, when marked as priority ship
+		"autofitRandomizeProbability":0.25,
+
+		"commanderSkillsShuffleProbability":1,
+		"commanderSkills":[ # unlike other factions, can get up to 3 skills depending
+			"electronic_warfare",
+			"flux_regulation",
+			"coordinated_maneuvers",
+		],
+	},
+		"shipRoles":{
+        "combatSmall" : {
+            "svc_stjarwhal_calf_variant" : 10
+        },
+        "combatMedium" : {
+                    "svc_stjarwhal_normal" : 10
+                },
+        "combatLarge" : {
+                             "svc_stjarwhal_bull_variant" : 10
+                         },
+
+
+
+	},
+	"illegalCommodities":[
+	],
+	"music":{
+		"encounter_hostile":"music_tritach_encounter_hostile",
+	},	
+	#"internalComms":"hegemony_internal",
+	"portraits":{
+		"standard_male":[
+				
+		],
+		"standard_female":[
+	
+		],
+	},
+	"ranks":{
+		"ranks":{
+		},
+		"posts":{
+		},
+	},
+	"custom":{
+		"engageWhenEvenStrength":false,
+		"allowsTransponderOffTrade":true, # to prevent cargoscan dialog from "patrols"
+		"postsNoBounties":true,
+		"fightToTheLast":true, # order a full assault instead of retreating, in most cases
+	},	
+	"fleetTypeNames":{
+		"patrolSmall":"Pack",
+		"patrolMedium":"Herd",
+		"patrolLarge":"Swarm",
+		"battlestation":"Nest",
+	},
+},
