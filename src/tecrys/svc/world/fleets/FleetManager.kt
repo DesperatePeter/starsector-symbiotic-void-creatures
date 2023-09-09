@@ -21,7 +21,7 @@ class FleetManager : EveryFrameScript {
 
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
     private val whaleSpawnInterval = IntervalUtil(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
-        WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
+        2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
     override fun isDone(): Boolean = false
 
     override fun runWhilePaused(): Boolean = false
@@ -39,7 +39,7 @@ class FleetManager : EveryFrameScript {
         if(whaleSpawnInterval.intervalElapsed()){
             spawnWhaleFleet()
             whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
-                WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
+                2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
         }
     }
 
