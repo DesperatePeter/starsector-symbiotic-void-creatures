@@ -6,17 +6,22 @@ import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import tecrys.svc.*
+import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
 
 class FleetManager : EveryFrameScript {
 
     companion object {
-        val spawner = FleetSpawner()
         const val WHALE_DIST = 500f
+        const val WHALE_SPAWN_BASE_INTERVAL = 50f
+        val spawner = FleetSpawner()
+        var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
     }
 
-    private val interval = IntervalUtil(10f, 30f)
+    private val svcSpawnInterval = IntervalUtil(10f, 30f)
+    private val whaleSpawnInterval = IntervalUtil(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
+        WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
     override fun isDone(): Boolean = false
 
     override fun runWhilePaused(): Boolean = false
@@ -24,12 +29,18 @@ class FleetManager : EveryFrameScript {
     override fun advance(amount: Float) {
         if(Global.getSector().isPaused) return
         if (!DefeatedMagicBountyDialog.shouldSpawnVoidlings) return
-        interval.advance(amount)
-        if (!interval.intervalElapsed()) return
-        while (spawnSvcFleet() && Global.getSettings().isDevMode) {
-            Global.getLogger(this.javaClass).info("Spawned SVC fleet")
+        svcSpawnInterval.advance(amount)
+        whaleSpawnInterval.advance(amount)
+        if (svcSpawnInterval.intervalElapsed()){
+            while (spawnSvcFleet() && Global.getSettings().isDevMode) {
+                Global.getLogger(this.javaClass).info("Spawned SVC fleet")
+            }
         }
-        spawnWhaleFleet()
+        if(whaleSpawnInterval.intervalElapsed()){
+            spawnWhaleFleet()
+            whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
+                WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
+        }
     }
 
     /**

@@ -7,6 +7,7 @@ import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
 import tecrys.svc.WHALES_ENCOUNTER_MEM_KEY
 import tecrys.svc.WHALES_ORIGINAL_STRENGTH_KEY
+import tecrys.svc.world.fleets.FleetManager
 import kotlin.math.truncate
 
 class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?): NotificationDialogBase(
@@ -53,6 +54,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?): Notification
         }
         Global.getSector().memory?.unset(WHALES_ENCOUNTER_MEM_KEY)
         whales?.despawn()
+        FleetManager.whaleSpawnIntervalMultiplier += 1.0f
         dialog?.dismiss()
     }
 }
