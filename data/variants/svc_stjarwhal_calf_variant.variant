@@ -1,7 +1,7 @@
 {
   "variantId": "svc_stjarwhal_calf_variant",
   "hullId": "svc_stjarwhal_calf",
-  "displayName": "",
+  "displayName": "Stjarwhal",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,

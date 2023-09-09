@@ -15,8 +15,9 @@
 	"graphics": {
 		"backgrounds": {
 			"victory_notification_img": "graphics/backgrounds/BGE.jpg",
-			"svc_encounter": "graphics/backgrounds/dissectionbyNeoSpectra.png"
-		},
+			"svc_encounter": "graphics/backgrounds/dissectionbyNeoSpectra.png",
+			"whale_encounter": "graphics/backgrounds/dissectionbyNeoSpectra.png",
+},
 		"beams": {
 			"svc_parasumbilical_beam": "graphics/weapons/beams/svc_parasumbilical_beam.png"
 		}

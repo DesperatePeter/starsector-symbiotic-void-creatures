@@ -7,6 +7,7 @@ import org.magiclib.util.MagicSettings
 import tecrys.svc.MAGIC_SETTINGS_MOD_KEY
 import tecrys.svc.MAGIC_SETTINGS_RELATIONS_KEY
 import tecrys.svc.SVC_FACTION_ID
+import tecrys.svc.VWL_FACTION_ID
 
 class SectorGen : SectorGeneratorPlugin {
     companion object {
@@ -24,6 +25,10 @@ class SectorGen : SectorGeneratorPlugin {
                 svc.setRelationship(it.id, RepLevel.HOSTILE)
                 svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
             }
+            val vwl = getFaction(VWL_FACTION_ID)
+            vwl.setRelationship(svc.id, RepLevel.HOSTILE)
+            vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
+            vwl.setRelationship("player", RepLevel.FRIENDLY)
         }
     }
 }

@@ -32,5 +32,4 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
             }
         }
     }
-
 }

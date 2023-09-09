@@ -4,8 +4,9 @@ import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.thoughtworks.xstream.XStream
 import tecrys.svc.world.notifications.NotificationShower
-import tecrys.svc.world.SVCFleetSpawner
+import tecrys.svc.world.fleets.FleetSpawner
 import tecrys.svc.world.SectorGen
+import tecrys.svc.world.fleets.FleetManager
 
 
 /**
@@ -31,7 +32,7 @@ class SvcBasePlugin : BaseModPlugin() {
     }
 
     override fun onGameLoad(newGame: Boolean) {
-        Global.getSector().addTransientScript(SVCFleetSpawner())
+        Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())
         if(newGame){
             initSVC()

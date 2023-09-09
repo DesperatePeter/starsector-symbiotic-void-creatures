@@ -44,12 +44,12 @@
 	},
 	# ships the faction gets access to when importing S&W out-of-faction
 	"shipsWhenImporting":{
-		"tags":["vwl"],
+		"tags":["vwl", "krill"],
 		"hulls":[
 		],
 	},
 	"knownShips":{
-		"tags":["vwl"],
+		"tags":["vwl", "krill"],
 		"hulls":[
 		],
 	},
@@ -60,7 +60,7 @@
 		],
 	},
 	"knownFighters":{
-		"tags":["vwl"],
+		"tags":["vwl", "krill"],
 		"fighters":[
 		],
 	},
@@ -70,7 +70,7 @@
 		],
 	},
 	"knownWeapons":{
-		"tags":["vwl"],
+		"tags":["vwl", "krill"],
 		"weapons":[
 		],
 	},
@@ -80,7 +80,7 @@
 		],
 	},
 	"knownHullMods":{
-		"tags":["vwl"],
+		"tags":["vwl", "krill"],
 		"hullMods":[
 		],
 	},
