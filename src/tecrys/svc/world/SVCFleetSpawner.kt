@@ -42,13 +42,18 @@ class SVCFleetSpawner : EveryFrameScript {
 
     private fun spawnFactionFleetsUntilLimit(faction: String) {
         val numFleets = countFactionFleets(faction)
+        fun isValidSpawnableEntity(token: SectorEntityToken): Boolean{
+            return token !is CampaignFleetAPI && token !is CampaignProgressIndicatorAPI && token !is OrbitalStationAPI
+                    && (token as? PlanetAPI)?.isStar != true
+        }
         Global.getSector().allLocations?.filter { loc ->
             loc.planets?.all { it.faction.id == "neutral" } ?: false
         }?.filter {
             it.fleets.none { loc -> loc.faction.id == faction }
         }?.filterNotNull()?.shuffled()?.forEach { loc ->
-            loc.allEntities?.filter { it !is CampaignFleetAPI && it !is CampaignProgressIndicatorAPI && it !is OrbitalStationAPI }
-                ?.randomOrNull()?.let {
+            loc.allEntities?.filter {
+                isValidSpawnableEntity(it)
+            }?.randomOrNull()?.let {
                     if (numFleets >= FleetSpawnParameters.maxFleetCount) return
                     val fleet = createFactionFleet(faction, FleetSpawnParameters.fleetSize.toInt())
                     if (fleet == null) {
