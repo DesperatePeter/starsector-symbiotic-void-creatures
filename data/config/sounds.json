@@ -67,7 +67,7 @@
 		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
 		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
 	],	
-}
+
 					"svc_whale_explodes":[
 		{"file":"sounds/whales/painsharp.ogg","pitch":1,"volume":0.6},
 		{"file":"sounds/whales/painshortsharp.ogg","pitch":1,"volume":0.3},	

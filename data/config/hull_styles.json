@@ -35,17 +35,17 @@
 	},
 
 	"Stjarwhal":{
-		"hyperspaceJitterColor":[186, 255, 255,85],
-		"baseCampaignExplosionColor":[186, 255, 255,85],
-		"baseCombatExplosionColor":[186, 255, 255,85], # smooth flash
-		"combatExplosionNonFlashColorOverride":[186, 255, 255,85], # the more billowy explosion
-		"fighterRepairFlickerColor":[186, 255, 255,85],
-		"fighterChipIconColor":[186, 255, 255,85],
-		"weaponDisabledExplosionColor":[186, 255, 255,85],
-		"shieldRingColor":[186, 255, 255,85],
-		"shieldInnerColor":[186, 255, 255,85],
-		"fluxVentCoreColor":[186, 255, 255,85],
-		"fluxVentFringeColor":[186, 255, 255,85],
+		"hyperspaceJitterColor":[186,255,255,85],
+		"baseCampaignExplosionColor":[186,255,255,85],
+		"baseCombatExplosionColor":[186,255,255,85], # smooth flash
+		"combatExplosionNonFlashColorOverride":[186,255,255,85], # the more billowy explosion
+		"fighterRepairFlickerColor":[186,255,255,85],
+		"fighterChipIconColor":[186,255,255,85],
+		"weaponDisabledExplosionColor":[186,255,255,85],
+		"shieldRingColor":[186,255,255,85],
+		"shieldInnerColor":[186,255,255,85],
+		"fluxVentCoreColor":[186,255,255,85],
+		"fluxVentFringeColor":[186,255,255,85],
 		"fluxVentTextureSheet":"graphics/fx/nebula_colorless.png", # optional, this is the default value
 		"fluxVentRadialTexture":"graphics/fx/radial_fx.png", # optional, this is the default value
 		"engineLoopSet":"svc_whale_engine_loop", 					# id of entry in sounds.json
@@ -64,7 +64,6 @@
 		"dHullOverlayMedium":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
 		"dHullOverlayHeavy":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
 	},
-	
 }
 
 
