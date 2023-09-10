@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
+import com.fs.starfarer.api.impl.campaign.ids.Stats
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import tecrys.svc.WHALE_REPUTATION_MIN
@@ -34,7 +35,7 @@ class StjarwhalController: BaseHullMod() {
             else -> null
         }
     }
-    override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
+    override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI?, id: String?) {
 
         stats?.run {
             zeroFluxSpeedBoost.modifyMult(id, 0f)
