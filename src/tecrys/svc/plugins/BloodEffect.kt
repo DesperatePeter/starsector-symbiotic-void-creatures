@@ -2,12 +2,14 @@ package tecrys.svc.plugins
 
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.CombatEngineAPI
+import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.WeaponAPI
 import com.fs.starfarer.api.combat.WeaponAPI.WeaponSize
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lwjgl.util.vector.Vector2f
 import tecrys.svc.SVC_BASE_HULLMOD_ID
+import tecrys.svc.WHALE_HULLMOD_ID
 import java.awt.Color
 
 class BloodEffect : BaseEveryFrameCombatPlugin() {
@@ -25,6 +27,7 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
         private const val PARTICLE_DURATION = 3f
         private const val PARTICLE_OPACITY = 0.3f
         private val PARTICLE_COLOR = Color(200, 0, 0, 200)
+        private val PARTICLE_COLOR_WHALES = Color(0, 0, 200, 200)
 
         fun getRandomizedSmokeSize(weapon: WeaponAPI) : Float {
             return (magnitudeBySize[weapon.size] ?: 1f) * (AVERAGE_SMOKE_SIZE + SMOKE_SIZE_VARIANCE * (Math.random() - 0.5f)).toFloat()
@@ -50,13 +53,20 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
         interval.advance(amount)
         if(!interval.intervalElapsed()) return
         eng.ships?.filter { it.variant.hasHullMod(SVC_BASE_HULLMOD_ID) }?.filterNotNull()?.forEach { ship ->
-            ship.allWeapons?.filterNotNull()?.filter {
-                it.isDisabled || ship.isHulk
-            }?.forEach { w ->
-                for (i in 0 until NUMBER_OF_PARTICLES){
-                    eng.addSmokeParticle(w.location, getRandomizedVelocity(), getRandomizedSmokeSize(w),
-                        PARTICLE_OPACITY, PARTICLE_DURATION, PARTICLE_COLOR)
-                }
+            spawnBlood(ship, PARTICLE_COLOR, eng)
+        }
+        eng.ships?.filter { it.variant.hasHullMod(WHALE_HULLMOD_ID) }?.filterNotNull()?.forEach { ship ->
+            spawnBlood(ship, PARTICLE_COLOR_WHALES, eng)
+        }
+    }
+
+    private fun spawnBlood(ship: ShipAPI, color: Color, eng: CombatEngineAPI){
+        ship.allWeapons?.filterNotNull()?.filter {
+            it.isDisabled || ship.isHulk
+        }?.forEach { w ->
+            for (i in 0 until NUMBER_OF_PARTICLES){
+                eng.addSmokeParticle(w.location, getRandomizedVelocity(), getRandomizedSmokeSize(w),
+                    PARTICLE_OPACITY, PARTICLE_DURATION, color)
             }
         }
     }

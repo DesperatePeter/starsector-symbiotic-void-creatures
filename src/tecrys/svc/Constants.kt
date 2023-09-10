@@ -17,5 +17,6 @@ const val WHALES_ENCOUNTER_MEM_KEY = "\$svc_whales_encounter"
 const val WHALES_ORIGINAL_STRENGTH_KEY = "\$svc_whales_original_strength"
 const val WHALE_OIL_ITEM_ID = "svc_whale_oil"
 const val WHALE_REPUTATION_MIN = 50f
+const val WHALE_HULLMOD_ID = "svc_stjarwhal_hm"
 
 var internalWhaleReputation by CampaignSettingDelegate("$" + SVC_MOD_ID + "internal_whale_reputation", 100f)
