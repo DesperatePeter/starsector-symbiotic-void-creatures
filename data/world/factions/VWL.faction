@@ -11,7 +11,7 @@
 	
 	"logo":"graphics/factions/ai_remnant.png",
 	"crest":"graphics/factions/crest_ai_remnant.png",
-	#"shipNamePrefix":"Void",
+	"shipNamePrefix":"wild",
 	
 	"color":[0, 251, 255,255],
 	"baseUIColor":[0, 251, 255,255],
