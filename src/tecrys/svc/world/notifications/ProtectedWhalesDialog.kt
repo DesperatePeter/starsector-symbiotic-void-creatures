@@ -2,11 +2,11 @@ package tecrys.svc.world.notifications
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
+import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.OptionPanelAPI
+import com.fs.starfarer.api.campaign.SpecialItemData
 import org.lwjgl.input.Keyboard
-import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
-import tecrys.svc.WHALES_ENCOUNTER_MEM_KEY
-import tecrys.svc.WHALES_ORIGINAL_STRENGTH_KEY
+import tecrys.svc.*
 import tecrys.svc.world.fleets.FleetManager
 import kotlin.math.truncate
 
@@ -17,14 +17,14 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?): Notification
     Global.getSettings().getSpriteName("backgrounds", "whale_encounter"),
 ) {
     companion object{
-        const val SLAUGHTER_MONEY_PER_DP = 5000f
+        const val SLAUGHTER_OIL_PER_DP = 1f
     }
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
             addOption("Leave", "Leave")
             setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
             addOption("Accept whale friend", "Friend")
-            addOption("Slaughter whales (currently: get money)", "Slaughter")
+            addOption("Slaughter the whales to harvest oil.", "Slaughter")
         }
     }
 
@@ -45,9 +45,11 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?): Notification
                     }
                 }
                 "Slaughter" -> {
-                    val money = (whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_MONEY_PER_DP
-                    Global.getSector().playerFleet.cargo.credits.add(money)
-                    Global.getSector().campaignUI?.addMessage("Received $money credits! Everyone is sad!")
+                    val oilQuantity = (whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_OIL_PER_DP
+                    val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
+                    Global.getSector().playerFleet.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity)
+                    Global.getSector().campaignUI?.addMessage("Received $oilQuantity Stjarwhal-oil! Everyone is sad!")
+                    Global.getSector().getFaction(VWL_FACTION_ID).adjustRelationship("player", -20f)
                 }
                 else -> {}
             }
