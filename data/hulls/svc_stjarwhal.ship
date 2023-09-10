@@ -12,7 +12,8 @@
   "shieldRadius": 108.5,
   "viewOffset": 0,
   "builtInMods": [
-    "BGECarapace"
+    "BGECarapace",
+    "svc_stjarwhal_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_whale_tentacle_l",

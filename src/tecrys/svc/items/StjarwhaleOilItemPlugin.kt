@@ -1,5 +1,6 @@
 package tecrys.svc.items
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.impl.items.BaseSpecialItemPlugin
 import org.lwjgl.input.Keyboard
 

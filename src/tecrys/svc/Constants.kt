@@ -1,5 +1,7 @@
 package tecrys.svc
 
+import tecrys.svc.utils.CampaignSettingDelegate
+
 const val SVC_MOD_ID = "symbiotic_void_creatures"
 const val SVC_FACTION_ID = "svc"
 const val VWL_FACTION_ID = "vwl"
@@ -14,3 +16,6 @@ const val MAGIC_SETTINGS_MOD_KEY = "SymbioticVoidCreatures"
 const val WHALES_ENCOUNTER_MEM_KEY = "\$svc_whales_encounter"
 const val WHALES_ORIGINAL_STRENGTH_KEY = "\$svc_whales_original_strength"
 const val WHALE_OIL_ITEM_ID = "svc_whale_oil"
+const val WHALE_REPUTATION_MIN = 50f
+
+var internalWhaleReputation by CampaignSettingDelegate("$" + SVC_MOD_ID + "internal_whale_reputation", 100f)
