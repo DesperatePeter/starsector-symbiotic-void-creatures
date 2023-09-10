@@ -2,6 +2,8 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.campaign.CargoAPI
+import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
@@ -15,6 +17,7 @@ class FleetManager : EveryFrameScript {
     companion object {
         const val WHALE_DIST = 500f
         const val WHALE_SPAWN_BASE_INTERVAL = 50f
+        const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
     }
@@ -82,6 +85,8 @@ class FleetManager : EveryFrameScript {
         whales.attackFleet(voidlings)
         whales.addEventListener(WhaleFleetListener)
         whales.customData[WHALES_ORIGINAL_STRENGTH_KEY] = whales.fleetPoints
+        val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO
+        whales.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID), oilInCargo)
 
         return true
     }
