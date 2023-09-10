@@ -7,7 +7,7 @@
     "svc_magic_bounty_defeated_text" : "You have defeated the elite voidling swarm! As of the current early development stage, you have successfully defeated the Voidlings! In the future, there will be additional content. You now have the chance to decide if you want new Voidlings to keep spawning or not.",
 
     "svc_whales_title" : "Space-whale Encounter",
-    "svc_whales_protected_text" : "PLACEHOLDER TEXT. You successfully protected the whales. Do you want a random whale (saving more whales will give you a bigger whale) to join your fleet or slaughter them for money?",
-    "svc_whales_dead_text" : "PLACEHOLDER TEXT. The whales died. Maybe next time you can manage to save them."
+    "svc_whales_protected_text" : "You saved the herd of Stjarwhals from a grizzly fate.\nCuriously they linger nearby seemingly unafraid of your vessels. One of the whales approaches your fleet in a playful manner as if wanting to thank its saviour.",
+    "svc_whales_dead_text" : "Your fleet was unable to protect the whales from a hungry pack of Voidlings."
   }
 }
