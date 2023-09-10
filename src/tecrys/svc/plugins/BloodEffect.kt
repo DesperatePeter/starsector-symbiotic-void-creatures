@@ -20,17 +20,17 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
             WeaponSize.LARGE to 2.5f
         )
 
-        private const val AVERAGE_SMOKE_SIZE = 10f
+        private const val AVERAGE_SMOKE_SIZE = 7f
         private const val SMOKE_SIZE_VARIANCE = 5f
         private const val VELOCITY_MAGNITUDE = 10f
         private const val NUMBER_OF_PARTICLES = 3
         private const val PARTICLE_DURATION = 3f
         private const val PARTICLE_OPACITY = 0.3f
         private val PARTICLE_COLOR = Color(200, 0, 0, 200)
-        private val PARTICLE_COLOR_WHALES = Color(0, 0, 200, 200)
+        private val PARTICLE_COLOR_WHALES = Color(60, 0, 180, 200)
 
-        fun getRandomizedSmokeSize(weapon: WeaponAPI) : Float {
-            return (magnitudeBySize[weapon.size] ?: 1f) * (AVERAGE_SMOKE_SIZE + SMOKE_SIZE_VARIANCE * (Math.random() - 0.5f)).toFloat()
+        fun getRandomizedSmokeSize(weapon: WeaponAPI, multiplier: Float = 1f) : Float {
+            return multiplier * (magnitudeBySize[weapon.size] ?: 1f) * (AVERAGE_SMOKE_SIZE + SMOKE_SIZE_VARIANCE * (Math.random() - 0.5f)).toFloat()
         }
         fun getRandomizedVelocity() : Vector2f {
             val toReturn = Vector2f(Math.random().toFloat() - 0.5f, Math.random().toFloat() - 0.5f)
@@ -62,10 +62,10 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
 
     private fun spawnBlood(ship: ShipAPI, color: Color, eng: CombatEngineAPI){
         ship.allWeapons?.filterNotNull()?.filter {
-            it.isDisabled || ship.isHulk
+            it.isDisabled || ship.isHulk || ship.hullLevel < 0.5f
         }?.forEach { w ->
             for (i in 0 until NUMBER_OF_PARTICLES){
-                eng.addSmokeParticle(w.location, getRandomizedVelocity(), getRandomizedSmokeSize(w),
+                eng.addSmokeParticle(w.location, getRandomizedVelocity(), getRandomizedSmokeSize(w, 1f - ship.hullLevel),
                     PARTICLE_OPACITY, PARTICLE_DURATION, color)
             }
         }

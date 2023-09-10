@@ -4,9 +4,11 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
+import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import tecrys.svc.WHALE_REPUTATION_MIN
 import tecrys.svc.internalWhaleReputation
+import java.awt.Color
 
 class StjarwhalController: BaseHullMod() {
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
@@ -27,5 +29,10 @@ class StjarwhalController: BaseHullMod() {
             1 -> "${internalWhaleReputation.toInt()}"
             else -> null
         }
+    }
+
+    override fun applyEffectsAfterShipCreation(ship: ShipAPI?, id: String?) {
+        ShipDestructionEffects.suppressEffects(ship, true, false)
+        ship?.explosionFlashColorOverride = Color.BLUE
     }
 }
