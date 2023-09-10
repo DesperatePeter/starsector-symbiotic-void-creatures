@@ -18,6 +18,8 @@ class FleetManager : EveryFrameScript {
         const val WHALE_DIST = 500f
         const val WHALE_SPAWN_BASE_INTERVAL = 50f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
+        const val MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES = 20000f
+        const val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = 25000f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
     }
@@ -71,6 +73,9 @@ class FleetManager : EveryFrameScript {
         val svcParams = FleetSpawnParameterCalculator(svcSettings)
         val playerFleet = Global.getSector().playerFleet ?: return false
         if (!playerFleet.isInHyperspace) return false
+        val distFromCenter = playerFleet.locationInHyperspace.length()
+        val rng = Math.random() + (distFromCenter - MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES) / DIST_FROM_CENTER_SPAWN_CHANCE_SCALING
+        if(rng < 1f) return false
         val whales = spawner.createFactionFleet(VWL_FACTION_ID, whaleParams) ?: return false
         val voidlings = spawner.createFactionFleet(SVC_FACTION_ID, svcParams) ?: return false
         playerFleet.containingLocation?.addEntity(whales)
