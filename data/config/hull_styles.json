@@ -56,7 +56,7 @@
 		"shieldBurnoutSet":"shield_burnout",			# id of entry in sounds.json
 		"shieldLowerSet":"shield_lower",				# id of entry in sounds.json
 		"shieldRaiseSet":"shield_raise",				# id of entry in sounds.json
-		"explosionShipSet":"svc_whale_explodes",			# id of entry in sounds.json
+		"explosionShipSet":"svc_whale_pain",			# id of entry in sounds.json
 		"damageDecalSheet":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
 		"damageDecalGlowSheet":"graphics/damage/voidcreatures_damage_decal_sheet_glow.png",
 		
