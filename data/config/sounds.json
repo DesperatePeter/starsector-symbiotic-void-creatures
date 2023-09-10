@@ -68,4 +68,47 @@
 		{"file":"sounds/svc_Roar8.ogg","pitch":1,"volume":0.3},
 	],	
 }
+					"svc_whale_explodes":[
+		{"file":"sounds/whales/painsharp.ogg","pitch":1,"volume":0.6},
+		{"file":"sounds/whales/painshortsharp.ogg","pitch":1,"volume":0.3},	
+		{"file":"sounds/whales/painlarge.ogg","pitch":1,"volume":0.3},		
+		{"file":"sounds/whales/painlarge2.ogg","pitch":1,"volume":0.3},			
+		{"file":"sounds/whales/deathpain.ogg","pitch":1,"volume":0.3},	
+	],	
+	
+						"svc_whale_pain":[
+		{"file":"sounds/whales/painhighscreech.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/painhighscreechshort.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/pain.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/painsmall.ogg","pitch":1,"volume":0.2},
+		
+	],	
+							"svc_whale_engine_loop":[
+		{"file":"sounds/whales/cerastes3.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/cerastes1.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/cerastes2.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/cerastes4.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/eery.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/eery2.ogg","pitch":1,"volume":0.2},	
+		{"file":"sounds/whales/eerylow.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/eerylower.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/groan.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/groanlong.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/lowmoan.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/moan1.ogg","pitch":1,"volume":0.2},			
+	],	
+								"svc_whale_accelerate":[
+		{"file":"sounds/whales/creepy.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/doublechirk.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/echo.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/greeting.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/greetingecho.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/greetinglow.ogg","pitch":1,"volume":0.2},		
+		{"file":"sounds/whales/highhowl.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/longnote.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/moan2.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/moanlong.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/Whale_Moan_1.ogg","pitch":1,"volume":0.2},
+		{"file":"sounds/whales/lowmoan.ogg","pitch":1,"volume":0.2},		
+	],	
 }
