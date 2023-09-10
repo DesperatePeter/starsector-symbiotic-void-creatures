@@ -3,7 +3,7 @@
   "hullId": "svc_stjarwhal",
   "hullSize": "CRUISER",
   "spriteName": "graphics/ships/svc_spacewhale.png",
-  "style": "BIOLOGICAL",
+  "style": "Stjarwhal",
   "height": 212,
   "width": 73,
   "center": [36.5, 106],
@@ -178,7 +178,17 @@
       "locations": [-12.5, 17.5]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [-14, -0],
+      "length": 0,
+      "width": 10,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "CUSTOM",
+      "styleId": "Wale"
+    }
+  ],
   "bounds": [
     -49, 31,
     3.5, 33,

@@ -3,7 +3,7 @@
   "hullId": "svc_stjarwhal_bull",
   "hullSize": "CAPITAL_SHIP",
   "spriteName": "graphics/ships/svc_spacewhale_bull.png",
-  "style": "BIOLOGICAL",
+  "style": "Stjarwhal",
   "height": 323,
   "width": 108,
   "center": [54, 167],
@@ -178,7 +178,17 @@
       "locations": [17.5, 25.5]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [-26, -0],
+      "length": 0,
+      "width": 15,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "CUSTOM",
+      "styleId": "Wale"
+    }
+  ],
   "bounds": [
     -82.5, 44.5,
     -48.5, 52.5,

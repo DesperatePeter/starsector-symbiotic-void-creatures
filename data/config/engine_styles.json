@@ -20,6 +20,15 @@
 		"contrailColor":[100,165,255,25],
 		"type":"SMOKE" # GLOW or SMOKE
 	},
-	
+		"Wale":{
+		"engineColor":[0, 189, 208,100],
+		"contrailParticleSizeMult":2,
+		"contrailParticleDuration":0.8,
+		"contrailParticleFinalSizeMult":2.5,
+		"contrailMaxSpeedMult":0.2f,
+		"contrailAngularVelocityMult":0.2f,
+		"contrailColor":[0, 189, 208,50],
+		"type":"GLOW" # GLOW or SMOKE
+	},	
 }
 

@@ -3,7 +3,7 @@
   "hullId": "svc_stjarwhal_calf",
   "hullSize": "FRIGATE",
   "spriteName": "graphics/ships/svc_spacewhale_calf.png",
-  "style": "BIOLOGICAL",
+  "style": "Stjarwhal",
   "height": 110,
   "width": 39,
   "center": [19.5, 53.5],
@@ -178,7 +178,17 @@
       "locations": [11.5, 10.5]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [-5.5, -0],
+      "length": 0,
+      "width": 5,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "CUSTOM",
+      "styleId": "Wale"
+    }
+  ],
   "bounds": [
     -21, 16.5,
     3, 17,
