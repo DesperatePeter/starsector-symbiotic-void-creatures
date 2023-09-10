@@ -1,16 +1,19 @@
 package tecrys.svc.hullmods
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
+import org.lazywizard.lazylib.ext.campaign.contains
 import tecrys.svc.WHALE_REPUTATION_MIN
 import tecrys.svc.internalWhaleReputation
 
 class StjarwhalController: BaseHullMod() {
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
-        member?.let {
-            it.stats.suppliesPerMonth.modifyMult(this.javaClass.name, computeMaintenanceFactor())
-        }
+        member?.id?.let {
+            if(!Global.getSector().playerFleet.contains(it)) return
+        } ?: return
+        member.stats?.suppliesPerMonth?.modifyMult(this.javaClass.name, computeMaintenanceFactor())
     }
 
     private fun computeMaintenanceFactor(): Float{
