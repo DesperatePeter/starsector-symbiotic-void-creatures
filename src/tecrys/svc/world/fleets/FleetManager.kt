@@ -15,11 +15,12 @@ import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
 class FleetManager : EveryFrameScript {
 
     companion object {
-        const val WHALE_DIST = 500f
+        const val WHALE_RAND_DIST = 700f
+        const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1500f
         const val WHALE_SPAWN_BASE_INTERVAL = 50f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
-        const val MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES = 20000f
-        const val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = 25000f
+        val MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES = Global.getSettings().getInt("sectorWidth") * 0.15f
+        val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
     }
@@ -80,7 +81,12 @@ class FleetManager : EveryFrameScript {
         val voidlings = spawner.createFactionFleet(SVC_FACTION_ID, svcParams) ?: return false
         playerFleet.containingLocation?.addEntity(whales)
         playerFleet.containingLocation?.addEntity(voidlings)
-        val loc = playerFleet.locationInHyperspace + Vector2f(2f * (Math.random().toFloat() - 0.5f) * WHALE_DIST, 2f * (Math.random().toFloat() - 0.5f) * WHALE_DIST)
+        var loc = playerFleet.locationInHyperspace
+        loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST, 2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST)
+        var offset = Vector2f(playerFleet.velocity.x, playerFleet.velocity.y)
+        offset.normalise()
+        offset.scale(WHALE_PLAYER_FLEET_DIRECTION_DIST)
+        loc += offset
         listOf(whales, voidlings).forEach {
             it.setLocation(loc.x, loc.y)
             it.forceSync()

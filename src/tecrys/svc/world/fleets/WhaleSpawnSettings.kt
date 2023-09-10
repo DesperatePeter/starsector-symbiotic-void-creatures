@@ -18,8 +18,8 @@ val whaleSettings = FleetSpawnParameterSettings(
     10f,
     300f,
     5f,
-    1,
-    1,
+    3,
+    5,
     whaleCombatRoleBaseWeights,
     whaleCombatRoleFinalWeights
 )
