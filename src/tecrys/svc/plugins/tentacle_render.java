@@ -380,7 +380,7 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
 
 
 
-        float leftTX = 0f ;
+
 
         float texWidth = texture.getTextureWidth();
         float imageWidth = texture.getWidth();
@@ -388,6 +388,8 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
         float texHeight = texture.getTextureHeight();
         float imageHeight = texture.getHeight();
 
+                float leftTX = texWidth*((data.texShift.y+0f)/imageWidth);
+        
         float texProgress = 0f;
         float FL = 0f;
         for(SegmentData seg:data.points){
@@ -408,7 +410,7 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
             }
 
 
-            float rightTX =  texWidth - 0.001f;
+            float rightTX =  texWidth*((data.texShift.y+data.width)/imageWidth) - 0.001f;
             float texPerSegment = (seg.dist/texWidth)*(texHeight/imageHeight)*(imageWidth/data.width);
             //texPerSegment=texWidth;//* (seg.dist/imageWidth)*(texHeight/imageHeight);
             texProgress += texPerSegment;
