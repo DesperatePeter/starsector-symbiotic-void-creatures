@@ -25,10 +25,10 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
 
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
-            addOption("Leave", "Leave")
-            setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
             if (internalWhaleReputation > WHALE_REPUTATION_MIN) addOption("Accept whale friend", "Friend")
             addOption("Slaughter the whales to harvest oil.", "Slaughter")
+            addOption("Leave", "Leave")
+            setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
         }
     }
 
