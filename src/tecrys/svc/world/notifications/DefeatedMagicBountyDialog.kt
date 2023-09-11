@@ -23,6 +23,14 @@ class DefeatedMagicBountyDialog: NotificationDialogBase(
             // Options for blueprints
             addOption("Learn Ship Blueprint: Hemalisk", "svc_hemalisk")
             setTooltip("svc_hemalisk", getDescription("svc_hemalisk", Description.Type.SHIP))
+            addOption("Learn Ship Blueprint: Embolist", "svc_embolist")
+            setTooltip("svc_embolist", getDescription("svc_embolist", Description.Type.SHIP))
+            addOption("Learn Ship Blueprint: Keratinos", "svc_keratinos")
+            setTooltip("svc_keratinos", getDescription("svc_keratinos", Description.Type.SHIP))
+            addOption("Learn Weapon Blueprint: Acid Spitter", "svc_acidthrower")
+            setTooltip("svc_acidthrower", getDescription("svc_acidthrower", Description.Type.WEAPON))
+            addOption("Learn Weapon Blueprint: Fang Cluster", "svc_fangcluster")
+            setTooltip("svc_fangcluster", getDescription("svc_fangcluster", Description.Type.WEAPON))
             addOption("Learn Weapon Blueprint: Ink-Spitter", "svc_inksac")
             setTooltip("svc_inksac", getDescription("svc_inksac", Description.Type.WEAPON))
         }
