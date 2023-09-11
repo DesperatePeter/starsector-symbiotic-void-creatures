@@ -14,7 +14,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_whales_protected_text")
             + "\nYou managed to save ${whales?.fleetPoints ?: 0}/${whales?.customData?.get(WHALES_ORIGINAL_STRENGTH_KEY)} dp worth of whales."
             + if (internalWhaleReputation > WHALE_REPUTATION_MIN)
-        "\nThe whales appear to view you as friends and onE among their ranks appears to be willing to join your fleet."
+        "\nThe whales appear to view you as friends and one among their ranks seems to be willing to join your fleet."
     else "\nThe whales appear to be scared of you. Maybe you can improve your relationship by letting them go.",
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_whales_title"),
     Global.getSettings().getSpriteName("backgrounds", "whale_encounter"),
