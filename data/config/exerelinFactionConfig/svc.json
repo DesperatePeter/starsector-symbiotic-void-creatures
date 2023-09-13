@@ -1,0 +1,122 @@
+{
+    "playableFaction":false,
+    "corvusCompatible":true,
+
+    "crewExpereinceLevelIncreaseChance":0.0,
+    "baseFleetCostMultiplier":1.0,
+
+	"invasionSupportFleetName":"Wild Hunt",
+    "responseFleetName":"Hunter Pack",
+    "defenceFleetName":"Nest Guardians",
+
+
+    "disableDiplomacy":true,
+	"useConfigRelationshipsInNonRandomSector":true,
+    "startRelationships":{
+	    "tritachyon": -0.5, # mouth-watering
+	    "luddic_church": -0.5, # succulent
+	    "diableavionics": -0.5, # appetizing
+	    "fpe": -0.5, # good-tasting
+        "xhanempire": -0.5, # palatable
+        "draco": -0.5, # zesty
+        "fang": -0.5, # also evil
+        "templars": -0.5, # flavorful
+        "cabal": -0.5, # spicy
+        "blade_breakers": -0.5, # palatable
+        "tahlan_legioinfernalis": -0.5, # juicy
+        "hmi": -0.5, # luscious
+        "blackrock_driveyards": -0.5, # piquant
+        "gmda": -0.5, # pungent
+        "COPS": -0.5, # tasty
+		"hegemony": -0.5, # delish
+		"shadow_industry": -0.5, # full-flavored
+		"communist_clouds": -0.5, # toothsome
+        "brighton": -0.5, # savory
+        "roider": -0.5, # slurp
+        "exalted": -0.5, # mmhhmmm
+        "unitedpamed": -0.5, # treat
+        "metelson": -0.5, # delicious
+		"vwl": -1,  # yummy whale oil!
+        "scalartech": -0.5, # into my tummy
+            }, 
+	
+
+    "maxRelationships":{
+	    "tritachyon": -0.5, # mouth-watering
+	    "luddic_church": -0.5, # succulent
+	    "diableavionics": -0.5, # appetizing
+	    "fpe": -0.5, # good-tasting
+        "xhanempire": -0.5, # palatable
+        "draco": -0.5, # zesty
+        "fang": -0.5, # also evil
+        "templars": -0.5, # flavorful
+        "cabal": -0.5, # spicy
+        "blade_breakers": -0.5, # palatable
+        "tahlan_legioinfernalis": -0.5, # juicy
+        "hmi": -0.5, # luscious
+        "blackrock_driveyards": -0.5, # piquant
+        "gmda": -0.5, # pungent
+        "COPS": -0.5, # tasty
+		"hegemony": -0.5, # delish
+		"shadow_industry": -0.5, # full-flavored
+		"communist_clouds": -0.5, # toothsome
+        "brighton": -0.5, # savory
+        "roider": -0.5, # slurp
+        "exalted": -0.5, # mmhhmmm
+        "unitedpamed": -0.5, # treat
+        "metelson": -0.5, # delicious
+		"vwl": -1,  # yummy whale oil!
+        "scalartech": -0.5, # into my tummy
+            }, 
+    "diplomacyPositiveChance":{
+}, 
+    "diplomacyNegativeChance":{
+	    "tritachyon": 0.5, # mouth-watering
+	    "luddic_church": 0.5, # succulent
+	    "diableavionics": 0.5, # appetizing
+	    "fpe": 0.5, # good-tasting
+        "xhanempire": 0.5, # palatable
+        "draco": 0.5, # zesty
+        "fang": 0.5, # also evil
+        "templars": 0.5, # flavorful
+        "cabal": 0.5, # spicy
+        "blade_breakers": 0.5, # palatable
+        "tahlan_legioinfernalis": 0.5, # juicy
+        "hmi": 0.5, # luscious
+        "blackrock_driveyards": 0.5, # piquant
+        "gmda": 0.5, # pungent
+        "COPS": 0.5, # tasty
+		"hegemony": 0.5, # delish
+		"shadow_industry": 0.5, # full-flavored
+		"communist_clouds": 0.5, # toothsome
+        "brighton": 0.5, # savory
+        "roider": 0.5, # slurp
+        "exalted": 0.5, # mmhhmmm
+        "unitedpamed": 0.5, # treat
+        "metelson": 0.5, # delicious
+        "scalartech": 0.5, # into my tummy
+			},
+			
+		"hostileToAll": 2,
+		"noRandomizeRelations":true,
+    "morality":"amoral", # it's cool to care
+	
+    "alignments":{
+            "technocratic":1.0, # technology *will* actually save us
+            "diplomatic":0.7, # be rootin, be tootin, and by god be shootin, but most of all, be kind
+            "ideological":0.5, # we have an ideology but survival is probably more important than following it all the time
+            "hierarchical":-0.6, # democracy baybeee
+    },
+	
+	"diplomacyTraits":["neutralist", "stalwart", "helps_allies", "low_profile"],
+	"canInvade":false,
+	
+	
+
+	
+	"colonyExpeditionChance":0.0,	# for now
+    "colonyTargetValuator":"exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    "noHomeworld":true,
+
+	
+}
