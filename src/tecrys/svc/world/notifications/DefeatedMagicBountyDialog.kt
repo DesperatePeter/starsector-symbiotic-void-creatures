@@ -31,7 +31,7 @@ class DefeatedMagicBountyDialog: NotificationDialogBase(
             setTooltip("svc_acidthrower", getDescription("svc_acidthrower", Description.Type.WEAPON))
             addOption("Learn Weapon Blueprint: Fang Cluster", "svc_fangcluster")
             setTooltip("svc_fangcluster", getDescription("svc_fangcluster", Description.Type.WEAPON))
-            addOption("Learn Weapon Blueprint: Ink-Spitter", "svc_inksac")
+            addOption("Learn Weapon Blueprint: Ink Sac", "svc_inksac")
             setTooltip("svc_inksac", getDescription("svc_inksac", Description.Type.WEAPON))
         }
     }
