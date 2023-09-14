@@ -17,7 +17,7 @@ class FleetManager : EveryFrameScript {
     companion object {
         const val WHALE_RAND_DIST = 700f
         const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1500f
-        const val WHALE_SPAWN_BASE_INTERVAL = 50f
+        const val WHALE_SPAWN_BASE_INTERVAL = 40f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         val MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES = Global.getSettings().getInt("sectorWidth") * 0.15f
         val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
