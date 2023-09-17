@@ -42,13 +42,15 @@ the mystery behind these creatures and interact with them in more different ways
 
 Future features will likely include:
 
-- Special missions involving protecting something against voidlings
 - A voidling-nest to defeat
 - Better rewards for defeating bounty missions
 - New items, such as blueprints, industry-items that allow spawning/upgrading voidlings etc.
 - Additional storytelling in quests
 
 ## Attributions
+
+AI art generator Night Cafe (https://creator.nightcafe.studio/) and Stable Diffusion Reimagine XL (https://clipdrop.co/stable-diffusion-reimagine?ref=producthunt) used to create
+portraits and the Stjarwhal illustration
 
 ### New Version:
 
