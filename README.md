@@ -50,7 +50,7 @@ Future features will likely include:
 ## Attributions
 
 AI art generator Night Cafe (https://creator.nightcafe.studio/) and Stable Diffusion Reimagine XL (https://clipdrop.co/stable-diffusion-reimagine?ref=producthunt) used to create
-portraits and the Stjarwhal illustration
+portraits, the Stjarwhal illustration and the drink icons for Substance Abuse integration.
 
 ### New Version:
 

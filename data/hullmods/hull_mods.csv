@@ -15,3 +15,5 @@ If your relation worsens, it will become progressively more difficult to control
 Current maintenance multiplier: %s
 
 Current relation: %s",,,graphics/hullmods/stjarwhal.png
+,,,,,,,,,,,,,,,,,,,
+Whale Tail Cocktail,svc_cocktail,,,,,,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.svc_cocktail,"Pirate spirit in a barrel, in the truest sense of the phrase. Unsurprisingly, there is no fixed recipe when distilling whatever drugs they have lying around.",Distilled Recreational Drugs,,graphics/icons/svc_cocktail.png
