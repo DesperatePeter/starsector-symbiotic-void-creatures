@@ -100,7 +100,7 @@ public class tentacle_engine_02 extends BaseCombatLayeredRenderingPlugin impleme
 				points,
 				tex,
 				//Global.getSettings().getSprite("fx","BGE_tentacle"),
-				32, new Vector2f(0,0), Color.WHITE,0.3f,0, CombatEngineLayers.ABOVE_SHIPS_LAYER
+				32, new Vector2f(0,0), Color.WHITE,0.3f,0, CombatEngineLayers.BELOW_SHIPS_LAYER
 
 		));
 

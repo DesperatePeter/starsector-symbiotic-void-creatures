@@ -16,6 +16,10 @@
     "do_not_back_off",
     "svc_alpha_voidling"
   ],
+  "builtInWings": [
+    "svc_mios_mandibles_wing",
+    "svc_pox_whip_wing"
+  ],
   "builtInWeapons": {
     "Alphamiddle2": "svc_fangcluster",
     "WS0001": "svc_dark_fin_right_huge",

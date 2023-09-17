@@ -1,0 +1,14 @@
+{
+  "variantId": "svc_stjarwhal_bull_mkii_standard",
+  "hullId": "svc_stjarwhal_bull_mkii",
+  "displayName": "Stjarwhal",
+  "goalVariant": false,
+  "fluxCapacitors": 0,
+  "fluxVents": 0,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [],
+  "modules": [],
+  "wings": []
+}

@@ -36,7 +36,8 @@
         "exalted": 0,
         "unitedpamed": 0,
         "metelson": 0,
-		"vwl": -0.5,
+		"svc": -0.5,
+		"player": 0,		
         "scalartech": 0,
             }, 
     "minRelationships":{
@@ -64,6 +65,7 @@
         "unitedpamed": -0.2,
         "metelson": -0.2,
         "svc": -0.8,
+		"player": -0.2,		
         "scalartech": -0.2,
             }, 
 	
@@ -93,6 +95,7 @@
         "unitedpamed": 0.2,
         "metelson": 0.2,
         "svc": -0.8,
+		"player": 0.2,		
         "scalartech": 0.2,
             }, 
     "diplomacyPositiveChance":{

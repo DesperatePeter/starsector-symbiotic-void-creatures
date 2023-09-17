@@ -15,6 +15,10 @@
     "BGECarapace",
     "do_not_back_off"
   ],
+  "builtInWings": [
+    "svc_mios_mandibles_wing",
+    "svc_pox_whip_wing"
+  ],
   "builtInWeapons": {
     "eyes": "svc_koenig_eyes",
     "grappler": "svc_bge_grappler",

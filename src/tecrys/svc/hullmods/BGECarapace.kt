@@ -26,9 +26,10 @@ class BGECarapace : BaseHullMod() {
         private const val CONTROL_COLLAR_ID = "svc_controlcollar"
         private const val CONTROL_COLLAR_HULLMOD_ID = "svc_controlcollar_hm"
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
-        private val ALLOWED_HULLMODS = setOf("BGECarapace", "enhanced_reflexes", "muscleflexibility", "muscleendurance",
-            "acceleratedmetabolism", "thickenedshell", "antimatterfatlayer", "svc_alpha_voidling", "svc_controlcollar_hm",
-            "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface", "svc_stjarwhal_hm")
+        private val ALLOWED_HULLMODS = setOf("BGECarapace", "svc_alpha_voidling", "svc_controlcollar_hm",
+            "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface", "svc_stjarwhal_hm", "sun_sl_notable",
+            "sun_sl_wellknown", "sun_sl_famous", "sun_sl_legendary", "sun_sl_enemy_reputation", "progsmod_xptracker", "carrier_regroup")
+        private val ALLOWED_HULLMODS_BY_PREFIX = setOf("automated")
     }
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.variant?.let {
@@ -55,7 +56,7 @@ class BGECarapace : BaseHullMod() {
     }
 
     override fun isApplicableToShip(ship: ShipAPI?): Boolean {
-        return ship?.variant?.hullMods?.all { ALLOWED_HULLMODS.contains(it) } ?: false
+        return ship?.variant?.hullMods?.all { ALLOWED_HULLMODS_BY_PREFIX.any { prefix:String -> it.startsWith(prefix) } || ALLOWED_HULLMODS.contains(it) } ?: false
     }
 
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){

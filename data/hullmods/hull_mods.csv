@@ -1,15 +1,15 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
-Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s increased EMP damage, their bodies take %s reduced damage if weapons fire
+Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s increased EMP damage, their bodies take %s reduced damage if weapons fire
 is able to break through their carapace and they regenerate quickly if wounded or limbs are damaged.
 They also seem to be unaffected by ship explosions.
 Void Creatures do not explode when disabled or killed.
 Void Creatures cannot have hullmods designed for regular ships.",Very tough carapace protecting the creature from harsh space.,,graphics/hullmods/carapace.png
 ,,,,,,,,,,,,,,,,,,,
-Alpha Voidling,svc_alpha_voidling,,,,"no_drop, no_drop_salvage",Special,,,,,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
+Alpha Voidling,svc_alpha_voidling,,,,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
  They are extremely territorial, to the extent that trying to include more than one into a fleet will cause them to constantly fight for dominance,
   rendering them ineffective for combat.",Only one per fleet allowed.,,graphics/hullmods/alpha.png
-Control Collar,svc_controlcollar_hm,,,,"no_drop, no_drop_salvage",Special,,,,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,A control collar fitted onto the void creature. Research into automated ships led to the development of a technology to manipulate very short range p-space vibrations that seem to be able to control the behaviour of void creatures. ,,,graphics/hullmods/controlcollar.png
-Stjarwhal,svc_stjarwhal_hm,,,,"no_drop, no_drop_salvage",Special,,,,,0,0,0,0,tecrys.svc.hullmods.StjarwhalController,"A Stjarwhal. If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good. 
+Control Collar,svc_controlcollar_hm,,,,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,A control collar fitted onto the void creature. Research into automated ships led to the development of a technology to manipulate very short range p-space vibrations that seem to be able to control the behaviour of void creatures. ,,,graphics/hullmods/controlcollar.png
+Stjarwhal,svc_stjarwhal_hm,,,,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.StjarwhalController,"A Stjarwhal. If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good. 
 If your relation worsens, it will become progressively more difficult to control, increasing its maintenance.
 
 Current maintenance multiplier: %s

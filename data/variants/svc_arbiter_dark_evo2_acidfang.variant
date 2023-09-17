@@ -67,8 +67,6 @@
   ],
   "modules": [],
   "wings": [
-    "svc_pox_whip_wing",
-    "svc_mios_mandibles_wing",
-    "svc_mios_mandibles_wing"
+
   ]
 }

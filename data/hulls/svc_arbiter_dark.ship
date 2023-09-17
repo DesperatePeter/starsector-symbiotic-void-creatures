@@ -16,6 +16,11 @@
     "do_not_back_off",
     "svc_alpha_voidling"
   ],
+  "builtInWings": [
+    "svc_pox_whip_wing",
+    "svc_mios_mandibles_wing",
+    "svc_mios_mandibles_wing"
+  ],
   "builtInWeapons": {
     "WS0001": "svc_tentacle_left_gargantuan",
     "WS0002": "svc_tentacle_right_gargantuan",

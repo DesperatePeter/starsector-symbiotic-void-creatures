@@ -15,6 +15,11 @@
     "BGECarapace",
     "do_not_back_off"
   ],
+  "builtInWings": [
+    "svc_pox_whip_wing",
+    "svc_mios_mandibles_wing",
+    "svc_mios_mandibles_wing"
+  ],
   "builtInWeapons": {
     "Arbiter": "svc_arbiter",
     "eyes": "svc_koenig_eyes",

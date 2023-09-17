@@ -1,0 +1,213 @@
+{
+  "hullName": "Stjarwhal Bull MkII",
+  "hullId": "svc_stjarwhal_bull_mkii",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/ships/svc_spacewhale_bull_mkii.png",
+  "style": "Stjarwhal",
+  "height": 322,
+  "width": 139,
+  "center": [66, 167],
+  "collisionRadius": 164,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 164,
+  "viewOffset": 0,
+  "builtInMods": [
+    "svc_stjarwhal_hm"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_whale_tentacle_l_lrg",
+    "WS0002": "svc_whale_tentacle_l_lrg",
+    "WS0003": "svc_whale_tentacle_l_lrg",
+    "WS0004": "svc_whale_tentacle_l_lrg",
+    "WS0005": "svc_whale_tentacle_l_lrg",
+    "WS0006": "svc_whale_tentacle_l_lrg",
+    "WS0007": "svc_whale_tentacle_l_lrg",
+    "WS0008": "svc_whale_tentacle_l_lrg",
+    "WS0009": "svc_whale_flipper_r_lrg",
+    "WS0010": "svc_whale_flipper_l_lrg",
+    "WS0011": "svc_whale_flipper_r_lrg",
+    "WS0012": "svc_whale_flipper_l_lrg",
+    "WS0013": "svc_whale_flipper_r_lrg",
+    "WS0014": "svc_whale_flipper_l_lrg",
+    "WS0015": "svc_whale_flipper_r_lrg",
+    "WS0016": "svc_whale_flipper_l_lrg"
+  },
+  "weaponSlots": [
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": -173.5,
+      "locations": [-130.5, -3.5]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": 173.5,
+      "locations": [-130.5, 5.5]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": -173.5,
+      "locations": [-100.5, -22.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 23,
+      "angle": 173.5,
+      "locations": [-100.5, 24.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": -173.5,
+      "locations": [-94.5, -8]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": 173.5,
+      "locations": [-94.5, 10]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": -173.5,
+      "locations": [-65.5, -30.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 24,
+      "angle": 173.5,
+      "locations": [-65.5, 32.5]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -122,
+      "locations": [-23, -28.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 122,
+      "locations": [-23, 30.5]
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -119,
+      "locations": [-15, -32.5]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 119,
+      "locations": [-15, 34.5]
+    },
+    {
+      "id": "WS0013",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -123.5,
+      "locations": [0, -32.5]
+    },
+    {
+      "id": "WS0014",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 123.5,
+      "locations": [0, 34.5]
+    },
+    {
+      "id": "WS0015",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": -119.5,
+      "locations": [18, -24.5]
+    },
+    {
+      "id": "WS0016",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 119.5,
+      "locations": [18, 26.5]
+    },
+    {
+      "id": "WS0017",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 0,
+      "locations": [-57.5, -5],
+      "renderOrderMod": 10000
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-26, 12],
+      "length": 0,
+      "width": 15,
+      "angle": 180,
+      "contrailSize": 30,
+      "style": "CUSTOM",
+      "styleId": "Wale"
+    }
+  ],
+  "bounds": [
+    -82, 45,
+    -48, 53,
+    89.5, 36,
+    152, 12,
+    152, -11,
+    89.5, -35,
+    -48, -52,
+    -82, -44,
+    -145.5, 0.5
+  ]
+}

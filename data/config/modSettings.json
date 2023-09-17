@@ -7,5 +7,17 @@
   },
   "SymbioticVoidCreatures": {
     "doNotAdjustRelationsWith": []
+  },
+  "MoreMilitaryMissions":{
+        "DmReinforcementFactionBlacklist": [
+            "vwl",
+        ],
+},
+  "TakeNoPrisoners": {
+
+    "factionsWithConfigs": [
+      "svc",
+      "vwl",	  
+    ]
   }
 }
