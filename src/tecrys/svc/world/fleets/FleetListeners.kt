@@ -55,5 +55,4 @@ object SvcCargoListener: ShowLootListener{
             removeCommodity("metals", n)
         }
     }
-
 }
