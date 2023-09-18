@@ -3,6 +3,7 @@ package tecrys.svc.world.fleets
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CargoAPI
+import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.ext.plus
@@ -27,6 +28,9 @@ class FleetManager : EveryFrameScript {
         val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
+        fun spawnSvcFleetNowAtPlayer(){
+            FleetManager().spawnSvcFleet(Global.getSector().playerFleet)
+        }
     }
 
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
@@ -56,9 +60,9 @@ class FleetManager : EveryFrameScript {
     /**
      * @return true if fleet was successfully spawned
      */
-    private fun spawnSvcFleet(): Boolean {
+    private fun spawnSvcFleet(location: SectorEntityToken? = null): Boolean {
         val params = FleetSpawnParameterCalculator(svcSettings)
-        val loc = spawner.getRandomSpawnableLocation(SVC_FACTION_ID)
+        val loc = location ?: spawner.getRandomSpawnableLocation(SVC_FACTION_ID)
         val fleet = spawner.spawnFactionFleetIfPossible(SVC_FACTION_ID, params, loc)
         params.logParameters()
         fleet?.let {

@@ -1,2 +1,3 @@
 name,id,demand class,base price,export value,price variability,utility,origin,tags,stack size,cargo space,icon,sound id,sound id drop,order,economyTier,econUnitOrigUnused,econUnit,baseRaidDanger,eU * base value,iconWidthMult,plugin,desc
 Whale Tail Cocktail,svc_booze_c,svc_booze_c,170,1500,2,1,,expensive,10000,0.5,graphics/icons/svc_booze.png,ui_cargo_goods,ui_cargo_goods_drop,6,2,200,500,,85000,1,,
+Void Chitin,svc_void_chitin,svc_void_chitin,400,400,1,0,,expensive,10000,0.5,graphics/icons/cargo/raremetals.png,ui_cargo_goods,ui_cargo_goods_drop,6,2,200,500,,85000,1,,"Chitin from Voidlings. Can be sold."

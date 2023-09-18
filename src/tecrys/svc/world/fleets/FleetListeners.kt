@@ -1,10 +1,13 @@
 package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.campaign.BattleAPI
-import com.fs.starfarer.api.campaign.CampaignEventListener
-import com.fs.starfarer.api.campaign.CampaignFleetAPI
+import com.fs.starfarer.api.campaign.*
+import com.fs.starfarer.api.campaign.listeners.CargoGainedListener
+import com.fs.starfarer.api.campaign.listeners.CargoScreenListener
 import com.fs.starfarer.api.campaign.listeners.FleetEventListener
+import com.fs.starfarer.api.campaign.listeners.ShowLootListener
+import com.fs.starfarer.api.ui.TooltipMakerAPI
+import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.SVC_FLEET_DEFEATED_MEM_KEY
 import tecrys.svc.WHALES_ENCOUNTER_MEM_KEY
 import tecrys.svc.world.notifications.NotificationShower
@@ -37,6 +40,19 @@ object WhaleFleetListener: FleetEventListener {
         }else{
             Global.getSector().memory.set(WHALES_ENCOUNTER_MEM_KEY, fleet)
             NotificationShower.showNotificationRepeatable(NotificationShower.WHALES_PROTECTED_ID)
+        }
+    }
+}
+
+object SvcCargoListener: ShowLootListener{
+    override fun reportAboutToShowLootToPlayer(loot: CargoAPI?, dialog: InteractionDialogAPI?) {
+        val fleet = dialog?.interactionTarget as? CampaignFleetAPI ?: return
+        if(fleet.faction.id != SVC_FACTION_ID) return
+        loot?.run {
+            val n = getCommodityQuantity("metals")
+            addCommodity("svc_void_chitin", Math.random().toFloat() * n)
+            addCommodity("organics", n)
+            removeCommodity("metals", n)
         }
     }
 

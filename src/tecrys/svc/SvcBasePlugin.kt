@@ -13,6 +13,7 @@ import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
 import tecrys.svc.modintegration.isSubstanceAbuseEnabled
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.fleets.SvcCargoListener
 import tecrys.svc.world.notifications.NotificationShower
 
 /**
@@ -42,6 +43,7 @@ class SvcBasePlugin : BaseModPlugin() {
     override fun onGameLoad(newGame: Boolean) {
         Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())
+        Global.getSector().listenerManager.addListener(SvcCargoListener)
         if(newGame){
             initSVC()
         }
