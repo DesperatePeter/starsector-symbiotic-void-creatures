@@ -29,7 +29,8 @@ fun disableSubstanceAbuse(){
 
 fun giveCocktailToPirates(){
     AddictionMemory.getInstanceOrRegister().refresh()
-    FactionAlcoholHandler.setFactionAlcoholTypes("pirates", SVC_COCKTAIL_ALCOHOL_ID)
+    val existingPirateBooze = FactionAlcoholHandler.getFactionAlcoholTypes("pirates").map { it.id };
+    FactionAlcoholHandler.setFactionAlcoholTypes("pirates", *existingPirateBooze.toTypedArray(), SVC_COCKTAIL_ALCOHOL_ID)
 }
 
 private fun addCocktailBreweryToMarket(market: MarketAPI){
