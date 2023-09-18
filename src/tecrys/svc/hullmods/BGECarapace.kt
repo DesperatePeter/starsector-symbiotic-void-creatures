@@ -14,6 +14,7 @@ import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.SVC_BASE_HULLMOD_ID
+import tecrys.svc.utils.removeDMods
 import java.awt.Color
 class BGECarapace : BaseHullMod() {
     companion object{
@@ -107,11 +108,7 @@ class BGECarapace : BaseHullMod() {
         }.forEach {
             MagicIncompatibleHullmods.removeHullmodWithWarning(variant, it, SVC_BASE_HULLMOD_ID)
         }
-        hullMods.forEach {
-            if(DModManager.getMod(it).hasTag(Tags.HULLMOD_DMOD)){
-                DModManager.removeDMod(variant, it)
-            }
-        }
+        variant.removeDMods()
     }
 
     private fun addControlCollarIfPlayer(member: FleetMemberAPI){

@@ -10,6 +10,7 @@ import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import tecrys.svc.WHALE_REPUTATION_MIN
 import tecrys.svc.internalWhaleReputation
+import tecrys.svc.utils.removeDMods
 import java.awt.Color
 
 
@@ -50,7 +51,6 @@ class StjarwhalController: BaseHullMod() {
         }
     }
     override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI?, id: String?) {
-
         stats?.run {
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
@@ -59,6 +59,7 @@ class StjarwhalController: BaseHullMod() {
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
         }
+        stats?.variant?.removeDMods()
     }
     override fun applyEffectsAfterShipCreation(ship: ShipAPI?, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)

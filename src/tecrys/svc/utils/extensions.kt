@@ -1,8 +1,11 @@
-package tecrys.svc.world.fleets
+package tecrys.svc.utils
 
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
+import com.fs.starfarer.api.combat.ShipVariantAPI
+import com.fs.starfarer.api.impl.campaign.DModManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
+import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.magiclib.kotlin.findNearestPlanetTo
 
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
@@ -35,4 +38,26 @@ fun CampaignFleetAPI.makeAlwaysHostile(){
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_PATROL_FLEET, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_ALLOW_LONG_PURSUIT, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_MAKE_HOLD_VS_STRONGER, true);
+}
+
+fun ShipVariantAPI.removeDMods(){
+    val variant = this
+    hullMods.forEach {
+        if(DModManager.getMod(it).hasTag(Tags.HULLMOD_DMOD)){
+            DModManager.removeDMod(variant, it)
+        }
+    }
+    // basically copy-paste from hull restoration script
+    if(variant.isDHull){
+        var base = variant.hullSpec.dParentHull
+        if(!variant.hullSpec.isDefaultDHull && !variant.hullSpec.isRestoreToBase){
+            base = variant.hullSpec
+        }
+        if(base == null && variant.hullSpec.isRestoreToBase){
+            base = variant.hullSpec.baseHull
+        }
+        base?.let {
+            variant.setHullSpecAPI(it)
+        }
+    }
 }

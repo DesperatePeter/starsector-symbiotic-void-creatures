@@ -10,6 +10,9 @@ import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
 import tecrys.svc.*
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.attackFleet
+import tecrys.svc.utils.makeAlwaysHostile
+import tecrys.svc.utils.orbitClosestPlanet
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
 
