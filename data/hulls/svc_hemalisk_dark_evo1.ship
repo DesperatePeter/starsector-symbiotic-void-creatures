@@ -34,7 +34,7 @@
     "WS0012": "svc_Hemalisk_right",
     "WS0013": "svc_Hemalisk_left",
     "left_grappler": "svc_bge_grappler",
-    "left_mand": "svc_adv_sml_mand_l",
+    "left_mand": "svc_adv_sml_mand_r",
     "left_pd": "svc_bge_grappler_pd",
     "left_tentacle1": "svc_tentacle_left_small",
     "left_tentacle2": "svc_tentacle_left_medium",

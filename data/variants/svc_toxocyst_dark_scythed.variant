@@ -30,14 +30,14 @@
       "mode": "LINKED",
       "weapons": {
         "WS0001": "svc_adv_sml_mand_r",
-        "WS0002": "svc_adv_sml_mand_l"
+        "WS0002": "svc_adv_sml_mand_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0007": "svc_adv_med_scythe_l",
+        "WS0007": "svc_adv_med_scythe_r",
         "WS0008": "svc_adv_med_scythe_r"
       }
     },

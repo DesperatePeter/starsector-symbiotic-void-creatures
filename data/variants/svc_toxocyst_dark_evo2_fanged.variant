@@ -30,7 +30,7 @@
       "mode": "LINKED",
       "weapons": {
         "WS0001": "svc_adv_sml_mand_r",
-        "WS0002": "svc_adv_sml_mand_l"
+        "WS0002": "svc_adv_sml_mand_r"
       }
     },
     {

@@ -19,7 +19,7 @@
     "Alphaleft1": "svc_fangcluster",
     "Alpharight1": "svc_fangcluster",
     "WS0001": "svc_adv_sml_mand_r",
-    "WS0002": "svc_adv_sml_mand_l",
+    "WS0002": "svc_adv_sml_mand_r",
     "WS0003": "svc_bge_grappler",
     "WS0004": "svc_bge_grappler",
     "WS0005": "svc_bge_grappler_pd",

@@ -12,8 +12,7 @@
   "shieldRadius": 76.557167,
   "viewOffset": 0,
   "builtInMods": [
-    "BGECarapace",
-
+    "BGECarapace"
   ],
   "builtInWeapons": {
     "WS0001": "svc_koenig_eyes",
@@ -22,8 +21,8 @@
     "left_grappler": "svc_bge_grappler",
     "left_hind_fin": "svc_long_fin_left_sml",
     "left_hind_fin2": "svc_long_fin_left_sml2",
-    "left_mand": "svc_sml_mand_l",
-    "left_med_uni": "svc_med_scythe_l",
+    "left_mand": "svc_sml_mand_r",
+    "left_med_uni": "svc_med_scythe_r",
     "left_pd": "svc_bge_grappler_pd",
     "right_fin": "svc_trans_fin_right_sml",
     "right_fin2": "svc_trans_fin_right_sml2",

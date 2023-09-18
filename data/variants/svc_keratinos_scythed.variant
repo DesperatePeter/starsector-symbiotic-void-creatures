@@ -24,7 +24,7 @@
       "mode": "LINKED",
       "weapons": {
         "left_grappler": "svc_bge_grappler_pd",
-        "left_lrg_uni": "svc_lrg_scythe_l",
+        "left_lrg_uni": "svc_lrg_scythe_r",
         "right_grappler": "svc_bge_grappler_pd"
       }
     },
@@ -32,14 +32,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni1": "svc_med_scythe_l"
+        "left_med_uni1": "svc_med_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni2": "svc_med_scythe_l"
+        "left_med_uni2": "svc_med_scythe_r"
       }
     },
     {
@@ -60,9 +60,9 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_small_mand": "svc_sml_mand_l",
-        "left_sml_mand2": "svc_sml_mand_l",
-        "left_sml_mand3": "svc_sml_mand_l",
+        "left_small_mand": "svc_sml_mand_r",
+        "left_sml_mand2": "svc_sml_mand_r",
+        "left_sml_mand3": "svc_sml_mand_r",
         "right_med_uni_1": "svc_med_scythe_r",
         "right_sml_mand": "svc_sml_mand_r",
         "right_sml_mand2": "svc_sml_mand_r",

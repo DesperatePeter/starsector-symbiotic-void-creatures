@@ -20,7 +20,7 @@
     "Alphamiddle": "svc_inksac",
     "Alpharight1": "svc_acidthrower",
     "WS0001": "svc_adv_sml_mand_r",
-    "WS0002": "svc_adv_sml_mand_l",
+    "WS0002": "svc_adv_sml_mand_r",
     "WS0003": "svc_bge_grappler",
     "WS0004": "svc_bge_grappler",
     "WS0005": "svc_bge_grappler_pd",

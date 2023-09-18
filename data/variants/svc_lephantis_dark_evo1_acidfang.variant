@@ -36,9 +36,9 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "lrg_mand_left": "svc_adv_lrg_mand_l",
+        "lrg_mand_left": "svc_adv_lrg_mand_r",
         "lrg_mand_right": "svc_adv_lrg_mand_r",
-        "sml_mand_left": "svc_adv_sml_mand_l",
+        "sml_mand_left": "svc_adv_sml_mand_r",
         "sml_mand_right": "svc_adv_sml_mand_r"
       }
     },
@@ -54,7 +54,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "lrg_mdl_kin_left": "svc_adv_lrg_scythe_l",
+        "lrg_mdl_kin_left": "svc_adv_lrg_scythe_r",
         "lrg_mdl_kin_right": "svc_adv_lrg_scythe_r"
       }
     },

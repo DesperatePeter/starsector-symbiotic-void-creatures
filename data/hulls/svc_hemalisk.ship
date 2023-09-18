@@ -16,7 +16,6 @@
     "do_not_back_off"
   ],
   "builtInWeapons": {
-    "svc_controlcollar": "svc_ctrl_cllr_sml",
     "Eyes": "svc_koenig_eyes",
     "Krieger": "svc_krieger",
     "WS0001": "svc_stinger_right",
@@ -25,9 +24,9 @@
     "left_fin2": "svc_long_fin_left_sml",
     "left_fin3": "svc_long_fin_left_sml2",
     "left_grappler": "svc_bge_grappler",
-    "left_mand": "svc_sml_mand_l",
-    "left_med_uni1": "svc_med_scythe_l",
-    "left_med_uni2": "svc_med_scythe_l",
+    "left_mand": "svc_sml_mand_r",
+    "left_med_uni1": "svc_med_scythe_r",
+    "left_med_uni2": "svc_med_scythe_r",
     "left_pd": "svc_bge_grappler_pd",
     "right_fin1": "svc_long_fin_right_sml2",
     "right_fin2": "svc_long_fin_right_sml",
@@ -38,7 +37,8 @@
     "right_med_uni2": "svc_med_scythe_r",
     "right_pd": "svc_bge_grappler_pd",
     "stinger_left": "svc_stinger_left",
-    "stinger_right": "svc_stinger_right"
+    "stinger_right": "svc_stinger_right",
+    "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
   "weaponSlots": [
     {

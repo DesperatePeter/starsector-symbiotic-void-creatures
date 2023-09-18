@@ -41,7 +41,7 @@ public class BaseAnimateOnFireEffectMirror extends tecrys.svc.weapons.BaseAnimat
     }
 
     private void mirrorIfNecessary(WeaponAPI weapon) {
-        if (DecoUtils.isOnLeft(weapon) != DecoUtils.isFacingForward(weapon)) {
+        if (DecoUtils.isOnLeft(weapon) && DecoUtils.isFacingForward(weapon)) {
             DecoUtils.mirror(weapon, false);
         }
     }

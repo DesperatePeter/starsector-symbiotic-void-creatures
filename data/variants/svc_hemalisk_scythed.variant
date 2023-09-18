@@ -21,7 +21,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_mand": "svc_sml_mand_l",
+        "left_mand": "svc_sml_mand_r",
         "right_mand": "svc_sml_mand_r"
       }
     },
@@ -51,14 +51,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni2": "svc_med_scythe_l"
+        "left_med_uni2": "svc_med_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni1": "svc_med_scythe_l"
+        "left_med_uni1": "svc_med_scythe_r"
       }
     }
   ],

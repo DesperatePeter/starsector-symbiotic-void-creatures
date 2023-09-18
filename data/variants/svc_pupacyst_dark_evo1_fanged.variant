@@ -29,8 +29,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_lrg_mand": "svc_adv_lrg_mand_l",
-        "left_sml_mand": "svc_adv_sml_mand_l",
+        "left_lrg_mand": "svc_adv_lrg_mand_r",
+        "left_sml_mand": "svc_adv_sml_mand_r",
         "right_lrg_mand": "svc_adv_lrg_mand_r",
         "right_sml_mand": "svc_adv_sml_mand_r"
       }

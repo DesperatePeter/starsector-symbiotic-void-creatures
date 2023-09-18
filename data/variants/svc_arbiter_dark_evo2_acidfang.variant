@@ -33,10 +33,10 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0007": "svc_adv_lrg_mand_l",
+        "WS0007": "svc_adv_lrg_mand_r",
         "WS0008": "svc_adv_lrg_mand_r",
         "WS0009": "svc_adv_sml_mand_r",
-        "WS0010": "svc_adv_sml_mand_l"
+        "WS0010": "svc_adv_sml_mand_r"
       }
     },
     {
