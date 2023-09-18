@@ -1,7 +1,6 @@
 package tecrys.svc.hullmods;
 
 import com.fs.starfarer.api.alcoholism.hullmods.BaseAlcoholHullmodEffect;
-import com.fs.starfarer.api.alcoholism.hullmods.campaignEffects.SustainedBurnNavigationModifier;
 import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.loading.HullModSpecAPI;
 import com.fs.starfarer.api.ui.Alignment;
@@ -10,7 +9,7 @@ import com.fs.starfarer.api.util.Misc;
 
 import java.awt.*;
 
-public class svc_cocktail extends BaseAlcoholHullmodEffect {
+public class svc_booze extends BaseAlcoholHullmodEffect {
     public static final float FUEL_USE_DECREASE = -20f;
     public static final float MAX_BURN_INCREASE = +1;
     public static final float HULL_DAMAGE_DECREASE = -30f;

@@ -7,6 +7,8 @@ import com.fs.starfarer.api.campaign.CargoTransferHandlerAPI;
 import com.fs.starfarer.api.campaign.impl.items.BaseSpecialItemPlugin;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 
+import static tecrys.svc.modintegration.ModIntegrationUtilsKt.isSubstanceAbuseEnabled;
+
 public class svc_AlcoholItemPlugin extends BaseSpecialItemPlugin {
 
     BaseSpecialItemPlugin plugin = null;
@@ -14,7 +16,7 @@ public class svc_AlcoholItemPlugin extends BaseSpecialItemPlugin {
     @Override
     public void init(CargoStackAPI stack) {
         super.init(stack);
-        if (Global.getSettings().getModManager().isModEnabled("alcoholism")) {
+        if (isSubstanceAbuseEnabled()) {
             plugin = new AlcoholItemPlugin();
             plugin.init(stack);
             plugin.setId(itemId);
