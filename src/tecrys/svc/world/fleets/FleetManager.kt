@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
+import org.magiclib.kotlin.makeHostile
 import tecrys.svc.*
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
@@ -60,6 +61,8 @@ class FleetManager : EveryFrameScript {
         fleet?.let {
             it.addEventListener(SvcFleetListener)
             it.orbitClosestPlanet()
+            it.makeHostile()
+            it.makeAlwaysHostile()
             return true
         }
         return false
@@ -91,6 +94,8 @@ class FleetManager : EveryFrameScript {
             it.setLocation(loc.x, loc.y)
             it.forceSync()
         }
+        voidlings.makeHostile()
+        voidlings.makeAlwaysHostile()
         voidlings.attackFleet(whales)
         voidlings.addEventListener(SvcFleetListener)
         whales.attackFleet(voidlings)

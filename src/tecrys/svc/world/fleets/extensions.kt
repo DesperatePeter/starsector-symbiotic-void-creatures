@@ -2,6 +2,7 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import org.magiclib.kotlin.findNearestPlanetTo
 
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
@@ -27,4 +28,11 @@ fun CampaignFleetAPI.attackFleet(opponent: CampaignFleetAPI) {
         opponent,
         MAX_ATTACK_DURATION
     )
+}
+
+fun CampaignFleetAPI.makeAlwaysHostile(){
+    this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true);
+    this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_PATROL_FLEET, true);
+    this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_ALLOW_LONG_PURSUIT, true);
+    this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_MAKE_HOLD_VS_STRONGER, true);
 }
