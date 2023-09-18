@@ -101,6 +101,7 @@ class BGECarapace : BaseHullMod() {
         ship.setCustomData("AGC_ApplyCustomOptions", mapOf("svc_inksac" to listOf("BlockBeams", "PrioMissile")))
     }
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
+        variant.removeDMods()
         val hullMods = variant.hullMods.toList()
         hullMods.filterNot {
             ALLOWED_HULLMODS.contains(it)
@@ -108,7 +109,6 @@ class BGECarapace : BaseHullMod() {
         }.forEach {
             MagicIncompatibleHullmods.removeHullmodWithWarning(variant, it, SVC_BASE_HULLMOD_ID)
         }
-        variant.removeDMods()
     }
 
     private fun addControlCollarIfPlayer(member: FleetMemberAPI){
