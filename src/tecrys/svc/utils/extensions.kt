@@ -42,7 +42,8 @@ fun CampaignFleetAPI.makeAlwaysHostile(){
 
 fun ShipVariantAPI.removeDMods(){
     val variant = this
-    hullMods.forEach {
+    val mods = hullMods.toList()
+    mods.forEach {
         if(DModManager.getMod(it).hasTag(Tags.HULLMOD_DMOD)){
             DModManager.removeDMod(variant, it)
         }

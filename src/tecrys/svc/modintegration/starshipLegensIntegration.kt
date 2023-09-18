@@ -2,8 +2,6 @@ package tecrys.svc.modintegration
 
 import com.fs.starfarer.api.Global
 import tecrys.svc.BIOLOGICAL_HULL_TAGS
-import tecrys.svc.SVC_VARIANT_TAG
-import tecrys.svc.WHALE_VARIANT_TAG
 
 
 fun flagHullsAsBiologicalForLegends(hulls: List<String>) {
