@@ -3,10 +3,14 @@ package tecrys.svc
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.thoughtworks.xstream.XStream
+import tecrys.svc.modintegration.flagHullsAsBiologicalForLegends
+import tecrys.svc.modintegration.getAllBiologicalHullIds
+import tecrys.svc.modintegration.isStarshipLegendsEnabled
 import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
 import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
 import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
 import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
+import tecrys.svc.modintegration.isSubstanceAbuseEnabled
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.notifications.NotificationShower
@@ -20,7 +24,7 @@ import tecrys.svc.world.notifications.NotificationShower
 class SvcBasePlugin : BaseModPlugin() {
 
     companion object{
-        const val SUBSTANCE_ABUSE_ID = "alcoholism"
+
     }
 
     private fun initSVC() {
@@ -50,6 +54,10 @@ class SvcBasePlugin : BaseModPlugin() {
         } else {
             disableSubstanceAbuse()
         }
+
+        if(isStarshipLegendsEnabled()){
+            flagHullsAsBiologicalForLegends(getAllBiologicalHullIds())
+        }
     }
     /**
      * Tell the XML serializer to use custom naming, so that moving or renaming classes doesn't break saves.
@@ -63,7 +71,4 @@ class SvcBasePlugin : BaseModPlugin() {
         // x.alias("ExampleEveryFrameScript", ExampleEveryFrameScript::class.java)
     }
 
-    private fun isSubstanceAbuseEnabled(): Boolean{
-        return Global.getSettings().modManager.isModEnabled(SUBSTANCE_ABUSE_ID)
-    }
 }

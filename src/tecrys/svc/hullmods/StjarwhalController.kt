@@ -17,7 +17,8 @@ import java.awt.Color
 class StjarwhalController: BaseHullMod() {
     companion object{
         private const val ENGINE_DAMAGE_TAKEN = 0.5f
-}
+        private const val DMODS_ALLOWED_TAG = "allow_dmods"
+    }
 
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         val decos = ship.allWeapons
@@ -59,7 +60,10 @@ class StjarwhalController: BaseHullMod() {
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
         }
-        stats?.variant?.removeDMods()
+        if(stats?.variant?.tags?.contains(DMODS_ALLOWED_TAG) == false){
+            stats.variant?.removeDMods()
+        }
+
     }
     override fun applyEffectsAfterShipCreation(ship: ShipAPI?, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)
