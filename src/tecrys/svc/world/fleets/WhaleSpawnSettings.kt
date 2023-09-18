@@ -11,13 +11,13 @@ private val whaleCombatRoleFinalWeights = mapOf(
     "combatLarge" to 1f,
 )
 val whaleSettings = FleetSpawnParameterSettings(
-    350f,
+    35f,
     0.6f,
     10f,
     1f,
-    10f,
-    150f,
-    5f,
+    1f,
+    45f,
+    1f,
     3,
     5,
     whaleCombatRoleBaseWeights,

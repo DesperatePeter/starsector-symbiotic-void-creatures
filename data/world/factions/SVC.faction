@@ -111,7 +111,7 @@
 	},
 		"shipRoles":{
         "combatSmall" : {
-            "svc_hemalisk_scythed" : 10, "svc_toxocyst_scythed" : 10,
+            "svc_hemalisk_scythed" : 10, "svc_toxocyst_scythed" : 4,
         },
         "combatMedium" : {
                     "svc_arbiter_scythed" : 10, "svc_embolist_scythed" : 10, "svc_pupacyst_scythed" : 10,
@@ -122,7 +122,7 @@
 		#Elites:				 
 						 
 		"combatEliteSmall" : {
-            "svc_hemalisk_dark_scythed" : 0.1, "svc_toxocyst_dark_scythed" : 0.1,
+            "svc_hemalisk_dark_scythed" : 0.5, "svc_toxocyst_dark_scythed" : 0.2,
         },
         "combatEliteMedium" : {
                     "svc_arbiter_dark_scythed" : 0.1, "svc_embolist_dark_scythed" : 0.1, "svc_pupacyst_dark_scythed" : 0.1,
@@ -133,7 +133,7 @@
 		#ElitesEvolved				 
 						 
 		"combatEliteSmallEvolved" : {
-            "svc_hemalisk_dark_evo1_inkfang" : 0.1, "svc_hemalisk_dark_evo2_acidclaw" : 0.1, "svc_toxocyst_dark_evo1_spitting" : 0.1, "svc_toxocyst_dark_evo2_fanged" : 0.1,
+            "svc_hemalisk_dark_evo1_inkfang" : 0.2, "svc_hemalisk_dark_evo2_acidclaw" : 0.1, "svc_toxocyst_dark_evo1_spitting" : 0.2, "svc_toxocyst_dark_evo2_fanged" : 0.2,
         },
         "combatEliteMediumEvolved" : {
                     "svc_arbiter_dark_evo1_spitting" : 0.1, "svc_arbiter_dark_evo2_acidfang" : 0.1,
