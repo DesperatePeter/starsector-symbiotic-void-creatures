@@ -7,7 +7,7 @@
         "renderBelowAllWeapons": true,
 	"turretSprite":"graphics/weapons/animated/adv_sml_mand_right/sml_mand_left_00.png",
 	"hardpointSprite":"graphics/weapons/animated/adv_sml_mand_right/sml_mand_left_00.png",	
-	        "everyFrameEffect":"tecrys.svc.weapons.BaseAnimateOnFireEffect",
+	        "everyFrameEffect":"tecrys.svc.weapons.mirror.BaseAnimateOnFireEffectMirror",
 	"numFrames":8,	
 	"frameRate":3,
         "turretOffsets":[10, 0],

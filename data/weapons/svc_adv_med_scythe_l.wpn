@@ -6,7 +6,7 @@
 		"showDamageWhenDecorative":false,
 	"turretSprite":"graphics/weapons/animated/adv_med_scythe_left/adv_lrg_scythe_right_00.png",
 	"hardpointSprite":"graphics/weapons/animated/adv_med_scythe_left/adv_lrg_scythe_right_00.png",	
-        "everyFrameEffect":"tecrys.svc.weapons.BaseAnimateOnFireEffect",
+        "everyFrameEffect":"tecrys.svc.weapons.mirror.BaseAnimateOnFireEffectMirror",
         "numFrames":20,	
 	"frameRate":34,
         "turretOffsets":[0, 0],
