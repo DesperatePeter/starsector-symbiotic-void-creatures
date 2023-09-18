@@ -2,18 +2,14 @@ package tecrys.svc
 
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.impl.campaign.econ.impl.ItemEffectsRepo
 import com.thoughtworks.xstream.XStream
-import org.dark.shaders.light.LightData
-import org.dark.shaders.util.ShaderLib
-import org.dark.shaders.util.TextureData
-import tecrys.svc.plugins.svc_addBooze.addBooze
+import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
+import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
+import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
+import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.notifications.NotificationShower
-
-import tecrys.svc.plugins.svc_addBooze.addBooze
-import tecrys.svc.plugins.svc_addBooze.addBoozeToFaction
 
 /**
  * A Kotlin version of ExampleModPlugin.java.
@@ -23,18 +19,20 @@ import tecrys.svc.plugins.svc_addBooze.addBoozeToFaction
  */
 class SvcBasePlugin : BaseModPlugin() {
 
+    companion object{
+        const val SUBSTANCE_ABUSE_ID = "alcoholism"
+    }
+
     private fun initSVC() {
         try {
-
             Global.getSettings().scriptClassLoader.loadClass("data.scripts.world.ExerelinGen")
-
-
         } catch (ex: ClassNotFoundException) {
-
             SectorGen().generate(Global.getSector())
-
         }
-
+        if(isSubstanceAbuseEnabled()){
+            addCocktailBreweryToRelevantMarkets()
+            giveCocktailToPirates()
+        }
     }
 
     override fun onGameLoad(newGame: Boolean) {
@@ -45,16 +43,12 @@ class SvcBasePlugin : BaseModPlugin() {
         }
     }
     override fun onApplicationLoad() {
-
-
         //add special items
 
-        if (Global.getSettings().modManager.isModEnabled("alcoholism")) {
-            addBooze()
+        if (isSubstanceAbuseEnabled()) {
+            loadSubstanceAbuse()
         } else {
-            Global.getSettings().getCommoditySpec("svc_cocktail_c").basePrice = 0f
-            Global.getSettings().getCommoditySpec("svc_cocktail_c").exportValue = 0f
-            Global.getSettings().getCommoditySpec("svc_cocktail_c").tags.add("nonecon")
+            disableSubstanceAbuse()
         }
     }
     /**
@@ -67,5 +61,9 @@ class SvcBasePlugin : BaseModPlugin() {
         // This is a way to prevent refactoring from breaking saves, but is not required to do.
 
         // x.alias("ExampleEveryFrameScript", ExampleEveryFrameScript::class.java)
+    }
+
+    private fun isSubstanceAbuseEnabled(): Boolean{
+        return Global.getSettings().modManager.isModEnabled(SUBSTANCE_ABUSE_ID)
     }
 }

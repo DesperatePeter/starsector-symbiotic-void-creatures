@@ -7,6 +7,6 @@ While reverse-engineering this substance is far beyond our capabilities, we can 
 Right-click to use. Hold Ctrl to use until fuel tanks are full.",10
 ,,,,,,,,,,,,,,,
 Whale Tail Cocktail Recipe,svc_cocktail_item,no_drop,,,60000,"10000
-",1,,graphics/icons/svc_cocktail_item.png,ui_cargo_luxury,ui_cargo_luxury_drop,tecrys.svc.plugins.SubAb.svc_RecipeItemPlugin,alcohol_brewery,A collection of old documents and recipes detailing the production method for a certain beverage.,138
+",1,,graphics/icons/svc_cocktail_item.png,ui_cargo_luxury,ui_cargo_luxury_drop,tecrys.svc.plugins.substanceabuse.svc_RecipeItemPlugin,alcohol_brewery,A collection of old documents and recipes detailing the production method for a certain beverage.,138
 Whale Tail Cocktail,svc_cocktail,no_drop,,,170,"10000
-",0.5,,graphics/icons/svc_cocktail.png,ui_cargo_goods,ui_cargo_goods_drop,tecrys.svc.plugins.SubAb.svc_AlcoholItemPlugin,,"A single sip of this heavenly-tasting spicy syrup, and one is ready to take on the Tyrant's regime with bare hands. But beware, the fall from grace is a one-way ticket.",60
+",0.5,,graphics/icons/svc_cocktail.png,ui_cargo_goods,ui_cargo_goods_drop,tecrys.svc.plugins.substanceabuse.svc_AlcoholItemPlugin,,"A single sip of this heavenly-tasting spicy syrup, and one is ready to take on the Tyrant's regime with bare hands. But beware, the fall from grace is a one-way ticket.",60

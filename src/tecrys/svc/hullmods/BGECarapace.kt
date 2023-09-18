@@ -55,7 +55,10 @@ class BGECarapace : BaseHullMod() {
     }
 
     override fun isApplicableToShip(ship: ShipAPI?): Boolean {
-        return ship?.variant?.hullMods?.all { ALLOWED_HULLMODS_BY_PREFIX.any { prefix:String -> it.startsWith(prefix) } || ALLOWED_HULLMODS.contains(it) } ?: false
+        return ship?.variant?.hullMods?.all {
+            ALLOWED_HULLMODS_BY_PREFIX.any { prefix:String -> it.startsWith(prefix) }
+                    || ALLOWED_HULLMODS.contains(it)
+        } ?: false
     }
 
     private fun hideControlCollarIfNotPlayer(ship: ShipAPI){
@@ -100,6 +103,7 @@ class BGECarapace : BaseHullMod() {
         val hullMods = variant.hullMods.toList()
         hullMods.filterNot {
             ALLOWED_HULLMODS.contains(it)
+                    || ALLOWED_HULLMODS_BY_PREFIX.any { prefix -> it.startsWith(prefix) }
         }.forEach {
             MagicIncompatibleHullmods.removeHullmodWithWarning(variant, it, SVC_BASE_HULLMOD_ID)
         }

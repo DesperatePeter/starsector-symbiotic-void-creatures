@@ -1,4 +1,4 @@
-package tecrys.svc.plugins.SubAb;
+package tecrys.svc.plugins.substanceabuse;
 import com.fs.starfarer.api.alcoholism.itemPlugins.RecipeItemPlugin;
 import com.fs.starfarer.api.campaign.impl.items.GenericSpecialItemPlugin;
 
