@@ -155,5 +155,7 @@ whale flipper left small,svc_whale_flipper_l_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,
 whale flipper right small,svc_whale_flipper_r_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 svc_Stjarwhalmkii_deco_lrg,svc_Stjarwhalmkii_deco_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
-,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+svc_whale_mock_lrg,svc_whale_mock_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
+svc_whale_mock,svc_whale_mock,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
+svc_whale_mock_sml,svc_whale_mock_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

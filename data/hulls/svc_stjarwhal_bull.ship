@@ -30,7 +30,8 @@
     "WS0013": "svc_whale_flipper_r_lrg",
     "WS0014": "svc_whale_flipper_l_lrg",
     "WS0015": "svc_whale_flipper_r_lrg",
-    "WS0016": "svc_whale_flipper_l_lrg"
+    "WS0016": "svc_whale_flipper_l_lrg",
+    "whalefins": "svc_whale_mock_lrg"
   },
   "weaponSlots": [
     {
@@ -176,6 +177,15 @@
       "arc": 32,
       "angle": 119.5,
       "locations": [17.5, 25.5]
+    },
+    {
+      "id": "whalefins",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 32,
+      "angle": 0,
+      "locations": [-261, 1]
     }
   ],
   "engineSlots": [

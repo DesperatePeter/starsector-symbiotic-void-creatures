@@ -2,9 +2,9 @@ package tecrys.svc.hullmods
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
+import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
-import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.impl.campaign.ids.Stats
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
@@ -12,10 +12,24 @@ import tecrys.svc.WHALE_REPUTATION_MIN
 import tecrys.svc.internalWhaleReputation
 import java.awt.Color
 
+
 class StjarwhalController: BaseHullMod() {
     companion object{
         private const val ENGINE_DAMAGE_TAKEN = 0.5f
 }
+
+    override fun advanceInCombat(ship: ShipAPI, amount: Float) {
+        val decos = ship.allWeapons
+        for (deco in decos) {
+            if (deco.slot.id == "whalefins") {
+                if (ship.originalOwner == -1) {
+                    deco.animation.frame = 0
+                } else {
+                    deco.animation.frame = 1
+                }
+            }
+        }
+    }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
         member?.id?.let {
             if(!Global.getSector().playerFleet.contains(it)) return
