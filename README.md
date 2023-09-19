@@ -58,6 +58,7 @@ portraits, the Stjarwhal illustration and the drink icons for Substance Abuse in
 - Writing, programming: DesperatePeter.
 - Programming: banano_of_doom_7070.
 - additional Writing: Captain Milo
+- weapon mirroring code: Wyvern and his mod DecoLib/Mirror https://fractalsoftworks.com/forum/index.php?topic=25579.0
 - Sound: SniZupGun, freesfx.co.uk, zapsplat.com, freesound.org, quicksounds.com.
 
 ### Original Version (unreleased):
