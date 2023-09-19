@@ -33,7 +33,7 @@
 	],	
 
 	"svc_weapon_acid":[
-		{"file":"sounds/svc_growlsound6.ogg","pitch":4,"volume":0.2},
+		{"file":"sounds/svc_growlsound6.ogg","pitch":4,"volume":0.1},
 
 	],	
 		"svc_engine_tentacle_loop":[
