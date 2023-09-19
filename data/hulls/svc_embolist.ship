@@ -20,7 +20,7 @@
     "left_fin": "svc_trans_fin_left_sml",
     "left_fin2": "svc_trans_fin_left_sml2",
     "left_grappler": "svc_bge_grappler",
-    "left_long_fin": "svc_long_fin_left_sml",
+    "left_long_fin": "svc_long_fin_right_sml",
     "left_mand1": "svc_sml_mand_r",
     "left_mand2": "svc_sml_mand_r",
     "left_med_uni": "svc_med_scythe_r",

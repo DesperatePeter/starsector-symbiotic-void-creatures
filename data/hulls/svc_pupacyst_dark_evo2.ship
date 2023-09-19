@@ -23,7 +23,7 @@
   "builtInWeapons": {
     "Alphamiddle": "svc_acidthrower",
     "WS0001": "svc_dark_fin_right_huge",
-    "WS0002": "svc_dark_fin_left_huge",
+    "WS0002": "svc_dark_fin_right_huge",
     "eyes": "svc_zophe",
     "grappler": "svc_bge_grappler",
     "grappler2": "svc_bge_grappler",

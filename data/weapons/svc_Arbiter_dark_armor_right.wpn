@@ -4,6 +4,7 @@
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 1.0,
+				  "everyFrameEffect": "tecrys.svc.weapons.mirror.MirrorQuadRight",
 	"turretSprite":"graphics/weapons/deco/Arbiter_dark_armor_right.png",
 	"hardpointSprite":"graphics/weapons/deco/Arbiter_dark_armor_right.png",
         "renderBelowAllWeapons": true,

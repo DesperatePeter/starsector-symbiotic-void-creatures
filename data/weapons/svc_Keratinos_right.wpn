@@ -4,6 +4,7 @@
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 0.5,
+				  "everyFrameEffect": "tecrys.svc.weapons.mirror.MirrorQuadRight",
 	"turretSprite":"graphics/weapons/deco/Keratinos_right.png",
 	"hardpointSprite":"graphics/weapons/deco/Keratinos_right.png",
         "renderBelowAllWeapons": true,

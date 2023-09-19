@@ -19,7 +19,7 @@
     "Eyes": "svc_waechter_eyes",
     "WS0001": "svc_trans_fin_left_sml2",
     "WS0002": "svc_trans_fin_right_sml2",
-    "left_antenna": "svc_antena_left",
+    "left_antenna": "svc_antena_right",
     "left_grappler": "svc_bge_grappler_pd",
     "left_grappler2": "svc_bge_grappler",
     "left_grappler3": "svc_bge_grappler",

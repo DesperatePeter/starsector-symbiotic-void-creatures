@@ -5,6 +5,7 @@
 	"size":"SMALL",
         "height": 1.0,
 		        "renderBelowAllWeapons": true,
+		  "everyFrameEffect": "tecrys.svc.weapons.mirror.MirrorQuadRight",				
 	"turretSprite":"graphics/weapons/deco/Hemalisk_right.png",
 	"hardpointSprite":"graphics/weapons/deco/Hemalisk_right.png",
 

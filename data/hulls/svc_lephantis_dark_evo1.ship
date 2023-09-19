@@ -26,7 +26,7 @@
     "alpharight1": "svc_fangcluster",
     "alpharight2": "svc_fangcluster",
     "alpharight3": "svc_acidthrower",
-    "antena_left": "svc_antena_left",
+    "antena_left": "svc_antena_right",
     "antena_right": "svc_antena_right",
     "fin_left": "svc_trans_fin_left",
     "fin_left2": "svc_trans_fin_left_sml",

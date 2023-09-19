@@ -19,8 +19,8 @@
     "left_fin": "svc_trans_fin_left_sml",
     "left_fin2": "svc_trans_fin_left_sml2",
     "left_grappler": "svc_bge_grappler",
-    "left_hind_fin": "svc_long_fin_left_sml",
-    "left_hind_fin2": "svc_long_fin_left_sml2",
+    "left_hind_fin": "svc_long_fin_right_sml",
+    "left_hind_fin2": "svc_long_fin_right_sml2",
     "left_mand": "svc_sml_mand_r",
     "left_med_uni": "svc_med_scythe_r",
     "left_pd": "svc_bge_grappler_pd",
@@ -140,8 +140,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 75.762413,
-      "angle": -135,
-      "locations": [-36, -15.5]
+      "angle": 147.5,
+      "locations": [-30, -11.5]
     },
     {
       "id": "right_hind_fin",
@@ -149,8 +149,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 75.762413,
-      "angle": 135,
-      "locations": [-36, 15.5]
+      "angle": -147.5,
+      "locations": [-30, 11.5]
     },
     {
       "id": "right_hind_fin2",
@@ -158,8 +158,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 75.762413,
-      "angle": 135,
-      "locations": [-28, 12]
+      "angle": -155.5,
+      "locations": [-21, 8.5]
     },
     {
       "id": "left_hind_fin2",
@@ -167,8 +167,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 75.762413,
-      "angle": -135,
-      "locations": [-28, -12]
+      "angle": 155.5,
+      "locations": [-21, -8.5]
     },
     {
       "id": "svc_controlcollar",
