@@ -5,8 +5,12 @@ import tecrys.svc.BIOLOGICAL_HULL_TAGS
 
 
 fun flagHullsAsBiologicalForLegends(hulls: List<String>) {
-    hulls.forEach {
-        starship_legends.Integration.registerBiologicalShip(it)
+    try {
+        hulls.forEach {
+            starship_legends.Integration.registerBiologicalShip(it)
+        }
+    }catch (e: NoSuchMethodError){
+        Global.getSector().campaignUI?.addMessage("SVC: Incompatible version of Starship Legends! Please upgrade Starship Legends!")
     }
 }
 
