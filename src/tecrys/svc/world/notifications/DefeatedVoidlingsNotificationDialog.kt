@@ -11,6 +11,7 @@ import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.ui.PositionAPI
 import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
+import java.awt.Color.blue
 
 class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_text"),
@@ -26,7 +27,7 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
     }
 
     override fun optionSelected(optionText: String?, optionData: Any?) {
-        optionText?.let {
+        (optionData as? String)?.let {
             when (it) {
                 "Leave" -> {
                     dialog?.dismiss()
@@ -34,7 +35,7 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
                 }
 
                 "Speak"-> {
-
+                    dialog?.textPanel?.addParagraph("Signal your security personnel to let the man speak.", blue) //* blue is placeholder, this is supposed to be default player colour
                     dialog?.textPanel?.addParagraph(Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_text_continue"))
 
 
