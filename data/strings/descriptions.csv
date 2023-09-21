@@ -147,4 +147,4 @@ Stjarwhals are peaceful filter-feeders, relying on their huge body size and numb
 So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,
 ,,,,,,
 svc_void_chitin,RESOURCE,"Shards of chitin collected from void creatures. This material is surprisingly light and durable. Its exact composition is unknown, but it appears to contain both metallic and organic material with traces of substances that emit p-space signatures, which should not be possible. Can be sold.",,,,
-,,,,,,
+svc_booze_c,RESOURCE,A vile concoction made from Stjarwhal tails and other bits of creatures found in the void. Strawberry flavour.,"Decreases fuel use and impact of hyperspace storms and coronas, increases maintenance supply use and sensor profile.",,,
