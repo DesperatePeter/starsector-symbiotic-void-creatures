@@ -53,6 +53,7 @@ object SvcCargoListener: ShowLootListener{
             addCommodity("svc_void_chitin", Math.random().toFloat() * n)
             addCommodity("organics", n)
             removeCommodity("metals", n)
+            removeCommodity("heavy_machinery", getCommodityQuantity("heavy_machinery"))
         }
     }
 }

@@ -18,9 +18,11 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_title"),
     Global.getSettings().getSpriteName("backgrounds", "svc_encounter")) {
 
+    private var phase = 0
+
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
-            addOption("Signal your security personnel to let the man speak.", "Speak")
+            if(phase <= 0) addOption("Signal your security personnel to let the man speak.", "Speak")
             addOption("Leave", "Leave")
             setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
         }
@@ -31,14 +33,16 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
             when (it) {
                 "Leave" -> {
                     dialog?.dismiss()
-
                 }
 
                 "Speak"-> {
-                    dialog?.textPanel?.addParagraph("Signal your security personnel to let the man speak.", blue) //* blue is placeholder, this is supposed to be default player colour
+                    dialog?.textPanel?.addParagraph("Signal your security personnel to let the man speak.", Global.getSettings().basePlayerColor)
                     dialog?.textPanel?.addParagraph(Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_text_continue"))
-
-
+                    phase = 1
+                    dialog?.optionPanel?.let { opt ->
+                        opt.clearOptions()
+                        addOptions(opt)
+                    }
                 }
 
                 else -> {}
