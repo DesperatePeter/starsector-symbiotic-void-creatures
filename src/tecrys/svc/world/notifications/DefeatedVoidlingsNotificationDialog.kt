@@ -19,6 +19,7 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
 
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
+            addOption("Signal your security personnel to let the man speak.", "Speak")
             addOption("Leave", "Leave")
             setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
         }
@@ -26,8 +27,19 @@ class DefeatedVoidlingsNotificationDialog : NotificationDialogBase(
 
     override fun optionSelected(optionText: String?, optionData: Any?) {
         optionText?.let {
-            when(it){
-                "Leave" -> dialog?.dismiss()
+            when (it) {
+                "Leave" -> {
+                    dialog?.dismiss()
+
+                }
+
+                "Speak"-> {
+
+                    dialog?.textPanel?.addParagraph(Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_voidlings_defeated_text_continue"))
+
+
+                }
+
                 else -> {}
             }
         }
