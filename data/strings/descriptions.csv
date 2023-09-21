@@ -18,12 +18,9 @@ svc_adv_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until i
 ,,,,,,
 svc_bge_grappler,WEAPON,This orifice houses a tendril. When the tendril extends it enters P-Space reaching tremendous speeds through time-dilation making it look like a beam. Through unknown means it accelerates the creature when the tendril latches onto its prey.,,,,
 svc_bge_grappler_pd,WEAPON,This orifice houses a tendril. Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,
-svc_acidthrower,WEAPON,"This proboscis-like organ cluster has a multitude of glands that secrete an acid mix and store it. After gathering a certain volume, it will be expelled into a cloud that covers a decent area. The acid mix is miraculously non-reactive with most materials, but extremely effective against certain hyperalloys commonly found within most types of armor. This lets it be easily stored and makes it a potent armor stripping agent. 
-
-This also means that it is completely harmless when applied to hulls and shields. The shields will not react at all, as they are an energy construct, and the hulls of ships are missing those specific materials used in armor which react with the acid. ",Anti-Armor,,,
-svc_fangcluster,WEAPON,"This cluster of organs is a self-sustaining biomass driver, seemingly a mutated version of the common voidling's jaw. It has a great intake of nutrients and general biomass, which it uses to rapidly regrow detachable ""teeth"". These dental ammunitions are then accelerated by powerful muscles through a puzzling mechanism, somehow matching or even exceeding modern needler designs.
-
-The teeth themselves are made of a mixture of bio-alloys and traces of phasically active crystals. These crystals, when empowered with flux, have an accelerating effect on the projectiles which could possibly explain the absurd power of this organic design.",Anti-Shield,,,
+svc_acidthrower,WEAPON,"A mutated gland symbiote that emits acid capable of seeping behind shields. 
+Extremely effective against certain hyperalloys commonly found within most types of armor but won't dissolve normal hull structure.",Anti-Armor,,,
+svc_fangcluster,WEAPON,"This cluster of organs is a self-sustaining biomass driver, seemingly a mutated version of the common voidling's jaw. Rpidly regrows fangs which are then accelerated by powerful muscles through a puzzling mechanism, somehow matching or even exceeding modern needler designs.",Anti-Shield,,,
 svc_inksac,WEAPON,"An organic gland, capable of emitting a sort of ink-cloud with an enigmatic chemical composition. The special particles that form this ink cloud seem to attract and absorb all kinds of energy, significantly reducing the effectiveness of beams, causing missiles engines to flame out and even being able to slightly reduce the impact energy of projectiles. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer. Note: The AGC-tag BlockBeams is recommended for this weapon.",Anti-Beam,,,
 ,,,,,,
 svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal to attacks.",,,,
@@ -148,5 +145,5 @@ Stjarwhals are peaceful filter-feeders, relying on their huge body size and numb
 
 So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,
 ,,,,,,
-svc_void_chitin,RESOURCE, "Shards of chitin collected from void creatures. This material is surprisingly light and durable. Its exact composition is unknown, but it appears to contain both metallic and organic material with traces of substances that emit p-space signatures, which should not be possible. Can be sold.",,,,
+svc_void_chitin,RESOURCE," Shards of chitin collected from void creatures. This material is surprisingly light and durable. Its exact composition is unknown, but it appears to contain both metallic and organic material with traces of substances that emit p-space signatures, which should not be possible. Can be sold.",,,,
 ,,,,,,
