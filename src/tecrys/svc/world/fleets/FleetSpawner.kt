@@ -2,27 +2,33 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
+import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.apache.log4j.Level
-import org.magiclib.kotlin.findNearestPlanetTo
-import tecrys.svc.SVC_FACTION_ID
 
 class FleetSpawner {
 
     companion object {
+        const val SYSTEM_HIDDEN_TAG = "hidden"
         fun countFactionFleets(faction: String): Int {
             return getFactionFleets(faction).count()
         }
+
         fun getFactionFleets(faction: String): List<CampaignFleetAPI> {
             return Global.getSector().allLocations.map { it.fleets.filter { fleet -> fleet.faction.id == faction } }
                 .flatten()
         }
+
         fun isValidSpawnableEntity(token: SectorEntityToken): Boolean {
             return token !is CampaignFleetAPI && token !is CampaignProgressIndicatorAPI && token !is OrbitalStationAPI
                     && (token as? PlanetAPI)?.isStar != true
         }
     }
 
-    fun spawnFactionFleetIfPossible(faction: String, params: FleetSpawnParameterCalculator, location: SectorEntityToken?): CampaignFleetAPI? {
+    fun spawnFactionFleetIfPossible(
+        faction: String,
+        params: FleetSpawnParameterCalculator,
+        location: SectorEntityToken?
+    ): CampaignFleetAPI? {
         val numFleets = countFactionFleets(faction)
 
         if (numFleets >= params.maxFleetCount) return null
@@ -42,13 +48,17 @@ class FleetSpawner {
     fun getRandomSpawnableLocation(faction: String): SectorEntityToken? {
         return Global.getSector().allLocations?.filter { loc ->
             loc.planets?.all { it.faction.id == "neutral" } ?: false
-        }?.filter {
-            it.fleets.none { loc -> loc.faction.id == faction }
-        }?.filterNotNull()?.shuffled()?.map { loc ->
-            loc.allEntities?.filter {
-                isValidSpawnableEntity(it)
-            }
-        }?.filterNotNull()?.flatMap { it }?.randomOrNull()
+        }?.filter { loc ->
+            !loc.hasTag(Tags.SYSTEM_CUT_OFF_FROM_HYPER) && !loc.hasTag(SYSTEM_HIDDEN_TAG)
+                    && loc.planets.none { it.hasTag(SYSTEM_HIDDEN_TAG) || it.hasTag(Tags.SYSTEM_CUT_OFF_FROM_HYPER) }
+        }
+            ?.filter {
+                it.fleets.none { loc -> loc.faction.id == faction }
+            }?.filterNotNull()?.shuffled()?.mapNotNull { loc ->
+                loc.allEntities?.filter {
+                    isValidSpawnableEntity(it)
+                }
+            }?.flatMap { it }?.randomOrNull()
     }
 
     fun createFactionFleet(
