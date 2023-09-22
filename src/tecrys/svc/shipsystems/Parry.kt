@@ -9,7 +9,11 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
+import tecrys.svc.utils.degToRad
 import java.awt.Color
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 
 class Parry: BaseShipSystemScript() {
     companion object{
@@ -17,6 +21,7 @@ class Parry: BaseShipSystemScript() {
     }
 
     private val affectedProjectiles = mutableSetOf<DamagingProjectileAPI>()
+    private var afterImageShown = false
 
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -24,9 +29,17 @@ class Parry: BaseShipSystemScript() {
         state: ShipSystemStatsScript.State?,
         effectLevel: Float
     ) {
-        if(state != ShipSystemStatsScript.State.ACTIVE) return
         val ship = stats?.entity as? ShipAPI ?: return
-        ship.setJitter(id, Color.green, 0.1f, 20, 100f)
+        if(!afterImageShown){
+            val aaLoc = Vector2f(cos(ship.facing * degToRad) * 15f,  sin(ship.facing * degToRad) * 15f)
+            val sys = Global.getSettings().getShipSystemSpec("parry")
+            val duration = sys?.active ?: 0.3f
+            val buildup = sys?.`in` ?: 0.1f
+            val down = sys?.out ?: 0.1f
+            ship.addAfterimage(Color.yellow.darker(), aaLoc.x, aaLoc.y, 0f, 0f, 0.2f, buildup, duration, down, false, true, false)
+            afterImageShown = true
+        }
+        if(state != ShipSystemStatsScript.State.ACTIVE) return
         val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + RANGE)
         val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + RANGE).filter {
             !it.isGuided
@@ -59,5 +72,6 @@ class Parry: BaseShipSystemScript() {
     override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
         super.unapply(stats, id)
         affectedProjectiles.clear()
+        afterImageShown = false
     }
 }
