@@ -11,7 +11,10 @@
 	],
 
 	"svc_system_parry":[
-		{"file":"sounds/svc_Roar7.ogg","pitch":2.0,"volume":0.1},
+		{"file":"sounds/svc_syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.4},
+		{"file":"sounds/svc_syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.4},
+		{"file":"sounds/svc_syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.4},
+		{"file":"sounds/svc_syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.4},
 
 	],
 
@@ -24,10 +27,10 @@
 
 	],	
 	"svc_weapon_scythe":[
-		{"file":"sounds/svc_syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/svc_syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/svc_syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.2},
-		{"file":"sounds/svc_syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.2},
+		{"file":"sounds/svc_syctheswipeofsorts2.ogg","pitch":1.5,"volume":0.3},
+		{"file":"sounds/svc_syctheswipeofsorts3.ogg","pitch":1.5,"volume":0.3},
+		{"file":"sounds/svc_syctheswipeofsorts4.ogg","pitch":1.5,"volume":0.3},
+		{"file":"sounds/svc_syctheswipeofsorts5.ogg","pitch":1.5,"volume":0.3},
 	],	
 
 	"svc_weapon_pincer":[
