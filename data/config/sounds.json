@@ -11,7 +11,7 @@
 	],
 
 	"svc_system_parry":[
-		{"file":"sounds/parry.ogg","pitch":1.4,"volume":0.18},
+		{"file":"sounds/parry.ogg","pitch":1.8,"volume":0.06},
 
 	],
 
