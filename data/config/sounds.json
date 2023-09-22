@@ -14,7 +14,10 @@
 		{"file":"sounds/parry.ogg","pitch":1.8,"volume":0.06},
 
 	],
+	"svc_system_parry_start":[
+		{"file":"sounds/parry_start.ogg","pitch":1.0,"volume":0.3},
 
+	],
 	"svc_weapon_grappler":[
 		{"file":"sounds/svc_Whip.ogg","pitch":0.8,"volume":0.1},
 

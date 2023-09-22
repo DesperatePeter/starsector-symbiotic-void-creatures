@@ -27,10 +27,10 @@
 	"soundFilterGainHF":0.25,
 
 	"fadeActivationSoundOnChargedown":true,
-	"useSound":"system_damper",
-	"loopSound":"system_damper_loop",
-	"deactivateSound":"system_damper_off",
-	"outOfUsesSound":"gun_out_of_ammo",
+	"useSound":"svc_system_parry_start",
+	#"loopSound":"system_damper_loop",
+	#"deactivateSound":"system_damper_off",
+	#"outOfUsesSound":"gun_out_of_ammo",
 
 	"aiHints":{
 	}

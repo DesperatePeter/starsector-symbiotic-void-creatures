@@ -30,6 +30,7 @@ svc_parasumbilical_cord,SHIP_SYSTEM,Attaches a parasumbilical cord to an enemy d
 svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,
 svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
 svc_torid_drones,SHIP_SYSTEM,A helpful Torid drone with an Ink Sac relying on being fed by Pupacyst.,,,,
+parry,SHIP_SYSTEM,Parry and reflect all projectiles and unguided missiles for a brief time.,,,,
 ,,,,,,
 svc_arbiter,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,

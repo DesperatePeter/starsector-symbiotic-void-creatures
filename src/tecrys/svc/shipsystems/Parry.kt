@@ -37,12 +37,13 @@ class Parry: BaseShipSystemScript() {
             val duration = sys?.active ?: 0.3f
             val buildup = sys?.`in` ?: 0.1f
             val down = sys?.out ?: 0.1f
-            val col = Color(70, 10, 200, 200)
+            val col = Color(70, 10, 200, 50)
             for(i in 0..3){
                 val angle = (ship.facing + 150f + Math.random().toFloat() * 60f) * degToRad
                 val aaLoc = Vector2f(cos(angle) * 15f * i.toFloat(),  sin(angle) * 15f * i.toFloat())
-                col.setAlpha(col.alpha - 40)
-                ship.addAfterimage(col, aaLoc.x, aaLoc.y, ship.velocity.x * 0.05f * i.toFloat(), ship.velocity.y * 0.05f * i.toFloat(), 0.2f, buildup, duration, down, false, true, false)
+                col.setAlpha(col.alpha - 200)
+                ship.addAfterimage(col, aaLoc.x, aaLoc.y, ship.velocity.x * 0.05f * i.toFloat(), ship.velocity.y * 0.05f * i.toFloat(), 0.2f, buildup, duration, down, false, true, true)
+
             }
 
             afterImageShown = true
