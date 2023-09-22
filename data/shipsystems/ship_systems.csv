@@ -5,3 +5,4 @@ Parasumbilical Cord,svc_parasumbilical_cord,,,,,,,,,,0.1,10.0,0.5,15.0,,,,,,,,,,
 Nervous Shunt,svc_nervous_shunt,,,,,,,,,,0.1,5.0,0.1,20.0,,,,,,,,,,FALSE,,,graphics/fx/svc_nervousshunt.png
 Volatile Void Drones,svc_volatile_void_drones,,,,,,,,,,0.1,0.1,0.1,0.5,,,,,,,,,,FALSE,,,graphics/icons/hullsys/active_flare_launcher.png
 Torid Guard Drones,svc_torid_drones,,,,,,,,10,,0,,0,0,,,,,,,,,,,,,graphics/fx/svc_torid_drones.png
+Parry,parry,1,,,,,,,2,0.05,0.05,0.3,0.1,2.0,,,,,FALSE,,,,TRUE,TRUE,,uses_damper_ai,graphics/icons/hullsys/damper_field.png
