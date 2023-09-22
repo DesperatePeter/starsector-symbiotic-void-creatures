@@ -1,5 +1,6 @@
 package tecrys.svc.shipsystems
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.CollisionClass
 import com.fs.starfarer.api.combat.DamagingProjectileAPI
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
@@ -47,6 +48,10 @@ class Parry: BaseShipSystemScript() {
             }
             proj.owner = ship.owner
             proj.source = ship
+            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 20f, 1f, 0.8f, Color.WHITE)
+            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 30f, 0.6f, 1f, Color.WHITE)
+            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 50f, 0.2f, 1.2f, Color.WHITE)
+            Global.getSoundPlayer().playSound("svc_system_parry", 1f, 1f, proj.location, Vector2f())
             affectedProjectiles.add(proj)
         }
     }

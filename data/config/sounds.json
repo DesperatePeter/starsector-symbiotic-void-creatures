@@ -8,7 +8,12 @@
 	"svc_system_berzerk":[
 		{"file":"sounds/svc_Roar7.ogg","pitch":2.0,"volume":0.1},
 
-	],	
+	],
+
+	"svc_system_parry":[
+		{"file":"sounds/svc_Roar7.ogg","pitch":2.0,"volume":0.1},
+
+	],
 
 	"svc_weapon_grappler":[
 		{"file":"sounds/svc_Whip.ogg","pitch":0.8,"volume":0.1},
