@@ -18,8 +18,7 @@ import tecrys.svc.utils.removeDMods
 import java.awt.Color
 class BGECarapace : BaseHullMod() {
     companion object{
-        private const val ENGINE_DAMAGE_TAKEN = 0.5f
-        private const val EMP_RESISTANCE = 50f
+        private const val ENGINE_DAMAGE_TAKEN = 0.25f
         private const val HULL_RESISTANCE = 30f
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
@@ -36,7 +35,6 @@ class BGECarapace : BaseHullMod() {
             removeIncompatibleHullmods(it)
         }
         stats?.run {
-            empDamageTakenMult.modifyMult(id, 1f + EMP_RESISTANCE * 0.01f)
             hullDamageTakenMult.modifyMult(id, 1f - HULL_RESISTANCE * 0.01f)
             combatWeaponRepairTimeMult.modifyMult(id,0.3f)
             hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.3f)
@@ -122,8 +120,7 @@ class BGECarapace : BaseHullMod() {
     }
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
         return when(index){
-            0 -> "${EMP_RESISTANCE.toInt()}%"
-            1 -> "${HULL_RESISTANCE.toInt()}%"
+            0 -> "${HULL_RESISTANCE.toInt()}%"
             else -> null
         }
     }

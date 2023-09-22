@@ -1,5 +1,5 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
-Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s increased EMP damage, their bodies take %s reduced damage if weapons fire
+Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s reduced damage if weapons fire
 is able to break through their carapace and they regenerate quickly if wounded or limbs are damaged.
 They also seem to be unaffected by ship explosions.
 Void Creatures do not explode when disabled or killed.
