@@ -9,6 +9,7 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
+import org.magiclib.kotlin.setAlpha
 import tecrys.svc.utils.degToRad
 import java.awt.Color
 import kotlin.math.PI
@@ -31,12 +32,19 @@ class Parry: BaseShipSystemScript() {
     ) {
         val ship = stats?.entity as? ShipAPI ?: return
         if(!afterImageShown){
-            val aaLoc = Vector2f(cos(ship.facing * degToRad) * 15f,  sin(ship.facing * degToRad) * 15f)
+
             val sys = Global.getSettings().getShipSystemSpec("parry")
             val duration = sys?.active ?: 0.3f
             val buildup = sys?.`in` ?: 0.1f
             val down = sys?.out ?: 0.1f
-            ship.addAfterimage(Color.yellow.darker(), aaLoc.x, aaLoc.y, 0f, 0f, 0.2f, buildup, duration, down, false, true, false)
+            val col = Color(70, 10, 200, 200)
+            for(i in 0..3){
+                val angle = (ship.facing + 150f + Math.random().toFloat() * 60f) * degToRad
+                val aaLoc = Vector2f(cos(angle) * 15f * i.toFloat(),  sin(angle) * 15f * i.toFloat())
+                col.setAlpha(col.alpha - 40)
+                ship.addAfterimage(col, aaLoc.x, aaLoc.y, ship.velocity.x * 0.05f * i.toFloat(), ship.velocity.y * 0.05f * i.toFloat(), 0.2f, buildup, duration, down, false, true, false)
+            }
+
             afterImageShown = true
         }
         if(state != ShipSystemStatsScript.State.ACTIVE) return
