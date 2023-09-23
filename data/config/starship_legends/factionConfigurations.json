@@ -49,6 +49,12 @@
 		#	To disable a trait, set its value to 0. Removing a trait from the list will
 		#	only revert it to the default value.
 		"goodTraitFrequency":{
+			"loyalty":0,
+            "cr_cap":0,
+            "cr_recovery":0,
+            "loyalty_loss_rugged":0,
+            "loyalty_loss":0,
+            "peak_cr_time":0,
 			"repair":1,
 			"mount_durability":1,
 			"engine_durability":1,
@@ -79,6 +85,12 @@
 		},
 		
 		"badTraitFrequency":{
+			"loyalty":0,
+            "cr_cap":0,
+            "cr_recovery":0,
+            "loyalty_loss_rugged":0,
+            "loyalty_loss":0,
+            "peak_cr_time":0,
 			"repair":1,
 			"mount_durability":1,
 			"engine_durability":1,
@@ -121,12 +133,18 @@
 				# Put good traits here. The first traits listed will be chosen first. At
 				#	least numberOfTraits must be chosen if you want to prevent other
 				#	good traits from being chosen
+				"repair",
+				"armor_strength",
+				"engine_power",
 			],
 			
 			"badTraits":[
 				# Put bad traits here. The first traits listed will be chosen first. At
 				#	least half of numberOfTraits should be chosen if you want to prevent
 				#	other bad traits from being chosen
+				"repair",
+				"armor_strength",
+				"engine_power",
 			],
 			
 			# Move traits from below to the lists above. Feel free to delete the unused traits list later
@@ -178,8 +196,10 @@
 				#	contents of the "forcedPreset" section. 
 				"numberOfTraits":3,
 				"goodTraits":[
+
 				],
 				"badTraits":[
+
 				],
 			},
 		},
@@ -234,6 +254,12 @@
 		#	To disable a trait, set its value to 0. Removing a trait from the list will
 		#	only revert it to the default value.
 		"goodTraitFrequency":{
+			"loyalty":0,
+            "cr_cap":0,
+            "cr_recovery":0,
+            "loyalty_loss_rugged":0,
+            "loyalty_loss":0,
+            "peak_cr_time":0,
 			"repair":1,
 			"mount_durability":1,
 			"engine_durability":1,
@@ -264,6 +290,12 @@
 		},
 		
 		"badTraitFrequency":{
+			"loyalty":0,
+            "cr_cap":0,
+            "cr_recovery":0,
+            "loyalty_loss_rugged":0,
+            "loyalty_loss":0,
+            "peak_cr_time":0,
 			"repair":1,
 			"mount_durability":1,
 			"engine_durability":1,
@@ -306,12 +338,18 @@
 				# Put good traits here. The first traits listed will be chosen first. At
 				#	least numberOfTraits must be chosen if you want to prevent other
 				#	good traits from being chosen
+				"repair",
+				"armor_strength",
+				"engine_power",
 			],
 			
 			"badTraits":[
 				# Put bad traits here. The first traits listed will be chosen first. At
 				#	least half of numberOfTraits should be chosen if you want to prevent
 				#	other bad traits from being chosen
+				"repair",
+				"armor_strength",
+				"engine_power",
 			],
 			
 			# Move traits from below to the lists above. Feel free to delete the unused traits list later
