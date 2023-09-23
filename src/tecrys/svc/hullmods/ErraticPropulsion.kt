@@ -24,6 +24,7 @@ class ErraticPropulsion: BaseHullMod() {
     override fun advanceInCombat(ship: ShipAPI?, amount: Float) {
         super.advanceInCombat(ship, amount)
         ship ?: return
+        if(ship.engineController.isDisabled || !ship.isAlive) return
         if(!timerByShip.contains(ship.id)) timerByShip[ship.id] = IntervalUtil(INTERVAL_MIN, INTERVAL_MAX)
         val timer = timerByShip[ship.id] ?: return
         timer.advance(amount)
