@@ -19,6 +19,8 @@
     "WS0002": "svc_long_fin_right_tiny2",
     "WS0003": "svc_sml_mand_r",
     "WS0004": "svc_sml_mand_l",
+    "WS0005": "svc_sml_mand_r",
+    "WS0006": "svc_sml_mand_l",
     "decofinleft": "svc_long_fin_left_tiny",
     "decofinright": "svc_long_fin_right_tiny"
   },
@@ -76,6 +78,24 @@
       "arc": 30,
       "angle": -0,
       "locations": [5.5, 9.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": 0,
+      "locations": [1, -11]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 30,
+      "angle": -0,
+      "locations": [1, 11]
     }
   ],
   "engineSlots": [
