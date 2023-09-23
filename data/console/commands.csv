@@ -1,0 +1,3 @@
+command,class,tags,syntax,help
+svc_spawn_voidlings,tecrys.svc.console.SpawnVoidlings,"campaign",svc_spawn_voidlings,"Spawn a voidling fleet directly next to the player fleet. Might occasionally fail. Wait a bit and try again."
+svc_trigger_notification,tecrys.svc.console.TriggerNotification,"campaign",svc_trigger_notification <id>,"Used for testing. Show a notification screen. Available ids: voidlings_defeated magic_bounty_defeated whales_protected whales_dead"

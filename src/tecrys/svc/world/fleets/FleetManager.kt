@@ -28,8 +28,8 @@ class FleetManager : EveryFrameScript {
         val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
-        fun spawnSvcFleetNowAtPlayer(){
-            FleetManager().spawnSvcFleet(Global.getSector().playerFleet)
+        fun spawnSvcFleetNowAtPlayer(): Boolean{
+            return FleetManager().spawnSvcFleet(Global.getSector().playerFleet, true)
         }
     }
 
@@ -60,10 +60,10 @@ class FleetManager : EveryFrameScript {
     /**
      * @return true if fleet was successfully spawned
      */
-    private fun spawnSvcFleet(location: SectorEntityToken? = null): Boolean {
+    private fun spawnSvcFleet(location: SectorEntityToken? = null, forceSpawn: Boolean = false): Boolean {
         val params = FleetSpawnParameterCalculator(svcSettings)
         val loc = location ?: spawner.getRandomSpawnableLocation(SVC_FACTION_ID)
-        val fleet = spawner.spawnFactionFleetIfPossible(SVC_FACTION_ID, params, loc)
+        val fleet = spawner.spawnFactionFleetIfPossible(SVC_FACTION_ID, params, loc, forceSpawn)
         params.logParameters()
         fleet?.let {
             it.addEventListener(SvcFleetListener)
