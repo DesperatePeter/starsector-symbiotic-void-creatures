@@ -30,6 +30,9 @@ class BGECarapace : BaseHullMod() {
             "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface", "svc_stjarwhal_hm",  "carrier_regroup")
         private val ALLOWED_HULLMODS_BY_PREFIX = setOf("automated", "sun", "ehm", )
     }
+
+    private val erraticPropulsion = ErraticPropulsion()
+
     override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.variant?.let {
             removeIncompatibleHullmods(it)
@@ -72,6 +75,7 @@ class BGECarapace : BaseHullMod() {
         modifyPowerLevel(ship)
         hideControlCollarIfNotPlayer(ship)
         ship.captain?.setPersonality("reckless")
+        erraticPropulsion.advanceInCombat(ship, amount)
     }
     private fun modifyPowerLevel(ship: ShipAPI) {
         ship.mutableStats?.run {
