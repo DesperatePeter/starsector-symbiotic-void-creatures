@@ -10,6 +10,8 @@ import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
 import tecrys.svc.*
+import tecrys.svc.listeners.SvcFleetListener
+import tecrys.svc.listeners.WhaleFleetListener
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.utils.attackFleet
 import tecrys.svc.utils.makeAlwaysHostile
