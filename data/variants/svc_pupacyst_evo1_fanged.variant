@@ -1,0 +1,50 @@
+{
+  "variantId": "svc_pupacyst_evo1_fanged",
+  "hullId": "svc_pupacyst_evo1",
+  "displayName": "Fanged",
+  "goalVariant": false,
+  "fluxCapacitors": 13,
+  "fluxVents": 13,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "svc_fangcluster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_lrg_mand": "svc_lrg_mand_r",
+        "left_sml_mand": "svc_sml_mand_r",
+        "right_lrg_mand": "svc_lrg_mand_r",
+        "right_sml_mand": "svc_sml_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_sml_pd": "svc_bge_grappler_pd",
+        "right_sml_pd": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    }
+  ],
+  "modules": [],
+  "wings": []
+}

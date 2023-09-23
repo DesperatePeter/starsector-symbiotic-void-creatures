@@ -111,13 +111,17 @@
 	},
 		"shipRoles":{
         "combatSmall" : {
-            "svc_hemalisk_scythed" : 10, "svc_toxocyst_scythed" : 4,
+            "svc_hemalisk_scythed" : 10, "svc_hemalisk_evo1_inkfang" : 4, "svc_hemalisk_evo2_acidfang" : 4,
+			"svc_toxocyst_scythed" : 2, "svc_toxocyst_evo1_spitting" : 4, "svc_toxocyst_evo2_fanged" : 4,
         },
         "combatMedium" : {
-                    "svc_arbiter_scythed" : 10, "svc_embolist_scythed" : 10, "svc_pupacyst_scythed" : 10,
+                    "svc_arbiter_scythed" : 10, "svc_arbiter_evo1_spitting" : 4, "svc_arbiter_evo2_acidfang" : 4,
+					"svc_embolist_scythed" : 10, "svc_embolist_evo1_acidfang" : 4, "svc_embolist_evo2_spitting" : 4,
+					"svc_pupacyst_scythed" : 10, "svc_pupacyst_evo1_fanged" : 4, "svc_pupacyst_evo2_spitting" : 4,
                 },
         "combatLarge" : {
-                             "svc_lephantis_scythed" : 10, "svc_keratinos_scythed" : 10,
+                             "svc_lephantis_scythed" : 10, "svc_lephantis_evo1_acidfang" : 4,
+							 "svc_keratinos_scythed" : 10, "svc_keratinos_evo1_acidclaw" : 4, "svc_keratinos_evo2_acidfang" : 4,
                          },
 		#Elites:				 
 						 

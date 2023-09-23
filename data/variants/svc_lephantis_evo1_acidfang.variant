@@ -1,0 +1,75 @@
+{
+  "variantId": "svc_lephantis_evo1_acidfang",
+  "hullId": "svc_lephantis_evo1",
+  "displayName": "Acidfang",
+  "goalVariant": false,
+  "fluxCapacitors": 30,
+  "fluxVents": 30,
+  "quality": 0,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0001": "svc_fangcluster",
+        "WS0002": "svc_fangcluster",
+        "WS0003": "svc_fangcluster",
+        "WS0004": "svc_fangcluster",
+        "WS0005": "svc_acidthrower",
+        "WS0006": "svc_acidthrower",
+        "lrg_out_kin_left": "svc_inksac",
+        "lrg_out_kin_right": "svc_inksac"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mand_left": "svc_lrg_mand_r",
+        "lrg_mand_right": "svc_lrg_mand_r",
+        "sml_mand_left": "svc_sml_mand_r",
+        "sml_mand_right": "svc_sml_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mdl_kin_left": "svc_lrg_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_mdl_kin_right": "svc_lrg_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_grappler": "svc_bge_grappler_pd",
+        "pd_in_left": "svc_bge_grappler_pd",
+        "pd_in_right": "svc_bge_grappler_pd",
+        "pd_out_left": "svc_bge_grappler_pd",
+        "pd_out_right": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": []
+}
