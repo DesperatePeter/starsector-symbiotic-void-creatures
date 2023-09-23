@@ -19,6 +19,7 @@ const val WHALES_ORIGINAL_STRENGTH_KEY = "\$svc_whales_original_strength"
 const val WHALE_OIL_ITEM_ID = "svc_whale_oil"
 const val WHALE_REPUTATION_MIN = 50f
 const val WHALE_HULLMOD_ID = "svc_stjarwhal_hm"
+const val VOID_CHITIN_ID = "svc_void_chitin"
 
 val BIOLOGICAL_HULL_TAGS = listOf(SVC_VARIANT_TAG, WHALE_VARIANT_TAG)
 

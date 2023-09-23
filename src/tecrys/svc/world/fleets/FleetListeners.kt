@@ -9,6 +9,7 @@ import com.fs.starfarer.api.campaign.listeners.ShowLootListener
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.SVC_FLEET_DEFEATED_MEM_KEY
+import tecrys.svc.VOID_CHITIN_ID
 import tecrys.svc.WHALES_ENCOUNTER_MEM_KEY
 import tecrys.svc.world.notifications.NotificationShower
 
@@ -50,7 +51,7 @@ object SvcCargoListener: ShowLootListener{
         if(fleet.faction.id != SVC_FACTION_ID) return
         loot?.run {
             val n = getCommodityQuantity("metals")
-            addCommodity("svc_void_chitin", Math.random().toFloat() * n)
+            addSpecial(SpecialItemData(VOID_CHITIN_ID, VOID_CHITIN_ID), Math.random().toFloat() * n)
             addCommodity("organics", n)
             removeCommodity("metals", n)
             removeCommodity("heavy_machinery", getCommodityQuantity("heavy_machinery"))
