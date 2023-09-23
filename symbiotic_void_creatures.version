@@ -2,11 +2,11 @@
 {
     "masterVersionFile":"https://raw.githubusercontent.com/DesperatePeter/starsector-symbiotic-void-creatures/main/symbiotic_void_creatures.version",
     "modName":"SymbioticVoidCreatures",
-    "modThreadId":FIXME,
+    "modThreadId":28010,
     "modVersion":
     {
         "major":0,
-        "minor":1,
-        "patch":2
+        "minor":2,
+        "patch":0
     }
 }
