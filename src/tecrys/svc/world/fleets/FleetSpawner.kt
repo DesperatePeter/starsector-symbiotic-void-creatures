@@ -27,11 +27,12 @@ class FleetSpawner {
     fun spawnFactionFleetIfPossible(
         faction: String,
         params: FleetSpawnParameterCalculator,
-        location: SectorEntityToken?
+        location: SectorEntityToken?,
+        forceSpawn: Boolean = false
     ): CampaignFleetAPI? {
         val numFleets = countFactionFleets(faction)
 
-        if (numFleets >= params.maxFleetCount) return null
+        if (numFleets >= params.maxFleetCount && !forceSpawn) return null
         val loc = location ?: return null
 
         val fleet = createFactionFleet(faction, params)

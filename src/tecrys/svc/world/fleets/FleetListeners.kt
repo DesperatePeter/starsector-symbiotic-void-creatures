@@ -6,10 +6,10 @@ import com.fs.starfarer.api.campaign.listeners.CargoGainedListener
 import com.fs.starfarer.api.campaign.listeners.CargoScreenListener
 import com.fs.starfarer.api.campaign.listeners.FleetEventListener
 import com.fs.starfarer.api.campaign.listeners.ShowLootListener
+import com.fs.starfarer.api.impl.campaign.DerelictShipEntityPlugin
+import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.SalvageEntity
 import com.fs.starfarer.api.ui.TooltipMakerAPI
-import tecrys.svc.SVC_FACTION_ID
-import tecrys.svc.SVC_FLEET_DEFEATED_MEM_KEY
-import tecrys.svc.WHALES_ENCOUNTER_MEM_KEY
+import tecrys.svc.*
 import tecrys.svc.world.notifications.NotificationShower
 
 object SvcFleetListener : FleetEventListener {
@@ -46,14 +46,17 @@ object WhaleFleetListener: FleetEventListener {
 
 object SvcCargoListener: ShowLootListener{
     override fun reportAboutToShowLootToPlayer(loot: CargoAPI?, dialog: InteractionDialogAPI?) {
-        val fleet = dialog?.interactionTarget as? CampaignFleetAPI ?: return
-        if(fleet.faction.id != SVC_FACTION_ID) return
-        loot?.run {
-            val n = getCommodityQuantity("metals")
-            addCommodity("svc_void_chitin", Math.random().toFloat() * n)
-            addCommodity("organics", n)
-            removeCommodity("metals", n)
-            removeCommodity("heavy_machinery", getCommodityQuantity("heavy_machinery"))
+        val fleet = dialog?.interactionTarget as? CampaignFleetAPI
+        val hullVar = ((dialog?.interactionTarget as? CustomCampaignEntityAPI)?.customPlugin as? DerelictShipEntityPlugin)?.data?.ship?.getVariant()?.hullVariantId
+        if(fleet?.faction?.id == SVC_FACTION_ID || fleet?.faction?.id == VWL_FACTION_ID  || hullVar?.startsWith("svc_") == true){
+            loot?.run {
+                val n = getCommodityQuantity("metals")
+                addSpecial(SpecialItemData(VOID_CHITIN_ID, VOID_CHITIN_ID), Math.random().toFloat() * n)
+                addCommodity("organics", n)
+                removeCommodity("metals", n)
+                removeCommodity("heavy_machinery", getCommodityQuantity("heavy_machinery"))
+            }
         }
+
     }
 }
