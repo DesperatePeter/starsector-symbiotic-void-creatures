@@ -24,7 +24,6 @@
     "Arbiter": "svc_arbiter",
     "WS0001": "svc_acidthrower",
     "eyes": "svc_koenig_eyes",
-    "left_grappler": "svc_bge_grappler",
     "left_grappler2": "svc_bge_grappler_pd",
     "left_grappler3": "svc_bge_grappler_pd",
     "left_long_fin": "svc_long_fin_right2",
@@ -33,7 +32,6 @@
     "left_sml_fin": "svc_long_fin_right_sml",
     "left_sml_mand": "svc_sml_mand_r",
     "left_sml_pd": "svc_bge_grappler_pd",
-    "right_grappler": "svc_bge_grappler",
     "right_grappler2": "svc_bge_grappler_pd",
     "right_grappler3": "svc_bge_grappler_pd",
     "right_long_fin": "svc_long_fin_right2",
@@ -80,24 +78,6 @@
       "arc": 43.997917,
       "angle": 0,
       "locations": [94, 19]
-    },
-    {
-      "id": "right_grappler",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 40.564999,
-      "angle": -0,
-      "locations": [76, -32]
-    },
-    {
-      "id": "left_grappler",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 40.564999,
-      "angle": 0,
-      "locations": [76, 32]
     },
     {
       "id": "right_sml_pd",

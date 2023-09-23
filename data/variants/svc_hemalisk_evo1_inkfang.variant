@@ -13,8 +13,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_grappler": "svc_bge_grappler",
-        "right_grappler": "svc_bge_grappler"
+        "left_med_uni2": "svc_fangcluster",
+        "right_med_uni2": "svc_fangcluster"
       }
     },
     {
@@ -43,16 +43,12 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "left_med_uni2": "svc_fangcluster"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "right_med_uni2": "svc_fangcluster"
-      }
+      "weapons": {}
     },
     {
       "autofire": true,

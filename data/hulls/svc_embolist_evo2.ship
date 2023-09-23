@@ -20,7 +20,6 @@
     "eyes": "svc_koenig_eyes",
     "left_fin": "svc_trans_fin_left_sml",
     "left_fin2": "svc_trans_fin_left_sml2",
-    "left_grappler": "svc_bge_grappler",
     "left_long_fin": "svc_long_fin_right_sml",
     "left_mand1": "svc_sml_mand_r",
     "left_mand2": "svc_sml_mand_r",
@@ -28,7 +27,6 @@
     "left_pd": "svc_bge_grappler_pd",
     "right_fin": "svc_trans_fin_right_sml",
     "right_fin2": "svc_trans_fin_right_sml2",
-    "right_grappler": "svc_bge_grappler",
     "right_long_fin": "svc_long_fin_right_sml",
     "right_mand1": "svc_sml_mand_r",
     "right_mand2": "svc_sml_mand_r",
@@ -120,24 +118,6 @@
       "angle": 0,
       "locations": [53, -0.5],
       "renderOrderMod": 2
-    },
-    {
-      "id": "right_grappler",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 90,
-      "angle": -1.548,
-      "locations": [9, -6]
-    },
-    {
-      "id": "left_grappler",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 90,
-      "angle": 1.548,
-      "locations": [9, 6]
     },
     {
       "id": "right_fin",
