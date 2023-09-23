@@ -125,6 +125,7 @@ class BGECarapace : BaseHullMod() {
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
         return when(index){
             0 -> "${HULL_RESISTANCE.toInt()}%"
+            1 -> "Neural Interface"
             else -> null
         }
     }
