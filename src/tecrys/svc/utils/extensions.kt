@@ -49,7 +49,7 @@ fun ShipVariantAPI.removeDMods(){
         }
     }
     // basically copy-paste from hull restoration script
-    if(variant.isDHull){
+     if(variant.isDHull || variant.hullSpec.isDHull || variant.displayName.contains("(D)")){
         var base = variant.hullSpec.dParentHull
         if(!variant.hullSpec.isDefaultDHull && !variant.hullSpec.isRestoreToBase){
             base = variant.hullSpec
