@@ -4,7 +4,7 @@ import com.fs.starfarer.api.combat.ShipAPI
 
 class ReverseGreiferEffect: GreiferEffectBase() {
     companion object{
-        const val FORCE = 1000f
+        const val FORCE = 35000f
     }
 
     override fun shouldAffectFighters(): Boolean = true
@@ -17,5 +17,5 @@ class ReverseGreiferEffect: GreiferEffectBase() {
 
     override fun pullEnemyShips(): Boolean = true
 
-    override fun useRubberBandForce(): Boolean = true
+    override fun useRubberBandForce(): Boolean = false
 }

@@ -1,0 +1,95 @@
+{
+  "hullName": "Scoliac",
+  "hullId": "svc_scoliac",
+  "hullSize": "CRUISER",
+  "spriteName": "graphics/ships/Scoliac.png",
+  "style": "BIOLOGICAL",
+  "height": 113,
+  "width": 214,
+  "center": [107, 41],
+  "collisionRadius": 81,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 80.5,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace",
+    "svc_alpha_voidling",
+    "vastbulk",
+    "shared_flux_sink"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_adv_med_scythe_r",
+    "WS0002": "svc_adv_med_scythe_r",
+    "WS0003": "svc_adv_med_scythe_r",
+    "WS0004": "svc_adv_med_scythe_r",
+    "WS0005": "svc_scoliac_deco"
+  },
+  "weaponSlots": [
+    {
+      "id": "TailModule",
+      "size": "MEDIUM",
+      "type": "STATION_MODULE",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [1.5, -0]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -10,
+      "locations": [41.5, 27.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 10,
+      "locations": [41.5, -27.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 29.5,
+      "locations": [53, -16.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -29.5,
+      "locations": [53, 16.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 30,
+      "angle": 0,
+      "locations": [15.5, -0],
+      "renderOrderMod": 30
+    }
+  ],
+  "engineSlots": [],
+  "bounds": [
+    -38, 65,
+    5, 69.5,
+    70, 18.5,
+    118, 5.5,
+    118, -5.5,
+    70, -18.5,
+    5, -69.5,
+    -38, -65
+  ]
+}
