@@ -8,12 +8,13 @@ import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import tecrys.svc.utils.orientTowards
+import kotlin.math.abs
+import kotlin.math.min
 
 class ScoliacModuleTurner: BaseHullMod() {
 
     companion object{
         const val TARGETING_RANGE = 800f
-        const val TURN_RATE_DEG_PER_SEC = 120f
     }
 
 
@@ -21,7 +22,7 @@ class ScoliacModuleTurner: BaseHullMod() {
         ship ?: return
         if(!ship.isAlive) return
         val module = getModule(ship) ?: return
-        val maxDelta = TURN_RATE_DEG_PER_SEC * amount
+        val maxDelta = module.maxTurnRate * amount
         selectTarget(ship)?.let { tgt ->
             module.orientTowards(Misc.getAngleInDegrees(tgt.location, module.location), maxDelta)
         } ?: run {
