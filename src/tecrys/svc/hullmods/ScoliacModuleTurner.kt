@@ -19,7 +19,7 @@ class ScoliacModuleTurner: BaseHullMod() {
         const val TARGETING_RANGE = 1500f
         const val BASE_WOBBLE_RATE = 0.8f // in rad/s
         const val WOBBLE_RATE_VELOCITY_SCALING = 1.5f / 100f
-        const val BASE_WOBBLE_MAGNITUDE = 2
+        const val BASE_WOBBLE_MAGNITUDE = 2f
         const val WOBBLE_MAGNITUDE_VELOCITY_SCALING = 1f / 100f
     }
 
