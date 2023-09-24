@@ -14,7 +14,6 @@
   "builtInMods": [
     "BGECarapace",
     "svc_alpha_voidling",
-    "vastbulk",
     "shared_flux_sink",
     "svc_scoliac_tail_turner"
   ],
@@ -23,7 +22,8 @@
     "WS0002": "svc_adv_med_scythe_r",
     "WS0003": "svc_adv_med_scythe_r",
     "WS0004": "svc_adv_med_scythe_r",
-    "WS0005": "svc_scoliac_deco"
+    "WS0006": "svc_fangcluster",
+    "WS0007": "svc_fangcluster"
   },
   "weaponSlots": [
     {
@@ -41,8 +41,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 60,
-      "angle": -10,
-      "locations": [41.5, 27.5]
+      "angle": -26.5,
+      "locations": [22.5, 33.5]
     },
     {
       "id": "WS0002",
@@ -50,8 +50,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 60,
-      "angle": 10,
-      "locations": [41.5, -27.5]
+      "angle": 26.5,
+      "locations": [22.5, -33.5]
     },
     {
       "id": "WS0003",
@@ -59,8 +59,9 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 60,
-      "angle": 29.5,
-      "locations": [53, -16.5]
+      "angle": 35.5,
+      "locations": [32.5, -23],
+      "renderOrderMod": 10
     },
     {
       "id": "WS0004",
@@ -68,8 +69,9 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 60,
-      "angle": -29.5,
-      "locations": [53, 16.5]
+      "angle": -35.5,
+      "locations": [32.5, 23],
+      "renderOrderMod": 10
     },
     {
       "id": "WS0005",
@@ -80,9 +82,82 @@
       "angle": 0,
       "locations": [15.5, -0],
       "renderOrderMod": 30
+    },
+    {
+      "id": "WS0006",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 4,
+      "locations": [0, -38]
+    },
+    {
+      "id": "WS0007",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -4,
+      "locations": [0, 38]
     }
   ],
-  "engineSlots": [],
+  "engineSlots": [
+    {
+      "location": [-10.5, -59],
+      "length": 8.5,
+      "width": 8,
+      "angle": -152,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-10.5, 59],
+      "length": 8.5,
+      "width": 8,
+      "angle": 152,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-18.5, -48.5],
+      "length": 8.5,
+      "width": 8,
+      "angle": -157,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-18.5, 48.5],
+      "length": 8.5,
+      "width": 8,
+      "angle": 157,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-30.5, -35.5],
+      "length": 8.5,
+      "width": 8,
+      "angle": -169.5,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-30.5, 35.5],
+      "length": 8.5,
+      "width": 8,
+      "angle": 169.5,
+      "contrailSize": 8,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
   "bounds": [
     -38, 65,
     5, 69.5,

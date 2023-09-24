@@ -25,6 +25,9 @@ public class BaseAnimateOnFireEffectMirror extends tecrys.svc.weapons.BaseAnimat
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
         super.advance(amount, engine, weapon);
+        if (weapon.getAnimation() == null) {
+            return;
+        }
         int frame = weapon.getAnimation().getFrame();
         if(frame != lastFrame && !mirroredFrames.contains(frame)){
             mirrorIfNecessary(weapon);

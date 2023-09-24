@@ -8,8 +8,30 @@
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
-  "weaponGroups": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "svc_fangcluster",
+        "WS0007": "svc_fangcluster"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "svc_adv_med_scythe_r",
+        "WS0002": "svc_adv_med_scythe_r",
+        "WS0003": "svc_adv_med_scythe_r",
+        "WS0004": "svc_adv_med_scythe_r"
+      }
+    }
+  ],
   "modules": [
-  		{"TailModule": "svc_scoliac_tail_standard"},],
+    {
+      "TailModule": "svc_scoliac_tail_standard"
+    }
+  ],
   "wings": []
 }
