@@ -26,16 +26,27 @@ class FleetManager : EveryFrameScript {
         const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1500f
         const val WHALE_SPAWN_BASE_INTERVAL = 40f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
-        val MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES = Global.getSettings().getInt("sectorWidth") * 0.15f
+        const val HUNTER_FLEET_DISTANCE = 3000f
+        val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
         fun spawnSvcFleetNowAtPlayer(): Boolean{
             return FleetManager().spawnSvcFleet(Global.getSector().playerFleet, true)
         }
+        fun tryToSpawnHunterFleet(): Boolean{
+            return FleetManager().spawnHunterFleet()
+        }
+        fun currentSpawnChance(): Float {
+            val playerFleet = Global.getSector().playerFleet ?: return 0f
+            if (!playerFleet.isInHyperspace) return 0f
+            val distFromCenter = playerFleet.locationInHyperspace.length()
+            return (distFromCenter - MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS) / DIST_FROM_CENTER_SPAWN_CHANCE_SCALING
+        }
     }
 
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
+    private val hunterSpawnInterval = IntervalUtil(50f, 100f)
     private val whaleSpawnInterval = IntervalUtil(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
         2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
     override fun isDone(): Boolean = false
@@ -47,6 +58,7 @@ class FleetManager : EveryFrameScript {
         if (!DefeatedMagicBountyDialog.shouldSpawnVoidlings) return
         svcSpawnInterval.advance(amount)
         whaleSpawnInterval.advance(amount)
+        hunterSpawnInterval.advance(amount)
         if (svcSpawnInterval.intervalElapsed()){
             while (spawnSvcFleet() && Global.getSettings().isDevMode) {
                 Global.getLogger(this.javaClass).info("Spawned SVC fleet")
@@ -56,6 +68,9 @@ class FleetManager : EveryFrameScript {
             spawnWhaleFleet()
             whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
+        }
+        if(hunterSpawnInterval.intervalElapsed()){
+            spawnHunterFleet()
         }
     }
 
@@ -77,6 +92,39 @@ class FleetManager : EveryFrameScript {
         return false
     }
 
+    private fun spawnHunterFleet(): Boolean {
+        val possibleHunters = hunterFleetsToSpawn.toList()
+        if(possibleHunters.isEmpty()) return false
+        val playerFleet = Global.getSector().playerFleet ?: return false
+        if(!shouldSpawnBasedOnLocation()) return false
+
+        val svcParams = FleetSpawnParameterCalculator(svcSettings)
+        possibleHunters.forEach {
+            val hunterConfig = it.second
+            if(svcParams.spawnPower >= hunterConfig.minSpawnPower){
+                val hunterFleet = spawner.createFactionFleet(
+                    SVC_FACTION_ID, svcParams,
+                    hunterConfig.name, hunterConfig.rolesQuantity, hunterConfig.minDP)
+
+                hunterFleet?.run {
+                    hunterFleetsToSpawn.remove(hunterConfig.id)
+                    addEventListener(SvcFleetListener)
+
+                    playerFleet.containingLocation.addEntity(this)
+                    var loc = playerFleet.locationInHyperspace
+                    loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE, 2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE)
+                    setLocation(loc.x, loc.y)
+
+                    makeHostile()
+                    makeAlwaysHostile()
+                    attackFleet(playerFleet)
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
     /**
      * @return true if fleet was successfully spawned
      */
@@ -85,17 +133,14 @@ class FleetManager : EveryFrameScript {
         if(countFactionFleets(VWL_FACTION_ID) >= whaleParams.maxFleetCount) return false
         val svcParams = FleetSpawnParameterCalculator(svcSettings)
         val playerFleet = Global.getSector().playerFleet ?: return false
-        if (!playerFleet.isInHyperspace) return false
-        val distFromCenter = playerFleet.locationInHyperspace.length()
-        val rng = Math.random() + (distFromCenter - MIN_DIST_FROM_CENTER_TO_SPAWN_WHALES) / DIST_FROM_CENTER_SPAWN_CHANCE_SCALING
-        if(rng < 1f) return false
+        if(!shouldSpawnBasedOnLocation()) return false
         val whales = spawner.createFactionFleet(VWL_FACTION_ID, whaleParams) ?: return false
         val voidlings = spawner.createFactionFleet(SVC_FACTION_ID, svcParams) ?: return false
         playerFleet.containingLocation?.addEntity(whales)
         playerFleet.containingLocation?.addEntity(voidlings)
         var loc = playerFleet.locationInHyperspace
         loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST, 2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST)
-        var offset = Vector2f(playerFleet.velocity.x, playerFleet.velocity.y)
+        val offset = Vector2f(playerFleet.velocity.x, playerFleet.velocity.y)
         offset.normalise()
         offset.scale(WHALE_PLAYER_FLEET_DIRECTION_DIST)
         loc += offset
@@ -116,6 +161,8 @@ class FleetManager : EveryFrameScript {
         return true
     }
 
-
+    private fun shouldSpawnBasedOnLocation(): Boolean{
+        return Math.random() + currentSpawnChance() > 1f
+    }
 
 }

@@ -2,11 +2,14 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.Global
 import org.lazywizard.lazylib.MathUtils
+import tecrys.svc.SVC_MOD_ID
+import tecrys.svc.utils.CampaignSettingDelegate
 import kotlin.math.min
 
 class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) {
     companion object {
         private const val CYCLE_ZERO = 206
+        var extraSpawnPower: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "extraSpawnPower", 0f)
     }
 
     private val combatRoleScaling = s.combatRoleFinalWeights.mapValues {
@@ -20,10 +23,12 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
         get() = Global.getSector()?.playerFleet?.effectiveStrength ?: 0f
     private val campaignCyclesElapsed: Float
         get() = Global.getSector()?.clock?.cycle?.minus(CYCLE_ZERO)?.toFloat() ?: 0f
-    private val spawnPower: Float
+    val spawnPower: Float
         get() {
             return min(
-                s.flatSpawnPower + playerFleetStrength * s.spawnPowerScalingByPlayerStrength + campaignCyclesElapsed * s.spawnPowerScalingByCycles,
+                s.flatSpawnPower + playerFleetStrength * s.spawnPowerScalingByPlayerStrength
+                        + campaignCyclesElapsed * s.spawnPowerScalingByCycles
+                        + extraSpawnPower,
                 s.maxSpawnPower
             )
         }

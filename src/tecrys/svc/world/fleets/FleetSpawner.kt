@@ -28,14 +28,17 @@ class FleetSpawner {
         faction: String,
         params: FleetSpawnParameterCalculator,
         location: SectorEntityToken?,
-        forceSpawn: Boolean = false
+        forceSpawn: Boolean = false,
+        name: String? = null,
+        guaranteedRolesWithQuantity: Map<String, Int>? = null,
+        overrideDp: Float? = null
     ): CampaignFleetAPI? {
         val numFleets = countFactionFleets(faction)
 
         if (numFleets >= params.maxFleetCount && !forceSpawn) return null
         val loc = location ?: return null
 
-        val fleet = createFactionFleet(faction, params)
+        val fleet = createFactionFleet(faction, params, name, guaranteedRolesWithQuantity, overrideDp)
         if (fleet == null) {
             Global.getLogger(this.javaClass).log(Level.ERROR, "Tried to spawn fleet but newly created fleet was null")
             return null
@@ -65,7 +68,9 @@ class FleetSpawner {
     fun createFactionFleet(
         factionId: String,
         params: FleetSpawnParameterCalculator,
-        name: String? = null
+        name: String? = null,
+        guaranteedRolesWithQuantity: Map<String, Int>? = null,
+        overrideDp: Float? = null
     ): CampaignFleetAPI? {
         val faction = Global.getSector().getFaction(factionId)
         if (faction == null) {
@@ -75,8 +80,13 @@ class FleetSpawner {
         val n = name ?: Global.getSector().getFaction(factionId)?.pickRandomShipName() ?: "unknown"
         val fleet = Global.getFactory().createEmptyFleet(factionId, n, true)
 
-
-        while (fleet.fleetPoints < params.fleetSize.toInt()) {
+        guaranteedRolesWithQuantity?.forEach { roleAndQuantity ->
+            for(i in 0 until roleAndQuantity.value){
+                faction.pickShipAndAddToFleet(roleAndQuantity.key, FactionAPI.ShipPickParams(), fleet)
+            }
+        }
+        val targetDp = overrideDp?.toInt() ?: params.fleetSize.toInt()
+        while (fleet.fleetPoints < targetDp) {
             val role = params.combatRole
             if (faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f) {
                 Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet pick null")
