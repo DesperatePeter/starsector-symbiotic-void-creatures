@@ -6,19 +6,20 @@
   "style": "BIOLOGICAL",
   "height": 120,
   "width": 54,
-  "center": [27, 60],
-  "collisionRadius": 60.5,
-  "shieldCenter": [0, 0],
-  "shieldRadius": 60.5,
+  "center": [27, 20.5],
+  "collisionRadius": 36,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 38.5,
   "viewOffset": 0,
   "moduleAnchor": [
-    -47,
+    0,
     0
   ],
   "builtInMods": [
     "BGECarapace",
     "svc_alpha_voidling",
-    "shared_flux_sink"
+    "shared_flux_sink",
+    "always_detaches"
   ],
   "builtInWeapons": {
     "WS0001": "svc_tentacle_right_medium",
@@ -28,7 +29,13 @@
     "WS0005": "svc_tentacle_left_medium_dark",
     "WS0006": "svc_tentacle_right_medium_dark",
     "WS0007": "svc_scoliactaildeco",
-    "WS0008": "svc_bge_grappler_reverse"
+    "WS0008": "svc_bge_grappler_reverse",
+    "WS0009": "svc_adv_sml_mand_r",
+    "WS0010": "svc_adv_sml_mand_r",
+    "WS0011": "svc_adv_sml_mand_r",
+    "WS0012": "svc_adv_sml_mand_r",
+    "WS0013": "svc_adv_lrg_scythe_r",
+    "WS0014": "svc_adv_lrg_scythe_r"
   },
   "weaponSlots": [
     {
@@ -37,8 +44,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": -15.5,
-      "locations": [40, -19]
+      "angle": 2.5,
+      "locations": [83, -14.5]
     },
     {
       "id": "WS0002",
@@ -46,8 +53,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 15.5,
-      "locations": [40, 19]
+      "angle": -2.5,
+      "locations": [83, 14.5]
     },
     {
       "id": "WS0003",
@@ -55,8 +62,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 13,
-      "locations": [47, -10]
+      "angle": 31.5,
+      "locations": [88.5, -10]
     },
     {
       "id": "WS0004",
@@ -64,8 +71,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": -13,
-      "locations": [47, 10]
+      "angle": -31.5,
+      "locations": [88.5, 10]
     },
     {
       "id": "WS0005",
@@ -73,8 +80,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 21.5,
-      "locations": [45, -4]
+      "angle": 28,
+      "locations": [86, -4]
     },
     {
       "id": "WS0006",
@@ -82,8 +89,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": -21.5,
-      "locations": [45, 4]
+      "angle": -28,
+      "locations": [86, 4]
     },
     {
       "id": "WS0007",
@@ -92,7 +99,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [-30, -0],
+      "locations": [9.5, -0],
       "renderOrderMod": 20
     },
     {
@@ -102,18 +109,72 @@
       "mount": "HIDDEN",
       "arc": 0,
       "angle": 0,
-      "locations": [30.5, -0]
+      "locations": [70, -0]
+    },
+    {
+      "id": "WS0009",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 16,
+      "angle": -5,
+      "locations": [69, -10.5],
+      "renderOrderMod": 30
+    },
+    {
+      "id": "WS0010",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 16,
+      "angle": 5,
+      "locations": [69, 10.5],
+      "renderOrderMod": 30
+    },
+    {
+      "id": "WS0011",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 16,
+      "angle": 7,
+      "locations": [75.5, -8.5]
+    },
+    {
+      "id": "WS0012",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 16,
+      "angle": -7,
+      "locations": [75.5, 8.5]
+    },
+    {
+      "id": "WS0013",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 16,
+      "angle": -5,
+      "locations": [68.5, -6]
+    },
+    {
+      "id": "WS0014",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 16,
+      "angle": 5,
+      "locations": [68.5, 6]
     }
   ],
   "engineSlots": [],
   "bounds": [
-    -56, 3,
-    -8, 24,
-    31.5, 24.5,
-    47, 15.5,
-    47, -15.5,
-    31.5, -24.5,
-    -8, -24,
-    -56, -3
+    -16.5, 3,
+    31.5, 24,
+    71, 24.5,
+    71, -24.5,
+    31.5, -24,
+    -16.5, -3
   ]
 }

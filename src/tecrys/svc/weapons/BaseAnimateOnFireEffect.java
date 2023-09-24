@@ -4,6 +4,7 @@ import com.fs.starfarer.api.AnimationAPI;
 import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.EveryFrameWeaponEffectPlugin;
 import com.fs.starfarer.api.combat.WeaponAPI;
+import com.thoughtworks.xstream.mapper.Mapper;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +39,7 @@ public class BaseAnimateOnFireEffect implements EveryFrameWeaponEffectPlugin {
 
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
-        if (engine.isPaused()) {
+        if (engine.isPaused() || weapon.getAnimation() == null) {
             return;
         }
 
