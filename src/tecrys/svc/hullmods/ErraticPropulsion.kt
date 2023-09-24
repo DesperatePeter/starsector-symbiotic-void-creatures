@@ -11,6 +11,7 @@ class ErraticPropulsion: BaseHullMod() {
         const val INTERVAL_MIN = 1.5f
         const val INTERVAL_MAX = 4.5f
         const val BUFF_ID = "svc_erratic_propulsion"
+        const val EXCLUSION_TAG = "no_burst_of_speed"
         val addedSpeedBuffByRoll = mapOf(
             0.2f to 0.25f, // when roll below 0.2f, add 0.25f
             0.1f to 0.15f, // when roll below 0.1f, add additional 0.15f for total of 0.4f
@@ -24,7 +25,8 @@ class ErraticPropulsion: BaseHullMod() {
     override fun advanceInCombat(ship: ShipAPI?, amount: Float) {
         super.advanceInCombat(ship, amount)
         ship ?: return
-        if(ship.engineController.isDisabled || !ship.isAlive) return
+        if(ship.engineController?.isDisabled == true || !ship.isAlive) return
+        if(ship.hullSpec.hasTag(EXCLUSION_TAG)) return
         if(!timerByShip.contains(ship.id)) timerByShip[ship.id] = IntervalUtil(INTERVAL_MIN, INTERVAL_MAX)
         val timer = timerByShip[ship.id] ?: return
         timer.advance(amount)
