@@ -16,4 +16,6 @@ class ReverseGreiferEffect: GreiferEffectBase() {
     override fun computeForceAgainstShip(target: ShipAPI, source: ShipAPI): Float = FORCE / target.mass
 
     override fun pullEnemyShips(): Boolean = true
+
+    override fun useRubberBandForce(): Boolean = true
 }
