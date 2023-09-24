@@ -18,8 +18,7 @@
   "builtInMods": [
     "BGECarapace",
     "svc_alpha_voidling",
-    "shared_flux_sink",
-    "svc_scoliac_tail_turner"
+    "shared_flux_sink"
   ],
   "builtInWeapons": {
     "WS0001": "svc_tentacle_right_medium",
