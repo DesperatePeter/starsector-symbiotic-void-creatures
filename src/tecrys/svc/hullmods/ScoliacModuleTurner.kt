@@ -79,8 +79,8 @@ class ScoliacModuleTurner: BaseHullMod() {
         var originalOffset = originalOffsetByModule[module.id] ?: Vector2f()
         originalOffset = Vector2f(originalOffset.x, originalOffset.y).rotate(thisShip.facing -90f)
         var offsetVector = Vector2f(
-            sin(sinArg) * (BASE_WOBBLE_MAGNITUDE + thisShip.velocity.length() * WOBBLE_MAGNITUDE_VELOCITY_SCALING),
-            0f
+            0f,
+            sin(sinArg) * (BASE_WOBBLE_MAGNITUDE + thisShip.velocity.length() * WOBBLE_MAGNITUDE_VELOCITY_SCALING)
         )
         offsetVector = offsetVector.rotate(module.facing - 90f)
         Vector2f.add(thisShip.location + originalOffset, offsetVector, module.location)
