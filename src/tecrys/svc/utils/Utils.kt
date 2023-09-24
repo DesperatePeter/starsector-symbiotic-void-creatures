@@ -3,9 +3,11 @@ package tecrys.svc.utils
 import com.fs.starfarer.api.combat.ArmorGridAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipwideAIFlags
+import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
+import org.magiclib.kotlin.getAngleDiff
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
@@ -44,4 +46,16 @@ fun computeEffectiveArmorAroundIndex(armor: ArmorGridAPI, x: Int, y: Int) : Floa
         }
     }
     return toReturn
+}
+
+fun adjustFacing(currentFacing: Float, targetFacing: Float, maxDelta: Float): Float{
+    var facing = currentFacing
+    val normalizedTargetFacing = Misc.normalizeAngle(targetFacing)
+    if(normalizedTargetFacing.getAngleDiff(facing) < maxDelta){
+        return targetFacing
+    }
+    val otherWayShorter = abs(normalizedTargetFacing - facing) > 180f
+    val positiveDirection = targetFacing > facing
+    facing += maxDelta * otherWayShorter.toFloat() * positiveDirection.toFloat()
+    return facing
 }
