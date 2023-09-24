@@ -33,9 +33,11 @@ class DamageSharingListener(val shipTarget: ShipAPI): DamageTakenModifier {
             else -> 1f
         }
         grid?.run {
-            point?.let {
-                val (x, y) = getCellAtLocation(it)
-                if(computeEffectiveArmorAroundIndex(grid, x, y) > dmgMult * 2f * dmg ) return null
+            point?.let { p ->
+                getCellAtLocation(p)?.let { cell ->
+                    val (x, y) = cell
+                    if(computeEffectiveArmorAroundIndex(grid, x, y) > dmgMult * 2f * dmg ) return null
+                } ?: return null
             }
         }
         damage?.modifier?.modifyMult(MODIFIER_ID, DAMAGE_SHARED_MULT)
