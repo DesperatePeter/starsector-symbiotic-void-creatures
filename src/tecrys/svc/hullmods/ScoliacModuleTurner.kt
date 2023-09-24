@@ -17,10 +17,10 @@ class ScoliacModuleTurner: BaseHullMod() {
 
     companion object{
         const val TARGETING_RANGE = 1500f
-        const val BASE_WOBBLE_RATE = 0.8f // in rad/s
-        const val WOBBLE_RATE_VELOCITY_SCALING = 1.5f / 100f
-        const val BASE_WOBBLE_MAGNITUDE = 2f
-        const val WOBBLE_MAGNITUDE_VELOCITY_SCALING = 1f / 100f
+        const val BASE_WOBBLE_RATE = 2f // in rad/s
+        const val WOBBLE_RATE_VELOCITY_SCALING = 1.5f / 90f
+        const val BASE_WOBBLE_MAGNITUDE = 1.0f
+        const val WOBBLE_MAGNITUDE_VELOCITY_SCALING = 1f / 90f
     }
 
     private val facingByModule = mutableMapOf<String, Float>()
@@ -58,7 +58,7 @@ class ScoliacModuleTurner: BaseHullMod() {
             return it
         }
         return CombatUtils.getShipsWithinRange(thisShip.location, TARGETING_RANGE)?.filter {
-            it.originalOwner != thisShip.originalOwner && it.originalOwner != 100
+            it.originalOwner != thisShip.originalOwner && it.originalOwner != 100 && !it.isHulk
         }?.minByOrNull { (thisShip.location - it.location).lengthSquared() }
     }
 

@@ -3,8 +3,8 @@
   "hullId": "svc_scoliac",
   "displayName": "Grappling",
   "goalVariant": false,
-  "fluxCapacitors": 0,
-  "fluxVents": 0,
+  "fluxCapacitors": 22,
+  "fluxVents": 22,
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
@@ -25,6 +25,16 @@
         "WS0002": "svc_adv_med_scythe_r",
         "WS0003": "svc_adv_med_scythe_r",
         "WS0004": "svc_adv_med_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0014": "svc_adv_sml_mand_r",
+        "WS0015": "svc_adv_sml_mand_r",
+        "WS0016": "svc_adv_sml_mand_r",
+        "WS0017": "svc_adv_sml_mand_r"
       }
     }
   ],

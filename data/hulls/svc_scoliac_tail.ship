@@ -6,10 +6,10 @@
   "style": "BIOLOGICAL",
   "height": 120,
   "width": 54,
-  "center": [27, 20.5],
-  "collisionRadius": 36,
+  "center": [27, 36],
+  "collisionRadius": 53,
   "shieldCenter": [0, -0],
-  "shieldRadius": 38.5,
+  "shieldRadius": 53,
   "viewOffset": 0,
   "moduleAnchor": [
     0,
@@ -18,7 +18,6 @@
   "builtInMods": [
     "BGECarapace",
     "svc_alpha_voidling",
-    "shared_flux_sink",
     "always_detaches"
   ],
   "builtInWeapons": {
@@ -35,7 +34,8 @@
     "WS0011": "svc_adv_sml_mand_r",
     "WS0012": "svc_adv_sml_mand_r",
     "WS0013": "svc_adv_lrg_scythe_r",
-    "WS0014": "svc_adv_lrg_scythe_r"
+    "WS0014": "svc_adv_lrg_scythe_r",
+    "WS0015": "svc_shade_deco"
   },
   "weaponSlots": [
     {
@@ -45,7 +45,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 2.5,
-      "locations": [83, -14.5]
+      "locations": [67.5, -14.5]
     },
     {
       "id": "WS0002",
@@ -54,7 +54,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -2.5,
-      "locations": [83, 14.5]
+      "locations": [67.5, 14.5]
     },
     {
       "id": "WS0003",
@@ -63,7 +63,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 31.5,
-      "locations": [88.5, -10]
+      "locations": [73, -10]
     },
     {
       "id": "WS0004",
@@ -72,7 +72,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -31.5,
-      "locations": [88.5, 10]
+      "locations": [73, 10]
     },
     {
       "id": "WS0005",
@@ -81,7 +81,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 28,
-      "locations": [86, -4]
+      "locations": [70.5, -4]
     },
     {
       "id": "WS0006",
@@ -90,7 +90,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -28,
-      "locations": [86, 4]
+      "locations": [70.5, 4]
     },
     {
       "id": "WS0007",
@@ -99,7 +99,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [9.5, -0],
+      "locations": [-6, -0],
       "renderOrderMod": 20
     },
     {
@@ -109,7 +109,7 @@
       "mount": "HIDDEN",
       "arc": 0,
       "angle": 0,
-      "locations": [70, -0]
+      "locations": [54.5, -0]
     },
     {
       "id": "WS0009",
@@ -118,7 +118,7 @@
       "mount": "HARDPOINT",
       "arc": 16,
       "angle": -5,
-      "locations": [69, -10.5],
+      "locations": [53.5, -10.5],
       "renderOrderMod": 30
     },
     {
@@ -128,7 +128,7 @@
       "mount": "HARDPOINT",
       "arc": 16,
       "angle": 5,
-      "locations": [69, 10.5],
+      "locations": [53.5, 10.5],
       "renderOrderMod": 30
     },
     {
@@ -138,7 +138,7 @@
       "mount": "HARDPOINT",
       "arc": 16,
       "angle": 7,
-      "locations": [75.5, -8.5]
+      "locations": [60, -8.5]
     },
     {
       "id": "WS0012",
@@ -147,7 +147,7 @@
       "mount": "HARDPOINT",
       "arc": 16,
       "angle": -7,
-      "locations": [75.5, 8.5]
+      "locations": [60, 8.5]
     },
     {
       "id": "WS0013",
@@ -156,7 +156,7 @@
       "mount": "HIDDEN",
       "arc": 16,
       "angle": -5,
-      "locations": [68.5, -6]
+      "locations": [52.5, -6]
     },
     {
       "id": "WS0014",
@@ -165,16 +165,26 @@
       "mount": "HIDDEN",
       "arc": 16,
       "angle": 5,
-      "locations": [68.5, 6]
+      "locations": [52.5, 6]
+    },
+    {
+      "id": "WS0015",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 0,
+      "locations": [60.5, 1],
+      "renderOrderMod": 50
     }
   ],
   "engineSlots": [],
   "bounds": [
-    -16.5, 3,
-    31.5, 24,
-    71, 24.5,
-    71, -24.5,
-    31.5, -24,
-    -16.5, -3
+    -12, 10,
+    17, 22.5,
+    47, 19.5,
+    47, -19.5,
+    17, -22.5,
+    -12, -10
   ]
 }
