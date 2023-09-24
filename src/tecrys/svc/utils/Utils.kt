@@ -52,10 +52,10 @@ fun adjustFacing(currentFacing: Float, targetFacing: Float, maxDelta: Float): Fl
     var facing = currentFacing
     val normalizedTargetFacing = Misc.normalizeAngle(targetFacing)
     if(normalizedTargetFacing.getAngleDiff(facing) < maxDelta){
-        return targetFacing
+        return normalizedTargetFacing
     }
-    val otherWayShorter = abs(normalizedTargetFacing - facing) > 180f
-    val positiveDirection = targetFacing > facing
-    facing += maxDelta * otherWayShorter.toFloat() * positiveDirection.toFloat()
-    return facing
+    val otherWayShorter = abs(normalizedTargetFacing - facing) > 180f + 10f // stop deadlock by adding some tolerance
+    val positiveDirection = normalizedTargetFacing > facing
+    facing += maxDelta * (!otherWayShorter).toFloat() * positiveDirection.toFloat()
+    return Misc.normalizeAngle(facing)
 }
