@@ -14,7 +14,10 @@ object WhaleFleetListener: FleetEventListener {
 
     override fun reportBattleOccurred(fleet: CampaignFleetAPI?, primaryWinner: CampaignFleetAPI?, battle: BattleAPI?) {
         battle ?: return
-        if(!battle.isPlayerInvolved) return
+        if(!battle.isPlayerInvolved){
+            fleet?.despawn()
+            return
+        }
         if(fleet == null || fleet.isEmpty){
             NotificationShower.showNotificationOnce(NotificationShower.WHALES_DEAD_ID)
         }else{
