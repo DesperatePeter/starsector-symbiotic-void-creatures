@@ -9,7 +9,10 @@
 
     "svc_whales_title" : "Space-whale Encounter",
     "svc_whales_protected_text" : "You saved the herd of Stjarwhals from a grizzly fate.\nCuriously they linger nearby seemingly unafraid of your vessels. One of the whales approaches your fleet in a playful manner as if wanting to thank its saviour.",
-    "svc_whales_dead_text" : "Your fleet was unable to protect the whales from a hungry pack of Voidlings."
+    "svc_whales_dead_text" : "Your fleet was unable to protect the whales from a hungry pack of Voidlings.",
+
+    "svc_hunter_fleet_approaching_title": "Something is approaching",
+    "svc_hunter_fleet_approaching_text": "Your sensor officer suddenly approaches you with a concerned look on their face. Apparently, they picked up a strange sensor-reading, resembling - but not quite matching - p-space emissions. The concerning bit, however, is that the reading is approaching your fleet - rapidly."
   },
   "VoidChitinPlating": {
     "description": "Replaces some of the ship's armor with light but durable void chitin.",

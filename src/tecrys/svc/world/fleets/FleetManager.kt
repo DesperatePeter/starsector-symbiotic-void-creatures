@@ -18,6 +18,7 @@ import tecrys.svc.utils.makeAlwaysHostile
 import tecrys.svc.utils.orbitClosestPlanet
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
+import tecrys.svc.world.notifications.NotificationShower
 
 class FleetManager : EveryFrameScript {
 
@@ -70,7 +71,9 @@ class FleetManager : EveryFrameScript {
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
         }
         if(hunterSpawnInterval.intervalElapsed()){
-            spawnHunterFleet()
+            if(spawnHunterFleet()){
+                NotificationShower.showNotificationRepeatable(NotificationShower.HUNTER_FLEET_APPROACHING_ID)
+            }
         }
     }
 
