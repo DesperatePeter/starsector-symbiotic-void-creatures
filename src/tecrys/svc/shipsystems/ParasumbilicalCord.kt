@@ -66,18 +66,20 @@ class ParasumbilicalCord: BaseShipSystemScript() {
 
     private fun issueAvoidOrderAgainst(ship: ShipAPI){
         val enemySide = if(ship.originalOwner == 0) 1 else 0
+        val commandTarget = Global.getCombatEngine()?.getFleetManager(ship.originalOwner)?.getDeployedFleetMember(ship)
         Global.getCombatEngine().getFleetManager(enemySide)?.run {
-            val commandTarget = getDeployedFleetMember(ship)
-            getTaskManager(false)?.createAssignment(CombatAssignmentType.AVOID, commandTarget, false)
+            assignmentInfo = getTaskManager(false)?.createAssignment(CombatAssignmentType.AVOID, commandTarget, false)
         }
     }
 
     private fun removeAvoidOrderAgainst(ship: ShipAPI){
+        if(assignmentInfo == null) return
         val enemySide = if(ship.originalOwner == 0) 1 else 0
         Global.getCombatEngine().getFleetManager(enemySide)?.run {
             assignmentInfo?.let {
                 getTaskManager(false)?.removeAssignment(it)
             }
+            assignmentInfo = null
         }
     }
 
