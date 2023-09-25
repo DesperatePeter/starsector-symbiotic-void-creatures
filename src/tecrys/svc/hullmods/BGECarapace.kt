@@ -27,7 +27,8 @@ class BGECarapace : BaseHullMod() {
         private const val CONTROL_COLLAR_HULLMOD_ID = "svc_controlcollar_hm"
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
         private val ALLOWED_HULLMODS = setOf("BGECarapace", "svc_alpha_voidling", "svc_controlcollar_hm",
-            "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface", "svc_stjarwhal_hm",  "carrier_regroup")
+            "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface", "svc_stjarwhal_hm",  "carrier_regroup",
+            "never_detaches", "shared_flux_sink", "svc_scoliac_tail_turner", "always_detaches")
         private val ALLOWED_HULLMODS_BY_PREFIX = setOf("automated", "sun", "ehm", )
     }
 

@@ -6,6 +6,7 @@
   "size": "MEDIUM",
   "turretSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
   "hardpointSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
+    	"fireSoundTwo":"needler_fire",
   "renderHints": [
     RENDER_BARREL_BELOW
   ],
@@ -57,4 +58,5 @@
       200
     ]
   }
+
 }

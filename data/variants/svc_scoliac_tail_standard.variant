@@ -8,7 +8,33 @@
   "quality": 1,
   "permaMods": [],
   "hullMods": [],
-  "weaponGroups": [],
+  "weaponGroups": [
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0008": "svc_bge_grappler_reverse"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "svc_adv_sml_mand_r",
+        "WS0010": "svc_adv_sml_mand_r",
+        "WS0011": "svc_adv_sml_mand_r",
+        "WS0012": "svc_adv_sml_mand_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0013": "svc_adv_lrg_scythe_r",
+        "WS0014": "svc_adv_lrg_scythe_r"
+      }
+    }
+  ],
   "modules": [],
   "wings": []
 }
