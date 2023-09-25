@@ -26,7 +26,7 @@ svc_inksac,WEAPON,"An organic gland, capable of emitting a sort of ink-cloud wit
 ,,,,,,
 svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal to attacks.",,,,
 svc_aggressive_pheromones,SHIP_SYSTEM,Increases speed and fire rate for all allies in a large area around Lephantis.,,,,
-svc_parasumbilical_cord,SHIP_SYSTEM,Attaches a parasumbilical cord to an enemy diverting halve of non-armour damage taken to the enemy.,,,,
+svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasumbilical cord to an enemy, diverting a part of the damage taken to the enemy. Will break if the enemy moves out of range.",,,,
 svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,
 svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
 svc_torid_drones,SHIP_SYSTEM,A helpful Torid drone with an Ink Sac relying on being fed by Pupacyst.,,,,

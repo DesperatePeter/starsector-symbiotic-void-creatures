@@ -1,10 +1,8 @@
 package tecrys.svc.shipsystems
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.combat.CombatEntityAPI
-import com.fs.starfarer.api.combat.MutableShipStatsAPI
-import com.fs.starfarer.api.combat.ShipAPI
-import com.fs.starfarer.api.combat.ShipSystemAPI
+import com.fs.starfarer.api.combat.*
+import com.fs.starfarer.api.combat.CombatFleetManagerAPI.AssignmentInfo
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.lazywizard.lazylib.CollisionUtils
@@ -31,6 +29,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
     private var damageSharingListener: DamageSharingListener? = null
     private var renderPlugin: ParasumbilicalRenderer? = null
     private var rendererCombatEntity: CombatEntityAPI? = null
+    private var assignmentInfo: AssignmentInfo? = null
 
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -63,7 +62,23 @@ class ParasumbilicalCord: BaseShipSystemScript() {
             thisShip.system?.forceState(ShipSystemAPI.SystemState.OUT, 0.5f)
             return
         }
+    }
 
+    private fun issueAvoidOrderAgainst(ship: ShipAPI){
+        val enemySide = if(ship.originalOwner == 0) 1 else 0
+        Global.getCombatEngine().getFleetManager(enemySide)?.run {
+            val commandTarget = getDeployedFleetMember(ship)
+            getTaskManager(false)?.createAssignment(CombatAssignmentType.AVOID, commandTarget, false)
+        }
+    }
+
+    private fun removeAvoidOrderAgainst(ship: ShipAPI){
+        val enemySide = if(ship.originalOwner == 0) 1 else 0
+        Global.getCombatEngine().getFleetManager(enemySide)?.run {
+            assignmentInfo?.let {
+                getTaskManager(false)?.removeAssignment(it)
+            }
+        }
     }
 
     private fun renderCord(thisShip: ShipAPI, alphaMult: Float){
@@ -86,6 +101,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
         if(damageSharingListener != null) unApplyEffect(thisShip)
         damageSharingListener = DamageSharingListener(target)
         thisShip.addListener(damageSharingListener)
+        issueAvoidOrderAgainst(thisShip)
         if(renderPlugin == null){
             renderPlugin = ParasumbilicalRenderer()
             rendererCombatEntity = Global.getCombatEngine().addLayeredRenderingPlugin(renderPlugin)
@@ -97,6 +113,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
             thisShip.removeListener(this)
         }
         rendererCombatEntity.let { Global.getCombatEngine().removeEntity(it) }
+        removeAvoidOrderAgainst(thisShip)
         rendererCombatEntity = null
         renderPlugin = null
         damageSharingListener = null
