@@ -10,5 +10,11 @@
     "svc_whales_title" : "Space-whale Encounter",
     "svc_whales_protected_text" : "You saved the herd of Stjarwhals from a grizzly fate.\nCuriously they linger nearby seemingly unafraid of your vessels. One of the whales approaches your fleet in a playful manner as if wanting to thank its saviour.",
     "svc_whales_dead_text" : "Your fleet was unable to protect the whales from a hungry pack of Voidlings."
+  },
+  "VoidChitinPlating": {
+    "description": "Replaces some of the ship's armor with light but durable void chitin.",
+    "tooltip": "Work in progress. Currently, makes you invulnerable.",
+    "needItem": "You need 1000 ${itemName} to install this.",
+    "longDescription": "Work in Progress"
   }
 }

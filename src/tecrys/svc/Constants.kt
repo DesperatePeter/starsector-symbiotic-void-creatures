@@ -20,6 +20,7 @@ const val WHALE_OIL_ITEM_ID = "svc_whale_oil"
 const val WHALE_REPUTATION_MIN = 50f
 const val WHALE_HULLMOD_ID = "svc_stjarwhal_hm"
 const val VOID_CHITIN_ID = "svc_void_chitin"
+const val VOID_CHITIN_PLATING_EXOTICA_CHIP_ID = "et_voidchitinplating"
 
 val BIOLOGICAL_HULL_TAGS = listOf(SVC_VARIANT_TAG, WHALE_VARIANT_TAG)
 

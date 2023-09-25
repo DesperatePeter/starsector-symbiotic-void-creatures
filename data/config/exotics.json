@@ -1,0 +1,7 @@
+{
+  "VoidChitinPlating" : {
+    "name" : "Void Chitin Plating",
+    "hints" : ["durability"],
+    "exoticClass" : "tecrys.svc.plugins.exotica.VoidChitinPlating"
+  }
+}

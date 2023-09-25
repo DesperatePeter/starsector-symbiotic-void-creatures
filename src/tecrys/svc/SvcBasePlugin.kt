@@ -3,17 +3,14 @@ package tecrys.svc
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.thoughtworks.xstream.XStream
-import tecrys.svc.modintegration.flagHullsAsBiologicalForLegends
-import tecrys.svc.modintegration.getAllBiologicalHullIds
-import tecrys.svc.modintegration.isStarshipLegendsEnabled
 import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
 import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
 import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
 import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
-import tecrys.svc.modintegration.isSubstanceAbuseEnabled
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.listeners.SvcCargoListener
+import tecrys.svc.modintegration.*
 import tecrys.svc.world.notifications.NotificationShower
 
 /**
@@ -59,6 +56,13 @@ class SvcBasePlugin : BaseModPlugin() {
 
         if(isStarshipLegendsEnabled()){
             flagHullsAsBiologicalForLegends(getAllBiologicalHullIds())
+        }
+
+        if(isExoticaEnabled()){
+            Global.getSettings().getSpecialItemSpec(VOID_CHITIN_ID).desc += " Can be used to install Void Chitin Plating."
+            // TODO set special item plugin
+        // Global.getSettings().getSpecialItemSpec(VOID_CHITIN_PLATING_EXOTICA_CHIP_ID).
+            //exoticatechnologies.modifications.exotics.ExoticSpecialItemPlugin
         }
     }
     /**
