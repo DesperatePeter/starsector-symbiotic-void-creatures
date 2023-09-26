@@ -23,7 +23,7 @@
 			"svc_parasumbilical_beam": "graphics/weapons/beams/svc_parasumbilical_beam.png"
 		},
 		"exotics": {
-			"VoidChitinPlating": "graphics/icons/void_chitin_plating.png"
+			"VoidChitinPlating": "graphics/icons/exotics/voidchitinplating.png"
 		}
 	}
 }

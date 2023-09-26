@@ -15,9 +15,9 @@
     "svc_hunter_fleet_approaching_text": "Your sensor officer suddenly approaches you with a concerned look on their face. Apparently, they picked up a strange sensor-reading, resembling - but not quite matching - p-space emissions. The concerning bit, however, is that the reading is approaching your fleet - rapidly."
   },
   "VoidChitinPlating": {
-    "description": "Replaces some of the ship's armor with light but durable void chitin.",
-    "tooltip": "Work in progress. Currently, makes you invulnerable.",
+    "description": "Replaces some of the ship's armor with light but durable void chitin, replacing the ship system with",
+    "tooltip": "Replaces the ships defensive system with the Parry system.",
     "needItem": "You need 1000 ${itemName} to install this.",
-    "longDescription": "Work in Progress"
+    "longDescription": "The ship's defensive system, i.e. shield of phase cloak, will be replaced with the Parry system.\nThe parry system has charges and can be activated to briefly reflect all nearby projectiles and unguided missiles."
   }
 }
