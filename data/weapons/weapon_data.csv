@@ -23,7 +23,8 @@ Spawner,svc_spawner,0,,150,1500,,200,,20,30,4,50,,,HIGH_EXPLOSIVE,0,,0,5,5,0.2,0
 Fang Cluster,svc_fangcluster,3,0.3,800,700,,75,,1,20,8,6,1.7,6,KINETIC,40,,0,1,6,0.15,2,15,0.66,5,,1200,,,10,,,"RESET_BARREL_INDEX_ON_BURST, FIRE_WHEN_INEFFICIENT, DO_NOT_CONSERVE","no_sell, no_dealer, restricted",,Biological,,Anti Shield,,,,,,,,,,3.65
 Ink Sac,svc_inksac,3,0.3,800,400,,0,,1,10,8,,,,KINETIC,40,,0,4,2,0,20,50,20,5,,1200,,,10,,,PD,"no_sell, no_dealer, restricted",,Biological,,Point Defence,,,,,,,,,,3.65
 Volatile Drone Strike,svc_volatile_drone,3,,0,1200,,800,0,50,0,0,1,,,ENERGY,0,,0,1,1,,0,0,0,0,,350,0,13,100000,,,"DIRECT_AIM, SYSTEM","no_sell, no_dealer, restricted",,,,Missile,Fast,Medium,,,,,,,TRUE,1011.01
-Mature Phaseworm Colony,svc_worm_colony_large,1,,250,2000,,250,,15,4,15,240,,8,FRAGMENTATION,0,,0,5,8,0.1,6,64,8,6,,250,400,15,100,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","no_sell, no_dealer, restricted",,Biological,,Assault Boarding,Fast,Excellent,,,,,,,,10
+Mature Phaseworm Colony,svc_worm_colony_large,1,,250,2000,,250,,15,4,15,200,,8,FRAGMENTATION,0,,0,7,8,0.1,6,64,8,6,,250,400,15,100,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","no_sell, no_dealer, restricted",,Biological,,Assault Boarding,Fast,Excellent,,,,,,,,10
+Phaseworm Colony,svc_worm_colony_small,1,,250,2000,,250,,15,4,5,68,,4,FRAGMENTATION,0,,0,4,4,0.1,6,64,8,6,,250,400,15,100,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","no_sell, no_dealer, restricted",,Biological,,Assault Boarding,Fast,Excellent,,,,,,,,10
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Decoratives:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
