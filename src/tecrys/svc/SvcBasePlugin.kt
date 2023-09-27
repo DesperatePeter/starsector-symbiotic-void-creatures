@@ -2,16 +2,25 @@ package tecrys.svc
 
 import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.PluginPick
+import com.fs.starfarer.api.campaign.CampaignPlugin
+import com.fs.starfarer.api.combat.MissileAIPlugin
+import com.fs.starfarer.api.combat.MissileAPI
+import com.fs.starfarer.api.combat.ShipAPI
 import com.thoughtworks.xstream.XStream
+import data.scripts.DAModPlugin.*
+import data.scripts.ai.*
+import tecrys.svc.listeners.SvcCargoListener
+import tecrys.svc.modintegration.*
 import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
 import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
 import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
 import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
+import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
-import tecrys.svc.listeners.SvcCargoListener
-import tecrys.svc.modintegration.*
 import tecrys.svc.world.notifications.NotificationShower
+
 
 /**
  * A Kotlin version of ExampleModPlugin.java.
@@ -22,7 +31,7 @@ import tecrys.svc.world.notifications.NotificationShower
 class SvcBasePlugin : BaseModPlugin() {
 
     companion object{
-
+        const val WORMS_LARGE_ID: String = "svc_worm_shot"
     }
 
     private fun initSVC() {
@@ -76,5 +85,18 @@ class SvcBasePlugin : BaseModPlugin() {
 
         // x.alias("ExampleEveryFrameScript", ExampleEveryFrameScript::class.java)
     }
+    override fun pickMissileAI(missile: MissileAPI, launchingShip: ShipAPI?): PluginPick<MissileAIPlugin>? {
+        when (missile.projectileSpecId) {
+            WORMS_LARGE_ID -> return PluginPick<MissileAIPlugin>(
+                pWormAI(
+                    missile,
+                    launchingShip
+                ), CampaignPlugin.PickPriority.MOD_SPECIFIC
+            )
 
+
+            else -> {}
+        }
+        return null
+    }
 }

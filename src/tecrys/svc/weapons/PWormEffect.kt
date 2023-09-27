@@ -32,7 +32,7 @@ class PWormEffect: OnHitEffectPlugin {
             marinesOnShip = Global.getSector().playerFleet.cargo.marines.toFloat() * (crew / totalDeployedCrew)
         }
         val crewDamage = CREW_KILLED * crew / (crew + marinesOnShip)
-        val crDamage = 100f * crewDamage / crew
+        val crDamage = 0.002f
 
         if(ship.originalOwner == 0 && ship.currentCR > 0f){
             Global.getSector().playerFleet.cargo.removeCrew(crDamage.toInt())

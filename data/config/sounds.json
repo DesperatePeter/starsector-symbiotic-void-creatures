@@ -44,6 +44,10 @@
 		{"file":"sounds/svc_growlsound6.ogg","pitch":4,"volume":0.1},
 
 	],	
+		"svc_weapon_worm":[
+		{"file":"sounds/svc_organicsquish1.ogg","pitch":2,"volume":0.05},
+
+	],	
 		"svc_engine_tentacle_loop":[
 		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":1,"volume":0.1},
 		{"file":"sounds/svc_fleshreforminglikesound.ogg","pitch":1,"volume":0.2},	
