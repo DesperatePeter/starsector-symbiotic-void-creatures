@@ -10,6 +10,7 @@
   "renderHints": [
     RENDER_BARREL_BELOW
   ],
+  	"convergeOnPoint":true,
   "turretOffsets": [
     -0.5,
     3.5,
