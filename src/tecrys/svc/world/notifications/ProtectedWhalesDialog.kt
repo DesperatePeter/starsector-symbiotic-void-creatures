@@ -12,7 +12,7 @@ import kotlin.math.truncate
 
 class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_whales_protected_text")
-            + "\nYou managed to save ${whales?.fleetPoints ?: 0}/${whales?.customData?.get(WHALES_ORIGINAL_STRENGTH_KEY)} dp worth of whales."
+            + "\nYou managed to save ${whales?.fleetPoints ?: 0}/${whales?.customData?.get(FLEET_ORIGINAL_STRENGTH_KEY)} dp worth of whales."
             + if (internalWhaleReputation > WHALE_REPUTATION_MIN)
         "\nThe whales appear to view you as friends and one among their ranks seems to be willing to join your fleet."
     else "\nThe whales appear to be scared of you. Maybe you can improve your relationship by letting them go.",
@@ -34,7 +34,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
 
     override fun optionSelected(optionText: String?, optionData: Any?) {
         val currentStrength = (whales?.fleetPoints?.toFloat() ?: 0f)
-        val originalStrength = (whales?.customData?.get(WHALES_ORIGINAL_STRENGTH_KEY) as? Int) ?: 0.01f
+        val originalStrength = (whales?.customData?.get(FLEET_ORIGINAL_STRENGTH_KEY) as? Int) ?: 0.01f
         val relativeSaved = currentStrength / originalStrength.toFloat()
         (optionData as? String)?.let {
             when (it) {

@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.apache.log4j.Level
+import tecrys.svc.FLEET_ORIGINAL_STRENGTH_KEY
 
 class FleetSpawner {
 
@@ -94,6 +95,7 @@ class FleetSpawner {
             }
             fleet.inflateIfNeeded()
         }
+        fleet.customData[FLEET_ORIGINAL_STRENGTH_KEY] = fleet.fleetPoints
         return fleet
     }
 

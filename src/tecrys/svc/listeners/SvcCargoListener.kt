@@ -3,12 +3,12 @@ package tecrys.svc.listeners
 import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.campaign.listeners.ShowLootListener
 import com.fs.starfarer.api.impl.campaign.DerelictShipEntityPlugin
-import tecrys.svc.SVC_FACTION_ID
-import tecrys.svc.VOID_CHITIN_ID
-import tecrys.svc.VWL_FACTION_ID
+import tecrys.svc.*
 import kotlin.math.max
 
 object SvcCargoListener: ShowLootListener {
+
+    private const val WEAPON_DROP_CHANCE_PER_DP = 0.01f
     override fun reportAboutToShowLootToPlayer(loot: CargoAPI?, dialog: InteractionDialogAPI?) {
         val fleet = dialog?.interactionTarget as? CampaignFleetAPI
         val hullVar = ((dialog?.interactionTarget as? CustomCampaignEntityAPI)?.customPlugin as? DerelictShipEntityPlugin)?.data?.ship?.getVariant()?.hullVariantId
@@ -20,6 +20,13 @@ object SvcCargoListener: ShowLootListener {
                 addCommodity("volatiles", max(Math.random().toFloat() - 0.5f, 0f) * n)
                 removeCommodity("metals", n)
                 removeCommodity("heavy_machinery", getCommodityQuantity("heavy_machinery"))
+                fleet?.let { f ->
+                    var originalDP = f.customData[FLEET_ORIGINAL_STRENGTH_KEY] as? Float ?: 0f
+                    while(Math.random() < originalDP * WEAPON_DROP_CHANCE_PER_DP){
+                        addWeapons(specialVoidlingWeaponIds.random(), 1)
+                        originalDP -= 100
+                    }
+                }
             }
         }
 

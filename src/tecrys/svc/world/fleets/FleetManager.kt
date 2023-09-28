@@ -157,7 +157,6 @@ class FleetManager : EveryFrameScript {
         voidlings.addEventListener(SvcFleetListener)
         whales.attackFleet(voidlings)
         whales.addEventListener(WhaleFleetListener)
-        whales.customData[WHALES_ORIGINAL_STRENGTH_KEY] = whales.fleetPoints
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO
         whales.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID), oilInCargo)
 
