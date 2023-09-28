@@ -12,11 +12,11 @@ import java.awt.Color
 class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlugin() {
     companion object{
         const val ARC_RANGE = 500f
-        const val ARC_DMG = 100f
+        const val ARC_DMG = 30f
         const val ARC_EMP = 500f
         const val ARC_FREQUENCY_HZ = 1f
-        const val ARC_THICKNESS = 50f
-        val EMP_COLOR = Color(80, 10, 200, 150)
+        const val ARC_THICKNESS = 15f
+        val EMP_COLOR = Color(0, 255, 201, 150)
         const val EMP_SOUND_ID = "tachyon_lance_emp_impact"
     }
     private val engine = Global.getCombatEngine()
