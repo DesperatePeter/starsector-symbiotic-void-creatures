@@ -22,13 +22,13 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         const val ARC_RANGE_MAX =  500f
         const val ARC_DMG = 30f
         const val ARC_EMP = 350f
-        const val ARC_FREQUENCY_HZ = 5f
+        const val ARC_FREQUENCY_HZ = 40f
         const val ARC_THICKNESS = 15f
-        const val MAX_CHARGES = 10
+        const val MAX_CHARGES = 50
         val EMP_COLOR = Color(0, 255, 201, 150)
         const val EMP_SOUND_ID = "tachyon_lance_emp_impact"
         const val COLOR_VARIATION = 100f
-        const val NUM_VISUAL_ARCS = 10
+        const val NUM_VISUAL_ARCS = 2
     }
     private val engine = Global.getCombatEngine()
     private var timer = 0f
@@ -40,7 +40,7 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         val loc = missile.location ?: return
         engine ?: return
         if(engine.isPaused) return
-        val targets = CombatUtils.getShipsWithinRange(loc, ARC_RANGE.toFloat()).filter {
+        val targets = CombatUtils.getShipsWithinRange(loc, ARC_RANGE_MAX).filter {
             it.originalOwner != missile.owner && it.originalOwner != 100
         }.filterNotNull()
         if(targets.isEmpty()) return
@@ -52,9 +52,25 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         spawnVisualEmpArcs()
 
         targets.forEach{ tgt ->
-            engine.spawnEmpArc(missile.source, missile.location, missile, tgt, DamageType.ENERGY, ARC_DMG, ARC_EMP, ARC_RANGE + 10f, EMP_SOUND_ID, 0f,
-                Color(0, 0, 0, 0), Color(0, 0, 0, 0))
-
+            for (i in 0 until NUM_VISUAL_ARCS) {
+                val angle = (i.toFloat() + Math.random()) * 2f * PI.toFloat() / NUM_VISUAL_ARCS.toFloat()
+                val loc =
+                    missile.location + Vector2f(ARC_RANGE * cos(angle).toFloat(), ARC_RANGE * sin(angle).toFloat())
+                engine.spawnEmpArc(
+                    missile.source,
+                    missile.location,
+                    missile,
+                    DummyCombatEntity(loc, missile.owner),
+                    DamageType.ENERGY,
+                    ARC_DMG,
+                    ARC_EMP,
+                    ARC_RANGE.toFloat(),
+                    EMP_SOUND_ID,
+                    15f,
+                    EMP_COLOR.randomlyVaried(COLOR_VARIATION).brighter(),
+                    EMP_COLOR.randomlyVaried(COLOR_VARIATION)
+                )
+            }
         }
 
         charges--
