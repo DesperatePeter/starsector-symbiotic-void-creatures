@@ -4,10 +4,12 @@ import com.fs.starfarer.api.combat.ArmorGridAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipwideAIFlags
 import com.fs.starfarer.api.util.Misc
+import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.getAngleDiff
+import java.awt.Color
 import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
@@ -16,6 +18,11 @@ import kotlin.math.sin
 const val degToRad: Float = PI.toFloat() / 180f
 fun vectorFromAngleDeg(angle: Float): Vector2f {
     return Vector2f(cos(angle * degToRad), sin(angle * degToRad))
+}
+
+fun Color.randomlyVaried(variation: Float): Color{
+    fun d(c: Int) = MathUtils.clamp(c + (2f * (Math.random() - 0.5) * variation).toInt(), 0, 255)
+    return Color( d(red),  d(green), d(blue), alpha)
 }
 
 fun ShipAPI.getEffectiveShipTarget(fallbackRange: Float = 600f): ShipAPI?{

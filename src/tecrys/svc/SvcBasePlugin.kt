@@ -8,8 +8,6 @@ import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.thoughtworks.xstream.XStream
-import data.scripts.DAModPlugin.*
-import data.scripts.ai.*
 import tecrys.svc.listeners.SvcCargoListener
 import tecrys.svc.modintegration.*
 import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
