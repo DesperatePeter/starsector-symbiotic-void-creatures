@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.DamageType
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.input.InputEventAPI
+import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
@@ -17,26 +18,29 @@ import kotlin.math.sin
 
 class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlugin() {
     companion object{
-        const val ARC_RANGE = 500f
+        const val ARC_RANGE_MIN =  250f
+        const val ARC_RANGE_MAX =  500f
         const val ARC_DMG = 30f
-        const val ARC_EMP = 500f
+        const val ARC_EMP = 350f
         const val ARC_FREQUENCY_HZ = 5f
         const val ARC_THICKNESS = 15f
         const val MAX_CHARGES = 10
         val EMP_COLOR = Color(0, 255, 201, 150)
         const val EMP_SOUND_ID = "tachyon_lance_emp_impact"
         const val COLOR_VARIATION = 100f
-        const val NUM_VISUAL_ARCS = 6
+        const val NUM_VISUAL_ARCS = 10
     }
     private val engine = Global.getCombatEngine()
     private var timer = 0f
     private var charges = MAX_CHARGES
+
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
         removeIfExpired()
+        var ARC_RANGE = MathUtils.getRandomNumberInRange(200,550)
         val loc = missile.location ?: return
         engine ?: return
         if(engine.isPaused) return
-        val targets = CombatUtils.getShipsWithinRange(loc, ARC_RANGE).filter {
+        val targets = CombatUtils.getShipsWithinRange(loc, ARC_RANGE.toFloat()).filter {
             it.originalOwner != missile.owner && it.originalOwner != 100
         }.filterNotNull()
         if(targets.isEmpty()) return
@@ -48,7 +52,7 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         spawnVisualEmpArcs()
 
         targets.forEach{ tgt ->
-            engine.spawnEmpArc(missile.source, missile.location, missile, tgt, DamageType.ENERGY, ARC_DMG, ARC_EMP, ARC_RANGE + 200f, EMP_SOUND_ID, 0f,
+            engine.spawnEmpArc(missile.source, missile.location, missile, tgt, DamageType.ENERGY, ARC_DMG, ARC_EMP, ARC_RANGE + 10f, EMP_SOUND_ID, 0f,
                 Color(0, 0, 0, 0), Color(0, 0, 0, 0))
 
         }
@@ -57,6 +61,7 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
     }
 
     private fun spawnVisualEmpArcs(){
+        var ARC_RANGE = MathUtils.getRandomNumberInRange(200,550)
         for (i in 0 until NUM_VISUAL_ARCS) {
             val angle = (i.toFloat() + Math.random()) * 2f * PI.toFloat() / NUM_VISUAL_ARCS.toFloat()
             val loc = missile.location + Vector2f(ARC_RANGE * cos(angle).toFloat(), ARC_RANGE * sin(angle).toFloat())
@@ -68,7 +73,7 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
                 DamageType.ENERGY,
                 ARC_DMG,
                 ARC_EMP,
-                ARC_RANGE,
+                ARC_RANGE.toFloat(),
                 EMP_SOUND_ID,
                 ARC_THICKNESS,
                 EMP_COLOR.randomlyVaried(COLOR_VARIATION).brighter(),
