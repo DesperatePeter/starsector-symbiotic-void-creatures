@@ -34,7 +34,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
 
     override fun optionSelected(optionText: String?, optionData: Any?) {
         val currentStrength = (whales?.fleetPoints?.toFloat() ?: 0f)
-        val originalStrength = (whales?.customData?.get(FLEET_ORIGINAL_STRENGTH_KEY) as? Int) ?: 0.01f
+        val originalStrength = (whales?.customData?.get(FLEET_ORIGINAL_STRENGTH_KEY) as? Int) ?: 1
         val relativeSaved = currentStrength / originalStrength.toFloat()
         (optionData as? String)?.let {
             when (it) {

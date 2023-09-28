@@ -21,10 +21,10 @@ object SvcCargoListener: ShowLootListener {
                 removeCommodity("metals", n)
                 removeCommodity("heavy_machinery", getCommodityQuantity("heavy_machinery"))
                 fleet?.let { f ->
-                    var originalDP = f.customData[FLEET_ORIGINAL_STRENGTH_KEY] as? Float ?: 0f
-                    while(Math.random() < originalDP * WEAPON_DROP_CHANCE_PER_DP){
+                    var originalDP = f.customData[FLEET_ORIGINAL_STRENGTH_KEY] as? Int ?: 0
+                    while(Math.random() < originalDP.toFloat() * WEAPON_DROP_CHANCE_PER_DP){
                         addWeapons(specialVoidlingWeaponIds.random(), 1)
-                        originalDP -= 100
+                        originalDP -= (1f / WEAPON_DROP_CHANCE_PER_DP).toInt()
                     }
                 }
             }
