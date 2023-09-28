@@ -1,9 +1,9 @@
 {
 	"id":"svc_brain",
 	"specClass":"missile",	
-	"missileType":"MISSILE",
-	#"missileType":"CIRCLE_TARGET",
-	"onFireEffect":"com.fs.starfarer.api.impl.combat.dem.DEMEffect",
+	#"missileType":"MISSILE",
+	"missileType":"CIRCLE_TARGET",
+	"onFireEffect":"tecrys.svc.weapons.BoltzmannEffect",
 	"behaviorSpec":{"behavior":"CUSTOM",
 		#"circleRadius":[0,50],
 		#"angledApproachDist":[900,1200],

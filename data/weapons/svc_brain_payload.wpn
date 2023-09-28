@@ -1,32 +1,67 @@
 {
-	"specClass":"beam",
-	"id":"svc_brain_payload",
-	"type":"ENERGY",
-	"size":"MEDIUM",
-	"collisionClass":"RAY_FIGHTER",
-	"collisionClassByFighter":"RAY_FIGHTER",
-	"turretSprite":"graphics/fx/empty.png",
-	#"turretGlowSprite":"graphics/fx/empty.png",
-	"turretGlowSprite":"graphics/weapons/graviton_beam_turret_glow.png",
-	"hardpointSprite":"graphics/fx/empty.png",
-	"hardpointGlowSprite":"graphics/fx/empty.png",
-	"turretOffsets":[8, 0],
-	"turretAngleOffsets":[0],
-	"hardpointOffsets":[8, 0],
-	"hardpointAngleOffsets":[0],
-	#"fringeColor":[155,0,0,255],
-	#"coreColor":[255,255,255,255],
-	#"glowColor":[255,100,100,255],
-	"fringeColor":[0,255,0,225],
-	"coreColor":[255,255,255,255],
-	"glowColor":[155,255,155,255],	
-	"hitGlowBrightenDuration":0.05,
-	"hitGlowRadius":100,
-	"width":20.0,
-	"textureType":LASER,
-	"textureScrollSpeed":64.0,
-	"pixelsPerTexel":5.0,
-	"pierceSet":[PROJECTILE_FF,PROJECTILE_NO_FF,PROJECTILE_FIGHTER,MISSILE_FF,MISSILE_NO_FF],
-	"fireSoundOne":"gorgon_payload_fire",
-	#"fireSoundTwo":"phase_beam_loop",	
+  "id": "svc_brain_payload",
+  "specClass": "beam",
+  "type": "ENERGY",
+  "size": "MEDIUM",
+  "collisionClass": "RAY_FIGHTER",
+  "collisionClassByFighter": "RAY_FIGHTER",
+  "turretSprite": "graphics/fx/empty.png",
+  "turretGlowSprite": "graphics/fx/empty.png",
+  "hardpointSprite": "graphics/fx/empty.png",
+  "hardpointGlowSprite": "graphics/fx/empty.png",
+    	"convergeOnPoint":true,
+  "glowColor": [
+    155,
+    255,
+    155,
+    255
+  ],
+  "hitGlowRadius": 100,
+  "turretOffsets": [
+    3.5,
+    2.5,
+    3.5,
+    -2.5,
+    4,
+    1,
+    4,
+    -1
+  ],
+  "turretAngleOffsets": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "hardpointOffsets": [
+    8,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "fringeColor": [
+    0,
+    255,
+    0,
+    225
+  ],
+  "coreColor": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "width": 20,
+  "textureType": LASER,
+  "textureScrollSpeed": 64,
+  "pixelsPerTexel": 5,
+  "pierceSet": [
+    PROJECTILE_FF,
+    PROJECTILE_NO_FF,
+    PROJECTILE_FIGHTER,
+    MISSILE_FF,
+    MISSILE_NO_FF
+  ],
+  "fireSoundOne": "gorgon_payload_fire"
 }
