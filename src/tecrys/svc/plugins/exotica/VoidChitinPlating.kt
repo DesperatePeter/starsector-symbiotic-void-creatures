@@ -46,7 +46,7 @@ class VoidChitinPlating(key: String, settings: JSONObject) : Exotic(key, setting
         return variant.hullSpec.defenseType != ShieldAPI.ShieldType.NONE
     }
 
-    override fun canDropFromFleets(): Boolean = false
+    override var canDropFromCombat: Boolean = false
 
     override fun getCannotApplyReasons(member: FleetMemberAPI, mods: ShipModifications?): List<String> {
         val toReturn = mutableListOf<String>()
@@ -59,6 +59,8 @@ class VoidChitinPlating(key: String, settings: JSONObject) : Exotic(key, setting
     override fun onInstall(member: FleetMemberAPI) {
         if(!installedOn.contains(member.id)) installOnMember(member)
     }
+
+
 
     override fun advanceInCampaign(
         member: FleetMemberAPI,
@@ -78,6 +80,7 @@ class VoidChitinPlating(key: String, settings: JSONObject) : Exotic(key, setting
         setShieldType(shieldSpec, ShieldAPI.ShieldType.PHASE)
         installedOn.add(member.id)
     }
+
 
 
     override fun onDestroy(member: FleetMemberAPI) {
