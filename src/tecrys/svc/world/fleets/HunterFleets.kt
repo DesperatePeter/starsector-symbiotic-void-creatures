@@ -25,7 +25,7 @@ val largeHunterFleetRolesQuantity = mapOf(
     "combatEliteSmallEvolved" to 1,
     "combatEliteMedium" to 3,
     "combatEliteMediumEvolved" to 3,
-    "ScoliacMiniBoss" to 2,
+    "ScoliacMiniBoss" to 1,
 )
 
 val smallHunterFleet = HunterFleetConfig(smallHunterFleetRolesQuantity,
