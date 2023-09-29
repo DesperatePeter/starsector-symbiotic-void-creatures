@@ -46,7 +46,8 @@ class VoidChitinPlating(key: String, settings: JSONObject) : Exotic(key, setting
         return variant.hullSpec.defenseType != ShieldAPI.ShieldType.NONE
     }
 
-    override var canDropFromCombat: Boolean = false
+    // override var canDropFromCombat: Boolean = false
+    override fun canDropFromFleets(): Boolean = false
 
     override fun getCannotApplyReasons(member: FleetMemberAPI, mods: ShipModifications?): List<String> {
         val toReturn = mutableListOf<String>()
