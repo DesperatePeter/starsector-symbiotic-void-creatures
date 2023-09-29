@@ -23,7 +23,7 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         const val ARC_DMG = 30f
         const val ARC_EMP = 350f
         const val ARC_FREQUENCY_HZ = 10f
-        const val ARC_THICKNESS = 15f
+        const val ARC_THICKNESS = 5f
         const val MAX_CHARGES = 25
         val EMP_COLOR = Color(0, 255, 201, 150)
         const val EMP_SOUND_ID = "tachyon_lance_emp_impact"

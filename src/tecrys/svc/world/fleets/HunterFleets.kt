@@ -4,17 +4,44 @@ import tecrys.svc.SVC_MOD_ID
 import tecrys.svc.utils.CampaignSettingDelegate
 
 val smallHunterFleetRolesQuantity = mapOf(
-    "combatSmall" to 3,
-    "combatMedium" to 1,
-    "combatLarge" to 1,
+    "combatEliteSmall" to 3,
+    "combatEliteSmallEvolved" to 2,
+    "combatEliteMedium" to 1,
+    "combatEliteMediumEvolved" to 1,
+)
+
+val mediumHunterFleetRolesQuantity = mapOf(
+    "combatEliteSmall" to 1,
+    "combatEliteSmallEvolved" to 1,
+    "combatEliteMedium" to 3,
+    "combatEliteMediumEvolved" to 2,
+    "ScoliacMiniBoss" to 1,
+)
+
+val largeHunterFleetRolesQuantity = mapOf(
+    "combaElitetLarge" to 2,
+    "combaElitetLargeEvolved" to 2,
+    "combatEliteSmall" to 1,
+    "combatEliteSmallEvolved" to 1,
+    "combatEliteMedium" to 3,
+    "combatEliteMediumEvolved" to 3,
+    "ScoliacMiniBoss" to 2,
 )
 
 val smallHunterFleet = HunterFleetConfig(smallHunterFleetRolesQuantity,
     "small", "Void Razors", 80f, 75f)
 
+val mediumHunterFleet = HunterFleetConfig(mediumHunterFleetRolesQuantity,
+    "medium", "Void Razors", 130f, 100f)
+
+val largeHunterFleet = HunterFleetConfig(largeHunterFleetRolesQuantity,
+    "large", "Void Razors", 250f, 140f)
+
 var hunterFleetsToSpawn: MutableMap<String, HunterFleetConfig>
 by CampaignSettingDelegate("$" + SVC_MOD_ID + "hunterFleetsToSpawn",
     mutableMapOf(
-        smallHunterFleet.id to smallHunterFleet
+        smallHunterFleet.id to smallHunterFleet,
+        mediumHunterFleet.id to mediumHunterFleet,
+        largeHunterFleet.id to largeHunterFleet
     )
 )

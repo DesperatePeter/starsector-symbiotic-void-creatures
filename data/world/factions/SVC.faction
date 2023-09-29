@@ -149,6 +149,9 @@
 							 "svc_lephantis_dark_evo1_acidfang" : 0.1, 
                          },
 
+		"ScoliacMiniBoss" : {
+            "svc_scoliac_grappling" : 10,
+        },
 
 	},
 	"illegalCommodities":[
