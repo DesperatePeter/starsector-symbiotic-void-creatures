@@ -33,9 +33,11 @@ class StjarwhalController: BaseHullMod() {
         }
     }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
-        member?.id?.let {
-            Global.getSector() ?: return
 
+        Global.getSector() ?: return
+        Global.getSector().playerFleet ?: return
+
+        member?.id?.let {
             if(!Global.getSector().playerFleet.contains(it)) return
         } ?: return
         member.stats?.suppliesPerMonth?.modifyMult(this.javaClass.name, computeMaintenanceFactor())
