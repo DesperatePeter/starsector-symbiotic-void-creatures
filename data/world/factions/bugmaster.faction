@@ -1,0 +1,211 @@
+{
+	id:"bugmaster",
+	"displayName":"Bugmaster",
+	"displayNameWithArticle":"the Bugmaster",
+	"displayNameLong":"Bugmaster",
+	"displayNameLongWithArticle":"the Bugmaster",
+	"entityNamePrefix":"Void Creatures",
+	"personNamePrefix":"Void",
+	"personNamePrefixAOrAn":"a",
+	"displayNameIsOrAre":"are",
+	
+	"logo":"graphics/factions/ai_remnant.png",
+	"crest":"graphics/factions/crest_ai_remnant.png",
+	"shipNamePrefix":"",
+	
+	"color":[173,130,2,255],
+	"baseUIColor":[173,130,2,255],
+	#"color":[100,100,100,255],
+	#"baseUIColor":[155,155,155,255],
+	
+	#"darkUIColor":[31,94,112,175],
+	#"gridUIColor":[70,200,255,75],
+	
+	"showInIntelTab":false,
+	
+	"shipNameSources":{
+		"BEASTS":1,
+		"ABRAHAMIC":1,
+		"AZTEC":1,
+	},
+	"names":{
+		"BEASTS":1,
+		"ABRAHAMIC":1,
+		"AZTEC":1,
+	},
+	"variantOverrides":{
+	},
+	# multiplier for how often hulls show up in the faction's fleets
+	"hullFrequency":{
+		"tags":{
+		},
+		"hulls":{
+		},
+	},
+	# ships the faction gets access to when importing S&W out-of-faction
+	"shipsWhenImporting":{
+		"tags":["svc"],
+		"hulls":[
+		],
+	},
+	"knownShips":{
+		"tags":["svc"],
+		"hulls":[
+		],
+	},
+	# listing ships here will make the faction mostly use them even if other hulls become available
+	"priorityShips":{
+		"tags":[],
+		"hulls":[
+		],
+	},
+	"knownFighters":{
+		"tags":["svc"],
+		"fighters":[
+		],
+	},
+	"priorityFighters":{
+		"tags":[],
+		"fighters":[
+		],
+	},
+	"knownWeapons":{
+		"tags":["svc"],
+		"weapons":[
+		],
+	},
+	"priorityWeapons":{
+		"tags":[],
+		"weapons":[
+		],
+	},
+	"knownHullMods":{
+		"tags":["svc"],
+		"hullMods":[
+		],
+	},
+	"factionDoctrine":{
+		"warships":4,
+		"carriers":2,
+		"phaseShips":1,
+		
+		"officerQuality":3,
+		"shipQuality":3,
+		"numShips":1,
+		
+		"shipSize":4,
+		
+		"aggression":3, # doesn't matter since automated ships are super aggressive regardless
+		
+		"combatFreighterProbability":0,     				# instead of some portion of the freighters in a fleet
+		"combatFreighterCombatUseFraction":1,				# as part of the normal combat lineup
+		"combatFreighterCombatUseFractionWhenPriority":1,   # as part of normal combat lineup, when marked as priority ship
+		"autofitRandomizeProbability":0.25,
+
+		"commanderSkillsShuffleProbability":1,
+		"commanderSkills":[ # unlike other factions, can get up to 3 skills depending
+			"electronic_warfare",
+			"flux_regulation",
+			"coordinated_maneuvers",
+		],
+	},
+		"shipRoles":{
+        "combatSmall" : {
+            "svc_hemalisk_scythed" : 10, "svc_hemalisk_evo1_inkfang" : 3, "svc_hemalisk_evo2_acidfang" : 3,
+			"svc_toxocyst_scythed" : 2, "svc_toxocyst_evo1_spitting" : 4, "svc_toxocyst_evo2_fanged" : 4,
+        },
+        "combatMedium" : {
+                    "svc_arbiter_scythed" : 10, "svc_arbiter_evo1_spitting" : 4, "svc_arbiter_evo2_acidfang" : 4,
+					"svc_embolist_scythed" : 10, "svc_embolist_evo1_acidfang" : 3, "svc_embolist_evo2_spitting" : 3,
+					"svc_pupacyst_scythed" : 10, "svc_pupacyst_evo1_fanged" : 4, "svc_pupacyst_evo2_spitting" : 4,
+                },
+        "combatLarge" : {
+                             "svc_lephantis_scythed" : 10, "svc_lephantis_evo1_acidfang" : 3,
+							 "svc_keratinos_scythed" : 10, "svc_keratinos_evo1_acidclaw" : 3, "svc_keratinos_evo2_acidfang" : 3,
+                         },
+		#Elites:				 
+						 
+		"combatEliteSmall" : {
+            "svc_hemalisk_dark_scythed" : 0.5, "svc_toxocyst_dark_scythed" : 0.2,
+        },
+        "combatEliteMedium" : {
+                    "svc_arbiter_dark_scythed" : 0.1, "svc_embolist_dark_scythed" : 0.1, "svc_pupacyst_dark_scythed" : 0.1,
+                },
+        "combaElitetLarge" : {
+                             "svc_lephantis_dark_scythed" : 0.1, "svc_keratinos_dark_scythed" : 0.1,
+                         },
+		#ElitesEvolved				 
+						 
+		"combatEliteSmallEvolved" : {
+            "svc_hemalisk_dark_evo1_inkfang" : 0.2, "svc_hemalisk_dark_evo2_acidclaw" : 0.1, "svc_toxocyst_dark_evo1_spitting" : 0.2, "svc_toxocyst_dark_evo2_fanged" : 0.2,
+        },
+        "combatEliteMediumEvolved" : {
+                    "svc_arbiter_dark_evo1_spitting" : 0.1, "svc_arbiter_dark_evo2_acidfang" : 0.1,
+					"svc_pupacyst_dark_evo1_fanged" : 0.1, "svc_pupacyst_dark_evo2_acidic" : 0.1,
+					"svc_embolist_dark_evo1_acidfang" : 0.1, "svc_embolist_dark_evo2_spitting" : 0.1, 
+                },
+        "combaElitetLargeEvolved" : {
+                             "svc_keratinos_dark_evo1_acidclaw" : 0.1, "svc_keratinos_dark_evo2_acidfang" : 0.1,
+							 "svc_lephantis_dark_evo1_acidfang" : 0.1, 
+                         },
+
+		"ScoliacMiniBoss" : {
+            "svc_scoliac_grappling" : 10,
+        },
+
+	},
+	"illegalCommodities":[
+	],
+	"music":{
+		"encounter_hostile":"music_tritach_encounter_hostile",
+	},	
+	#"internalComms":"hegemony_internal",
+	"portraits":{
+		"standard_male":[
+			"graphics/portraits/SVC/svc_portrait_bunt_001.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_002.png",
+			"graphics/portraits/SVC/svc_portrait_bunt_003.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_004.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_005.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_006.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_007.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_008.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_009.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_010.png",	
+			"graphics/portraits/SVC/svc_portrait_bunt_011.png",					
+		],
+		"standard_female":[
+			"graphics/portraits/SVC/svc_portrait_bunt_001.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_002.png",
+			"graphics/portraits/SVC/svc_portrait_bunt_003.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_004.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_005.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_006.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_007.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_008.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_009.png",			
+			"graphics/portraits/SVC/svc_portrait_bunt_010.png",	
+			"graphics/portraits/SVC/svc_portrait_bunt_011.png",		
+		],
+	},
+	"ranks":{
+		"ranks":{
+		},
+		"posts":{
+		},
+	},
+	"custom":{
+			"decentralized":true,
+		"engageWhenEvenStrength":true,
+		"allowsTransponderOffTrade":true, # to prevent cargoscan dialog from "patrols"
+		"postsNoBounties":true,
+		"fightToTheLast":true, # order a full assault instead of retreating, in most cases
+
+	},	
+	"fleetTypeNames":{
+		"patrolSmall":"Pack",
+		"patrolMedium":"Herd",
+		"patrolLarge":"Swarm",
+		"battlestation":"Nest",
+	},
+},
