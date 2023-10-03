@@ -1,7 +1,6 @@
 package tecrys.svc.plugins.substanceabuse;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.alcoholism.itemPlugins.RecipeItemPlugin;
 import com.fs.starfarer.api.campaign.CargoStackAPI;
 import com.fs.starfarer.api.campaign.CargoTransferHandlerAPI;
 import com.fs.starfarer.api.campaign.impl.items.GenericSpecialItemPlugin;
@@ -15,9 +14,16 @@ public class svc_RecipeItemPlugin extends GenericSpecialItemPlugin {
     public void init(CargoStackAPI stack) {
         super.init(stack);
         if (Global.getSettings().getModManager().isModEnabled("alcoholism")) {
-            plugin = new RecipeItemPlugin();
-            plugin.init(stack);
-            plugin.setId(itemId);
+            try{
+                plugin = new com.fs.starfarer.api.alcoholism.itemPlugins.RecipeItemPlugin();
+                plugin.init(stack);
+                plugin.setId(itemId);
+            }catch (NoClassDefFoundError e){
+                plugin = null;
+                Global.getLogger(this.getClass()).error(
+                        "Couldn't initialize recipe item plugin for SubstanceAbuse integration." +
+                                " If you don't have SubstanceAbuse installed, ignore this error.");
+            }
         }
     }
 
