@@ -4,6 +4,7 @@
   "projectileSpecId": "svc_teeth_shot",
   "type": "COMPOSITE",
   "size": "MEDIUM",
+  "everyFrameEffect":"tecrys.svc.weapons.BaseAnimateOnFireEffectFanCluster",
   "turretSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
   "hardpointSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
     	"fireSoundTwo":"needler_fire",
