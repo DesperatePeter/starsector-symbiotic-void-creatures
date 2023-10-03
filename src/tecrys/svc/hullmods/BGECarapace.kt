@@ -115,6 +115,10 @@ class BGECarapace : BaseHullMod() {
     }
 
     private fun addControlCollarIfPlayer(member: FleetMemberAPI){
+
+        Global.getSector() ?: return
+        Global.getSector().playerFleet ?: return
+
         member.id?.let {
             if(!Global.getSector().playerFleet.contains(it)) return
         } ?: return
