@@ -8,7 +8,7 @@ import org.lwjgl.util.vector.Vector2f
 class BioPlasmaOnHitEffect(): OnHitEffectPlugin {
     companion object{
         const val DURATION = 5f
-        const val EFFECT_STRENGTH = -0.3f
+        const val EFFECT_MULT = 0.7f
         const val EFFECT_ID = "BioPlasmaOnHitEffect"
     }
 
@@ -33,12 +33,13 @@ class BioPlasmaOnHitEffect(): OnHitEffectPlugin {
             listOf(acceleration, turnAcceleration, maxTurnRate, ballisticRoFMult, energyRoFMult, missileRoFMult)
         }
         override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
-            statsToModify.forEach { it.modifyMult(EFFECT_ID, EFFECT_STRENGTH) }
             remainingDuration -= amount
             if(remainingDuration <= 0f){
                 statsToModify.forEach { it.unmodify(EFFECT_ID) }
                 engine?.removePlugin(this)
+                return
             }
+            statsToModify.forEach { it.modifyMult(EFFECT_ID, EFFECT_MULT) }
         }
     }
 }
