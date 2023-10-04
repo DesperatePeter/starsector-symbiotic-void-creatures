@@ -14,11 +14,11 @@ import java.awt.Color
 class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, private val secondProj: DamagingProjectileAPI):
     BaseEveryFrameCombatPlugin() {
         companion object{
-            const val VEL_MOD_BY_DIST = 1.8f // higher means a stronger rubber-band, i.e. faster movement
-            const val LINK_TARGET_RANGE = 60f // the range around which the projectiles oscillate
-            const val LINK_MAX_RANGE = 400f // range when link breaks
-            const val AVG_ROTATIONAL_SPEED = 150f // how fast they rotate
-            const val ROTATION_SPEED_RNG = 0.75f // value between 0.0f and 1.0f
+            const val VEL_MOD_BY_DIST = 30.0f // higher means a stronger rubber-band, i.e. faster movement
+            const val LINK_TARGET_RANGE = 30f // the range around which the projectiles oscillate
+            const val LINK_MAX_RANGE = 250f // range when link breaks
+            const val AVG_ROTATIONAL_SPEED = 350f // how fast they rotate
+            const val ROTATION_SPEED_RNG = 0.25f // value between 0.0f and 1.0f
             val CORE_LINK_COLOR: Color = Color.GREEN
         }
 
