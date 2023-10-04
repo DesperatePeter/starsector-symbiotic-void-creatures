@@ -49,10 +49,7 @@
     "particleDuration": 0.15,
     "particleCount": 30,
     "particleColor": [
-      255,
-      100,
-      150,
-      255
+124, 255, 0, 255
     ]
   },
   "fireSoundTwo": "svc_weapon_plasma"

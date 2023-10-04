@@ -20,7 +20,7 @@ class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, priv
             const val VEL_MOD_BY_DIST = 1.8f
             const val LINK_TARGET_RANGE = 60f
             const val LINK_MAX_RANGE = 400f
-            const val ROTATIONAL_SPEED = 60f
+            const val ROTATIONAL_SPEED = 150f
             val CORE_LINK_COLOR: Color = Color.GREEN
         }
 
