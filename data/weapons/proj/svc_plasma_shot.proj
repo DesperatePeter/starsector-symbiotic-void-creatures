@@ -2,6 +2,7 @@
 	"id":"svc_plasma_shot",
 	"specClass":"projectile",
 	"spawnType":"PLASMA",
+	"onFireEffect": "tecrys.svc.weapons.BioPlasmaOnFireEffect",
 	"collisionClass":"PROJECTILE_FF",
 	"collisionClassByFighter":"PROJECTILE_FIGHTER",
 	#"width":45.0,
