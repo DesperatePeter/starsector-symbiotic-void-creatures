@@ -14,11 +14,11 @@ import java.awt.Color
 class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, private val secondProj: DamagingProjectileAPI):
     BaseEveryFrameCombatPlugin() {
         companion object{
-            const val VEL_MOD_BY_DIST = 30.0f // higher means a stronger rubber-band, i.e. faster movement
-            const val LINK_TARGET_RANGE = 30f // the range around which the projectiles oscillate
-            const val LINK_MAX_RANGE = 250f // range when link breaks
-            const val AVG_ROTATIONAL_SPEED = 350f // how fast they rotate
-            const val ROTATION_SPEED_RNG = 0.25f // value between 0.0f and 1.0f
+            const val VEL_MOD_BY_DIST = 20f // higher means a stronger rubber-band, i.e. faster movement
+            const val LINK_TARGET_RANGE = 50f // the range around which the projectiles oscillate
+            const val LINK_MAX_RANGE = 280f // range when link breaks
+            const val AVG_ROTATIONAL_SPEED = 200f // how fast they rotate
+            const val ROTATION_SPEED_RNG = 0.7f // value between 0.0f and 1.0f
             val CORE_LINK_COLOR: Color = Color.GREEN
         }
 
@@ -84,13 +84,5 @@ class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, priv
             angle = Misc.getAngleInDegrees(firstProj.location, secondProj.location) - 90f
             renderAtCenter(center.x, center.y)
         }
-//        renderTimer.advance(engine.elapsedInLastFrame)
-//        if(!renderTimer.intervalElapsed()) return
-//        Global.getCombatEngine()?.run {
-//            spawnEmpArc(null, firstProj.location, firstProj,
-//                DummyCombatEntity(secondProj.location, secondProj.owner),
-//                DamageType.ENERGY, 0f, 0f, LINK_MAX_RANGE, null, 1f,
-//                FRINGE_LINK_COLOR, CORE_LINK_COLOR)
-//        }
     }
 }

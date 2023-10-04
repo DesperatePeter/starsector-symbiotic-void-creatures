@@ -26,6 +26,7 @@ svc_inksac,WEAPON,"An organic gland, capable of emitting a sort of ink-cloud wit
 svc_boltzmann_brain,WEAPON,"A spontaneously manifesting brain is launched towrds the enemy, spewing electropsionic EMP blasts as it comes closer, which fries the brain in the process.",,,,
 svc_worm_colony_large,WEAPON,Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth.,,,,
 svc_worm_colony_small,WEAPON,Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth.,,,,
+svc_bioplasma_large,WEAPON,"Not unlike the plasma cannon, this weapon fires superheated balls of a plasma-like slime. Very much unlike the plasma cannon, these balls are fired in pairs of two, which are tethered together via some sort of slime cord, resulting in rather erratic, bola-like, projectile movement. This makes the weapon surprisingly effective against smaller targets at medium ranges, but is truly devestating when fired against large targets at close range. When impacting armor or hull, the slime clogs thrusters and barrels, briefly reducing the target's maneuverability and rate of fire,",General,,,
 ,,,,,,
 svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal to attacks.",,,,
 svc_aggressive_pheromones,SHIP_SYSTEM,Increases speed and fire rate for all allies in a large area around Lephantis.,,,,

@@ -3,6 +3,7 @@
 	"specClass":"projectile",
 	"spawnType":"PLASMA",
 	"onFireEffect": "tecrys.svc.weapons.BioPlasmaOnFireEffect",
+	"onHitEffect": "tecrys.svc.weapons.BioPlasmaOnHitEffect",
 	"collisionClass":"PROJECTILE_FF",
 	"collisionClassByFighter":"PROJECTILE_FIGHTER",
 	#"width":45.0,
