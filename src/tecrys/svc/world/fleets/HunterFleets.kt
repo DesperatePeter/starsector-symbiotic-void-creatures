@@ -1,6 +1,7 @@
 package tecrys.svc.world.fleets
 
 import tecrys.svc.SVC_MOD_ID
+import tecrys.svc.listeners.HuntersDefeatedListener
 import tecrys.svc.utils.CampaignSettingDelegate
 
 val smallHunterFleetRolesQuantity = mapOf(
@@ -29,13 +30,13 @@ val largeHunterFleetRolesQuantity = mapOf(
 )
 
 val smallHunterFleet = HunterFleetConfig(smallHunterFleetRolesQuantity,
-    "small", "Void Razors", 80f, 75f)
+    "small", "Void Razors", 80f, 75f, HuntersDefeatedListener)
 
 val mediumHunterFleet = HunterFleetConfig(mediumHunterFleetRolesQuantity,
-    "medium", "Void Razors", 130f, 100f)
+    "medium", "Void Razors", 130f, 100f, HuntersDefeatedListener)
 
 val largeHunterFleet = HunterFleetConfig(largeHunterFleetRolesQuantity,
-    "large", "Void Razors", 250f, 140f)
+    "large", "Void Razors", 250f, 140f, HuntersDefeatedListener)
 
 var hunterFleetsToSpawn: MutableMap<String, HunterFleetConfig>
 by CampaignSettingDelegate("$" + SVC_MOD_ID + "hunterFleetsToSpawn",

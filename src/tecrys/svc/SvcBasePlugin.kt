@@ -14,6 +14,7 @@ import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
 import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
 import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
 import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
+import tecrys.svc.utils.unlockVoidlingRecovery
 import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
@@ -48,6 +49,7 @@ class SvcBasePlugin : BaseModPlugin() {
         Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())
         Global.getSector().listenerManager.addListener(SvcCargoListener)
+        unlockVoidlingRecovery()
         if(newGame){
             initSVC()
         }
@@ -91,8 +93,6 @@ class SvcBasePlugin : BaseModPlugin() {
                     launchingShip
                 ), CampaignPlugin.PickPriority.MOD_SPECIFIC
             )
-
-
             else -> {}
         }
         return null

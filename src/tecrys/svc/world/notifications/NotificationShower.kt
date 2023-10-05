@@ -15,6 +15,7 @@ class NotificationShower : EveryFrameScript {
         const val WHALES_PROTECTED_ID = "whales_protected"
         const val WHALES_DEAD_ID = "whales_dead"
         const val HUNTER_FLEET_APPROACHING_ID = "hunters_approaching"
+        const val HUNTERS_DEFEATED_ID = "hunters_defeated"
         private val notifications = mapOf(
             VOIDLINGS_DEFEATED_ID to object : NotificationBase(VOIDLINGS_DEFEATED_ID) {
                 override fun create(): InteractionDialogPlugin = DefeatedVoidlingsNotificationDialog()
@@ -35,6 +36,9 @@ class NotificationShower : EveryFrameScript {
             },
             HUNTER_FLEET_APPROACHING_ID to object : NotificationBase(HUNTER_FLEET_APPROACHING_ID){
                 override fun create(): InteractionDialogPlugin = HunterFleetApproachingNotification()
+            },
+            HUNTERS_DEFEATED_ID to object : NotificationBase(HUNTERS_DEFEATED_ID){
+                override fun create(): InteractionDialogPlugin = HuntersDefeatedNotification()
             }
         )
         fun showNotificationOnce(id: String){

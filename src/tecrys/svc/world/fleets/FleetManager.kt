@@ -125,6 +125,9 @@ class FleetManager : EveryFrameScript {
                     makeAlwaysHostile()
                     attackFleet(playerFleet)
                     memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
+                    hunterConfig.fleetListener?.let { listener ->
+                        addEventListener(listener)
+                    }
                     return true
                 }
             }

@@ -12,7 +12,10 @@
     "svc_whales_dead_text" : "Your fleet was unable to protect the whales from a hungry pack of Voidlings.",
 
     "svc_hunter_fleet_approaching_title": "Something is approaching",
-    "svc_hunter_fleet_approaching_text": "Your sensor officer suddenly approaches you with a concerned look on their face. Apparently, they picked up a strange sensor-reading, resembling - but not quite matching - p-space emissions. The concerning bit, however, is that the reading is approaching your fleet - rapidly."
+    "svc_hunter_fleet_approaching_text": "Your sensor officer suddenly approaches you with a concerned look on their face. Apparently, they picked up a strange sensor-reading, resembling - but not quite matching - p-space emissions. The concerning bit, however, is that the reading is approaching your fleet - rapidly.",
+
+    "svc_hunter_fleet_defeated_title": "The hunters have become the hunted",
+    "svc_hunter_fleet_defeated_text": "PLACEHOLDER TEXT You have defeated a voidling hunter fleet. This fight has taught you much about voidling hierarchy. Your ability to recover voidlings has improved:"
   },
   "VoidChitinPlating": {
     "description": "Replaces some of the ship's armor with light but durable void chitin, replacing the ship system with",

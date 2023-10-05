@@ -1,7 +1,9 @@
 package tecrys.svc.utils
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.ArmorGridAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipHullSpecAPI
 import com.fs.starfarer.api.combat.ShipwideAIFlags
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.MathUtils
@@ -9,6 +11,7 @@ import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.getAngleDiff
+import tecrys.svc.*
 import java.awt.Color
 import kotlin.math.PI
 import kotlin.math.abs
@@ -23,6 +26,17 @@ fun vectorFromAngleDeg(angle: Float): Vector2f {
 fun Color.randomlyVaried(variation: Float): Color{
     fun d(c: Int) = MathUtils.clamp(c + (2f * (Math.random() - 0.5) * variation).toInt(), 0, 255)
     return Color( d(red),  d(green), d(blue), alpha)
+}
+
+fun unlockVoidlingRecovery(){
+    if(!canRecoverVoidlings) return
+    Global.getSettings().allShipHullSpecs.filter {
+        it.tags.contains(SVC_VARIANT_TAG)
+    }.filter {
+        !it.tags.contains(SVC_ALPHA_TAG) || canRecoverAlphas
+    }.forEach {
+        it.hints.remove(ShipHullSpecAPI.ShipTypeHints.UNBOARDABLE)
+    }
 }
 
 fun ShipAPI.getEffectiveShipTarget(fallbackRange: Float = 600f): ShipAPI?{
