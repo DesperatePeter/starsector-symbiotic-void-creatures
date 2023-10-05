@@ -50,7 +50,7 @@
 	],	
 			"svc_weapon_plasma":[
 		{"file":"sounds/svc_bioplasma1.ogg","pitch":1,"volume":1},
-		{"file":"sounds/svc_bioplasma2.ogg","pitch":1.4,"volume":0.6},
+		#{"file":"sounds/svc_bioplasma2.ogg","pitch":1.4,"volume":0.6},
 	],	
 		"svc_engine_tentacle_loop":[
 		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":1,"volume":0.1},

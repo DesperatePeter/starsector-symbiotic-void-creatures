@@ -27,7 +27,7 @@ Mature Phaseworm Colony,svc_worm_colony_large,1,,250,2000,,250,,15,4,15,160,0.1,
 Phaseworm Colony,svc_worm_colony_small,1,,250,2000,,250,,15,4,5,68,0.1,4,FRAGMENTATION,0,,0,4,4,0.1,6,64,8,6,,250,400,15,100,,,"ANTI_FTR, DO_NOT_AIM, DO_NOT_CONSERVE","no_sell, no_dealer, restricted",,Biological,,Assault Boarding,Fast,Excellent,,,"When phaseworms collide with an enemy ship they creep on board, wreaking havoc among the crew and sensitive systems. Each hit to hull or armour reduces Combat Readiness by 0.2% and inflicts extra casualties among crew and marines.",,,,,10
 Boltzmnn Brain,svc_boltzmann_brain,1,,250,1500,,800,,15,0,8,2,0.017,,ENERGY,0,,0,10,1,,0,0,0,0,,350,75,8,500,,,DO_NOT_AIM,"no_sell, no_dealer, restricted, damage_special, damage_soft_flux",,,,Area Denial,Medium,Good,,,EMP arcs cover an area with a radius between 250 and 500su. Each arc deals 30 energy damage and 350 EMP damage.,800,,,TRUE,11.9
     Boltzmnn Brain - Payload,svc_brain_payload,1,,0,700,800,,,,30,0,,,,ENERGY,0,,0.05,0.25,0.9,0.5,,,,,1000000,,,,,,,"SYSTEM, DANGEROUS",fires_one_burst,,,,,,,,,,,,,,11.91
-Tysis,svc_bioplasma_large,3,,7500,1200,,500,,,20,30,,,,ENERGY,550,,0.33,1.01,2,0.2,,,,,,350,,,500,,,"STRIKE, USE_VS_FRIGATES","energy20, rare_bp, hist1t, merc, ind",,,,General,,,,,,,,,,23
+Tysis,svc_bioplasma_large,3,,7500,1000,,500,,,20,30,10,0.7,10,ENERGY,550,,0.33,1.01,2,0.2,,,,,,350,,,500,,,USE_VS_FRIGATES,"no_sell, no_dealer, restricted",,,,Suppression,,,,,,,,,,23
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 #Decoratives:,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,

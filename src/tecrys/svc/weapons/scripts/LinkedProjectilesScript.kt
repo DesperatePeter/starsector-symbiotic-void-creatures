@@ -23,7 +23,7 @@ class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, priv
         }
 
     private val engine = Global.getCombatEngine()
-    private val sprite = Global.getSettings().getSprite("beams", "svc_parasumbilical_beam")
+    private val sprite = Global.getSettings().getSprite("fx", "base_trail_zapWithCore")
     private val fToS: Vector2f
         get() = secondProj.location - firstProj.location
     private val rotationSpeed = AVG_ROTATIONAL_SPEED * (1f - ROTATION_SPEED_RNG + 2f * ROTATION_SPEED_RNG * Math.random().toFloat())
@@ -77,9 +77,9 @@ class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, priv
         delta.scale(0.5f)
         val center = firstProj.location + delta
         sprite?.run {
-            alphaMult = CORE_LINK_COLOR.alpha.toFloat() / 255f
+            alphaMult = CORE_LINK_COLOR.alpha.toFloat() / 100f
             color = CORE_LINK_COLOR
-            setSize(5f, dist)
+            setSize(19f, dist)
             setAdditiveBlend()
             angle = Misc.getAngleInDegrees(firstProj.location, secondProj.location) - 90f
             renderAtCenter(center.x, center.y)

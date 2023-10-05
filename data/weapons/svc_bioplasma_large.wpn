@@ -42,14 +42,14 @@
   "animationType": "GLOW_AND_FLASH",
   "autocharge": true,
   "muzzleFlashSpec": {
-    "length": -34,
+    "length": 20,
     "spread": 15,
     "particleSizeMin": 15,
     "particleSizeRange": 15,
     "particleDuration": 0.15,
     "particleCount": 30,
     "particleColor": [
-124, 255, 0, 255
+124, 255, 0, 100
     ]
   },
   "fireSoundTwo": "svc_weapon_plasma"
