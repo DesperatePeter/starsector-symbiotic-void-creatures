@@ -9,11 +9,12 @@ import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl.FIDCo
 class VoidlingFIDConf: FIDConfigGen {
     override fun createConfig(): FleetInteractionDialogPluginImpl.FIDConfig {
         val config = FIDConfig()
-        config.delegate = object : BaseFIDDelegate() {
-            override fun notifyLeave(dialog: InteractionDialogAPI?) {
-
-            }
-
+        config.run {
+            alwaysPursue = true
+            showCommLinkOption = false
+            straightToEngage = true
+            alwaysAttackVsAttack = true
+            leaveAlwaysAvailable = false
         }
         return config
     }

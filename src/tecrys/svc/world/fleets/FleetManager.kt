@@ -5,12 +5,14 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.SpecialItemData
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
 import tecrys.svc.*
 import tecrys.svc.listeners.SvcFleetListener
+import tecrys.svc.listeners.VoidlingFIDConf
 import tecrys.svc.listeners.WhaleFleetListener
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.utils.attackFleet
@@ -90,6 +92,7 @@ class FleetManager : EveryFrameScript {
             it.orbitClosestPlanet()
             it.makeHostile()
             it.makeAlwaysHostile()
+            it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
             return true
         }
         return false
@@ -121,6 +124,7 @@ class FleetManager : EveryFrameScript {
                     makeHostile()
                     makeAlwaysHostile()
                     attackFleet(playerFleet)
+                    memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
                     return true
                 }
             }
@@ -155,6 +159,7 @@ class FleetManager : EveryFrameScript {
         voidlings.makeAlwaysHostile()
         voidlings.attackFleet(whales)
         voidlings.addEventListener(SvcFleetListener)
+        voidlings.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
         whales.attackFleet(voidlings)
         whales.addEventListener(WhaleFleetListener)
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO
