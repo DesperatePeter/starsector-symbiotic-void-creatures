@@ -1,0 +1,39 @@
+id,trigger,conditions,script,text,options,notes
+svcmod_spawn_hunter_fleet_bar_event,AddBarEvents,"SvcShouldSpawnHunterBarEvent","AddBarEvent svcmod_hunter_bar_event ""Ask around if anyone knows more about the voidlings."" ""Maybe someone in the local bar might know more about the voidlings?""",,,
+svcmod_hunter_bar_event,DialogOptionSelected,"$option == svcmod_hunter_bar_event",,"While most of the patrons of the bar seem vaguely entertained by your story about encountering angry space crustaceans,
+you clearly catch a brief, but distinct, glance from a somber figure in the back.","1:svcmod_hunter_bar_event2:Approach the figure
+10:svcmod_hunter_bar_event_leave:Leave",
+svcmod_hunter_bar_event2,DialogOptionSelected,"$option == svcmod_hunter_bar_event2","ShowPic svc_hunter_bar_event_portrait","As you approach, you can make out a haggard face, belonging to a middle-aged man that appears to have made considerable progress on his quest to drown his sorrows in a bottle of schnapps.
+
+""So, 't seems the past has finally caught up to us. Always knew this day'd come eventually, didn't I? Would've much preferred to have kicked the bucket by then...""
+
+The man invites you to sit with a gesture, while letting out a grim chuckle.",svcmod_hunter_bar_event3:Encourage the man to continue his story,
+svcmod_hunter_bar_event3,DialogOptionSelected,"$option == svcmod_hunter_bar_event3",,"""Guess there's no harm in telling you the full story, or what I know of it at least. Not like they could do me much worse than they already have...""
+
+""Don't even know who our employer was, or where these creatures came from. Well, not for sure, anyhow. Some thought 't was some heretic trying to profit off of Ludd's punishment for our sins, or some spiritual bullshit. Others were convinced it was a tri-tach bioengineering project. There were rumors about some Sindrian lobster experiments.""
+
+""Personally, I think some brain-fried pirate might have stumbled onto something that should've better been left buried somewhere in the outer sector.""
+
+The man takes a deep breath and downs another glass of schnapps before continuing his story.",svcmod_hunter_bar_event4:Ask the man what happened,
+svcmod_hunter_bar_event4,DialogOptionSelected,"$option == svcmod_hunter_bar_event4",SvcMarkHunterBarEventFinished,"""Whatever the case, 't all went to shit real fast, real good. Heh, who could've guessed that trying to control a swarm of space predators, trying to make them more aggressive, trying to make them hunter fleets, could backfire. Don't get me wrong, we did succeed. Real nice and aggressive, these hunters.""
+
+The man shrugs, suddenly appearing a little bit more sober.
+
+""Don't wanna bore you with all the little details. Maybe don't wanna bother myself with 'em. Long story short, most of my team died. The few others that survived seem to have disappeared shortly after. Only reason I'm still kicking's that I chose to disappear myself, first chance I had. Presumed KIA. Not sure I did myself a favor.""
+
+The man pauses for a second.
+
+""Controlling voidlings isn't all that hard. Making them hunt fleets sure as hell isn't. But keeping a whole swarm, one with multiple alphas at that, from hunting your fleet, now that, that is impossible. Quickly after, whoever was in charge of this whole thing seemed to be very eager to erase all traces of the project, or at least their involvement, from history.""",svcmod_hunter_bar_event5:Continue,
+svcmod_hunter_bar_event5,DialogOptionSelected,"$option == svcmod_hunter_bar_event5",,"The man chuckles.
+
+""Guess they hoped the problem of roaming voidlings would just magically disappear. For all I know, even the hunter fleets are still roaming the outer periphery of the sector, looking for big juicy fleets to hunt.""
+
+""The equipment we used to try to control them might even still be intact.""
+
+The man clears his throat.
+
+""Well, that's about all I know. And now let an old man drink in solitude.""
+
+He pours the rest of his schnapps into a shot glass, downs it and gestures towards the bar:
+""Order me a new one on your way out, will ya?""",svcmod_hunter_bar_event_leave:Leave,
+svcmod_hunter_bar_event_leave,DialogOptionSelected,"$option == svcmod_hunter_bar_event_leave",BarCMD returnFromEvent false,"You leave the table, ordering a new bottle of schnapps for the man.",

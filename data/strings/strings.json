@@ -15,7 +15,8 @@
     "svc_hunter_fleet_approaching_text": "Your sensor officer suddenly approaches you with a concerned look on their face. Apparently, they picked up a strange sensor-reading, resembling - but not quite matching - p-space emissions. The concerning bit, however, is that the reading is approaching your fleet - rapidly.",
 
     "svc_hunter_fleet_defeated_title": "The hunters have become the hunted",
-    "svc_hunter_fleet_defeated_text": "PLACEHOLDER TEXT You have defeated a voidling hunter fleet. This fight has taught you much about voidling hierarchy. Your ability to recover voidlings has improved:"
+    "svc_hunter_fleet_defeated_text_no_bar": "The voidling fleet you encountered was different from the voidlings you encountered before. It was more aggressive, actively seeking your fleet out in hyperspace, as if driven by hunger. \n\nAn analysis of the carcasses indicates the presence of some sort of cybernetic components. \nUpon brief inspection, your science officer declares that this appears to be some sort of control mechanism. They assure you that they will find a way to reverse-engineer the technology.",
+    "svc_hunter_fleet_defeated_text_bar": "You found and successfully defeated one of the hunter fleets that the man in the bar spoke off. \n\nJust as he indicated, some of the equipment that was used to control the hunters seems to be intact. Your science officer assures you that they will find a way to reverse-engineer the technology."
   },
   "VoidChitinPlating": {
     "description": "Replaces some of the ship's armor with light but durable void chitin, replacing the ship system with",

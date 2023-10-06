@@ -9,7 +9,7 @@ class TriggerNotification: BaseCommand {
         val notificationIds = args.split(" ")
         if (notificationIds.isEmpty()) return BaseCommand.CommandResult.BAD_SYNTAX
         notificationIds.forEach { id ->
-            NotificationShower.showNotificationOnce(id)
+            NotificationShower.showNotificationRepeatable(id)
         }
         return BaseCommand.CommandResult.SUCCESS
     }

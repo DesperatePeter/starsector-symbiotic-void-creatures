@@ -24,6 +24,12 @@
 		},
 		"exotics": {
 			"VoidChitinPlating": "graphics/icons/exotics/voidchitinplating.png"
+		},
+		"illustrations": {
+			"svc_hunter_bar_event_portrait": "graphics/backgrounds/Pursuitsml2.png"
 		}
-	}
+	},
+	"ruleCommandPackages": [
+		"tecrys.svc.rulecmd"
+	]
 }
