@@ -25,6 +25,9 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
         get() = Global.getSector()?.clock?.cycle?.minus(CYCLE_ZERO)?.toFloat() ?: 0f
     val spawnPower: Float
         get() {
+            s.overwriteSpawnPower?.let {
+                return it()
+            }
             return min(
                 s.flatSpawnPower + playerFleetStrength * s.spawnPowerScalingByPlayerStrength
                         + campaignCyclesElapsed * s.spawnPowerScalingByCycles

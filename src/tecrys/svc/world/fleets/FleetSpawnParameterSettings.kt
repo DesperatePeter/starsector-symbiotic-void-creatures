@@ -13,5 +13,6 @@ data class FleetSpawnParameterSettings (
     // weights when spawn power is 0 (negative weights are the same as 0, but make things appear later)
     val combatRoleBaseWeights: Map<String, Float>,
     // weights when spawn power is max
-    val combatRoleFinalWeights: Map<String, Float>
+    val combatRoleFinalWeights: Map<String, Float>,
+    val overwriteSpawnPower: (() -> Float)? = null
 )
