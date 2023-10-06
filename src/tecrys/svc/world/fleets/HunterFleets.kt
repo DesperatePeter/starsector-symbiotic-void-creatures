@@ -30,19 +30,19 @@ val largeHunterFleetRolesQuantity = mapOf(
 )
 
 val smallHunterFleet = HunterFleetConfig(smallHunterFleetRolesQuantity,
-    "small", "Void Razors", 80f, 75f, HuntersDefeatedListener)
+    "small", "Void Razors", 80f, 75f, HuntersDefeatedListener("small"))
 
 val mediumHunterFleet = HunterFleetConfig(mediumHunterFleetRolesQuantity,
-    "medium", "Void Razors", 130f, 100f, HuntersDefeatedListener)
+    "medium", "Void Razors", 130f, 100f, HuntersDefeatedListener("medium"))
 
 val largeHunterFleet = HunterFleetConfig(largeHunterFleetRolesQuantity,
-    "large", "Void Razors", 250f, 140f, HuntersDefeatedListener)
+    "large", "Void Razors", 250f, 140f, HuntersDefeatedListener("large"))
+
+val hunterFleetsById = mapOf(
+    smallHunterFleet.id to smallHunterFleet,
+    mediumHunterFleet.id to mediumHunterFleet,
+    largeHunterFleet.id to largeHunterFleet
+)
 
 var hunterFleetsToSpawn: MutableMap<String, HunterFleetConfig>
-by CampaignSettingDelegate("$" + SVC_MOD_ID + "hunterFleetsToSpawn",
-    mutableMapOf(
-        smallHunterFleet.id to smallHunterFleet,
-        mediumHunterFleet.id to mediumHunterFleet,
-        largeHunterFleet.id to largeHunterFleet
-    )
-)
+by CampaignSettingDelegate("$" + SVC_MOD_ID + "hunterFleetsToSpawn", hunterFleetsById.toMutableMap())
