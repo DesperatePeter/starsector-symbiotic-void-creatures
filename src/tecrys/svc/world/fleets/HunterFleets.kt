@@ -12,20 +12,20 @@ val smallHunterFleetRolesQuantity = mapOf(
 )
 
 val mediumHunterFleetRolesQuantity = mapOf(
-    "combatEliteSmall" to 1,
-    "combatEliteSmallEvolved" to 1,
-    "combatEliteMedium" to 3,
-    "combatEliteMediumEvolved" to 2,
+    "combatEliteSmall" to 2,
+    "combatEliteSmallEvolved" to 2,
+    "combatEliteMedium" to 4,
+    "combatEliteMediumEvolved" to 3,
     "ScoliacMiniBoss" to 1,
 )
 
 val largeHunterFleetRolesQuantity = mapOf(
     "combaElitetLarge" to 2,
-    "combaElitetLargeEvolved" to 2,
-    "combatEliteSmall" to 1,
-    "combatEliteSmallEvolved" to 1,
-    "combatEliteMedium" to 3,
-    "combatEliteMediumEvolved" to 3,
+    "combaElitetLargeEvolved" to 3,
+    "combatEliteSmall" to 2,
+    "combatEliteSmallEvolved" to 2,
+    "combatEliteMedium" to 4,
+    "combatEliteMediumEvolved" to 4,
     "ScoliacMiniBoss" to 1,
 )
 
