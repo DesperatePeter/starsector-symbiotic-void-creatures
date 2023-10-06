@@ -26,7 +26,7 @@
 			"VoidChitinPlating": "graphics/icons/exotics/voidchitinplating.png"
 		},
 		"illustrations": {
-			"svc_hunter_bar_event_portrait": "graphics/backgrounds/Pursuitsml2.png"
+			"svc_hunter_bar_event_portrait": "graphics/illustrations/space_bar.jpg"
 		}
 	},
 	"ruleCommandPackages": [
