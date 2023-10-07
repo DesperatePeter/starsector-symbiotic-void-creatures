@@ -30,6 +30,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0002": "svc_bge_grappler_pd",
+        "WS0003": "svc_bge_grappler_pd",
         "left_sml_pd": "svc_bge_grappler_pd",
         "right_sml_pd": "svc_bge_grappler_pd"
       }
@@ -37,7 +39,10 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0004": "svc_worm_colony_small",
+        "WS0005": "svc_worm_colony_small"
+      }
     },
     {
       "autofire": true,

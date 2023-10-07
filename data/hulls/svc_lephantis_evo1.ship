@@ -22,6 +22,10 @@
     "WS0004": "svc_fangcluster",
     "WS0005": "svc_acidthrower",
     "WS0006": "svc_acidthrower",
+    "WS0007": "svc_bioplasma_large",
+    "WS0008": "svc_bioplasma_large",
+    "WS0009": "svc_boltzmann_brain",
+    "WS0010": "svc_boltzmann_brain",
     "antena_left": "svc_antena_right",
     "antena_right": "svc_antena_right",
     "eyes": "svc_koenig_eyes",
@@ -318,6 +322,42 @@
       "arc": 100,
       "angle": -4,
       "locations": [99.5, 38]
+    },
+    {
+      "id": "WS0007",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 62,
+      "angle": -0,
+      "locations": [41, -53]
+    },
+    {
+      "id": "WS0008",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 62,
+      "angle": 0,
+      "locations": [41, 53]
+    },
+    {
+      "id": "WS0009",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 116.791,
+      "angle": 157.5,
+      "locations": [-30, -162.5]
+    },
+    {
+      "id": "WS0010",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 116.791,
+      "angle": -157.5,
+      "locations": [-30, 162.5]
     }
   ],
   "engineSlots": [

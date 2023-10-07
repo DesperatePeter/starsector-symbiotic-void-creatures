@@ -19,6 +19,8 @@
     "Eyes": "svc_koenig_eyes",
     "WS0001": "svc_stinger_right",
     "WS0002": "svc_stinger_left",
+    "WS0003": "svc_boltzmann_brain",
+    "WS0004": "svc_boltzmann_brain",
     "left_fin1": "svc_long_fin_right_sml2",
     "left_fin2": "svc_long_fin_right_sml",
     "left_fin3": "svc_long_fin_right_sml2",
@@ -85,7 +87,7 @@
       "arc": 40.238998,
       "angle": -43.264,
       "locations": [27, 27],
-      "renderOrderMod": 2
+      "renderOrderMod": 20
     },
     {
       "id": "right_med_uni2",
@@ -95,7 +97,7 @@
       "arc": 40.238998,
       "angle": 43.264,
       "locations": [27, -27],
-      "renderOrderMod": 2
+      "renderOrderMod": 20
     },
     {
       "id": "right_med_uni1",
@@ -244,6 +246,24 @@
       "angle": 0,
       "locations": [-5, 3],
       "renderOrderMod": 20
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 40.238998,
+      "angle": -20.5,
+      "locations": [39.5, -47]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 40.238998,
+      "angle": 20.5,
+      "locations": [39.5, 47]
     }
   ],
   "engineSlots": [

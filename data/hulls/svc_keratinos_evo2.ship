@@ -19,6 +19,8 @@
     "Eyes": "svc_waechter_eyes",
     "WS0001": "svc_trans_fin_left_sml2",
     "WS0002": "svc_trans_fin_right_sml2",
+    "WS0003": "svc_bioplasma_large",
+    "WS0004": "svc_bioplasma_large",
     "left_antenna": "svc_antena_right",
     "left_grappler": "svc_bge_grappler_pd",
     "left_grappler3": "svc_inksac",
@@ -164,7 +166,7 @@
       "arc": 0,
       "angle": -22.834,
       "locations": [-24, 42],
-      "renderOrderMod": 30
+      "renderOrderMod": 40
     },
     {
       "id": "right_antenna",
@@ -174,7 +176,7 @@
       "arc": 0,
       "angle": 22.834,
       "locations": [-24, -42],
-      "renderOrderMod": 30
+      "renderOrderMod": 40
     },
     {
       "id": "left_sml_mand2",
@@ -350,6 +352,25 @@
       "angle": 0,
       "locations": [36.5, -0],
       "renderOrderMod": 3
+    },
+    {
+      "id": "WS0003",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 107.797997,
+      "angle": 0,
+      "locations": [53, -62],
+      "renderOrderMod": 30
+    },
+    {
+      "id": "WS0004",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 107.797997,
+      "angle": 0,
+      "locations": [53, 62]
     }
   ],
   "engineSlots": [

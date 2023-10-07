@@ -14,19 +14,17 @@
       "mode": "LINKED",
       "weapons": {
         "Alphaleft1": "svc_fangcluster",
-        "Alphaleft2": "svc_acidthrower",
-        "Alphaleft3": "svc_inksac",
         "Alpharight1": "svc_fangcluster",
-        "Alpharight2": "svc_acidthrower",
-        "Alpharight3": "svc_inksac",
-        "left_grappler3": "svc_bge_grappler",
-        "right_grappler3": "svc_bge_grappler"
+        "WS0005": "svc_bioplasma_large"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "Alphaleft3": "svc_inksac",
+        "Alpharight3": "svc_inksac"
+      }
     },
     {
       "autofire": true,
@@ -59,12 +57,18 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_grappler3": "svc_worm_colony_small",
+        "right_grappler3": "svc_worm_colony_small"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "Alphaleft2": "svc_acidthrower",
+        "Alpharight2": "svc_acidthrower"
+      }
     }
   ],
   "modules": [],

@@ -23,8 +23,8 @@
     "WS0003": "svc_adv_med_scythe_r",
     "WS0004": "svc_adv_med_scythe_r",
     "WS0005": "svc_flusskrebs",
-    "WS0006": "svc_fangcluster",
-    "WS0007": "svc_fangcluster",
+    "WS0006": "svc_bioplasma_large",
+    "WS0007": "svc_bioplasma_large",
     "WS0008": "svc_dark_fin_right_medium",
     "WS0009": "svc_dark_fin_right_medium",
     "WS0010": "svc_dark_fin_right_tiny",
@@ -96,21 +96,23 @@
     },
     {
       "id": "WS0006",
-      "size": "MEDIUM",
+      "size": "LARGE",
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 150,
       "angle": 4,
-      "locations": [0, -38]
+      "locations": [0, -38],
+      "renderOrderMod": 20
     },
     {
       "id": "WS0007",
-      "size": "MEDIUM",
+      "size": "LARGE",
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 150,
       "angle": -4,
-      "locations": [0, 38]
+      "locations": [0, 38],
+      "renderOrderMod": 20
     },
     {
       "id": "WS0008",

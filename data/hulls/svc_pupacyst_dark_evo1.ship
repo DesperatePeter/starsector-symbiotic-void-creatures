@@ -24,9 +24,11 @@
     "Alphamiddle2": "svc_fangcluster",
     "WS0001": "svc_dark_fin_right_huge",
     "WS0002": "svc_dark_fin_right_huge",
+    "WS0003": "svc_worm_colony_small",
+    "WS0004": "svc_worm_colony_small",
     "eyes": "svc_zophe",
-    "grappler": "svc_bge_grappler",
-    "grappler2": "svc_bge_grappler",
+    "grappler": "svc_bge_grappler_pd",
+    "grappler2": "svc_bge_grappler_pd",
     "left_long_fin": "svc_tentacle_right_large_dark",
     "left_lrg_mand": "svc_adv_lrg_mand_r",
     "left_sml_fin": "svc_tentacle_right_medium_barbed_short",
@@ -197,6 +199,24 @@
       "angle": 0,
       "locations": [44.5, -0],
       "renderOrderMod": 50
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 29.241749,
+      "angle": -9,
+      "locations": [83.5, -29.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 29.241749,
+      "angle": 9,
+      "locations": [83.5, 29.5]
     }
   ],
   "engineSlots": [

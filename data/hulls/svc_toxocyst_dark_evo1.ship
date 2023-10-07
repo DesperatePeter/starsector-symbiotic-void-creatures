@@ -25,6 +25,8 @@
     "WS0004": "svc_bge_grappler",
     "WS0005": "svc_bge_grappler_pd",
     "WS0006": "svc_bge_grappler_pd",
+    "WS0007": "svc_worm_colony_small",
+    "WS0008": "svc_worm_colony_small",
     "WS0009": "svc_tentacle_right_small_barbed",
     "WS0010": "svc_tentacle_right_small_barbed",
     "WS0011": "svc_tentacle_right_medium_barbed",
@@ -229,6 +231,24 @@
       "angle": 0,
       "locations": [5, 3],
       "renderOrderMod": 20
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -151.5,
+      "locations": [-24, -56]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 151.5,
+      "locations": [-24, 56]
     }
   ],
   "engineSlots": [

@@ -13,6 +13,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0003": "svc_bioplasma_large",
+        "WS0004": "svc_bioplasma_large",
         "left_lrg_uni": "svc_fangcluster",
         "left_med_uni2": "svc_fangcluster",
         "right_lrg_uni": "svc_fangcluster",

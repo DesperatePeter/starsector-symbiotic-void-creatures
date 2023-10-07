@@ -13,11 +13,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "svc_bge_grappler",
-        "left_grappler2": "svc_bge_grappler",
-        "left_grappler3": "svc_bge_grappler",
-        "right_grappler2": "svc_bge_grappler",
-        "right_grappler3": "svc_bge_grappler"
+        "WS0002": "svc_bioplasma_large",
+        "WS0003": "svc_bioplasma_large",
+        "WS0006": "svc_boltzmann_brain",
+        "WS0007": "svc_boltzmann_brain",
+        "alphaleft1": "svc_fangcluster",
+        "alphaleft2": "svc_fangcluster",
+        "alpharight1": "svc_fangcluster",
+        "alpharight2": "svc_fangcluster"
       }
     },
     {
@@ -29,13 +32,17 @@
         "pd_in_right": "svc_bge_grappler_pd",
         "pd_out_left": "svc_bge_grappler_pd",
         "pd_out_right": "svc_bge_grappler_pd",
-        "right_grappler": "svc_bge_grappler_pd"
+        "right_grappler": "svc_bge_grappler_pd",
+        "right_grappler2": "svc_bge_grappler",
+        "right_grappler3": "svc_bge_grappler"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0008": "svc_worm_colony_large",
+        "WS0009": "svc_worm_colony_large",
         "lrg_mand_left": "svc_adv_lrg_mand_r",
         "lrg_mand_right": "svc_adv_lrg_mand_r",
         "sml_mand_left": "svc_adv_sml_mand_r",
@@ -46,8 +53,11 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0001": "svc_bge_grappler",
         "WS0004": "svc_inksac",
-        "WS0005": "svc_inksac"
+        "WS0005": "svc_inksac",
+        "left_grappler2": "svc_bge_grappler",
+        "left_grappler3": "svc_bge_grappler"
       }
     },
     {
@@ -62,19 +72,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "alphaleft1": "svc_fangcluster",
-        "alphaleft2": "svc_fangcluster",
-        "alpharight1": "svc_fangcluster",
-        "alpharight2": "svc_fangcluster"
+        "alphaleft3": "svc_acidthrower",
+        "alpharight3": "svc_acidthrower"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {
-        "alphaleft3": "svc_acidthrower",
-        "alpharight3": "svc_acidthrower"
-      }
+      "weapons": {}
     }
   ],
   "modules": [],

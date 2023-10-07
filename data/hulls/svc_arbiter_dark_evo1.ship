@@ -49,6 +49,8 @@
     "WS0025": "svc_Arbiter_dark_spike_right",
     "WS0026": "svc_Arbiter_dark_armor_right",
     "WS0027": "svc_Arbiter_dark_armor_right",
+    "WS0028": "svc_worm_colony_large",
+    "WS0029": "svc_worm_colony_large",
     "alphaleft1": "svc_inksac",
     "alphamiddle": "svc_acidthrower",
     "alpharight1": "svc_inksac",
@@ -403,6 +405,24 @@
       "angle": 180,
       "locations": [98, -0],
       "renderOrderMod": 20
+    },
+    {
+      "id": "WS0028",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": 2,
+      "locations": [116, -57.5]
+    },
+    {
+      "id": "WS0029",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": -2,
+      "locations": [116, 57.5]
     }
   ],
   "engineSlots": [

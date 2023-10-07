@@ -44,7 +44,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0007": "svc_bioplasma_large"
+      }
     }
   ],
   "modules": [],

@@ -39,14 +39,15 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni": "svc_med_scythe_r"
+        "left_med_uni": "svc_med_scythe_r",
+        "right_med_uni": "svc_med_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "right_med_uni": "svc_med_scythe_r"
+        "WS0002": "svc_boltzmann_brain"
       }
     },
     {

@@ -13,6 +13,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "WS0005": "svc_bioplasma_large",
         "left_lrg_uni": "svc_fangcluster",
         "right_lrg_uni": "svc_fangcluster"
       }
@@ -37,7 +38,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_med_uni2": "svc_med_scythe_r"
+        "left_med_uni2": "svc_med_scythe_r",
+        "right_med_uni": "svc_med_scythe_r"
       }
     },
     {
@@ -52,7 +54,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "right_med_uni": "svc_med_scythe_r"
+        "WS0003": "svc_worm_colony_small",
+        "WS0004": "svc_worm_colony_small"
       }
     },
     {

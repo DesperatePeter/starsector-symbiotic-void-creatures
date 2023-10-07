@@ -18,8 +18,14 @@
   ],
   "builtInWeapons": {
     "WS0001": "svc_bge_grappler",
+    "WS0002": "svc_bioplasma_large",
+    "WS0003": "svc_bioplasma_large",
     "WS0004": "svc_inksac",
     "WS0005": "svc_inksac",
+    "WS0006": "svc_boltzmann_brain",
+    "WS0007": "svc_boltzmann_brain",
+    "WS0008": "svc_worm_colony_large",
+    "WS0009": "svc_worm_colony_large",
     "alphaleft1": "svc_fangcluster",
     "alphaleft2": "svc_fangcluster",
     "alphaleft3": "svc_acidthrower",
@@ -390,6 +396,60 @@
       "arc": 5,
       "angle": -5,
       "locations": [99.5, 33]
+    },
+    {
+      "id": "WS0002",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 60,
+      "angle": 0,
+      "locations": [21, 172.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 60,
+      "angle": -0,
+      "locations": [21, -172.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 96,
+      "angle": -156.5,
+      "locations": [12.5, -63.5]
+    },
+    {
+      "id": "WS0007",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 96,
+      "angle": 156.5,
+      "locations": [12.5, 63.5]
+    },
+    {
+      "id": "WS0008",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": -167.5,
+      "locations": [-69.5, -209.5]
+    },
+    {
+      "id": "WS0009",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 60,
+      "angle": 167.5,
+      "locations": [-69.5, 209.5]
     }
   ],
   "engineSlots": [

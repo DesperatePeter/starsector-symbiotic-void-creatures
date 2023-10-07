@@ -47,6 +47,14 @@
       "weapons": {
         "Alphamiddle": "svc_inksac"
       }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0007": "svc_worm_colony_small",
+        "WS0008": "svc_worm_colony_small"
+      }
     }
   ],
   "modules": [],

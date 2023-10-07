@@ -23,6 +23,8 @@
   "builtInWeapons": {
     "Arbiter": "svc_arbiter",
     "WS0001": "svc_acidthrower",
+    "WS0002": "svc_boltzmann_brain",
+    "WS0003": "svc_boltzmann_brain",
     "eyes": "svc_koenig_eyes",
     "left_grappler2": "svc_bge_grappler_pd",
     "left_grappler3": "svc_bge_grappler_pd",
@@ -171,7 +173,7 @@
       "arc": 223.653,
       "angle": -174.710007,
       "locations": [36.5, 9],
-      "renderOrderMod": 5
+      "renderOrderMod": 30
     },
     {
       "id": "right_long_fin",
@@ -181,7 +183,7 @@
       "arc": 223.653,
       "angle": 174.710007,
       "locations": [36.5, -9],
-      "renderOrderMod": 5
+      "renderOrderMod": 30
     },
     {
       "id": "eyes",
@@ -277,6 +279,26 @@
       "arc": 0,
       "angle": 0,
       "locations": [74.5, -0]
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 18.054001,
+      "angle": -151.5,
+      "locations": [57.5, -34],
+      "renderOrderMod": 20
+    },
+    {
+      "id": "WS0003",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 18.054001,
+      "angle": 151.5,
+      "locations": [57.5, 34],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

@@ -61,7 +61,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0004": "svc_boltzmann_brain"
+      }
     }
   ],
   "modules": [],

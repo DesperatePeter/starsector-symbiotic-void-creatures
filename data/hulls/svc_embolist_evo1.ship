@@ -17,6 +17,7 @@
   ],
   "builtInWeapons": {
     "WS0001": "svc_acidthrower",
+    "WS0002": "svc_boltzmann_brain",
     "eyes": "svc_koenig_eyes",
     "left_fin": "svc_trans_fin_left_sml",
     "left_fin2": "svc_trans_fin_left_sml2",
@@ -121,8 +122,9 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 161.565048,
-      "locations": [9.5, -16]
+      "angle": 161.565002,
+      "locations": [9.5, -16],
+      "renderOrderMod": 10
     },
     {
       "id": "left_long_fin",
@@ -130,8 +132,9 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": -161.565048,
-      "locations": [9.5, 16]
+      "angle": -161.565002,
+      "locations": [9.5, 16],
+      "renderOrderMod": 10
     },
     {
       "id": "eyes",
@@ -234,6 +237,15 @@
       "angle": 0,
       "locations": [34.5, -0.5],
       "renderOrderMod": 10
+    },
+    {
+      "id": "WS0002",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 180,
+      "locations": [2, -0]
     }
   ],
   "engineSlots": [

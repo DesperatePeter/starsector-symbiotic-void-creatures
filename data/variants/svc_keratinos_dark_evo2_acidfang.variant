@@ -13,8 +13,11 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_grappler3": "svc_bge_grappler",
-        "right_grappler3": "svc_bge_grappler"
+        "Alphaleft1": "svc_fangcluster",
+        "Alphaleft4": "svc_fangcluster",
+        "Alpharight1": "svc_fangcluster",
+        "Alpharight4": "svc_fangcluster",
+        "WS0005": "svc_bioplasma_large"
       }
     },
     {
@@ -51,10 +54,8 @@
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "Alphaleft1": "svc_fangcluster",
-        "Alphaleft4": "svc_fangcluster",
-        "Alpharight1": "svc_fangcluster",
-        "Alpharight4": "svc_fangcluster"
+        "left_grappler3": "svc_worm_colony_small",
+        "right_grappler3": "svc_worm_colony_small"
       }
     },
     {

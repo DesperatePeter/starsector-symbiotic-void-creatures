@@ -31,6 +31,8 @@
     "WS0011": "svc_tentacle_right_medium_barbed",
     "WS0012": "svc_Hemalisk_right",
     "WS0013": "svc_Hemalisk_right",
+    "WS0014": "svc_boltzmann_brain",
+    "WS0015": "svc_boltzmann_brain",
     "left_grappler": "svc_bge_grappler",
     "left_mand": "svc_adv_sml_mand_r",
     "left_med_uni2": "svc_adv_med_scythe_r",
@@ -303,6 +305,26 @@
       "arc": 5,
       "angle": 0,
       "locations": [-8.5, -0]
+    },
+    {
+      "id": "WS0014",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 58.602001,
+      "angle": -13.5,
+      "locations": [24.5, -47.5],
+      "renderOrderMod": 20
+    },
+    {
+      "id": "WS0015",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 58.602001,
+      "angle": 13.5,
+      "locations": [24.5, 47.5],
+      "renderOrderMod": 20
     }
   ],
   "engineSlots": [

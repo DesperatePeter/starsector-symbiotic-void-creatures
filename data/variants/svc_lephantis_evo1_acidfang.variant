@@ -17,10 +17,8 @@
         "WS0002": "svc_fangcluster",
         "WS0003": "svc_fangcluster",
         "WS0004": "svc_fangcluster",
-        "WS0005": "svc_acidthrower",
-        "WS0006": "svc_acidthrower",
-        "lrg_out_kin_left": "svc_inksac",
-        "lrg_out_kin_right": "svc_inksac"
+        "WS0007": "svc_bioplasma_large",
+        "WS0008": "svc_bioplasma_large"
       }
     },
     {
@@ -37,25 +35,33 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "lrg_mdl_kin_left": "svc_lrg_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
+        "lrg_mdl_kin_left": "svc_lrg_scythe_r",
         "lrg_mdl_kin_right": "svc_lrg_scythe_r"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0005": "svc_acidthrower",
+        "WS0006": "svc_acidthrower"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0009": "svc_boltzmann_brain",
+        "WS0010": "svc_boltzmann_brain"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "lrg_out_kin_left": "svc_inksac",
+        "lrg_out_kin_right": "svc_inksac"
+      }
     },
     {
       "autofire": true,

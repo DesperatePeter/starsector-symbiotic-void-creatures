@@ -33,6 +33,8 @@
     "WS0011": "svc_tentacle_right_medium_barbed",
     "WS0012": "svc_Hemalisk_right",
     "WS0013": "svc_Hemalisk_right",
+    "WS0014": "svc_worm_colony_small",
+    "WS0015": "svc_worm_colony_small",
     "left_grappler": "svc_bge_grappler",
     "left_mand": "svc_adv_sml_mand_r",
     "left_pd": "svc_bge_grappler_pd",
@@ -303,6 +305,24 @@
       "arc": 5,
       "angle": 0,
       "locations": [-8.5, -0]
+    },
+    {
+      "id": "WS0014",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 11,
+      "angle": -10,
+      "locations": [23.5, -43]
+    },
+    {
+      "id": "WS0015",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 11,
+      "angle": 10,
+      "locations": [23.5, 43]
     }
   ],
   "engineSlots": [

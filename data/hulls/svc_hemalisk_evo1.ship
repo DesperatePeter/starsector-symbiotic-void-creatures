@@ -20,6 +20,8 @@
     "WS0001": "svc_stinger_right",
     "WS0002": "svc_stinger_left",
     "WS0003": "svc_inksac",
+    "WS0004": "svc_worm_colony_small",
+    "WS0005": "svc_worm_colony_small",
     "left_fin1": "svc_long_fin_right_sml2",
     "left_fin2": "svc_long_fin_right_sml",
     "left_fin3": "svc_long_fin_right_sml2",
@@ -224,6 +226,24 @@
       "angle": 0,
       "locations": [-4, -0],
       "renderOrderMod": 10
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 10,
+      "angle": -23,
+      "locations": [29, -45]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 10,
+      "angle": 23,
+      "locations": [29, 45]
     }
   ],
   "engineSlots": [

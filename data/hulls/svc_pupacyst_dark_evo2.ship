@@ -24,9 +24,10 @@
     "Alphamiddle": "svc_acidthrower",
     "WS0001": "svc_dark_fin_right_huge",
     "WS0002": "svc_dark_fin_right_huge",
+    "WS0003": "svc_bioplasma_large",
     "eyes": "svc_zophe",
-    "grappler": "svc_bge_grappler",
-    "grappler2": "svc_bge_grappler",
+    "grappler": "svc_bge_grappler_pd",
+    "grappler2": "svc_bge_grappler_pd",
     "left_long_fin": "svc_tentacle_right_large_dark",
     "left_lrg_mand": "svc_adv_lrg_mand_r",
     "left_sml_fin": "svc_tentacle_right_medium_barbed_short",
@@ -196,6 +197,16 @@
       "arc": 2,
       "angle": 0,
       "locations": [56.5, -0]
+    },
+    {
+      "id": "WS0003",
+      "size": "LARGE",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 26.785,
+      "angle": 0,
+      "locations": [13.5, -0],
+      "renderOrderMod": 30
     }
   ],
   "engineSlots": [

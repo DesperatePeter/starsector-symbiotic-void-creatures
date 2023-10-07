@@ -7,6 +7,21 @@ svc_lephantis_scythed
 svc_pupacyst_scythed
 svc_toxocyst_scythed
 
+svc_arbiter_evo1_spitting
+svc_embolist_evo1_acidfang
+svc_hemalisk_evo1_inkfang
+svc_keratinos_evo1_acidclaw
+svc_lephantis_evo1_acidfang
+svc_pupacyst_evo1_fanged
+svc_toxocyst_evo1_spitting
+
+svc_arbiter_evo2_acidfang
+svc_embolist_evo2_spitting
+svc_hemalisk_evo2_acidfang
+svc_keratinos_evo2_acidfang
+svc_pupacyst_evo2_spitting
+svc_toxocyst_evo2_fanged
+
 svc_arbiter_dark_scythed
 svc_embolist_dark_scythed
 svc_hemalisk_dark_scythed

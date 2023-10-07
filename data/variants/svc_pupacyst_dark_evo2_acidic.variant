@@ -13,14 +13,15 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "grappler": "svc_bge_grappler",
-        "grappler2": "svc_bge_grappler"
+        "WS0003": "svc_bioplasma_large"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "grappler": "svc_bge_grappler_pd",
+        "grappler2": "svc_bge_grappler_pd",
         "left_sml_pd": "svc_bge_grappler_pd",
         "right_sml_pd": "svc_bge_grappler_pd"
       }
@@ -49,7 +50,5 @@
     }
   ],
   "modules": [],
-  "wings": [
-
-  ]
+  "wings": []
 }

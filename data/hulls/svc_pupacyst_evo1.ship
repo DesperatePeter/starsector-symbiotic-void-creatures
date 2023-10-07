@@ -21,6 +21,10 @@
   ],
   "builtInWeapons": {
     "WS0001": "svc_fangcluster",
+    "WS0002": "svc_bge_grappler_pd",
+    "WS0003": "svc_bge_grappler_pd",
+    "WS0004": "svc_worm_colony_small",
+    "WS0005": "svc_worm_colony_small",
     "eyes": "svc_koenig_eyes",
     "left_long_fin": "svc_long_fin_right2",
     "left_lrg_mand": "svc_lrg_mand_r",
@@ -155,6 +159,42 @@
       "angle": 0,
       "locations": [31, -0.5],
       "renderOrderMod": 20
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 149.903,
+      "angle": -53,
+      "locations": [28.5, -12.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "TURRET",
+      "arc": 149.903,
+      "angle": 53,
+      "locations": [28.5, 12.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 29.241749,
+      "angle": -32.5,
+      "locations": [83, -33.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 29.241749,
+      "angle": 32.5,
+      "locations": [83, 33.5]
     }
   ],
   "engineSlots": [

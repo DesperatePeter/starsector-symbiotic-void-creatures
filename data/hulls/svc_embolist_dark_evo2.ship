@@ -20,6 +20,8 @@
     "Alphaleft1": "svc_acidthrower",
     "Alphamiddle": "svc_inksac",
     "Alpharight1": "svc_acidthrower",
+    "WS0001": "svc_worm_colony_small",
+    "WS0002": "svc_worm_colony_small",
     "WS0005": "svc_dark_fin_right_medium",
     "WS0006": "svc_dark_fin_right_medium",
     "WS0007": "svc_dark_fin_right_small",
@@ -270,6 +272,24 @@
       "angle": 180,
       "locations": [39, -0],
       "renderOrderMod": 20
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": 6.5,
+      "locations": [87, -26]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 15,
+      "angle": -6.5,
+      "locations": [87, 26]
     }
   ],
   "engineSlots": [

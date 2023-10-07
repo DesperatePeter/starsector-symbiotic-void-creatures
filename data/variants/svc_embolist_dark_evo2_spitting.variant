@@ -47,7 +47,10 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0001": "svc_worm_colony_small",
+        "WS0002": "svc_worm_colony_small"
+      }
     },
     {
       "autofire": true,

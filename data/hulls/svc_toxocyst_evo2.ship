@@ -16,6 +16,8 @@
   ],
   "builtInWeapons": {
     "WS0001": "svc_koenig_eyes",
+    "WS0002": "svc_worm_colony_small",
+    "WS0003": "svc_worm_colony_small",
     "left_fin": "svc_trans_fin_left_sml",
     "left_fin2": "svc_trans_fin_left_sml2",
     "left_hind_fin": "svc_long_fin_right_sml",
@@ -40,7 +42,8 @@
       "mount": "HARDPOINT",
       "arc": 30,
       "angle": -4.5,
-      "locations": [25.5, 30]
+      "locations": [25.5, 30],
+      "renderOrderMod": 10
     },
     {
       "id": "right_med_uni",
@@ -49,7 +52,8 @@
       "mount": "HARDPOINT",
       "arc": 30,
       "angle": 4.5,
-      "locations": [25.5, -30]
+      "locations": [25.5, -30],
+      "renderOrderMod": 10
     },
     {
       "id": "left_fin",
@@ -177,6 +181,24 @@
       "arc": 180,
       "angle": -90,
       "locations": [-5, -48]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 6.5,
+      "locations": [54.5, -26]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": -6.5,
+      "locations": [54.5, 26]
     }
   ],
   "engineSlots": [
