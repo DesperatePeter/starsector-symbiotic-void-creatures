@@ -27,9 +27,9 @@ class FleetManager : EveryFrameScript {
     companion object {
         const val WHALE_RAND_DIST = 700f
         const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1500f
-        const val WHALE_SPAWN_BASE_INTERVAL = 40f
+        const val WHALE_SPAWN_BASE_INTERVAL = 100f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
-        const val HUNTER_FLEET_DISTANCE = 3000f
+        const val HUNTER_FLEET_DISTANCE = 2000f
         val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
@@ -49,7 +49,7 @@ class FleetManager : EveryFrameScript {
     }
 
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
-    private val hunterSpawnInterval = IntervalUtil(50f, 100f)
+    private val hunterSpawnInterval = IntervalUtil(250f, 400f)
     private val whaleSpawnInterval = IntervalUtil(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
         2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
     override fun isDone(): Boolean = false
