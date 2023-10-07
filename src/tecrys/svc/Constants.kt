@@ -28,7 +28,8 @@ val specialVoidlingWeaponIds = listOf(
     "svc_inksac",
     "svc_worm_colony_large",
     "svc_worm_colony_small",
-    "svc_boltzmann_brain"
+    "svc_boltzmann_brain",
+    "svc_bioplasma_large"
 )
 
 val BIOLOGICAL_HULL_TAGS = listOf(SVC_VARIANT_TAG, WHALE_VARIANT_TAG)

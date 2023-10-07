@@ -54,6 +54,7 @@ class ParryAI: ShipSystemAIScript {
 
         if(sys.ammo.toFloat() * threat > DAMAGE_TO_HULL_THRESHOLD * ship.hitpoints){
             sys.forceState(ShipSystemAPI.SystemState.IN, 0f)
+            sys.ammo -= 1
         }
 
     }
