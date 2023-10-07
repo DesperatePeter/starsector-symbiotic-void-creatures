@@ -34,7 +34,7 @@ class VoidlingHatchery: BaseIndustry() {
 
     override fun showWhenUnavailable(): Boolean = Global.getSector().playerFaction.knowsIndustry(getId())
 
-    override fun getUnavailableReason(): String = "Planet must be habitable"
+    override fun getUnavailableReason(): String = "Planet must have low gravity"
 
     override fun canImprove(): Boolean = false
 
