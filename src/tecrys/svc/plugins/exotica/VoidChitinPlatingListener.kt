@@ -10,6 +10,7 @@ import tecrys.svc.SVC_MOD_ID
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.utils.cloneHullSpec
 import tecrys.svc.utils.setShieldType
+import java.awt.Color
 
 class VoidChitinPlatingListener: EveryFrameScript {
     companion object{
@@ -42,13 +43,24 @@ class VoidChitinPlatingListener: EveryFrameScript {
         }
 
         private fun installIfApplicable(member: FleetMemberAPI){
+            fun logError(){
+                Global.getSector()?.campaignUI?.addMessage(
+                    "Error when trying to change hull-spec. Void Chitin Plating not properly applied." +
+                            " Please remove to get rid of this error message!", Color.red)
+            }
             if(member.hullSpec?.shipDefenseId == "parry") return
             member.id ?: return
             backupSpecsByMember[member.id] = member.hullSpec
-            val clone = cloneHullSpec(member.hullSpec)
-            setShieldType(clone.shieldSpec, ShieldAPI.ShieldType.PHASE)
-            clone.shipDefenseId = "parry"
-            member.variant.setHullSpecAPI(clone)
+            cloneHullSpec(member.hullSpec)?.let {clone ->
+                if(!setShieldType(clone.shieldSpec, ShieldType.PHASE)){
+                    logError()
+                    return
+                }
+                clone.shipDefenseId = "parry"
+                member.variant.setHullSpecAPI(clone)
+            } ?: kotlin.run {
+                logError()
+            }
         }
     }
 
