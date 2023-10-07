@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.thoughtworks.xstream.XStream
 import tecrys.svc.listeners.SvcCargoListener
 import tecrys.svc.modintegration.*
+import tecrys.svc.plugins.exotica.VoidChitinPlatingListener
 import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
 import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
 import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
@@ -48,6 +49,9 @@ class SvcBasePlugin : BaseModPlugin() {
     override fun onGameLoad(newGame: Boolean) {
         Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())
+        if(isExoticaEnabled()){
+            Global.getSector().addTransientScript(VoidChitinPlatingListener())
+        }
         Global.getSector().listenerManager.addListener(SvcCargoListener)
         unlockVoidlingRecovery()
         if(newGame){
