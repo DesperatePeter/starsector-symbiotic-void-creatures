@@ -15,7 +15,7 @@
 
 	],
 	"svc_system_parry_start":[
-		{"file":"sounds/parry_start.ogg","pitch":1.0,"volume":0.3},
+		{"file":"sounds/parry_start.ogg","pitch":1.0,"volume":0.1},
 
 	],
 	"svc_weapon_grappler":[
