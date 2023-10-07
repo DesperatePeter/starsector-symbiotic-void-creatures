@@ -12,7 +12,7 @@ class VoidlingFIDConf: FIDConfigGen {
         config.run {
             alwaysPursue = true
             showCommLinkOption = false
-            straightToEngage = true
+            // straightToEngage = true
             alwaysAttackVsAttack = true
             leaveAlwaysAvailable = false
         }

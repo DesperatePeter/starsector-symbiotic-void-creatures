@@ -36,7 +36,7 @@ val mediumHunterFleet = HunterFleetConfig(mediumHunterFleetRolesQuantity,
     "medium", "Void Razors", 130f, 100f, HuntersDefeatedListener("medium"))
 
 val largeHunterFleet = HunterFleetConfig(largeHunterFleetRolesQuantity,
-    "large", "Void Razors", 250f, 140f, HuntersDefeatedListener("large"))
+    "large", "Void Razors", 250f, 160f, HuntersDefeatedListener("large"))
 
 val hunterFleetsById = mapOf(
     smallHunterFleet.id to smallHunterFleet,
