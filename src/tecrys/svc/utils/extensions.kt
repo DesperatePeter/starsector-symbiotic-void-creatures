@@ -3,6 +3,7 @@ package tecrys.svc.utils
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.impl.campaign.DModManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
@@ -42,6 +43,10 @@ fun CampaignFleetAPI.makeAlwaysHostile(){
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_PATROL_FLEET, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_ALLOW_LONG_PURSUIT, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_MAKE_HOLD_VS_STRONGER, true);
+}
+
+fun ShipSystemAPI.isUsable(): Boolean{
+    return state == ShipSystemAPI.SystemState.IDLE && !isOutOfAmmo
 }
 
 fun ShipVariantAPI.removeDMods(){

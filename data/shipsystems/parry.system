@@ -1,7 +1,9 @@
 {
 	"id":"parry",
 	"type":"STAT_MOD",
-	"aiType":"DAMPER_FIELD",
+	#"aiType":"DAMPER_FIELD",
+	"aiType":"CUSTOM",
+	"aiScript":"tecrys.svc.shipsystems.ais.ParryAI",
 
 	"statsScript":"tecrys.svc.shipsystems.Parry",
 
