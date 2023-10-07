@@ -24,19 +24,19 @@ class PWormEffect: OnHitEffectPlugin {
     ) {
         if(shieldHit) return
         val ship = target as? ShipAPI ?: return
-        val crew = ship.hullSpec.minCrew
-        if (crew <= 0.01f) return
-        var marinesOnShip = 0f
-        if(ship.originalOwner == 0){
-            val totalDeployedCrew = Global.getCombatEngine().getFleetManager(0).deployedCopy.map { it.hullSpec.minCrew }.sum()
-            marinesOnShip = Global.getSector().playerFleet.cargo.marines.toFloat() * (crew / totalDeployedCrew)
-        }
-        val crewDamage = CREW_KILLED * crew / (crew + marinesOnShip)
+//        val crew = ship.hullSpec.minCrew
+//        if (crew <= 0.01f) return
+//        var marinesOnShip = 0f
+//        if(ship.originalOwner == 0){
+//            val totalDeployedCrew = Global.getCombatEngine().getFleetManager(0).deployedCopy.map { it.hullSpec.minCrew }.sum()
+//            marinesOnShip = (crew / totalDeployedCrew) * (Global.getSector().playerFleet?.cargo?.marines?.toFloat() ?: 0f)
+//        }
+//        val crewDamage = CREW_KILLED * crew / (crew + marinesOnShip)
         val crDamage = 0.002f
 
-        if(ship.originalOwner == 0 && ship.currentCR > 0f){
-            Global.getSector().playerFleet.cargo.removeCrew(crDamage.toInt())
-        }
+//        if(ship.originalOwner == 0 && ship.currentCR > 0f){
+//            Global.getSector().playerFleet.cargo.removeCrew(crewDamage.toInt())
+//        }
         ship.currentCR = max(0f, ship.currentCR - crDamage)
     }
 }
