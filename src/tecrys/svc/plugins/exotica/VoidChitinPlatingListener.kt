@@ -14,23 +14,23 @@ import java.awt.Color
 
 class VoidChitinPlatingListener: EveryFrameScript {
     companion object{
-        private var installedOnMembers: MutableSet<String> by CampaignSettingDelegate(
+        private var installedOnMembers: Set<Any> by CampaignSettingDelegate(
             "$" + SVC_MOD_ID + "voidPlatingIsInstalledOnMembers",
-            mutableSetOf()
+            setOf()
         )
         private var removeFromMembers: MutableSet<String> = mutableSetOf()
         private var backupSpecsByMember = mutableMapOf<String, ShipHullSpecAPI>()
 
         fun installOnMember(member: FleetMemberAPI){
             val id = member.id ?: return
-            installedOnMembers.add(id)
+            installedOnMembers = installedOnMembers + id
             removeFromMembers.remove(id)
             installIfApplicable(member)
         }
 
         fun uninstallFromMember(member: FleetMemberAPI){
             val id = member.id ?: return
-            installedOnMembers.remove(id)
+            installedOnMembers = installedOnMembers - id
             removeFromMembers.add(id)
             uninstallIfApplicable(member)
         }
