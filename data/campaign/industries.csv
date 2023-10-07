@@ -1,2 +1,2 @@
 id,name,cost mult,build time,income,upkeep,downgrade,upgrade,tags,data,image,plugin,desc,order,disruptDanger
-svc_voidling_hatchery,Voidling Hatchery,60,60,,8,,,"patrol, unraidable, tactical_bombardment, structure",,graphics/icons/industry/patrol_hq.png,tecrys.svc.industries.VoidlingHatchery,"Spawns voidling patrol fleets. Experimental!",2401,
+svc_voidling_hatchery,Voidling Hatchery,60,60,,8,,,"patrol, unraidable, tactical_bombardment, structure",,graphics/icons/svc_hatchery.png,tecrys.svc.industries.VoidlingHatchery,Spawns voidling patrol fleets. Experimental!,2401,
