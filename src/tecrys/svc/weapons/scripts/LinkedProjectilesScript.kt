@@ -67,7 +67,7 @@ class LinkedProjectilesScript(private val firstProj: DamagingProjectileAPI, priv
     private fun isDone(): Boolean =
         (firstProj.location - secondProj.location).length() > LINK_MAX_RANGE
                 || listOf(firstProj, secondProj).any {
-                    it.isFading || it.didDamage() || it.isExpired
+                    it.isFading || it.isExpired
         }
 
     override fun renderInWorldCoords(viewport: ViewportAPI?) {
