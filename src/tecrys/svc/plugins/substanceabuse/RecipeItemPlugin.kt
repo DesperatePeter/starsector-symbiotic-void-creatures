@@ -6,7 +6,7 @@ import com.fs.starfarer.api.campaign.impl.items.GenericSpecialItemPlugin
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import tecrys.svc.modintegration.isSubstanceAbuseEnabled
 
-class svc_RecipeItemPlugin : GenericSpecialItemPlugin() {
+class RecipeItemPlugin : GenericSpecialItemPlugin() {
     var plugin: GenericSpecialItemPlugin? = null
     override fun init(stack: CargoStackAPI) {
         super.init(stack)
