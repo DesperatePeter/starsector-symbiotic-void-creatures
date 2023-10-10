@@ -47,7 +47,7 @@ class ParryAI: ShipSystemAIScript {
             CollisionUtils.getCollides(it.location, it.location + it.velocity, ship.location,
                 ship.collisionRadius + COLLISION_RADIUS_TOLERANCE)
         } .filter {
-            (ship.location - it.location).length() <= it.velocity.length() * TIME_TO_IMPACT_BUFFER
+            (ship.location - it.location).length() <= it.velocity.length() * TIME_TO_IMPACT_BUFFER + ship.collisionRadius
         }.forEach {
             threat += it.damageAmount
         }
