@@ -2,7 +2,6 @@ package tecrys.svc.plugins.exotica
 
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.combat.ShieldAPI
 import com.fs.starfarer.api.combat.ShieldAPI.ShieldType
 import com.fs.starfarer.api.combat.ShipHullSpecAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
@@ -43,6 +42,9 @@ class VoidChitinPlatingListener: EveryFrameScript {
         }
 
         private fun installIfApplicable(member: FleetMemberAPI){
+            Global.getSector().playerPerson.faction.knownWeapons.removeIf { w ->
+                Global.getSettings().getWeaponSpec(w).tags.contains("base_bp")
+            }
             fun logError(){
                 Global.getSector()?.campaignUI?.addMessage(
                     "Error when trying to change hull-spec. Void Chitin Plating not properly applied." +
@@ -57,6 +59,7 @@ class VoidChitinPlatingListener: EveryFrameScript {
                     return
                 }
                 clone.shipDefenseId = "parry"
+
                 member.variant.setHullSpecAPI(clone)
             } ?: kotlin.run {
                 logError()
