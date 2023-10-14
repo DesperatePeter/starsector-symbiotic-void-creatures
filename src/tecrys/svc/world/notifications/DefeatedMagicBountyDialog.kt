@@ -56,10 +56,10 @@ class DefeatedMagicBountyDialog: NotificationDialogBase(
             }
             is String -> {
                 if(Global.getSettings().allShipHullSpecs?.any { it.hullId == optionData} == true){
-                    Global.getSector().playerFaction.addKnownShip(optionData, true)
+                    Global.getSector().playerPerson?.faction?.addKnownShip(optionData, true)
                 }
                 if(Global.getSettings().allWeaponSpecs?.any { it.weaponId == optionData } == true){
-                    Global.getSector().playerFaction.addKnownWeapon(optionData, true)
+                    Global.getSector().playerPerson?.faction?.addKnownWeapon(optionData, true)
                 }
                 dialog?.dismiss()
             }

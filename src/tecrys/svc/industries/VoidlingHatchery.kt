@@ -26,13 +26,13 @@ class VoidlingHatchery: BaseIndustry() {
     }
 
     override fun isAvailableToBuild(): Boolean {
-        if (!Global.getSector().playerFaction.knowsIndustry(getId())) {
+        if (Global.getSector().playerPerson?.faction?.knowsIndustry(getId()) != true) {
             return false;
         }
         return market.planetEntity?.hasCondition(Conditions.LOW_GRAVITY) == true
     }
 
-    override fun showWhenUnavailable(): Boolean = Global.getSector().playerFaction.knowsIndustry(getId())
+    override fun showWhenUnavailable(): Boolean = Global.getSector().playerPerson?.faction?.knowsIndustry(getId()) == true
 
     override fun getUnavailableReason(): String = "Planet must have low gravity"
 
