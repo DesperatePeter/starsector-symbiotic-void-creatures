@@ -1,5 +1,6 @@
 package tecrys.svc.shipsystems.ais
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.*
 import org.lazywizard.lazylib.CollisionUtils
 import org.lazywizard.lazylib.ext.minus
@@ -26,7 +27,7 @@ class BerserkerFrenzyAI: ShipSystemAIScript {
             weapons.sortBy { - it.damage.damage }
             if(weapons.size > NUMBER_WEAPONS_TO_CONSIDER) weapons = weapons.subList(0, NUMBER_WEAPONS_TO_CONSIDER)
             if(weapons.all {
-                tgt.exactBounds.update(tgt.location, tgt.facing)
+                tgt.exactBounds?.update(tgt.location, tgt.facing)
                 it.range > (it.location - CollisionUtils.getNearestPointOnBounds(it.location, tgt)).length()
                 }){
                 useSystem()
