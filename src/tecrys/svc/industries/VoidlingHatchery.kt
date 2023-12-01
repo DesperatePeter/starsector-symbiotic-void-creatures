@@ -8,33 +8,36 @@ import com.fs.starfarer.api.impl.campaign.ids.Conditions
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
 import tecrys.svc.SVC_FACTION_ID
+import tecrys.svc.listeners.FleetDespawnedListener
 import tecrys.svc.world.fleets.FleetSpawnParameterCalculator
 import tecrys.svc.world.fleets.FleetSpawner
 import tecrys.svc.world.fleets.voidlingHatcherySettings
 
 class VoidlingHatchery: BaseIndustry() {
     companion object{
-        const val ADVANCE_INTERVAL = 90f
+        const val MIN_ADVANCE_INTERVAL = 30f // in days
+        const val MAX_ADVANCE_INTERVAL = 60f // in days
         const val MAX_PATROL_DURATION = 5000f
     }
 
     private var fleet: CampaignFleetAPI? = null
-    private val interval = IntervalUtil(ADVANCE_INTERVAL, 2f * ADVANCE_INTERVAL)
+    private var fleetDespawnedListener: FleetDespawnedListener? = null
+    private val interval = IntervalUtil(MIN_ADVANCE_INTERVAL, MAX_ADVANCE_INTERVAL)
 
     override fun apply() {
         super.apply(true)
     }
 
     override fun isAvailableToBuild(): Boolean {
-        if (!Global.getSector().playerFaction.knowsIndustry(getId())) {
+        if (Global.getSector().playerPerson?.faction?.knowsIndustry(getId()) != true) {
             return false;
         }
         return market.planetEntity?.hasCondition(Conditions.LOW_GRAVITY) == true
     }
 
-    override fun showWhenUnavailable(): Boolean = Global.getSector().playerFaction.knowsIndustry(getId())
+    override fun showWhenUnavailable(): Boolean = Global.getSector().playerPerson?.faction?.knowsIndustry(getId()) == true
 
-    override fun getUnavailableReason(): String = "Planet must have low gravity"
+    override fun getUnavailableReason(): String = "Planet must have low gravity. As space-borne creatures, voidlings are very sensitive to high gravity. "
 
     override fun canImprove(): Boolean = false
 
@@ -43,13 +46,16 @@ class VoidlingHatchery: BaseIndustry() {
     override fun advance(amount: Float) {
         super.advance(amount)
         if (Global.getSector()?.isPaused == true) return
-        interval.advance(amount)
-        if(fleet == null || fleet?.isEmpty == true || fleet?.isDespawning == true || fleet?.isAlive == false){
+        if(fleetDespawnedListener?.isFleetDespawned != false){
+            fleet?.despawn()
+            val advanceDays = Global.getSector().clock?.convertToDays(amount) ?: 0f
+            interval.advance(advanceDays)
             if(interval.intervalElapsed()){
                 spawnFleet()
             }
         }
     }
+
 
     private fun spawnFleet(){
         market ?: return
@@ -57,6 +63,9 @@ class VoidlingHatchery: BaseIndustry() {
             SVC_FACTION_ID, FleetSpawnParameterCalculator(voidlingHatcherySettings(market)),
             "Hatched Defenders"
         )
+
+        fleetDespawnedListener = FleetDespawnedListener()
+        fleet?.addEventListener(fleetDespawnedListener)
 
         fleet?.setFaction(market.factionId, true)
         market.containingLocation?.addEntity(fleet)
