@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
+import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
@@ -21,6 +22,9 @@ import tecrys.svc.utils.orbitClosestPlanet
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
 import tecrys.svc.world.notifications.NotificationShower
+import kotlin.math.PI
+import kotlin.math.cos
+import kotlin.math.sin
 
 class FleetManager : EveryFrameScript {
 
@@ -30,8 +34,9 @@ class FleetManager : EveryFrameScript {
         const val WHALE_SPAWN_BASE_INTERVAL = 100f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         const val HUNTER_FLEET_DISTANCE = 2000f
-        val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
-        val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
+        const val WHALE_VOIDLING_DIST = 500f
+        private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
+        private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
         fun spawnSvcFleetNowAtPlayer(): Boolean{
@@ -68,7 +73,7 @@ class FleetManager : EveryFrameScript {
             }
         }
         if(whaleSpawnInterval.intervalElapsed()){
-            spawnWhaleFleet()
+            spawnWhaleEncounter()
             whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
         }
@@ -139,7 +144,7 @@ class FleetManager : EveryFrameScript {
     /**
      * @return true if fleet was successfully spawned
      */
-    private fun spawnWhaleFleet(): Boolean {
+    private fun spawnWhaleEncounter(): Boolean {
         val whaleParams = FleetSpawnParameterCalculator(whaleSettings)
         if(countFactionFleets(VWL_FACTION_ID) >= whaleParams.maxFleetCount) return false
         val svcParams = FleetSpawnParameterCalculator(svcSettings)
@@ -155,8 +160,10 @@ class FleetManager : EveryFrameScript {
         offset.normalise()
         offset.scale(WHALE_PLAYER_FLEET_DIRECTION_DIST)
         loc += offset
+        voidlings.setLocation(loc.x, loc.y)
+        val whaleOffsetAngle = 2f * PI.toFloat() * Math.random().toFloat()
+        whales.setLocation((loc.x + WHALE_VOIDLING_DIST * sin(whaleOffsetAngle)), loc.y + WHALE_VOIDLING_DIST * cos(whaleOffsetAngle))
         listOf(whales, voidlings).forEach {
-            it.setLocation(loc.x, loc.y)
             it.forceSync()
         }
         voidlings.makeHostile()
