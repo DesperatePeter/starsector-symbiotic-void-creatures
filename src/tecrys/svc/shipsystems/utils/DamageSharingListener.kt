@@ -6,11 +6,7 @@ import com.fs.starfarer.api.combat.DamageAPI
 import com.fs.starfarer.api.combat.DamageType
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.listeners.DamageTakenModifier
-import com.fs.starfarer.api.util.Misc
-import org.lazywizard.lazylib.ext.combat.getNearestPointOnBounds
 import org.lwjgl.util.vector.Vector2f
-import tecrys.svc.utils.computeEffectiveArmorAroundIndex
-import kotlin.math.max
 import kotlin.math.min
 
 class DamageSharingListener(val shipTarget: ShipAPI): DamageTakenModifier {
@@ -21,7 +17,8 @@ class DamageSharingListener(val shipTarget: ShipAPI): DamageTakenModifier {
     }
 
     private var lastClock = 0f
-    private var maxAllowedDamage = MAX_REL_DPS * shipTarget.maxHitpoints
+    private val maxDps = MAX_REL_DPS * shipTarget.maxHitpoints
+    private var maxAllowedDamage = maxDps
 
     override fun modifyDamageTaken(
         param: Any?,
@@ -38,7 +35,7 @@ class DamageSharingListener(val shipTarget: ShipAPI): DamageTakenModifier {
 
         val timeElapsed = Global.getCombatEngine().getTotalElapsedTime(false) - lastClock
         lastClock = Global.getCombatEngine().getTotalElapsedTime(false)
-        maxAllowedDamage = min(MAX_REL_DPS * shipTarget.maxHitpoints, maxAllowedDamage + timeElapsed * MAX_REL_DPS)
+        maxAllowedDamage = min(maxDps, maxAllowedDamage + timeElapsed * maxDps)
 
 
         damage.modifier?.modifyMult(MODIFIER_ID, 1f - DAMAGE_SHARED_MULT)

@@ -125,6 +125,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
     override fun isUsable(system: ShipSystemAPI?, ship: ShipAPI?): Boolean {
         ship?.run {
             val tgt = getEffectiveShipTarget() ?: return false
+            if(tgt.isHulk) return false
             return (location - tgt.location).length() <= SYSTEM_ACTIVATION_RANGE
         }
         return false

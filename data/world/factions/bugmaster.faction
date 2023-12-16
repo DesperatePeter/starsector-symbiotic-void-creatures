@@ -131,7 +131,7 @@
         "combatEliteMedium" : {
                     "svc_arbiter_dark_scythed" : 0.1, "svc_embolist_dark_scythed" : 0.1, "svc_pupacyst_dark_scythed" : 0.1,
                 },
-        "combaElitetLarge" : {
+        "combatEliteLarge" : {
                              "svc_lephantis_dark_scythed" : 0.1, "svc_keratinos_dark_scythed" : 0.1,
                          },
 		#ElitesEvolved				 
@@ -144,7 +144,7 @@
 					"svc_pupacyst_dark_evo1_fanged" : 0.1, "svc_pupacyst_dark_evo2_acidic" : 0.1,
 					"svc_embolist_dark_evo1_acidfang" : 0.1, "svc_embolist_dark_evo2_spitting" : 0.1, 
                 },
-        "combaElitetLargeEvolved" : {
+        "combatEliteLargeEvolved" : {
                              "svc_keratinos_dark_evo1_acidclaw" : 0.1, "svc_keratinos_dark_evo2_acidfang" : 0.1,
 							 "svc_lephantis_dark_evo1_acidfang" : 0.1, 
                          },
