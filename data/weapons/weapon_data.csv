@@ -90,10 +90,10 @@ right Stinger,svc_stinger_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,
 left Stinger,svc_stinger_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4409
 right long fin small,svc_long_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,49
 right long fin small2,svc_long_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,51
-left long fin tiny,svc_long_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-right long fin tiny,svc_long_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-left long fin tiny2,svc_long_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-right long fin tiny2,svc_long_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+left long fin tiny,svc_long_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+right long fin tiny,svc_long_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+left long fin tiny2,svc_long_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+right long fin tiny2,svc_long_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 right translucent fin2,svc_trans_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4402
 left translucent fin2,svc_trans_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4403
 right small translucent fin,svc_trans_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4404
@@ -116,15 +116,15 @@ control collar small,svc_ctrl_cllr_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,
 control collar medium,svc_ctrl_cllr_med,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 control collar large,svc_ctrl_cllr_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-whale tentacle 1 left large,svc_whale_tentacle_l_lrg,,,8,,,,,,5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-whale flipper left large,svc_whale_flipper_l_lrg,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-whale flipper right large,svc_whale_flipper_r_lrg,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale tentacle 1 left large,svc_whale_tentacle_l_lrg,,,8,,,,,,5,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+whale flipper left large,svc_whale_flipper_l_lrg,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+whale flipper right large,svc_whale_flipper_r_lrg,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 whale tentacle 1 left,svc_whale_tentacle_l,,,8,,,,,,15,,,,,,,,,,,,,,,,,,,,,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE",,,,,,,,,,,,,,,
 whale flipper left,svc_whale_flipper_l,,,2,,,,,,12,,,,,,,,,,,,,,,,,,,,,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE",,,,,,,,,,,,,,,
 whale flipper right,svc_whale_flipper_r,,,2,,,,,,12,,,,,,,,,,,,,,,,,,,,,,,"SYSTEM, NO_TURN_RATE_BOOST_WHEN_IDLE",,,,,,,,,,,,,,,
-whale tentacle 1 left small,svc_whale_tentacle_l_sml,,,8,,,,,,5,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-whale flipper left small,svc_whale_flipper_l_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-whale flipper right small,svc_whale_flipper_r_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+whale tentacle 1 left small,svc_whale_tentacle_l_sml,,,8,,,,,,5,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+whale flipper left small,svc_whale_flipper_l_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
+whale flipper right small,svc_whale_flipper_r_sml,,,2,,,,,,3,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 svc_Stjarwhalmkii_deco_lrg,svc_Stjarwhalmkii_deco_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
 svc_whale_mock_lrg,svc_whale_mock_lrg,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
