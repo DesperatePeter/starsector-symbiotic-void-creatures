@@ -158,7 +158,12 @@ class FleetManager : EveryFrameScript {
         var loc = playerFleet.locationInHyperspace
         loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST, 2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST)
         val offset = Vector2f(playerFleet.velocity.x, playerFleet.velocity.y)
-        offset.normalise()
+        try{
+            offset.normalise()
+        }catch (e: IllegalStateException){
+            offset.x = 0f
+            offset.y = 1f
+        }
         offset.scale(WHALE_PLAYER_FLEET_DIRECTION_DIST)
         loc += offset
         voidlings.setLocation(loc.x, loc.y)
