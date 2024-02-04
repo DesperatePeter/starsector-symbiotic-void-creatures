@@ -26,12 +26,12 @@ val modFolderName = modName.replace(" ", "-")
 /** Set below to `true` to automatically create mod_info.json and Version Checker files. */
 val shouldAutomaticallyCreateMetadataFiles = true
 // Then, if above is set to true, update the rest of the information below in SECTION B.
-val modVersion = "0.4.4"
+val modVersion = "0.5.0"
 val jarFileName = "${modName.replace(" ", "-")}.jar"
 val modId = "symbiotic_void_creatures"
 val modAuthor = "Tecrys & DesperatePeter"
 val modDescription = "This mod introduces alien wildlife and the Biomancy Genetic Engineering faction developing ships on the bases of genetic material of said wildlife."
-val gameVersion = "0.96a-RC10"
+val gameVersion = "0.97a"
 val jars = arrayOf("jars/$jarFileName")
 val modPlugin = "tecrys.svc.SvcBasePlugin"
 val isUtilityMod = false

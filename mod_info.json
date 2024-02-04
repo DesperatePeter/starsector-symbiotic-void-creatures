@@ -4,9 +4,9 @@
     "name": "SymbioticVoidCreatures",
     "author": "Tecrys & DesperatePeter",
     "utility": "false",
-    "version": { "major":"0", "minor": "4", "patch": "4" },
+    "version": { "major":"0", "minor": "5", "patch": "0" },
     "description": "This mod introduces alien wildlife and the Biomancy Genetic Engineering faction developing ships on the bases of genetic material of said wildlife.",
-    "gameVersion": "0.96a-RC10",
+    "gameVersion": "0.97a",
     "jars":["jars/SymbioticVoidCreatures.jar"],
     "modPlugin":"tecrys.svc.SvcBasePlugin",
     "dependencies": [
