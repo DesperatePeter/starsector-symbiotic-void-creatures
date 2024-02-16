@@ -1,8 +1,8 @@
 {
 	"id":"svc_brain",
 	"specClass":"missile",	
-	#"missileType":"MISSILE",
-	"missileType":"CIRCLE_TARGET",
+	"missileType":"MISSILE",
+	#"missileType":"CIRCLE_TARGET",
 	"onFireEffect":"tecrys.svc.weapons.BoltzmannEffect",
 
 	"sprite":"graphics/weapons/Proj/svc_brain.png",
