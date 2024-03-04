@@ -6,14 +6,13 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
-import com.fs.starfarer.api.impl.campaign.DModManager
 import com.fs.starfarer.api.impl.campaign.ids.Stats
-import com.fs.starfarer.api.impl.campaign.ids.Tags
 
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.SVC_BASE_HULLMOD_ID
+import tecrys.svc.hullmods.listeners.ReduceExplosionListener
 import tecrys.svc.utils.removeDMods
 import java.awt.Color
 class BGECarapace : BaseHullMod() {

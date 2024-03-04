@@ -1,4 +1,4 @@
-package tecrys.svc.hullmods
+package tecrys.svc.hullmods.listeners
 
 import com.fs.starfarer.api.combat.CombatEntityAPI
 import com.fs.starfarer.api.combat.DamageAPI
