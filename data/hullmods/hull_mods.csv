@@ -18,11 +18,11 @@ Current maintenance multiplier: %s
 
 Current relation: %s",,,graphics/hullmods/stjarwhal.png
 ,,,,,,,,,,,,,,,,,,,
-Acid Blood,svc_acid_blood_hm,,,,defensive,Defenses,4000,,,,4,8,12,18,com.fs.starfarer.api.combat.BaseHullMod,,Shoot a jet of super acidic blood to defend against small threats.,,graphics/hullmods/carapace.png
-Voidling Infestation,svc_infestation_hm,,,,"special, req_spaceport","Special, Requires Dock",6000,,,,5,10,15,25,com.fs.starfarer.api.combat.BaseHullMod,,A Nest of small Voidlings has settled between armor plates.,,graphics/hullmods/carapace.png
-Void Fins,svc_no_fuel_hm,,,,"req_spaceport, engines","Logistics, Requires Dock",3500,,,,3,6,9,15,com.fs.starfarer.api.combat.BaseHullMod,The creature no longer needs antimatter fuel to travel thrue Hyperspace.,Effortlessly move through Hyperspace.,,graphics/hullmods/carapace.png
+Acid Blood,svc_acid_blood_hm,,,,defensive,Defenses,4000,,,,4,8,12,18,tecrys.svc.hullmods.AcidicBlood,,Shoot a jet of super acidic blood to defend against small threats.,,graphics/hullmods/carapace.png
+Voidling Infestation,svc_infestation_hm,,,,"special, req_spaceport","Special, Requires Dock",6000,,,,5,10,15,25,tecrys.svc.hullmods.VoidlingInfestation,,A Nest of small Voidlings has settled between armor plates.,,graphics/hullmods/carapace.png
+Void Fins,svc_no_fuel_hm,,,,"req_spaceport, engines","Logistics, Requires Dock",3500,,,,3,6,9,15,tecrys.svc.hullmods.VoidFins,The creature no longer needs antimatter fuel to travel thrue Hyperspace.,Effortlessly move through Hyperspace.,,graphics/hullmods/carapace.png
 Harmonizing Pheromone Glands,svc_more_alphas_hm,,,,special,Special,8000,,,,10,15,20,30,com.fs.starfarer.api.combat.BaseHullMod,,You can field more than one Alpha Voidling.,,graphics/hullmods/carapace.png
-Defensive Blood Clotting,svc_overdamage_res_hm,,,,defensive,Defenses,5000,,,,8,16,24,40,com.fs.starfarer.api.combat.BaseHullMod,,Ultra-hard blood clotting protects against massive damage.,,graphics/hullmods/carapace.png
+Defensive Blood Clotting,svc_overdamage_res_hm,,,,defensive,Defenses,5000,,,,8,16,24,40,tecrys.svc.hullmods.DefensiveBloodClotting,,Ultra-hard blood clotting protects against massive damage.,,graphics/hullmods/carapace.png
 ,,,,,,,,,,,,,,,,,,,
 Whale Tail Cocktail,svc_booze,,,,,,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,"Pirate spirit in a barrel, in the truest sense of the phrase. Unsurprisingly, there is no fixed recipe when distilling whatever drugs they have lying around.",Distilled Recreational Drugs,,graphics/icons/svc_booze.png
 Scoliac Tail,svc_scoliac_tail_turner,,,,,,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.ScoliacModuleTurner,"The Scoliac can rotate it's tail in a 360° arc to attack its foes.
