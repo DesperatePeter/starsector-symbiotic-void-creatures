@@ -35,12 +35,15 @@ class VoidlingInfestation: BaseHullMod() {
     }
 
     private fun spawnFighters(ship: ShipAPI){
+        val fleetMan = Global.getCombatEngine().getFleetManager(ship.originalOwner)
+        val wasSpawnMsgSuppressed = fleetMan.isSuppressDeploymentMessages
+        fleetMan.isSuppressDeploymentMessages = true
         for(i in 0 until (NUMBER_OF_FIGHTERS[ship.hullSize] ?: 0)){
             val facing = Math.random().toFloat() * 360f
             val offset = vectorFromAngleDeg(facing)
-            val loc = ship.location + offset
             offset.scale(ship.collisionRadius * 0.75f)
-            val fighter = Global.getCombatEngine().getFleetManager(ship.originalOwner).spawnShipOrWing(
+            val loc = ship.location + offset
+            val fighter = fleetMan.spawnShipOrWing(
                 FIGHTER_ID, loc, facing
             )
             Global.getCombatEngine().addPlugin(KillSwitch(fighter, 20f))
@@ -48,5 +51,6 @@ class VoidlingInfestation: BaseHullMod() {
                 loc, ship.velocity, CLOUD_RADIUS, 2f, 0.5f, 0.8f, CLOUD_DURATION, CLOUD_COLOR
             )
         }
+        fleetMan.isSuppressDeploymentMessages = wasSpawnMsgSuppressed
     }
 }
