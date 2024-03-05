@@ -10,10 +10,10 @@ class VoidlingInfestation: BaseHullMod() {
         const val FIGHTER_ID = "svc_mios_mandibles_wing"
         val NUMBER_OF_FIGHTERS = mapOf(
             ShipAPI.HullSize.FIGHTER to 1,
-            ShipAPI.HullSize.FRIGATE to 2,
-            ShipAPI.HullSize.DESTROYER to 4,
-            ShipAPI.HullSize.CRUISER to 7,
-            ShipAPI.HullSize.CAPITAL_SHIP to 9
+            ShipAPI.HullSize.FRIGATE to 1,
+            ShipAPI.HullSize.DESTROYER to 2,
+            ShipAPI.HullSize.CRUISER to 3,
+            ShipAPI.HullSize.CAPITAL_SHIP to 4
         )
     }
 
