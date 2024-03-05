@@ -1,5 +1,5 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
-Void Carapace,BGECarapace,,,,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s reduced damage if weapons fire
+Void Carapace,BGECarapace,,,Biological,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s reduced damage if weapons fire
 is able to break through their carapace and they regenerate quickly if wounded or limbs are damaged.
 They also seem to be unaffected by ship explosions.
 
@@ -7,22 +7,22 @@ Void Creatures do not explode when disabled or killed.
 
 Void Creatures cannot have hullmods designed for regular ships. Exception: %s",Very tough carapace protecting the creature from harsh space.,,graphics/hullmods/carapace.png
 ,,,,,,,,,,,,,,,,,,,
-Alpha Voidling,svc_alpha_voidling,,,,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
+Alpha Voidling,svc_alpha_voidling,,,Biological,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.SvcAlphaHullmod,"Alpha Void Creatures are terrifying predators.
  They are extremely territorial, to the extent that trying to include more than one into a fleet will cause them to constantly fight for dominance,
   rendering them ineffective for combat.",Only one per fleet allowed.,,graphics/hullmods/alpha.png
-Control Collar,svc_controlcollar_hm,,,,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,A control collar fitted onto the void creature. Research into automated ships led to the development of a technology to manipulate very short range p-space vibrations that seem to be able to control the behaviour of void creatures. ,,,graphics/hullmods/controlcollar.png
-Stjarwhal,svc_stjarwhal_hm,,,,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.StjarwhalController,"A Stjarwhal. If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good. 
+Control Collar,svc_controlcollar_hm,,,Biological,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,A control collar fitted onto the void creature. Research into automated ships led to the development of a technology to manipulate very short range p-space vibrations that seem to be able to control the behaviour of void creatures. ,,,graphics/hullmods/controlcollar.png
+Stjarwhal,svc_stjarwhal_hm,,,Biological,"no_drop, no_drop_salvage",Special,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.StjarwhalController,"A Stjarwhal. If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good. 
 If your relation worsens, it will become progressively more difficult to control, increasing its maintenance.
 
 Current maintenance multiplier: %s
 
 Current relation: %s",,,graphics/hullmods/stjarwhal.png
 ,,,,,,,,,,,,,,,,,,,
-Acid Blood,svc_acid_blood_hm,,,,defensive,Defenses,4000,,,,4,8,12,18,tecrys.svc.hullmods.AcidicBlood,,Shoot a jet of super acidic blood to defend against small threats.,,graphics/hullmods/carapace.png
-Voidling Infestation,svc_infestation_hm,,,,"special, req_spaceport","Special, Requires Dock",6000,,,,5,10,15,25,tecrys.svc.hullmods.VoidlingInfestation,,A Nest of small Voidlings has settled between armor plates.,,graphics/hullmods/carapace.png
-Void Fins,svc_no_fuel_hm,,,,"req_spaceport, engines","Logistics, Requires Dock",3500,,,,3,6,9,15,tecrys.svc.hullmods.VoidFins,The creature no longer needs antimatter fuel to travel thrue Hyperspace.,Effortlessly move through Hyperspace.,,graphics/hullmods/carapace.png
-Harmonizing Pheromone Glands,svc_more_alphas_hm,,,,special,Special,8000,,,,10,15,20,30,tecrys.svc.hullmods.BiologicalBaseHullmod,,You can field more than one Alpha Voidling.,,graphics/hullmods/carapace.png
-Defensive Blood Clotting,svc_overdamage_res_hm,,,,defensive,Defenses,5000,,,,8,16,24,40,tecrys.svc.hullmods.DefensiveBloodClotting,,Ultra-hard blood clotting protects against massive damage.,,graphics/hullmods/carapace.png
+Static Acidity,svc_acid_blood_hm,,,Biological,defensive,Defenses,4000,,,,4,8,12,18,tecrys.svc.hullmods.AcidicBlood,,Shoot a jet of super acidic blood to defend against small threats.,,graphics/hullmods/acidarc.png
+Voidling Infestation,svc_infestation_hm,,,Biological,"special, req_spaceport","Special, Requires Dock",6000,,,,5,10,15,25,tecrys.svc.hullmods.VoidlingInfestation,,A Nest of small Voidlings has settled between armor plates.,,graphics/hullmods/voidlinginfest.png
+Void Fins,svc_no_fuel_hm,,,Biological,"req_spaceport, engines","Logistics, Requires Dock",3500,,,,3,6,9,15,tecrys.svc.hullmods.VoidFins,The creature no longer needs antimatter fuel to travel through Hyperspace.,Effortlessly move through Hyperspace.,,graphics/hullmods/voidfins.png
+Harmonizing Pheromone Glands,svc_more_alphas_hm,,,Biological,special,Special,8000,,,,10,15,20,30,tecrys.svc.hullmods.BiologicalBaseHullmod,A selective mutation modifying the creatures pheromone glands. Instead of reducing CR by %s for each Alpha in your fleet it is only reduced by %s .,You can field more than one Alpha Voidling.,This Alpha Voidling does not count againts the limit of only one Alpha per fleet.,graphics/hullmods/morevoid.png
+Defensive Blood Clotting,svc_overdamage_res_hm,,,Biological,defensive,Defenses,5000,,,,8,16,24,40,tecrys.svc.hullmods.DefensiveBloodClotting,,Ultra-hard blood clotting protects against massive damage.,,graphics/hullmods/bloodclot.png
 ,,,,,,,,,,,,,,,,,,,
 Whale Tail Cocktail,svc_booze,,,,,,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,"Pirate spirit in a barrel, in the truest sense of the phrase. Unsurprisingly, there is no fixed recipe when distilling whatever drugs they have lying around.",Distilled Recreational Drugs,,graphics/icons/svc_booze.png
 Scoliac Tail,svc_scoliac_tail_turner,,,,,,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.ScoliacModuleTurner,"The Scoliac can rotate it's tail in a 360° arc to attack its foes.

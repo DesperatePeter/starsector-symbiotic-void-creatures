@@ -12,4 +12,11 @@ open class BiologicalBaseHullmod: BaseHullMod() {
     override fun getUnapplicableReason(ship: ShipAPI?): String {
         return "Can only be applied to biological ships (voidlings and whales)."
     }
+    override fun getDescriptionParam(index: Int, hullSize: ShipAPI.HullSize?): String? {
+        return when(index){
+            0 -> "100%"
+            1 -> "5%"
+            else -> null
+        }
+    }
 }
