@@ -2,8 +2,10 @@ package tecrys.svc.hullmods
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
+import com.fs.starfarer.api.combat.ShipAIConfig
 import com.fs.starfarer.api.combat.ShipAPI
 import org.lazywizard.lazylib.ext.plus
+import org.magiclib.kotlin.createDefaultShipAI
 import tecrys.svc.hullmods.listeners.KillSwitch
 import tecrys.svc.utils.vectorFromAngleDeg
 import java.awt.Color
@@ -46,7 +48,8 @@ class VoidlingInfestation: BaseHullMod() {
             val fighter = fleetMan.spawnShipOrWing(
                 FIGHTER_ID, loc, facing
             )
-            Global.getCombatEngine().addPlugin(KillSwitch(fighter, 20f))
+            fighter.shipAI = fighter.createDefaultShipAI(ShipAIConfig())
+            Global.getCombatEngine().addPlugin(KillSwitch(fighter, 30f))
             Global.getCombatEngine().addNebulaParticle(
                 loc, ship.velocity, CLOUD_RADIUS, 2f, 0.5f, 0.8f, CLOUD_DURATION, CLOUD_COLOR
             )
