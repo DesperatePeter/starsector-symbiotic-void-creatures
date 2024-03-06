@@ -42,7 +42,7 @@ class AcidicBloodListener(private val ship: ShipAPI): DamageTakenModifier {
         val targets = CombatUtils.getEntitiesWithinRange(point, MAX_ARC_RANGE).filter {
             it.owner != 100 && it.owner != ship.originalOwner }.random()?.let { target ->
                 Global.getCombatEngine().spawnEmpArc(
-                    ship, point, ship, target, DamageType.ENERGY, damageAmount, 0f, MAX_ARC_RANGE, null, 5f,
+                    ship, point, ship, target, DamageType.ENERGY, damageAmount, 0f, MAX_ARC_RANGE + 100f, null, 5f,
                     ARC_CORE_COLOR, ARC_FRINGE_COLOR
                 )
         }
