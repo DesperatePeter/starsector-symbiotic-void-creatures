@@ -8,6 +8,7 @@ import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.thoughtworks.xstream.XStream
+import org.dark.shaders.util.ShaderLib
 import tecrys.svc.listeners.SvcCargoListener
 import tecrys.svc.modintegration.*
 import tecrys.svc.plugins.exotica.VoidChitinPlatingListener
@@ -60,6 +61,8 @@ class SvcBasePlugin : BaseModPlugin() {
     }
     override fun onApplicationLoad() {
         //add special items
+
+        ShaderLib.init();
 
         if (isSubstanceAbuseEnabled()) {
             loadSubstanceAbuse()

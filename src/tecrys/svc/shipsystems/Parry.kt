@@ -4,13 +4,14 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
+import org.dark.shaders.distortion.DistortionShader
+import org.dark.shaders.distortion.WaveDistortion
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.hullmods.ShellVulcanization
 import tecrys.svc.utils.degToRad
 import java.awt.Color
-import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
@@ -61,9 +62,17 @@ class Parry: BaseShipSystemScript() {
             }
             proj.owner = ship.owner
             proj.source = ship
-            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 20f, 1f, 0.8f, Color.WHITE)
-            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 30f, 0.6f, 1f, Color.WHITE)
-            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 50f, 0.2f, 1.2f, Color.WHITE)
+            DistortionShader.addDistortion(WaveDistortion(ship.location, ship.velocity).apply {
+                size = ship.shieldRadiusEvenIfNoShield * 2.5f
+                intensity = ship.shieldRadiusEvenIfNoShield * 5f
+                arcAttenuationWidth = 150f
+                fadeInSize(0.25f)
+                fadeOutIntensity(0.5f)
+//                setLifetime(20000f)
+            })
+            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 25f, 1f, 0.8f, Color.WHITE)
+            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 35f, 0.6f, 1f, Color.WHITE)
+            Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 60f, 0.2f, 1.4f, Color.WHITE)
             Global.getSoundPlayer().playSound("svc_system_parry", 1f, 1f, proj.location, Vector2f())
             affectedProjectiles.add(proj)
         }
