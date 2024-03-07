@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.dark.shaders.distortion.DistortionShader
+import org.dark.shaders.distortion.RippleDistortion
 import org.dark.shaders.distortion.WaveDistortion
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
@@ -88,12 +89,12 @@ class Parry: BaseShipSystemScript() {
     }
 
     private fun createDistortion(ship: ShipAPI){
-        DistortionShader.addDistortion(WaveDistortion(ship.location, ship.velocity).apply {
-            size = ship.shieldRadiusEvenIfNoShield * 1.5f
-            intensity = ship.shieldRadiusEvenIfNoShield * 0.35f
-            arcAttenuationWidth = 250f
-            fadeInSize(0.25f)
-            fadeOutIntensity(0.5f)
+        DistortionShader.addDistortion(RippleDistortion(ship.location, ship.velocity).apply {
+              size = ship.shieldRadiusEvenIfNoShield * 1.5f
+            //  intensity = ship.shieldRadiusEvenIfNoShield * 2f
+            // arcAttenuationWidth = 450f
+             fadeInSize(0.15f)
+            fadeOutIntensity(0.7f)
         })
     }
 
