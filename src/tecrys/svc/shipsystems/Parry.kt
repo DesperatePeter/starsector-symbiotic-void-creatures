@@ -8,6 +8,7 @@ import org.dark.shaders.distortion.DistortionShader
 import org.dark.shaders.distortion.WaveDistortion
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
+import org.magiclib.kotlin.getFactionMarkets
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.hullmods.ShellVulcanization
 import tecrys.svc.utils.degToRad
@@ -34,6 +35,7 @@ class Parry: BaseShipSystemScript() {
         val ship = stats?.entity as? ShipAPI ?: return
         if(!afterImageShown){
             showAfterImage(ship)
+            createDistortion(ship)
             afterImageShown = true
         }
         if(state != ShipSystemStatsScript.State.ACTIVE) return
@@ -62,14 +64,7 @@ class Parry: BaseShipSystemScript() {
             }
             proj.owner = ship.owner
             proj.source = ship
-            DistortionShader.addDistortion(WaveDistortion(ship.location, ship.velocity).apply {
-                size = ship.shieldRadiusEvenIfNoShield * 2.5f
-                intensity = ship.shieldRadiusEvenIfNoShield * 5f
-                arcAttenuationWidth = 150f
-                fadeInSize(0.25f)
-                fadeOutIntensity(0.5f)
-//                setLifetime(20000f)
-            })
+
             Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 25f, 1f, 0.8f, Color.WHITE)
             Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 35f, 0.6f, 1f, Color.WHITE)
             Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 60f, 0.2f, 1.4f, Color.WHITE)
@@ -90,6 +85,16 @@ class Parry: BaseShipSystemScript() {
             col = col.setAlpha(col.alpha - 30)
             ship.addAfterimage(col, aaLoc.x, aaLoc.y, ship.velocity.x * 0.05f * i.toFloat(), ship.velocity.y * 0.05f * i.toFloat(), 0.2f, buildup, duration, down, false, true, true)
         }
+    }
+
+    private fun createDistortion(ship: ShipAPI){
+        DistortionShader.addDistortion(WaveDistortion(ship.location, ship.velocity).apply {
+            size = ship.shieldRadiusEvenIfNoShield * 1.5f
+            intensity = ship.shieldRadiusEvenIfNoShield * 0.35f
+            arcAttenuationWidth = 250f
+            fadeInSize(0.25f)
+            fadeOutIntensity(0.5f)
+        })
     }
 
     private fun isExtendedDuration(ship: ShipAPI): Boolean{
