@@ -1,19 +1,19 @@
 package tecrys.svc.world.fleets
 
 private val svcCombatRoleBaseWeights = mapOf(
-    "combatSmall" to 1f,
-    "combatMedium" to 0.5f,
-    "combatLarge" to 0.25f,
-    "combatEliteSmall" to 0.05f,
-    "combatEliteMedium" to 0.02f,
-    "combatEliteLarge" to 0.01f,
-    "combatEliteSmallEvolved" to 0.05f,
-    "combatEliteMediumEvolved" to 0.02f,
-    "combatEliteLargeEvolved" to 0.01f,
+    "combatSmall" to 0.5f,
+    "combatMedium" to 0f,
+    "combatLarge" to -1f,
+    "combatEliteSmall" to 0f,
+    "combatEliteMedium" to -1.5f,
+    "combatEliteLarge" to -2f,
+    "combatEliteSmallEvolved" to 0f,
+    "combatEliteMediumEvolved" to -1.5f,
+    "combatEliteLargeEvolved" to -2f,
 )
 private val svcCombatRoleFinalWeights = mapOf(
-    "combatSmall" to 0.3f,
-    "combatMedium" to 0.4f,
+    "combatSmall" to 1f,
+    "combatMedium" to 0.6f,
     "combatLarge" to 0.3f,
     "combatEliteSmall" to 0.5f,
     "combatEliteMedium" to 0.4f,
