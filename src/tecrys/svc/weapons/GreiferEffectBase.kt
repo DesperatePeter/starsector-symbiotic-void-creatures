@@ -22,7 +22,7 @@ abstract class GreiferEffectBase : BeamEffectPlugin {
 
     private fun computeRubberBandAdjustmentFactor(sourceLoc: Vector2f, targetLoc: Vector2f, range: Float): Float{
         val distance = (targetLoc - sourceLoc).length()
-        return 0.5f + 0.75f * (distance/range)
+        return 0.5f + 1f * (distance/range)
     }
 
     /**
