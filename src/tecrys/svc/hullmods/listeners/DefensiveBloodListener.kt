@@ -21,11 +21,11 @@ class DefensiveBloodListener(ship: ShipAPI) : DamageTakenModifier {
 
     companion object{
         val DECAY_PER_SEC = mapOf(
-            HullSize.FIGHTER to 200f,
-            HullSize.FRIGATE to 400f,
-            HullSize.DESTROYER to 600f,
-            HullSize.CRUISER to 1000f,
-            HullSize.CAPITAL_SHIP to 1500f
+            HullSize.FIGHTER to 300f,
+            HullSize.FRIGATE to 600f,
+            HullSize.DESTROYER to 900f,
+            HullSize.CRUISER to 1300f,
+            HullSize.CAPITAL_SHIP to 2100f
         )
         val MAX_VALUE = DECAY_PER_SEC.mapValues { it.value * 5f } // same as DECAY_PER_SEC with values * 5
         val MIN_VALUE = DECAY_PER_SEC.mapValues { it.value * 1f }
