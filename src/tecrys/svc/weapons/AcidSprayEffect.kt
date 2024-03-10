@@ -23,8 +23,8 @@ class AcidSprayEffect: OnFireEffectPlugin {
         val effectOffset = vectorFromAngleDeg(w.currAngle)
         effectOffset.scale(INITIAL_EFFECT_RADIUS)
         val effectLocation = w.location + effectOffset
-        effectOffset.scale(EFFECT_SPEED / INITIAL_EFFECT_RADIUS)
-        val velocity = w.ship.velocity + effectOffset
+        effectOffset.scale( (EFFECT_SPEED + w.ship.velocity.length()) / INITIAL_EFFECT_RADIUS)
+        val velocity =  effectOffset
         e.addPlugin(AcidSprayScript(w.ship, e, effectLocation, velocity, EFFECT_COLOR, INITIAL_EFFECT_RADIUS, EFFECT_DURATION, EFFECT_RADIUS_GROWTH))
     }
 }
