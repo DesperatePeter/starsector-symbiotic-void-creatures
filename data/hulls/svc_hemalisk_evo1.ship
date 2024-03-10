@@ -222,7 +222,7 @@
       "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 0,
+      "arc": 10,
       "angle": 0,
       "locations": [-4, -0],
       "renderOrderMod": 10
