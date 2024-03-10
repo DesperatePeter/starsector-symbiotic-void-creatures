@@ -331,7 +331,7 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 20,
-      "angle": 10.5,
+      "angle": 9.5,
       "locations": [101.5, -143]
     },
     {
@@ -340,7 +340,7 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 20,
-      "angle": -10.5,
+      "angle": -9.5,
       "locations": [101.5, 143]
     },
     {
@@ -403,7 +403,7 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 60,
-      "angle": 0,
+      "angle": 27,
       "locations": [21, 172.5]
     },
     {
@@ -412,7 +412,7 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 60,
-      "angle": -0,
+      "angle": -27,
       "locations": [21, -172.5]
     },
     {
