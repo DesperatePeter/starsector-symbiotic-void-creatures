@@ -23,6 +23,10 @@ fun vectorFromAngleDeg(angle: Float): Vector2f {
     return Vector2f(cos(angle * degToRad), sin(angle * degToRad))
 }
 
+operator fun Vector2f.times(vector2f: Vector2f?): Float {
+    return x * (vector2f?.x ?: 0f) + y * (vector2f?.y ?: 0f)
+}
+
 fun Color.randomlyVaried(variation: Float): Color{
     fun d(c: Int) = MathUtils.clamp(c + (2f * (Math.random() - 0.5) * variation).toInt(), 0, 255)
     return Color( d(red),  d(green), d(blue), alpha)
