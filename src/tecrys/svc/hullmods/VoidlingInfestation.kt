@@ -56,4 +56,14 @@ class VoidlingInfestation: BaseHullMod() {
         }
         fleetMan.isSuppressDeploymentMessages = wasSpawnMsgSuppressed
     }
+    override fun getDescriptionParam(index: Int, hullSize: ShipAPI.HullSize?): String? {
+        return when(index){
+            0 -> "${(1)}"
+            1 -> "${(2)}"
+            2 -> "${(4)}"
+            3 -> "${(7)}"
+            4 -> "${(11)}"
+            else -> null
+        }
+    }
 }
