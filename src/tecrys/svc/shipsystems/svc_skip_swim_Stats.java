@@ -9,16 +9,37 @@ import com.fs.starfarer.api.plugins.ShipSystemStatsScript;
 
 public class svc_skip_swim_Stats extends BaseShipSystemScript {
 
-	static final Float SPEED_MODIFIER = 1800f;
-	static final Float ACCEL_MODIFIER = 2500f;
-
 	public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
+		ShipAPI ship = (ShipAPI) stats.getEntity();
 		if (state == ShipSystemStatsScript.State.OUT) {
 			stats.getMaxSpeed().unmodify(id); // to slow down ship to its regular top speed while powering drive down
-			stats.getAcceleration().unmodify(id);
+			stats.getMaxTurnRate().unmodify(id);
 		} else {
-			stats.getMaxSpeed().modifyFlat(id, SPEED_MODIFIER);
-			stats.getAcceleration().modifyFlat(id, ACCEL_MODIFIER * effectLevel);
+			stats.getMaxSpeed().modifyFlat(id, 2500f);
+			stats.getAcceleration().modifyFlat(id, 2500f * effectLevel);
+			ship.getShipAI().forceCircumstanceEvaluation();
+
+
+		}
+
+		if (stats.getEntity() instanceof ShipAPI && false) {
+
+			String key = ship.getId() + "_" + id;
+			Object test = Global.getCombatEngine().getCustomData().get(key);
+
+			if (state == State.IN) {
+				if (test == null && effectLevel > 0.2f) {
+					Global.getCombatEngine().getCustomData().put(key, new Object());
+					ship.getEngineController().getExtendLengthFraction().advance(1f);
+					for (ShipEngineAPI engine : ship.getEngineController().getShipEngines()) {
+						if (engine.isSystemActivated()) {
+							ship.getEngineController().setFlameLevel(engine.getEngineSlot(), 1f);
+						}
+					}
+				}
+			} else {
+				Global.getCombatEngine().getCustomData().remove(key);
+			}
 		}
 	}
 	public void unapply(MutableShipStatsAPI stats, String id) {
@@ -28,12 +49,12 @@ public class svc_skip_swim_Stats extends BaseShipSystemScript {
 		stats.getAcceleration().unmodify(id);
 		stats.getDeceleration().unmodify(id);
 	}
-	
+
 	public StatusData getStatusData(int index, State state, float effectLevel) {
 		if (index == 0) {
-			return new StatusData(ACCEL_MODIFIER.toString() , false);
+			return new StatusData("improved maneuverability", false);
 		} else if (index == 1) {
-			return new StatusData(SPEED_MODIFIER.toString(), false);
+			return new StatusData("+50 top speed", false);
 		}
 		return null;
 	}
