@@ -45,7 +45,7 @@ public class AlwaysOnAI implements ShipSystemAIScript {
             // If system is inactive and should be active, enable it
             if(shouldUseSystem == true)
             {
-                ship.getMouseTarget().set(MathUtils.getRandomPointInCircle(ship.getLocation(),2000f));
+                //ship.getMouseTarget().set(MathUtils.getRandomPointInCircle(ship.getLocation(),2000f));
                 ship.useSystem();
             }
         }
