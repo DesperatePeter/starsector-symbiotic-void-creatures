@@ -14,8 +14,8 @@ public class svc_skip_swim_Stats extends BaseShipSystemScript {
 			stats.getMaxSpeed().unmodify(id); // to slow down ship to its regular top speed while powering drive down
 			stats.getMaxTurnRate().unmodify(id);
 		} else {
-			stats.getMaxSpeed().modifyFlat(id, 1200f);
-				stats.getAcceleration().modifyFlat(id, 2000f * effectLevel);
+			stats.getMaxSpeed().modifyFlat(id, 1800f);
+				stats.getAcceleration().modifyFlat(id, 2500f * effectLevel);
 			//	stats.getDeceleration().modifyPercent(id, 200f * effectLevel);
 			//	stats.getTurnAcceleration().modifyFlat(id, 30f * effectLevel);
 			//	stats.getTurnAcceleration().modifyPercent(id, 200f * effectLevel);

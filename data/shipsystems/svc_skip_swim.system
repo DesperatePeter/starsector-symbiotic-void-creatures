@@ -1,7 +1,8 @@
 {
 	"id":"svc_skip_swim",
 	"type":"ENGINE_MOD",
-	"aiType":"BURN_DRIVE",
+	"aiType":"CUSTOM",
+	"aiScript":"tecrys.svc.shipsystems.ais.AlwaysOnAI",
 	
 	"statsScript":"tecrys.svc.shipsystems.svc_skip_swim_Stats",
 	
@@ -21,8 +22,8 @@
 	"outOfUsesSound":"engine_disabled",
 	
 	"aiHints":{
-		"activeSpeedIncrease":1200,
+		"activeSpeedIncrease":50,
 		"burstMovementPotential":0,
-		"averageSpeedIncrease":600,
+		"averageSpeedIncrease":25,
 	}
 }

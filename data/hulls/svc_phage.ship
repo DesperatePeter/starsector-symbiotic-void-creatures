@@ -28,8 +28,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": -2,
-      "locations": [-36.5, -26]
+      "angle": 54.5,
+      "locations": [4.5, -43.5]
     },
     {
       "id": "decofinleft",
@@ -37,8 +37,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 2,
-      "locations": [-36.5, 26]
+      "angle": -54.5,
+      "locations": [4.5, 43.5]
     },
     {
       "id": "WS0001",
@@ -70,7 +70,7 @@
   ],
   "engineSlots": [
     {
-      "location": [-2.5, 8],
+      "location": [7.5, 5],
       "length": 5.32,
       "width": 5.9,
       "angle": 137.5,
@@ -79,7 +79,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-2.5, -8],
+      "location": [7.5, -5],
       "length": 5.32,
       "width": 5.9,
       "angle": -137.5,
@@ -88,7 +88,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-7.5, -3],
+      "location": [-0.5, -7],
       "length": 5.32,
       "width": 5.9,
       "angle": -149,
@@ -97,7 +97,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-7.5, 3],
+      "location": [-0.5, 7],
       "length": 5.32,
       "width": 5.9,
       "angle": 149,
