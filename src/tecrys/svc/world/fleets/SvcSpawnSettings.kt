@@ -30,8 +30,8 @@ val svcSettings = FleetSpawnParameterSettings(
     10f,
     400f,
     5f,
+    12,
     20,
-    50,
     svcCombatRoleBaseWeights,
     svcCombatRoleFinalWeights
 )

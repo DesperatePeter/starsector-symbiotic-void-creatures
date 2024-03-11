@@ -30,12 +30,12 @@ class FleetManager : EveryFrameScript {
 
     companion object {
         const val WHALE_RAND_DIST = 700f
-        const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1500f
-        const val WHALE_SPAWN_BASE_INTERVAL = 100f
+        const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1300f
+        const val WHALE_SPAWN_BASE_INTERVAL = 150f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         const val HUNTER_FLEET_DISTANCE = 2000f
         // Distance between whale fleets and voidling fleets when they spawn. Needs to be low enough for them to see each other!
-        const val WHALE_VOIDLING_DIST = 600f
+        const val WHALE_VOIDLING_DIST = 800f
         private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
