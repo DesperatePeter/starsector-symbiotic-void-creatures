@@ -1,0 +1,117 @@
+{
+  "hullName": "Phage",
+  "hullId": "svc_phage",
+  "hullSize": "FIGHTER",
+  "spriteName": "graphics/ships/svc_phage.png",
+  "style": "BIOLOGICAL",
+  "height": 41,
+  "width": 33,
+  "center": [16.5, 22],
+  "collisionRadius": 22,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 23,
+  "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace"
+  ],
+  "builtInWeapons": {
+    "WS0001": "svc_dark_fin_right_tiny",
+    "WS0002": "svc_dark_fin_right_tiny",
+    "WS0004": "svc_fangcluster",
+    "decofinleft": "svc_dark_fin_right_tiny",
+    "decofinright": "svc_dark_fin_right_tiny"
+  },
+  "weaponSlots": [
+    {
+      "id": "decofinright",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -2,
+      "locations": [-36.5, -26]
+    },
+    {
+      "id": "decofinleft",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 2,
+      "locations": [-36.5, 26]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": 25,
+      "locations": [-41, 11.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "HARDPOINT",
+      "arc": 0,
+      "angle": -25,
+      "locations": [-41, -11.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "MEDIUM",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 5,
+      "angle": -0,
+      "locations": [-5.5, -0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-2.5, 8],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": 137.5,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-2.5, -8],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": -137.5,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-7.5, -3],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": -149,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    },
+    {
+      "location": [-7.5, 3],
+      "length": 5.32,
+      "width": 5.9,
+      "angle": 149,
+      "contrailSize": 5.9,
+      "style": "CUSTOM",
+      "styleId": "BGE"
+    }
+  ],
+  "bounds": [
+    -18, 2.5,
+    2.5, 14.5,
+    14, 6.5,
+    14, -6.5,
+    2.5, -14.5,
+    -18, -2.5
+  ]
+}

@@ -19,7 +19,7 @@
   "builtInWings": [
     "svc_pox_whip_wing",
     "svc_mios_mandibles_wing",
-    "svc_mios_mandibles_wing"
+    "svc_phage_wing"
   ],
   "builtInWeapons": {
     "WS0001": "svc_tentacle_right_gargantuan",
