@@ -48,6 +48,7 @@ class SvcBasePlugin : BaseModPlugin() {
     }
 
     override fun onGameLoad(newGame: Boolean) {
+        Global.getSector().registerPlugin(SvcCampaignPlugin())
         Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())
         if(isExoticaEnabled()){

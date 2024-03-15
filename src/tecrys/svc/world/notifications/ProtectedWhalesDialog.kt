@@ -21,6 +21,13 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
 ) {
     companion object {
         const val SLAUGHTER_OIL_PER_DP = 1f
+        fun slaughterWhales(whales: CampaignFleetAPI?){
+            val oilQuantity = (whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_OIL_PER_DP
+            val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
+            Global.getSector().playerFleet.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity)
+            Global.getSector().campaignUI?.addMessage("Received $oilQuantity Stjarwhal-oil! The Stjarwhales are upset.")
+            internalWhaleReputation -= oilQuantity
+        }
     }
 
     override fun addOptions(options: OptionPanelAPI) {
@@ -50,11 +57,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
                 }
 
                 "Slaughter" -> {
-                    val oilQuantity = (whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_OIL_PER_DP
-                    val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
-                    Global.getSector().playerFleet.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity)
-                    Global.getSector().campaignUI?.addMessage("Received $oilQuantity Stjarwhal-oil! The Stjarwhales are upset.")
-                    internalWhaleReputation -= oilQuantity
+                    slaughterWhales(whales)
                 }
 
                 "Leave" -> {

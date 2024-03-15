@@ -16,7 +16,8 @@
 
     "svc_hunter_fleet_defeated_title": "The hunters have become the hunted",
     "svc_hunter_fleet_defeated_text_no_bar": "The voidling fleet you encountered was different from the voidlings you encountered before. It was more aggressive, actively seeking your fleet out in hyperspace, as if driven by hunger. \n\nAn analysis of the carcasses indicates the presence of some sort of cybernetic components. \nUpon brief inspection, your science officer declares that this appears to be some sort of control mechanism. They assure you that they will find a way to reverse-engineer the technology.",
-    "svc_hunter_fleet_defeated_text_bar": "You found and successfully defeated one of the hunter fleets that the man in the bar spoke off. \n\nJust as he indicated, some of the equipment that was used to control the hunters seems to be intact. Your science officer assures you that they will find a way to reverse-engineer the technology."
+    "svc_hunter_fleet_defeated_text_bar": "You found and successfully defeated one of the hunter fleets that the man in the bar spoke off. \n\nJust as he indicated, some of the equipment that was used to control the hunters seems to be intact. Your science officer assures you that they will find a way to reverse-engineer the technology.",
+    "svc_whales_only_encounter_text" : "You encounter a wild whale fleet."
   },
   "VoidChitinPlating": {
     "description": "Replaces some of the ship's armor with light but durable void chitin, replacing the ship's defensive system with a Parry. Refresh (by changing screens or selecting another ship) before running simulation. Experimental feature: Removal might cause issues when combined with other mods that modify ship hullSpecs. Saving/Reloading might fix those issues. Please report any bugs/unusual behavior.",

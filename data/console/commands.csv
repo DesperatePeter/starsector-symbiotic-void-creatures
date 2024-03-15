@@ -4,3 +4,4 @@ svc_trigger_notification,tecrys.svc.console.TriggerNotification,"campaign",svc_t
 svc_modify_spawn_power,tecrys.svc.console.IncreaseSpawnPower,"campaign",svc_modify_spawn_power <amount>,"Modify spawn power by given amount. Higher spawn power makes more, bigger and more dangerous enemies spawn. Fleet power can be between 0 and 350."
 svc_roll_for_hunter_fleet,tecrys.svc.console.TrySpawnHunter,"campaign",svc_roll_for_hunter_fleet,"Manually trigger a roll to spawn a hunter fleet. Success chance is 0% if not in hyperspace or close to core worlds. Success is almost guaranteed at the edge of the sector. Will fail if no more hunter fleets available."
 svc_reset_memory_state,tecrys.svc.console.ResetCommand,"campaign",svc_reset_memory_state,"Reset the state of most memory flags (quests etc.). Does not reset magic bounties"
+svc_roll_for_whales,tecrys.svc.console.SpawnWhales,"campaign",svc_roll_for_whales,"Roll to roll for spawning a whale fleet."

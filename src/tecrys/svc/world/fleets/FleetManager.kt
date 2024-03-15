@@ -34,8 +34,10 @@ class FleetManager : EveryFrameScript {
         const val WHALE_SPAWN_BASE_INTERVAL = 150f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         const val HUNTER_FLEET_DISTANCE = 2000f
+        const val WHALE_FLEET_IDENTIFICATION_KEY = "$" + "SVC_WHALE_FLEET_TAG"
         // Distance between whale fleets and voidling fleets when they spawn. Needs to be low enough for them to see each other!
         const val WHALE_VOIDLING_DIST = 800f
+        const val WHALE_VOIDLING_CHANCE = 0.8 // chance [0.0 .. 1.0] that a whale fleet spawns together with voidlings attacking it
         private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         val spawner = FleetSpawner()
@@ -45,6 +47,9 @@ class FleetManager : EveryFrameScript {
         }
         fun tryToSpawnHunterFleet(): Boolean{
             return FleetManager().spawnHunterFleet()
+        }
+        fun tryToSpawnWhales(): Boolean{
+            return FleetManager().spawnWhaleEncounter()
         }
         fun currentSpawnChance(): Float {
             val playerFleet = Global.getSector().playerFleet ?: return 0f
@@ -148,13 +153,19 @@ class FleetManager : EveryFrameScript {
     private fun spawnWhaleEncounter(): Boolean {
         val whaleParams = FleetSpawnParameterCalculator(whaleSettings)
         if(countFactionFleets(VWL_FACTION_ID) >= whaleParams.maxFleetCount) return false
-        val svcParams = FleetSpawnParameterCalculator(svcSettings)
+
         val playerFleet = Global.getSector().playerFleet ?: return false
         if(!shouldSpawnBasedOnLocation()) return false
+
         val whales = spawner.createFactionFleet(VWL_FACTION_ID, whaleParams) ?: return false
-        val voidlings = spawner.createFactionFleet(SVC_FACTION_ID, svcParams) ?: return false
         playerFleet.containingLocation?.addEntity(whales)
+
+        val svcParams = FleetSpawnParameterCalculator(svcSettings)
+        val shouldSpawnVoidlings = Math.random() <= WHALE_VOIDLING_CHANCE
+        val voidlings = if(shouldSpawnVoidlings) spawner.createFactionFleet(SVC_FACTION_ID, svcParams) else null
+
         playerFleet.containingLocation?.addEntity(voidlings)
+
         var loc = playerFleet.locationInHyperspace
         loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST, 2f * (Math.random().toFloat() - 0.5f) * WHALE_RAND_DIST)
         val offset = Vector2f(playerFleet.velocity.x, playerFleet.velocity.y)
@@ -166,21 +177,25 @@ class FleetManager : EveryFrameScript {
         }
         offset.scale(WHALE_PLAYER_FLEET_DIRECTION_DIST)
         loc += offset
-        voidlings.setLocation(loc.x, loc.y)
+        voidlings?.setLocation(loc.x, loc.y)
         val whaleOffsetAngle = 2f * PI.toFloat() * Math.random().toFloat()
         whales.setLocation((loc.x + WHALE_VOIDLING_DIST * sin(whaleOffsetAngle)), loc.y + WHALE_VOIDLING_DIST * cos(whaleOffsetAngle))
         listOf(whales, voidlings).forEach {
-            it.forceSync()
+            it?.forceSync()
         }
-        voidlings.makeHostile()
-        voidlings.makeAlwaysHostile()
-        voidlings.attackFleet(whales)
-        voidlings.addEventListener(SvcFleetListener)
-        voidlings.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
-        whales.attackFleet(voidlings)
+
+        voidlings?.let {
+            it.makeHostile()
+            it.makeAlwaysHostile()
+            it.attackFleet(whales)
+            it.addEventListener(SvcFleetListener)
+            it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
+            whales.attackFleet(it)
+        }
         whales.addEventListener(WhaleFleetListener)
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO
         whales.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID), oilInCargo)
+        whales.customData[WHALE_FLEET_IDENTIFICATION_KEY] = true
 
         return true
     }
