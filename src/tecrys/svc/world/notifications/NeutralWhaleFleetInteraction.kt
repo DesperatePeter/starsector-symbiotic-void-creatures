@@ -9,6 +9,7 @@ import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
 import tecrys.svc.WHALE_REPUTATION_MIN
 import tecrys.svc.internalWhaleReputation
+import tecrys.svc.utils.addLeaveOption
 import tecrys.svc.world.fleets.FleetManager
 import kotlin.math.truncate
 
@@ -42,8 +43,7 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken): Notif
         }
         options.addOption("Slaughter the whales to harvest oil.", "Slaughter")
         options.setTooltip("Slaughter", "Wale is valuable and can be used as fuel, but the whales will be sad =(")
-        options.addOption("Leave", "Leave")
-        options.setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
+        options.addLeaveOption()
     }
 
     override fun optionSelected(optionText: String?, optionData: Any?) {

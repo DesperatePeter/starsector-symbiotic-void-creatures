@@ -6,6 +6,7 @@ import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
 import tecrys.svc.canRecoverAlphas
 import tecrys.svc.rulecmd.SvcShouldSpawnHunterBarEvent
+import tecrys.svc.utils.addLeaveOption
 
 class HuntersDefeatedNotification : NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY,
@@ -16,10 +17,7 @@ class HuntersDefeatedNotification : NotificationDialogBase(
     Global.getSettings().getSpriteName("backgrounds", "hunter_fleet")
 ) {
     override fun addOptions(options: OptionPanelAPI) {
-        options.run {
-            addOption("Leave", "Leave")
-            setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
-        }
+        options.addLeaveOption()
     }
 
     override fun optionSelected(optionText: String?, optionData: Any?) {

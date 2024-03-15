@@ -2,6 +2,7 @@ package tecrys.svc.utils
 
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
+import com.fs.starfarer.api.campaign.OptionPanelAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.combat.ShipVariantAPI
@@ -9,6 +10,7 @@ import com.fs.starfarer.api.impl.campaign.DModManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.util.Misc
+import org.lwjgl.input.Keyboard
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
 import kotlin.math.abs
@@ -17,6 +19,10 @@ const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
 const val MAX_GOTO_ASSIGNMENT_DURATION = 1000f
 const val MAX_ATTACK_DURATION = 100f
 
+fun OptionPanelAPI.addLeaveOption(){
+    addOption("Leave", "Leave")
+    setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
+}
 fun CampaignFleetAPI.orbitClosestPlanet() {
     this.addAssignment(
         FleetAssignment.GO_TO_LOCATION,

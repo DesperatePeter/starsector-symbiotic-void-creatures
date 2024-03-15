@@ -18,6 +18,7 @@ class VoidlingHatchery: BaseIndustry() {
         const val MIN_ADVANCE_INTERVAL = 30f // in days
         const val MAX_ADVANCE_INTERVAL = 60f // in days
         const val MAX_PATROL_DURATION = 5000f
+        const val HATCHLING_FLEET_KEY = "$" + "SVC_HATCHLING_GUARDIAN_FLEET"
     }
 
     private var fleet: CampaignFleetAPI? = null
@@ -72,6 +73,7 @@ class VoidlingHatchery: BaseIndustry() {
         fleet?.setLocation(market.location.x, market.location.y)
         fleet?.addAssignment(FleetAssignment.PATROL_SYSTEM, market.planetEntity, MAX_PATROL_DURATION)
         fleet?.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_FORCE_TRANSPONDER_OFF, false)
+        fleet?.customData?.set(HATCHLING_FLEET_KEY, true)
 
     }
 }

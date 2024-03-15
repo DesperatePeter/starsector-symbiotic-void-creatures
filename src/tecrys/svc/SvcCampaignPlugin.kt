@@ -8,15 +8,22 @@ import com.fs.starfarer.api.campaign.InteractionDialogPlugin
 import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
+import tecrys.svc.industries.VoidlingHatchery
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.notifications.HatchlingFleetInteraction
 import tecrys.svc.world.notifications.NeutralWhaleFleetInteraction
 
 class SvcCampaignPlugin: BaseCampaignPlugin() {
     override fun pickInteractionDialogPlugin(interactionTarget: SectorEntityToken?): PluginPick<InteractionDialogPlugin>? {
         val fleet = interactionTarget as? CampaignFleetAPI ?: return null
-        if(fleet.customData?.containsKey(FleetManager.WHALE_FLEET_IDENTIFICATION_KEY) != true) return null
         if(fleet.battle != null) return null
-        return PluginPick(NeutralWhaleFleetInteraction(fleet), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+        if(fleet.customData?.containsKey(FleetManager.WHALE_FLEET_IDENTIFICATION_KEY) == true){
+            return PluginPick(NeutralWhaleFleetInteraction(fleet), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+        }
+        if(fleet.customData?.containsKey(VoidlingHatchery.HATCHLING_FLEET_KEY) == true){
+            return PluginPick(HatchlingFleetInteraction(fleet), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+        }
+        return null
     }
 
     override fun isTransient(): Boolean = true

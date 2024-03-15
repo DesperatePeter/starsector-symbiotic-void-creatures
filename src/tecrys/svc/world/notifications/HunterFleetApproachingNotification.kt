@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.OptionPanelAPI
 import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
+import tecrys.svc.utils.addLeaveOption
 
 class HunterFleetApproachingNotification: NotificationDialogBase(
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_hunter_fleet_approaching_text"),
@@ -12,8 +13,7 @@ class HunterFleetApproachingNotification: NotificationDialogBase(
 ) {
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
-            addOption("Leave", "Leave")
-            setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
+            addLeaveOption()
         }
     }
 

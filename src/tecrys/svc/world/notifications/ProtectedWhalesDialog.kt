@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.OptionPanelAPI
 import com.fs.starfarer.api.campaign.SpecialItemData
 import org.lwjgl.input.Keyboard
 import tecrys.svc.*
+import tecrys.svc.utils.addLeaveOption
 import tecrys.svc.world.fleets.FleetManager
 import kotlin.math.truncate
 
@@ -34,8 +35,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
         options.run {
             if (internalWhaleReputation > WHALE_REPUTATION_MIN) addOption("Accept whale friend", "Friend")
             addOption("Slaughter the whales to harvest oil.", "Slaughter")
-            addOption("Leave", "Leave")
-            setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
+            addLeaveOption()
         }
     }
 
