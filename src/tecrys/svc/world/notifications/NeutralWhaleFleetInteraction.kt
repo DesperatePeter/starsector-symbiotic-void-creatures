@@ -30,14 +30,18 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken): Notif
 
     override fun addOptions(options: OptionPanelAPI) {
         if (internalWhaleReputation > WHALE_REPUTATION_MIN){
-            val playerCargo = Global.getSector().playerFleet?.cargo ?: return
-            options.addOption("Feed the whales", "Feed")
-            val canFeed = (playerCargo.supplies) > FEED_AMOUNT ||
-                    (playerCargo.getCommodityQuantity("food")) > FEED_AMOUNT
-            options.setEnabled("Feed", canFeed)
-            options.setTooltip("Feed", "Feed whales with $FEED_AMOUNT food or supplies. Will use food if available.")
+            Global.getSector().playerFleet?.cargo?.let { playerCargo ->
+                options.addOption("Feed the whales", "Feed")
+
+                val food = playerCargo.getCommodityQuantity("food")
+                val canFeed = playerCargo.supplies > FEED_AMOUNT || food > FEED_AMOUNT
+                options.setEnabled("Feed", canFeed)
+                options.setTooltip("Feed", "Feed whales with $FEED_AMOUNT food or supplies." +
+                        " Will use ${if(food > FEED_AMOUNT) "food" else "supplies."}")
+            }
         }
         options.addOption("Slaughter the whales to harvest oil.", "Slaughter")
+        options.setTooltip("Slaughter", "Wale is valuable and can be used as fuel, but the whales will be sad =(")
         options.addOption("Leave", "Leave")
         options.setShortcut("Leave", Keyboard.KEY_ESCAPE, false, false, false, false)
     }
@@ -63,8 +67,10 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken): Notif
         val playerCargo = Global.getSector().playerFleet?.cargo ?: return
         if(playerCargo.getCommodityQuantity("food") > FEED_AMOUNT){
             playerCargo.removeCommodity("food", FEED_AMOUNT)
+            Global.getSector().campaignUI?.addMessage("Lost 200 food!")
         }else{
             playerCargo.removeSupplies(FEED_AMOUNT)
+            Global.getSector().campaignUI?.addMessage("Lost 200 supplies!")
         }
         val whale = (whales as? CampaignFleetAPI)?.membersWithFightersCopy?.random()
         whale?.let { wh ->
