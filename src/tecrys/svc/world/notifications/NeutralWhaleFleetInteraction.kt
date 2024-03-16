@@ -25,9 +25,13 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
         const val FEED_AMOUNT = 200f
         const val REPUTATION_GAIN_FEED = 25f
         const val REPUTATION_GAIN_LEAVE = 1f
+        // at MIN_REPUTATION_FOR_OIL_FROM_FEEDING, you gain between 0% and 0% of MAX_OIL_GAINED,
+        // at OIL_GAIN_REPUTATION_CAP you gain between 10% and 100% of MAX_OIL_GAINED
+        // so, average oil gained scales between 0% (at min reputation) and 55% of max oil gained
         const val MIN_REPUTATION_FOR_OIL_FROM_FEEDING = 100f
         const val OIL_GAIN_REPUTATION_CAP = 250f
-        const val MAX_OIL_GAINED_FROM_FEEDING = 100f
+        const val MAX_OIL_GAINED_FROM_FEEDING = 200f
+        const val OIL_RANDOMNESS = 0.9f // how much the amount depends on RNG
     }
 
     override fun addOptions(options: OptionPanelAPI) {
@@ -76,7 +80,7 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
             Global.getSector().campaignUI?.addMessage("Lost 200 supplies!")
         }
 
-        val oilRepFactor = (Math.random().toFloat() * (internalWhaleReputation - MIN_REPUTATION_FOR_OIL_FROM_FEEDING) /
+        val oilRepFactor = ((Math.random().toFloat() * OIL_RANDOMNESS + (1.0f - OIL_RANDOMNESS)) * (internalWhaleReputation - MIN_REPUTATION_FOR_OIL_FROM_FEEDING) /
                 (OIL_GAIN_REPUTATION_CAP - MIN_REPUTATION_FOR_OIL_FROM_FEEDING)).coerceIn(0f, 1f)
         val oilQuantity = oilRepFactor * MAX_OIL_GAINED_FROM_FEEDING
         if(oilQuantity > 0f){
