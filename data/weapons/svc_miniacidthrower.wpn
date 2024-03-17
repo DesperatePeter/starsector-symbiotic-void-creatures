@@ -1,0 +1,51 @@
+{
+  "id": "svc_miniacidthrower",
+  "specClass": "projectile",
+  "projectileSpecId": "svc_mini_acid_shot",
+  "type": "ENERGY",
+  "size": "MEDIUM",
+  "turretSprite": "graphics/weapons/animated/svc_acidspitter/svc_acidspitter_base00.png",
+  "turretGunSprite": "graphics/weapons/animated/svc_acidspitter/svc_acidspitter_recoil.png",
+  "hardpointSprite": "graphics/weapons/animated/svc_acidspitter/svc_acidspitter_base00.png",
+  "specialWeaponGlowHeight": 30,
+  "specialWeaponGlowWidth": 10,
+  "visualRecoil": 8,
+  "turretOffsets": [
+    14.5,
+    0
+  ],
+  "turretAngleOffsets": [
+    0
+  ],
+  "hardpointOffsets": [
+    24,
+    -3,
+    24,
+    3,
+    24,
+    0
+  ],
+  "hardpointAngleOffsets": [
+    0
+  ],
+  "barrelMode": "LINKED",
+  "animationType": "MUZZLE_FLASH",
+  "numFrames": 20,
+  "frameRate": 12,
+  "autocharge": true,
+  "muzzleFlashSpec": {
+    "length": 15,
+    "spread": 10,
+    "particleSizeMin": 5,
+    "particleSizeRange": 15,
+    "particleDuration": 3,
+    "particleCount": 3,
+    "particleColor": [
+      104,
+      128,
+      0,
+      20
+    ]
+  },
+  "fireSoundOne": "svc_weapon_acid"
+}

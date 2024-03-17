@@ -22,7 +22,7 @@ svc_acidthrower,WEAPON,"A mutated gland symbiote that emits acid capable of seep
 Extremely effective against certain hyperalloys commonly found within most types of armor but won't dissolve normal hull structure.",Anti-Armor,,,
 svc_fangcluster,WEAPON,"A mutated Voidling jaw functioning suspiciously similar to a common mass driver.
 Rapidly regrows fangs which are then accelerated by powerful muscles through a puzzling mechanism, somehow matching or even exceeding modern needler designs.",Anti-Shield,,,
-svc_inksac,WEAPON,"An organic gland, capable of emitting a sort of ink-cloud with an enigmatic chemical composition. The special particles that form this ink cloud seem to attract and absorb all kinds of energy, significantly reducing the effectiveness of beams, causing missiles engines to flame out and even being able to slightly reduce the impact energy of projectiles. This weapon is inexplicably easy to mount on a regular ship. All that's necessary is to supply it with nutrient solution and to connect its neural receptors to a cybernetic interface, which is connected to the ship's targeting computer. Note: The AGC-tag BlockBeams is recommended for this weapon.",Anti-Beam,,,
+svc_inksac,WEAPON,"This organic gland produces and stores an odd chemical capable of heavy foaming on rapid energy transfer. Such ink like material is capable of dissipating large amounts of energy and can choke out most conventional technology, significantly reducing the effectiveness of beams, causing missile engines to flame out and even being able to slightly reduce the impact of energy projectiles. Mounting on a ship is possible with proper precautions like nutrients and sensory intake taken into account. Note: The AGC-tag BlockBeams is recommended for this weapon.",Anti-Beam,,,
 svc_boltzmann_brain,WEAPON,"A spontaneously manifesting brain is launched towards the enemy, spewing electropsionic EMP blasts as it comes closer, which fries the brain in the process.",,,,
 svc_worm_colony_large,WEAPON,Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth.,,,,
 svc_worm_colony_small,WEAPON,Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth.,,,,
@@ -33,8 +33,8 @@ svc_aggressive_pheromones,SHIP_SYSTEM,Increases speed and fire rate for all alli
 svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasumbilical cord to an enemy, diverting a part of the damage taken to the enemy. Will break if the enemy moves out of range.",,,,
 svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,
 svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
-svc_torid_drones,SHIP_SYSTEM,A helpful Torid drone with an Ink Sac relying on being fed by Pupacyst.,,,,
-parry,SHIP_SYSTEM,Parry and reflect all projectiles and unguided missiles for a brief time.,,,,
+svc_torid_drones,SHIP_SYSTEM,Releases a defensive Torid drone to protect its host.,,,,
+parry,SHIP_SYSTEM,Reflects all projectiles and unguided missiles for a brief time.,,,,
 ,,,,,,
 svc_arbiter,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,
@@ -50,8 +50,7 @@ svc_keratinos,SHIP,"These gigantic creatures guard breeding grounds but are some
 (placeholder description)",,,,
 svc_lephantis,SHIP,"Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
 (placeholder description)",,,,
-svc_pupacyst,SHIP,"Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,
+svc_pupacyst,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Torid paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,
 svc_toxocyst,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
 
 After overwhelming the seemingly biomechanical, frigate sized creature and recovering its remains, the scientists present identified organs with functions similar to phase coils. Truly a marvel of evolution and a great mystery to be explored. 
@@ -100,8 +99,7 @@ After overwhelming the seemingly biomechanical, frigate sized creature and recov
 
 Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,
 ,,,,,,
-svc_arbiter_dark,SHIP,"This is an Alpha male. Arbiters provide shelter for smaller voidlings similar to seahorses.
-(placeholder description)",,,,
+svc_arbiter_dark,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-..."" [End of log]",,,,
 svc_embolist_dark,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
 
 The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
@@ -112,21 +110,15 @@ Over time, Embolists propagate within their hosts, reproducing by laying eggs wi
 svc_hemalisk_dark,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
 
 (placeholder description)",,,,
-svc_keratinos_dark,SHIP,"This is an Alpha male. These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
-(placeholder description)",,,,
+svc_keratinos_dark,SHIP,"Degraded audiolog recovered from a wrecked Falcon-Class cruiser:
+""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities far exceed human norms. Urgent: Report results to ... "" [log end]",,,,
 svc_lephantis_dark,SHIP,"This is an Alpha male. Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
 (placeholder description)",,,,
 svc_pupacyst_dark,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
 (placeholder description)",,,,
-svc_toxocyst_dark,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
-
-The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
-
-Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
-Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
+svc_toxocyst_dark,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""",,,,
 ,,,,,,
-svc_arbiter_dark_evo1,SHIP,"This is an Alpha male. Arbiters provide shelter for smaller voidlings similar to seahorses.
-(placeholder description)",,,,
+svc_arbiter_dark_evo1,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-..."" [End of log]",,,,
 svc_embolist_dark_evo1,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
 
 The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
@@ -137,21 +129,15 @@ Over time, Embolists propagate within their hosts, reproducing by laying eggs wi
 svc_hemalisk_dark_evo1,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
 
 (placeholder description)",,,,
-svc_keratinos_dark_evo1,SHIP,"This is an Alpha male. These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
-(placeholder description)",,,,
+svc_keratinos_dark_evo1,SHIP,"Degraded audiolog recovered from a wrecked Falcon-Class cruiser:
+""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities far exceed human norms. Urgent: Report results to ... "" [log end]",,,,
 svc_lephantis_dark_evo1,SHIP,"This is an Alpha male. Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
 (placeholder description)",,,,
 svc_pupacyst_dark_evo1,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
 (placeholder description)",,,,
-svc_toxocyst_dark_evo1,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
-
-The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
-
-Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
-Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
+svc_toxocyst_dark_evo1,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""",,,,
 ,,,,,,
-svc_arbiter_dark_evo2,SHIP,"This is an Alpha male. Arbiters provide shelter for smaller voidlings similar to seahorses.
-(placeholder description)",,,,
+svc_arbiter_dark_evo2,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-..."" [End of log]",,,,
 svc_embolist_dark_evo2,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
 
 The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
@@ -162,16 +148,11 @@ Over time, Embolists propagate within their hosts, reproducing by laying eggs wi
 svc_hemalisk_dark_evo2,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
 
 (placeholder description)",,,,
-svc_keratinos_dark_evo2,SHIP,"This is an Alpha male. These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
-(placeholder description)",,,,
+svc_keratinos_dark_evo2,SHIP,"Degraded audiolog recovered from a wrecked Falcon-Class cruiser:
+""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities far exceed human norms. Urgent: Report results to ... "" [log end]",,,,
 svc_pupacyst_dark_evo2,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
 (placeholder description)",,,,
-svc_toxocyst_dark_evo2,SHIP,"The Alpha Toxocyst's body is encased in a sturdy exoskeleton, adorned with iridescent hues that mimic the dazzling colors of interstellar gases, allowing it to seamlessly blend into its celestial surroundings.
-
-The Toxocyst is a vicious ambush predator that lurks in the depths of the void. Evolved to thrive in the harsh environments of space, Toxocysts possess a unique set of adaptations that make them relentless hunters, of which the most impressive adaptation is being able to phase into P-Space.
-
-Equipped with a pair of elongated, serrated claws, the Toxocyst lies in wait within dense asteroid fields, phased out among the floating debris. Its claws are not only powerful, capable of tearing through metal and rock, but they are also highly sensitive, able to detect the faint vibrations and magnetic fields of passing prey.
-Once a target is within range, the predator strikes with lightning speed, its claws slicing through the vacuum of space. With precision and accuracy, it seizes its prey and immobilizes it with a paralyzing venom secreted from specialized glands within its Scythe Claws.",,,,
+svc_toxocyst_dark_evo2,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""",,,,
 ,,,,,,
 svc_scoliac,SHIP,"”So, don’t believe anyone who says that since nature is based on a struggle for life, we need to live like this as well. 
 Many animals survive not by eliminating each other or keeping everything for themselves, but by cooperating and sharing. This applies most definitely to pack hunters, such as wolves or killer whales [...].”
@@ -186,7 +167,7 @@ Many animals survive not by eliminating each other or keeping everything for the
 ,,,,,,
 svc_mios,SHIP,Mios drones seem to be closely related to Embolist void creatures judging by their general appearance. Perhaps they are a larval form nurtured by surrogate ceatures which would make sense given the Embolist's parasitic nature.,,,,
 svc_pox,SHIP,Pox are basically just a nervous system attached to 2 chemical-filled sacs that explode when these chemicals come into contact with each other. These lesser voidlings are controlled entirely by their mother organism suggesting they're capable of some kind of telepathy.,,,,
-svc_torid,SHIP,A helpful Torid drone with an Ink Sac relying on being fed by Pupacyst.,,,,
+svc_torid,SHIP,This species is capable of producing and projecting a large amount of ink-like material. The esoteric digestive system required to accomplish this feat cements its reliance on larger symbiotes.,,,,
 ,,,,,,
 svc_stjarwhal_calf,SHIP,"This titanic organism is part of a relatively unknown species of cosmic protozoa, commonly mistaken for ""space whales"" which is an ancient spacer myth that started during the early expansion epoch. This individual is a pup of its species, as indicated by the size and shape. During this stage in its life cicle it has evolved neither male nor female attributes.
 

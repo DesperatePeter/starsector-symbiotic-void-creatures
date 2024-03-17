@@ -12,13 +12,13 @@ import java.awt.Color
 
 class AcidSprayEffectSmall: AcidSprayEffectImpl() {
     override val effectDuration: Float
-        get() = 1.3f
+        get() = 2.3f
     override val initialEffectRadius: Float
         get() =  1f
     override val effectRadiusGrowth: Float
-        get() = 25f
+        get() = 35f
     override val effectSpeed: Float
-        get() = 200f
+        get() = 130f
     override val effectColor: Color
         get() = Color(104, 128, 0, 20)
 }
