@@ -8,7 +8,7 @@ import kotlin.math.max
 
 object SvcCargoListener: ShowLootListener {
 
-    private const val WEAPON_DROP_CHANCE_PER_DP = 0.01f
+    private const val WEAPON_DROP_CHANCE_PER_DP = 0.005f
     override fun reportAboutToShowLootToPlayer(loot: CargoAPI?, dialog: InteractionDialogAPI?) {
         val fleet = dialog?.interactionTarget as? CampaignFleetAPI
         val hullVar = ((dialog?.interactionTarget as? CustomCampaignEntityAPI)?.customPlugin as? DerelictShipEntityPlugin)?.data?.ship?.getVariant()?.hullVariantId

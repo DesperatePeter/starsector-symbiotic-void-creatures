@@ -66,7 +66,7 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
             }
         }
         (whales as? CampaignFleetAPI)?.despawn()
-        FleetManager.whaleSpawnIntervalMultiplier += 1.0f
+        FleetManager.whaleSpawnIntervalMultiplier += 0.05f
         dialog?.dismiss()
     }
 

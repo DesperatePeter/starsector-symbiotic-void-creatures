@@ -70,7 +70,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
         }
         Global.getSector().memory?.unset(WHALES_ENCOUNTER_MEM_KEY)
         whales?.despawn()
-        FleetManager.whaleSpawnIntervalMultiplier += 1.0f
+        FleetManager.whaleSpawnIntervalMultiplier += 0.25f
         dialog?.dismiss()
     }
 }

@@ -31,7 +31,7 @@ class FleetManager : EveryFrameScript {
     companion object {
         const val WHALE_RAND_DIST = 600f
         const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1300f
-        const val WHALE_SPAWN_BASE_INTERVAL = 150f
+        const val WHALE_SPAWN_BASE_INTERVAL = 250f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         const val HUNTER_FLEET_DISTANCE = 2000f
         const val WHALE_FLEET_IDENTIFICATION_KEY = "$" + "SVC_WHALE_FLEET_TAG"
