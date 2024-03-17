@@ -17,7 +17,7 @@
   "builtInWeapons": {
     "WS0001": "svc_dark_fin_right_tiny",
     "WS0002": "svc_dark_fin_right_tiny",
-    "WS0004": "svc_fangcluster",
+    "WS0004": "svc_miniacidthrower",
     "decofinleft": "svc_dark_fin_right_tiny",
     "decofinright": "svc_dark_fin_right_tiny"
   },
@@ -62,7 +62,7 @@
       "id": "WS0004",
       "size": "MEDIUM",
       "type": "BUILT_IN",
-      "mount": "HIDDEN",
+      "mount": "HARDPOINT",
       "arc": 5,
       "angle": -0,
       "locations": [-5.5, -0]
@@ -71,37 +71,37 @@
   "engineSlots": [
     {
       "location": [7.5, 5],
-      "length": 5.32,
-      "width": 5.9,
+      "length": 16.155447,
+      "width": 5.657406,
       "angle": 137.5,
-      "contrailSize": 5.9,
+      "contrailSize": 5.657406,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
       "location": [7.5, -5],
-      "length": 5.32,
-      "width": 5.9,
+      "length": 16.155447,
+      "width": 5.657406,
       "angle": -137.5,
-      "contrailSize": 5.9,
+      "contrailSize": 5.657406,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
       "location": [-0.5, -7],
-      "length": 5.32,
-      "width": 5.9,
+      "length": 12.178783,
+      "width": 7.530531,
       "angle": -149,
-      "contrailSize": 5.9,
+      "contrailSize": 7.530531,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
       "location": [-0.5, 7],
-      "length": 5.32,
-      "width": 5.9,
+      "length": 12.178783,
+      "width": 7.530531,
       "angle": 149,
-      "contrailSize": 5.9,
+      "contrailSize": 7.530531,
       "style": "CUSTOM",
       "styleId": "BGE"
     }
