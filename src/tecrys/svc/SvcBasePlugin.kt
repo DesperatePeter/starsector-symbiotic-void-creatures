@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.CampaignPlugin
 import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.thoughtworks.xstream.XStream
 import org.dark.shaders.util.ShaderLib
 import tecrys.svc.listeners.SvcCargoListener
@@ -20,6 +21,7 @@ import tecrys.svc.utils.unlockVoidlingRecovery
 import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.ghosts.HunterGhostCreator
 import tecrys.svc.world.notifications.NotificationShower
 
 
@@ -48,6 +50,9 @@ class SvcBasePlugin : BaseModPlugin() {
     }
 
     override fun onGameLoad(newGame: Boolean) {
+        if(SensorGhostManager.CREATORS.none { it.javaClass == HunterGhostCreator::class.java }){
+            SensorGhostManager.CREATORS.add(HunterGhostCreator())
+        }
         Global.getSector().registerPlugin(SvcCampaignPlugin())
         Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())

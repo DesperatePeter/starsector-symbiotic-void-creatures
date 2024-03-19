@@ -5,6 +5,8 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.SpecialItemData
+import com.fs.starfarer.api.impl.campaign.ghosts.BaseSensorGhostCreator
+import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.VectorUtils
@@ -83,11 +85,11 @@ class FleetManager : EveryFrameScript {
             whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
         }
-        if(hunterSpawnInterval.intervalElapsed()){
-            if(spawnHunterFleet()){
-                NotificationShower.showNotificationRepeatable(NotificationShower.HUNTER_FLEET_APPROACHING_ID)
-            }
-        }
+//        if(hunterSpawnInterval.intervalElapsed()){
+//            if(spawnHunterFleet()){
+//                NotificationShower.showNotificationRepeatable(NotificationShower.HUNTER_FLEET_APPROACHING_ID)
+//            }
+//        }
     }
 
     /**
@@ -109,7 +111,13 @@ class FleetManager : EveryFrameScript {
         return false
     }
 
-    private fun spawnHunterFleet(): Boolean {
+    private fun genHunterLocation(): Vector2f{
+        var loc = Global.getSector().playerFleet.locationInHyperspace
+        loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE, 2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE)
+        return loc
+    }
+
+    fun spawnHunterFleet(loc: Vector2f = genHunterLocation()): Boolean {
         val possibleHunters = hunterFleetsToSpawn.toList()
         if(possibleHunters.isEmpty()) return false
         val playerFleet = Global.getSector().playerFleet ?: return false
@@ -128,8 +136,6 @@ class FleetManager : EveryFrameScript {
                     addEventListener(SvcFleetListener)
 
                     playerFleet.containingLocation.addEntity(this)
-                    var loc = playerFleet.locationInHyperspace
-                    loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE, 2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE)
                     setLocation(loc.x, loc.y)
 
                     makeHostile()

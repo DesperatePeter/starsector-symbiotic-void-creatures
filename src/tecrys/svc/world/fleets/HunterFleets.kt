@@ -46,3 +46,9 @@ val hunterFleetsById = mapOf(
 
 var hunterFleetsToSpawn: MutableMap<String, HunterFleetConfig>
 by CampaignSettingDelegate("$" + SVC_MOD_ID + "hunterFleetsToSpawn", hunterFleetsById.toMutableMap())
+
+val hunterFleetsThatCanSpawn: Map<String, HunterFleetConfig>
+    get() = hunterFleetsToSpawn.filter {
+        val svcParams = FleetSpawnParameterCalculator(svcSettings)
+        svcParams.spawnPower >= it.value.minSpawnPower
+    }
