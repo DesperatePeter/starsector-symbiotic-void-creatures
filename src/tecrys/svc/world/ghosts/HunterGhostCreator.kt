@@ -9,7 +9,7 @@ import tecrys.svc.world.fleets.hunterFleetsThatCanSpawn
 
 class HunterGhostCreator : BaseSensorGhostCreator() {
     companion object{
-        const val BASE_FREQUENCY = 100f
+        const val BASE_FREQUENCY = 1000f
     }
     override fun createGhost(manager: SensorGhostManager): MutableList<SensorGhost>? {
         val pf = Global.getSector().playerFleet ?: return null

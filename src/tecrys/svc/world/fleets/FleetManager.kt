@@ -117,11 +117,11 @@ class FleetManager : EveryFrameScript {
         return loc
     }
 
-    fun spawnHunterFleet(loc: Vector2f = genHunterLocation()): Boolean {
+    fun spawnHunterFleet(loc: Vector2f = genHunterLocation(), forceSpawn: Boolean = false): Boolean {
         val possibleHunters = hunterFleetsToSpawn.toList()
         if(possibleHunters.isEmpty()) return false
         val playerFleet = Global.getSector().playerFleet ?: return false
-        if(!shouldSpawnBasedOnLocation()) return false
+        if(!shouldSpawnBasedOnLocation() && !forceSpawn) return false
 
         val svcParams = FleetSpawnParameterCalculator(svcSettings)
         possibleHunters.forEach {
