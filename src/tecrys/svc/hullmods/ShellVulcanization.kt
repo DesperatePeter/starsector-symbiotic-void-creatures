@@ -7,10 +7,7 @@ import tecrys.svc.shipsystems.Parry
 class ShellVulcanization: BiologicalBaseHullmod() {
 
     companion object{
-        // only values up to 1.8~1.9 (depending on framerate) are currently supported by the code!
-        // higher values will probably cause the system to do nothing
-        // 1.8 would barely work with 6 fps, 1.9 with 12 fps etc.
-        const val PARRY_DURATION_BUFF_MULT = 1.75f
+        const val PARRY_DURATION_BUFF_MULT = 2f
         const val ARMOR_DAMAGE_MULTIPLIER = 1.25f
         const val HULLMOD_ID = "svc_shell_vulcanization"
     }

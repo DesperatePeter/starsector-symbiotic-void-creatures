@@ -6,10 +6,8 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.dark.shaders.distortion.DistortionShader
 import org.dark.shaders.distortion.RippleDistortion
-import org.dark.shaders.distortion.WaveDistortion
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
-import org.magiclib.kotlin.getFactionMarkets
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.hullmods.ShellVulcanization
 import tecrys.svc.utils.degToRad
@@ -27,7 +25,19 @@ class Parry: BaseShipSystemScript() {
     private var afterImageShown = false
     private var wasDurationExtended = false
     private var mustReactivate = false
-    private var activationTimestamp = 0f
+    private var initialActivationTimestamp = 0f
+    private var lastReactivation = 0f
+    private var totalDuration = 0f
+    private var activeDuration = 0f
+    private val currentTime
+        get() = Global.getCombatEngine().getTotalElapsedTime(false)
+
+    private val durationSinceInitialActivation
+        get() = currentTime - initialActivationTimestamp
+
+    private val durationUntilWouldEnd = lastReactivation - currentTime + activeDuration
+
+    private val remainingTotalDuration = totalDuration - durationSinceInitialActivation
 
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -42,18 +52,35 @@ class Parry: BaseShipSystemScript() {
             afterImageShown = true
         }
         if(state == ShipSystemStatsScript.State.IN){
-            activationTimestamp = Global.getCombatEngine().getTotalElapsedTime(false)
+            initialActivationTimestamp = currentTime
+            lastReactivation = currentTime
             return
         }
         if(state != ShipSystemStatsScript.State.ACTIVE) return
-        val ts = Global.getCombatEngine().getTotalElapsedTime(false)
         val pc = ship.phaseCloak ?: return
-        if(isExtendedDuration(ship) && !wasDurationExtended &&
-            (ts - activationTimestamp > pc.chargeActiveDur * (ShellVulcanization.PARRY_DURATION_BUFF_MULT - 1f))){
-            pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
-            wasDurationExtended = true
+        activeDuration = pc.chargeActiveDur
+        totalDuration = activeDuration * ShellVulcanization.PARRY_DURATION_BUFF_MULT
+        kotlin.run {
+            if(!isExtendedDuration(ship)) return@run
+            if(durationSinceInitialActivation >= totalDuration) {
+                // abort
+                pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
+            }
+            if(durationUntilWouldEnd + durationSinceInitialActivation >= totalDuration) return@run
+            if(durationUntilWouldEnd > 0.1f) return@run
+            // reactivate
             mustReactivate = true
+            createDistortion(ship)
+            pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
         }
+
+
+        //            && !wasDurationExtended &&
+//            (currentTime - initialActivationTimestamp > pc.chargeActiveDur * (ShellVulcanization.PARRY_DURATION_BUFF_MULT - 1f))){
+//            pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
+//            wasDurationExtended = true
+//            mustReactivate = true
+
         val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + RANGE)
         val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + RANGE).filter {
             !it.isGuided
@@ -103,7 +130,7 @@ class Parry: BaseShipSystemScript() {
               size = ship.shieldRadiusEvenIfNoShield * 1.5f
             //  intensity = ship.shieldRadiusEvenIfNoShield * 2f
             // arcAttenuationWidth = 450f
-             fadeInSize(0.15f)
+            fadeInSize(0.15f)
             fadeOutIntensity(0.7f)
         })
     }
@@ -117,7 +144,7 @@ class Parry: BaseShipSystemScript() {
         if(mustReactivate){
             (stats?.entity as? ShipAPI)?.phaseCloak?.forceState(ShipSystemAPI.SystemState.ACTIVE, 0f)
             mustReactivate = false
-            afterImageShown = false
+            lastReactivation = currentTime
             return
         }
         affectedProjectiles.clear()
