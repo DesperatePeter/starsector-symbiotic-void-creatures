@@ -16,7 +16,7 @@ class HunterGhost(manager: SensorGhostManager, fleet: CampaignFleetAPI) : BaseSe
     }
     init {
         initEntity(genLargeSensorProfile(), genMediumRadius())
-        if(!placeNearPlayer()){
+        if(!placeNearPlayer(2000f, 2500f)){
             setCreationFailed()
         }else{
             setDespawnRange(0f)

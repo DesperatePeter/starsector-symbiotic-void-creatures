@@ -26,6 +26,8 @@ class Parry: BaseShipSystemScript() {
     private val affectedProjectiles = mutableSetOf<DamagingProjectileAPI>()
     private var afterImageShown = false
     private var wasDurationExtended = false
+    private var mustReactivate = false
+    private var activationTimestamp = 0f
 
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -39,10 +41,18 @@ class Parry: BaseShipSystemScript() {
             createDistortion(ship)
             afterImageShown = true
         }
+        if(state == ShipSystemStatsScript.State.IN){
+            activationTimestamp = Global.getCombatEngine().getTotalElapsedTime(false)
+            return
+        }
         if(state != ShipSystemStatsScript.State.ACTIVE) return
-        if(isExtendedDuration(ship) && !wasDurationExtended && effectLevel >= ShellVulcanization.PARRY_DURATION_BUFF_MULT - 1f){
-            ship.phaseCloak?.forceState(ShipSystemAPI.SystemState.ACTIVE, 0f);
+        val ts = Global.getCombatEngine().getTotalElapsedTime(false)
+        val pc = ship.phaseCloak ?: return
+        if(isExtendedDuration(ship) && !wasDurationExtended &&
+            (ts - activationTimestamp > pc.chargeActiveDur * (ShellVulcanization.PARRY_DURATION_BUFF_MULT - 1f))){
+            pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
             wasDurationExtended = true
+            mustReactivate = true
         }
         val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + RANGE)
         val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + RANGE).filter {
@@ -104,8 +114,15 @@ class Parry: BaseShipSystemScript() {
 
     override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
         super.unapply(stats, id)
+        if(mustReactivate){
+            (stats?.entity as? ShipAPI)?.phaseCloak?.forceState(ShipSystemAPI.SystemState.ACTIVE, 0f)
+            mustReactivate = false
+            afterImageShown = false
+            return
+        }
         affectedProjectiles.clear()
         afterImageShown = false
         wasDurationExtended = false
+        mustReactivate = false
     }
 }
