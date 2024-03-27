@@ -38,18 +38,11 @@ parry,SHIP_SYSTEM,Reflects all projectiles and unguided missiles for a brief tim
 ,,,,,,
 svc_arbiter,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,
-svc_embolist,SHIP,"The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
-
-Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
-
-Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk,SHIP,"Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
-
-(placeholder description)",,,,
+svc_embolist,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,
+svc_hemalisk,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,
 svc_keratinos,SHIP,"These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
 (placeholder description)",,,,
-svc_lephantis,SHIP,"Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
-(placeholder description)",,,,
+svc_lephantis,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce and store potent pheromones. These pheromones serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,
 svc_pupacyst,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Torid paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,
 svc_toxocyst,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
 
@@ -59,18 +52,11 @@ Even to this day these creatures remain elusive at best and most think they are 
 ,,,,,,
 svc_arbiter_evo1,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,
-svc_embolist_evo1,SHIP,"The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
-
-Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
-
-Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_evo1,SHIP,"Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
-
-(placeholder description)",,,,
+svc_embolist_evo1,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,
+svc_hemalisk_evo1,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,
 svc_keratinos_evo1,SHIP,"These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
 (placeholder description)",,,,
-svc_lephantis_evo1,SHIP,"Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
-(placeholder description)",,,,
+svc_lephantis_evo1,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce and store potent pheromones. These pheromones serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,
 svc_pupacyst_evo1,SHIP,"Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
 (placeholder description)",,,,
 svc_toxocyst_evo1,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
@@ -81,14 +67,8 @@ Even to this day these creatures remain elusive at best and most think they are 
 ,,,,,,
 svc_arbiter_evo2,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,
-svc_embolist_evo2,SHIP,"The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
-
-Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
-
-Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_evo2,SHIP,"Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
-
-(placeholder description)",,,,
+svc_embolist_evo2,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,
+svc_hemalisk_evo2,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,
 svc_keratinos_evo2,SHIP,"These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
 (placeholder description)",,,,
 svc_pupacyst_evo2,SHIP,"Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
@@ -100,54 +80,28 @@ After overwhelming the seemingly biomechanical, frigate sized creature and recov
 Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,
 ,,,,,,
 svc_arbiter_dark,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-..."" [End of log]",,,,
-svc_embolist_dark,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
-
-The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
-
-Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
-
-Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_dark,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
-
-(placeholder description)",,,,
+svc_embolist_dark,SHIP,"""The larvae have not yet finished growing and need to keep their host alive. So although they feast on the caterpillar's blood, they have been careful not to touch a single one of its vital organs."" - Old Earth Documentary",,,,
+svc_hemalisk_dark,SHIP,"""That's impossible! Nothing shrugs off a Reaper like it's nothing! Accuracy must be off...Check weapon systems again!""",,,,
 svc_keratinos_dark,SHIP,"Degraded audiolog recovered from a wrecked Falcon-Class cruiser:
 ""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities far exceed human norms. Urgent: Report results to ... "" [log end]",,,,
-svc_lephantis_dark,SHIP,"This is an Alpha male. Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
-(placeholder description)",,,,
+svc_lephantis_dark,SHIP,"""Gaze upon the intricacies of creation, a reflection of the balance woven into realities canvas. To tamper with the threads of life is to challenge the harmony crafted by the Creator, sowing discord in the symphony of being."" Book of Ludds, Nature 6:3",,,,
 svc_pupacyst_dark,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
 (placeholder description)",,,,
 svc_toxocyst_dark,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""",,,,
 ,,,,,,
 svc_arbiter_dark_evo1,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-..."" [End of log]",,,,
-svc_embolist_dark_evo1,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
-
-The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
-
-Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
-
-Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_dark_evo1,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
-
-(placeholder description)",,,,
+svc_embolist_dark_evo1,SHIP,"""The larvae have not yet finished growing and need to keep their host alive. So although they feast on the caterpillar's blood, they have been careful not to touch a single one of its vital organs."" - Old Earth Documentary",,,,
+svc_hemalisk_dark_evo1,SHIP,"""That's impossible! Nothing shrugs off a Reaper like it's nothing! Accuracy must be off...Check weapon systems again!""",,,,
 svc_keratinos_dark_evo1,SHIP,"Degraded audiolog recovered from a wrecked Falcon-Class cruiser:
 ""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities far exceed human norms. Urgent: Report results to ... "" [log end]",,,,
-svc_lephantis_dark_evo1,SHIP,"This is an Alpha male. Lephantis can spread pheromones to influence their swarm to fight harder when difficult prey is present.
-(placeholder description)",,,,
+svc_lephantis_dark_evo1,SHIP,"""Gaze upon the intricacies of creation, a reflection of the balance woven into realities canvas. To tamper with the threads of life is to challenge the harmony crafted by the Creator, sowing discord in the symphony of being."" Book of Ludds, Nature 6:3",,,,
 svc_pupacyst_dark_evo1,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
 (placeholder description)",,,,
 svc_toxocyst_dark_evo1,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""",,,,
 ,,,,,,
 svc_arbiter_dark_evo2,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-..."" [End of log]",,,,
-svc_embolist_dark_evo2,SHIP,"Alpha Embolist's dark armour plates shine in iridescent hues mirroring the star-studded environment they thrive in.
-
-The Embolist's predatory strategy revolves around identifying and infiltrating void organisms that traverse the cosmos. As its target comes into proximity, the creature releases microscopic, nearly invisible tendrils that extend towards the host, seeking weak points in their protective barriers. With uncanny precision, it pierces through the host's defences, injecting specialized enzymes that immobilize the organism and subdue its immune response.
-
-Once attached, Embolists utilize their modified mouthparts to tap into the host's circulatory system, extracting vital nutrients and sustenance necessary for their own survival. It co-opts the host's physiology, exploiting their resources while exerting control over their actions, essentially turning them into puppets manipulated by the parasitic voidling's sinister agenda.
-
-Over time, Embolists propagate within their hosts, reproducing by laying eggs within the creature's body cavities. These eggs hatch, giving rise to a new generation of parasitic progeny that continue the cycle of infestation and domination. Eventually, the host succumbs to the Embolists's draining presence, becoming a mere vessel for the perpetuation of the parasite's existence.",,,,
-svc_hemalisk_dark_evo2,SHIP,"This is an Alpha male. Hemalisks are vicious and effective predators that enter some kind of feeding frenzy when they get close to their prey.
-
-(placeholder description)",,,,
+svc_embolist_dark_evo2,SHIP,"""The larvae have not yet finished growing and need to keep their host alive. So although they feast on the caterpillar's blood, they have been careful not to touch a single one of its vital organs."" - Old Earth Documentary",,,,
+svc_hemalisk_dark_evo2,SHIP,"""That's impossible! Nothing shrugs off a Reaper like it's nothing! Accuracy must be off...Check weapon systems again!""",,,,
 svc_keratinos_dark_evo2,SHIP,"Degraded audiolog recovered from a wrecked Falcon-Class cruiser:
 ""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities far exceed human norms. Urgent: Report results to ... "" [log end]",,,,
 svc_pupacyst_dark_evo2,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
