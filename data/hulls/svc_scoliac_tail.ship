@@ -18,7 +18,8 @@
   "builtInMods": [
     "BGECarapace",
     "svc_alpha_voidling",
-    "always_detaches"
+    "always_detaches",
+    "svc_overdamage_res_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_tentacle_right_medium",

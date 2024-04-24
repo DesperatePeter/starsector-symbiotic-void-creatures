@@ -15,7 +15,10 @@
     "BGECarapace",
     "svc_alpha_voidling",
     "shared_flux_sink",
-    "svc_scoliac_tail_turner"
+    "svc_scoliac_tail_turner",
+    "svc_overdamage_res_hm",
+    "svc_infestation_hm",
+    "svc_acid_blood_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_adv_med_scythe_r",
