@@ -4,12 +4,12 @@ private val svcCombatRoleBaseWeights = mapOf(
     "combatSmall" to 0.2f,
     "combatMedium" to 0f,
     "combatLarge" to -0.3f,
-    "combatEliteSmall" to -0.2f,
-    "combatEliteMedium" to -0.4f,
-    "combatEliteLarge" to -0.7f,
-    "combatEliteSmallEvolved" to -0.2f,
-    "combatEliteMediumEvolved" to -0.4f,
-    "combatEliteLargeEvolved" to -0.7f,
+    "combatEliteSmall" to -0.1f,
+    "combatEliteMedium" to -0.1f,
+    "combatEliteLarge" to -0.5f,
+    "combatEliteSmallEvolved" to -0.1f,
+    "combatEliteMediumEvolved" to -0.1f,
+    "combatEliteLargeEvolved" to -0.5f,
 )
 private val svcCombatRoleFinalWeights = mapOf(
     "combatSmall" to 1f,
