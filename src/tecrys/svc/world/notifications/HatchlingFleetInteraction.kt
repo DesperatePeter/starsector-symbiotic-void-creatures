@@ -20,7 +20,7 @@ class HatchlingFleetInteraction(private val hatchlings: CampaignFleetAPI): Notif
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
             addOption("Transfer ships", "Transfer")
-            setTooltip("Transfer", "Select a voidling ship to transfer to this fleet." +
+            setTooltip("Transfer", "Select a void creature to transfer to this fleet." +
                     " This will make the fleet stronger, but cannot be undone!")
             addLeaveOption()
         }

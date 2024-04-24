@@ -10,6 +10,7 @@
 	"hardpointSprite":"graphics/weapons/animated/dark_fin_right_tiny/dark_fin_huge_00.png",
         "numFrames":33,	
 	"frameRate":25,
+	"renderHints":[NEVER_RENDER_IN_CAMPAIGN],
 	"turretOffsets": [
 20,
 

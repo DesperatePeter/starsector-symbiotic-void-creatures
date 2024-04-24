@@ -49,7 +49,7 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
             }
         }
         options.addOption("Slaughter the whales to harvest oil.", "Slaughter")
-        options.setTooltip("Slaughter", "Wale is valuable and can be used as fuel, but the whales will be sad =(")
+        options.setTooltip("Slaughter", "Whale oil is valuable and can be used as fuel. If you encounter other whales they will know what you did.")
         options.addLeaveOption()
     }
 
