@@ -36,7 +36,10 @@ fun CampaignFleetAPI.orbitClosestPlanet() {
     )
 }
 
-fun CampaignFleetAPI.attackFleet(opponent: CampaignFleetAPI) {
+fun CampaignFleetAPI.attackFleet(opponent: CampaignFleetAPI, delay: Float = 0f) {
+    this.addAssignment(
+        FleetAssignment.HOLD, null, delay
+    )
     this.addAssignment(
         FleetAssignment.INTERCEPT,
         opponent,
