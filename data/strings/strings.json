@@ -25,5 +25,19 @@
     "tooltip": "Replaces the ships defensive system with the Parry system.",
     "needItem": "You need 1000 ${itemName} to install this.",
     "longDescription": "The ship's defensive system, i.e. shield of phase cloak, will be replaced with the Parry system.\nThe parry system has charges and can be activated to briefly reflect all nearby projectiles and unguided missiles."
+  },
+  "colony_crisis": {
+    "placeholder" : "ALL THESE ARE PLACEHOLDERS, PLEASE FIX LATER!!",
+    "description" : "Voidling sightings near your colonies",
+    "description2" : "Void Creatures",
+    "threatFactor" : "Void Creatures",
+    "tooltip" : "those are weird voidlings fr",
+    "event_description_title" : "Weird Voidlings",
+    "event_description_text" : "Why are we here?",
+    "event_description_text2" : "What are we doing here?",
+    "event_bullet_point" : "Do we really exist?",
+    "event_averted_bullet_point" : "Why are they suddenly gone?",
+    "main_event_title" : "Are they coming?",
+    "main_event_text" : "Like really?"
   }
 }

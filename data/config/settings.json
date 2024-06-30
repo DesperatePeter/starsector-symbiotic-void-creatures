@@ -27,6 +27,9 @@
 		},
 		"illustrations": {
 			"svc_hunter_bar_event_portrait": "graphics/illustrations/space_bar.jpg"
+		},
+		"icons": {
+		    "svc_colony_crisis_icon" : "graphics/icons/void_chitin.png"
 		}
 	},
 	"ruleCommandPackages": [

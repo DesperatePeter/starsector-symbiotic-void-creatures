@@ -10,6 +10,8 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.thoughtworks.xstream.XStream
 import org.dark.shaders.util.ShaderLib
+import tecrys.svc.colonycrisis.SymbioticCrisisCause
+import tecrys.svc.colonycrisis.SymbioticCrisisFactor
 import tecrys.svc.listeners.SvcCargoListener
 import tecrys.svc.modintegration.*
 import tecrys.svc.plugins.exotica.VoidChitinPlatingListener
@@ -64,6 +66,7 @@ class SvcBasePlugin : BaseModPlugin() {
         if(newGame){
             initSVC()
         }
+        SymbioticCrisisCause.initializeEvent()
     }
     override fun onApplicationLoad() {
         //add special items
