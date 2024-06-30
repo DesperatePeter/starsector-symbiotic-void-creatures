@@ -74,9 +74,13 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
     override fun getMainRowTooltip(): TooltipMakerAPI.TooltipCreator {
         return object : BaseFactorTooltip() {
             override fun createTooltip(tooltip: TooltipMakerAPI?, expanded: Boolean, tooltipParam: Any?) {
-                tooltip?.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_TEXT_KEY, "event_description_text2"), 1f)
+                tooltip?.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_TEXT_KEY, "tooltip2"), 1f)
             }
         }
+    }
+
+    override fun shouldShow(intel: BaseEventIntel?): Boolean {
+        return getProgress(intel) > 0
     }
 
     override fun addBulletPointForEvent(

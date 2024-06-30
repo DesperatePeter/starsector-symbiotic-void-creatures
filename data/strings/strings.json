@@ -26,18 +26,22 @@
     "needItem": "You need 1000 ${itemName} to install this.",
     "longDescription": "The ship's defensive system, i.e. shield of phase cloak, will be replaced with the Parry system.\nThe parry system has charges and can be activated to briefly reflect all nearby projectiles and unguided missiles."
   },
-  "colony_crisis": {
+  "colony_crisis" : {
+    "ABOUT" :  "Strings for the colony crisis event that shows an overview of the different possible colony threats etc."
     "placeholder" : "ALL THESE ARE PLACEHOLDERS, PLEASE FIX LATER!!",
-    "description" : "Voidling sightings near your colonies",
+    "description" : "Voidling sightings near your colonies (this is the reason written next to the +X in the progress overview in the hostile activity intel event)",
+    "tooltip" : "those are weird voidlings fr (shown when hovering over previous text)",
     "description2" : "Void Creatures",
     "threatFactor" : "Void Creatures",
-    "tooltip" : "those are weird voidlings fr",
-    "event_description_title" : "Weird Voidlings",
-    "event_description_text" : "Why are we here?",
-    "event_description_text2" : "What are we doing here?",
-    "event_bullet_point" : "Do we really exist?",
-    "event_averted_bullet_point" : "Why are they suddenly gone?",
-    "main_event_title" : "Are they coming?",
-    "main_event_text" : "Like really?"
+    "tooltip2" : "What are we doing here? (shown when hovering over previous text)",
+    "event_description_title" : "Weird Voidlings (this is shown when hovering over the icon that appears once you reach 500 event progress)",
+    "event_description_text" : "Why are we here? (this is shown when hovering over the icon that appears once you reach 500 event progress)",
+    "event_bullet_point" : "Do we really exist? (no idea when this shows up)",
+    "event_averted_bullet_point" : "Why are they suddenly gone? (shown when you reduce progress before the event triggers)",
+    "main_event_title" : "Are they coming? (shown in the box that appears at 500 progress)",
+    "main_event_text" : "Like really? (shown in the box that appears at 500 progress)"
+  },
+  "colony_crisis_intel" : {
+    "ABOUT" : "Strings for the colony crisis intel event that gets spawned once progress reaches 600 and the actual event triggers"
   }
 }
