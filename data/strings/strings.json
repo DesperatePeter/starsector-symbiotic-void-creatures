@@ -26,7 +26,7 @@
     "needItem": "You need 1000 ${itemName} to install this.",
     "longDescription": "The ship's defensive system, i.e. shield of phase cloak, will be replaced with the Parry system.\nThe parry system has charges and can be activated to briefly reflect all nearby projectiles and unguided missiles."
   },
-  "colony_crisis" : {
+  "svc_colony_crisis" : {
     "ABOUT" :  "Strings for the colony crisis event that shows an overview of the different possible colony threats etc.",
     "placeholder" : "ALL THESE ARE PLACEHOLDERS, PLEASE FIX LATER!!",
     "description" : "Voidling sightings near your colonies (this is the reason written next to the +X in the progress overview in the hostile activity intel event)",
@@ -36,13 +36,20 @@
     "tooltip2" : "What are we doing here? (shown when hovering over previous text)",
     "event_description_title" : "Weird Voidlings (this is shown when hovering over the icon that appears once you reach 500 event progress)",
     "event_description_text" : "Why are we here? (this is shown when hovering over the icon that appears once you reach 500 event progress)",
-    "event_bullet_point" : "Do we really exist? (no idea when this shows up)",
+    "event_bullet_point" : "Do we really exist? (shows up in the intel popup)",
     "event_averted_bullet_point" : "Why are they suddenly gone? (shown when you reduce progress before the event triggers)",
     "main_event_title" : "Are they coming? (shown in the box that appears at 500 progress)",
     "main_event_text" : "Like really? (shown in the box that appears at 500 progress)"
   },
-  "colony_crisis_intel" : {
+  "svc_colony_crisis_intel" : {
     "ABOUT" : "Strings for the colony crisis intel event that gets spawned once progress reaches 600 and the actual event triggers",
+    "event_title_short" : "Peculiar Void Creatures",
+    "event_text_short" : "Something seems to have attracted void creatures to your system. Curiously, they seem to be fighting against each other.",
+    "event_title_long" : "Peculiar Void Creatures",
+    "event_text_long" : "TODO",
+    "event_text_few_kills" : "You should probably do something about those fleets. Maybe you can even discover some clues as to what the hell is going on in the process.",
+    "event_text_some_kills" : "You found CLUE after defeating fleets",
+    "event_text_many_kills" : "Most fleets have been eradicated. Kill all remaining fleets to restore peace, or search for a different solution."
   },
   "svc_intel" : {
     "hunter_intel_entry" : "A man in a bar told you about voidling hunter fleets. He suggested that these might be carrying interesting equipment that might allow you to gain greater insight into how the symbiotic void creatures operate.\nRather than searching for them, it might be easier to simply traverse hyperspace regions far from the core worlds and wait for them to find you..."

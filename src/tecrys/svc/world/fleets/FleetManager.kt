@@ -2,6 +2,7 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.SpecialItemData
@@ -45,7 +46,7 @@ class FleetManager : EveryFrameScript {
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
         fun spawnSvcFleetNowAtPlayer(): Boolean{
-            return FleetManager().spawnSvcFleet(Global.getSector().playerFleet, true)
+            return FleetManager().spawnSvcFleet(Global.getSector().playerFleet, true) != null
         }
         fun tryToSpawnHunterFleet(): Boolean{
             return FleetManager().spawnHunterFleet()
@@ -76,7 +77,7 @@ class FleetManager : EveryFrameScript {
         whaleSpawnInterval.advance(amount)
         hunterSpawnInterval.advance(amount)
         if (svcSpawnInterval.intervalElapsed()){
-            while (spawnSvcFleet() && Global.getSettings().isDevMode) {
+            while (spawnSvcFleet() != null && Global.getSettings().isDevMode) {
                 Global.getLogger(this.javaClass).info("Spawned SVC fleet")
             }
         }
@@ -95,7 +96,7 @@ class FleetManager : EveryFrameScript {
     /**
      * @return true if fleet was successfully spawned
      */
-    private fun spawnSvcFleet(location: SectorEntityToken? = null, forceSpawn: Boolean = false): Boolean {
+    fun spawnSvcFleet(location: SectorEntityToken? = null, forceSpawn: Boolean = false): CampaignFleetAPI? {
         val params = FleetSpawnParameterCalculator(svcSettings)
         val loc = location ?: spawner.getRandomSpawnableLocation(SVC_FACTION_ID)
         val fleet = spawner.spawnFactionFleetIfPossible(SVC_FACTION_ID, params, loc, forceSpawn)
@@ -106,9 +107,9 @@ class FleetManager : EveryFrameScript {
             it.makeHostile()
             it.makeAlwaysHostile()
             it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
-            return true
+            return it
         }
-        return false
+        return null
     }
 
     private fun genHunterLocation(): Vector2f{

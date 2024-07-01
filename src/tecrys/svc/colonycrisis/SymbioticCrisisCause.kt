@@ -37,7 +37,7 @@ class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActiv
             }
         }
 
-        private fun getMarketContribution(market: MarketAPI): Float {
+        fun getMarketContribution(market: MarketAPI): Float {
             return ( CONTRIBUTION_MULTIPLIER *
                     (market.locationInHyperspace.length() - MIN_DIST_FROM_CENTER_TO_CONTRIBUTE) /
                     DIST_FROM_CENTER_SCALING * (market.size - 2).toFloat()

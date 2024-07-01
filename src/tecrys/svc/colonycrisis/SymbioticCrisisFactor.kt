@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.StarSystemAPI
 import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin
+import com.fs.starfarer.api.campaign.econ.MarketAPI
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel.EventStageData
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
@@ -13,9 +14,12 @@ import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel.HAERandomEventData
 import com.fs.starfarer.api.impl.campaign.intel.raid.RaidIntel
 import com.fs.starfarer.api.ui.TooltipMakerAPI
+import com.fs.starfarer.api.util.Misc
+import com.fs.starfarer.api.util.WeightedRandomPicker
 import tecrys.svc.SVC_COLONY_CRISIS_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
 import java.awt.Color
+import kotlin.math.pow
 
 
 class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActivityFactor(intel) {
@@ -68,7 +72,21 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
         Global.getLogger(this.javaClass).info("EVENT HAS FIRED!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         Global.getLogger(this.javaClass).info("EVENT HAS FIRED!!!!!!!!!!!!!!!!!!!!!!!!!!!")
         Global.getLogger(this.javaClass).info("EVENT HAS FIRED!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        val market = pickTargetMarket() ?: return false
+        Global.getSector().intelManager.addIntel(SymbioticCrisisIntelEvent(market))
         return true
+    }
+
+    private fun pickTargetMarket(): MarketAPI? {
+        val picker = WeightedRandomPicker<MarketAPI>(randomizedStageRandom)
+        Misc.getPlayerMarkets(false).filterNotNull().asSequence().filter { m ->
+            m.starSystem != null
+        }.associateWith { m ->
+            SymbioticCrisisCause.getMarketContribution(m).pow(2)
+        }.forEach {
+            picker.add(it.key, it.value)
+        }
+        return picker.pick()
     }
 
     override fun getMainRowTooltip(): TooltipMakerAPI.TooltipCreator {

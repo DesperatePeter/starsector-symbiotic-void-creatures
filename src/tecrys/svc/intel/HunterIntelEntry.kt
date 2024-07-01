@@ -22,10 +22,12 @@ class HunterIntelEntry : BaseIntelPlugin() {
         return "Symbiotic Void Hunters"
     }
 
-    override fun advanceImpl(amount: Float) {
-        super.advanceImpl(amount)
-        if(defeatedHunterFleets >= 3){
-            Global.getSector().intelManager.removeIntel(this)
-        }
-    }
+//    override fun advanceImpl(amount: Float) {
+//        super.advanceImpl(amount)
+//        if(defeatedHunterFleets >= 3){
+//            Global.getSector().intelManager.removeIntel(this)
+//        }
+//    }
+
+    override fun shouldRemoveIntel(): Boolean = defeatedHunterFleets >= 3
 }
