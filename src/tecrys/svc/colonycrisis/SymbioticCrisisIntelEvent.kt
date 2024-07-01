@@ -6,21 +6,27 @@ import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
 import com.fs.starfarer.api.ui.CustomPanelAPI
 import com.fs.starfarer.api.ui.SectorMapAPI
 import com.fs.starfarer.api.ui.TooltipMakerAPI
+import com.fs.starfarer.api.util.IntervalUtil
+import org.lazywizard.lazylib.ext.minus
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.listeners.CrisisFleetListener
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.fleets.FleetSpawner
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
     companion object{
-        const val MAX_NUM_FLEETS = 18
+        const val MAX_NUM_FLEETS = 10
+        const val FLEETS_DEFEATED_UNTIL_CLUE = 2
+        const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
+        const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 2000f
         const val MEM_KEY = "\$SVC_COLONY_CRISIS_INTEL_EVENT_KEY"
         const val MEM_KEY_RESOLUTION_GENOCIDE = "\$SVC_COLONY_CRISIS_RESOLVED_GENOCIDE"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT"
         const val MEM_KEY_RESOLUTION_WHALE_SACRIFICE = "\$SVC_COLONY_CRISIS_RESOLVED_WHALE_SACRIFICE"
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
-        fun reportFleetDefeated(defeatedByPlayer: Boolean){
-            get()?.reportFleetDefeated(defeatedByPlayer)
+        fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
+            get()?.reportFleetDefeated(defeatedByPlayer, id)
         }
     }
 
@@ -34,8 +40,12 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     // by the player
     private var fleetsDefeatedByPlayer = 0
     private var currentNumberOfFleets = 0
+    private val defeatedFleetIds = mutableSetOf<Long>()
+    private val timer = IntervalUtil(5f, 10f)
 
-    fun reportFleetDefeated(defeatedByPlayer: Boolean){
+    fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
+        if(id in defeatedFleetIds) return
+        defeatedFleetIds.add(id)
         if(defeatedByPlayer) fleetsDefeatedByPlayer++
         currentNumberOfFleets--
     }
@@ -65,9 +75,9 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         main.addTitle(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_title_long"))
         main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_long"), pad)
         when{
-            progress < 2 -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_few_kills"), pad)
-            progress < 10 -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_some_kills"), pad)
-            progress > 10 -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_many_kills"), pad)
+            progress < FLEETS_DEFEATED_UNTIL_CLUE -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_few_kills"), pad)
+            progress < FLEETS_DEFEATED_UNTIL_SECOND_CLUE -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_some_kills"), pad)
+            progress > FLEETS_DEFEATED_UNTIL_SECOND_CLUE -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_many_kills"), pad)
         }
         panel.addUIElement(main).inTL(0f, 0f)
     }
@@ -79,9 +89,17 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     override fun shouldRemoveIntel(): Boolean = SymbioticCrisisCause.isCrisisResolved()
 
     override fun advanceImpl(amount: Float) {
-        while(currentNumberOfFleets < MAX_NUM_FLEETS){
-            val fleet = FleetManager().spawnSvcFleet(market.primaryEntity, true)
-            fleet?.addEventListener(CrisisFleetListener()) // will call reportFleetDefeated to modify number of fleet values
+        timer.advance(amount)
+        if(timer.intervalElapsed() && currentNumberOfFleets < MAX_NUM_FLEETS) {
+            val pf = Global.getSector().playerFleet ?: return
+            val location = market.containingLocation.allEntities.filterNotNull().filter {
+                FleetSpawner.isValidSpawnableEntity(it) &&
+                        if(pf.containingLocation == market.containingLocation)
+                                (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
+                        else true
+            }.randomOrNull() ?: return
+            val fleet = FleetManager().spawnSvcFleet(location, true)
+            fleet?.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
             currentNumberOfFleets++
         }
         setProgress(fleetsDefeatedByPlayer)

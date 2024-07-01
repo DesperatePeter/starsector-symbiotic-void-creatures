@@ -9,18 +9,18 @@ import tecrys.svc.SVC_FLEET_DEFEATED_MEM_KEY
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.world.notifications.NotificationShower
 
-class CrisisFleetListener : FleetEventListener {
+class CrisisFleetListener(private val id: Long) : FleetEventListener {
     override fun reportFleetDespawnedToListener(fleet: CampaignFleetAPI?,
                                                 reason: CampaignEventListener.FleetDespawnReason?,
                                                 param: Any?) {
-        SymbioticCrisisIntelEvent.reportFleetDefeated(false)
+        SymbioticCrisisIntelEvent.reportFleetDefeated(false, id)
     }
 
     override fun reportBattleOccurred(fleet: CampaignFleetAPI?, primaryWinner: CampaignFleetAPI?, battle: BattleAPI?) {
         if (primaryWinner?.isPlayerFleet == true) {
-            SymbioticCrisisIntelEvent.reportFleetDefeated(true)
-        }else{
-            SymbioticCrisisIntelEvent.reportFleetDefeated(false)
+            SymbioticCrisisIntelEvent.reportFleetDefeated(true, id)
+        }else if(primaryWinner != fleet){
+            SymbioticCrisisIntelEvent.reportFleetDefeated(false, id)
         }
     }
 }
