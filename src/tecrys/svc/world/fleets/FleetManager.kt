@@ -96,8 +96,8 @@ class FleetManager : EveryFrameScript {
     /**
      * @return true if fleet was successfully spawned
      */
-    fun spawnSvcFleet(location: SectorEntityToken? = null, forceSpawn: Boolean = false): CampaignFleetAPI? {
-        val params = FleetSpawnParameterCalculator(svcSettings)
+    fun spawnSvcFleet(location: SectorEntityToken? = null, forceSpawn: Boolean = false, spawnParamOverride: FleetSpawnParameterCalculator? = null): CampaignFleetAPI? {
+        val params = spawnParamOverride ?: FleetSpawnParameterCalculator(svcSettings)
         val loc = location ?: spawner.getRandomSpawnableLocation(SVC_FACTION_ID)
         val fleet = spawner.spawnFactionFleetIfPossible(SVC_FACTION_ID, params, loc, forceSpawn)
         params.logParameters()

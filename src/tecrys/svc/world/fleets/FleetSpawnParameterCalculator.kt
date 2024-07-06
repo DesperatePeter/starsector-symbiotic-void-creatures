@@ -16,6 +16,14 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
         (it.value - (s.combatRoleBaseWeights[it.key] ?: 0f)) / s.maxSpawnPower
     }
 
+    private var powerMultiplier = 1f
+
+    fun withModifiedPower(multiplier: Float): FleetSpawnParameterCalculator{
+        val toReturn = FleetSpawnParameterCalculator(s)
+        toReturn.powerMultiplier = multiplier
+        return toReturn
+    }
+
     /**
      * a number roughly in the magnitude of 10~1000
      */
@@ -28,7 +36,7 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
             s.overwriteSpawnPower?.let {
                 return it()
             }
-            return min(
+            return powerMultiplier * min(
                 s.flatSpawnPower + playerFleetStrength * s.spawnPowerScalingByPlayerStrength
                         + campaignCyclesElapsed * s.spawnPowerScalingByCycles
                         + extraSpawnPower,

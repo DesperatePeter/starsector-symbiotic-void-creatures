@@ -11,7 +11,9 @@ import org.lazywizard.lazylib.ext.minus
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.listeners.CrisisFleetListener
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.fleets.FleetSpawnParameterCalculator
 import tecrys.svc.world.fleets.FleetSpawner
+import tecrys.svc.world.fleets.svcSettings
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
@@ -20,6 +22,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 2000f
+        const val FLEET_POWER_MODIFIER = 0.8f // Spawning lots of full power fleets is a bit overwhelming
         const val MEM_KEY = "\$SVC_COLONY_CRISIS_INTEL_EVENT_KEY"
         const val MEM_KEY_RESOLUTION_GENOCIDE = "\$SVC_COLONY_CRISIS_RESOLVED_GENOCIDE"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT"
@@ -41,7 +44,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     private var fleetsDefeatedByPlayer = 0
     private var currentNumberOfFleets = 0
     private val defeatedFleetIds = mutableSetOf<Long>()
-    private val timer = IntervalUtil(5f, 10f)
+    private val timer = IntervalUtil(20f, 40f)
 
     fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
         if(id in defeatedFleetIds) return
@@ -98,7 +101,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                                 (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
                         else true
             }.randomOrNull() ?: return
-            val fleet = FleetManager().spawnSvcFleet(location, true)
+            val fleet = FleetManager().spawnSvcFleet(
+                location, true,
+                FleetSpawnParameterCalculator(svcSettings).withModifiedPower(FLEET_POWER_MODIFIER)
+            )
             fleet?.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
             currentNumberOfFleets++
         }
