@@ -5,6 +5,9 @@
 		],
 		"svc_voidling_exploration_theme": [
 			{ "file":  "voidling_exploration_theme.ogg", "source": "sounds/music", "volume":  0.6 }
+		],
+		"svc_voidling_battle_theme": [
+			{ "file":  "voidling_battle_theme.ogg", "source": "sounds/music", "volume":  0.6 }
 		]
 	},
 
