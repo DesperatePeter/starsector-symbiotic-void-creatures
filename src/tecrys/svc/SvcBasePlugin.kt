@@ -21,6 +21,7 @@ import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
 import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
 import tecrys.svc.utils.unlockVoidlingRecovery
 import tecrys.svc.weapons.scripts.pWormAI
+import tecrys.svc.world.ContextBaseMusicPlayer
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.ghosts.HunterGhostCreator
@@ -58,6 +59,7 @@ class SvcBasePlugin : BaseModPlugin() {
         Global.getSector().registerPlugin(SvcCampaignPlugin())
         Global.getSector().addTransientScript(FleetManager())
         Global.getSector().addTransientScript(NotificationShower())
+        Global.getSector().addTransientScript(ContextBaseMusicPlayer())
         if(isExoticaEnabled()){
             Global.getSector().addTransientScript(VoidChitinPlatingListener())
         }

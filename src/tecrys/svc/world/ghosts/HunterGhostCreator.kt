@@ -5,6 +5,7 @@ import com.fs.starfarer.api.impl.campaign.ghosts.BaseSensorGhostCreator
 import com.fs.starfarer.api.impl.campaign.ghosts.GhostFrequencies
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhost
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
+import tecrys.svc.utils.DelayedMusicPlayer
 import tecrys.svc.world.fleets.hunterFleetsThatCanSpawn
 
 class HunterGhostCreator : BaseSensorGhostCreator() {
@@ -14,7 +15,10 @@ class HunterGhostCreator : BaseSensorGhostCreator() {
     override fun createGhost(manager: SensorGhostManager): MutableList<SensorGhost>? {
         val pf = Global.getSector().playerFleet ?: return null
         val ghosts = mutableListOf(HunterGhost(manager, pf) as SensorGhost)
-        return if (ghosts.firstOrNull()?.isCreationFailed == false) ghosts else null
+        return if (ghosts.firstOrNull()?.isCreationFailed == false){
+            DelayedMusicPlayer.playDelayedMusic("svc_voidling_exploration_theme", 2, 1, false)
+            ghosts
+        } else null
     }
 
     override fun getFrequency(manager: SensorGhostManager?): Float {
