@@ -25,7 +25,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val FLEET_POWER_MODIFIER = 0.8f // Spawning lots of full power fleets is a bit overwhelming
         const val MEM_KEY = "\$SVC_COLONY_CRISIS_INTEL_EVENT_KEY"
         const val MEM_KEY_RESOLUTION_GENOCIDE = "\$SVC_COLONY_CRISIS_RESOLVED_GENOCIDE"
-        const val MEM_KEY_RESOLUTION_BOSS_FIGHT = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT"
+        const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
+        const val MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_OBEY"
         const val MEM_KEY_RESOLUTION_WHALE_SACRIFICE = "\$SVC_COLONY_CRISIS_RESOLVED_WHALE_SACRIFICE"
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
@@ -113,8 +114,9 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             Global.getSector().memoryWithoutUpdate[MEM_KEY_RESOLUTION_GENOCIDE] = true
             SymbioticCrisisCause.resolveCrisis()
         }
-        if(Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT) ||
-            Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_WHALE_SACRIFICE)){
+        if(Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN) ||
+            Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_WHALE_SACRIFICE) ||
+            Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY)){
             SymbioticCrisisCause.resolveCrisis()
         }
     }

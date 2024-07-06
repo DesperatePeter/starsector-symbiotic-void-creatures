@@ -6,10 +6,10 @@ import java.awt.Color
 val spookyGuiLayout =     MagicCombatGuiLayout(
     0.3f,
     0.55f,
-    100f,
+    150f,
     25f,
     1.0f,
-    Color(90, 10, 200, 200),
+    Color(120, 10, 180, 200),
     5f,
     0.3f,
     0.2f,

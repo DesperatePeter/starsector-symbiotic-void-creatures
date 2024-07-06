@@ -5,29 +5,30 @@ import com.fs.starfarer.api.mission.FleetSide
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
 
-class SpookyEnemyGuiIntroStage(exitFun: () -> Unit): MagicCombatGuiBase(spookyGuiLayout) {
+class SpookyEnemyGuiIntroStage(private val guiShower: SpookyGuiShower): MagicCombatGuiBase(spookyGuiLayout) {
 
     init {
         val obeyAction = object : MagicCombatButtonAction{
             override fun execute() {
-                exitFun()
+                guiShower.exit()
             }
         }
         val uninstallAction = object : MagicCombatButtonAction{
             override fun execute() {
                 val dir = System.getProperty("user.dir") ?: "C:/Games/Starsector/"
-                Global.getCombatEngine().combatUI?.addMessage(0,"Removing $dir/data")
-                Global.getCombatEngine().combatUI?.addMessage(0,"Removing $dir/graphics")
-                Global.getCombatEngine().combatUI?.addMessage(0,"Removing $dir/saves")
-                Global.getCombatEngine().combatUI?.addMessage(0,"Removing $dir/mods")
-                Global.getCombatEngine().combatUI?.addMessage(0,"Removing $dir/sounds")
+                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/data")
+                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/graphics")
+                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/saves")
+                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/mods")
+                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/sounds")
                 Global.getCombatEngine().combatUI?.addMessage(0, "Successfully uninstalled Starsector!")
-                exitFun()
+                guiShower.exit()
             }
         }
         addButton(uninstallAction, "OK", "OBEYME")
         addButton(obeyAction, "Cancel", "RESISTANCEISFUTILE")
         addButton(obeyAction, "Save logs", "THATWONTSAVEYOU")
+        guiShower.shouldPreventPause = true
     }
 
     override fun getTitleString(): String {
