@@ -1,4 +1,12 @@
 {
+	"music": {
+		"svc_whale_theme": [
+			{ "file": "whale_theme.ogg", "source": "sounds/music", "volume":  0.6 }
+		],
+		"svc_voidling_exploration_theme": [
+			{ "file":  "voidling_exploration_theme.ogg", "source": "sounds/music", "volume":  0.6 }
+		]
+	},
 
 	"svc_system_adrenaline_rush":[
 		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":2.0,"volume":0.5},

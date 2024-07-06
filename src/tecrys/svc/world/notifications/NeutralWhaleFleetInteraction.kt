@@ -18,7 +18,8 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
         txt
     },
     "Whale Encounter",
-    Global.getSettings().getSpriteName("backgrounds", "whale_encounter")
+    Global.getSettings().getSpriteName("backgrounds", "whale_encounter"),
+    "svc_whale_theme"
 ) {
 
     companion object {
@@ -67,6 +68,7 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
         }
         (whales as? CampaignFleetAPI)?.despawn()
         FleetManager.whaleSpawnIntervalMultiplier += 0.05f
+        Global.getSoundPlayer().pauseCustomMusic()
         dialog?.dismiss()
     }
 
@@ -82,10 +84,10 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
 
         val oilRepFactor = ((Math.random().toFloat() * OIL_RANDOMNESS + (1.0f - OIL_RANDOMNESS)) * (internalWhaleReputation - MIN_REPUTATION_FOR_OIL_FROM_FEEDING) /
                 (OIL_GAIN_REPUTATION_CAP - MIN_REPUTATION_FOR_OIL_FROM_FEEDING)).coerceIn(0f, 1f)
-        val oilQuantity = oilRepFactor * MAX_OIL_GAINED_FROM_FEEDING
-        if(oilQuantity > 0f){
+        val oilQuantity = (oilRepFactor * MAX_OIL_GAINED_FROM_FEEDING).toInt()
+        if(oilQuantity > 0){
             val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
-            playerCargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity)
+            playerCargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity.toFloat())
             Global.getSector().campaignUI?.addMessage("Thankful for the food, the whales leave you a present: " +
                     "Gained $oilQuantity Stjarwhale Oil")
         }

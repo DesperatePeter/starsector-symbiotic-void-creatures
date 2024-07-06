@@ -194,10 +194,10 @@ class FleetManager : EveryFrameScript {
         voidlings?.let {
             it.makeHostile()
             it.makeAlwaysHostile()
-            it.attackFleet(whales, 1.0f)
+            it.attackFleet(whales, 0.125f)
             it.addEventListener(SvcFleetListener)
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
-            whales.attackFleet(it, 1.0f)
+            whales.attackFleet(it, 0.125f)
         }
         whales.addEventListener(WhaleFleetListener)
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO

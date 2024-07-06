@@ -8,7 +8,7 @@ import tecrys.svc.utils.CampaignSettingDelegate
 
 abstract class NotificationBase(
     notificationId: String,
-    private val interactionTarget: CampaignFleetAPI = Global.getSector().playerFleet
+    private val interactionTarget: CampaignFleetAPI = Global.getSector().playerFleet,
 ) {
     abstract fun create(): InteractionDialogPlugin
     private var hasNotificationBeenShown: Boolean

@@ -9,7 +9,8 @@ import tecrys.svc.utils.addLeaveOption
 class WhalesDiedDialog: NotificationDialogBase(
 Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_whales_dead_text"),
 Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_whales_title"),
-Global.getSettings().getSpriteName("backgrounds", "whale_encounter")) {
+Global.getSettings().getSpriteName("backgrounds", "whale_encounter"),
+    "svc_whale_theme") {
 
     override fun addOptions(options: OptionPanelAPI) {
         options.addLeaveOption()
@@ -18,7 +19,10 @@ Global.getSettings().getSpriteName("backgrounds", "whale_encounter")) {
     override fun optionSelected(optionText: String?, optionData: Any?) {
         optionText?.let {
             when(it){
-                "Leave" -> dialog?.dismiss()
+                "Leave" -> {
+                    Global.getSoundPlayer().pauseCustomMusic()
+                    dialog?.dismiss()
+                }
                 else -> {}
             }
         }

@@ -12,15 +12,24 @@ import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.ui.PositionAPI
 import org.lwjgl.input.Keyboard
 import tecrys.svc.SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY
+import tecrys.svc.utils.DelayedMusicPlayer
 import kotlin.math.max
 
-abstract class NotificationDialogBase(private val text: String, private val title: String, private val spriteName: String?): InteractionDialogPlugin {
+abstract class NotificationDialogBase(
+    private val text: String,
+    private val title: String,
+    private val spriteName: String?,
+    private val music: String? = null
+): InteractionDialogPlugin {
     protected var dialog: InteractionDialogAPI? = null
 
     companion object{
         const val PANEL_WIDTH = 1200f
     }
     override fun init(dialog: InteractionDialogAPI?) {
+        music?.let { m ->
+            DelayedMusicPlayer.playDelayedMusic(m, 1, 1, true)
+        }
         this.dialog = dialog
         spriteName?.let {
             val imgHeight = Global.getSettings().getSprite(spriteName).height

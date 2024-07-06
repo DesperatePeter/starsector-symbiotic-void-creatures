@@ -19,13 +19,14 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
     else "\nThe whales appear to be scared of you. Maybe you can improve your relationship by letting them go.",
     Global.getSettings().getString(SVC_NOTIFICATIONS_CATEGORY_TEXT_KEY, "svc_whales_title"),
     Global.getSettings().getSpriteName("backgrounds", "whale_encounter"),
+    "svc_whale_theme"
 ) {
     companion object {
         const val SLAUGHTER_OIL_PER_DP = 1f
         fun slaughterWhales(whales: CampaignFleetAPI?){
-            val oilQuantity = (whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_OIL_PER_DP
+            val oilQuantity = ((whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_OIL_PER_DP).toInt()
             val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
-            Global.getSector().playerFleet.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity)
+            Global.getSector().playerFleet.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity.toFloat())
             Global.getSector().campaignUI?.addMessage("Received $oilQuantity Stjarwhal-oil! The Stjarwhales are upset.")
             internalWhaleReputation -= oilQuantity
         }
@@ -71,6 +72,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
         Global.getSector().memory?.unset(WHALES_ENCOUNTER_MEM_KEY)
         whales?.despawn()
         FleetManager.whaleSpawnIntervalMultiplier += 0.25f
+        Global.getSoundPlayer().pauseCustomMusic()
         dialog?.dismiss()
     }
 }
