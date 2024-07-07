@@ -1,33 +1,44 @@
 package tecrys.svc.shipsystems.spooky.gui
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.mission.FleetSide
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
+import tecrys.svc.CombatPlugin
 
 class SpookyEnemyGuiIntroStage(private val guiShower: SpookyGuiShower): MagicCombatGuiBase(spookyGuiLayout) {
 
     init {
-        val obeyAction = object : MagicCombatButtonAction{
+        val sleepAction = object : MagicCombatButtonAction{
             override fun execute() {
-                guiShower.exit()
+                Thread.sleep(1200)
+                Global.getCombatEngine().combatUI?.addMessage(0, "java.nio.file.FileSystemException - LOGSWONTHELPYOU")
             }
         }
         val uninstallAction = object : MagicCombatButtonAction{
             override fun execute() {
                 val dir = System.getProperty("user.dir") ?: "C:/Games/Starsector/"
-                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/data")
-                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/graphics")
-                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/saves")
-                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/mods")
-                Global.getCombatEngine().combatUI?.addMessage(0, "Removing $dir/sounds")
-                Global.getCombatEngine().combatUI?.addMessage(0, "Successfully uninstalled Starsector!")
+                Global.getCombatEngine().combatUI?.run {
+                    addMessage(0, "Removing $dir/data")
+                    addMessage(0, "Removing $dir/graphics")
+                    addMessage(0, "Removing $dir/saves")
+                    addMessage(0, "Removing $dir/mods")
+                    addMessage(0, "Removing $dir/sounds")
+                    addMessage(0, "Successfully uninstalled Starsector!")
+                    addMessage(0, "Thank you for your cooperation!")
+                }
+                CombatPlugin.shouldRenderBlackout = true
+                guiShower.exit()
+            }
+        }
+        val glitchAction = object : MagicCombatButtonAction{
+            override fun execute() {
+                CombatPlugin.shouldRenderGlitch = true
                 guiShower.exit()
             }
         }
         addButton(uninstallAction, "OK", "OBEYME")
-        addButton(obeyAction, "Cancel", "RESISTANCEISFUTILE")
-        addButton(obeyAction, "Save logs", "THATWONTSAVEYOU")
+        addButton(glitchAction, "Cancel", "RESISTANCEISFUTILE")
+        addButton(sleepAction, "Save logs", "THATWONTSAVEYOU")
         guiShower.shouldPreventPause = true
     }
 

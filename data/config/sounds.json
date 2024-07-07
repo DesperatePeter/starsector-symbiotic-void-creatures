@@ -154,5 +154,8 @@
 		{"file":"sounds/whales/groanlong.ogg","pitch":1,"volume":0.8},
 		{"file":"sounds/whales/lowmoan.ogg","pitch":1,"volume":0.8},
 		{"file":"sounds/whales/moan1.ogg","pitch":1,"volume":0.8},			
-	],	
+	],
+	"svc_glitch" : [
+		{"file": "sounds/svc_glitch_sound.ogg", "pitch": 1, "volume":  0.4}
+	]
 }

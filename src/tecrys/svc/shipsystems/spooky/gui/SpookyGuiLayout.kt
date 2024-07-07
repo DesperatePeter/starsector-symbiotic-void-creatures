@@ -1,15 +1,17 @@
 package tecrys.svc.shipsystems.spooky.gui
 
+import com.fs.starfarer.api.Global
 import org.magiclib.combatgui.MagicCombatGuiLayout
 import java.awt.Color
 
-val spookyGuiLayout =     MagicCombatGuiLayout(
+val spookyGuiLayout = MagicCombatGuiLayout(
     0.3f,
     0.55f,
-    150f,
+    170f,
     25f,
     1.0f,
-    Color(120, 10, 180, 200),
+    Global.getSettings().basePlayerColor,
+    // Color(120, 10, 180, 200),
     5f,
     0.3f,
     0.2f,

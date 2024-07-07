@@ -23,10 +23,8 @@ class SpookyEnemyGuiNegotiationStage(private val guiShower: SpookyGuiShower): Ma
                     Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] = true
                 }
             }
-
         }
         guiShower.shouldDistort = true
-        guiShower.shouldPreventPause = true
         val resistX = (0..4).random()
         val resistY = (0..4).random()
         for(y in 0..4){
