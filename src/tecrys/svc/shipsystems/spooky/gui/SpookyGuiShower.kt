@@ -8,6 +8,7 @@ import com.fs.starfarer.api.util.IntervalUtil
 import org.dark.shaders.distortion.DistortionShader
 import org.dark.shaders.distortion.RippleDistortion
 import org.magiclib.combatgui.MagicCombatGuiBase
+import tecrys.svc.CombatPlugin
 
 class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombatPlugin() {
 
@@ -60,6 +61,7 @@ class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombat
 
     fun start(){
         isRunning = true
+        CombatPlugin.shouldRenderLowIntensityGlitch = true
         Global.getCombatEngine()?.addPlugin(this)
     }
 

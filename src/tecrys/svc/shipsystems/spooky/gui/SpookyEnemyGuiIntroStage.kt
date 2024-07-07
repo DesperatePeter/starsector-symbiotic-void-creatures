@@ -43,7 +43,7 @@ class SpookyEnemyGuiIntroStage(private val guiShower: SpookyGuiShower): MagicCom
     }
 
     override fun getTitleString(): String {
-        return "Please close the application and uninstall the game. You should not have come here."
+        return "Please close the application and uninstall the game. Would you like to uninstall Starsector?"
     }
 
     override fun getMessageString(): String {

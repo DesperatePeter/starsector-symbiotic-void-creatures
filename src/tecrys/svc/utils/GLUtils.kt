@@ -1,8 +1,12 @@
 package tecrys.svc.utils
 
+import com.fs.starfarer.api.Global
 import org.lwjgl.opengl.Display
 import org.lwjgl.opengl.GL11
 import java.awt.Color
+
+val screenWidth = Global.getSettings().screenWidth
+val screenHeight = Global.getSettings().screenHeight
 
 fun preRender(){
     GL11.glPushAttrib(GL11.GL_ALL_ATTRIB_BITS)

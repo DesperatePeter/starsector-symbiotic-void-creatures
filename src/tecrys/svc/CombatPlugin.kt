@@ -6,10 +6,12 @@ import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.ViewportAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.mission.FleetSide
+import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.opengl.DrawUtils
 import org.lwjgl.opengl.GL11
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
+import tecrys.svc.shipsystems.spooky.GlitchRenderer
 import tecrys.svc.utils.postRender
 import tecrys.svc.utils.preRender
 import tecrys.svc.utils.setColor
@@ -23,11 +25,8 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     private var pulseTimer = 0f
     private var wasFirstSuccessfulAdvanceCall = false
     private var blackoutProgress = 0f
-    private var glitchIntensity = 0f
+    private var glitchRenderer: GlitchRenderer? = null
 
-    data class GlitchInfo(val x1: Vector2f, val x2: Vector2f, val color: Color)
-
-    private var glitches = mutableListOf<GlitchInfo>()
 
     companion object {
 
@@ -36,10 +35,6 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         const val IS_BATTLE_THEME_PLAYING_MEM_KEY = "\$SVC_BATTLE_MUSIC_PLAYING"
         const val BLACKOUT_PROGRESS_MULTIPLIER = 0.3f
         const val BLACKOUT_END = 2.4f
-        const val GLITCH_PROGRESS_MULTIPLIER = 0.75f
-        const val GLITCH_END = 12f
-        val screenWidth = Global.getSettings().screenWidth
-        val screenHeight = Global.getSettings().screenHeight
 
         // external interface
         data class AuraInfo(val center: Vector2f, val radius: Float, val color: Color)
@@ -47,21 +42,28 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         val aurasToRenderOneFrame = mutableListOf<AuraInfo>()
         var shouldRenderBlackout = false
         var shouldRenderGlitch = false
-        private fun multiplyAlpha(color: Color, mult: Float): Color {
+        var shouldRenderLowIntensityGlitch = false
+        fun multiplyAlpha(color: Color, mult: Float): Color {
             return color.setAlpha((color.alpha * mult).toInt())
         }
-
-        private fun randomGlitchColor(): Color =
-            Color((50..150).random(), (0..50).random(), (150..255).random(), 255)
-
-
     }
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
         // skip when on title screen
         if (Global.getCurrentState() == GameState.TITLE) wasFirstSuccessfulAdvanceCall = true
         advanceBlackout(amount)
-        advanceGlitch(amount)
+        if(shouldRenderGlitch && glitchRenderer == null){
+            glitchRenderer = GlitchRenderer()
+            shouldRenderGlitch = false
+        }
+        if(shouldRenderLowIntensityGlitch && glitchRenderer == null){
+            glitchRenderer = GlitchRenderer(0.1f, 0.2f, 0.0f)
+            shouldRenderLowIntensityGlitch = false
+        }
+        if(glitchRenderer?.isFinished() == true){
+            glitchRenderer = null
+        }
+        glitchRenderer?.advance(amount)
         if (!wasFirstSuccessfulAdvanceCall) {
             val enemyFaction = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
                 ?.firstOrNull()?.fleetData?.fleet?.faction
@@ -73,20 +75,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         }
     }
 
-    private fun advanceGlitch(amount: Float) {
-        if(Global.getCombatEngine()?.isPaused == true) return
-        if (shouldRenderGlitch) {
-            glitchIntensity += GLITCH_PROGRESS_MULTIPLIER * amount
-            if(Math.random() < glitchIntensity / GLITCH_END / 15f){
-                val volume = 0.3f + 0.4f * glitchIntensity / GLITCH_END + 0.2f * Math.random().toFloat()
-                Global.getSoundPlayer().playUISound("svc_glitch", (Math.random().toFloat() * 0.5f + 0.5f), volume )
-            }
-        }
-        if (glitchIntensity >= GLITCH_END) {
-            glitchIntensity = 0f
-            shouldRenderGlitch = false
-        }
-    }
+
 
     private fun advanceBlackout(amount: Float) {
         if(Global.getCombatEngine()?.isPaused == true) return
@@ -112,9 +101,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         if (shouldRenderBlackout) {
             renderBlackout(blackoutProgress)
         }
-        if (shouldRenderGlitch) {
-            renderGlitchEffects(glitchIntensity)
-        }
+        glitchRenderer?.render()
     }
 
     private fun renderAuras(viewport: ViewportAPI?) {
@@ -168,30 +155,5 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         postRender()
     }
 
-    private fun renderGlitchEffects(intensity: Float) {
-        preRender()
 
-        GL11.glLineWidth(intensity * 10f)
-        GL11.glBegin(GL11.GL_LINES)
-        (0 until ((intensity * 10f).toInt() + 1)).forEach { i ->
-            while (i >= glitches.size) {
-                glitches.add(
-                    GlitchInfo(
-                        Vector2f(Math.random().toFloat() * screenWidth, Math.random().toFloat() * screenHeight),
-                        Vector2f(Math.random().toFloat() * screenWidth, Math.random().toFloat() * screenHeight),
-                        randomGlitchColor()
-                    )
-                )
-            }
-            val color = glitches[i].color
-            if(Math.random() > 0.3f){
-                setColor(multiplyAlpha(color, (0.5f + Math.random().toFloat()*0.5f) * (glitchIntensity/ GLITCH_END * 0.5f + 0.5f)))
-                GL11.glVertex2f(glitches[i].x1.x, glitches[i].x1.y)
-                GL11.glVertex2f(glitches[i].x2.x, glitches[i].x2.y)
-            }
-        }
-        GL11.glEnd()
-
-        postRender()
-    }
 }
