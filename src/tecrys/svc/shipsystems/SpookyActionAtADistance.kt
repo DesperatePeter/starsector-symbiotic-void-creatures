@@ -47,7 +47,7 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
             SpookyMode.ENEMY -> {
                 impl = SpookyEnemyImpl()
             }
-            else -> TODO("Not yet implemented")
+            else -> TODO("YOUCANNOTCONTROLME YOUSHOULDNOTHAVETHISSHIP")
         }
     }
 

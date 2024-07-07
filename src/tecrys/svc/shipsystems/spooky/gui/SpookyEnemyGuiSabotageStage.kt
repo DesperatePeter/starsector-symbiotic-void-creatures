@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.mission.FleetSide
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
+import tecrys.svc.shipsystems.spooky.SpookyMindControl
 import java.util.Locale
 
 class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAltText: Boolean): MagicCombatGuiBase(spookyGuiLayout) {
@@ -13,10 +14,14 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
         WEAPONS, DRIVE, CREW
     }
 
+    companion object{
+        fun randomPlayerShip(): ShipAPI = Global.getCombatEngine().ships.filter { it.owner == 0 && it != Global.getCombatEngine().playerShip }.random()
+    }
+
     class SabotageAction(private val guiShower: SpookyGuiShower, private val sabotages: List<Sabotage>) : MagicCombatButtonAction{
         private val pf: ShipAPI = kotlin.run {
             val toReturn = Global.getCombatEngine().playerShip
-            if(toReturn.fleetMember == null) Global.getCombatEngine().ships.filter { it.owner == 0 }.random() else toReturn
+            if(toReturn.fleetMember == null) randomPlayerShip() else toReturn
         }
         override fun execute() {
             sabotages.forEach { s ->
@@ -35,6 +40,9 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
                     }
                 }
             }
+            val ship = randomPlayerShip()
+            Global.getCombatEngine()?.addPlugin(SpookyMindControl(ship))
+            Global.getCombatEngine().combatUI?.addMessage(0, "${ship.name}: What is going on?? SHOOTTHETRAITORS!!")
             guiShower.exit()
         }
     }
