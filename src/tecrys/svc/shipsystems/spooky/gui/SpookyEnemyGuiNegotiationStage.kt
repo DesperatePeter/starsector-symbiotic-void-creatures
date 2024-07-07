@@ -19,8 +19,12 @@ class SpookyEnemyGuiNegotiationStage(private val guiShower: SpookyGuiShower): Ma
                 if(data.any { it == NegotiateResult.RESIST }){
                     guiShower.exit()
                 }else{
-                    Global.getCombatEngine().endCombat(1f, FleetSide.PLAYER)
-                    Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] = true
+                    if(!Global.getCombatEngine().isSimulation){
+                        Global.getCombatEngine().endCombat(1f, FleetSide.PLAYER)
+                        Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] = true
+                    }else{
+                        Global.getCombatEngine().combatUI?.addMessage(0, "Outside of a simulation the battle would end now")
+                    }
                 }
             }
         }

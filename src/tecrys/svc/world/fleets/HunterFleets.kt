@@ -29,6 +29,16 @@ val largeHunterFleetRolesQuantity = mapOf(
     "ScoliacMiniBoss" to 1,
 )
 
+val mastermindFleetQuantity = mapOf(
+    "combatEliteLarge" to 2,
+    "combatEliteLargeEvolved" to 3,
+    "combatEliteSmall" to 2,
+    "combatEliteSmallEvolved" to 2,
+    "combatEliteMedium" to 4,
+    "combatEliteMediumEvolved" to 4,
+    "mastermind" to 1,
+)
+
 val smallHunterFleet = HunterFleetConfig(smallHunterFleetRolesQuantity,
     "small", "Void Razors", 80f, 75f, HuntersDefeatedListener("small"))
 
@@ -37,6 +47,10 @@ val mediumHunterFleet = HunterFleetConfig(mediumHunterFleetRolesQuantity,
 
 val largeHunterFleet = HunterFleetConfig(largeHunterFleetRolesQuantity,
     "large", "Void Stalkers", 250f, 160f, HuntersDefeatedListener("large"))
+
+const val MASTERMIND_FLEET_MEMKEY = "\$SVC_MASTERMIND_FLEET"
+val mastermindFleet = HunterFleetConfig(mastermindFleetQuantity,
+    "mastermind", "TODO", 250f, 0f, )
 
 val hunterFleetsById = mapOf(
     smallHunterFleet.id to smallHunterFleet,

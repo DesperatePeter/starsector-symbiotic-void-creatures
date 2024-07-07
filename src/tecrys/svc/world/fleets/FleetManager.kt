@@ -15,9 +15,7 @@ import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
 import tecrys.svc.*
-import tecrys.svc.listeners.SvcFleetListener
-import tecrys.svc.listeners.VoidlingFIDConf
-import tecrys.svc.listeners.WhaleFleetListener
+import tecrys.svc.listeners.*
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.utils.attackFleet
 import tecrys.svc.utils.makeAlwaysHostile
@@ -43,6 +41,7 @@ class FleetManager : EveryFrameScript {
         const val WHALE_VOIDLING_CHANCE = 0.8 // chance [0.0 .. 1.0] that a whale fleet spawns together with voidlings attacking it
         private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
+        const val MASTERMIND_FLEET_MEM_KEY = "\$SVC_MASTERMIND_FLEET"
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
         fun spawnSvcFleetNowAtPlayer(): Boolean{
@@ -86,12 +85,9 @@ class FleetManager : EveryFrameScript {
             whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
         }
-//        if(hunterSpawnInterval.intervalElapsed()){
-//            if(spawnHunterFleet()){
-//                NotificationShower.showNotificationRepeatable(NotificationShower.HUNTER_FLEET_APPROACHING_ID)
-//            }
-//        }
     }
+
+
 
     /**
      * @return true if fleet was successfully spawned
@@ -116,6 +112,23 @@ class FleetManager : EveryFrameScript {
         var loc = Global.getSector().playerFleet.locationInHyperspace
         loc += Vector2f(2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE, 2f * (Math.random().toFloat() - 0.5f) * HUNTER_FLEET_DISTANCE)
         return loc
+    }
+
+    fun spawnMastermindFleet() : CampaignFleetAPI? {
+        val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
+        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
+        val params = FleetSpawnParameterCalculator(svcSettings)
+        val fleet = spawner.createFactionFleet(SVC_FACTION_ID, params, mastermindFleet.name, mastermindFleet.rolesQuantity, mastermindFleet.minDP) ?: return null
+        fleet.run {
+            memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] = true
+            makeHostile()
+            makeAlwaysHostile()
+            addEventListener(MastermindFleetListener())
+            loc.containingLocation.addEntity(this)
+            setLocation(loc.location.x, loc.location.y)
+            memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
+        }
+        return fleet
     }
 
     fun spawnHunterFleet(loc: Vector2f = genHunterLocation(), forceSpawn: Boolean = false): Boolean {

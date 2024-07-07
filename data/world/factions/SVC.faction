@@ -159,6 +159,10 @@
             "svc_scoliac_grappling" : 10,
         },
 
+        "mastermind" : {
+            "svc_mastermind" : 10,
+        },
+
 	},
 	"illegalCommodities":[
 	],

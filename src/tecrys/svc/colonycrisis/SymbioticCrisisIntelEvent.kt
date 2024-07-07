@@ -7,13 +7,11 @@ import com.fs.starfarer.api.ui.CustomPanelAPI
 import com.fs.starfarer.api.ui.SectorMapAPI
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.IntervalUtil
+import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.listeners.CrisisFleetListener
-import tecrys.svc.world.fleets.FleetManager
-import tecrys.svc.world.fleets.FleetSpawnParameterCalculator
-import tecrys.svc.world.fleets.FleetSpawner
-import tecrys.svc.world.fleets.svcSettings
+import tecrys.svc.world.fleets.*
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
@@ -28,9 +26,24 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_OBEY"
         const val MEM_KEY_RESOLUTION_WHALE_SACRIFICE = "\$SVC_COLONY_CRISIS_RESOLVED_WHALE_SACRIFICE"
+        const val MARKET_CONDITION = "svc_voidling_infestation"
+        fun isBossDefeated(): Boolean = Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN)
+        fun isBossObeyed(): Boolean = Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY)
+        fun isVoidlingGenocide(): Boolean = Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_GENOCIDE)
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
             get()?.reportFleetDefeated(defeatedByPlayer, id)
+        }
+        fun applyOrRemoveMarketConditions(){
+            if(!SymbioticCrisisCause.isCrisisResolved()){
+                Misc.getPlayerMarkets(false).filterNotNull().forEach { market ->
+                    if(!market.hasCondition(MARKET_CONDITION)) market.addCondition(MARKET_CONDITION)
+                }
+            }else{
+                Misc.getPlayerMarkets(false).filterNotNull().forEach { market ->
+                    if(market.hasCondition(MARKET_CONDITION)) market.removeCondition(MARKET_CONDITION)
+                }
+            }
         }
     }
 
@@ -53,6 +66,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         if(defeatedByPlayer) fleetsDefeatedByPlayer++
         currentNumberOfFleets--
     }
+
+
 
     override fun getIcon(): String {
         return Global.getSettings().getSpriteName("icons", "svc_colony_crisis_icon")
@@ -80,7 +95,9 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_long"), pad)
         when{
             progress < FLEETS_DEFEATED_UNTIL_CLUE -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_few_kills"), pad)
-            progress < FLEETS_DEFEATED_UNTIL_SECOND_CLUE -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_some_kills"), pad)
+            progress < FLEETS_DEFEATED_UNTIL_SECOND_CLUE -> {
+                main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_some_kills"), pad)
+            }
             progress > FLEETS_DEFEATED_UNTIL_SECOND_CLUE -> main.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_INTEL_TEXT_KEY, "event_text_many_kills"), pad)
         }
         panel.addUIElement(main).inTL(0f, 0f)
@@ -92,33 +109,48 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
     override fun shouldRemoveIntel(): Boolean = SymbioticCrisisCause.isCrisisResolved()
 
+
+
     override fun advanceImpl(amount: Float) {
         timer.advance(amount)
-        if(timer.intervalElapsed() && currentNumberOfFleets < MAX_NUM_FLEETS) {
-            val pf = Global.getSector().playerFleet ?: return
-            val location = market.containingLocation.allEntities.filterNotNull().filter {
-                FleetSpawner.isValidSpawnableEntity(it) &&
-                        if(pf.containingLocation == market.containingLocation)
-                                (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
-                        else true
-            }.randomOrNull() ?: return
-            val fleet = FleetManager().spawnSvcFleet(
-                location, true,
-                FleetSpawnParameterCalculator(svcSettings).withModifiedPower(FLEET_POWER_MODIFIER)
-            )
-            fleet?.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
-            currentNumberOfFleets++
+        if(timer.intervalElapsed() ) {
+            if(currentNumberOfFleets < MAX_NUM_FLEETS) spawnFleetIfNecessary()
+            applyOrRemoveMarketConditions()
         }
         setProgress(fleetsDefeatedByPlayer)
         if(progress >= MAX_NUM_FLEETS){
             Global.getSector().memoryWithoutUpdate[MEM_KEY_RESOLUTION_GENOCIDE] = true
             SymbioticCrisisCause.resolveCrisis()
         }
-        if(Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN) ||
-            Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_WHALE_SACRIFICE) ||
-            Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY)){
+        if(progress >= FLEETS_DEFEATED_UNTIL_SECOND_CLUE){
+            if(!Global.getSector().memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)){
+                val mastermindFleet = FleetManager().spawnMastermindFleet()
+                Global.getSector().intelManager.addIntel(MastermindIntel(mastermindFleet))
+                Global.getSector().memoryWithoutUpdate[FleetManager.MASTERMIND_FLEET_MEM_KEY] = mastermindFleet
+            }
+        }
+        if(isBossDefeated() || isBossObeyed()){
             SymbioticCrisisCause.resolveCrisis()
         }
+    }
+
+
+
+    private fun spawnFleetIfNecessary(): Boolean {
+        val pf = Global.getSector().playerFleet ?: return false
+        val location = market.containingLocation.allEntities.filterNotNull().filter {
+            FleetSpawner.isValidSpawnableEntity(it) &&
+                    if (pf.containingLocation == market.containingLocation)
+                        (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
+                    else true
+        }.randomOrNull() ?: return false
+        val fleet = FleetManager().spawnSvcFleet(
+            location, true,
+            FleetSpawnParameterCalculator(svcSettings).withModifiedPower(FLEET_POWER_MODIFIER)
+        )
+        fleet?.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
+        currentNumberOfFleets++
+        return true
     }
 
     override fun reportRemovedIntel() {

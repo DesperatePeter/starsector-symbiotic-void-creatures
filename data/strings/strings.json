@@ -49,7 +49,10 @@
     "event_text_long" : "TODO",
     "event_text_few_kills" : "You should probably do something about those fleets. Maybe you can even discover some clues as to what the hell is going on in the process.",
     "event_text_some_kills" : "You found CLUE after defeating fleets",
-    "event_text_many_kills" : "Most fleets have been eradicated. Kill all remaining fleets to restore peace, or search for a different solution."
+    "event_text_many_kills" : "Most fleets have been eradicated. Kill all remaining fleets to restore peace, or search for a different solution.",
+    "mastermind_intel_title" : "Void Mastermind",
+    "mastermind_intel_text" : "Analysing some deceased voidlings has revealed a strange sub-p-space signal. You could follow the signal and investigate.",
+    "mastermind_fleet_interaction_text" : "YOUHAVECOME YOUHAVEFOUNDME YOUWILLOBEY\nEPILEPSY WARNING: If you suffer from photosensitive epilepsy, please skip this fight!"
   },
   "svc_intel" : {
     "hunter_intel_entry" : "A man in a bar told you about voidling hunter fleets. He suggested that these might be carrying interesting equipment that might allow you to gain greater insight into how the symbiotic void creatures operate.\nRather than searching for them, it might be easier to simply traverse hyperspace regions far from the core worlds and wait for them to find you..."

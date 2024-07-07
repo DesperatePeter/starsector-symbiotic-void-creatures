@@ -28,6 +28,7 @@ class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActiv
 
         fun resolveCrisis() {
             Global.getSector().playerMemoryWithoutUpdate[MEM_KEY_CRISIS_RESOLVED] = true
+            SymbioticCrisisIntelEvent.applyOrRemoveMarketConditions()
         }
 
         fun initializeEvent(){

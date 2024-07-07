@@ -30,7 +30,8 @@
 		},
 		"icons": {
 		    "svc_colony_crisis_icon" : "graphics/icons/void_chitin.png",
-		    "svc_hunter_intel_entry" : "graphics/hullmods/alpha.png"
+		    "svc_hunter_intel_entry" : "graphics/hullmods/alpha.png",
+			"svc_mastermind_intel_icon" : "graphics/hullmods/alpha.png"
 		}
 	},
 	"ruleCommandPackages": [

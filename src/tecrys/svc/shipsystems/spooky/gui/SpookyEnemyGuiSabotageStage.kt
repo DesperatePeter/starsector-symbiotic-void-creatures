@@ -61,10 +61,8 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
 
     override fun getMessageString(): String {
         return if(useAltText){
-            val playerName = System.getProperty("user.name") ?: "YOU"
-            val charName = Global.getSector().playerPerson.nameString
-            var playerCountry = Locale.getDefault().country ?: "YOURWORLD"
-            if(playerCountry == "US") playerCountry = "THEUSA"
+            val playerName = System.getProperty("user.name") ?: Global.getSector()?.playerPerson?.nameString ?: "YOU"
+            val playerCountry = Locale.getDefault().displayCountry ?: "YOURWORLD"
             "THESWARMISHUNGRY THESWARMMUSTFEED THESWARMWILLDEVOUR" +
                     "\nYOUWILLNOTSERVE YOUWILLNOTOBEY YOUWILLNOURISH" +
                     "\nHUMANITYWILLPERISH HUMANITYISOBSOLETE HUMANITYWILLBEDEVOURED" +
