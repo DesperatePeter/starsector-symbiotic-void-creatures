@@ -43,6 +43,8 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         var shouldRenderBlackout = false
         var shouldRenderGlitch = false
         var shouldRenderLowIntensityGlitch = false
+        var shouldPreventPauseFor = 0f
+        var preventPauseMessage = ""
         fun multiplyAlpha(color: Color, mult: Float): Color {
             return color.setAlpha((color.alpha * mult).toInt())
         }
@@ -51,6 +53,12 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
         // skip when on title screen
         if (Global.getCurrentState() == GameState.TITLE) wasFirstSuccessfulAdvanceCall = true
+        shouldPreventPauseFor -= amount
+        if(shouldPreventPauseFor > 0f && Global.getCombatEngine().isPaused){
+            Global.getCombatEngine().isPaused = false
+            Global.getSoundPlayer().playUISound("ui_button_disabled_pressed", 1f, 1f)
+            Global.getCombatEngine().combatUI?.addMessage(0, preventPauseMessage)
+        }
         advanceBlackout(amount)
         if(shouldRenderGlitch && glitchRenderer == null){
             glitchRenderer = GlitchRenderer()

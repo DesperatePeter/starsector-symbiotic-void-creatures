@@ -49,7 +49,6 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
 
     init {
         guiShower.shouldDistort = true
-        guiShower.shouldPreventPause = true
         addButton(SabotageAction(guiShower, listOf(Sabotage.DRIVE, Sabotage.CREW)), "Protect bridge", "IAMINVINCIBLE")
         addButton(SabotageAction(guiShower, listOf(Sabotage.WEAPONS, Sabotage.CREW)), "Protect engineering", "YOUCANNOTRUN")
         addButton(SabotageAction(guiShower, listOf(Sabotage.WEAPONS, Sabotage.DRIVE)), "Protect crew", "YOUWILLBECONSUMED")

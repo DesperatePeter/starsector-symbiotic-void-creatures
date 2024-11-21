@@ -15,7 +15,6 @@ class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombat
     var isRunning = false
     var shouldDistort = false
     private val distortionTimer = IntervalUtil(1f, 1f)
-    var shouldPreventPause = false
 
     init {
         distortionTimer.advance(1f)
@@ -26,11 +25,6 @@ class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombat
     }
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
 
-        if(Global.getCombatEngine().isPaused && shouldPreventPause){
-            Global.getCombatEngine().isPaused = false
-            Global.getCombatEngine().combatUI?.addMessage(0, "java.lang.IllegalTimeFlowException - YOUDONOTCONTROLTIME ICONTROLTIME")
-            Global.getSoundPlayer().playUISound("ui_button_disabled_pressed", 1f, 1f)
-        }
         Global.getCombatEngine().viewport.isExternalControl = true;
         gui?.advance()
         if(shouldDistort){
@@ -55,7 +49,6 @@ class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombat
         Global.getCombatEngine()?.removePlugin(this)
         shouldDistort = false
         isRunning = false
-        shouldPreventPause = false
         gui = null
     }
 

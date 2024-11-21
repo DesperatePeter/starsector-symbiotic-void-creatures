@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
 import tecrys.svc.CombatPlugin
+import tecrys.svc.shipsystems.spooky.GlitchRenderer
 
 class SpookyEnemyGuiIntroStage(private val guiShower: SpookyGuiShower): MagicCombatGuiBase(spookyGuiLayout) {
 
@@ -27,19 +28,22 @@ class SpookyEnemyGuiIntroStage(private val guiShower: SpookyGuiShower): MagicCom
                     addMessage(0, "Thank you for your cooperation!")
                 }
                 CombatPlugin.shouldRenderBlackout = true
+                CombatPlugin.preventPauseMessage = "java.lang.IllegalTimeFlowException - YOUDONTCONTROLTIME ICONTROLTIME"
+                CombatPlugin.shouldPreventPauseFor = CombatPlugin.BLACKOUT_END / CombatPlugin.BLACKOUT_PROGRESS_MULTIPLIER
                 guiShower.exit()
             }
         }
         val glitchAction = object : MagicCombatButtonAction{
             override fun execute() {
                 CombatPlugin.shouldRenderGlitch = true
+                CombatPlugin.preventPauseMessage = "java.lang.IllegalTimeFlowException - YOUDONTCONTROLTIME ICONTROLTIME"
+                CombatPlugin.shouldPreventPauseFor = GlitchRenderer.MAX_INTENSITY / GlitchRenderer.GLITCH_PROGRESS_MULTIPLIER
                 guiShower.exit()
             }
         }
         addButton(uninstallAction, "OK", "OBEYME")
         addButton(glitchAction, "Cancel", "RESISTANCEISFUTILE")
         addButton(sleepAction, "Save logs", "THATWONTSAVEYOU")
-        guiShower.shouldPreventPause = true
     }
 
     override fun getTitleString(): String {

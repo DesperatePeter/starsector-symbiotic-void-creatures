@@ -17,7 +17,8 @@
 			"victory_notification_img": "graphics/backgrounds/dissectionbyNeoSpectra.png",
 			"svc_encounter": "graphics/backgrounds/BGE.jpg",
 			"whale_encounter": "graphics/backgrounds/Stjarwhal.png",
-			"hunter_fleet": "graphics/backgrounds/Pursuitsml2.png"
+			"hunter_fleet": "graphics/backgrounds/Pursuitsml2.png",
+			"mastermind_encounter_dialog": "graphics/backgrounds/BGE.jpg"
 		},
 		"beams": {
 			"svc_parasumbilical_beam": "graphics/weapons/beams/svc_parasumbilical_beam.png"
