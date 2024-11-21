@@ -34,7 +34,7 @@ svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasumbilical cord to an enemy,
 svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,
 svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
 svc_torid_drones,SHIP_SYSTEM,Releases a defensive Torid drone to protect its host.,,,,
-parry,SHIP_SYSTEM,Reflects all projectiles and unguided missiles for a brief time.,,,,
+parry,SHIP_SYSTEM,"Reflects all projectiles and unguided missiles for a brief time. Can only parry a certain amount of damage, based on OP. Once that threshold is exceeded, projectiles get stopped rather than parried.",,,,
 ,,,,,,
 svc_arbiter,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,

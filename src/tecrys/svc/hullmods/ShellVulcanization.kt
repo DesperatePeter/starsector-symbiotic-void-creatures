@@ -8,6 +8,7 @@ class ShellVulcanization: BiologicalBaseHullmod() {
 
     companion object{
         const val PARRY_DURATION_BUFF_MULT = 2f
+        const val PARRYABLE_DAMAGE_MULT = 1.5f
         const val ARMOR_DAMAGE_MULTIPLIER = 1.25f
         const val HULLMOD_ID = "svc_shell_vulcanization"
     }
@@ -28,6 +29,7 @@ class ShellVulcanization: BiologicalBaseHullmod() {
         return when(index){
             0 -> "${(PARRY_DURATION_BUFF_MULT * 100f - 100f).toInt()}%" // increases parry duration by s%
             1 -> "${(ARMOR_DAMAGE_MULTIPLIER * 100f - 100f).toInt()}%" // increases armor damage taken by s%
+            2 -> "${(PARRYABLE_DAMAGE_MULT * 100f - 100f).toInt()}%" // increases parryable damage by s%
             else -> null
         }
     }

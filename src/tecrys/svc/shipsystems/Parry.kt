@@ -11,6 +11,7 @@ import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.hullmods.ShellVulcanization
 import tecrys.svc.utils.degToRad
+import tecrys.svc.utils.toFloat
 import java.awt.Color
 import kotlin.math.cos
 import kotlin.math.sin
@@ -19,6 +20,7 @@ class Parry: BaseShipSystemScript() {
     companion object{
         const val RANGE = 150f
         const val SYSTEM_ID = "parry"
+        const val MAX_PARRYABLE_DMG_PER_OP = 200f
     }
 
     private val affectedProjectiles = mutableSetOf<DamagingProjectileAPI>()
@@ -39,6 +41,8 @@ class Parry: BaseShipSystemScript() {
 
     private val remainingTotalDuration = totalDuration - durationSinceInitialActivation
 
+    private var parryableDamage = 0f
+
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
@@ -54,6 +58,10 @@ class Parry: BaseShipSystemScript() {
         if(state == ShipSystemStatsScript.State.IN){
             initialActivationTimestamp = currentTime
             lastReactivation = currentTime
+            parryableDamage = ship.variant.hullSpec.fleetPoints.toFloat() * MAX_PARRYABLE_DMG_PER_OP
+            if(isImproved(ship)){
+                parryableDamage *= ShellVulcanization.PARRYABLE_DAMAGE_MULT
+            }
             return
         }
         if(state != ShipSystemStatsScript.State.ACTIVE) return
@@ -61,7 +69,7 @@ class Parry: BaseShipSystemScript() {
         activeDuration = pc.chargeActiveDur
         totalDuration = activeDuration * ShellVulcanization.PARRY_DURATION_BUFF_MULT
         kotlin.run {
-            if(!isExtendedDuration(ship)) return@run
+            if(!isImproved(ship)) return@run
             if(durationSinceInitialActivation >= totalDuration) {
                 // abort
                 pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
@@ -73,14 +81,6 @@ class Parry: BaseShipSystemScript() {
             createDistortion(ship)
             pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
         }
-
-
-        //            && !wasDurationExtended &&
-//            (currentTime - initialActivationTimestamp > pc.chargeActiveDur * (ShellVulcanization.PARRY_DURATION_BUFF_MULT - 1f))){
-//            pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
-//            wasDurationExtended = true
-//            mustReactivate = true
-
         val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + RANGE)
         val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + RANGE).filter {
             !it.isGuided
@@ -90,19 +90,24 @@ class Parry: BaseShipSystemScript() {
         }.filter {
             it.owner != 100 && it.owner != ship.owner
         }.forEach { proj ->
+            val dmg = proj.damageAmount * if(proj.damageType == DamageType.FRAGMENTATION) 0.25f else 1f
             val deltaV = Vector2f(proj.velocity.x * -2f, proj.velocity.y * -2f)
-            Vector2f.add(proj.velocity, deltaV, proj.velocity)
-            proj.facing += 180f
-            if(proj.facing > 360f) proj.facing -= 360f
-            when(proj.collisionClass){
-                 CollisionClass.PROJECTILE_FF -> proj.collisionClass =  CollisionClass.PROJECTILE_NO_FF
-                 CollisionClass.MISSILE_FF -> proj.collisionClass =  CollisionClass.MISSILE_NO_FF
-                 CollisionClass.HITS_SHIPS_ONLY_FF -> proj.collisionClass = CollisionClass.HITS_SHIPS_ONLY_NO_FF
-                else -> {}
+            if(parryableDamage - dmg >= 0f){
+                parryableDamage -= dmg
+                Vector2f.add(proj.velocity, deltaV, proj.velocity)
+                proj.facing += 180f
+                if(proj.facing > 360f) proj.facing -= 360f
+                when(proj.collisionClass){
+                    CollisionClass.PROJECTILE_FF -> proj.collisionClass =  CollisionClass.PROJECTILE_NO_FF
+                    CollisionClass.MISSILE_FF -> proj.collisionClass =  CollisionClass.MISSILE_NO_FF
+                    CollisionClass.HITS_SHIPS_ONLY_FF -> proj.collisionClass = CollisionClass.HITS_SHIPS_ONLY_NO_FF
+                    else -> {}
+                }
+                proj.owner = ship.owner
+                proj.source = ship
+            }else{
+                proj.velocity.set(0f, 0f)
             }
-            proj.owner = ship.owner
-            proj.source = ship
-
             Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 25f, 1f, 0.8f, Color.WHITE)
             Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 35f, 0.6f, 1f, Color.WHITE)
             Global.getCombatEngine().addHitParticle(proj.location, Vector2f(), 60f, 0.2f, 1.4f, Color.WHITE)
@@ -135,7 +140,7 @@ class Parry: BaseShipSystemScript() {
         })
     }
 
-    private fun isExtendedDuration(ship: ShipAPI): Boolean{
+    private fun isImproved(ship: ShipAPI): Boolean{
         return ship.variant?.hasHullMod(ShellVulcanization.HULLMOD_ID) == true
     }
 
