@@ -127,6 +127,9 @@ class FleetManager : EveryFrameScript {
             loc.containingLocation.addEntity(this)
             setLocation(loc.location.x, loc.location.y)
             memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
+            memoryWithoutUpdate[MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER] = true
+            memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
+            memoryWithoutUpdate[MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS] = true
         }
         return fleet
     }

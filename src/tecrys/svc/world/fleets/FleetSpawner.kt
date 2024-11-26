@@ -83,7 +83,9 @@ class FleetSpawner {
 
         guaranteedRolesWithQuantity?.forEach { roleAndQuantity ->
             for(i in 0 until roleAndQuantity.value){
-                faction.pickShipAndAddToFleet(roleAndQuantity.key, FactionAPI.ShipPickParams(), fleet)
+                if(faction.pickShipAndAddToFleet(roleAndQuantity.key, FactionAPI.ShipPickParams(), fleet) <= 0.001f){
+                    Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet pick null")
+                }
             }
         }
         val targetDp = overrideDp?.toInt() ?: params.fleetSize.toInt()

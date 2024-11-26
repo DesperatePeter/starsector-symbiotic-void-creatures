@@ -1,7 +1,9 @@
 package tecrys.svc.shipsystems.spooky
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
+import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.shipsystems.SpookyActionAtADistance
 import tecrys.svc.shipsystems.spooky.gui.SpookyEnemyGuiIntroStage
 import tecrys.svc.shipsystems.spooky.gui.SpookyEnemyGuiNegotiationStage
@@ -18,6 +20,9 @@ class SpookyEnemyImpl: SpookyActionAtADistance.SpookyImpl {
         effectLevel: Float
     ) {
         if(state != ShipSystemStatsScript.State.ACTIVE) return
+        if(Global.getSector().memoryWithoutUpdate.contains(SymbioticCrisisIntelEvent.MEM_KEY_DISABLE_TELEPATHY)){
+            return
+        }
         if(guiShower.isRunning) return
         when(stage){
             0 -> {
