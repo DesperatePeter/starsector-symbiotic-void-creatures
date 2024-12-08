@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.CampaignPlugin
 import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipHullSpecAPI
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.thoughtworks.xstream.XStream
 import org.dark.shaders.util.ShaderLib
@@ -69,6 +70,7 @@ class SvcBasePlugin : BaseModPlugin() {
             initSVC()
         }
         SymbioticCrisisCause.initializeEvent()
+
     }
     override fun onApplicationLoad() {
         //add special items

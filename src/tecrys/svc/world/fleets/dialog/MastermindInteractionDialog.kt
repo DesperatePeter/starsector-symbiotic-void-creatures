@@ -72,6 +72,13 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             populateSubmissionText()
             return
         }
+        battleResult?.let { br ->
+            val enemyFleet = if(br.didPlayerWin()) br.loserResult.fleet else br.winnerResult.fleet
+            val isMastermindAlive = enemyFleet.membersWithFightersCopy.any {
+                it.variant.hullVariantId == "svc_mastermind"
+                }
+            
+        }
 
     }
 
