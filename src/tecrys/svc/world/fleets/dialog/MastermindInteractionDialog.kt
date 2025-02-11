@@ -13,6 +13,7 @@ import com.fs.starfarer.api.combat.BattleCreationContext
 import com.fs.starfarer.api.combat.EngagementResultAPI
 import com.fs.starfarer.api.util.Misc
 import org.lwjgl.input.Keyboard
+import org.lwjgl.opengl.GL11
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.shipsystems.spooky.gui.spookyColor
 import java.awt.Color

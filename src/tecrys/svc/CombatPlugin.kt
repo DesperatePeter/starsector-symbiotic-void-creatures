@@ -51,6 +51,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     }
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
+
         // skip when on title screen
         if (Global.getCurrentState() == GameState.TITLE) wasFirstSuccessfulAdvanceCall = true
         shouldPreventPauseFor -= amount

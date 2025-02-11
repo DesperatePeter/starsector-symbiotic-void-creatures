@@ -41,6 +41,7 @@ class SvcBasePlugin : BaseModPlugin() {
         const val WORMS_LARGE_ID: String = "svc_worm_shot"
     }
 
+
     private fun initSVC() {
         try {
             Global.getSettings().scriptClassLoader.loadClass("data.scripts.world.ExerelinGen")

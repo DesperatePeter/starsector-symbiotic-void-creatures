@@ -1,5 +1,6 @@
 package tecrys.svc
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
 import com.fs.starfarer.api.campaign.BaseCampaignPlugin
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
@@ -31,6 +32,7 @@ class SvcCampaignPlugin: BaseCampaignPlugin() {
         }
         return null
     }
+
 
     override fun isTransient(): Boolean = true
     override fun getId(): String = SVC_MOD_ID + "_CampaignPlugin"
