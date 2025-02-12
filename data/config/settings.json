@@ -13,6 +13,12 @@
 		"Biological":[112,135,1,255],
 		},
 	"graphics": {
+		"glows": {
+			"shipID1":"graphics/ships/Vergifter_glow1.png",
+			"shipID2":"graphics/ships/Vergifter_glow2.png",
+			"shipID3":"graphics/ships/Verzweiflung_glow1.png",
+			"shipID4":"graphics/ships/Verzweiflung_glow2.png",
+		},
 		"backgrounds": {
 			"victory_notification_img": "graphics/backgrounds/dissectionbyNeoSpectra.png",
 			"svc_encounter": "graphics/backgrounds/BGE.jpg",

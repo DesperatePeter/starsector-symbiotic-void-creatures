@@ -10,7 +10,16 @@
 			{ "file":  "voidling_battle_theme.ogg", "source": "sounds/music", "volume":  0.6 }
 		]
 	},
+	"svc_phase_submerge_in":[
+		{"file":"sounds/phase_bug.ogg","pitch":1.0,"volume":0.2},
 
+	],	
+	
+		"svc_phase_submerge_out":[
+		{"file":"sounds/unphase_bug.ogg","pitch":1.0,"volume":0.2},
+
+	],	
+	
 	"svc_system_adrenaline_rush":[
 		{"file":"sounds/svc_fleshreforminglikesound3.ogg","pitch":2.0,"volume":0.5},
 
