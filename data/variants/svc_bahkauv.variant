@@ -3,7 +3,7 @@
     "fluxCapacitors": 40,
     "fluxVents": 50,
     "goalVariant": true,
-    "hullId": "svc_mastermind",
+    "hullId": "svc_bahkauv",
     "hullMods": [
         "targetingunit",
         "fluxbreakers",
@@ -11,7 +11,7 @@
     ],
     "permaMods": ["high_frequency_attractor"],
     "sMods": [],
-    "variantId": "svc_mastermind",
+    "variantId": "svc_bahkauv",
     "weaponGroups": [
         {
             "autofire": false,
