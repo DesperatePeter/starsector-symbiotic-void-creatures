@@ -75,7 +75,7 @@ class BGECarapace : BaseHullMod() {
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         modifyPowerLevel(ship)
         hideControlCollarIfNotPlayer(ship)
-        ship.captain?.setPersonality("reckless")
+/*        ship.captain?.setPersonality("reckless")*/
         erraticPropulsion.advanceInCombat(ship, amount)
     }
     private fun modifyPowerLevel(ship: ShipAPI) {
