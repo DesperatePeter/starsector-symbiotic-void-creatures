@@ -11,13 +11,17 @@
   "MoreMilitaryMissions":{
         "DmReinforcementFactionBlacklist": [
             "vwl",
+			"mmm",
+			"bugmaster",
         ],
 },
   "TakeNoPrisoners": {
 
     "factionsWithConfigs": [
       "svc",
-      "vwl",	  
+      "vwl",	
+      "mmm",	
+      "bugmaster",	  
     ]
   }
 }
