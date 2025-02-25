@@ -4,36 +4,53 @@ swp_boss_excelsior,0
 swp_excelsior_elyon,0
 swp_excelsior_reward,0
 Art_Spectre_D,0.75
-Arbiter,0.9
-Embolist,0.9
-Hemalisk,0.9
-Toxocyst,0.9
-Pupacyst,0.9
-Keratinos,0.9
-Lephantis,0.9
-Arbiter Alpha,0.9
-Embolist Alpha,0.9
-Hemalisk Alpha,0.9
-Toxocyst Alpha,0.9
-Pupacyst Alpha,0.9
-Keratinos Alpha,0.9
-Lephantis Alpha,0.9
-Arbiter Alpha,0.9
-Embolist Alpha,0.9
-Hemalisk Alpha,0.9
-Toxocyst Alpha,0.9
-Pupacyst Alpha,0.9
-Keratinos Alpha,0.9
-Lephantis Alpha,0.9
-Arbiter Alpha,0.9
-Embolist Alpha,0.9
-Hemalisk Alpha,0.9
-Toxocyst Alpha,0.9
-Pupacyst Alpha,0.9
-Keratinos Alpha,0.9
+svc_arbiter,0.9
+svc_embolist,0.9
+svc_hemalisk,0.9
+svc_toxocyst,0.9
+svc_pupacyst,0.9
+svc_keratinos,0.9
+svc_lephantis,0.9
+svc_arbiter_evo1,0.9
+svc_embolist_evo1,0.9
+svc_hemalisk_evo1,0.9
+svc_toxocyst_evo1,0.9
+svc_pupacyst_evo1,0.9
+svc_keratinos_evo1,0.9
+svc_lephantis_evo1,0.9
+svc_arbiter_evo2,0.9
+svc_embolist_evo2,0.9
+svc_hemalisk_evo2,0.9
+svc_toxocyst_evo2,0.9
+svc_pupacyst_evo2,0.9
+svc_keratinos_evo2,0.9
+svc_arbiter_dark,0.9
+svc_embolist_dark,0.9
+svc_hemalisk_dark,0.9
+svc_toxocyst_dark,0.9
+svc_pupacyst_dark,0.9
+svc_keratinos_dark,0.9
+svc_lephantis_dark,0.9
+svc_arbiter_dark_evo1,0.9
+svc_embolist_dark_evo1,0.9
+svc_hemalisk_dark_evo1,0.9
+svc_toxocyst_dark_evo1,0.9
+svc_pupacyst_dark_evo1,0.9
+svc_keratinos_dark_evo1,0.9
+svc_lephantis_dark_evo1,0.9
+svc_arbiter_dark_evo2,0.9
+svc_embolist_dark_evo2,0.9
+svc_hemalisk_dark_evo2,0.9
+svc_toxocyst_dark_evo2,0.9
+svc_pupacyst_dark_evo2,0.9
+svc_keratinos_dark_evo2,0.9
+svc_scoliac,0.9
+svc_scoliac_tail,0.9
+svc_bahkauv,0.9
 Stjarwhal Calf,0.9
 Stjarwhal Cow,0.9
 Stjarwhal Bull,0.9
-Mios,0.9
-Pox,0.9
-Torid,0.9
+svc_mios,0.9
+svc_pox,0.9
+svc_torid,0.9
+svc_phage,0.9

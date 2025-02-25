@@ -1,0 +1,127 @@
+{
+    "playableFaction":false,
+    "corvusCompatible":true,
+
+    "crewExpereinceLevelIncreaseChance":0.0,
+    "baseFleetCostMultiplier":1.0,
+
+	"invasionSupportFleetName":"Wild Hunt",
+    "responseFleetName":"Hunter Pack",
+    "defenceFleetName":"Nest Guardians",
+
+
+    "disableDiplomacy":true,
+	"useConfigRelationshipsInNonRandomSector":true,
+    "startRelationships":{
+	    "tritachyon": 0,
+	    "luddic_church": 0,
+	    "diableavionics": 0,
+	    "fpe": 0,
+        "xhanempire": 0,
+        "draco": 0,
+        "fang": 0,
+        "templars": 0,
+        "cabal": 0,
+        "blade_breakers": 0,
+        "tahlan_legioinfernalis": 0,
+        "hmi": 0,
+        "blackrock_driveyards": 0,
+        "gmda": 0,
+        "COPS": 0,
+		"hegemony": 0,
+		"shadow_industry": 0,
+		"communist_clouds": 0,
+        "brighton": 0,
+        "roider": 0,
+        "exalted": 0,
+        "unitedpamed": 0,
+        "metelson": 0,
+		"svc": -0.5,
+		"player": 0,		
+        "scalartech": 0,
+            }, 
+    "minRelationships":{
+	    "tritachyon": -0.2,
+	    "luddic_church": -0.2,
+	    "diableavionics": -0.2,
+	    "fpe": -0.2,
+        "xhanempire": -0.2,
+        "draco": -0.2,
+        "fang": -0.2,
+        "templars": -0.2,
+        "cabal": -0.2,
+        "blade_breakers": -0.2,
+        "tahlan_legioinfernalis": -0.2,
+        "hmi": -0.2,
+        "blackrock_driveyards": -0.2,
+        "gmda": -0.2,
+        "COPS": -0.2,
+		"hegemony": -0.2,
+		"shadow_industry": -0.2,
+		"communist_clouds": -0.2,
+        "brighton": -0.2,
+        "roider": -0.2,
+        "exalted": -0.2,
+        "unitedpamed": -0.2,
+        "metelson": -0.2,
+        "svc": -0.8,
+		"player": -0.2,		
+        "scalartech": -0.2,
+            }, 
+	
+
+    "maxRelationships":{
+	    "tritachyon": 0.2,
+	    "luddic_church": 0.2,
+	    "diableavionics": 0.2,
+	    "fpe": 0.2,
+        "xhanempire": 0.2,
+        "draco": 0.2,
+        "fang": 0.2,
+        "templars": 0.2,
+        "cabal": 0.2,
+        "blade_breakers": 0.2,
+        "tahlan_legioinfernalis": 0.2,
+        "hmi": 0.2,
+        "blackrock_driveyards": 0.2,
+        "gmda": 0.2,
+        "COPS": 0.2,
+		"hegemony": 0.2,
+		"shadow_industry": 0.2,
+		"communist_clouds": 0.2,
+        "brighton": 0.2,
+        "roider": 0.2,
+        "exalted": 0.2,
+        "unitedpamed": 0.2,
+        "metelson": 0.2,
+        "svc": -0.8,
+		"player": 0.2,		
+        "scalartech": 0.2,
+            }, 
+    "diplomacyPositiveChance":{
+}, 
+
+			
+
+		"noRandomizeRelations":true,
+    "morality":"amoral", # it's cool to care
+	
+    "alignments":{
+            "technocratic":1.0, # technology *will* actually save us
+            "diplomatic":0.7, # be rootin, be tootin, and by god be shootin, but most of all, be kind
+            "ideological":0.5, # we have an ideology but survival is probably more important than following it all the time
+            "hierarchical":-0.6, # democracy baybeee
+    },
+	
+	"diplomacyTraits":["neutralist", "stalwart", "helps_allies", "low_profile"],
+	"canInvade":false,
+	
+	
+
+	
+	"colonyExpeditionChance":0.0,	# for now
+    "colonyTargetValuator":"exerelin.campaign.colony.IndustrialColonyTargetValuator",
+    "noHomeworld":true,
+
+	
+}

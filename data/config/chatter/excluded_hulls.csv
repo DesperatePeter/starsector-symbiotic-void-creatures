@@ -7,6 +7,21 @@ svc_pupacyst
 svc_keratinos
 svc_lephantis
 
+svc_arbiter_evo1
+svc_embolist_evo1
+svc_hemalisk_evo1
+svc_toxocyst_evo1
+svc_pupacyst_evo1
+svc_keratinos_evo1
+svc_lephantis_evo1
+
+svc_arbiter_evo2
+svc_embolist_evo2
+svc_hemalisk_evo2
+svc_toxocyst_evo2
+svc_pupacyst_evo2
+svc_keratinos_evo2
+
 svc_arbiter_dark
 svc_embolist_dark
 svc_hemalisk_dark
@@ -34,6 +49,11 @@ svc_stjarwhal_calf
 svc_stjarwhal
 svc_stjarwhal_bull
 
+svc_scoliac
+svc_scoliac_tail
+svc_bahkauv
+
 svc_mios
 svc_pox
 svc_torid
+svc_phage
