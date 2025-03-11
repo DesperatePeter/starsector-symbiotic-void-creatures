@@ -60,14 +60,27 @@ val modInModsFolder = File("$starsectorModDirectory/${modFolderName}")
 dependencies {
     //////////////////////////////////////////
     // SECTION D.1: VANILLA STARSECTOR JARS AND VANILLA DEPENDENCIES
-    implementation("com.thoughtworks.xstream:xstream:1.4.10")
-    implementation("org.lwjgl.lwjgl:lwjgl:2.9.3")
-    implementation("org.lwjgl.lwjgl:lwjgl_util:2.9.3")
-    implementation("log4j:log4j:1.2.9")
-    implementation("org.json:json:20090211")
-    implementation("net.java.jinput:jinput:2.0.7")
-    implementation("org.codehaus.janino:janino:3.0.7")
-    implementation("starfarer:starfarer-api:1.0.0") // This grabs local files from the /libs folder, see `repositories` block.
+//    implementation("com.thoughtworks.xstream:xstream:1.4.10")
+//    implementation("org.lwjgl.lwjgl:lwjgl:2.9.3")
+//    implementation("org.lwjgl.lwjgl:lwjgl_util:2.9.3")
+//    implementation("log4j:log4j:1.2.9")
+//    implementation("org.json:json:20090211")
+//    implementation("net.java.jinput:jinput:2.0.7")
+//    implementation("org.codehaus.janino:janino:3.0.7")
+//    implementation("starfarer:starfarer-api:1.0.0") // This grabs local files from the /libs folder, see `repositories` block.
+    implementation(fileTree(starsectorCoreDirectory) {
+        include(
+            "starfarer.api.jar",
+            //"starfarer.api-sources.jar",
+            "starfarer_obf.jar",
+            "fs.common_obf.jar",
+            "json.jar",
+            "xstream-1.4.10.jar",
+            "log4j-1.2.9.jar",
+            "lwjgl.jar",
+            "lwjgl_util.jar"
+        )
+    })
 
     // If the above fails, uncomment this line to use the dependencies in starsector-core instead of getting them from The Internet.
     // compileOnly(fileTree(starsectorCoreDirectory) { include("**/*.jar") })
@@ -81,7 +94,7 @@ dependencies {
     if (File(starsectorModDirectory).exists()) {
         compileOnly(fileTree(starsectorModDirectory) {
             include("**/*.jar")
-            exclude("**/$jarFileName", "**/lib/*", "**/libs/*", "**/dokka/*")
+            exclude("**/$jarFileName", "**/lib/*", "**/libs/*", "**/dokka/*", "**/api/*")
         })
     } else {
         println("$starsectorModDirectory did not exist, not adding mod folder dependencies.")
@@ -98,6 +111,10 @@ dependencies {
     // Get kotlin sdk from LazyLib during runtime, only use it here during compile time
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersionInLazyLib")
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersionInLazyLib")
+
+    compileOnly(fileTree("$projectDir/CommunityApiDocs/src/com/fs/starfarer/api"){
+        include("*.java")
+    })
 }
 
 // ==============
@@ -244,7 +261,7 @@ plugins {
 version = modVersion
 
 repositories {
-    maven(url = uri("$projectDir/libs"))
+    // maven(url = uri("$projectDir/libs"))
     mavenCentral()
 }
 
