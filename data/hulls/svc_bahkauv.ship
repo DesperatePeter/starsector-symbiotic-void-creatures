@@ -1,324 +1,223 @@
 {
-    "bounds": [
-        14,
-        177,
-        144,
-        40,
-        98,
-        37,
-        98,
-        -38,
-        145,
-        -36,
-        14,
-        -176,
-        -69,
-        -78,
-        -130,
-        -76,
-        -157,
-        -23,
-        -158,
-        24,
-        -128,
-        80,
-        -71,
-        81
-    ],
-    "builtInMods": [
-        "phasefield",
-        "delicate",
-        "ex_phase_coils"
-    ],
-    "center": [
-        182,
-        165
-    ],
-    "collisionRadius": 236,
-    "coversColor": "",
-    "engineSlots": [
-        {
-            "angle": 180,
-            "contrailSize": 80,
-            "length": 72,
-            "location": [
-                -164,
-                11
-            ],
-            "style": "HIGH_TECH",
-            "width": 24
-        },
-        {
-            "angle": 180,
-            "contrailSize": 80,
-            "length": 72,
-            "location": [
-                -164,
-                -12
-            ],
-            "style": "HIGH_TECH",
-            "width": 24
-        },
-        {
-            "angle": 180,
-            "contrailSize": 72,
-            "length": 64,
-            "location": [
-                -159,
-                -24
-            ],
-            "style": "HIGH_TECH",
-            "width": 20
-        },
-        {
-            "angle": 180,
-            "contrailSize": 72,
-            "length": 64,
-            "location": [
-                -160,
-                26
-            ],
-            "style": "HIGH_TECH",
-            "width": 20
-        },
-        {
-            "angle": 180,
-            "contrailSize": 72,
-            "length": 64,
-            "location": [
-                -146,
-                61
-            ],
-            "style": "HIGH_TECH",
-            "width": 20
-        },
-        {
-            "angle": 180,
-            "contrailSize": 72,
-            "length": 64,
-            "location": [
-                -145,
-                -59
-            ],
-            "style": "HIGH_TECH",
-            "width": 20
-        },
-        {
-            "angle": 180,
-            "contrailSize": 72,
-            "length": 64,
-            "location": [
-                -152,
-                43
-            ],
-            "style": "HIGH_TECH",
-            "width": 20
-        },
-        {
-            "angle": 180,
-            "contrailSize": 72,
-            "length": 64,
-            "location": [
-                -150,
-                -42
-            ],
-            "style": "HIGH_TECH",
-            "width": 20
-        }
-    ],
-    "height": 322,
-    "hullId": "svc_bahkauv",
-    "hullName": "Bahkauv",
-    "hullSize": "CAPITAL_SHIP",
-    "shieldCenter": [
-        0,
-        0
-    ],
-    "shieldRadius": 236,
-    "spriteName": "graphics/ships/phase/zigguraut.png",
-    "style": "HIGH_TECH",
-    "viewOffset": 0,
-    "weaponSlots": [
-        {
-            "angle": 0,
-            "arc": 5,
-            "id": "WS 000",
-            "locations": [
-                93,
-                21
-            ],
-            "mount": "HARDPOINT",
-            "size": "LARGE",
-            "type": "ENERGY"
-        },
-        {
-            "angle": 0,
-            "arc": 5,
-            "id": "WS 001",
-            "locations": [
-                93,
-                -21
-            ],
-            "mount": "HARDPOINT",
-            "size": "LARGE",
-            "type": "ENERGY"
-        },
-        {
-            "angle": 50,
-            "arc": 130,
-            "id": "WS 002",
-            "locations": [
-                53,
-                108
-            ],
-            "mount": "TURRET",
-            "size": "MEDIUM",
-            "type": "UNIVERSAL"
-        },
-        {
-            "angle": 40,
-            "arc": 120,
-            "id": "WS 003",
-            "locations": [
-                82,
-                73
-            ],
-            "mount": "TURRET",
-            "size": "MEDIUM",
-            "type": "UNIVERSAL"
-        },
-        {
-            "angle": -40,
-            "arc": 130,
-            "id": "WS 004",
-            "locations": [
-                82,
-                -73
-            ],
-            "mount": "TURRET",
-            "size": "MEDIUM",
-            "type": "UNIVERSAL"
-        },
-        {
-            "angle": -50,
-            "arc": 130,
-            "id": "WS 005",
-            "locations": [
-                53,
-                -108
-            ],
-            "mount": "TURRET",
-            "size": "MEDIUM",
-            "type": "UNIVERSAL"
-        },
-        {
-            "angle": 50,
-            "arc": 150,
-            "id": "WS 006",
-            "locations": [
-                35,
-                133
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "SYNERGY"
-        },
-        {
-            "angle": 40,
-            "arc": 150,
-            "id": "WS 007",
-            "locations": [
-                77,
-                97
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "SYNERGY"
-        },
-        {
-            "angle": 20,
-            "arc": 150,
-            "id": "WS 008",
-            "locations": [
-                103,
-                59
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "SYNERGY"
-        },
-        {
-            "angle": -20,
-            "arc": 150,
-            "id": "WS 009",
-            "locations": [
-                103,
-                -59
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "SYNERGY"
-        },
-        {
-            "angle": -40,
-            "arc": 150,
-            "id": "WS 010",
-            "locations": [
-                77,
-                -97
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "SYNERGY"
-        },
-        {
-            "angle": -50,
-            "arc": 150,
-            "id": "WS 011",
-            "locations": [
-                35,
-                -133
-            ],
-            "mount": "TURRET",
-            "size": "SMALL",
-            "type": "SYNERGY"
-        },
-        {
-            "angle": 160,
-            "arc": 10,
-            "id": "WS 016",
-            "locations": [
-                -14,
-                153
-            ],
-            "mount": "HIDDEN",
-            "size": "SMALL",
-            "type": "SYSTEM"
-        },
-        {
-            "angle": 200,
-            "arc": 10,
-            "id": "WS 017",
-            "locations": [
-                -14,
-                -152
-            ],
-            "mount": "HIDDEN",
-            "size": "SMALL",
-            "type": "SYSTEM"
-        },
-        {
-            "angle": 0,
-            "arc": 30,
-            "id": "WS 018",
-            "locations": [
-                46,
-                0
-            ],
-            "mount": "HIDDEN",
-            "size": "MEDIUM",
-            "type": "SYSTEM"
-        }
-    ],
-    "width": 364
+  "hullName": "Bahkauv",
+  "hullId": "svc_bahkauv",
+  "hullSize": "CAPITAL_SHIP",
+  "spriteName": "graphics/ships/Bhakauv.png",
+  "style": "HIGH_TECH",
+  "height": 330,
+  "width": 466,
+  "center": [233, 175],
+  "collisionRadius": 236,
+  "shieldCenter": [0, -0],
+  "shieldRadius": 236,
+  "viewOffset": 0,
+  "builtInMods": [
+    "phasefield",
+    "delicate",
+    "ex_phase_coils"
+  ],
+  "weaponSlots": [
+    {
+      "id": "WS 000",
+      "size": "LARGE",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [79, 21]
+    },
+    {
+      "id": "WS 001",
+      "size": "LARGE",
+      "type": "ENERGY",
+      "mount": "HARDPOINT",
+      "arc": 5,
+      "angle": 0,
+      "locations": [79, -21]
+    },
+    {
+      "id": "WS 002",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": 50,
+      "locations": [39, 108]
+    },
+    {
+      "id": "WS 003",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 120,
+      "angle": 40,
+      "locations": [68, 73]
+    },
+    {
+      "id": "WS 004",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -40,
+      "locations": [68, -73]
+    },
+    {
+      "id": "WS 005",
+      "size": "MEDIUM",
+      "type": "UNIVERSAL",
+      "mount": "TURRET",
+      "arc": 130,
+      "angle": -50,
+      "locations": [39, -108]
+    },
+    {
+      "id": "WS 006",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 50,
+      "locations": [21, 133]
+    },
+    {
+      "id": "WS 007",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 40,
+      "locations": [63, 97]
+    },
+    {
+      "id": "WS 008",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": 20,
+      "locations": [89, 59]
+    },
+    {
+      "id": "WS 009",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -20,
+      "locations": [89, -59]
+    },
+    {
+      "id": "WS 010",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -40,
+      "locations": [63, -97]
+    },
+    {
+      "id": "WS 011",
+      "size": "SMALL",
+      "type": "SYNERGY",
+      "mount": "TURRET",
+      "arc": 150,
+      "angle": -50,
+      "locations": [21, -133]
+    },
+    {
+      "id": "WS 016",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": 160,
+      "locations": [-28, 153]
+    },
+    {
+      "id": "WS 017",
+      "size": "SMALL",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 10,
+      "angle": 200,
+      "locations": [-28, -152]
+    },
+    {
+      "id": "WS 018",
+      "size": "MEDIUM",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 30,
+      "angle": 0,
+      "locations": [32, 0]
+    }
+  ],
+  "engineSlots": [
+    {
+      "location": [-157, 12],
+      "length": 72,
+      "width": 24,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-157, -11],
+      "length": 72,
+      "width": 24,
+      "angle": 180,
+      "contrailSize": 80,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-152, -23],
+      "length": 64,
+      "width": 20,
+      "angle": 180,
+      "contrailSize": 72,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-153, 27],
+      "length": 64,
+      "width": 20,
+      "angle": 180,
+      "contrailSize": 72,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-139, 62],
+      "length": 64,
+      "width": 20,
+      "angle": 180,
+      "contrailSize": 72,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-138, -58],
+      "length": 64,
+      "width": 20,
+      "angle": 180,
+      "contrailSize": 72,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-145, 44],
+      "length": 64,
+      "width": 20,
+      "angle": 180,
+      "contrailSize": 72,
+      "style": "HIGH_TECH"
+    },
+    {
+      "location": [-143, -41],
+      "length": 64,
+      "width": 20,
+      "angle": 180,
+      "contrailSize": 72,
+      "style": "HIGH_TECH"
+    }
+  ],
+  "bounds": []
 }

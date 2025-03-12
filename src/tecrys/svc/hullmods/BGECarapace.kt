@@ -41,7 +41,7 @@ class BGECarapace : BaseHullMod() {
         stats?.run {
             hullDamageTakenMult.modifyMult(id, 1f - HULL_RESISTANCE * 0.01f)
             combatWeaponRepairTimeMult.modifyMult(id,0.3f)
-            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.3f)
+            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.6f)
             maxCombatHullRepairFraction.modifyFlat(id, 1f)
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
