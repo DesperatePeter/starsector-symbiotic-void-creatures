@@ -152,15 +152,15 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
         textPanel?.run {
             addParagraph("Spooky Encounter", Color.YELLOW)
-            addParagraph("<Placeholder> You encounter a voidling fleet.")
-            addParagraph("As you approach, a sharp pain pierces your head, rapidly intensifying, " +
+            addParagraph("<Placeholder> You encounter a Voidling fleet.")
+            addParagraph("As you approach, a sharp pain pierces your brain, rapidly intensifying, " +
                     "quickly reaching levels you didn't even think possible, and yet showing no signs of stopping.")
             addParagraph("The all-encompassing blackness fades away. The pain is gone and as you ponder the possibility that it might just have been a figment of your imagination, " +
                     "you notice the look of sheer terror in the eyes of your bridge crew.")
             addParagraph("Your thoughts begin to swirl, trying to make sense of what you just witnessed, before " +
                     "coalescing into a single realization:")
             addParagraph("The terror in your crew's eyes is but a mirror of a single thought, clawing its way " +
-                    "into your breast. The thought begins to expand, encompassing the entirety of your mind, " +
+                    "into your chest. The thought begins to expand, encompassing the entirety of your mind, " +
                     "as it starts to manifest " +
                     "itself as both something entirely abstract and alien, as well as something very clear and tangible. " +
                     "The thought is clearly yours, but at the same time someone else's.")
@@ -174,7 +174,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             addParagraph("YOUHAVECOMETOVISIT YOUHAVECOMETOPLAY", spookyColor)
             addParagraph("COMECLOSER COMEHITHER", spookyColor)
             addParagraph("COMESERVEME COMEOBEYME", spookyColor)
-            addParagraph("BENOTAFRAD BEAFRAID", spookyColor)
+            addParagraph("BENOTAFRAID BEAFRAID", spookyColor)
             addParagraph("")
             addParagraph("Photosensitive Epilepsy Warning: The following encounter features bright, flashing lights.", Color.RED)
         }
