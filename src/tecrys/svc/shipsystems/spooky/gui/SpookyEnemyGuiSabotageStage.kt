@@ -15,11 +15,11 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
     }
 
     companion object{
-        fun randomPlayerShip(): ShipAPI = Global.getCombatEngine().ships.filter { it.owner == 0 && it != Global.getCombatEngine().playerShip }.random()
+        fun randomPlayerShip(): ShipAPI? = Global.getCombatEngine().ships.filter { it.owner == 0 && it != Global.getCombatEngine().playerShip }.randomOrNull()
     }
 
     class SabotageAction(private val guiShower: SpookyGuiShower, private val sabotages: List<Sabotage>) : MagicCombatButtonAction{
-        private val pf: ShipAPI = kotlin.run {
+        private val pf: ShipAPI? = kotlin.run {
             val toReturn = Global.getCombatEngine().playerShip
             if(toReturn.fleetMember == null) randomPlayerShip() else toReturn
         }
@@ -27,22 +27,23 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
             sabotages.forEach { s ->
                 when(s){
                     Sabotage.WEAPONS -> {
-                        pf.allWeapons.filter { Math.random() > 0.5f }.forEach { w -> pf.applyCriticalMalfunction(w) }
+                        pf?.allWeapons?.filter { Math.random() > 0.5f }?.forEach { w -> pf.applyCriticalMalfunction(w) }
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your weapons have suffered damage")
                     }
                     Sabotage.DRIVE -> {
-                        pf.engineController.shipEngines.forEach { e -> pf.applyCriticalMalfunction(e) }
+                        pf?.engineController?.shipEngines?.forEach { e -> pf.applyCriticalMalfunction(e) }
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your engines have suffered damage")
                     }
                     Sabotage.CREW -> {
-                        pf.currentCR -= 0.25f
+                        pf?.currentCR = pf?.currentCR?.minus(0.25f) ?: 0f
                         Global.getCombatEngine().combatUI?.addMessage(0, "You have lost combat readiness")
                     }
                 }
             }
-            val ship = randomPlayerShip()
-            Global.getCombatEngine()?.addPlugin(SpookyMindControl(ship))
-            Global.getCombatEngine().combatUI?.addMessage(0, "${ship.name}: What is going on?? SHOOTTHETRAITORS!!")
+            randomPlayerShip()?.let { ship ->
+                Global.getCombatEngine()?.addPlugin(SpookyMindControl(ship))
+                Global.getCombatEngine().combatUI?.addMessage(0, "${ship.name}: What is going on?? SHOOTTHETRAITORS!!")
+            }
             guiShower.exit()
         }
     }
