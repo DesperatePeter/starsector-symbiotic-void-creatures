@@ -17,7 +17,7 @@ import tecrys.svc.utils.removeDMods
 import java.awt.Color
 class BGECarapace : BaseHullMod() {
     companion object{
-        private const val ENGINE_DAMAGE_TAKEN = 0.25f
+        private const val ENGINE_DAMAGE_TAKEN = 0.15f
         private const val HULL_RESISTANCE = 30f
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
@@ -41,7 +41,7 @@ class BGECarapace : BaseHullMod() {
         stats?.run {
             hullDamageTakenMult.modifyMult(id, 1f - HULL_RESISTANCE * 0.01f)
             combatWeaponRepairTimeMult.modifyMult(id,0.3f)
-            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.6f)
+            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.5f)
             maxCombatHullRepairFraction.modifyFlat(id, 1f)
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
@@ -49,6 +49,7 @@ class BGECarapace : BaseHullMod() {
             minCrewMod.modifyMult(id, 0f)
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
+            weaponDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
         }
     }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {

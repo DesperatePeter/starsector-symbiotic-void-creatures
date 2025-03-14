@@ -20,7 +20,7 @@ class AcidSprayScript(
 ) : CloudEffectScript(engine, location, velocity, effectColor, effectRadius, duration, effectRadiusGrowth, true, 200f) {
 
     companion object{
-        const val ARMOR_DAMAGE_PER_CELL_PER_SECOND = 2f
+        const val ARMOR_DAMAGE_PER_CELL_PER_SECOND = 0.5f
     }
     override fun executeOnRemoval() { }
 

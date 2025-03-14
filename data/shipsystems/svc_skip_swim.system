@@ -17,9 +17,9 @@
 	"clampTurnRateAfter":true,
 	"clampMaxSpeedAfter":false,
 
-	"useSound":"system_maneuvering_jets",
-	"loopSound":"system_maneuvering_jets_loop",
-	"outOfUsesSound":"engine_disabled",
+	#"useSound":"system_maneuvering_jets",
+	#"loopSound":"system_maneuvering_jets_loop",
+	#"outOfUsesSound":"engine_disabled",
 	
 	"aiHints":{
 		"activeSpeedIncrease":2500,

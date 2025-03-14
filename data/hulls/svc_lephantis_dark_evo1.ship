@@ -277,7 +277,7 @@
       "mount": "TURRET",
       "arc": 40,
       "angle": -9.5,
-      "locations": [43.5, 39]
+      "locations": [77.5, 50]
     },
     {
       "id": "right_grappler2",
@@ -286,7 +286,7 @@
       "mount": "TURRET",
       "arc": 40,
       "angle": 9.5,
-      "locations": [43.5, -39]
+      "locations": [77.5, -50]
     },
     {
       "id": "left_grappler3",
@@ -295,7 +295,7 @@
       "mount": "TURRET",
       "arc": 40,
       "angle": -11,
-      "locations": [44, 86]
+      "locations": [82, 69]
     },
     {
       "id": "right_grappler3",
@@ -304,7 +304,7 @@
       "mount": "TURRET",
       "arc": 40,
       "angle": 11,
-      "locations": [44, -86]
+      "locations": [82, -69]
     },
     {
       "id": "svc_controlcollar",
