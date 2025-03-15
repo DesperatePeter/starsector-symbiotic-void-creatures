@@ -1,11 +1,11 @@
 {
 	id:"svc",
-	"displayName":"Void Creatures",
-	"displayNameWithArticle":"the Void Creatures",
+	"displayName":"",
+	"displayNameWithArticle":"",
 	"displayNameLong":"Symbiotic Void Creatures",
 	"displayNameLongWithArticle":"the Symbiotic Void Creatures",
-	"entityNamePrefix":"Void Creatures",
-	"personNamePrefix":"Void",
+	#"entityNamePrefix":"Void Creatures",
+	#"personNamePrefix":"Void",
 	"personNamePrefixAOrAn":"a",
 	"displayNameIsOrAre":"are",
 	
@@ -167,7 +167,13 @@
 	"illegalCommodities":[
 	],
 	"music":{
-		"encounter_hostile":"music_tritach_encounter_hostile",
+		"theme":"svc_voidling_exploration_theme",
+		"market_neutral":"svc_voidling_exploration_theme",
+		"market_hostile":"svc_voidling_exploration_theme",
+		"market_friendly":"svc_voidling_exploration_theme",
+		"encounter_neutral":"svc_voidling_exploration_theme",
+		"encounter_hostile":"svc_voidling_exploration_theme",
+		"encounter_friendly":"svc_voidling_exploration_theme",
 	},	
 	#"internalComms":"hegemony_internal",
 	"portraits":{

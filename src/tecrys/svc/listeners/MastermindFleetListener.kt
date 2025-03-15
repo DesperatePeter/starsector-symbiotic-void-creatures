@@ -16,7 +16,7 @@ class MastermindFleetListener: FleetEventListener {
 
     override fun reportBattleOccurred(fleet: CampaignFleetAPI?, primaryWinner: CampaignFleetAPI?, battle: BattleAPI?) {
         if(primaryWinner != Global.getSector().playerFleet) return
-        if(fleet?.membersWithFightersCopy?.none { it.hullSpec?.baseHull?.hullId == "svc_mastermind" } == true){
+        if(fleet?.membersWithFightersCopy?.none { it.hullSpec?.baseHull?.hullId == "svc_bahkauv" } == true){
             Global.getSector().memoryWithoutUpdate[MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN] = true
         }
     }

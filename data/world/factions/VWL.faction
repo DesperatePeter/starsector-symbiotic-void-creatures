@@ -2,8 +2,8 @@
 	id:"vwl",
 	"displayName":"Void Wildlife",
 	"displayNameWithArticle":"the Void Wildlife",
-	"displayNameLong":"Void Wildlife",
-	"displayNameLongWithArticle":"the Void Wildlife",
+	#"displayNameLong":"Void Wildlife",
+	#"displayNameLongWithArticle":"the Void Wildlife",
 	#"entityNamePrefix":"Void Creature",
 	#"personNamePrefix":"Void",
 	"personNamePrefixAOrAn":"a",
@@ -126,7 +126,10 @@
 	"illegalCommodities":[
 	],
 	"music":{
-		"encounter_hostile":"music_tritach_encounter_hostile",
+		"theme":"svc_whale_theme",
+        "encounter_neutral":"svc_whale_theme",
+		"encounter_hostile":"svc_whale_theme",
+		"encounter_friendly":"svc_whale_theme",
 	},	
 	#"internalComms":"hegemony_internal",
 	"portraits":{
