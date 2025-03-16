@@ -29,9 +29,7 @@
 		"AZTEC":1,
 	},
 	"names":{
-		#"BEASTS":1,
-		#"ABRAHAMIC":1,
-		#"AZTEC":1,
+
 	},
 	"variantOverrides":{
 	},
@@ -155,8 +153,8 @@
 	},	
 	"fleetTypeNames":{
 		"patrolSmall":"Pack",
-		"patrolMedium":"Herd",
-		"patrolLarge":"Swarm",
+		"patrolMedium":"Swarm",
+		"patrolLarge":"Herd",
 		"battlestation":"Nest",
 	},
 },

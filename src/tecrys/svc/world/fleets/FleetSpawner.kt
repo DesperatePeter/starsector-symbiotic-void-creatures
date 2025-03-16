@@ -78,7 +78,7 @@ class FleetSpawner {
             Global.getLogger(this.javaClass).log(Level.ERROR, "Tried to create a fleet for unknown faction $factionId")
             return null
         }
-        val n = name ?: Global.getSector().getFaction(factionId)?.pickRandomShipName() ?: "unknown"
+        val n = name ?: Global.getSector().getFaction(factionId)?.getFleetTypeName("patrolLarge") ?: "unknown"
         val fleet = Global.getFactory().createEmptyFleet(factionId, n, true)
 
         guaranteedRolesWithQuantity?.forEach { roleAndQuantity ->

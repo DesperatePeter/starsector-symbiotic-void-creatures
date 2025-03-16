@@ -1,7 +1,7 @@
 {
 	id:"svc",
-	"displayName":"Voidlings",
-	"displayNameWithArticle":"the Voidlings",
+	"displayName":"Void Creatures",
+	"displayNameWithArticle":"the Void Creatures",
 	"displayNameLong":"Symbiotic Void Creatures",
 	"displayNameLongWithArticle":"the Symbiotic Void Creatures",
 	#"entityNamePrefix":"Void Creatures",
@@ -29,9 +29,7 @@
 		"AZTEC":1,
 	},
 	"names":{
-		#"BEASTS":1,
-		#"ABRAHAMIC":1,
-		#"AZTEC":1,
+
 	},
 	"variantOverrides":{
 	},
