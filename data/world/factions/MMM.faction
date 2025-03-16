@@ -1,7 +1,7 @@
 {
 	id:"mmm",
-	"displayName":"Mind Metamorphosis",
-	"displayNameWithArticle":"the Mind Metamorphosis",
+	"displayName":"Voidlings",
+	"displayNameWithArticle":"the Voidlings",
 	"displayNameLong":"Mind Metamorphosis",
 	"displayNameLongWithArticle":"the Mind Metamorphosis",
 	#"entityNamePrefix":"Void Creatures",
@@ -30,9 +30,9 @@
 		"AZTEC":1,
 	},
 	"names":{
-		"BEASTS":1,
-		"ABRAHAMIC":1,
-		"AZTEC":1,
+		#"BEASTS":1,
+		#"ABRAHAMIC":1,
+		#"AZTEC":1,
 	},
 	"variantOverrides":{
 	},

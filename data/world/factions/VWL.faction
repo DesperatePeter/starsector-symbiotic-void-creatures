@@ -29,9 +29,9 @@
 		"AZTEC":1,
 	},
 	"names":{
-		"BEASTS":1,
-		"ABRAHAMIC":1,
-		"AZTEC":1,
+		#"BEASTS":1,
+		#"ABRAHAMIC":1,
+		#"AZTEC":1,
 	},
 	"variantOverrides":{
 	},
