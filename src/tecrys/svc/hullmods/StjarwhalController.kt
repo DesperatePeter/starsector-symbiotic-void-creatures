@@ -63,7 +63,6 @@ class StjarwhalController: BaseHullMod() {
             minCrewMod.modifyMult(id, 0f)
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
-            sensorProfile.modifyFlat(id, 10000f)
         }
         if(stats?.variant?.tags?.contains(DMODS_ALLOWED_TAG) == false){
             stats.variant?.removeDMods()
