@@ -10,7 +10,7 @@
 			{ "file":  "voidling_battle_theme.ogg", "source": "sounds/music", "volume":  0.6 }
 		],
 				"svc_voidling_battle_theme_glitched": [
-			{ "file":  "voidling_battle_theme_special_1.ogg", "source": "sounds/music", "volume":  0.6 }
+			{ "file":  "voidling_battle_theme_special_1.ogg", "source": "sounds/music", "volume":  0.6 },
 			{ "file":  "voidling_battle_theme_special_2.ogg", "source": "sounds/music", "volume":  0.6 }			
 		]
 	},
