@@ -4,14 +4,12 @@
   "projectileSpecId": "svc_teeth_shot",
   "type": "COMPOSITE",
   "size": "MEDIUM",
-  "everyFrameEffect":"tecrys.svc.weapons.BaseAnimateOnFireEffectFanCluster",
+  "everyFrameEffect": "tecrys.svc.weapons.BaseAnimateOnFireEffectFanCluster",
   "turretSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
   "hardpointSprite": "graphics/weapons/animated/svc_fangcluster/svc_fangcluster_base00.png",
-    	"fireSoundTwo":"needler_fire",
   "renderHints": [
     RENDER_BARREL_BELOW
   ],
-  	"convergeOnPoint":true,
   "turretOffsets": [
     -0.5,
     3.5,
@@ -35,10 +33,25 @@
     0
   ],
   "hardpointOffsets": [
-    0,
-    0
+    7.5,
+    3.5,
+    7.5,
+    -3.5,
+    4,
+    6.5,
+    4,
+    -6.5,
+    -3.5,
+    4.5,
+    -3.5,
+    -4.5
   ],
   "hardpointAngleOffsets": [
+    0,
+    0,
+    0,
+    0,
+    0,
     0
   ],
   "barrelMode": "ALTERNATING",
@@ -59,6 +72,6 @@
       0,
       200
     ]
-  }
-
+  },
+  "fireSoundTwo": "needler_fire"
 }

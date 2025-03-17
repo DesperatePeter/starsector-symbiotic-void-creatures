@@ -2,7 +2,7 @@
   "id": "svc_bioplasma_large",
   "specClass": "projectile",
   "projectileSpecId": "svc_plasma_shot",
-  "type": "ENERGY",
+  "type": "BALLISTIC",
   "size": "LARGE",
   "turretSprite": "graphics/weapons/svc_bioplasma_gun.png",
   "turretGunSprite": "graphics/weapons/svc_bioplasma_barrels.png",
