@@ -1,0 +1,29 @@
+{
+	"id":"svc_dash",
+	"type":"ENGINE_MOD",
+	"aiType":"CUSTOM",
+	"aiScript":"tecrys.svc.shipsystems.ais.ParryAI",
+	
+	"statsScript":"tecrys.svc.shipsystems.svc_dash",
+	
+	#"engineGlowColor":[255,175,125,255],
+	#"engineGlowContrailColor":[100,165,255,25],
+	"engineGlowLengthMult":1,
+	"engineGlowWidthMult":1,
+	"engineGlowGlowMult":2,
+	
+	"flameoutOnImpactChance":0,
+
+	"clampTurnRateAfter":true,
+	"clampMaxSpeedAfter":false,
+
+	"useSound":"system_maneuvering_jets",
+	"loopSound":"system_maneuvering_jets_loop",
+	"outOfUsesSound":"engine_disabled",
+	
+	"aiHints":{
+		"activeSpeedIncrease":100,
+		"burstMovementPotential":300,
+		"averageSpeedIncrease":50,
+	}
+}
