@@ -1,6 +1,6 @@
 {
   "hullName": "Bahkauv",
-  "hullId": "svc_bahkauv",
+  "hullId": "svc_mastermind",
   "hullSize": "CAPITAL_SHIP",
   "spriteName": "graphics/ships/Bhakauv.png",
   "style": "HIGH_TECH",

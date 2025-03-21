@@ -158,7 +158,7 @@
         },
 
         "mastermind" : {
-            "svc_bahkauv" : 10,
+            "svc_mastermind_standard" : 10,
         },
 
 	},
