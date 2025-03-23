@@ -116,7 +116,8 @@ class FleetManager : EveryFrameScript {
 
     fun spawnMastermindFleet() : CampaignFleetAPI? {
         val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
-        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
+        //val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
+        val loc = Global.getSector().playerFleet
         val params = FleetSpawnParameterCalculator(svcSettings)
         val fleet = spawner.createFactionFleet(SVC_FACTION_ID, params, mastermindFleet.name, mastermindFleet.rolesQuantity, mastermindFleet.minDP) ?: return null
         fleet.run {
