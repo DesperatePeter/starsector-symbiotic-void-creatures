@@ -17,7 +17,7 @@
   "builtInWeapons": {
     "WS0001": "svc_tentacle_left_tiny_barbed",
     "WS0002": "svc_tentacle_right_tiny_barbed",
-    "Whip": "svc_bge_grappler_pd",
+    "Whip": "svc_bge_mini_grappler",
     "tentacleleft1": "svc_tentacle_left_tiny",
     "tentacleright1": "svc_tentacle_right_tiny"
   },

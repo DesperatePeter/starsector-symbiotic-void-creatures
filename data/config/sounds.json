@@ -4,7 +4,8 @@
 			{ "file": "whale_theme.ogg", "source": "sounds/music", "volume":  0.6 }
 		],
 		"svc_voidling_exploration_theme": [
-			{ "file":  "voidling_exploration_theme.ogg", "source": "sounds/music", "volume":  0.6 }
+			{ "file":  "voidling_exploration_theme.ogg", "source": "sounds/music", "volume":  0.6 },
+			{ "file":  "svc_ambient_1.ogg", "source": "sounds", "volume":  0.6 }
 		],
 		"svc_voidling_battle_theme": [
 			{ "file":  "voidling_battle_theme.ogg", "source": "sounds/music", "volume":  0.6 }
@@ -46,6 +47,10 @@
 		{"file":"sounds/svc_Whip.ogg","pitch":0.8,"volume":0.1},
 
 	],	
+	"svc_weapon_grappler_pd":[
+		{"file":"sounds/svc_fleshreforminglikesound2.ogg","pitch":0.8,"volume":0.8},
+
+	],		
 		"svc_weapon_inkspray":[
 		{"file":"sounds/svc_inkspray.ogg","pitch":0.8,"volume":0.1},
 

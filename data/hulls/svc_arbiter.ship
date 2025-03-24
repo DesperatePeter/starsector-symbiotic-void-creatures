@@ -22,6 +22,14 @@
   ],
   "builtInWeapons": {
     "Arbiter": "svc_arbiter",
+    "WS0001": "svc_smalldecotentacle",
+    "WS0002": "svc_smalldecotentacle",
+    "WS0003": "svc_smalldecotentacle",
+    "WS0004": "svc_smalldecotentacle",
+    "WS0005": "svc_smalldecotentacle",
+    "WS0006": "svc_smalldecotentacle",
+    "WS0007": "svc_smalldecotentacle",
+    "WS0008": "svc_smalldecotentacle",
     "eyes": "svc_koenig_eyes",
     "left_grappler": "svc_bge_grappler",
     "left_grappler2": "svc_bge_grappler_pd",
@@ -307,6 +315,78 @@
       "angle": 180,
       "locations": [99, -0],
       "renderOrderMod": 20
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": 118,
+      "locations": [59.5, -80.5]
+    },
+    {
+      "id": "WS0002",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": -118,
+      "locations": [59.5, 80.5]
+    },
+    {
+      "id": "WS0003",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": 118.5,
+      "locations": [54, -80.5]
+    },
+    {
+      "id": "WS0004",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": -118.5,
+      "locations": [54, 80.5]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": 115,
+      "locations": [45.5, -78.5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": -115,
+      "locations": [45.5, 78.5]
+    },
+    {
+      "id": "WS0007",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": 122.5,
+      "locations": [39, -80]
+    },
+    {
+      "id": "WS0008",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 20,
+      "angle": -122.5,
+      "locations": [39, 80]
     }
   ],
   "engineSlots": [

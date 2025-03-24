@@ -32,12 +32,12 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
 
 
 
-    public GrapplerRopePlugin(int pluginID, int elementCount, float trailWidth, WeaponAPI attachedWeapon, DamagingProjectileAPI attachedProj) {
-        super(pluginID, elementCount, trailWidth);
+    public GrapplerRopePlugin(int pluginID, int elementCount, float trailWidth, boolean is_pd, WeaponAPI attachedWeapon, DamagingProjectileAPI attachedProj) {
+        super(pluginID, elementCount, trailWidth, is_pd);
         this.attachedWeapon = attachedWeapon;
         this.attachedProj = attachedProj;
         this.target = null;
-
+        this.is_pd = is_pd;
         //create segments
         for (int i = 0; i < elementCount; i++) {
             SegmentPoint point = new SegmentPoint();
@@ -63,7 +63,7 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
         }
 
         if (deadAndFading) {
-            fadeLevel = fadeLevel * 0.99f;
+            fadeLevel = fadeLevel * 0.98f;
             if (fadeLevel < 0.01f) {
                 Global.getCombatEngine().removePlugin(this);
             }
@@ -150,7 +150,6 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
 
     public void attach(CombatEntityAPI target, Vector2f point, float projFacing) {
         this.target = target;
-
         Vector2f o = Vector2f.sub(point, target.getLocation(), null);
         o = VectorUtils.rotate(o, -target.getFacing());
         offset = o;

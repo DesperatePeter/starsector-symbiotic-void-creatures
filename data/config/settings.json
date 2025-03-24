@@ -6,6 +6,7 @@
 		"SvcCombatPlugin":"tecrys.svc.CombatPlugin",
 		"tentacle_render":"tecrys.svc.plugins.tentacle_render",		
 		 "svc_dash": "tecrys.svc.plugins.QuickStrafeSystemActivatorPlugin",
+		 #"svcGuidedTentacle": "tecrys.svc.plugins.svcGuidedProjectile",
 		 #"svc_tentacles": "tecrys.svc.plugins.GrapplerRopePlugin",
 		#"ForceShieldDisablePlugin":"data.scripts.plugins.ForceShieldDisablePlugin",		
 		#"Acid":"data.scripts.plugins.Acid",				

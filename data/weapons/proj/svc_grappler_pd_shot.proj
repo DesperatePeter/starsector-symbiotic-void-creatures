@@ -1,0 +1,20 @@
+{
+	"id":"svc_grappler_pd_shot",
+	"specClass":"projectile",
+		"onHitEffect":"tecrys.svc.weapons.scripts.svc_grappler_pd_behaviour",
+		"onFireEffect":"tecrys.svc.weapons.scripts.svc_grappler_pd_behaviour",
+	"spawnType":"BALLISTIC",
+	"collisionClass":"PROJECTILE_FF",
+	"collisionClassByFighter":"PROJECTILE_FIGHTER",
+	"length":1.0,
+	"width":1.0,
+	"hitGlowRadius":15,
+	"fadeTime":2,
+	#"fringeColor":[255,155,125,255],
+	#"coreColor":[255,255,200,150],
+	#"fringeColor":[200, 0, 0, 200],
+	#"coreColor":[255,255,255,255],	
+	"textureScrollSpeed":64.0,
+	"pixelsPerTexel":5.0,
+	"bulletSprite":"graphics/ships/Hornisse_glow1.png"
+}

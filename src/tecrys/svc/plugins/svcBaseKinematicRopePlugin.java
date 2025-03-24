@@ -22,7 +22,7 @@ import java.util.List;
 public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
 
 
-
+    public boolean is_pd;
 
     public static class RopeParams {
         float damping = 0.85f; //can tweak this to affect how aggressively they move into optimal position
@@ -69,6 +69,8 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
     public boolean debug = false;
     protected boolean initialSetupDone = false;
 
+
+
     @Override
     public void processInputPreCoreControls(float amount, List<InputEventAPI> events) {
         for (InputEventAPI event : events) {
@@ -81,7 +83,7 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
         }
     }
 
-    public svcBaseKinematicRopePlugin(int pluginID, int elementCount, float trailWidth) {
+    public svcBaseKinematicRopePlugin(int pluginID, int elementCount, float trailWidth, boolean is_pd) {
         this.pluginID = pluginID;
         this.elementCount = elementCount;
         this.trailWidth = trailWidth;
@@ -182,7 +184,7 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
             }
 
             Color color = computeColorForSegment(i);
-
+     if (is_pd)       {
             MagicTrailPlugin.addTrailMemberAdvanced(
                     null,
                     id,
@@ -207,9 +209,38 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
                     0f,
                     null,
                     null,
-                    CombatEngineLayers.UNDER_SHIPS_LAYER,
+                    CombatEngineLayers.CONTRAILS_LAYER,
                     0f
             );
+     }
+     else {            MagicTrailPlugin.addTrailMemberAdvanced(
+             null,
+             id,
+             sprite,
+             renderPoints.get(i),
+             0f,
+             0f,
+             meanAngle,
+             0f,
+             0f,
+             trailWidth,
+             0,
+             color,
+             color,
+             (float) color.getAlpha() / 255f,
+             0f,
+             0f,
+             0f,
+             false,
+             25f,
+             0f,
+             0f,
+             null,
+             null,
+             CombatEngineLayers.UNDER_SHIPS_LAYER,
+             0f
+     );
+     }
         }
     }
 

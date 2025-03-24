@@ -18,6 +18,8 @@
     "WS0001": "svc_trans_fin_right_tiny2",
     "WS0002": "svc_trans_fin_left_tiny2",
     "WS0004": "svc_inksac",
+    "WS0005": "svc_bge_mini_grappler",
+    "WS0006": "svc_bge_mini_grappler",
     "leftfin": "svc_trans_fin_left_tiny",
     "rightfin": "svc_trans_fin_right_tiny"
   },
@@ -75,6 +77,24 @@
       "arc": 0,
       "angle": 0,
       "locations": [-15, -0]
+    },
+    {
+      "id": "WS0005",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [-3.5, -5]
+    },
+    {
+      "id": "WS0006",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -0,
+      "locations": [-3.5, 5]
     }
   ],
   "engineSlots": [
