@@ -5,11 +5,8 @@
     "goalVariant": true,
     "hullId": "svc_mastermind",
     "hullMods": [
-        "targetingunit",
-        "fluxbreakers",
-        "high_frequency_attractor"
+
     ],
-    "permaMods": ["high_frequency_attractor"],
     "sMods": [],
     "variantId": "svc_mastermind_standard",
     "weaponGroups": [
