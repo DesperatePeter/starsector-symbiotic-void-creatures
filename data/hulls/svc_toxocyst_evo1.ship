@@ -12,7 +12,8 @@
   "shieldRadius": 76.557167,
   "viewOffset": 0,
   "builtInMods": [
-    "BGECarapace"
+    "BGECarapace",
+	"svc_no_fuel_hm",
   ],
   "builtInWeapons": {
     "WS0001": "svc_koenig_eyes",

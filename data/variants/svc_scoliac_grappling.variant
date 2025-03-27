@@ -6,7 +6,7 @@
   "fluxCapacitors": 22,
   "fluxVents": 22,
   "quality": 1,
-  "permaMods": [],
+  "permaMods": ["svc_more_alphas_hm"],
   "hullMods": [],
   "weaponGroups": [
     {

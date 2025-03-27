@@ -1,7 +1,7 @@
 {
   "variantId": "svc_phage_variant",
   "hullId": "svc_phage",
-  "displayName": "Fanged",
+  "displayName": "",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,

@@ -13,6 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
+	"svc_no_fuel_hm",
     "svc_alpha_voidling",
     "shared_flux_sink",
     "svc_scoliac_tail_turner",

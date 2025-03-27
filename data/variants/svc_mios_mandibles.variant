@@ -1,7 +1,7 @@
 {
   "variantId": "svc_mios_mandibles",
   "hullId": "svc_mios",
-  "displayName": "Gnawing",
+  "displayName": "",
   "goalVariant": false,
   "fluxCapacitors": 0,
   "fluxVents": 0,

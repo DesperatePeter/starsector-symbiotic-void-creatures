@@ -7,7 +7,7 @@
   "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [],
+  "hullMods": ["svc_acid_blood_hm"],
   "weaponGroups": [
     {
       "autofire": true,

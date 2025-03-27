@@ -7,7 +7,7 @@
   "fluxVents": 22,
   "quality": 0,
   "permaMods": [],
-  "hullMods": [],
+  "hullMods": ["svc_overdamage_res_hm", "svc_shell_vulcanization"],
   "weaponGroups": [
     {
       "autofire": true,

@@ -17,6 +17,7 @@
   ],
   "builtInMods": [
     "BGECarapace",
+	"svc_no_fuel_hm",
     "svc_alpha_voidling",
     "always_detaches",
     "svc_overdamage_res_hm"

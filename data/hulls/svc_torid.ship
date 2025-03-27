@@ -12,7 +12,8 @@
   "shieldRadius": 18,
   "viewOffset": 0,
   "builtInMods": [
-    "BGECarapace"
+    "BGECarapace",
+	"svc_overdamage_res_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_trans_fin_right_tiny2",

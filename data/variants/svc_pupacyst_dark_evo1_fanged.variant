@@ -7,7 +7,7 @@
   "fluxVents": 13,
   "quality": 1,
   "permaMods": [],
-  "hullMods": [],
+  "hullMods": ["svc_infestation_hm"],
   "weaponGroups": [
     {
       "autofire": true,
