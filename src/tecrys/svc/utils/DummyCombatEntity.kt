@@ -68,4 +68,8 @@ class DummyCombatEntity(private val location: Vector2f, private var owner: Int):
 
     override fun setHitpoints(hitpoints: Float) {
     }
+
+    override fun isPointInBounds(vector2f: Vector2f?): Boolean = false
+
+    override fun wasRemoved(): Boolean = false
 }

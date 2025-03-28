@@ -107,10 +107,10 @@ dependencies {
     //////////////////////////////////////////
     // SECTION D.3: KOTLIN DEPENDENCIES
     // Shouldn't need to change anything in SECTION D below here
-    val kotlinVersionInLazyLib = "1.5.31"
+    val kotlinVersionInLazyLib = "2.1.20"
     // Get kotlin sdk from LazyLib during runtime, only use it here during compile time
     compileOnly("org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersionInLazyLib")
-    compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersionInLazyLib")
+    // compileOnly("org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersionInLazyLib")
 
     compileOnly(fileTree("$projectDir/CommunityApiDocs/src/com/fs/starfarer/api"){
         include("*.java")
@@ -134,7 +134,7 @@ tasks {
     //////////////////////////////////////////
     // SECTION E.2: CREATES & UPDATES METADATA (MOD_INFO.JSON AND VERSION CHECKER) FILES
     register("create-metadata-files") {
-        val version = modVersion.split(".").let { javaslang.Tuple3(it[0], it[1], it[2]) }
+        val version = modVersion.split(".")
         System.setProperty("line.separator", "\n") // Use LF instead of CRLF like a normal person
 
         if (shouldAutomaticallyCreateMetadataFiles) {
@@ -148,7 +148,7 @@ tasks {
                         "name": "${modName}",
                         "author": "${modAuthor}",
                         "utility": "${isUtilityMod}",
-                        "version": { "major":"${version._1}", "minor": "${version._2}", "patch": "${version._3}" },
+                        "version": { "major":"${version[0]}", "minor": "${version[1]}", "patch": "${version[2]}" },
                         "description": "${modDescription}",
                         "gameVersion": "${gameVersion}",
                         "jars":[${jars.joinToString() { "\"$it\"" }}],
@@ -196,9 +196,9 @@ tasks {
                         "modThreadId":${modThreadId},
                         "modVersion":
                         {
-                            "major":${version._1},
-                            "minor":${version._2},
-                            "patch":${version._3}
+                            "major":${version[0]},
+                            "minor":${version[1]},
+                            "patch":${version[2]}
                         }
                     }
                 """.trimIndent()
@@ -254,7 +254,7 @@ kotlin.sourceSets.main {
 // ==== DANGER ====
 // -----DON'T TOUCH STUFF BELOW THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING  -------------------
 plugins {
-    kotlin("jvm") version "1.5.0"
+    kotlin("jvm") version "2.1.20"
     java
 }
 
@@ -267,8 +267,8 @@ repositories {
 
 // Compile Kotlin to Java 6 bytecode so that Starsector can use it (options are only 6 or 8)
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.6"
+    kotlinOptions.jvmTarget = "17"
 }
 // Compile Java to Java 7 bytecode so that Starsector can use it
-java.sourceCompatibility = JavaVersion.VERSION_1_7
-java.targetCompatibility = JavaVersion.VERSION_1_7
+java.sourceCompatibility = JavaVersion.VERSION_17
+java.targetCompatibility = JavaVersion.VERSION_17
