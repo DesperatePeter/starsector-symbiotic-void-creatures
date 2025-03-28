@@ -214,7 +214,7 @@ class FleetManager : EveryFrameScript {
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
             whales.follow(playerFleet,0f)
             whales.makeImportant("being hunted",10f)
-            showNotificationOnCampaignUi("Your fleet encountered a whale herd", "whale_intel")
+            showNotificationOnCampaignUi("Your fleet encountered a whale herd", Global.getSettings().getSpriteName("intel", "whale_intel"))
         }
         whales.addEventListener(WhaleFleetListener)
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO
