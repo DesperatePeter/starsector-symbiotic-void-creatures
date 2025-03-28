@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.ArmorGridAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipHullSpecAPI
 import com.fs.starfarer.api.combat.ShipwideAIFlags
+import com.fs.starfarer.api.impl.campaign.intel.MessageIntel
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils
@@ -30,6 +31,12 @@ operator fun Vector2f.times(vector2f: Vector2f?): Float {
 fun Color.randomlyVaried(variation: Float): Color{
     fun d(c: Int) = MathUtils.clamp(c + (2f * (Math.random() - 0.5) * variation).toInt(), 0, 255)
     return Color( d(red),  d(green), d(blue), alpha)
+}
+
+fun showNotificationOnCampaignUi(text: String, spriteName: String){
+    val intel = MessageIntel(text, Misc.getBasePlayerColor())
+    intel.icon = spriteName
+    Global.getSector().campaignUI.addMessage(intel)
 }
 
 fun unlockVoidlingRecovery(){
