@@ -35,7 +35,7 @@ class FleetManager : EveryFrameScript {
         const val HUNTER_FLEET_DISTANCE = 2000f
         const val WHALE_FLEET_IDENTIFICATION_KEY = "$" + "SVC_WHALE_FLEET_TAG"
         // Distance between whale fleets and voidling fleets when they spawn. Needs to be low enough for them to see each other!
-        const val WHALE_VOIDLING_DIST = 150f
+        const val WHALE_VOIDLING_DIST = 100f
         const val WHALE_VOIDLING_CHANCE = 0.8 // chance [0.0 .. 1.0] that a whale fleet spawns together with voidlings attacking it
         private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
@@ -214,6 +214,7 @@ class FleetManager : EveryFrameScript {
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
             whales.follow(playerFleet,0f)
             whales.makeImportant("being hunted",10f)
+            showNotificationOnCampaignUi("Your fleet encountered a whale herd", "whale_intel")
         }
         whales.addEventListener(WhaleFleetListener)
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO

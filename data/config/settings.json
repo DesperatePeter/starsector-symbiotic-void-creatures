@@ -32,6 +32,9 @@
 		"fx": {
 			"svc_tentacle_trail": "graphics/fx/svc_tentacle_trail.png"
 		},
+				"intel":{
+			"whale_intel": "graphics/icons/whale_intel.png",
+		},
 		"beams": {
 			"svc_parasumbilical_beam": "graphics/weapons/beams/svc_parasumbilical_beam.png"
 		},
