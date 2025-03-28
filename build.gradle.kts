@@ -15,7 +15,7 @@ val modName = "SymbioticVoidCreatures"
  * the path behind the ?:.
  * Note: On Linux, if you installed Starsector into your home directory, you have to write /home/<user>/ instead of ~/
  */
-val starsectorDirectory = if(providers.gradleProperty("starsector.dir").isPresent) providers.gradleProperty("starsector.dir").get() else "C:/Games/Starsector0.97a"
+val starsectorDirectory = if(providers.gradleProperty("starsector.dir").isPresent) providers.gradleProperty("starsector.dir").get() else "C:/Games/Starsector0.98a"
 
 /** Defaults to the name of your mod, with spaces replaced by hyphens. */
 val modFolderName = modName.replace(" ", "-")
@@ -31,7 +31,7 @@ val jarFileName = "${modName.replace(" ", "-")}.jar"
 val modId = "symbiotic_void_creatures"
 val modAuthor = "Graphics: Tecrys \\n Coding & Writing: DesperatePeter \\n Writing: MiniDeth3"
 val modDescription = "This mod introduces interstellar wildlife and more."
-val gameVersion = "0.97a"
+val gameVersion = "0.98a"
 val jars = arrayOf("jars/$jarFileName")
 val modPlugin = "tecrys.svc.SvcBasePlugin"
 val isUtilityMod = false
