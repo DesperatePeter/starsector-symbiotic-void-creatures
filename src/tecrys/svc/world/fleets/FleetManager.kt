@@ -14,12 +14,10 @@ import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
+import org.magiclib.kotlin.makeImportant
 import tecrys.svc.*
 import tecrys.svc.listeners.*
-import tecrys.svc.utils.CampaignSettingDelegate
-import tecrys.svc.utils.attackFleet
-import tecrys.svc.utils.makeAlwaysHostile
-import tecrys.svc.utils.orbitClosestPlanet
+import tecrys.svc.utils.*
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
 import tecrys.svc.world.notifications.NotificationShower
@@ -37,7 +35,7 @@ class FleetManager : EveryFrameScript {
         const val HUNTER_FLEET_DISTANCE = 2000f
         const val WHALE_FLEET_IDENTIFICATION_KEY = "$" + "SVC_WHALE_FLEET_TAG"
         // Distance between whale fleets and voidling fleets when they spawn. Needs to be low enough for them to see each other!
-        const val WHALE_VOIDLING_DIST = 850f
+        const val WHALE_VOIDLING_DIST = 150f
         const val WHALE_VOIDLING_CHANCE = 0.8 // chance [0.0 .. 1.0] that a whale fleet spawns together with voidlings attacking it
         private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
@@ -211,10 +209,11 @@ class FleetManager : EveryFrameScript {
         voidlings?.let {
             it.makeHostile()
             it.makeAlwaysHostile()
-            it.attackFleet(whales, 0.125f)
+            it.attackFleet(whales, 1f)
             it.addEventListener(SvcFleetListener)
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
-            whales.attackFleet(it, 0.125f)
+            whales.follow(playerFleet,0f)
+            whales.makeImportant("being hunted",10f)
         }
         whales.addEventListener(WhaleFleetListener)
         val oilInCargo = whales.fleetPoints * WHALE_OIL_PER_DP_IN_CARGO
