@@ -47,6 +47,13 @@ fun CampaignFleetAPI.attackFleet(opponent: CampaignFleetAPI, delay: Float = 0f) 
     )
 }
 
+fun CampaignFleetAPI.follow(fleet: CampaignFleetAPI, delay: Float = 0f){
+    this.addAssignment(
+        FleetAssignment.HOLD, null, delay
+    )
+    this.addAssignment(FleetAssignment.FOLLOW, fleet, MAX_GOTO_ASSIGNMENT_DURATION)
+}
+
 fun CampaignFleetAPI.makeAlwaysHostile(){
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_PATROL_FLEET, true);
