@@ -1,158 +1,157 @@
-id,type,text1,text2,text3,text4,notes
-svc_sml_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_sml_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_lrg_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_lrg_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_adv_sml_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_adv_sml_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_adv_lrg_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_adv_lrg_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,
-svc_med_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_med_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_lrg_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_adv_med_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_adv_med_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_adv_lrg_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-svc_adv_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,
-,,,,,,
-svc_bge_grappler,WEAPON,This orifice houses a tendril capable of extending quickly. Through unknown means it accelerates the creature when the tendril latches onto its prey.,,,,
-svc_bge_grappler_pd,WEAPON,Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,
-svc_bge_mini_grappler,WEAPON,Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,
+id,type,text1,text2,text3,text4,text5,notes
+svc_sml_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_sml_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_lrg_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_lrg_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_adv_sml_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_adv_sml_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_adv_lrg_mand_l,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_adv_lrg_mand_r,WEAPON,Sharp teeth-like protrusions moving with immense muscular power to tear victims into digestible chunks.,,,,,
+svc_med_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_med_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_lrg_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_adv_med_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_adv_med_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_adv_lrg_scythe_l,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+svc_adv_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until it doesn't move anymore. Fortunately unable to pierce though shields.,,,,,
+,,,,,,,
+svc_bge_grappler,WEAPON,This orifice houses a tendril capable of extending quickly. Through unknown means it accelerates the creature when the tendril latches onto its prey.,,,,,
+svc_bge_grappler_pd,WEAPON,Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,,
+svc_bge_mini_grappler,WEAPON,Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,,
 svc_acidthrower,WEAPON,"A mutated gland symbiote that emits acid capable of seeping behind shields. Extremely effective against certain hyperalloys commonly found within most types of armor but won't dissolve normal hull structure.
-",,,,
+",,,,,
 svc_miniacidthrower,WEAPON,"A mutated gland symbiote that emits acid capable of seeping behind shields. Extremely effective against certain hyperalloys commonly found within most types of armor but won't dissolve normal hull structure.
-",,,,
+",,,,,
 svc_fangcluster,WEAPON,"A mutated Voidling jaw functioning suspiciously similar to a common mass driver.
-Rapidly regrows fangs which are then accelerated by powerful muscles through a puzzling mechanism, somehow matching or even exceeding modern needler designs.",,,,
-svc_inksac,WEAPON,"This organic gland produces and stores an odd chemical capable of heavy foaming on rapid energy transfer. Such ink like material is capable of dissipating large amounts of energy and can choke out most conventional technology, significantly reducing the effectiveness of beams, causing missile engines to flame out and even being able to slightly reduce the impact of energy projectiles. Mounting on a ship is possible with proper precautions like nutrients and sensory intake taken into account.",,,,
-svc_boltzmann_brain,WEAPON,"A spontaneously manifesting brain is launched towards the enemy, spewing electropsionic EMP blasts as it comes closer, which fries the brain in the process.",,,,
-svc_worm_colony_large,WEAPON,"Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth. When phaseworms collide with an enemy ship they creep on board, wreaking havoc among the crew and sensitive systems.",,,,
-svc_worm_colony_small,WEAPON,"Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth. When phaseworms collide with an enemy ship they creep on board, wreaking havoc among the crew and sensitive systems.",,,,
-svc_bioplasma_large,WEAPON,"This symbiote has the ability to fire balls of slime that have been superheated to a plasmic state. These balls are fired in pairs, which are tethered together via some sort of slime cord, resulting in rather erratic, bola-like, projectile movement.",,,,
-,,,,,,
-svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal to attacks.",,,,
-svc_aggressive_pheromones,SHIP_SYSTEM,Increases speed and fire rate for all allies in a large area around Lephantis.,,,,
-svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasumbilical cord to an enemy, diverting a part of the damage taken to the enemy. Will break if the enemy moves out of range.",,,,
-svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,
-svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,
-svc_torid_drones,SHIP_SYSTEM,Releases a defensive Torid drone to protect its host.,,,,
-parry,SHIP_SYSTEM,"Reflects all projectiles and unguided missiles for a brief time. Can only parry a certain amount of damage, based on OP. Once that threshold is exceeded, projectiles get stopped rather than parried.",,,,
-svc_biomemetism,SHIP_SYSTEM,Impossibly swift neural connections let the creature experience time differently enabling lightning-fast reflexes.,,,,
-svc_phasesubmerge,SHIP_SYSTEM,By unknown means the creature is able to enter p-space.,,,,
-svc_skip_swim,SHIP_SYSTEM,  ,,,,
-,,,,,,
+Rapidly regrows fangs which are then accelerated by powerful muscles through a puzzling mechanism, somehow matching or even exceeding modern needler designs.",,,,,
+svc_inksac,WEAPON,"This organic gland produces and stores an odd chemical capable of heavy foaming on rapid energy transfer. Such ink like material is capable of dissipating large amounts of energy and can choke out most conventional technology, significantly reducing the effectiveness of beams, causing missile engines to flame out and even being able to slightly reduce the impact of energy projectiles. Mounting on a ship is possible with proper precautions like nutrients and sensory intake taken into account.",,,,,
+svc_boltzmann_brain,WEAPON,"A spontaneously manifesting brain is launched towards the enemy, spewing electropsionic EMP blasts as it comes closer, which fries the brain in the process.",,,,,
+svc_worm_colony_large,WEAPON,"Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth. When phaseworms collide with an enemy ship they creep on board, wreaking havoc among the crew and sensitive systems.",,,,,
+svc_worm_colony_small,WEAPON,"Numerous phaseworms call this growth their home and they will protect their host fiercely. The nest looks somewhat like wasp hives from Old-Earth. When phaseworms collide with an enemy ship they creep on board, wreaking havoc among the crew and sensitive systems.",,,,,
+svc_bioplasma_large,WEAPON,"This symbiote has the ability to fire balls of slime that have been superheated to a plasmic state. These balls are fired in pairs, which are tethered together via some sort of slime cord, resulting in rather erratic, bola-like, projectile movement.",,,,,
+,,,,,,,
+svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal to attacks.",,,,,
+svc_aggressive_pheromones,SHIP_SYSTEM,Increases speed and fire rate for all allies in a large area around Lephantis.,,,,,
+svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasumbilical cord to an enemy, diverting a part of the damage taken to the enemy. Will break if the enemy moves out of range.",,,,,
+svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,,
+svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,,
+svc_torid_drones,SHIP_SYSTEM,Releases a defensive Torid drone to protect its host.,,,,,
+parry,SHIP_SYSTEM,"Reflects all projectiles and unguided missiles for a brief time. Can only parry a certain amount of damage, based on OP. Once that threshold is exceeded, projectiles get stopped rather than parried.",,,,,
+svc_biomemetism,SHIP_SYSTEM,Impossibly swift neural connections let the creature experience time differently enabling lightning-fast reflexes.,,,,,
+svc_phasesubmerge,SHIP_SYSTEM,By unknown means the creature is able to enter p-space.,,,,,
+svc_skip_swim,SHIP_SYSTEM,  ,,,,,
+,,,,,,,
 svc_arbiter,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
-(placeholder description)",,,,
-svc_embolist,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,
-svc_hemalisk,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,
+(placeholder description)",,,,,
+svc_embolist,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,,
+svc_hemalisk,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,,
 svc_keratinos,SHIP,"These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
-(placeholder description)",,,,
-svc_lephantis,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce and store potent pheromones. These pheromones serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,
-svc_pupacyst,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Torid paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,
+(placeholder description)",,,,,
+svc_lephantis,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce and store potent pheromones. These pheromones serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,,
+svc_pupacyst,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Torid paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,,
 svc_toxocyst,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
 
 After overwhelming the seemingly biomechanical, frigate sized creature and recovering its remains, the scientists present identified organs with functions similar to phase coils. Truly a marvel of evolution and a great mystery to be explored. 
 
-Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,
-,,,,,,
+Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,,
+,,,,,,,
 svc_arbiter_evo1,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
-(placeholder description)",,,,
-svc_embolist_evo1,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,
-svc_hemalisk_evo1,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,
+(placeholder description)",,,,,
+svc_embolist_evo1,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,,
+svc_hemalisk_evo1,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,,
 svc_keratinos_evo1,SHIP,"These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
-(placeholder description)",,,,
-svc_lephantis_evo1,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce and store potent pheromones. These pheromones serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,
+(placeholder description)",,,,,
+svc_lephantis_evo1,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce and store potent pheromones. These pheromones serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,,
 svc_pupacyst_evo1,SHIP,"Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,
+(placeholder description)",,,,,
 svc_toxocyst_evo1,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
 
 After overwhelming the seemingly biomechanical, frigate sized creature and recovering its remains, the scientists present identified organs with functions similar to phase coils. Truly a marvel of evolution and a great mystery to be explored. 
 
-Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,
-,,,,,,
+Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,,
+,,,,,,,
 svc_arbiter_evo2,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
-(placeholder description)",,,,
-svc_embolist_evo2,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,
-svc_hemalisk_evo2,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,
+(placeholder description)",,,,,
+svc_embolist_evo2,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,,
+svc_hemalisk_evo2,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,,
 svc_keratinos_evo2,SHIP,"These gigantic creatures guard breeding grounds but are sometimes seen hunting together with other Voidlings.
-(placeholder description)",,,,
+(placeholder description)",,,,,
 svc_pupacyst_evo2,SHIP,"Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,
+(placeholder description)",,,,,
 svc_toxocyst_evo2,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
 
 After overwhelming the seemingly biomechanical, frigate sized creature and recovering its remains, the scientists present identified organs with functions similar to phase coils. Truly a marvel of evolution and a great mystery to be explored. 
 
-Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,
-,,,,,,
+Even to this day these creatures remain elusive at best and most think they are but fabricated fables to keep people out of the scavenge-filled fringes.",,,,,
+,,,,,,,
 svc_arbiter_dark,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-...""
-  - [End of log]", - [End of log],,,
+  - [End of log]", - [End of log],,,,
 svc_embolist_dark,SHIP,"""The larvae have not yet finished growing and need to keep their host alive. So although they feast on the caterpillar's blood, they have been careful not to touch a single one of its vital organs.""
-  - Old Earth Documentary", - Old Earth Documentary,,,
+  - Old Earth Documentary", - Old Earth Documentary,,,,
 svc_hemalisk_dark,SHIP,"""That's impossible! Nothing shrugs off a Reaper like it's nothing! Accuracy must be off...Check weapon systems again!""
-  - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,
+  - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,,
 svc_keratinos_dark,SHIP,"""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities are off the charts. Urgent: Report results to ... ""
-  - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,
+  - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,,
 svc_lephantis_dark,SHIP,"""Gaze upon the intricacies of creation, a reflection of the balance woven into realities canvas. To tamper with the threads of life is to challenge the harmony crafted by the Creator, sowing discord in the symphony of being.""
-  - Book of Ludd, Nature 6:3"," - Book of Ludd, Nature 6:3",,,
+  - Book of Ludd, Nature 6:3"," - Book of Ludd, Nature 6:3",,,,
 svc_pupacyst_dark,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,
+(placeholder description)",,,,,
 svc_toxocyst_dark,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""
-  - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,
-,,,,,,
+  - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,,
+,,,,,,,
 svc_arbiter_dark_evo1,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-...""
-  - [End of log]", - [End of log],,,
+  - [End of log]", - [End of log],,,,
 svc_embolist_dark_evo1,SHIP,"""The larvae have not yet finished growing and need to keep their host alive. So although they feast on the caterpillar's blood, they have been careful not to touch a single one of its vital organs.""
-  - Old Earth Documentary", - Old Earth Documentary,,,
+  - Old Earth Documentary", - Old Earth Documentary,,,,
 svc_hemalisk_dark_evo1,SHIP,"""That's impossible! Nothing shrugs off a Reaper like it's nothing! Accuracy must be off...Check weapon systems again!""
-  - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,
+  - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,,
 svc_keratinos_dark_evo1,SHIP,"""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities are off the charts. Urgent: Report results to ... ""
-  - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,
+  - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,,
 svc_lephantis_dark_evo1,SHIP,"""Gaze upon the intricacies of creation, a reflection of the balance woven into realities canvas. To tamper with the threads of life is to challenge the harmony crafted by the Creator, sowing discord in the symphony of being.""
-  - Book of Ludd, Nature 6:3"," - Book of Ludd, Nature 6:3",,,
+  - Book of Ludd, Nature 6:3"," - Book of Ludd, Nature 6:3",,,,
 svc_pupacyst_dark_evo1,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,
+(placeholder description)",,,,,
 svc_toxocyst_dark_evo1,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""
-  - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,
-,,,,,,
+  - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,,
+,,,,,,,
 svc_arbiter_dark_evo2,SHIP,"""Log 4 on subject A2 type C... Out of 27 captured samples 20 have perished of natural cause. It seems extended separation from the symbiote causes extreme stress on these creatures making them to emit a high pitch screech far beyo-  w-what's going o-...""
-  - [End of log]", - [End of log],,,
+  - [End of log]", - [End of log],,,,
 svc_embolist_dark_evo2,SHIP,"""The larvae have not yet finished growing and need to keep their host alive. So although they feast on the caterpillar's blood, they have been careful not to touch a single one of its vital organs.""
-  - Old Earth Documentary", - Old Earth Documentary,,,
+  - Old Earth Documentary", - Old Earth Documentary,,,,
 svc_hemalisk_dark_evo2,SHIP,"""That's impossible! Nothing shrugs off a Reaper like it's nothing! Accuracy must be off...Check weapon systems again!""
-  - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,
+  - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,,
 svc_keratinos_dark_evo2,SHIP,"""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities are off the charts. Urgent: Report results to ... ""
-  - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,
+  - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,,
 svc_pupacyst_dark_evo2,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,
+(placeholder description)",,,,,
 svc_toxocyst_dark_evo2,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""
-  - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,
-,,,,,,
-svc_scoliac,SHIP,"”So, don’t believe anyone who says that since nature is based on a struggle for life, we need to live like this as well. 
-Many animals survive not by eliminating each other or keeping everything for themselves, but by cooperating and sharing. This applies most definitely to pack hunters, such as wolves or killer whales [...].”
-"," - Frans de Waal, Galatia Academy Xeno-Sociologist",,,
-svc_scoliac_tail,SHIP,"”So, don’t believe anyone who says that since nature is based on a struggle for life, we need to live like this as well. 
-Many animals survive not by eliminating each other or keeping everything for themselves, but by cooperating and sharing. This applies most definitely to pack hunters, such as wolves or killer whales [...].”"," - Frans de Waal, Galatia Academy Xeno-Sociologist",,,
-,,,,,,
-svc_mios,SHIP,Mios drones seem to be closely related to Embolist void creatures judging by their general appearance. Perhaps they are a larval form nurtured by surrogate ceatures which would make sense given the Embolist's parasitic nature.,,,,
-svc_pox,SHIP,Pox are basically just a nervous system attached to 2 chemical-filled sacs that explode when these chemicals come into contact with each other. These lesser voidlings are controlled entirely by their mother organism suggesting they're capable of some kind of telepathy.,,,,
-svc_torid,SHIP,This species is capable of producing and projecting a large amount of ink-like material. The esoteric digestive system required to accomplish this feat cements its reliance on larger symbiotes.,,,,
-svc_phage,SHIP,Phage are little more than sinewy sacs of potent acid. If one had to choose it would probably fit into the bomber role.,,,,
-,,,,,,
+  - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,,
+,,,,,,,
+svc_scoliac,SHIP,"""So, don’t believe anyone who says that since nature is based on a struggle for life, we need to live like this as well. Many animals survive not by eliminating each other or keeping everything for themselves, but by cooperating and sharing. This applies most definitely to pack hunters, such as wolves or killer whales [...].""
+  - Frans de Waal, Galatia Academy Xeno-Sociologist",,,,,
+svc_scoliac_tail,SHIP,"""So, don’t believe anyone who says that since nature is based on a struggle for life, we need to live like this as well. Many animals survive not by eliminating each other or keeping everything for themselves, but by cooperating and sharing. This applies most definitely to pack hunters, such as wolves or killer whales [...].""
+  - Frans de Waal, Galatia Academy Xeno-Sociologist",,,,,
+,,,,,,,
+svc_mios,SHIP,Mios drones seem to be closely related to Embolist void creatures judging by their general appearance. Perhaps they are a larval form nurtured by surrogate ceatures which would make sense given the Embolist's parasitic nature.,,,,,
+svc_pox,SHIP,Pox are basically just a nervous system attached to 2 chemical-filled sacs that explode when these chemicals come into contact with each other. These lesser voidlings are controlled entirely by their mother organism suggesting they're capable of some kind of telepathy.,,,,,
+svc_torid,SHIP,This species is capable of producing and projecting a large amount of ink-like material. The esoteric digestive system required to accomplish this feat cements its reliance on larger symbiotes.,,,,,
+svc_phage,SHIP,Phage are little more than sinewy sacs of potent acid. If one had to choose it would probably fit into the bomber role.,,,,,
+,,,,,,,
 svc_stjarwhal_calf,SHIP,"This titanic organism is part of a relatively unknown species of cosmic protozoa, commonly mistaken for ""space whales"" which is an ancient spacer myth that started during the early expansion epoch. This individual is a pup of its species, as indicated by the size and shape. During this stage in its life cicle it has evolved neither male nor female attributes.
 
 Stjarwhals are peaceful filter-feeders, relying on their huge body size and numbers to drive off predators while the larger ones protect the young. They are highly intelligent and social creatures, similar to old-earth dolphin species. The whales have been observed to recognize people on spaceships they've encountered before and will act according to they treated them in previous encounters. Stjarwhals even travel alongside fleets whose captain they deem friendly.
 
-So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,
+So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,,
 svc_stjarwhal,SHIP,"This titanic organism is part of a relatively unknown species of cosmic protozoa, commonly mistaken for ""space whales"" which is an ancient spacer myth that started during the early expansion epoch. This individual is a female adult of its species, also called a cow.
 
 Stjarwhals are peaceful filter-feeders, relying on their huge body size and numbers to drive off predators while the larger ones protect the young. They are highly intelligent and social creatures, similar to old-earth dolphin species. The whales have been observed to recognize people on spaceships they've encountered before and will act according to they treated them in previous encounters. Stjarwhals even travel alongside fleets whose captain they deem friendly.
 
-So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,
+So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,,
 svc_stjarwhal_bull,SHIP,"This titanic organism is part of a relatively unknown species of cosmic protozoa, commonly mistaken for ""space whales"" which is an ancient spacer myth that started during the early expansion epoch. This individual is a male adult of its species, as indicated by the size and shape. 
 
 Stjarwhals are peaceful filter-feeders, relying on their huge body size and numbers to drive off predators while the larger ones protect the young. They are highly intelligent and social creatures, similar to old-earth dolphin species. The whales have been observed to recognize people on spaceships they've encountered before and will act according to they treated them in previous encounters. Stjarwhals even travel alongside fleets whose captain they deem friendly.
 
-So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,
-,,,,,,
-svc_booze_c,RESOURCE,A vile concoction made from Stjarwhal tails and other bits of creatures found in the void. Strawberry flavour.,"Decreases fuel use and impact of hyperspace storms and coronas, increases maintenance supply use and sensor profile.",,,
+So far nobody has been able to identify what these gigantic unicelled organisms are filtering from the void to feed on or how they are able to recognize humans behind thick walls of armour on spaceships. They ""swim"" around in space through a fascinatingly complex method that seems impossible by contemporary scientific knowledge which even gives them hyperspace capability, where herds of whales can be encountered most commonly.",,,,,
+,,,,,,,
+svc_booze_c,RESOURCE,A vile concoction made from Stjarwhal tails and other bits of creatures found in the void. Strawberry flavour.,"Decreases fuel use and impact of hyperspace storms and coronas, increases maintenance supply use and sensor profile.",,,,
