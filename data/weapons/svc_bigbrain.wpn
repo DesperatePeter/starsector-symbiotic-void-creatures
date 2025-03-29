@@ -1,0 +1,68 @@
+{
+  "id": "svc_bigbrain",
+  "specClass": "projectile",
+  "projectileSpecId": "svc_bigbrain_shot",
+  "type": "ENERGY",
+  "size": "LARGE",
+  "turretSprite": "graphics/weapons/svc_bigbrain_gun_turret.png",
+  "turretGlowSprite": "graphics/weapons/svc_bigbrain_gun_turret_glow.png",
+  "hardpointSprite": "graphics/weapons/svc_bigbrain_gun_hardpoint.png",
+  "hardpointGlowSprite": "graphics/weapons/svc_bigbrain_gun_hardpoint_glow.png",
+  "glowColor": [
+    255,
+    100,
+    100,
+    255
+  ],
+  "turretOffsets": [
+    17.5,
+    -10.5,
+    17.5,
+    10.5,
+    8.5,
+    12,
+    8.5,
+    -12
+  ],
+  "turretAngleOffsets": [
+    -20,
+    20,
+    45,
+    -45
+  ],
+  "hardpointOffsets": [
+    37.5,
+    -10,
+    37.5,
+    10,
+    28.5,
+    11,
+    28.5,
+    -11
+  ],
+  "hardpointAngleOffsets": [
+    -20,
+    20,
+    45,
+    -45
+  ],
+  "barrelMode": "DUAL",
+  "animationType": "GLOW_AND_FLASH",
+  "autocharge": true,
+  "requiresFullCharge": false,
+  "muzzleFlashSpec": {
+    "length": 23,
+    "spread": 5,
+    "particleSizeMin": 10,
+    "particleSizeRange": 12,
+    "particleDuration": 0.12,
+    "particleCount": 12,
+    "particleColor": [
+      255,
+      100,
+      100,
+      255
+    ]
+  },
+  "fireSoundTwo": "ir_pulse_laser_fire"
+}
