@@ -12,16 +12,19 @@ import com.fs.starfarer.api.campaign.rules.MemoryAPI
 import com.fs.starfarer.api.combat.BattleCreationContext
 import com.fs.starfarer.api.combat.EngagementResultAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
+import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl
 import com.fs.starfarer.api.util.Misc
 import org.lwjgl.input.Keyboard
 import org.lwjgl.opengl.GL11
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
+import tecrys.svc.listeners.MastermindFIDConf
 import tecrys.svc.shipsystems.spooky.gui.spookyColor
+import tecrys.svc.utils.CampaignSettingDelegate
 import java.awt.Color
 import java.util.*
 import kotlin.random.Random
 
-class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?): InteractionDialogPlugin {
+class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?): FleetInteractionDialogPluginImpl(MastermindFIDConf().createConfig()) {
 
     companion object{
         enum class Stage{
@@ -31,6 +34,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         fun showDummy(mFleet: CampaignFleetAPI?){ // for testing only, might crash the game!
             Global.getSector()?.campaignUI?.showInteractionDialog(MastermindInteractionDialog(mFleet), mFleet)
         }
+        private var isFirstEncounter by CampaignSettingDelegate("\$svc_mastermindInteractionDialogFirstEncounter", true)
+        private var shouldDelegateOptions by CampaignSettingDelegate("\$svc_mastermindInteractionDialogDelegateOptions", false)
     }
 
     interface RunnableOptionData{
@@ -45,6 +50,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     private var playerMembersPreEncounter : List<FleetMemberAPI>? = Global.getSector().playerFleet.fleetData.membersListCopy
 
     override fun init(dialog: InteractionDialogAPI?) {
+        if(!isFirstEncounter) return super.init(dialog)
         this.dialog = dialog
         textPanel = dialog?.textPanel
         visualPanel = dialog?.visualPanel
@@ -59,15 +65,11 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     }
 
     override fun optionSelected(optionText: String?, optionData: Any?) {
+        if(shouldDelegateOptions) return super.optionSelected(optionText, optionData)
         textPanel?.addParagraph(optionText, Color.YELLOW)
         (optionData as? RunnableOptionData)?.execute()
+        if(shouldDelegateOptions) return
         populateOptions()
-    }
-
-    override fun optionMousedOver(optionText: String?, optionData: Any?) {
-    }
-
-    override fun advance(amount: Float) {
     }
 
     override fun backFromEngagement(battleResult: EngagementResultAPI?) {
@@ -86,10 +88,6 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     }
 
-    override fun getContext(): Any? = null
-
-    override fun getMemoryMap(): MutableMap<String, MemoryAPI> = mutableMapOf()
-
     private fun populateText(){
         when(stage){
             Stage.INITIAL -> populateInitialText()
@@ -105,11 +103,13 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     private fun populateOptions(){
         optionPanel?.clearOptions()
+        val superInit = { super.init(dialog)}
         when(stage){
             Stage.INITIAL -> {
                 optionPanel?.addOption("Try to focus your mind on the thought.", object : RunnableOptionData{
                     override fun execute() {
                         stage = Stage.INTRO
+                        isFirstEncounter = false
                         populateText()
                     }
                 })
@@ -117,7 +117,10 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             Stage.INTRO -> {
                 optionPanel?.addOption("Engage the mysterious entity", object : RunnableOptionData{
                     override fun execute() {
-                        dialog?.startBattle(BattleCreationContext(Global.getSector().playerFleet, null, mastermindFleet, null))
+                        // dialog?.startBattle(BattleCreationContext(Global.getSector().playerFleet, null, mastermindFleet, null))
+                        dialog?.optionPanel?.clearOptions()
+                        shouldDelegateOptions = true
+                        superInit()
                     }
                 })
                 val disableTelepathy = object : RunnableOptionData {

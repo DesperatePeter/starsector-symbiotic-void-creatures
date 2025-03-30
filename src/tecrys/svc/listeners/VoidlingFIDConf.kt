@@ -35,10 +35,10 @@ class VoidlingFIDConf: FIDConfigGen {
 //    }
 //}
 //
-//class MastermindFIDConf: FIDConfigGen{
-//    override fun createConfig(): FIDConfig {
-//        val config = VoidlingFIDConf().createConfig()
-//        config.noSalvageLeaveOptionText
-//        return config
-//    }
-//}
+class MastermindFIDConf: FIDConfigGen{
+    override fun createConfig(): FIDConfig {
+        val config = VoidlingFIDConf().createConfig()
+        config.noSalvageLeaveOptionText
+        return config
+    }
+}
