@@ -11,6 +11,7 @@ import com.fs.starfarer.api.campaign.VisualPanelAPI
 import com.fs.starfarer.api.campaign.rules.MemoryAPI
 import com.fs.starfarer.api.combat.BattleCreationContext
 import com.fs.starfarer.api.combat.EngagementResultAPI
+import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.util.Misc
 import org.lwjgl.input.Keyboard
 import org.lwjgl.opengl.GL11
@@ -41,6 +42,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     private var visualPanel: VisualPanelAPI? = null
     private var optionPanel: OptionPanelAPI? = null
     private var stage = Stage.INITIAL
+    private var playerMembersPreEncounter : List<FleetMemberAPI>? = Global.getSector().playerFleet.fleetData.membersListCopy
+
     override fun init(dialog: InteractionDialogAPI?) {
         this.dialog = dialog
         textPanel = dialog?.textPanel
