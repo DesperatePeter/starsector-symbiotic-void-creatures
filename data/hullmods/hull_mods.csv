@@ -28,3 +28,4 @@ Shell Vulcanization,svc_shell_vulcanization,,,Biological,defensive,Defenses,7000
 Whale Tail Cocktail,svc_booze,,,,,,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,"Pirate spirit in a barrel, in the truest sense of the phrase. Unsurprisingly, there is no fixed recipe when distilling whatever drugs they have lying around.",Distilled Recreational Drugs,,graphics/icons/svc_booze.png
 Scoliac Tail,svc_scoliac_tail_turner,,,,,,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.ScoliacModuleTurner,"The Scoliac can rotate it's tail in a 360° arc to attack its foes.
 The tail will try to face the ship target if available, otherwise the closest enemy.",A rotating tail.,,graphics/hullmods/carapace.png
+Genetic Diversity,svc_rdm_stats,,,Biological,"no_drop, no_drop_salvage",Special,,TRUE,,,0,0,0,0,tecrys.svc.hullmods.SvcRdmTestHullmod,%s,,,graphics/hullmods/genetics.png
