@@ -34,7 +34,7 @@ class VoidlingFIDConf: FIDConfigGen {
 //        return super.getString(id)
 //    }
 //}
-//
+
 class MastermindFIDConf: FIDConfigGen{
     override fun createConfig(): FIDConfig {
         val config = VoidlingFIDConf().createConfig()

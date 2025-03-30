@@ -1,5 +1,9 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sModDesc,sprite
-Void Carapace,BGECarapace,,,Biological,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"Void Creatures take %s reduced damage if weapons fire
+Void Carapace,BGECarapace,,,Biological,"defensive, no_drop, no_drop_salvage","Special, Defenses",,,TRUE,,0,0,0,0,tecrys.svc.hullmods.BGECarapace,"%s
+
+%s
+
+Void Creatures take %s reduced damage if weapons fire
 is able to break through their carapace and they regenerate quickly if wounded or limbs are damaged.
 They also seem to be unaffected by ship explosions.
 
@@ -20,7 +24,7 @@ Current relation: %s",,,graphics/hullmods/stjarwhal.png
 ,,,,,,,,,,,,,,,,,,,
 Static Acidity,svc_acid_blood_hm,,,Biological,defensive,Defenses,4000,,,,4,8,12,18,tecrys.svc.hullmods.AcidicBlood,After taking damage has a chance of unleashing an acidic jolt dealing %s/%s/%s/%s/%s damage depending on hull size.,Shoot a super acidic jolt to defend against small threats.,,graphics/hullmods/acidarc.png
 Voidling Infestation,svc_infestation_hm,,,Biological,"special, req_spaceport","Special, Requires Dock",6000,,,,5,10,15,25,tecrys.svc.hullmods.VoidlingInfestation,After losing more than half hull spawns %s/%s/%s/%s/%s Mios Voidlings depending on hull size. The Voidlings last for 30 seconds.,A Nest of small Voidlings has settled between armor plates.,,graphics/hullmods/voidlinginfest.png
-Void Fins,svc_no_fuel_hm,,,Biological,"req_spaceport, engines","Logistics, Requires Dock",3500,,TRUE,,3,6,9,15,tecrys.svc.hullmods.VoidFins,Void Creatures do not nee antimatter fuel to travel through Hyperspace.,Effortlessly move through Hyperspace.,,graphics/hullmods/voidfins.png
+Void Fins,svc_no_fuel_hm,,,Biological,"req_spaceport, engines","Logistics, Requires Dock",3500,,TRUE,TRUE,3,6,9,15,tecrys.svc.hullmods.VoidFins,Void Creatures do not need antimatter fuel to travel through Hyperspace.,Effortlessly move through Hyperspace.,,graphics/hullmods/voidfins.png
 Harmonizing Pheromone Glands,svc_more_alphas_hm,,,Biological,special,Special,8000,,,,10,15,20,30,tecrys.svc.hullmods.BiologicalBaseHullmod,A selective mutation modifying the creatures pheromone glands. Instead of reducing CR by %s for each Alpha in your fleet it is only reduced by %s .,You can field more than one Alpha Voidling.,This Alpha Voidling does not count against the limit of only one Alpha per fleet.,graphics/hullmods/morevoid.png
 Defensive Blood Clotting,svc_overdamage_res_hm,,,Biological,defensive,Defenses,5000,,,,8,16,24,40,tecrys.svc.hullmods.DefensiveBloodClotting,"The voidling blood hardens after experiencing physical trauma, reducing consequent damage. Reduces damage by up to %s after taking at least %s damage (maximum effect at %s) in a short time frame. The damage reduction decays from maximum to 0 within %s seconds.",Protects from burst damage.,,graphics/hullmods/bloodclot.png
 Shell Vulcanization,svc_shell_vulcanization,,,Biological,defensive,Defenses,7000,,,,6,12,18,24,tecrys.svc.hullmods.ShellVulcanization,Spontaneously softens the creature's shell in order to increase the Precognitive Parry window by %s. Increases armor damage taken by %s. Increases parryable damage by %s.,,,graphics/hullmods/shellvulcanization.png
@@ -28,4 +32,3 @@ Shell Vulcanization,svc_shell_vulcanization,,,Biological,defensive,Defenses,7000
 Whale Tail Cocktail,svc_booze,,,,,,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,"Pirate spirit in a barrel, in the truest sense of the phrase. Unsurprisingly, there is no fixed recipe when distilling whatever drugs they have lying around.",Distilled Recreational Drugs,,graphics/icons/svc_booze.png
 Scoliac Tail,svc_scoliac_tail_turner,,,,,,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.ScoliacModuleTurner,"The Scoliac can rotate it's tail in a 360° arc to attack its foes.
 The tail will try to face the ship target if available, otherwise the closest enemy.",A rotating tail.,,graphics/hullmods/carapace.png
-Genetic Diversity,svc_rdm_stats,,,Biological,"no_drop, no_drop_salvage",Special,,TRUE,,,0,0,0,0,tecrys.svc.hullmods.SvcRdmTestHullmod,%s,,,graphics/hullmods/genetics.png
