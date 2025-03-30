@@ -65,14 +65,17 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     }
 
     override fun optionSelected(optionText: String?, optionData: Any?) {
-        if(shouldDelegateOptions) return super.optionSelected(optionText, optionData)
-        textPanel?.addParagraph(optionText, Color.YELLOW)
-        (optionData as? RunnableOptionData)?.execute()
-        if(shouldDelegateOptions) return
-        populateOptions()
+        (optionData as? RunnableOptionData)?.let { opt ->
+            textPanel?.addParagraph(optionText, Color.YELLOW)
+            opt.execute()
+        } ?: super.optionSelected(optionText, optionData)
+        if(!shouldDelegateOptions) populateOptions()
     }
 
     override fun backFromEngagement(battleResult: EngagementResultAPI?) {
+        val isMastermindAlive = mastermindFleet?.membersWithFightersCopy?.any {
+            it.variant.hullVariantId == "svc_mastermind_standard"
+        } ?: false
         stage = Stage.POST_BATTLE
         if(Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] == true){
             populateSubmissionText()
@@ -80,9 +83,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         }
         battleResult?.let { br ->
             val enemyFleet = if(br.didPlayerWin()) br.loserResult.fleet else br.winnerResult.fleet
-            val isMastermindAlive = enemyFleet.membersWithFightersCopy.any {
-                it.variant.hullVariantId == "svc_mastermind_standard"
-                }
+
             
         }
 
