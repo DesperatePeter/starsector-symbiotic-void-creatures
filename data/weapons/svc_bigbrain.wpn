@@ -4,14 +4,13 @@
   "projectileSpecId": "svc_bigbrain_shot",
   "type": "ENERGY",
   "size": "LARGE",
+	#"onFireEffect":"tecrys.svc.weapons.scripts.Brainhelix",  
   "turretSprite": "graphics/weapons/svc_bigbrain_gun_turret.png",
   "turretGlowSprite": "graphics/weapons/svc_bigbrain_gun_turret_glow.png",
   "hardpointSprite": "graphics/weapons/svc_bigbrain_gun_hardpoint.png",
   "hardpointGlowSprite": "graphics/weapons/svc_bigbrain_gun_hardpoint_glow.png",
   "glowColor": [
-    255,
-    100,
-    100,
+140, 27, 186,
     255
   ],
   "turretOffsets": [
@@ -47,22 +46,10 @@
     -45
   ],
   "barrelMode": "DUAL",
-  "animationType": "GLOW_AND_FLASH",
+  "animationType": "GLOW",
+  "convergeOnPoint": true,
   "autocharge": true,
   "requiresFullCharge": false,
-  "muzzleFlashSpec": {
-    "length": 23,
-    "spread": 5,
-    "particleSizeMin": 10,
-    "particleSizeRange": 12,
-    "particleDuration": 0.12,
-    "particleCount": 12,
-    "particleColor": [
-      255,
-      100,
-      100,
-      255
-    ]
-  },
-  "fireSoundTwo": "ir_pulse_laser_fire"
+
+  #"fireSoundTwo": "svc_brain_loop"
 }

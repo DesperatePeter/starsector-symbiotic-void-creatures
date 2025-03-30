@@ -1,16 +1,18 @@
 {
 	"id":"svc_bigbrain_shot",
 	"specClass":"projectile",
+	#"everyFrameEffect":"tecrys.svc.weapons.scripts.Brainhelix",  
 	"spawnType":"BALLISTIC_AS_BEAM",
 	"collisionClass":"RAY",
 	"collisionClassByFighter":"RAY_FIGHTER",
-	"length":70.0,
+	"length":100.0,
 	"width":11.0,
 	"fadeTime":0.25,
-	"fringeColor":[200,0,0,255],
-	"coreColor":[255,200,200,200],
-	"textureType":"SMOOTH",  # only needed for BEAM spawnType
-	#"textureType":["graphics/fx/emp_arcs.png","graphics/fx/emp_arcs.png"],
-	"textureScrollSpeed":-256.0,
-	"pixelsPerTexel":1.0
+	"fringeColor":[140, 27, 186,255],
+	"coreColor":[204, 39, 211,200],
+	"darkCore": true,
+	#"textureType":"SMOOTH",  # only needed for BEAM spawnType
+	"textureType":["graphics/fx/svc_lightning_beam.png","graphics/fx/svc_lightning_beam.png"],
+	"textureScrollSpeed":-56.0,
+	"pixelsPerTexel":10000.0
 }

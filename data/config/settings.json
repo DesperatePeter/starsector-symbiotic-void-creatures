@@ -30,7 +30,8 @@
 			"mastermind_encounter_dialog": "graphics/backgrounds/BGE.jpg"
 		},
 		"fx": {
-			"svc_tentacle_trail": "graphics/fx/svc_tentacle_trail.png"
+			"svc_tentacle_trail": "graphics/fx/svc_tentacle_trail.png",
+			"brain_beam": "graphics/fx/svc_lightning_beam.png",
 		},
 				"intel":{
 			"whale_intel": "graphics/icons/whale_intel.png",

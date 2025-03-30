@@ -34,6 +34,10 @@
 		{"file":"sounds/svc_Roar7.ogg","pitch":2.0,"volume":0.1},
 
 	],
+	"svc_brain_loop":[
+		{"file":"sounds/avc_brain_loop.ogg","pitch":1.0,"volume":0.2},
+
+	],
 
 	"svc_system_parry":[
 		{"file":"sounds/parry.ogg","pitch":1.8,"volume":0.03},
