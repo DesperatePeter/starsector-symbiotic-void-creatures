@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Stats;
 import com.fs.starfarer.api.impl.campaign.ids.Tags;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+import tecrys.svc.shipsystems.utils.VoidlingShroud;
 
 public class PhaseSubmergeStats extends BaseShipSystemScript {
 
@@ -372,6 +373,7 @@ public class PhaseSubmergeStats extends BaseShipSystemScript {
                     stats.getMaxSpeed().unmodifyMult(id + "_2");
                 }
                 ((PhaseCloakSystemAPI)cloak).setMinCoilJitterLevel(getDisruptionLevel(ship));
+
             }
         }
 

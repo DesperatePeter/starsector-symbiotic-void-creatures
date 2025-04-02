@@ -1,4 +1,5 @@
 package tecrys.svc.hullmods
+
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
@@ -6,19 +7,19 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
-import com.fs.starfarer.api.impl.campaign.ids.Stats
-
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.SVC_BASE_HULLMOD_ID
 import tecrys.svc.hullmods.listeners.ReduceExplosionListener
+import tecrys.svc.shipsystems.utils.VoidlingShroud
 import tecrys.svc.utils.removeDMods
 import java.awt.Color
+
 class BGECarapace : BaseHullMod() {
     companion object{
         private const val ENGINE_DAMAGE_TAKEN = 0.15f
-        private const val HULL_RESISTANCE = 30f
+        private const val HULL_RESISTANCE = 10f
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
         private const val POWER_SCALING_MIN_POWER = 0.6f
@@ -44,8 +45,8 @@ class BGECarapace : BaseHullMod() {
             hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.5f)
             maxCombatHullRepairFraction.modifyFlat(id, 1f)
             zeroFluxSpeedBoost.modifyMult(id, 0f)
-            dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
-            dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
+//            dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
+//            dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
             minCrewMod.modifyMult(id, 0f)
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
@@ -76,6 +77,10 @@ class BGECarapace : BaseHullMod() {
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         modifyPowerLevel(ship)
         hideControlCollarIfNotPlayer(ship)
+        ship.setExplosionScale(0.001f)
+        ship.setNoDamagedExplosions(true);
+        ship.setShipCollisionSoundOverride("dweller_collision_ships");
+        ship.setAsteroidCollisionSoundOverride("dweller_collision_asteroid_ship");
 /*        ship.captain?.setPersonality("reckless")*/
         erraticPropulsion.advanceInCombat(ship, amount)
     }
@@ -103,6 +108,16 @@ class BGECarapace : BaseHullMod() {
         ship.addListener(ReduceExplosionListener())
         ship.setCustomData("AGC_ApplyCustomShipModes", listOf("Charge"))
         ship.setCustomData("AGC_ApplyCustomOptions", mapOf("svc_inksac" to listOf("BlockBeams", "PrioMissile")))
+
+
+//		stats.getHullDamageTakenMult().unmodify(id);
+//		stats.getArmorDamageTakenMult().unmodify(id);
+//		stats.getEmpDamageTakenMult().unmodify(id);
+        if (ship.hullSpec.baseHullId.startsWith("svc_tox") || ship.hullSpec.baseHullId.startsWith("svc_mas")) {
+            var shroud = VoidlingShroud.getShroudFor(ship)
+            if (shroud == null) shroud = VoidlingShroud(ship)
+        }
+
     }
     private fun removeIncompatibleHullmods(variant: ShipVariantAPI){
         variant.removeDMods()

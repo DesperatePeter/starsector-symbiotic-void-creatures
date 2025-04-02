@@ -2,15 +2,19 @@
   "hullName": "Bahkauv",
   "hullId": "svc_mastermind",
   "hullSize": "CAPITAL_SHIP",
-  "spriteName": "graphics/weapons/animated/trans_fin_right_tiny/zzzMastermind.png",
+  "spriteName": "graphics/ships/Mastermind.png",
   "style": "BIOLOGICAL",
-  "height": 340,
-  "width": 495,
+  "height": 338,
+  "width": 494,
   "center": [247, 192],
   "collisionRadius": 260.5,
   "shieldCenter": [0, -0],
   "shieldRadius": 254,
   "viewOffset": 0,
+  "builtInMods": [
+    "BGECarapace",
+    "svc_no_fuel_hm"
+  ],
   "weaponSlots": [
     {
       "id": "WS0001",
