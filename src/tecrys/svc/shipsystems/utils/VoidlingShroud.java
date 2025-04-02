@@ -12,8 +12,8 @@ import java.awt.*;
 
 public class VoidlingShroud extends RoilingSwarmEffect {
 
-    public static Color SHROUD_COLOR = new Color(170, 100, 25, 255);
-    public static Color SHROUD_GLOW_COLOR = new Color(130, 80, 30, 255);
+    public static Color SHROUD_COLOR = new Color(151, 170, 25, 255);
+    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 255);
 
     public static interface VoidlingShroudEffectFilter {
         boolean isParticleOk(VoidlingShroud shroud, Vector2f loc);
@@ -53,7 +53,7 @@ public class VoidlingShroud extends RoilingSwarmEffect {
         ShipAPI ship = (ShipAPI) attachedTo;
         VoidlingShroudParams params = new VoidlingShroudParams();
         float radius;
-        int numMembers;
+        int numMembers = 0;
 
         params.spriteCat = "misc";
         params.spriteKey = "nebula_particles";
@@ -66,13 +66,18 @@ public class VoidlingShroud extends RoilingSwarmEffect {
 
         params.memberExchangeClass = null;
         params.flockingClass = null;
-        params.maxSpeed = ship.getMaxSpeed()*3f +
-                Math.max(ship.getMaxSpeed()*3f * 0.25f + 50f, 100f);
+        params.maxSpeed = ship.getMaxSpeed() * 3f +
+                Math.max(ship.getMaxSpeed() * 3f * 0.25f + 50f, 100f);
 
-        params.baseSpriteSize = 64f;
+        params.baseSpriteSize = 6f;
         params.maxTurnRate = 120f;
 
-        numMembers = 100;
+        if (ship.isFrigate()){
+        numMembers = 8;
+    }
+        if (ship.isCapital()){
+            numMembers = 100;
+        }
         radius = ship.getCollisionRadius()/2f;
 
 //		radius = 100;
@@ -171,7 +176,7 @@ public class VoidlingShroud extends RoilingSwarmEffect {
 //		if (ventingInterval.intervalElapsed() && ship != null && venting) {
 //
 //		}
-        if (ship.getPhaseCloak().getState() == ShipSystemAPI.SystemState.IDLE){
+        if (ship.getPhaseCloak().getState() != ShipSystemAPI.SystemState.ACTIVE){
             params.alphaMult = 0f;
             params.alphaMultBase = 0f;
             params.alphaMultFlash = 0f;
@@ -202,7 +207,7 @@ public class VoidlingShroud extends RoilingSwarmEffect {
                 c = Misc.setAlpha(c, shroudParams.negativeParticleAlphaIntOverride);
             }
 
-            float baseDuration = 2f;
+            float baseDuration = 1f;
             Vector2f vel = new Vector2f(attachedTo.getVelocity());
             float speed = vel.length();
             if (attachedTo instanceof ShipAPI) {
@@ -238,7 +243,7 @@ public class VoidlingShroud extends RoilingSwarmEffect {
                             baseSize * 0.75f * (smallerDark ? 0.85f : 1f) * shroudParams.negativeParticleAreaMult, Misc.random);
                 }
 
-                float dur = baseDuration + baseDuration * (float) Math.random();
+                float dur = baseDuration * (float) Math.random();
                 dur += extraDur;
                 float nSize = size;
                 Vector2f pt = Misc.getPointWithinRadius(point, nSize * 0.5f);
