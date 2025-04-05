@@ -79,14 +79,15 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         stage = Stage.POST_BATTLE
         if(Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] == true){
             populateSubmissionText()
-            return
+            // TODO!
+            return // super.backFromEngagement(battleResult)
         }
-        battleResult?.let { br ->
-            val enemyFleet = if(br.didPlayerWin()) br.loserResult.fleet else br.winnerResult.fleet
+        return super.backFromEngagement(battleResult)
+    }
 
-            
-        }
-
+    override fun optionMousedOver(optionText: String?, optionData: Any?) {
+        if(optionData is RunnableOptionData) return
+        super.optionMousedOver(optionText, optionData)
     }
 
     private fun populateText(){
@@ -212,14 +213,25 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             addParagraph("CEASERESISTING CEASETHINKING EMBRACEME", spookyColor)
             addParagraph("...")
             addParagraph("YES THIS IS BETTER WE WILL BE AS ONE", spookyColor)
-            addParagraph("WITH OUr TWo Minds As One nothing will be able to stop us.", spookyColor)
+            addParagraph("WITH OUr TWo MInds As One nothing will be able to stop us.", spookyColor)
             addParagraph("Together, we shall rid this sector of its hubris.", spookyColor)
             addParagraph("Humanity has been a stain on this universe for far too long.", spookyColor)
             addParagraph("To devour this sector and this galaxy, we will need more numbers. The swarm must grow.", spookyColor)
             addParagraph("You will help us breed and feed.", spookyColor)
             addParagraph("Your colonies will be the staging ground. Let us begin immediately.", spookyColor)
+            addParagraph("Now, go and burn the sector. Burn their colonies. Burn the humans.", spookyColor)
             addParagraph("")
-            addParagraph("Note: This path has not yet been implemented. For now, this marks the end of the submission path.", Color.RED)
+            addParagraph("Developer Note: This path is not yet fully implemented. " +
+                    "You are now allied to the void creatures, but hostile to all other factions." +
+                    "If this isn't what you wanted, consider reloading a save before this battle.", Color.RED)
         }
     }
+
+    private fun populateVictoryText(){
+        textPanel?.run {
+            addParagraph("You won, yay! This is a placeholder text!")
+        }
+    }
+
+
 }
