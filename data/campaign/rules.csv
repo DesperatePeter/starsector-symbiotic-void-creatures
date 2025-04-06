@@ -56,3 +56,23 @@ The man briefly stares at you with a trouble look on his face.
 svc_mod_hunters_defeated_bar_event_leave,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event_leave,BarCMD returnFromEvent false,"The man hands you a small datapad and sighs, gesturing for you to leave.
 
 ""And now let an old man drink in solitude""",,
+#initial Poison Dealer event,,,,,,
+svcmod_poison_broker_bar_event,AddBarEvents,SvcShouldSpawnPoisonBarEvent,"AddBarEvent svcmod_poison_broker_dialogue ""A shady figure beckons you to join them in a backroom of the bar.""",,,
+svcmod_poison_broker_dialogue,DialogOptionSelected,$option == svcmod_poison_broker_dialogue,,,"1:svcmod_poison_broker_dialogue2:Enter the Backroom
+10:svcmod_poison_broker_dialogue_leave:Leave",
+svcmod_poison_broker_dialogue2,DialogOptionSelected,$option == svcmod_poison_broker_dialogue2,,,"1:svcmod_poison_broker_dialogue_condition:I need a potent poison to kill something big ... really big!
+2:svcmod_poison_broker_dialogue_deal:I acquired all the necessary goods.
+10:svcmod_poison_broker_dialogue_leave:Leave",
+,,,,,,
+,,,,,,
+svcmod_poison_broker_dialogue_condition,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_condition,,"""The Witch can concoct any poison to kill any kind of creature no matter the size as long as you can provide a bio-sample. 
+There's also a mandatory donation to our cause that can be pay... I mean, provided in, let's say 50 units of Heavy Armaments.
+Deal?""","1:svcmod_poison_broker_dialogue2:back
+10:svcmod_poison_broker_dialogue_leave:Leave",
+svcmod_poison_broker_dialogue_deal,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal,,,"1:svcmod_poison_broker_dialogue_deal_successful:Tell your crew to unload the Heavy Armaments onto the Pather ship.
+2:svcmod_poison_broker_dialogue2:back
+10:svcmod_poison_broker_dialogue_leave:Leave",
+svcmod_poison_broker_dialogue_deal_successful,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal_successful,SvcMarkPoisonBrokerEventFinished,,10:svcmod_poison_broker_dialogue_leave:Leave,
+svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
+,,,,,,
+,,,,,,
