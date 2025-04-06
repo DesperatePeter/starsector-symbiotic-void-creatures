@@ -36,6 +36,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         }
         private var isFirstEncounter by CampaignSettingDelegate("\$svc_mastermindInteractionDialogFirstEncounter", true)
         private var shouldDelegateOptions by CampaignSettingDelegate("\$svc_mastermindInteractionDialogDelegateOptions", false)
+        private var shouldDelegateBackFromEngage by CampaignSettingDelegate("\$svc_mastermindInteractionDialogDelegateBackFromEngage", false)
         var isSubmission by CampaignSettingDelegate("\$svc_mastermindIsSubmission", false)
     }
 
@@ -78,6 +79,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     override fun backFromEngagement(battleResult: EngagementResultAPI?) {
         stage = Stage.POST_BATTLE
+        if(shouldDelegateBackFromEngage) return super.backFromEngagement(battleResult)
+
         fun setContinueOption(){
             val superBackFromEngagement = { super.backFromEngagement(battleResult) }
             optionPanel?.clearOptions()
@@ -89,14 +92,20 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         }
 
         if(isSubmission){
+            shouldDelegateBackFromEngage = true
             populateSubmissionText()
             processSubmission()
-            dissolveFleet()
+            if(battleResult?.loserResult?.isPlayer == true){
+                TODO("This is not possible")
+            }
+            val fleet = battleResult?.loserResult?.fleet
+            dissolveFleet(fleet)
             setContinueOption()
             return
         }
 
         if(isMastermindDead){
+            shouldDelegateBackFromEngage = true
             populateVictoryText()
             processVictory()
             setContinueOption()
@@ -122,10 +131,10 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         Global.getSector()?.getFaction(SVC_FACTION_ID)?.setRelationship("player", RepLevel.COOPERATIVE)
     }
 
-    private fun dissolveFleet(){
-        mastermindFleet?.let { fleet ->
-            fleet.fleetData.membersListCopy.forEach {
-                fleet.removeFleetMemberWithDestructionFlash(it)
+    private fun dissolveFleet(fleet: CampaignFleetAPI?){
+        fleet?.let { f ->
+            f.fleetData.membersListCopy.forEach {
+                f.removeFleetMemberWithDestructionFlash(it)
             }
         }
     }
