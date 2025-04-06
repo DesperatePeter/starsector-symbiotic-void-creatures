@@ -10,33 +10,36 @@
   "hullMods": [],
   "weaponGroups": [
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0002": "svc_bioplasma_large",
-        "WS0003": "svc_bioplasma_large",
-        "WS0004": "svc_fangcluster",
-        "WS0005": "svc_fangcluster",
-        "WS0006": "svc_bge_grappler_pd",
-        "WS0007": "svc_bge_grappler_pd",
-        "WS0008": "svc_bge_grappler_pd",
-        "WS0009": "svc_bge_grappler_pd"
+        "WS0003": "svc_bioplasma_large"
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "ALTERNATING",
-      "weapons": {}
+      "weapons": {
+        "WS0004": "svc_fangcluster",
+        "WS0005": "svc_fangcluster"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0006": "svc_bge_grappler_pd",
+        "WS0007": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0008": "svc_bge_grappler_pd",
+        "WS0009": "svc_bge_grappler_pd"
+      }
     }
   ],
   "modules": [],
