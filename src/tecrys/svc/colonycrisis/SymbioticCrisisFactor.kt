@@ -86,6 +86,7 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
         return picker.pick()
     }
 
+    @Deprecated("Deprecated in Java")
     override fun getMainRowTooltip(): TooltipMakerAPI.TooltipCreator {
         return object : BaseFactorTooltip() {
             override fun createTooltip(tooltip: TooltipMakerAPI?, expanded: Boolean, tooltipParam: Any?) {

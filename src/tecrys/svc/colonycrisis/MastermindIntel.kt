@@ -11,7 +11,7 @@ import tecrys.svc.SVC_FACTION_ID
 
 class MastermindIntel(private val mastermindFleet: CampaignFleetAPI?): BaseIntelPlugin() {
     override fun getIcon(): String = Global.getSettings().getSpriteName("icons", "svc_mastermind_intel_icon")
-    override fun isDone(): Boolean = SymbioticCrisisIntelEvent.isBossObeyed() || SymbioticCrisisIntelEvent.isBossDefeated()
+    override fun isDone(): Boolean = SymbioticCrisisIntelEvent.isBossObeyed || SymbioticCrisisIntelEvent.isBossDefeated
     override fun hasLargeDescription(): Boolean = false
     override fun hasSmallDescription(): Boolean = true
     override fun getSmallDescriptionTitle(): String = Global.getSettings().getString("svc_colony_crisis_intel", "mastermind_intel_title")

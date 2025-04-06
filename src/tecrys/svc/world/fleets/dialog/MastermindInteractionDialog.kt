@@ -106,6 +106,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
         if(isMastermindDead){
             shouldDelegateBackFromEngage = true
+            SymbioticCrisisIntelEvent.isBossDefeated = true
             populateVictoryText()
             processVictory()
             setContinueOption()

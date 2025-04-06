@@ -10,11 +10,14 @@ import com.fs.starfarer.api.impl.campaign.ghosts.BaseSensorGhostCreator
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
+import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
 import org.magiclib.kotlin.makeImportant
+import org.magiclib.kotlin.makeNoRepImpact
+import org.magiclib.kotlin.shouldNotWantRunFromPlayerEvenIfWeaker
 import tecrys.svc.*
 import tecrys.svc.listeners.*
 import tecrys.svc.utils.*
@@ -115,8 +118,8 @@ class FleetManager : EveryFrameScript {
 
     fun spawnMastermindFleet() : CampaignFleetAPI? {
         val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
-        //val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
-        val loc = Global.getSector().playerFleet
+        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
+        // val loc = Global.getSector().playerFleet
         val params = FleetSpawnParameterCalculator(svcSettings)
         val fleet = spawner.createFactionFleet(SVC_FACTION_ID, params, mastermindFleet.name, mastermindFleet.rolesQuantity, mastermindFleet.minDP) ?: return null
         fleet.run {
@@ -131,6 +134,8 @@ class FleetManager : EveryFrameScript {
             memoryWithoutUpdate[MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS] = true
+            makeNoRepImpact("INEEDNOREASON")
+            shouldNotWantRunFromPlayerEvenIfWeaker()
         }
         return fleet
     }

@@ -10,8 +10,11 @@ import com.fs.starfarer.api.util.IntervalUtil
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
+import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.listeners.CrisisFleetListener
+import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.world.fleets.*
+import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
@@ -25,12 +28,13 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val MEM_KEY_RESOLUTION_GENOCIDE = "\$SVC_COLONY_CRISIS_RESOLVED_GENOCIDE"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
         const val MEM_KEY_DISABLE_TELEPATHY = "\$SVC_MASTERMIND_NO_TELEPATHY"
-        const val MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_OBEY"
         const val MEM_KEY_RESOLUTION_WHALE_SACRIFICE = "\$SVC_COLONY_CRISIS_RESOLVED_WHALE_SACRIFICE"
         const val MARKET_CONDITION = "svc_voidling_infestation"
-        fun isBossDefeated(): Boolean = Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN)
-        fun isBossObeyed(): Boolean = Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY)
-        fun isVoidlingGenocide(): Boolean = Global.getSector().memoryWithoutUpdate.getBoolean(MEM_KEY_RESOLUTION_GENOCIDE)
+        var isBossDefeated by CampaignSettingDelegate(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN, false)
+        val isBossObeyed get() = MastermindInteractionDialog.isSubmission
+        var isVoidlingGenocide by CampaignSettingDelegate(MEM_KEY_RESOLUTION_GENOCIDE, false)
+        val isWhaleSacrifice by CampaignSettingDelegate(MEM_KEY_RESOLUTION_WHALE_SACRIFICE, false)
+        val isCrisisActive get() = get() != null && !SymbioticCrisisCause.isCrisisResolved()
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
             get()?.reportFleetDefeated(defeatedByPlayer, id)
@@ -46,6 +50,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 }
             }
         }
+
+
     }
 
     init {
@@ -56,7 +62,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
     // to prevent the event from ending itself by e.g. patrol fleets killing voidlings, only count ones defeated
     // by the player
-    private var fleetsDefeatedByPlayer = 0
+    var fleetsDefeatedByPlayer = 0
+        private set
     private var currentNumberOfFleets = 0
     private val defeatedFleetIds = mutableSetOf<Long>()
     private val timer = IntervalUtil(20f, 40f)
@@ -110,8 +117,6 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
     override fun shouldRemoveIntel(): Boolean = SymbioticCrisisCause.isCrisisResolved()
 
-
-
     override fun advanceImpl(amount: Float) {
         timer.advance(amount)
         if(timer.intervalElapsed() ) {
@@ -120,7 +125,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         }
         setProgress(fleetsDefeatedByPlayer)
         if(progress >= MAX_NUM_FLEETS){
-            Global.getSector().memoryWithoutUpdate[MEM_KEY_RESOLUTION_GENOCIDE] = true
+            isVoidlingGenocide = true
             SymbioticCrisisCause.resolveCrisis()
         }
         if(progress >= FLEETS_DEFEATED_UNTIL_SECOND_CLUE){
@@ -130,7 +135,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 Global.getSector().memoryWithoutUpdate[FleetManager.MASTERMIND_FLEET_MEM_KEY] = mastermindFleet
             }
         }
-        if(isBossDefeated() || isBossObeyed()){
+        if(isBossDefeated || isBossObeyed || isVoidlingGenocide || isWhaleSacrifice){
             SymbioticCrisisCause.resolveCrisis()
         }
     }
@@ -139,19 +144,25 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
     private fun spawnFleetIfNecessary(): Boolean {
         val pf = Global.getSector().playerFleet ?: return false
+
         val location = market.containingLocation.allEntities.filterNotNull().filter {
             FleetSpawner.isValidSpawnableEntity(it) &&
                     if (pf.containingLocation == market.containingLocation)
                         (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
                     else true
         }.randomOrNull() ?: return false
-        val fleet = FleetManager().spawnSvcFleet(
+
+        FleetManager().spawnSvcFleet(
             location, true,
             FleetSpawnParameterCalculator(svcSettings).withModifiedPower(FLEET_POWER_MODIFIER)
-        )
-        fleet?.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
-        currentNumberOfFleets++
-        return true
+        )?.let { fleet ->
+            fleet.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
+            // emulate two sub-factions fighting against each other
+            if(Math.random() > 0.5f) Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f)
+            currentNumberOfFleets++
+            return true
+        }
+        return false
     }
 
     override fun reportRemovedIntel() {
