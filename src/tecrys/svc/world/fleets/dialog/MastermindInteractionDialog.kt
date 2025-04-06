@@ -2,24 +2,24 @@ package tecrys.svc.world.fleets.dialog
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.InteractionDialogImageVisual
-import com.fs.starfarer.api.campaign.CampaignFleetAPI
-import com.fs.starfarer.api.campaign.InteractionDialogAPI
-import com.fs.starfarer.api.campaign.InteractionDialogPlugin
-import com.fs.starfarer.api.campaign.OptionPanelAPI
-import com.fs.starfarer.api.campaign.TextPanelAPI
-import com.fs.starfarer.api.campaign.VisualPanelAPI
+import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.campaign.rules.MemoryAPI
 import com.fs.starfarer.api.combat.BattleCreationContext
 import com.fs.starfarer.api.combat.EngagementResultAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl
 import com.fs.starfarer.api.util.Misc
+import com.fs.starfarer.campaign.fleet.FleetMemberStatus
 import org.lwjgl.input.Keyboard
 import org.lwjgl.opengl.GL11
+import tecrys.svc.SVC_FACTION_ID
+import tecrys.svc.colonycrisis.SymbioticCrisisCause
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.listeners.MastermindFIDConf
 import tecrys.svc.shipsystems.spooky.gui.spookyColor
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.giveSpecialItemToPlayer
+import tecrys.svc.world.SectorGen
 import java.awt.Color
 import java.util.*
 import kotlin.random.Random
@@ -36,6 +36,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         }
         private var isFirstEncounter by CampaignSettingDelegate("\$svc_mastermindInteractionDialogFirstEncounter", true)
         private var shouldDelegateOptions by CampaignSettingDelegate("\$svc_mastermindInteractionDialogDelegateOptions", false)
+        var isSubmission by CampaignSettingDelegate("\$svc_mastermindIsSubmission", false)
     }
 
     interface RunnableOptionData{
@@ -47,7 +48,10 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     private var visualPanel: VisualPanelAPI? = null
     private var optionPanel: OptionPanelAPI? = null
     private var stage = Stage.INITIAL
-    private var playerMembersPreEncounter : List<FleetMemberAPI>? = Global.getSector().playerFleet.fleetData.membersListCopy
+    private val isMastermindDead
+        get() = mastermindFleet?.fleetData?.membersListCopy?.none {
+            it.variant.hullVariantId == "svc_mastermind_standard" && it.status.hullFraction > 0f
+        } ?: true
 
     override fun init(dialog: InteractionDialogAPI?) {
         if(!isFirstEncounter) return super.init(dialog)
@@ -73,16 +77,57 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     }
 
     override fun backFromEngagement(battleResult: EngagementResultAPI?) {
-        val isMastermindAlive = mastermindFleet?.membersWithFightersCopy?.any {
-            it.variant.hullVariantId == "svc_mastermind_standard"
-        } ?: false
         stage = Stage.POST_BATTLE
-        if(Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] == true){
-            populateSubmissionText()
-            // TODO!
-            return // super.backFromEngagement(battleResult)
+        fun setContinueOption(){
+            val superBackFromEngagement = { super.backFromEngagement(battleResult) }
+            optionPanel?.clearOptions()
+            optionPanel?.addOption("Continue", object : RunnableOptionData{
+                override fun execute() {
+                    superBackFromEngagement()
+                }
+            })
         }
+
+        if(isSubmission){
+            populateSubmissionText()
+            processSubmission()
+            dissolveFleet()
+            setContinueOption()
+            return
+        }
+
+        if(isMastermindDead){
+            populateVictoryText()
+            processVictory()
+            setContinueOption()
+            return
+        }
+
         return super.backFromEngagement(battleResult)
+    }
+
+    private fun processVictory(){
+        giveSpecialItemToPlayer("industry_bp", "svc_voidling_hatchery", textPanel)
+        SymbioticCrisisCause.resolveCrisis()
+    }
+
+    private fun processSubmission(){
+        giveSpecialItemToPlayer("industry_bp", "svc_voidling_hatchery", textPanel)
+        SymbioticCrisisCause.resolveCrisis()
+        Global.getSector()?.allFactions?.filterNotNull()?.filterNot {
+            SectorGen.ignoredFactions.contains(it.id)
+        }?.forEach { faction ->
+            faction.setRelationship("player", RepLevel.HOSTILE)
+        }
+        Global.getSector()?.getFaction(SVC_FACTION_ID)?.setRelationship("player", RepLevel.COOPERATIVE)
+    }
+
+    private fun dissolveFleet(){
+        mastermindFleet?.let { fleet ->
+            fleet.fleetData.membersListCopy.forEach {
+                fleet.removeFleetMemberWithDestructionFlash(it)
+            }
+        }
     }
 
     override fun optionMousedOver(optionText: String?, optionData: Any?) {
@@ -105,13 +150,12 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     private fun populateOptions(){
         optionPanel?.clearOptions()
-        val superInit = { super.init(dialog)}
+        val superInit = { super.init(dialog) }
         when(stage){
             Stage.INITIAL -> {
                 optionPanel?.addOption("Try to focus your mind on the thought.", object : RunnableOptionData{
                     override fun execute() {
                         stage = Stage.INTRO
-                        isFirstEncounter = false
                         populateText()
                     }
                 })
@@ -122,6 +166,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
                         // dialog?.startBattle(BattleCreationContext(Global.getSector().playerFleet, null, mastermindFleet, null))
                         dialog?.optionPanel?.clearOptions()
                         shouldDelegateOptions = true
+                        isFirstEncounter = false
                         superInit()
                     }
                 })
@@ -154,9 +199,6 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     }
 
     private fun populateInitialText(){
-        Random.nextFloat()
-        val id = Global.getSettings().allFighterWingSpecs.random().id
-        Global.getSector().playerFleet.cargo.addFighters(id, 1)
 
         textPanel?.run {
             addParagraph("Spooky Encounter", Color.YELLOW)

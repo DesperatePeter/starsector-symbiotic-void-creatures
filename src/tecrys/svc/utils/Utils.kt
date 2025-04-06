@@ -1,6 +1,8 @@
 package tecrys.svc.utils
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.campaign.SpecialItemData
+import com.fs.starfarer.api.campaign.TextPanelAPI
 import com.fs.starfarer.api.combat.ArmorGridAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipHullSpecAPI
@@ -90,4 +92,18 @@ fun adjustFacing(currentFacing: Float, targetFacing: Float, maxDelta: Float): Fl
     val positiveDirection = normalizedTargetFacing > facing
     facing += maxDelta * (!otherWayShorter).toFloat() * positiveDirection.toFloat()
     return Misc.normalizeAngle(facing)
+}
+
+fun giveSpecialItemToPlayer(id: String, data: String, textPanel: TextPanelAPI?){
+    val item = SpecialItemData(id, data)
+    val fakeCargo = Global.getFactory().createCargo(true)
+    fakeCargo.addSpecial(item, 1f)
+    val itemName = fakeCargo.stacksCopy[0]?.displayName ?: id
+    textPanel?.run {
+        setFontSmallInsignia()
+        addParagraph("Gained $itemName", Misc.getPositiveHighlightColor())
+        highlightInLastPara(Misc.getHighlightColor(), itemName)
+        setFontInsignia()
+    }
+    Global.getSector()?.playerFleet?.cargo?.addSpecial(item, 1f)
 }

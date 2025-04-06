@@ -81,9 +81,9 @@ class FleetSpawner {
         val n = name ?: Global.getSector().getFaction(factionId)?.getFleetTypeName("patrolLarge") ?: "unknown"
         val fleet = Global.getFactory().createEmptyFleet(factionId, n, true)
 
-        guaranteedRolesWithQuantity?.forEach { roleAndQuantity ->
-            for(i in 0 until roleAndQuantity.value){
-                if(faction.pickShipAndAddToFleet(roleAndQuantity.key, FactionAPI.ShipPickParams(), fleet) <= 0.001f){
+        guaranteedRolesWithQuantity?.forEach { (role, quantity) ->
+            for(i in 0 until quantity){
+                if(faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f){
                     Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet pick null")
                 }
             }

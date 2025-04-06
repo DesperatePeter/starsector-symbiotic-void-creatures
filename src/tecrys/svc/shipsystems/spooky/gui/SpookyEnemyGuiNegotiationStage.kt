@@ -7,6 +7,7 @@ import org.magiclib.combatgui.buttongroups.MagicCombatButtonGroupAction
 import org.magiclib.combatgui.buttongroups.MagicCombatCreateSimpleButtons
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
+import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 
 class SpookyEnemyGuiNegotiationStage(private val guiShower: SpookyGuiShower): MagicCombatGuiBase(spookyGuiLayout) {
 
@@ -21,7 +22,7 @@ class SpookyEnemyGuiNegotiationStage(private val guiShower: SpookyGuiShower): Ma
                 }else{
                     if(!Global.getCombatEngine().isSimulation){
                         Global.getCombatEngine().endCombat(1f, FleetSide.PLAYER)
-                        Global.getSector().memoryWithoutUpdate[SymbioticCrisisIntelEvent.MEM_KEY_RESOLUTION_BOSS_FIGHT_OBEY] = true
+                        MastermindInteractionDialog.isSubmission = true
                     }else{
                         Global.getCombatEngine().combatUI?.addMessage(0, "Outside of a simulation the battle would end now")
                     }

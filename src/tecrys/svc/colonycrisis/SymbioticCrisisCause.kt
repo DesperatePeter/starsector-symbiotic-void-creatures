@@ -2,6 +2,7 @@ package tecrys.svc.colonycrisis
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.StarSystemAPI
+import com.fs.starfarer.api.campaign.TextPanelAPI
 import com.fs.starfarer.api.campaign.econ.MarketAPI
 import com.fs.starfarer.api.impl.campaign.ids.Factions
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
@@ -10,6 +11,7 @@ import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.Misc
 import tecrys.svc.SVC_COLONY_CRISIS_TEXT_KEY
+import tecrys.svc.utils.giveSpecialItemToPlayer
 
 
 class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActivityCause2(intel) {
@@ -25,6 +27,7 @@ class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActiv
         fun isCrisisResolved(): Boolean = Global.getSector().playerMemoryWithoutUpdate.getBoolean(
             MEM_KEY_CRISIS_RESOLVED
         )
+
 
         fun resolveCrisis() {
             Global.getSector().playerMemoryWithoutUpdate[MEM_KEY_CRISIS_RESOLVED] = true

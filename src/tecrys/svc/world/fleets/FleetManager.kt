@@ -40,6 +40,7 @@ class FleetManager : EveryFrameScript {
         private val MIN_DIST_FROM_CENTER_TO_SPAWN_HYPERSPACE_FLEETS = Global.getSettings().getInt("sectorWidth") * 0.15f
         private val DIST_FROM_CENTER_SPAWN_CHANCE_SCALING = Global.getSettings().getInt("sectorWidth") * 0.25f
         const val MASTERMIND_FLEET_MEM_KEY = "\$SVC_MASTERMIND_FLEET"
+        const val MASTERMIND_HULL_ID = "svc_mastermind"
         val spawner = FleetSpawner()
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
         fun spawnSvcFleetNowAtPlayer(): Boolean{
@@ -123,6 +124,7 @@ class FleetManager : EveryFrameScript {
             makeHostile()
             makeAlwaysHostile()
             addEventListener(MastermindFleetListener())
+            fleet.fleetData.membersListCopy.firstOrNull { it.hullId ==  MASTERMIND_HULL_ID}?.isFlagship = true
             loc.containingLocation.addEntity(this)
             setLocation(loc.location.x, loc.location.y)
             memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
