@@ -27,11 +27,11 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
             sabotages.forEach { s ->
                 when(s){
                     Sabotage.WEAPONS -> {
-                        pf?.allWeapons?.filter { Math.random() > 0.5f }?.forEach { w -> pf.applyCriticalMalfunction(w) }
+                        pf?.allWeapons?.filter { Math.random() > 0.5f }?.forEach { w -> pf.applyCriticalMalfunction(w, false) }
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your weapons have suffered damage")
                     }
                     Sabotage.DRIVE -> {
-                        pf?.engineController?.shipEngines?.forEach { e -> pf.applyCriticalMalfunction(e) }
+                        pf?.engineController?.shipEngines?.forEach { e -> pf.applyCriticalMalfunction(e, false) }
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your engines have suffered damage")
                     }
                     Sabotage.CREW -> {
