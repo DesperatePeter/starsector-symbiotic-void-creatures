@@ -281,7 +281,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     private fun populateVictoryText(){
         textPanel?.run {
-            addParagraph("You won, yay! This is a placeholder text!")
+            addParagraph("As the Mastermind ceases its brain activity the formerly coordinated swarms of Void Creatures scatter in all directions.")
+            addParagraph("Nobody will believe your story but you are certain you just saved the entire sector from a cruel fate.")
         }
     }
 
