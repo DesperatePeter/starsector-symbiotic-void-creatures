@@ -74,7 +74,7 @@ Deal?""","1:svcmod_poison_broker_dialogue2:back
 svcmod_poison_broker_dialogue_deal,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal,ShowPic svc_toxin,"""You brought the samples"", the Pather glances at the datapad you handed him ""and the donations, too. The Witch will have your potion ready in a few hours.""","1:svcmod_poison_broker_dialogue_deal_successful:Tell your crew to unload the Heavy Armaments onto the Pather ship.
 2:svcmod_poison_broker_dialogue2:back
 10:svcmod_poison_broker_dialogue_leave:Leave",
-svcmod_poison_broker_dialogue_deal_successful,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal_successful,#SvcMarkPoisonBrokerEventFinished,"The face of the stranger bends into a toothy grin.
+svcmod_poison_broker_dialogue_deal_successful,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal_successful,SvcMarkPoisonBrokerEventFinished,"The face of the stranger bends into a toothy grin.
 ""Pleasure doing business with ya. May Ludd have mercy on your soul.""",10:svcmod_poison_broker_dialogue_leave:Leave,
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
 ,,,,,,
