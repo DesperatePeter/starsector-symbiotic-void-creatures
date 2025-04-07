@@ -43,7 +43,8 @@
 			"VoidChitinPlating": "graphics/icons/exotics/voidchitinplating.png"
 		},
 		"illustrations": {
-			"svc_hunter_bar_event_portrait": "graphics/illustrations/space_bar.jpg"
+			"svc_hunter_bar_event_portrait": "graphics/illustrations/space_bar.jpg",
+			"svc_toxin": "graphics/icons/svc_toxin.png"			
 		},
 		"icons": {
 		    "svc_colony_crisis_icon" : "graphics/icons/void_chitin.png",

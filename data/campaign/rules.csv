@@ -57,25 +57,26 @@ svc_mod_hunters_defeated_bar_event_leave,DialogOptionSelected,$option == svcmod_
 
 ""And now let an old man drink in solitude""",,
 #initial Poison Dealer event,,,,,,
-svcmod_poison_broker_bar_event,AddBarEvents,SvcShouldSpawnPoisonBarEvent,"AddBarEvent svcmod_poison_broker_dialogue_init ""A shady figure beckons you to join them in a backroom of the bar.""",,,
-svcmod_poison_broker_dialogue,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_init,,As you look more closely a pair of haphazardly equipped guards can be seen flanking the figure. You spot talismans and Luddic symbols scattered across their gear.,"svcmod_poison_broker_dialogue2:Enter the Backroom
+svcmod_poison_broker_bar_event,AddBarEvents,$market.id == hesperus,"AddBarEvent svcmod_poison_broker_dialogue
+SetEnabled svcmod_poison_broker_dialogue_deal false",,1:svcmod_poison_broker_dialogue:A shady figure beckons you to join them in a backroom of the bar.,
+svcmod_poison_broker_dialogue,DialogOptionSelected,$option == svcmod_poison_broker_dialogue,,As you look more closely a pair of haphazardly equipped guards can be seen flanking the figure. You spot talismans and Luddic symbols scattered across their gear.,"1:svcmod_poison_broker_dialogue2:Enter the Backroom
 10:svcmod_poison_broker_dialogue_leave:Leave",
-svcmod_poison_broker_dialogue2,DialogOptionSelected,$option == svcmod_poison_broker_dialogue2,,"As you enter the dimly lit room one guard locks the door behind you while the other steps closer towards you to pat you down. Pale blue smoke hangs in the air.
+svcmod_poison_broker_dialogue2,DialogOptionSelected,$option == svcmod_poison_broker_dialogue2,"SetTooltip svcmod_poison_broker_dialogue_deal ""Requires 50 units of heavy armaments.""
+SetTooltipHighlights svcmod_poison_broker_dialogue_deal 50","As you enter the dimly lit room one guard locks the door behind you while the other steps closer towards you to pat you down. Pale blue smoke hangs in the air.
 The hooded figure sniffs loudly, whipes his nose and mouth on his sleeve, then parts his lips: 
 ""Word around port is you're looking for something special. Don't ask how I know. What is it you want?""","1:svcmod_poison_broker_dialogue_condition:I need a potent poison to kill something big ... really big!
 2:svcmod_poison_broker_dialogue_deal:I acquired all the necessary goods.
 10:svcmod_poison_broker_dialogue_leave:Leave",
-,,,,,,
-,,,,,,
 svcmod_poison_broker_dialogue_condition,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_condition,,"""The Witch can concoct any poison to kill any kind of creature no matter, the size as long as you can provide a bio-sample. 
 There's also a mandatory donation to our cause that can be pay... I mean, provided in, let's say 50 units of Heavy Armaments.
 Deal?""","1:svcmod_poison_broker_dialogue2:back
 10:svcmod_poison_broker_dialogue_leave:Leave",
-svcmod_poison_broker_dialogue_deal,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal,#ShowPic svc_toxin,"""You brought the samples"", the Pather glances at the datapad you handed him ""and the donations, too. The Witch will have your potion ready in a few hours.""","1:svcmod_poison_broker_dialogue_deal_successful:Tell your crew to unload the Heavy Armaments onto the Pather ship.
+svcmod_poison_broker_dialogue_canafford,DialogOptionSelected,PlayerHasCargo hand_weapons 50,SetEnabled svcmod_poison_broker_dialogue_deal true,,,
+svcmod_poison_broker_dialogue_deal,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal,,"""You brought the samples"", the Pather glances at the datapad you handed him ""and the donations, too. The Witch will have your potion ready in a few hours.""","1:svcmod_poison_broker_dialogue_deal_successful:Tell your crew to unload the Heavy Armaments onto the Pather ship.
 2:svcmod_poison_broker_dialogue2:back
 10:svcmod_poison_broker_dialogue_leave:Leave",
 svcmod_poison_broker_dialogue_deal_successful,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_deal_successful,"RemoveCommodity hand_weapons 50
-AddRemoveAnyItem SPECIAL svc_poison
+AddRemoveAnyItem SPECIAL svc_poison 1
 SvcMarkPoisonBarEventFinished","The face of the stranger bends into a toothy grin.
 ""Pleasure doing business with ya. May Ludd have mercy on your soul.""",10:svcmod_poison_broker_dialogue_leave:Leave,
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
