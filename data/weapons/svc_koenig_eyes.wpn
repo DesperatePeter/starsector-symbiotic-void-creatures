@@ -4,7 +4,7 @@
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 1.2,
-	"everyFrameEffect":"tecrys.svc.plugins.DecoWeaponSpeedBasedeyes",
+	"everyFrameEffect":"tecrys.svc.plugins.QuickStrafeWeaponEffect",
 
 	"turretSprite":"graphics/weapons/animated/koenig_eyes/kingeyes_00.png",
 	"hardpointSprite":"graphics/weapons/animated/koenig_eyes/kingeyes_00.png",

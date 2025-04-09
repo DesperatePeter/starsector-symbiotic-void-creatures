@@ -2,7 +2,7 @@
 	"id":"svc_dash",
 	"type":"ENGINE_MOD",
 	"aiType":"CUSTOM",
-	"aiScript":"tecrys.svc.shipsystems.ais.ParryAI",
+	"aiScript":"tecrys.svc.shipsystems.ais.DashAI",
 	
 	"statsScript":"tecrys.svc.shipsystems.svc_dash",
 	
@@ -17,9 +17,9 @@
 	"clampTurnRateAfter":true,
 	"clampMaxSpeedAfter":false,
 
-	"useSound":"system_maneuvering_jets",
-	"loopSound":"system_maneuvering_jets_loop",
-	"outOfUsesSound":"engine_disabled",
+	"useSound":"engine_disabled",
+	#"loopSound":"system_maneuvering_jets_loop",
+	"outOfUsesSound":"disabled_small",
 	
 	"aiHints":{
 		"activeSpeedIncrease":100,

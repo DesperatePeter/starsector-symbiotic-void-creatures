@@ -32,7 +32,7 @@ public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireE
 
     @Override
     public float computeForceAgainstShip(ShipAPI target, ShipAPI source) {
-        return Math.max(56f + source.getMass() / 5f, 0.01f);
+        return Math.max(86f + source.getMass() / 7f, 0.01f);
     }
     @Override
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine) {

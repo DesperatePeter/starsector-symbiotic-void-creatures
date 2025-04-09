@@ -3,17 +3,16 @@ package tecrys.svc.utils
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.campaign.TextPanelAPI
-import com.fs.starfarer.api.combat.ArmorGridAPI
-import com.fs.starfarer.api.combat.ShipAPI
-import com.fs.starfarer.api.combat.ShipHullSpecAPI
-import com.fs.starfarer.api.combat.ShipwideAIFlags
+import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel
 import com.fs.starfarer.api.util.Misc
+import org.lazywizard.lazylib.FastTrig
 import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.getAngleDiff
+import org.magiclib.util.MagicRender
 import tecrys.svc.*
 import java.awt.Color
 import kotlin.math.PI
@@ -39,6 +38,34 @@ fun showNotificationOnCampaignUi(text: String, spriteName: String){
     val intel = MessageIntel(text, Misc.getBasePlayerColor())
     intel.icon = spriteName
     Global.getSector().campaignUI.addMessage(intel)
+}
+
+fun renderCustomAfterimage(ship: ShipAPI, color: Color, duration: Float) { // idk why i put this here
+    val sprite = ship.spriteAPI
+    val offsetX = sprite.width / 2f - sprite.centerX
+    val offsetY = sprite.height / 2f - sprite.centerY
+    val trueOffsetX = FastTrig.cos(Math.toRadians((ship.facing - 90f).toDouble())).toFloat() * offsetX - FastTrig.sin(Math.toRadians((ship.facing - 90f).toDouble())).toFloat() * offsetY
+    val trueOffsetY = FastTrig.sin(Math.toRadians((ship.facing - 90f).toDouble())).toFloat() * offsetX + FastTrig.cos(Math.toRadians((ship.facing - 90f).toDouble())).toFloat() * offsetY
+    MagicRender.battlespace(
+        Global.getSettings().getSprite(ship.hullSpec.spriteName),
+        Vector2f(ship.location.getX() + trueOffsetX, ship.location.getY() + trueOffsetY),
+        Vector2f(0f, 0f),
+        Vector2f(ship.spriteAPI.width, ship.spriteAPI.height),
+        Vector2f(0f, 0f),
+        ship.facing - 90f,
+        0f,
+        color,
+        true,
+        0f,
+        0f,
+        0f,
+        0f,
+        0f,
+        0.01f,
+        0.1f,
+        duration,
+        CombatEngineLayers.BELOW_SHIPS_LAYER
+    )
 }
 
 fun unlockVoidlingRecovery(){

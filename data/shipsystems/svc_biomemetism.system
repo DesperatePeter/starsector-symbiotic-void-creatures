@@ -2,7 +2,7 @@
 	"id":"svc_biomemetism",
 	"type":"STAT_MOD",
 	"aiType":"CUSTOM",
-	"aiScript":"tecrys.svc.shipsystems.ais.ParryAI",
+	"aiScript":"tecrys.svc.shipsystems.ais.DashAI",
 	
 	"statsScript":"tecrys.svc.shipsystems.BioMemetismStats",
 	
