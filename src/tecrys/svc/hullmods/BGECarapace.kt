@@ -19,7 +19,7 @@ import java.awt.Color
 class BGECarapace : BaseHullMod() {
     companion object{
         private const val ENGINE_DAMAGE_TAKEN = 0.15f
-        private const val HULL_RESISTANCE = 10f
+        private const val HULL_RESISTANCE = 30f
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
         private const val POWER_SCALING_MIN_POWER = 0.6f

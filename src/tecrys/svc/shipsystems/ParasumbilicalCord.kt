@@ -42,6 +42,7 @@ class ParasumbilicalCord: BaseShipSystemScript() {
             ShipSystemStatsScript.State.ACTIVE -> {
                 onActive(thisShip)
                 renderCord(thisShip, 1f)
+                thisShip.blockCommandForOneFrame(ShipCommand.TOGGLE_SHIELD_OR_PHASE_CLOAK)
             }
             ShipSystemStatsScript.State.OUT -> {
                 unApplyEffect(thisShip)

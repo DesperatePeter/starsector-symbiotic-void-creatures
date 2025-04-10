@@ -103,7 +103,7 @@ public class QuickStrafeWeaponEffect implements EveryFrameWeaponEffectPlugin {
 //                        0.2f);
 //            }
 
-            if (this.ship.getPhaseCloak().isCoolingDown()){
+            if (ship.getPhaseCloak().getState() == ShipSystemAPI.SystemState.COOLDOWN){
                 this.ship.giveCommand(ShipCommand.DECELERATE, null, 0);
             }
 

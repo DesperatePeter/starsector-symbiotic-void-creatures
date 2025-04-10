@@ -61,6 +61,7 @@ class BerserkerFrenzy : BaseShipSystemScript() {
                 jitterShip(ship, id, JITTER_COLOR_ACTIVE, 1.5f)
                 ship.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS)
                 ship.blockCommandForOneFrame(ShipCommand.DECELERATE)
+                ship.blockCommandForOneFrame(ShipCommand.TOGGLE_SHIELD_OR_PHASE_CLOAK)
             }
 
             else -> return
