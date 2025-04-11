@@ -81,9 +81,8 @@ SvcMarkPoisonBarEventFinished","The face of the stranger bends into a toothy gri
 ""Pleasure doing business with ya. May Ludd have mercy on your soul.""",svcmod_poison_broker_dialogue_leave:Leave,
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
 #stable position added Dialogue,,,,,,
-stable_build_Voidling_Lure_Init,Stable_AddBuildOptions,!$svclureConstructed,"SetTooltip stable_build_Voidling_Lure_Build ""Requires 1000 food, 50 Stjarwhal oil and the fungal poison""
-SetTooltipHighlights stable_build_Voidling_Lure_Build 1000 50 fungal poison
-",,50:stable_build_Voidling_Lure_Build:Prepare Voidling lure.,
+stable_build_Voidling_Lure_Init,Stable_AddBuildOptions,!$svclureConstructed,"SetTooltip stable_build_Voidling_Lure_Build ""Requires 1000 food, 50 Stjarwhal Oil and the Fungal Toxin""
+SetTooltipHighlights stable_build_Voidling_Lure_Build 1000 50 Fungal Toxin",,50:stable_build_Voidling_Lure_Build:Prepare Voidling lure.,
 stable_build_Voidling_Lure,Stable_AddBuildOptions,"$player.svc_poison < 1
 $player.food < 1000
 $player.svc_whale_oil < 50",RemoveOption stable_build_Voidling_Lure_Build,,,

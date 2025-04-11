@@ -13,7 +13,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Whip": "svc_bge_grappler_pd"
+        "Whip": "svc_bge_mini_grappler"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "Exploder": "svc_volatile_drone"
       }
     }
   ],
