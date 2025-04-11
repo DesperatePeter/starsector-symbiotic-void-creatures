@@ -80,5 +80,18 @@ AddRemoveAnyItem SPECIAL svc_poison 1
 SvcMarkPoisonBarEventFinished","The face of the stranger bends into a toothy grin.
 ""Pleasure doing business with ya. May Ludd have mercy on your soul.""",svcmod_poison_broker_dialogue_leave:Leave,
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
-,,,,,,
+#stable position added Dialogue,,,,,,
+stable_build_Voidling_Lure_Init,Stable_AddBuildOptions,!$svclureConstructed,"SetTooltip stable_build_Voidling_Lure_Build ""Requires 1000 food, 50 Stjarwhal oil and the fungal poison""
+SetTooltipHighlights stable_build_Voidling_Lure_Build 1000 50 fungal poison
+",,50:stable_build_Voidling_Lure_Build:Prepare Voidling lure.,
+stable_build_Voidling_Lure,Stable_AddBuildOptions,"$player.svc_poison < 1
+$player.food < 1000
+$player.svc_whale_oil < 50",RemoveOption stable_build_Voidling_Lure_Build,,,
+stable_build_Voidling_Lure_Finished,Stable_AddBuildOptions,$svcLureConstructed,RemoveOption stable_build_Voidling_Lure_Build,,,
+stable_build_Voidling_Lure_Build,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build,"AddRemoveAnyItem SPECIAL svc_poison -1
+AddRemoveAnyItem SPECIAL svc_whale_oil -50
+RemoveCommodity food 1000
+$svcLureConstructed = true
+$global.svcLureConstructed = true
+RemoveOption stable_build_Voidling_Lure_Build",,,
 ,,,,,,

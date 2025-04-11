@@ -2,7 +2,7 @@
 	"id":"svc_skip_swim",
 	"type":"ENGINE_MOD",
 	"aiType":"CUSTOM",
-	"aiScript":"tecrys.svc.shipsystems.ais.AlwaysOnAI",
+	"aiScript":"tecrys.svc.shipsystems.ais.AlwaysOnDefenseAI",
 	
 	"statsScript":"tecrys.svc.shipsystems.svc_skip_swim_Stats",
 	

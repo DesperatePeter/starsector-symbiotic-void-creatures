@@ -10,4 +10,4 @@ Skip Swim,svc_skip_swim,,,,,,,,,,0.1,0.5,0.1,1,,,,,,TRUE,,,,,,,graphics/icons/hu
 Spooky Action at a Distance,svc_spooky_action,,,,,,,,2,0.05,0.1,0.1,0.1,8,,,,,,,,,,FALSE,,,graphics/fx/svc_parasumbilicalcord.png
 Phase Submerge,svc_phasesubmerge,,,,,,,,,,0.5,,0.5,4,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,movement,graphics/icons/hullsys/phase_cloak.png
 Hyperdash,svc_dash,1,,,,,0.25,,3,0.04,,0.01,,1,,,,,,,,TRUE,,,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png
-Reflex Hypercognition,svc_biomemetism,1,,,,,0.25,,3,0.04,0.05,1,0.1,2,,,,,,,,,,,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png
+Reflex Hypercognition,svc_biomemetism,1,,,,,0.25,,3,0.04,0.05,1.5,0.1,2,,,,,,,,,,,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png

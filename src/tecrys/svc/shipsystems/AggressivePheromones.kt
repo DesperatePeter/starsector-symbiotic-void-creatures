@@ -21,8 +21,8 @@ class AggressivePheromones : BaseShipSystemScript() {
     companion object{
         private val auraLineColor = Color(150, 0, 200, 120)
         private const val SYSTEM_RANGE = 1200f
-        private const val SPEED_BUFF = 1.25f
-        private const val ROF_BUFF = 1.25f
+        private const val SPEED_BUFF = 1.5f
+        private const val ROF_BUFF = 1.5f
         private val params = listOf(SPEED_BUFF, ROF_BUFF)
         private val paramNames = listOf("Speed", "Rate of Fire")
     }

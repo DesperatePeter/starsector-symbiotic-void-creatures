@@ -17,7 +17,7 @@
 		"threatAmount":8,
 		"threatAngle":0,
 		"threatArc":360,
-		"threatDamage":400,
+		"threatDamage":2000,
 		"threatSpeed":350,
 	}
 }

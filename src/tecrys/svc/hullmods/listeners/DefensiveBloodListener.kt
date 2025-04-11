@@ -22,14 +22,20 @@ class DefensiveBloodListener(ship: ShipAPI) : DamageTakenModifier {
     companion object{
         val DECAY_PER_SEC = mapOf(
             HullSize.FIGHTER to 100f,
-            HullSize.FRIGATE to 600f,
-            HullSize.DESTROYER to 900f,
-            HullSize.CRUISER to 1300f,
-            HullSize.CAPITAL_SHIP to 1300f
+            HullSize.FRIGATE to 900f,
+            HullSize.DESTROYER to 1200f,
+            HullSize.CRUISER to 1500f,
+            HullSize.CAPITAL_SHIP to 2000f
         )
         val MAX_VALUE = DECAY_PER_SEC.mapValues { it.value * 5f } // same as DECAY_PER_SEC with values * 5
         val MIN_VALUE = DECAY_PER_SEC.mapValues { it.value * 1f }
-        const val MAX_REDUCTION = 0.5f
+        val MAX_REDUCTION =  mapOf(
+        HullSize.FIGHTER to 0.6f,
+        HullSize.FRIGATE to 0.5f,
+        HullSize.DESTROYER to 0.4f,
+        HullSize.CRUISER to 0.3f,
+        HullSize.CAPITAL_SHIP to 0.2f
+        )
         const val ID = "SVC_BLOOD_CLOTTING"
         private val DAMAGE_VALUE_MODIFIER = mapOf(
             DamageType.ENERGY to 1f,
@@ -43,6 +49,7 @@ class DefensiveBloodListener(ship: ShipAPI) : DamageTakenModifier {
     private val maxValue = MAX_VALUE[ship.hullSize] ?: 500f
     private val minValue = MIN_VALUE[ship.hullSize] ?: 100f
     private val decay = DECAY_PER_SEC[ship.hullSize] ?: 100f
+    private val reduction = MAX_REDUCTION[ship.hullSize] ?: 100f
     private var lastClock = 0f
     private var value = 0f
 
@@ -62,7 +69,7 @@ class DefensiveBloodListener(ship: ShipAPI) : DamageTakenModifier {
             value += damage.damage * (DAMAGE_VALUE_MODIFIER[damage.type] ?: 0f)
             return null
         }
-        val mult = (value - minValue) / (maxValue - minValue) * MAX_REDUCTION
+        val mult = (value - minValue) / (maxValue - minValue) * reduction
         damage.modifier.modifyMult(ID, 1f - mult)
         value += damage.damage * (DAMAGE_VALUE_MODIFIER[damage.type] ?: 0f)
         return ID
