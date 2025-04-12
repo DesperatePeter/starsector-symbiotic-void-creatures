@@ -164,6 +164,10 @@ tasks {
                                 "name": "GraphicsLib"
                             },
                             {
+                                "id": "advanced_gunnery_control_dbeaa06e",
+                                "name": "AdvancedGunneryControl"
+                            },
+                            {
                                 "id" : "MagicLib",
                                 "name" : "MagicLib"
                             }
