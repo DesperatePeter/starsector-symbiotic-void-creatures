@@ -1,8 +1,12 @@
 package tecrys.svc.colonycrisis
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.campaign.LocationAPI
 import com.fs.starfarer.api.campaign.econ.MarketAPI
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
+import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
+import com.fs.starfarer.api.impl.campaign.intel.events.BaseOneTimeFactor
+import com.fs.starfarer.api.impl.campaign.intel.events.HostileActivityEventIntel
 import com.fs.starfarer.api.ui.CustomPanelAPI
 import com.fs.starfarer.api.ui.SectorMapAPI
 import com.fs.starfarer.api.ui.TooltipMakerAPI
@@ -23,16 +27,15 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 2000f
+        const val PROGRESS_BLOWBACK_PER_FLEET = 10
         const val FLEET_POWER_MODIFIER = 0.8f // Spawning lots of full power fleets is a bit overwhelming
         const val MEM_KEY = "\$SVC_COLONY_CRISIS_INTEL_EVENT_KEY"
-        const val MEM_KEY_RESOLUTION_GENOCIDE = "\$SVC_COLONY_CRISIS_RESOLVED_GENOCIDE"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
         const val MEM_KEY_DISABLE_TELEPATHY = "\$SVC_MASTERMIND_NO_TELEPATHY"
-        const val MEM_KEY_RESOLUTION_WHALE_SACRIFICE = "\$SVC_COLONY_CRISIS_RESOLVED_WHALE_SACRIFICE"
         const val MARKET_CONDITION = "svc_voidling_infestation"
+        const val INFESTATION_HULLMOD = "svc_infestation_hm"
         var isBossDefeated by CampaignSettingDelegate(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN, false)
         val isBossObeyed get() = MastermindInteractionDialog.isSubmission
-        var isVoidlingGenocide by CampaignSettingDelegate(MEM_KEY_RESOLUTION_GENOCIDE, false)
         val isWhaleSacrifice: Boolean get() = Global.getSector().memoryWithoutUpdate.contains("\$svcLureConstructed")
         val isCrisisActive get() = (get() != null) && !SymbioticCrisisCause.isCrisisResolved()
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
@@ -47,6 +50,15 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             }else{
                 Misc.getPlayerMarkets(false).filterNotNull().forEach { market ->
                     if(market.hasCondition(MARKET_CONDITION)) market.removeCondition(MARKET_CONDITION)
+                }
+            }
+        }
+        fun applyOrRemoveVoidlingInfestationToShipsInSystem(system: LocationAPI?){
+            system?.fleets?.flatMap { it.fleetData.membersListCopy }?.forEach { member ->
+                if(!SymbioticCrisisCause.isCrisisResolved()) {
+                    member.variant.addMod(INFESTATION_HULLMOD)
+                }else{
+                    member.variant.removeMod(INFESTATION_HULLMOD)
                 }
             }
         }
@@ -69,11 +81,24 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
         if(id in defeatedFleetIds) return
         defeatedFleetIds.add(id)
-        if(defeatedByPlayer) fleetsDefeatedByPlayer++
+        if(defeatedByPlayer) {
+            fleetsDefeatedByPlayer++
+            HostileActivityEventIntel.get()?.addFactor(object : BaseOneTimeFactor(-PROGRESS_BLOWBACK_PER_FLEET) {
+                override fun getDesc(intel: BaseEventIntel?): String {
+                    return "Voidling fleets defeated"
+                }
+
+                override fun getMainRowTooltip(intel: BaseEventIntel?): TooltipMakerAPI.TooltipCreator {
+                    return object : BaseFactorTooltip() {
+                        override fun createTooltip(tooltip: TooltipMakerAPI?, expanded: Boolean, tooltipParam: Any?) {
+                            tooltip?.addPara("If you are able to destroy enough fleets, you might be able to dissuade the void creatures.", 0f)
+                        }
+                    }
+                }
+            })
+        }
         currentNumberOfFleets--
     }
-
-
 
     override fun getIcon(): String {
         return Global.getSettings().getSpriteName("icons", "svc_colony_crisis_icon")
@@ -120,12 +145,9 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         if(timer.intervalElapsed() ) {
             if(currentNumberOfFleets < MAX_NUM_FLEETS) spawnFleetIfNecessary()
             applyOrRemoveMarketConditions()
+            applyOrRemoveVoidlingInfestationToShipsInSystem(market.containingLocation)
         }
         setProgress(fleetsDefeatedByPlayer)
-        if(progress >= MAX_NUM_FLEETS){
-            isVoidlingGenocide = true
-            SymbioticCrisisCause.resolveCrisis()
-        }
         if(progress >= FLEETS_DEFEATED_UNTIL_SECOND_CLUE){
             if(!Global.getSector().memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)){
                 val mastermindFleet = FleetManager().spawnMastermindFleet()
@@ -133,7 +155,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 Global.getSector().memoryWithoutUpdate[FleetManager.MASTERMIND_FLEET_MEM_KEY] = mastermindFleet
             }
         }
-        if(isBossDefeated || isBossObeyed || isVoidlingGenocide || isWhaleSacrifice){
+        if(isBossDefeated || isBossObeyed || isWhaleSacrifice){
             SymbioticCrisisCause.resolveCrisis()
         }
         if(isWhaleSacrifice){
