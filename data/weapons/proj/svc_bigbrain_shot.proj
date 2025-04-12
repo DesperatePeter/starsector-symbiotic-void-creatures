@@ -1,7 +1,8 @@
 {
 	"id":"svc_bigbrain_shot",
 	"specClass":"projectile",
-	#"everyFrameEffect":"tecrys.svc.weapons.scripts.Brainhelix",  
+	#"everyFrameEffect":"tecrys.svc.weapons.scripts.Brainhelix",
+	"onFireEffect":"tecrys.svc.weapons.SinGunOnFireEffect",
 	"spawnType":"BALLISTIC_AS_BEAM",
 	"collisionClass":"RAY",
 	"collisionClassByFighter":"RAY_FIGHTER",
