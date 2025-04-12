@@ -81,15 +81,21 @@ SvcMarkPoisonBarEventFinished","The face of the stranger bends into a toothy gri
 ""Pleasure doing business with ya. May Ludd have mercy on your soul.""",svcmod_poison_broker_dialogue_leave:Leave,
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
 #stable position added Dialogue,,,,,,
-stable_build_Voidling_Lure_Init,Stable_AddBuildOptions,!$svclureConstructed,"SetTooltip stable_build_Voidling_Lure_Build ""Requires 1000 food, 50 Stjarwhal Oil and the Fungal Toxin""
-SetTooltipHighlights stable_build_Voidling_Lure_Build 1000 50 Fungal Toxin",,50:stable_build_Voidling_Lure_Build:Prepare Voidling lure.,
+stable_build_Voidling_Attractor_Init,Stable_AddBuildOptions,,,,50:stable_build_Voidling_Attractor_Use:Let the system drown in Void Creatures!,
+stable_build_Voidling_Attractor_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Use,"AddRemoveAnyItem SPECIAL svc_attractor -1
+$global.svcAttractorUsed = true
+RemoveOption stable_build_Voidling_Attractor_Use
+SetEnabled stable_build_Voidling_Lure_Build false",,,
+stable_build_Voidling_Attractor_Afford,Stable_AddBuildOptions,!SvcDoesPlayerHaveAttractor,RemoveOption stable_build_Voidling_Attractor_Use,,,
+,,,,,,
+stable_build_Voidling_Lure_Init,Stable_AddBuildOptions,,"SetTooltip stable_build_Voidling_Lure_Build ""Requires 1000 food, 50 Stjarwhal Oil and the Fungal Toxin""
+SetTooltipHighlights stable_build_Voidling_Lure_Build 1000 50 Fungal Toxin
+SetEnabled stable_build_Voidling_Lure_Build false",,60:stable_build_Voidling_Lure_Build:Prepare Voidling lure.,
 stable_build_Voidling_Lure,Stable_AddBuildOptions,!SvcDoesPlayerHavePoison,RemoveOption stable_build_Voidling_Lure_Build,,,
-stable_build_Voidling_Lure_cantAfford,Stable_AddBuildOptions,!SvcDoesPlayerHaveLureItems,SetEnabled stable_build_Voidling_Lure_Build false,,,
-stable_build_Voidling_Lure_Finished,Stable_AddBuildOptions,$svcLureConstructed,RemoveOption stable_build_Voidling_Lure_Build,,,
+stable_build_Voidling_Lure_cantAfford,Stable_AddBuildOptions,SvcDoesPlayerHaveLureItems,SetEnabled stable_build_Voidling_Lure_Build true,,,
 stable_build_Voidling_Lure_Build,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build,"AddRemoveAnyItem SPECIAL svc_poison -1
 AddRemoveAnyItem SPECIAL svc_whale_oil -50
 RemoveCommodity food 1000
-$svcLureConstructed = true
 $global.svcLureConstructed = true
 RemoveOption stable_build_Voidling_Lure_Build",,,
 ,,,,,,
