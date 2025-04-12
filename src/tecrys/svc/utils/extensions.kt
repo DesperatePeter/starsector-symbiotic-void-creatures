@@ -1,8 +1,10 @@
 package tecrys.svc.utils
 
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
+import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
 import com.fs.starfarer.api.campaign.OptionPanelAPI
+import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.combat.ShipVariantAPI
@@ -52,6 +54,10 @@ fun CampaignFleetAPI.follow(fleet: CampaignFleetAPI, delay: Float = 0f){
         FleetAssignment.HOLD, null, delay
     )
     this.addAssignment(FleetAssignment.FOLLOW, fleet, MAX_GOTO_ASSIGNMENT_DURATION)
+}
+
+fun CargoAPI.getSpecialQuantity(id: String, data: String? = null): Float{
+    return getQuantity(CargoAPI.CargoItemType.SPECIAL, SpecialItemData(id, data))
 }
 
 fun CampaignFleetAPI.makeAlwaysHostile(){
