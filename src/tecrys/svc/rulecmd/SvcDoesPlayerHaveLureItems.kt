@@ -20,10 +20,10 @@ class SvcDoesPlayerHaveLureItems: BaseCommandPlugin() {
         map: MutableMap<String, MemoryAPI>?
     ): Boolean {
         Global.getSector().playerFleet?.cargo?.let { cargo ->
-            val poisonQuantity = cargo.getSpecialQuantity("svc_poison")
+            //val poisonQuantity = cargo.getSpecialQuantity("svc_poison")
             val oilQuantity = cargo.getSpecialQuantity("svc_whale_oil")
             val foodQuantity = cargo.getCommodityQuantity("food")
-            return poisonQuantity >= POISON_REQUIRED && oilQuantity >= OIL_REQUIRED && foodQuantity >= FOOD_REQUIRED
+            return oilQuantity >= OIL_REQUIRED && foodQuantity >= FOOD_REQUIRED
         }
         return false
     }
