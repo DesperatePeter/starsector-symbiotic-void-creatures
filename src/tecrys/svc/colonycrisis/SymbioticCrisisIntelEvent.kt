@@ -33,8 +33,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         var isBossDefeated by CampaignSettingDelegate(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN, false)
         val isBossObeyed get() = MastermindInteractionDialog.isSubmission
         var isVoidlingGenocide by CampaignSettingDelegate(MEM_KEY_RESOLUTION_GENOCIDE, false)
-        val isWhaleSacrifice by CampaignSettingDelegate(MEM_KEY_RESOLUTION_WHALE_SACRIFICE, false)
-        val isCrisisActive get() = get() != null && !SymbioticCrisisCause.isCrisisResolved()
+        val isWhaleSacrifice: Boolean get() = Global.getSector().memoryWithoutUpdate.contains("\$svcLureConstructed")
+        val isCrisisActive get() = (get() != null) && !SymbioticCrisisCause.isCrisisResolved()
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
             get()?.reportFleetDefeated(defeatedByPlayer, id)
@@ -50,8 +50,6 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 }
             }
         }
-
-
     }
 
     init {
@@ -137,6 +135,9 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         }
         if(isBossDefeated || isBossObeyed || isVoidlingGenocide || isWhaleSacrifice){
             SymbioticCrisisCause.resolveCrisis()
+        }
+        if(isWhaleSacrifice){
+            // TODO
         }
     }
 
