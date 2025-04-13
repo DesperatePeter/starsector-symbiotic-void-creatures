@@ -3,7 +3,7 @@
   "hullId": "svc_mastermind",
   "hullSize": "CAPITAL_SHIP",
   "spriteName": "graphics/ships/Mastermind.png",
-  "style": "BIOLOGICAL",
+  "style": "MASTERMIND",
   "height": 338,
   "width": 494,
   "center": [247, 192],
@@ -106,7 +106,7 @@
       "angle": -134,
       "contrailSize": 5.758298,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-43.5, 106],
@@ -115,7 +115,7 @@
       "angle": 134,
       "contrailSize": 5.758298,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-55.5, 95],
@@ -124,7 +124,7 @@
       "angle": 153.5,
       "contrailSize": 5.858963,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-55.5, -95],
@@ -133,7 +133,7 @@
       "angle": -153.5,
       "contrailSize": 5.858963,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-79.5, -74],
@@ -142,7 +142,7 @@
       "angle": -165.5,
       "contrailSize": 7.06096,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-79.5, 74],
@@ -151,7 +151,7 @@
       "angle": 165.5,
       "contrailSize": 7.06096,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-107, -60.5],
@@ -160,7 +160,7 @@
       "angle": -178.5,
       "contrailSize": 8.399779,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     },
     {
       "location": [-107, 60.5],
@@ -169,7 +169,7 @@
       "angle": 178.5,
       "contrailSize": 8.399779,
       "style": "CUSTOM",
-      "styleId": "BGE"
+      "styleId": "MASTERMIND"
     }
   ],
   "bounds": [

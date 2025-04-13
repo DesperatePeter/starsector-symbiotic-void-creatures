@@ -12,8 +12,8 @@ import java.awt.*;
 
 public class VoidlingShroud extends RoilingSwarmEffect {
 
-    public static Color SHROUD_COLOR = new Color(151, 170, 25, 255);
-    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 255);
+    public static Color SHROUD_COLOR = new Color(151, 170, 25, 180);
+    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 180);
 
     public static interface VoidlingShroudEffectFilter {
         boolean isParticleOk(VoidlingShroud shroud, Vector2f loc);

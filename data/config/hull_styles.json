@@ -33,7 +33,38 @@
 		"dHullOverlayMedium":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
 		"dHullOverlayHeavy":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
 	},
-
+	
+	"MASTERMIND":{
+		"hyperspaceJitterColor":[200,0,0,85],
+		"baseCampaignExplosionColor":[200,0,0,85],
+		"baseCombatExplosionColor":[200,0,0,85], # smooth flash
+		"combatExplosionNonFlashColorOverride":[200,0,0,85], # the more billowy explosion
+		"fighterRepairFlickerColor":[200,0,0,85],
+		"fighterChipIconColor":[200,0,0,85],
+		"weaponDisabledExplosionColor":[200,0,0,85],
+		"shieldRingColor":[200,0,0,85],
+		"shieldInnerColor":[200,0,0,85],
+		"fluxVentCoreColor":[200,0,0,85],
+		"fluxVentFringeColor":[200,0,0,85],
+		"fluxVentTextureSheet":"graphics/fx/nebula_colorless.png", # optional, this is the default value
+		"fluxVentRadialTexture":"graphics/fx/radial_fx.png", # optional, this is the default value
+		"engineLoopSet":"svc_engine_tentacle_loop", 					# id of entry in sounds.json
+		"engineAccelerateSet":"svc_engine_tentacle_accelerate",		# id of entry in sounds.json
+		"empLoopSet":"svc_creature_emp_loop",						# id of entry in sounds.json
+		"fluxLoopSet":"flux_loop",						# id of entry in sounds.json
+		"ventFluxSet":"vent_flux",						# id of entry in sounds.json
+		"shieldBurnoutSet":"shield_burnout",			# id of entry in sounds.json
+		"shieldLowerSet":"shield_lower",				# id of entry in sounds.json
+		"shieldRaiseSet":"shield_raise",				# id of entry in sounds.json
+		"explosionShipSet":"svc_creature_pain",			# id of entry in sounds.json
+		"damageDecalSheet":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
+		"damageDecalGlowSheet":"graphics/damage/voidcreatures_damage_decal_sheet_glow.png",
+		
+		"dHullOverlayLight":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
+		"dHullOverlayMedium":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
+		"dHullOverlayHeavy":"graphics/damage/voidcreatures_damage_decal_sheet_base.png",
+	},
+	
 	"Stjarwhal":{
 		"hyperspaceJitterColor":[186,255,255,85],
 		"baseCampaignExplosionColor":[186,255,255,85],
