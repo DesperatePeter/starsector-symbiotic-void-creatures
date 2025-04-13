@@ -87,6 +87,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
                 .error("Spawned SinGunScript with a number of projectiles != 4. Game might crash!")
         }
         sinGunScriptManager.addScript(this)
+        projectiles.forEach { spawnEmpArcsToWeapon(it) }
     }
 
 
