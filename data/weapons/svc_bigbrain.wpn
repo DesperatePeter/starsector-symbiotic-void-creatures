@@ -24,10 +24,10 @@
     -12
   ],
   "turretAngleOffsets": [
-    -20,
+    -10,
+    10,
     20,
-    45,
-    -45
+    -20
   ],
   "hardpointOffsets": [
     37.5,
@@ -40,10 +40,10 @@
     -11
   ],
   "hardpointAngleOffsets": [
-    -20,
+    -10,
+    10,
     20,
-    45,
-    -45
+    -20
   ],
   "barrelMode": "DUAL",
   "animationType": "GLOW",

@@ -9,8 +9,8 @@
 	"length":100.0,
 	"width":11.0,
 	"fadeTime":0.25,
-	"fringeColor":[140, 27, 186,255],
-	"coreColor":[204, 39, 211,200],
+	"fringeColor":[140, 27, 186,0],
+	"coreColor":[204, 39, 211,0],
 	"darkCore": true,
 	#"textureType":"SMOOTH",  # only needed for BEAM spawnType
 	"textureType":["graphics/fx/svc_lightning_beam.png","graphics/fx/svc_lightning_beam.png"],

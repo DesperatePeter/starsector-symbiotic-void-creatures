@@ -3,6 +3,8 @@ package tecrys.svc.weapons.scripts
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.DamagingProjectileAPI
+import com.fs.starfarer.api.combat.EmpArcEntityAPI
+import com.fs.starfarer.api.combat.EmpArcEntityAPI.EmpArcParams
 import com.fs.starfarer.api.combat.WeaponAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.Misc
@@ -10,21 +12,24 @@ import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import tecrys.svc.utils.times
-import kotlin.math.sin
+import java.awt.Color
+
 
 class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Float) : BaseEveryFrameCombatPlugin() {
     companion object {
-        const val RUBBER_BAND_STRENGTH = 2f // acceleration per unit distance
+        const val RUBBER_BAND_STRENGTH = 10f // acceleration per unit distance
         const val DIST_SCALE_CONST = 100f
         const val MULT_NAME = "SvcSinGunDist"
         const val MANAGER_CUSTOM_KEY = "\$SVC_singun_manager"
         const val AMOUNT_TO_SKIP = 0.2f
-        const val EMP_ARC_THICKNESS_MULT = 1f
-        const val EMP_ARC_FREQUENCY = 0.3f
-        const val EMP_ARC_FREQUENCY_RNG = 0.5f // value between 0f and 1f
+        const val EMP_ARC_THICKNESS_MULT = 10f
+        const val EMP_ARC_FREQUENCY = 0.05f
+        const val EMP_ARC_FREQUENCY_RNG = 0.1f // value between 0f and 1f
         const val SPAWN_VARIANT1_ARCS = false
         const val SPAWN_VARIANT2_ARCS = false
         const val SPAWN_VARIANT3_ARCS = true
+        private var ARC_COLOR: Color = Color(151, 170, 25, 155)
+        private var ARC_GLOW_COLOR: Color = Color(92, 85, 24, 155)
 
         fun computeDamageMult(distance: Float): Float{
             return (2f - distance/ DIST_SCALE_CONST).coerceIn(0.5f, 2f)
@@ -155,10 +160,20 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val c1 = p0.projectileSpec.coreColor
         val c2 = p0.projectileSpec.fringeColor
         val thickness = EMP_ARC_THICKNESS_MULT * (mult + 0.1f)
+        val params = EmpArcParams()
+        params.glowAlphaMult = 0f
+        //params.glowColorOverride = Color(0, 0, 0, 0)
+        params.maxZigZagMult = 2.5f
+        params.segmentLengthMult = 0.1f
+        //params.flickerRateMult = 3f
+        params.flickerRateMult = 3f
+        //params.movementDurMin = 2f
         if(Math.random() > 0.5f){
-            Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, c1, c2)
+            Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, ARC_COLOR, ARC_GLOW_COLOR,
+                params)
         }else{
-            Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, c1, c2)
+            Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, ARC_COLOR, ARC_GLOW_COLOR,
+                params)
         }
 
     }

@@ -6,13 +6,16 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.WeaponAPI
 import com.fs.starfarer.api.input.InputEventAPI
+import com.fs.starfarer.api.util.IntervalUtil
 
 class SinGunSoundPlayer(private val weapon: WeaponAPI): BaseEveryFrameCombatPlugin() {
     companion object{
         const val SOUND_ID = "svc_brain_loop"
         const val PRESENCE_KEY = "\$svc_singun_soundplayer_present"
         const val PITCH = 1f
-        const val VOLUME = 1f
+        const val VOLUME = 5f
+        private val shotInterval = IntervalUtil(1.8f, 1.8f)
+        private var start: Boolean = false
         fun isSoundPlayerAlreadyPresent(weapon: WeaponAPI): Boolean{
             return (weapon.ship.customData?.get(PRESENCE_KEY) as? MutableSet<*>)?.contains(weapon) == true
         }
@@ -32,8 +35,18 @@ class SinGunSoundPlayer(private val weapon: WeaponAPI): BaseEveryFrameCombatPlug
     }
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
-        if(weapon.isFiring){
-            Global.getSoundPlayer()?.playLoop(SOUND_ID, weapon, PITCH, VOLUME, weapon.location, weapon.ship?.velocity)
+
+        if (weapon.isFiring){
+            shotInterval.advance(amount);
+            if (shotInterval.intervalElapsed()) {
+                start = false
+                //Global.getSoundPlayer()?.playSound(SOUND_ID, PITCH, VOLUME, weapon.location, weapon.ship?.velocity)
+            }
         }
+        if (weapon.isFiring && !start) {
+            Global.getSoundPlayer()?.playSound(SOUND_ID, PITCH, VOLUME, weapon.location, weapon.ship?.velocity)
+            start = true
+        }
+
     }
 }
