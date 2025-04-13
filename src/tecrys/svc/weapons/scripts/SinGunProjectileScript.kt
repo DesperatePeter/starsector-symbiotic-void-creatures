@@ -11,6 +11,7 @@ import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
+import tecrys.svc.utils.randomlyVaried
 import tecrys.svc.utils.times
 import java.awt.Color
 
@@ -22,14 +23,16 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         const val MULT_NAME = "SvcSinGunDist"
         const val MANAGER_CUSTOM_KEY = "\$SVC_singun_manager"
         const val AMOUNT_TO_SKIP = 0.2f
-        const val EMP_ARC_THICKNESS_MULT = 10f
+        const val EMP_ARC_THICKNESS_MULT = 3f
         const val EMP_ARC_FREQUENCY = 0.05f
         const val EMP_ARC_FREQUENCY_RNG = 0.1f // value between 0f and 1f
         const val SPAWN_VARIANT1_ARCS = false
         const val SPAWN_VARIANT2_ARCS = false
         const val SPAWN_VARIANT3_ARCS = true
-        private var ARC_COLOR: Color = Color(151, 170, 25, 155)
-        private var ARC_GLOW_COLOR: Color = Color(92, 85, 24, 155)
+        private var ARC_COLOR: Color = Color(255, 4, 203, 180)
+        private var ARC_GLOW_COLOR: Color = Color(104, 242, 255, 155)
+        private val colorVariation: Float = 500f
+        protected val color = ARC_COLOR.randomlyVaried(colorVariation / 2f)
 
         fun computeDamageMult(distance: Float): Float{
             return (2f - distance/ DIST_SCALE_CONST).coerceIn(0.5f, 2f)
@@ -167,10 +170,10 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val thickness = EMP_ARC_THICKNESS_MULT * (mult + 0.1f)
         val params = createEmpParams()
         if(Math.random() > 0.5f){
-            Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, ARC_COLOR, ARC_GLOW_COLOR,
+            Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, ARC_GLOW_COLOR, ARC_COLOR,
                 params)
         }else{
-            Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, ARC_COLOR, ARC_GLOW_COLOR,
+            Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, ARC_GLOW_COLOR, ARC_COLOR,
                 params)
         }
     }
@@ -179,17 +182,20 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val thickness = EMP_ARC_THICKNESS_MULT
         val params = createEmpParams()
         Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile, projectile.weapon.location, projectile.weapon.ship,
-            thickness, ARC_COLOR, ARC_GLOW_COLOR, params)
+            thickness, ARC_GLOW_COLOR, ARC_COLOR,  params)?.setFadedOutAtStart(true)
+
     }
 
     private fun createEmpParams(): EmpArcParams {
         val params = EmpArcParams()
+        params.fadeOutDist = 1f
         params.glowAlphaMult = 0f
         //params.glowColorOverride = Color(0, 0, 0, 0)
-        params.maxZigZagMult = 2.5f
+        params.maxZigZagMult = 2f
         params.segmentLengthMult = 0.1f
         //params.flickerRateMult = 3f
-        params.flickerRateMult = 3f
+        params.flickerRateMult = 2f
+        params.minFadeOutMult = 100f
         //params.movementDurMin = 2f
         return params
     }
