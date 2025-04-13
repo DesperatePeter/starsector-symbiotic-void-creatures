@@ -59,11 +59,12 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
             fun getNextProjectiles(script: SinGunProjectileScript): List<DamagingProjectileAPI>?{
                 return scripts[script.outermostProjectile.weapon]?.find { it.creationTime > script.creationTime }?.projectiles
             }
+            fun isFirst(script: SinGunProjectileScript): Boolean{
+                return scripts[script.outermostProjectile.weapon]?.last() == script
+            }
         }
         val sinGunScriptManager = SinGunScriptManager()
     }
-
-
 
     private val orthVector = Misc.getUnitVectorAtDegreeAngle(weaponAngle + 90f)
     private val normVector = Misc.getUnitVectorAtDegreeAngle(weaponAngle)
@@ -121,6 +122,11 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
                 }
             }
         }
+        if(shouldSpawnArcs && SPAWN_VARIANT3_ARCS && sinGunScriptManager.isFirst(this)){
+            projectiles.forEach {
+                spawnEmpArcsToWeapon(it)
+            }
+        }
         if(isDone()){
             engine.removePlugin(this)
             sinGunScriptManager.removeScript(this)
@@ -157,9 +163,25 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val dist = (projectilePair.first.location - projectilePair.second.location).length()
         val mult = computeDamageMult(dist)
         val (p0, p1) = projectilePair
-        val c1 = p0.projectileSpec.coreColor
-        val c2 = p0.projectileSpec.fringeColor
         val thickness = EMP_ARC_THICKNESS_MULT * (mult + 0.1f)
+        val params = createEmpParams()
+        if(Math.random() > 0.5f){
+            Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, ARC_COLOR, ARC_GLOW_COLOR,
+                params)
+        }else{
+            Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, ARC_COLOR, ARC_GLOW_COLOR,
+                params)
+        }
+    }
+
+    private fun spawnEmpArcsToWeapon(projectile: DamagingProjectileAPI){
+        val thickness = EMP_ARC_THICKNESS_MULT
+        val params = createEmpParams()
+        Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile, projectile.weapon.location, projectile.weapon.ship,
+            thickness, ARC_COLOR, ARC_GLOW_COLOR, params)
+    }
+
+    private fun createEmpParams(): EmpArcParams {
         val params = EmpArcParams()
         params.glowAlphaMult = 0f
         //params.glowColorOverride = Color(0, 0, 0, 0)
@@ -168,15 +190,9 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         //params.flickerRateMult = 3f
         params.flickerRateMult = 3f
         //params.movementDurMin = 2f
-        if(Math.random() > 0.5f){
-            Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, ARC_COLOR, ARC_GLOW_COLOR,
-                params)
-        }else{
-            Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, ARC_COLOR, ARC_GLOW_COLOR,
-                params)
-        }
-
+        return params
     }
+
 
     private fun modifyProjectileDamage(projectilePair: Pair<DamagingProjectileAPI, DamagingProjectileAPI>){
         val dist = (projectilePair.first.location - projectilePair.second.location).length()

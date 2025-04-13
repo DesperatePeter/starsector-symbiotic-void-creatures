@@ -35,7 +35,7 @@ class SinGunSoundPlayer(private val weapon: WeaponAPI): BaseEveryFrameCombatPlug
     }
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
-
+        if(Global.getCombatEngine().isPaused) return
         if (weapon.isFiring){
             shotInterval.advance(amount);
             if (shotInterval.intervalElapsed()) {
