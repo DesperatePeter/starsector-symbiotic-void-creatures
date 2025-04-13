@@ -17,6 +17,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         const val RUBBER_BAND_STRENGTH = 2f // acceleration per unit distance
         const val DIST_SCALE_CONST = 100f
         const val MULT_NAME = "SvcSinGunDist"
+        const val MANAGER_CUSTOM_KEY = "\$SVC_singun_manager"
         const val AMOUNT_TO_SKIP = 0.2f
         const val EMP_ARC_THICKNESS_MULT = 1f
         const val EMP_ARC_FREQUENCY = 0.3f
@@ -28,8 +29,18 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         fun computeDamageMult(distance: Float): Float{
             return (2f - distance/ DIST_SCALE_CONST).coerceIn(0.5f, 2f)
         }
+        @Suppress("UNCHECKED_CAST")
         class SinGunScriptManager{
-            private val scripts = mutableMapOf<WeaponAPI, MutableList<SinGunProjectileScript>>()
+            private val scripts: MutableMap<WeaponAPI, MutableList<SinGunProjectileScript>>
+                get(){
+                    Global.getCombatEngine()?.customData?.let { data ->
+                        if(!data.containsKey(MANAGER_CUSTOM_KEY)){
+                            data[MANAGER_CUSTOM_KEY] = mutableMapOf<WeaponAPI, MutableList<SinGunProjectileScript>>()
+                        }
+                        return (data[MANAGER_CUSTOM_KEY] as MutableMap<WeaponAPI, MutableList<SinGunProjectileScript>>)
+                    }
+                    return mutableMapOf()
+                }
             fun addScript(script: SinGunProjectileScript){
                 if(!scripts.containsKey(script.outermostProjectile.weapon)){
                     scripts[script.outermostProjectile.weapon] = mutableListOf()
