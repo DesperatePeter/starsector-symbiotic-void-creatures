@@ -15,8 +15,12 @@ class FleetSpawner {
         }
 
         fun getFactionFleets(faction: String): List<CampaignFleetAPI> {
-            return Global.getSector().allLocations.map { it.fleets.filter { fleet -> fleet.faction.id == faction } }
+            return Global.getSector().allLocations.map { getFactionFleetsInSystem(faction, it) }
                 .flatten()
+        }
+
+        fun getFactionFleetsInSystem(faction: String, system: LocationAPI):  List<CampaignFleetAPI>{
+            return system.fleets.filter { fleet -> fleet.faction.id == faction }
         }
 
         fun isValidSpawnableEntity(token: SectorEntityToken): Boolean {
@@ -63,7 +67,7 @@ class FleetSpawner {
                 loc.allEntities?.filter {
                     isValidSpawnableEntity(it)
                 }
-            }?.flatMap { it }?.randomOrNull()
+            }?.flatten()?.randomOrNull()
     }
 
     fun createFactionFleet(

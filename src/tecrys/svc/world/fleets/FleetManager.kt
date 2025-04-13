@@ -4,14 +4,11 @@ import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.CargoAPI
+import com.fs.starfarer.api.campaign.LocationAPI
 import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.SpecialItemData
-import com.fs.starfarer.api.impl.campaign.ghosts.BaseSensorGhostCreator
-import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
-import com.fs.starfarer.api.util.Misc
-import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.makeHostile
@@ -23,7 +20,6 @@ import tecrys.svc.listeners.*
 import tecrys.svc.utils.*
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
 import tecrys.svc.world.notifications.DefeatedMagicBountyDialog
-import tecrys.svc.world.notifications.NotificationShower
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -45,6 +41,11 @@ class FleetManager : EveryFrameScript {
         const val MASTERMIND_FLEET_MEM_KEY = "\$SVC_MASTERMIND_FLEET"
         const val MASTERMIND_HULL_ID = "svc_mastermind"
         val spawner = FleetSpawner()
+        private var attractorSystem by CampaignSettingDelegate<LocationAPI?>("\$SVC_ATTRACTOR_SYSTEM", null)
+        const val MAX_NUM_ATTRACTOR_FLEETS = 50
+        fun swarmSystemViaAttractor(system: LocationAPI){
+            attractorSystem = system
+        }
         var whaleSpawnIntervalMultiplier: Float by CampaignSettingDelegate("$" + SVC_MOD_ID + "whaleSpawnMult", 1.0f)
         fun spawnSvcFleetNowAtPlayer(): Boolean{
             return FleetManager().spawnSvcFleet(Global.getSector().playerFleet, true) != null
@@ -64,9 +65,10 @@ class FleetManager : EveryFrameScript {
     }
 
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
-    private val hunterSpawnInterval = IntervalUtil(250f, 400f)
+    private val attractorSpawnInterval = IntervalUtil(10f, 20f)
     private val whaleSpawnInterval = IntervalUtil(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
         2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
+
     override fun isDone(): Boolean = false
 
     override fun runWhilePaused(): Boolean = false
@@ -76,7 +78,6 @@ class FleetManager : EveryFrameScript {
         if (!DefeatedMagicBountyDialog.shouldSpawnVoidlings) return
         svcSpawnInterval.advance(amount)
         whaleSpawnInterval.advance(amount)
-        hunterSpawnInterval.advance(amount)
         if (svcSpawnInterval.intervalElapsed()){
             while (spawnSvcFleet() != null && Global.getSettings().isDevMode) {
                 Global.getLogger(this.javaClass).info("Spawned SVC fleet")
@@ -87,9 +88,17 @@ class FleetManager : EveryFrameScript {
             whaleSpawnInterval.setInterval(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
         }
+        attractorSystem?.let { trySpawnAttractorFleet(it, amount) }
     }
 
-
+    private fun trySpawnAttractorFleet(system: LocationAPI, amount: Float){
+        attractorSpawnInterval.advance(amount)
+        if(!attractorSpawnInterval.intervalElapsed()) return
+        if(FleetSpawner.getFactionFleetsInSystem(SVC_FACTION_ID, system).count() >= MAX_NUM_ATTRACTOR_FLEETS) return
+        system.allEntities.filter { FleetSpawner.isValidSpawnableEntity(it) }.randomOrNull()?.let { loc ->
+            spawnSvcFleet(loc, true)
+        }
+    }
 
     /**
      * @return true if fleet was successfully spawned
