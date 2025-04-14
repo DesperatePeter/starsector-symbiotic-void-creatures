@@ -169,6 +169,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val (p0, p1) = projectilePair
         val thickness = EMP_ARC_THICKNESS_MULT * (mult + 0.1f)
         val params = createEmpParams()
+        if(dist > 300f) return
         if(Math.random() > 0.5f){
             Global.getCombatEngine()?.spawnEmpArcVisual(p0.location, p0, p1.location, p1, thickness, ARC_GLOW_COLOR, ARC_COLOR,
                 params)
@@ -181,6 +182,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
     private fun spawnEmpArcsToWeapon(projectile: DamagingProjectileAPI){
         val thickness = EMP_ARC_THICKNESS_MULT
         val params = createEmpParams()
+        if((projectile.location - projectile.weapon.location).length() > 150f) return
         Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile, projectile.weapon.location, projectile.weapon.ship,
             thickness, ARC_GLOW_COLOR, ARC_COLOR,  params)?.setFadedOutAtStart(true)
 

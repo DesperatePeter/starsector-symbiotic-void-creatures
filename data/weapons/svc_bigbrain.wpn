@@ -49,7 +49,7 @@
   "animationType": "GLOW",
   "convergeOnPoint": true,
   "autocharge": true,
-  "requiresFullCharge": false,
+  "requiresFullCharge": true,
 
   #"fireSoundTwo": "svc_brain_loop"
 }
