@@ -26,9 +26,9 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         const val ARC_THICKNESS = 5f
         const val MAX_CHARGES = 25
         val EMP_COLOR = Color(0, 255, 201, 150)
-        const val EMP_SOUND_ID = "tachyon_lance_emp_impact"
+        const val EMP_SOUND_ID = "svc_emp"
         const val COLOR_VARIATION = 100f
-        const val NUM_VISUAL_ARCS = 6
+        const val NUM_VISUAL_ARCS = 12
     }
     private val engine = Global.getCombatEngine()
     private var timer = 0f
