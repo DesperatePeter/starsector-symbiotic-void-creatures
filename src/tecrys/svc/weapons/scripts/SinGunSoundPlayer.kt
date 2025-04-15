@@ -21,6 +21,7 @@ class SinGunSoundPlayer(private val weapon: WeaponAPI): BaseEveryFrameCombatPlug
             return (weapon.ship.customData?.get(PRESENCE_KEY) as? MutableSet<*>)?.contains(weapon) == true
         }
         fun markAsPresent(weapon: WeaponAPI){
+
             if(weapon.ship.customData.containsKey(PRESENCE_KEY)){
                 val weaponSet = weapon.ship.customData[PRESENCE_KEY] as MutableSet<WeaponAPI>
                 weaponSet.add(weapon)
@@ -48,10 +49,11 @@ class SinGunSoundPlayer(private val weapon: WeaponAPI): BaseEveryFrameCombatPlug
 //            Global.getSoundPlayer()?.playSound(SOUND_ID, PITCH, VOLUME, weapon.location, weapon.ship?.velocity)
 //            start = true
 //        }
-        if (weapon.isInBurst && shotInterval.intervalElapsed()){
-            Global.getSoundPlayer()?.playSound(SOUND_ID, PITCH, VOLUME, weapon.location, weapon.ship?.velocity)
 
-        }
+//        if (weapon.isInBurst && shotInterval.intervalElapsed()){
+//            Global.getSoundPlayer()?.playSound(SOUND_ID, PITCH, VOLUME, weapon.location, weapon.ship?.velocity)
+//
+//        }
         if (weapon.chargeLevel > 0.8f) {
             Global.getSoundPlayer()?.playLoop("svc_beam", weapon, PITCH, VOLUME, weapon.location, weapon.ship?.velocity, 0.1f, 0.5f)
 

@@ -7,12 +7,16 @@ import com.fs.starfarer.api.combat.EmpArcEntityAPI
 import com.fs.starfarer.api.combat.EmpArcEntityAPI.EmpArcParams
 import com.fs.starfarer.api.combat.WeaponAPI
 import com.fs.starfarer.api.input.InputEventAPI
+import com.fs.starfarer.api.util.IntervalUtil
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import tecrys.svc.utils.randomlyVaried
 import tecrys.svc.utils.times
+import tecrys.svc.weapons.scripts.SinGunSoundPlayer.Companion.PITCH
+import tecrys.svc.weapons.scripts.SinGunSoundPlayer.Companion.SOUND_ID
+import tecrys.svc.weapons.scripts.SinGunSoundPlayer.Companion.VOLUME
 import java.awt.Color
 
 
@@ -33,6 +37,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         private var ARC_GLOW_COLOR: Color = Color(104, 242, 255, 155)
         private val colorVariation: Float = 500f
         protected val color = ARC_COLOR.randomlyVaried(colorVariation / 2f)
+        private val shotInterval = IntervalUtil(1f, 1.6f)
 
         fun computeDamageMult(distance: Float): Float{
             return (2f - distance/ DIST_SCALE_CONST).coerceIn(0.5f, 2f)
@@ -101,6 +106,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
             amountToSkip -= amount
             return
         }
+        shotInterval.advance(amount)
         adjustProjectileVelocity(amount)
         var shouldSpawnArcs = false
         timer -= amount
@@ -123,6 +129,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
             sinGunScriptManager.getNextProjectiles(this)?.let { otherProjectiles ->
                 projectiles.zip(otherProjectiles).forEach {
                     spawnEmpArcsForProjectiles(it)
+
                 }
             }
         }
@@ -140,6 +147,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
     private fun adjustProjectileVelocity(amount: Float) {
         // NOTE: Projectiles in the starsector combat engine are kind of fucked
         // Their movement is entirely defined by their facing and moveSpeed, their velocity seems to get ignored
+
         listOf(outerProjectiles, innerProjectiles).forEach {
             val forceToApply = it.second.location - it.first.location
             forceToApply.scale(amount * RUBBER_BAND_STRENGTH)
@@ -177,6 +185,10 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
             Global.getCombatEngine()?.spawnEmpArcVisual(p1.location, p1, p0.location, p0, thickness, ARC_GLOW_COLOR, ARC_COLOR,
                 params)
         }
+        if (shotInterval.intervalElapsed()){
+            Global.getSoundPlayer()?.playSound(SOUND_ID, PITCH, VOLUME, p1.location, p1.velocity)
+
+        }
     }
 
     private fun spawnEmpArcsToWeapon(projectile: DamagingProjectileAPI){
@@ -185,6 +197,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         if((projectile.location - projectile.weapon.location).length() > 150f) return
         Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile, projectile.weapon.location, projectile.weapon.ship,
             thickness, ARC_GLOW_COLOR, ARC_COLOR,  params)?.setFadedOutAtStart(true)
+
 
     }
 
@@ -199,6 +212,9 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         params.flickerRateMult = 2f
         params.minFadeOutMult = 100f
         //params.movementDurMin = 2f
+        params.movementDurOverride = -1f
+        params.movementDurMax = 0.1f
+        params.movementDurMin = 0f
         return params
     }
 
