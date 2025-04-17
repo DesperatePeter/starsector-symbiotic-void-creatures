@@ -58,7 +58,8 @@ public class BaseAnimateOnReloadEffect implements EveryFrameWeaponEffectPlugin {
                 isReloading = false;
             }
         } else {
-            if (weapon.getCooldownRemaining() < 1 && weapon.getAmmoTracker().getReloadProgress() >= 0.98) {
+            if (weapon.getCooldownRemaining() < 1 && weapon.getAmmoTracker().getAmmo() > 0.9
+            ) {
                 isReloading = true;
                 incFrame(anim);
                 anim.setFrame(curFrame);
