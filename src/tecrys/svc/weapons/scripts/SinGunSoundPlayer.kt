@@ -7,7 +7,6 @@ import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.WeaponAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
-import com.genir.aitweaks.core.extensions.isInWarmup
 
 class SinGunSoundPlayer(private val weapon: WeaponAPI): BaseEveryFrameCombatPlugin() {
     companion object{
