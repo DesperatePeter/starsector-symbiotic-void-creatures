@@ -196,7 +196,7 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val params = createEmpParams()
         if((projectile.location - projectile.weapon.location).length() > 150f) return
         Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile, projectile.weapon.location, projectile.weapon.ship,
-            thickness, ARC_GLOW_COLOR, ARC_COLOR,  params)?.setFadedOutAtStart(true)
+            thickness, ARC_GLOW_COLOR, ARC_COLOR,  params) //?.setFadedOutAtStart(true)
 
 
     }
@@ -211,7 +211,6 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         //params.flickerRateMult = 3f
         params.flickerRateMult = 2f
         params.minFadeOutMult = 100f
-        //params.movementDurMin = 2f
         params.movementDurOverride = -1f
         params.movementDurMax = 0.1f
         params.movementDurMin = 0f

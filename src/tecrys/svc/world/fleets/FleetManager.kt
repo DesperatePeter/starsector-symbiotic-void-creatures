@@ -225,7 +225,7 @@ class FleetManager : EveryFrameScript {
         voidlings?.let {
             it.makeHostile()
             it.makeAlwaysHostile()
-            it.attackFleet(whales, 1f)
+            it.attackFleet(whales, 0.4f)
             it.addEventListener(SvcFleetListener)
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
             whales.follow(playerFleet,0f)
