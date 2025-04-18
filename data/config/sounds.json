@@ -185,8 +185,8 @@
 		{"file": "sounds/svc_emp1.ogg", "pitch": 1, "volume":  0.4},
 		{"file": "sounds/svc_emp.ogg", "pitch": 0.8, "volume":  0.2},
 		{"file": "sounds/svc_emp1.ogg", "pitch": 0.8, "volume":  0.2},
-		{"file": "sounds/svc_emp.ogg", "pitch": 1.2, "volume":  0.6},
-		{"file": "sounds/svc_emp1.ogg", "pitch": 1.2, "volume":  0.6},
+		{"file": "sounds/svc_emp.ogg", "pitch": 1.2, "volume":  0.5},
+		{"file": "sounds/svc_emp1.ogg", "pitch": 1.2, "volume":  0.5},
 	],
 		"svc_chargeup" : [
 		{"file": "sounds/svc_chargeup.ogg", "pitch": 1, "volume":  1.2}

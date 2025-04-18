@@ -1,11 +1,8 @@
 package tecrys.svc.hullmods
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.combat.BaseHullMod
-import com.fs.starfarer.api.combat.MutableShipStatsAPI
-import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
-import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
@@ -75,6 +72,8 @@ class BGECarapace : BaseHullMod() {
         }
     }
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
+        //                        WeaponGroupAPI Group = FIGHTER.getWeaponGroupFor(weapon);
+        val player = Global.getCombatEngine().playerShip
         modifyPowerLevel(ship)
         hideControlCollarIfNotPlayer(ship)
         ship.setExplosionScale(0.001f)
@@ -83,11 +82,17 @@ class BGECarapace : BaseHullMod() {
         ship.setAsteroidCollisionSoundOverride("dweller_collision_asteroid_ship");
 /*        ship.captain?.setPersonality("reckless")*/
         erraticPropulsion.advanceInCombat(ship, amount)
+        if ( ship.areSignificantEnemiesInRange() && (ship != player || !Global.getCombatEngine().isUIAutopilotOn()))
+        {
+            ship.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS)
+            ship.blockCommandForOneFrame(ShipCommand.DECELERATE)
+        }
     }
     private fun modifyPowerLevel(ship: ShipAPI) {
+
         ship.mutableStats?.run {
             val mult = getPowerLevelBasedOnHullLevel(ship.hullLevel)
-            listOf(maxSpeed, damageToCapital, energyRoFMult, ballisticRoFMult, missileRoFMult).forEach {
+            listOf(maxCombatHullRepairFraction, energyRoFMult, ballisticRoFMult, missileRoFMult, ).forEach {
                 it.unmodify(POWER_SCALING_MULT_KEY)
                 it.modifyMult(POWER_SCALING_MULT_KEY, mult)
             }

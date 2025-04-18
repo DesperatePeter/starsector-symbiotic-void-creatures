@@ -66,7 +66,7 @@ public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireE
             Vector2f pullVector = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees( sourceLoc, targetLoc));
             Vector2f pullEnemiesVector = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees( sourceLoc, targetLoc));
 
-            pullVector.scale(Math.max(60f - sourceShip.getMass() / 20f, 40f));
+            pullVector.scale(Math.max(55f - sourceShip.getMass() / 20f, 30f));
             pullEnemiesVector.scale(( Math.max(56f - sourceShip.getMass() / 20f, 15f) ) * 0.6f);
 
             sourceShip.getVelocity().translate(pullVector.x, pullVector.y);
