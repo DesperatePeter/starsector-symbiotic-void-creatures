@@ -49,7 +49,8 @@ class HuntersDefeatedListener(private val hunterId: String): FleetEventListener 
                 1 -> addItemToPlayerWithText("svc_control_collar_bp")
                 2 -> addItemToPlayerWithText("svc_alpha_collar_bp")
             }
-        }else{
+        }else if(primaryWinner != fleet){
+            fleet?.despawn(CampaignEventListener.FleetDespawnReason.DESTROYED_BY_BATTLE, null)
             reAddToSpawn()
         }
     }
