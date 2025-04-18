@@ -23,6 +23,7 @@ class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActiv
         private const val MIN_CONTRIBUTION_PER_MARKET = 1f
         private const val MAX_CONTRIBUTION_PER_MARKET = 20f
         private const val MAX_TOTAL_PROGRESS = 200f // FIXME: limit?
+        private const val MIN_COLONY_SIZE_FOR_CONTRIBUTION = 5
 
         fun isCrisisResolved(): Boolean = Global.getSector().playerMemoryWithoutUpdate.getBoolean(
             MEM_KEY_CRISIS_RESOLVED
@@ -44,7 +45,7 @@ class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActiv
         fun getMarketContribution(market: MarketAPI): Float {
             return ( CONTRIBUTION_MULTIPLIER *
                     (market.locationInHyperspace.length() - MIN_DIST_FROM_CENTER_TO_CONTRIBUTE) /
-                    DIST_FROM_CENTER_SCALING * (market.size - 2).toFloat()
+                    DIST_FROM_CENTER_SCALING * (market.size - MIN_COLONY_SIZE_FOR_CONTRIBUTION).toFloat()
                     ).coerceIn(MIN_CONTRIBUTION_PER_MARKET, MAX_CONTRIBUTION_PER_MARKET)
         }
     }

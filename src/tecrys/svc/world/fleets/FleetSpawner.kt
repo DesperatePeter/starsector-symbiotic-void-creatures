@@ -101,6 +101,7 @@ class FleetSpawner {
             }
             fleet.inflateIfNeeded()
         }
+
         fleet.customData[FLEET_ORIGINAL_STRENGTH_KEY] = fleet.fleetPoints
         return fleet
     }
