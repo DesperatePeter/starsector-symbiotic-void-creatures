@@ -13,7 +13,7 @@ import kotlin.math.sin
 class InkSprayEffect : OnFireEffectPlugin {
     companion object{
         const val EFFECT_DURATION = 6f
-        const val EFFECT_RADIUS = 135f
+        const val EFFECT_RADIUS = 200f
         const val EFFECT_SPEED = 50f
         const val EFFECT_SPAWN_DISTANCE = EFFECT_RADIUS / 2f
     }
@@ -25,6 +25,6 @@ class InkSprayEffect : OnFireEffectPlugin {
         val effectLocation = w.location + effectOffset
         effectOffset.scale(EFFECT_SPEED / EFFECT_SPAWN_DISTANCE)
         val velocity = w.ship.velocity + effectOffset
-        e.addPlugin(InkSprayScript(w.ship, e, effectLocation, velocity, Color(110, 0, 200, 40), EFFECT_RADIUS, EFFECT_DURATION))
+        e.addPlugin(InkSprayScript(w.ship, e, effectLocation, velocity, Color(110, 0, 200, 130), EFFECT_RADIUS, EFFECT_DURATION))
     }
 }

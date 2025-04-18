@@ -1,6 +1,6 @@
 name,id,flux/second,f/s (base rate),f/s (base cap),flux/use,f/u (base rate),f/u (base cap),cr/u,max uses,regen,charge up,active,down,cooldown,toggle,noDissipation,noHardDissipation,hardFlux,noFiring,noTurning,noStrafing,noAccel,noShield,noVent,isPhaseCloak,tags,icon
 Berserker Frenzy,svc_hemalisk_berserk,,,,,,,,,,0.1,15.0,1.5,17.0,,,,,,,,,,TRUE,,offensive,graphics/fx/svc_berserk.png
-Aggressive Pheromones,svc_aggressive_pheromones,,,,,,,,,,0.1,30.0,2.0,15.0,,,,,,,,,,FALSE,,,graphics/icons/hullsys/fortress_shield.png
+Aggressive Pheromones,svc_aggressive_pheromones,,,,,,,,,,0.1,15.0,0.1,5.0,,,,,,,,,,FALSE,,,graphics/icons/hullsys/fortress_shield.png
 Parasumbilical Cord,svc_parasumbilical_cord,,,,,,,,,,0.1,4.0,0.5,15.0,,,,,,,,,,FALSE,,defensive,graphics/fx/svc_parasumbilicalcord.png
 Nervous Shunt,svc_nervous_shunt,,,,,,,,,,0.1,5.0,0.1,20.0,,,,,,,,,,FALSE,,defensive,graphics/fx/svc_nervousshunt.png
 Volatile Void Drones,svc_volatile_void_drones,,,,,,,,,,0.1,0.1,0.1,0.5,,,,,,,,,,FALSE,,offensive,graphics/icons/hullsys/active_flare_launcher.png
@@ -11,3 +11,4 @@ Spooky Action at a Distance,svc_spooky_action,,,,,,,,2,0.05,0.1,0.1,0.1,8,,,,,,,
 Phase Submerge,svc_phasesubmerge,,,,,,,,,,0.5,,0.5,4,TRUE,,TRUE,TRUE,TRUE,,,,TRUE,,TRUE,movement,graphics/icons/hullsys/phase_cloak.png
 Hyperdash,svc_dash,1,,,,,0.25,,3,0.04,,0.01,,1,,,,,,,,TRUE,,,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png
 Reflex Hypercognition,svc_biomemetism,1,,,,,0.25,,3,0.04,0.05,1.5,0.1,2,,,,,,,,,,,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png
+Fungal Flume,svc_phase_flume,1,,,,,0.2,,,,0.5,3,0.5,3,,,,,,,,,,,,"defensive, offensive",graphics/icons/hullsys/emp_emitter.png

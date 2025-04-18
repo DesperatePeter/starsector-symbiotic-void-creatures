@@ -99,7 +99,7 @@ public class PhaseSubmergeStats extends BaseShipSystemScript {
             if (level > f) {
                 if (getDisruptionLevel(playerShip) <= 0f) {
                     Global.getCombatEngine().maintainStatusForPlayerShip(STATUSKEY3,
-                            cloak.getSpecAPI().getIconSpriteName(), "phase coils stable", "top speed at 100%", false);
+                            cloak.getSpecAPI().getIconSpriteName(), "phase glands stable", "top speed at 100%", false);
                 } else {
                     //String disruptPercent = "" + (int)Math.round((1f - disruptionLevel) * 100f) + "%";
                     //String speedMultStr = Strings.X + Misc.getRoundedValue(getSpeedMult());
@@ -107,7 +107,7 @@ public class PhaseSubmergeStats extends BaseShipSystemScript {
                     Global.getCombatEngine().maintainStatusForPlayerShip(STATUSKEY3,
                             cloak.getSpecAPI().getIconSpriteName(),
                             //"phase coils at " + disruptPercent,
-                            "phase coil stress",
+                            "phase gland stress",
                             "top speed at " + speedPercentStr, true);
                 }
             }

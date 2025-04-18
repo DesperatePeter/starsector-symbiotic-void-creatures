@@ -78,7 +78,7 @@
 
 	],	
 		"svc_weapon_worm":[
-		{"file":"sounds/svc_organicsquish1.ogg","pitch":2,"volume":0.05},
+		{"file":"sounds/svc_organicsquish1.ogg","pitch":1,"volume":0.4},
 
 	],	
 			"svc_weapon_plasma":[
@@ -181,17 +181,17 @@
 		{"file": "sounds/svc_glitch_sound.ogg", "pitch": 1, "volume":  0.4}
 	],
 		"svc_emp" : [
-		{"file": "sounds/svc_emp.ogg", "pitch": 1, "volume":  0.7},
-		{"file": "sounds/svc_emp1.ogg", "pitch": 1, "volume":  0.7},
-		{"file": "sounds/svc_emp.ogg", "pitch": 0.8, "volume":  0.4},
-		{"file": "sounds/svc_emp1.ogg", "pitch": 0.8, "volume":  0.4},
-		{"file": "sounds/svc_emp.ogg", "pitch": 1.2, "volume":  0.9},
-		{"file": "sounds/svc_emp1.ogg", "pitch": 1.2, "volume":  0.9},
+		{"file": "sounds/svc_emp.ogg", "pitch": 1, "volume":  0.4},
+		{"file": "sounds/svc_emp1.ogg", "pitch": 1, "volume":  0.4},
+		{"file": "sounds/svc_emp.ogg", "pitch": 0.8, "volume":  0.2},
+		{"file": "sounds/svc_emp1.ogg", "pitch": 0.8, "volume":  0.2},
+		{"file": "sounds/svc_emp.ogg", "pitch": 1.2, "volume":  0.6},
+		{"file": "sounds/svc_emp1.ogg", "pitch": 1.2, "volume":  0.6},
 	],
 		"svc_chargeup" : [
-		{"file": "sounds/svc_chargeup.ogg", "pitch": 1, "volume":  1.5}
+		{"file": "sounds/svc_chargeup.ogg", "pitch": 1, "volume":  1.2}
 	],
 			"svc_beam" : [
-		{"file": "sounds/svc_beam.ogg", "pitch": 0.9, "volume":  0.8}
+		{"file": "sounds/svc_beam.ogg", "pitch": 0.9, "volume":  0.7}
 	],
 }

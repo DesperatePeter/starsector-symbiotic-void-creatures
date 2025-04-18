@@ -216,6 +216,24 @@
       "arc": 3,
       "angle": -171.5,
       "locations": [-8.5, 35]
+    },
+	    {
+      "id": "SYS1",
+      "size": "MEDIUM",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [30.5, 36.5]
+    },
+    {
+      "id": "SYS2",
+      "size": "MEDIUM",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -0,
+      "locations": [30.5, -36.5]
     }
   ],
   "engineSlots": [

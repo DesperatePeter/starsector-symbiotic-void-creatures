@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm",
+    "svc_no_fuel_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_koenig_eyes",
@@ -198,6 +198,24 @@
       "arc": 180,
       "angle": -90,
       "locations": [-5, -48]
+    },
+	    {
+      "id": "SYS1",
+      "size": "MEDIUM",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": 0,
+      "locations": [30.5, 36.5]
+    },
+    {
+      "id": "SYS2",
+      "size": "MEDIUM",
+      "type": "SYSTEM",
+      "mount": "HIDDEN",
+      "arc": 0,
+      "angle": -0,
+      "locations": [30.5, -36.5]
     }
   ],
   "engineSlots": [

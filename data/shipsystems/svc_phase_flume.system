@@ -1,0 +1,35 @@
+{
+	"id":"svc_phase_flume",
+	"type":"EMP",
+	"aiType":"EMP",
+		"range":500,
+	
+	"empDamage":30,
+	"damage":50,
+	"damageType":ENERGY,
+		"runScriptWhileIdle":true,
+	"statsScript":"tecrys.svc.shipsystems.svc_phase_flume_stats",
+
+	"canUseWhileRightClickSystemOn":true,
+	"effectColor1":[151, 170, 25, 180],
+	"effectColor2":[92, 85, 24, 180],
+
+
+	"useSound":"system_emp_emitter_activate",
+	"loopSound":"svc_emp",
+	"impactSound":"system_emp_emitter_impact",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	# see: EmpArcParams.loadFromSystemJson() for complete list of supported values
+	#"emp_segmentLengthMult":10000f, # makes it a line
+	"emp_segmentLengthMult":3f,
+	"emp_zigZagReductionFactor":0.25f,
+	#"emp_fadedOutAtStart":true,
+	
+	"aiHints":{
+		"threatRange":600,
+		"threatAmount":4,
+		"threatAngle":0,
+		"threatArc":360,
+	}
+}

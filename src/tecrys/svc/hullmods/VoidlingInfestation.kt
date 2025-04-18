@@ -48,11 +48,14 @@ class VoidlingInfestation: BaseHullMod() {
             val fighter = fleetMan.spawnShipOrWing(
                 FIGHTER_ID, loc, facing
             )
-            fighter.shipAI = fighter.createDefaultShipAI(ShipAIConfig())
+
+//            fighter.shipAI = fighter.createDefaultShipAI(ShipAIConfig())
+            fighter.resetDefaultAI()
             Global.getCombatEngine().addPlugin(KillSwitch(fighter, 30f))
             Global.getCombatEngine().addNebulaParticle(
                 loc, ship.velocity, CLOUD_RADIUS, 2f, 0.5f, 0.8f, CLOUD_DURATION, CLOUD_COLOR
             )
+
         }
         fleetMan.isSuppressDeploymentMessages = wasSpawnMsgSuppressed
     }

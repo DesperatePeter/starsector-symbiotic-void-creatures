@@ -16,7 +16,9 @@
         "WS0003": "svc_sml_mand_r",
         "WS0004": "svc_sml_mand_l",
         "WS0005": "svc_sml_mand_r",
-        "WS0006": "svc_sml_mand_l"
+        "WS0006": "svc_sml_mand_l",
+        "WS0007": "svc_sml_mand_r",
+        "WS0008": "svc_sml_mand_l"
       }
     }
   ],
