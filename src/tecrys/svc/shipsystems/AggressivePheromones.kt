@@ -64,7 +64,7 @@ class AggressivePheromones : BaseShipSystemScript() {
         }.map { WeakReference(it) }
         affectedShips.forEach {
             it.get()?.mutableStats?.run {
-                listOf(ballisticRoFMult, energyRoFMult, missileRoFMult).forEach { b ->
+                listOf(ballisticRoFMult, energyRoFMult, missileRoFMult, fluxDissipation).forEach { b ->
                     b.modifyMult(id, ROF_BUFF)
                 }
                 listOf(maxSpeed, maxTurnRate, acceleration, turnAcceleration, deceleration).forEach { b ->
@@ -83,7 +83,7 @@ class AggressivePheromones : BaseShipSystemScript() {
 
     private fun removeBuffsFromShip(ship: ShipAPI, id: String?){
         ship.mutableStats?.run {
-            listOf(ballisticRoFMult, energyRoFMult, missileRoFMult,
+            listOf(ballisticRoFMult, energyRoFMult, missileRoFMult, fluxDissipation,
                 maxSpeed, maxTurnRate, acceleration, turnAcceleration, deceleration).forEach { stat ->
                 stat.unmodify(id)
             }

@@ -6,14 +6,14 @@
   "style": "BIOLOGICAL",
   "height": 88,
   "width": 112,
-  "center": [56, 51],
+  "center": [56, 42],
   "collisionRadius": 56.135994,
   "shieldCenter": [0, -0],
-  "shieldRadius": 59.808025,
+  "shieldRadius": 54.5,
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm",
+    "svc_no_fuel_hm",
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
@@ -54,7 +54,7 @@
       "mount": "HARDPOINT",
       "arc": 58.602001,
       "angle": 46.081001,
-      "locations": [21.5, -27],
+      "locations": [30.5, -27],
       "renderOrderMod": 4
     },
     {
@@ -64,7 +64,7 @@
       "mount": "HARDPOINT",
       "arc": 58.602001,
       "angle": -46.081001,
-      "locations": [21.5, 27],
+      "locations": [30.5, 27],
       "renderOrderMod": 4
     },
     {
@@ -74,7 +74,7 @@
       "mount": "HARDPOINT",
       "arc": 59.490002,
       "angle": -29.745001,
-      "locations": [10, 45.5],
+      "locations": [19, 45.5],
       "renderOrderMod": 4
     },
     {
@@ -84,7 +84,7 @@
       "mount": "HARDPOINT",
       "arc": 59.490002,
       "angle": 29.745001,
-      "locations": [10, -45.5],
+      "locations": [19, -45.5],
       "renderOrderMod": 4
     },
     {
@@ -94,7 +94,7 @@
       "mount": "TURRET",
       "arc": 90,
       "angle": -10.305,
-      "locations": [5, 19.5],
+      "locations": [14, 19.5],
       "renderOrderMod": 1
     },
     {
@@ -104,7 +104,7 @@
       "mount": "TURRET",
       "arc": 90,
       "angle": 10.305,
-      "locations": [5, -19.5],
+      "locations": [14, -19.5],
       "renderOrderMod": 1
     },
     {
@@ -114,7 +114,7 @@
       "mount": "HARDPOINT",
       "arc": 37.878006,
       "angle": -171.253845,
-      "locations": [-22.5, 22.5]
+      "locations": [-13.5, 22.5]
     },
     {
       "id": "right_tentacle1",
@@ -123,7 +123,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": 171.253998,
-      "locations": [-22.5, -22.5],
+      "locations": [-13.5, -22.5],
       "renderOrderMod": 1
     },
     {
@@ -133,7 +133,7 @@
       "mount": "TURRET",
       "arc": 180,
       "angle": -90,
-      "locations": [13.5, -29.5],
+      "locations": [22.5, -29.5],
       "renderOrderMod": 1
     },
     {
@@ -143,7 +143,7 @@
       "mount": "TURRET",
       "arc": 180,
       "angle": 90,
-      "locations": [13.5, 29.5],
+      "locations": [22.5, 29.5],
       "renderOrderMod": 1
     },
     {
@@ -153,7 +153,7 @@
       "mount": "HARDPOINT",
       "arc": 37.878006,
       "angle": 161.565048,
-      "locations": [-24, 31.5]
+      "locations": [-15, 31.5]
     },
     {
       "id": "right_tentacle2",
@@ -162,7 +162,7 @@
       "mount": "HARDPOINT",
       "arc": 37.878006,
       "angle": -161.565048,
-      "locations": [-24, -31.5]
+      "locations": [-15, -31.5]
     },
     {
       "id": "WS0001",
@@ -171,7 +171,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": 146.309998,
-      "locations": [-19, 29]
+      "locations": [-10, 29]
     },
     {
       "id": "WS0002",
@@ -180,7 +180,7 @@
       "mount": "HARDPOINT",
       "arc": 37.878006,
       "angle": -146.309937,
-      "locations": [-19, -29]
+      "locations": [-10, -29]
     },
     {
       "id": "WS0003",
@@ -189,7 +189,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": 159.774994,
-      "locations": [-10.5, 34],
+      "locations": [-1.5, 34],
       "renderOrderMod": 1
     },
     {
@@ -199,7 +199,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": -159.774994,
-      "locations": [-10.5, -34],
+      "locations": [-1.5, -34],
       "renderOrderMod": 1
     },
     {
@@ -209,7 +209,7 @@
       "mount": "TURRET",
       "arc": 37.877998,
       "angle": 0,
-      "locations": [0.5, 3],
+      "locations": [9.5, 3],
       "renderOrderMod": 20
     },
     {
@@ -219,7 +219,7 @@
       "mount": "HARDPOINT",
       "arc": 37.878006,
       "angle": 146,
-      "locations": [3, 55.5]
+      "locations": [12, 55.5]
     },
     {
       "id": "WS0007",
@@ -228,7 +228,7 @@
       "mount": "HARDPOINT",
       "arc": 37.878006,
       "angle": -146,
-      "locations": [3, -55.5]
+      "locations": [12, -55.5]
     },
     {
       "id": "left_mand",
@@ -237,7 +237,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [8.5, 9],
+      "locations": [17.5, 9],
       "renderOrderMod": 3
     },
     {
@@ -247,7 +247,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -0,
-      "locations": [8.5, -9],
+      "locations": [17.5, -9],
       "renderOrderMod": 3
     },
     {
@@ -257,7 +257,7 @@
       "mount": "TURRET",
       "arc": 37.877998,
       "angle": 0,
-      "locations": [9, 0],
+      "locations": [18, 0],
       "renderOrderMod": 4
     },
     {
@@ -267,7 +267,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": -153.5,
-      "locations": [-13.5, -45.5]
+      "locations": [-4.5, -45.5]
     },
     {
       "id": "WS0009",
@@ -276,7 +276,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": 153.5,
-      "locations": [-13.5, 45.5]
+      "locations": [-4.5, 45.5]
     },
     {
       "id": "WS0010",
@@ -285,7 +285,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": -154,
-      "locations": [-14, -53.5]
+      "locations": [-5, -53.5]
     },
     {
       "id": "WS0011",
@@ -294,7 +294,7 @@
       "mount": "HARDPOINT",
       "arc": 37.877998,
       "angle": 154,
-      "locations": [-14, 53.5]
+      "locations": [-5, 53.5]
     },
     {
       "id": "WS0012",
@@ -303,7 +303,7 @@
       "mount": "TURRET",
       "arc": 37.877998,
       "angle": 0,
-      "locations": [2.5, -34.5],
+      "locations": [11.5, -34.5],
       "renderOrderMod": 5
     },
     {
@@ -313,13 +313,13 @@
       "mount": "TURRET",
       "arc": 37.877998,
       "angle": -0,
-      "locations": [2.5, 34.5],
+      "locations": [11.5, 34.5],
       "renderOrderMod": 5
     }
   ],
   "engineSlots": [
     {
-      "location": [6.5, -50],
+      "location": [15.5, -50],
       "length": 21.132061,
       "width": 8.645454,
       "angle": -147.5,
@@ -328,7 +328,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [6.5, 50],
+      "location": [15.5, 50],
       "length": 21.132061,
       "width": 8.645454,
       "angle": 147.5,
@@ -337,7 +337,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [1, 37],
+      "location": [10, 37],
       "length": 18.63933,
       "width": 8.264479,
       "angle": 164,
@@ -346,7 +346,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [1, -37],
+      "location": [10, -37],
       "length": 18.63933,
       "width": 8.264479,
       "angle": -164,
@@ -355,7 +355,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [1.5, -21],
+      "location": [10.5, -21],
       "length": 17.527288,
       "width": 8.495686,
       "angle": -172.5,
@@ -364,7 +364,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [1.5, 21],
+      "location": [10.5, 21],
       "length": 17.527288,
       "width": 8.495686,
       "angle": 172.5,
@@ -373,7 +373,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-1.5, -3.5],
+      "location": [7.5, -3.5],
       "length": 11.847091,
       "width": 7.182323,
       "angle": -153.5,
@@ -382,7 +382,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-1.5, 3.5],
+      "location": [7.5, 3.5],
       "length": 11.847091,
       "width": 7.182323,
       "angle": 153.5,
@@ -392,21 +392,21 @@
     }
   ],
   "bounds": [
-    -10.5, 7.5,
-    -2, 18,
-    -7, 21,
-    4.5, 49.5,
-    10.5, 52,
-    31.5, 26.5,
-    24.5, 10,
-    15, 9.5,
-    15, -9.5,
-    24.5, -10,
-    31.5, -26.5,
-    10.5, -52,
-    4.5, -49.5,
-    -7, -21,
-    -2, -18,
-    -10.5, -7.5
+    -1.5, 7.5,
+    7, 18,
+    2, 21,
+    13.5, 49.5,
+    19.5, 52,
+    40.5, 26.5,
+    33.5, 10,
+    24, 9.5,
+    24, -9.5,
+    33.5, -10,
+    40.5, -26.5,
+    19.5, -52,
+    13.5, -49.5,
+    2, -21,
+    7, -18,
+    -1.5, -7.5
   ]
 }

@@ -5,8 +5,10 @@ import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.ids.Personalities
+import com.fs.starfarer.campaign.fleet.FleetMember
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
+import org.magiclib.kotlin.createDefaultShipAI
 import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.SVC_BASE_HULLMOD_ID
 import tecrys.svc.hullmods.listeners.ReduceExplosionListener
@@ -17,7 +19,7 @@ import java.awt.Color
 
 class BGECarapace : BaseHullMod() {
     companion object{
-        private const val ENGINE_DAMAGE_TAKEN = 0.15f
+        private const val ENGINE_DAMAGE_TAKEN = 0.05f
         private const val HULL_RESISTANCE = 30f
         private const val POWER_SCALING_MIN_HULL = 0.3f
         private const val POWER_SCALING_MAX_HULL = 0.9f
@@ -30,6 +32,7 @@ class BGECarapace : BaseHullMod() {
             "never_detaches", "shared_flux_sink", "svc_scoliac_tail_turner", "always_detaches", "svc_acid_blood_hm", "svc_infestation_hm",
             "svc_no_fuel_hm", "svc_more_alphas_hm", "svc_overdamage_res_hm", "svc_shell_vulcanization", "svc_rdm_stats")
         private val ALLOWED_HULLMODS_BY_PREFIX = setOf("automated", "sun", "ehm","sms" )
+        private var DestroAI: FleetMemberAPI? = null
     }
 
     private val erraticPropulsion = ErraticPropulsion()
@@ -97,9 +100,25 @@ class BGECarapace : BaseHullMod() {
                 config.backingOffWhileNotVentingAllowed = false
                 config.turnToFaceWithUndamagedArmor = false
                 config.burnDriveIgnoreEnemies = true
-//            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF, 999999f)
+            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF)
+            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF_EVEN_WHILE_VENTING)
+            if (ship.hullSize == HullSize.FRIGATE)
+            {
+            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.HARASS_MOVE_IN)
+            }
+
+
+if (ship.fleetMember == null)
+    return
+
+            if (ship.fleetMember.isPhaseShip) {
+                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.PHASE_BRAWLER_DUMPING_FLUX)
+                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.ESCORT_OTHER_SHIP)
+//                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.STAY_PHASED)
+            }
 
         }
+
     }
     private fun modifyPowerLevel(ship: ShipAPI) {
 

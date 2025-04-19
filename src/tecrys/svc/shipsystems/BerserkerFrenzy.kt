@@ -16,6 +16,7 @@ class BerserkerFrenzy : BaseShipSystemScript() {
     companion object {
         private const val ROF_BUFF = 1.25f
         private const val LIFE_STEAL = 0.1f
+        private const val FLUX_BUFF = 2.0f
         private const val MOVEMENT_BUFF = 1.0f
         private const val MANEUVER_BUFF = 1.0f
         private const val HULL_DAMAGE_TAKEN = 0.9f
@@ -91,6 +92,9 @@ class BerserkerFrenzy : BaseShipSystemScript() {
             hullDamageTakenMult.modifyMult(id, HULL_DAMAGE_TAKEN)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
             weaponDamageTakenMult.modifyMult(id, WEAPON_DAMAGE_TAKEN)
+            fluxDissipation.modifyMult(id, FLUX_BUFF)
+            energyWeaponFluxCostMod.modifyMult(id,WEAPON_DAMAGE_TAKEN)
+            ballisticWeaponFluxCostMod.modifyMult(id,WEAPON_DAMAGE_TAKEN)
         }
         ship.addListener(LifeStealListener(ship, LIFE_STEAL))
     }
@@ -104,7 +108,8 @@ class BerserkerFrenzy : BaseShipSystemScript() {
         ship.mutableStats?.run {
             listOf(
                 energyRoFMult, ballisticRoFMult, missileRoFMult, maxSpeed, acceleration, deceleration,
-                maxTurnRate, turnAcceleration, hullDamageTakenMult, engineDamageTakenMult, weaponDamageTakenMult
+                maxTurnRate, turnAcceleration, hullDamageTakenMult, engineDamageTakenMult, weaponDamageTakenMult, fluxDissipation
+
             ).forEach {
                 it.unmodify(id)
             }
@@ -114,6 +119,9 @@ class BerserkerFrenzy : BaseShipSystemScript() {
 
     override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
         val ship = stats?.entity as? ShipAPI ?: return
+        stats.ballisticWeaponFluxCostMod.unmodify(id)
+        stats.energyWeaponFluxCostMod.unmodify(id)
+
         removeBuffs(id, ship)
     }
 

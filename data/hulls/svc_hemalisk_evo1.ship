@@ -6,10 +6,10 @@
   "style": "BIOLOGICAL",
   "height": 88,
   "width": 112,
-  "center": [56, 44],
-  "collisionRadius": 60.110313,
+  "center": [56, 25],
+  "collisionRadius": 66,
   "shieldCenter": [0, -0],
-  "shieldRadius": 63.972649,
+  "shieldRadius": 65,
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",

@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
 import com.fs.starfarer.api.util.Misc;
+import org.lazywizard.lazylib.MathUtils;
 import tecrys.svc.plugins.GrapplerRopePlugin;
 import org.lwjgl.util.vector.Vector2f;
 import tecrys.svc.weapons.GreiferEffectBase;
@@ -15,6 +16,9 @@ public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireE
     private Color tentacleColor = new Color(173, 113, 156, 255);
     private float pullStrength = 100f;
     public static int pluginCount = 0;
+    private float Distance;
+    private float ShieldRadius;
+
     @Override
     public boolean shouldAffectFighters() {
         return true;
@@ -60,17 +64,43 @@ public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireE
             ShipAPI sourceShip = (ShipAPI) projectile.getSource();
             ShipAPI targetShip = (ShipAPI) target;
 
+
             Vector2f sourceLoc = sourceShip.getLocation();
             Vector2f targetLoc = targetShip.getLocation();
+            ShieldRadius = ((ShipAPI) target).getShieldRadiusEvenIfNoShield();
 
-            Vector2f pullVector = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees( sourceLoc, targetLoc));
-            Vector2f pullEnemiesVector = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees( sourceLoc, targetLoc));
+            Vector2f pullVector = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees(sourceLoc, targetLoc));
+            Vector2f pullEnemiesVector = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees(sourceLoc, targetLoc));
+            Distance = MathUtils.getDistance(targetLoc, sourceLoc);
 
-            pullVector.scale(Math.max(55f - sourceShip.getMass() / 20f, 30f));
-            pullEnemiesVector.scale(( Math.max(56f - sourceShip.getMass() / 20f, 15f) ) * 0.6f);
+
+            //pullVector.scale(Math.min(10f + sourceShip.getMass() / 22f, 30f));
+
+
+            if (sourceShip.getHullSize().equals(ShipAPI.HullSize.FRIGATE))
+            {
+                pullVector.scale((1000f/sourceShip.getMass()) * (Distance / 100f));
+            }
+            if (sourceShip.getHullSize().equals(ShipAPI.HullSize.DESTROYER))
+            {
+                pullVector.scale((2000f/sourceShip.getMass()) * (Distance / 50f));
+            }
+            if (sourceShip.getHullSize().equals(ShipAPI.HullSize.CRUISER))
+            {
+                pullVector.scale((3400f/sourceShip.getMass()) * (Distance / 80f));
+            }
+            if (sourceShip.getHullSize().equals(ShipAPI.HullSize.CAPITAL_SHIP))
+            {
+                pullVector.scale((4000f/sourceShip.getMass()) * (Distance / 100f));
+            }
+
+
+
+            pullEnemiesVector.scale((Math.max(56f - sourceShip.getMass() / 20f, 15f)) * 0.6f);
 
             sourceShip.getVelocity().translate(pullVector.x, pullVector.y);
             targetShip.getVelocity().translate(-pullEnemiesVector.x, -pullEnemiesVector.y);
+
         }
     }
 

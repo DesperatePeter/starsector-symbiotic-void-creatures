@@ -15,9 +15,9 @@ class DashAI: ShipSystemAIScript {
     companion object{
         // should include
         const val TIME_TO_IMPACT_BUFFER = 0.5f // activate system if time to impact of relevant projectiles less than this
-        const val PROJECTILE_SCAN_RANGE = 400f // higher values -> worse performance
+        const val PROJECTILE_SCAN_RANGE = 500f // higher values -> worse performance
         const val COLLISION_RADIUS_TOLERANCE = 1.25f
-        const val DAMAGE_TO_HULL_THRESHOLD = 0.15f // parry if expected to take this*hullPoints within TIME_TO_IMPACT_BUFFER
+        const val DAMAGE_TO_HULL_THRESHOLD = 0.1f // parry if expected to take this*hullPoints within TIME_TO_IMPACT_BUFFER
     }
 
 
@@ -40,8 +40,8 @@ class DashAI: ShipSystemAIScript {
 
         val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE)
         val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE)
-        val ships = CombatUtils.getShipsWithinRange(ship.location, 50f + ship.collisionRadius)
-        val enemies = ship.getNearbyEnemies(ship.collisionRadius + 100)
+        val ships = CombatUtils.getShipsWithinRange(ship.location, 270f)
+        val enemies = ship.getNearbyEnemies(300f)
         Global.getLogger(this::class.java).info(enemies)
         var threat = 0f
         var nearShips = 0f
@@ -85,14 +85,15 @@ class DashAI: ShipSystemAIScript {
 //            threat += it.collisionRadius
 //        }
 
-            if ((sys.ammo.toFloat() * threat > DAMAGE_TO_HULL_THRESHOLD * ship.hitpoints)
-                && enemies.isEmpty()
-
-            ) {
-
+            if ((sys.ammo.toFloat() * threat > DAMAGE_TO_HULL_THRESHOLD * ship.hitpoints))
+            {
                 sys.forceState(ShipSystemAPI.SystemState.IN, 0f)
                 sys.ammo -= 1
             }
+        if (enemies.isNotEmpty())
+        {
+            ship.blockCommandForOneFrame(ShipCommand.TOGGLE_SHIELD_OR_PHASE_CLOAK)
+        }
 
     }
 }
