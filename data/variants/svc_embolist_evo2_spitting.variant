@@ -31,8 +31,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_pd": "svc_bge_grappler_pd",
-        "right_pd": "svc_bge_grappler_pd"
+        "left_pd": "svc_bge_grappler_pd"
       }
     },
     {
@@ -53,7 +52,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "right_pd": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,

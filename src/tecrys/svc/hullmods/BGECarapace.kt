@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.fleet.FleetMemberAPI
+import com.fs.starfarer.api.impl.campaign.ids.Personalities
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import org.magiclib.util.MagicIncompatibleHullmods
@@ -12,6 +13,7 @@ import tecrys.svc.hullmods.listeners.ReduceExplosionListener
 import tecrys.svc.shipsystems.utils.VoidlingShroud
 import tecrys.svc.utils.removeDMods
 import java.awt.Color
+
 
 class BGECarapace : BaseHullMod() {
     companion object{
@@ -82,17 +84,28 @@ class BGECarapace : BaseHullMod() {
         ship.setAsteroidCollisionSoundOverride("dweller_collision_asteroid_ship");
 /*        ship.captain?.setPersonality("reckless")*/
         erraticPropulsion.advanceInCombat(ship, amount)
-        if ( ship.areSignificantEnemiesInRange() && (ship != player || !Global.getCombatEngine().isUIAutopilotOn()))
-        {
-            ship.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS)
-            ship.blockCommandForOneFrame(ShipCommand.DECELERATE)
+//        if ( ship.areSignificantEnemiesInRange() && (ship != player || !Global.getCombatEngine().isUIAutopilotOn()))
+//        {
+//            ship.blockCommandForOneFrame(ShipCommand.ACCELERATE_BACKWARDS)
+//            ship.blockCommandForOneFrame(ShipCommand.DECELERATE)
+//        }
+        if (ship.shipAI != null && ship.shipAI.config != null) {
+            val config = ship.shipAI.config
+
+                config.personalityOverride = Personalities.RECKLESS
+                config.alwaysStrafeOffensively = true
+                config.backingOffWhileNotVentingAllowed = false
+                config.turnToFaceWithUndamagedArmor = false
+                config.burnDriveIgnoreEnemies = true
+//            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF, 999999f)
+
         }
     }
     private fun modifyPowerLevel(ship: ShipAPI) {
 
         ship.mutableStats?.run {
             val mult = getPowerLevelBasedOnHullLevel(ship.hullLevel)
-            listOf(maxCombatHullRepairFraction, energyRoFMult, ballisticRoFMult, missileRoFMult, ).forEach {
+            listOf(maxCombatHullRepairFraction, energyRoFMult, ballisticRoFMult, missileRoFMult).forEach {
                 it.unmodify(POWER_SCALING_MULT_KEY)
                 it.modifyMult(POWER_SCALING_MULT_KEY, mult)
             }

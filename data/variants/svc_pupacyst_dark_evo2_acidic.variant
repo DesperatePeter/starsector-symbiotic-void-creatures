@@ -7,7 +7,9 @@
   "fluxVents": 13,
   "quality": 1,
   "permaMods": [],
-  "hullMods": ["svc_infestation_hm"],
+  "hullMods": [
+    "svc_infestation_hm"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -20,10 +22,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "grappler": "svc_bge_grappler_pd",
-        "grappler2": "svc_bge_grappler_pd",
-        "left_sml_pd": "svc_bge_grappler_pd",
-        "right_sml_pd": "svc_bge_grappler_pd"
+        "Alphamiddle": "svc_acidthrower"
       }
     },
     {
@@ -40,12 +39,21 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Alphamiddle": "svc_acidthrower"
+        "left_sml_pd": "svc_bge_grappler_pd",
+        "right_sml_pd": "svc_bge_grappler_pd"
       }
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
+      "weapons": {
+        "grappler": "svc_bge_grappler_pd",
+        "grappler2": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
       "weapons": {}
     }
   ],

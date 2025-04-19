@@ -7,18 +7,16 @@
   "fluxVents": 15,
   "quality": 1,
   "permaMods": [],
-  "hullMods": ["svc_infestation_hm"],
+  "hullMods": [
+    "svc_infestation_hm"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0015": "svc_bge_grappler",
-        "WS0016": "svc_bge_grappler",
-        "left_lrg_uni": "svc_adv_lrg_scythe_r",
-        "left_med_uni": "svc_adv_med_scythe_r",
-        "right_lrg_uni": "svc_adv_lrg_scythe_r",
-        "right_med_uni": "svc_adv_med_scythe_r"
+        "WS0016": "svc_bge_grappler"
       }
     },
     {
@@ -28,9 +26,7 @@
         "WS0011": "svc_bge_grappler_pd",
         "WS0012": "svc_bge_grappler_pd",
         "WS0013": "svc_bge_grappler_pd",
-        "WS0014": "svc_bge_grappler_pd",
-        "WS0017": "svc_bge_grappler_pd",
-        "WS0018": "svc_bge_grappler_pd"
+        "WS0014": "svc_bge_grappler_pd"
       }
     },
     {
@@ -46,17 +42,26 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_lrg_uni": "svc_adv_lrg_scythe_r",
+        "right_lrg_uni": "svc_adv_lrg_scythe_r"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_med_uni": "svc_adv_med_scythe_r",
+        "right_med_uni": "svc_adv_med_scythe_r"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0017": "svc_bge_grappler_pd",
+        "WS0018": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,
@@ -65,7 +70,5 @@
     }
   ],
   "modules": [],
-  "wings": [
-
-  ]
+  "wings": []
 }

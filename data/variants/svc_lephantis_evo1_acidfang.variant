@@ -7,18 +7,16 @@
   "fluxVents": 30,
   "quality": 0,
   "permaMods": [],
-  "hullMods": ["svc_overdamage_res_hm"],
+  "hullMods": [
+    "svc_overdamage_res_hm"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0001": "svc_fangcluster",
-        "WS0002": "svc_fangcluster",
-        "WS0003": "svc_fangcluster",
-        "WS0004": "svc_fangcluster",
-        "WS0007": "svc_bioplasma_large",
-        "WS0008": "svc_bioplasma_large"
+        "WS0011": "svc_bge_grappler",
+        "WS0012": "svc_bge_grappler"
       }
     },
     {
@@ -37,8 +35,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0011": "svc_bge_grappler",
-        "WS0012": "svc_bge_grappler"
+        "WS0007": "svc_bioplasma_large",
+        "WS0008": "svc_bioplasma_large"
       }
     },
     {
@@ -53,28 +51,30 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0009": "svc_boltzmann_brain",
-        "WS0010": "svc_boltzmann_brain"
+        "WS0001": "svc_fangcluster",
+        "WS0002": "svc_fangcluster",
+        "WS0003": "svc_fangcluster",
+        "WS0004": "svc_fangcluster"
       }
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "lrg_out_kin_left": "svc_inksac",
-        "lrg_out_kin_right": "svc_inksac"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "left_grappler": "svc_bge_grappler_pd",
+        "lrg_out_kin_right": "svc_inksac",
         "pd_in_left": "svc_bge_grappler_pd",
         "pd_in_right": "svc_bge_grappler_pd",
         "pd_out_left": "svc_bge_grappler_pd",
-        "pd_out_right": "svc_bge_grappler_pd",
-        "right_grappler": "svc_bge_grappler_pd"
+        "pd_out_right": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0009": "svc_boltzmann_brain",
+        "WS0010": "svc_boltzmann_brain"
       }
     }
   ],

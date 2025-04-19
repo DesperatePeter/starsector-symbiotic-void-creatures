@@ -7,7 +7,10 @@
   "fluxVents": 22,
   "quality": 0,
   "permaMods": [],
-  "hullMods": ["svc_overdamage_res_hm", "svc_shell_vulcanization"],
+  "hullMods": [
+    "svc_overdamage_res_hm",
+    "svc_shell_vulcanization"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -16,8 +19,7 @@
         "Alphaleft1": "svc_fangcluster",
         "Alphaleft4": "svc_fangcluster",
         "Alpharight1": "svc_fangcluster",
-        "Alpharight4": "svc_fangcluster",
-        "WS0005": "svc_bioplasma_large"
+        "Alpharight4": "svc_fangcluster"
       }
     },
     {
@@ -45,9 +47,7 @@
       "mode": "LINKED",
       "weapons": {
         "Alphaleft3": "svc_inksac",
-        "Alpharight3": "svc_inksac",
-        "left_grappler": "svc_bge_grappler_pd",
-        "right_grappler": "svc_bge_grappler_pd"
+        "Alpharight3": "svc_inksac"
       }
     },
     {
@@ -61,12 +61,17 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0005": "svc_bioplasma_large"
+      }
     },
     {
       "autofire": true,
-      "mode": "LINKED",
-      "weapons": {}
+      "mode": "ALTERNATING",
+      "weapons": {
+        "left_grappler": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
+      }
     }
   ],
   "modules": [],

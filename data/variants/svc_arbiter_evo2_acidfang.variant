@@ -23,10 +23,8 @@
       "weapons": {
         "left_grappler2": "svc_bge_grappler_pd",
         "left_grappler3": "svc_bge_grappler_pd",
-        "left_sml_pd": "svc_bge_grappler_pd",
         "right_grappler2": "svc_bge_grappler_pd",
-        "right_grappler3": "svc_bge_grappler_pd",
-        "right_sml_pd": "svc_bge_grappler_pd"
+        "right_grappler3": "svc_bge_grappler_pd"
       }
     },
     {
@@ -57,7 +55,10 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_sml_pd": "svc_bge_grappler_pd",
+        "right_sml_pd": "svc_bge_grappler_pd"
+      }
     }
   ],
   "modules": [],

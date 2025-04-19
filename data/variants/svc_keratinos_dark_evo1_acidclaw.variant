@@ -7,7 +7,10 @@
   "fluxVents": 22,
   "quality": 0,
   "permaMods": [],
-  "hullMods": ["svc_overdamage_res_hm", "svc_shell_vulcanization"],
+  "hullMods": [
+    "svc_overdamage_res_hm",
+    "svc_shell_vulcanization"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -15,7 +18,8 @@
       "weapons": {
         "Alphaleft1": "svc_fangcluster",
         "Alpharight1": "svc_fangcluster",
-        "WS0005": "svc_bioplasma_large"
+        "left_grappler3": "svc_worm_colony_small",
+        "right_grappler3": "svc_worm_colony_small"
       }
     },
     {
@@ -42,8 +46,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_grappler": "svc_bge_grappler_pd",
-        "right_grappler": "svc_bge_grappler_pd"
+        "WS0005": "svc_bioplasma_large"
       }
     },
     {
@@ -56,10 +59,10 @@
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
-        "left_grappler3": "svc_worm_colony_small",
-        "right_grappler3": "svc_worm_colony_small"
+        "left_grappler": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
       }
     },
     {

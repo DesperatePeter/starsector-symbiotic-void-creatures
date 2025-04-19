@@ -31,8 +31,27 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-
-        "left_pd": "svc_bge_grappler_pd",
+        "left_med_uni2": "svc_med_scythe_r",
+        "right_med_uni2": "svc_med_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_med_uni": "svc_med_scythe_r",
+        "right_med_uni": "svc_med_scythe_r"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {}
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
         "right_pd": "svc_bge_grappler_pd"
       }
     },
@@ -40,22 +59,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-	          "left_med_uni": "svc_med_scythe_r",
-        "left_med_uni2": "svc_med_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "right_med_uni": "svc_med_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "right_med_uni2": "svc_med_scythe_r"
+        "left_pd": "svc_bge_grappler_pd"
       }
     }
   ],

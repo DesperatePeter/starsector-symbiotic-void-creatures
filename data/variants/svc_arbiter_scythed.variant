@@ -23,10 +23,8 @@
       "weapons": {
         "left_grappler2": "svc_bge_grappler_pd",
         "left_grappler3": "svc_bge_grappler_pd",
-        "left_sml_pd": "svc_bge_grappler_pd",
         "right_grappler2": "svc_bge_grappler_pd",
-        "right_grappler3": "svc_bge_grappler_pd",
-        "right_sml_pd": "svc_bge_grappler_pd"
+        "right_grappler3": "svc_bge_grappler_pd"
       }
     },
     {
@@ -48,16 +46,22 @@
       }
     },
     {
-      "autofire": false,
+      "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "left_med_uni": "svc_med_scythe_r",
         "right_med_uni": "svc_med_scythe_r"
       }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_sml_pd": "svc_bge_grappler_pd",
+        "right_sml_pd": "svc_bge_grappler_pd"
+      }
     }
   ],
   "modules": [],
-  "wings": [
-
-  ]
+  "wings": []
 }

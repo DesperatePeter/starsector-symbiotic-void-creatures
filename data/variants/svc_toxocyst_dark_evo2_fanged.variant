@@ -7,7 +7,9 @@
   "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
-  "hullMods": ["svc_acid_blood_hm"],
+  "hullMods": [
+    "svc_acid_blood_hm"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -21,8 +23,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0005": "svc_bge_grappler_pd",
-        "WS0006": "svc_bge_grappler_pd"
+        "WS0007": "svc_bioplasma_large"
       }
     },
     {
@@ -45,7 +46,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0007": "svc_bioplasma_large"
+        "WS0005": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "svc_bge_grappler_pd"
       }
     }
   ],

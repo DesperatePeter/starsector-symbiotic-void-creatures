@@ -7,7 +7,10 @@
   "fluxVents": 22,
   "quality": 0,
   "permaMods": [],
-  "hullMods": ["svc_overdamage_res_hm", "svc_shell_vulcanization"],
+  "hullMods": [
+    "svc_overdamage_res_hm",
+    "svc_shell_vulcanization"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -43,8 +46,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_grappler": "svc_bge_grappler_pd",
-        "right_grappler": "svc_bge_grappler_pd"
+        "left_grappler": "svc_bge_grappler_pd"
       }
     },
     {
@@ -60,7 +62,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "right_grappler": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,

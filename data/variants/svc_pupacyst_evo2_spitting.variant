@@ -31,22 +31,28 @@
       "mode": "LINKED",
       "weapons": {
         "WS0002": "svc_bge_grappler_pd",
-        "WS0003": "svc_bge_grappler_pd",
-        "left_sml_pd": "svc_bge_grappler_pd",
-        "right_sml_pd": "svc_bge_grappler_pd"
+        "WS0003": "svc_bge_grappler_pd"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+        "left_sml_pd": "svc_bge_grappler_pd",
+        "right_sml_pd": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
         "WS0004": "svc_boltzmann_brain",
         "WS0005": "svc_boltzmann_brain"
       }
     },
     {
-      "autofire": true,
-      "mode": "LINKED",
+      "autofire": false,
+      "mode": "ALTERNATING",
       "weapons": {}
     }
   ],

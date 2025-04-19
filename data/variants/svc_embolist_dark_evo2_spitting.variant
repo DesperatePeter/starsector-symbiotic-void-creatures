@@ -21,9 +21,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Alphamiddle": "svc_inksac",
-        "WS0019": "svc_bge_grappler_pd",
-        "WS0020": "svc_bge_grappler_pd"
+        "Alphamiddle": "svc_inksac"
       }
     },
     {
@@ -55,12 +53,16 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0019": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0020": "svc_bge_grappler_pd"
+      }
     }
   ],
   "modules": [],

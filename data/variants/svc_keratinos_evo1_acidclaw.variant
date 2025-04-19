@@ -7,7 +7,9 @@
   "fluxVents": 22,
   "quality": 1,
   "permaMods": [],
-  "hullMods": ["svc_shell_vulcanization"],
+  "hullMods": [
+    "svc_shell_vulcanization"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -20,7 +22,7 @@
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "left_grappler": "svc_bge_grappler_pd",
         "right_grappler": "svc_bge_grappler_pd"

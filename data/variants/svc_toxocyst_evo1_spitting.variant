@@ -29,8 +29,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_pd": "svc_bge_grappler_pd",
-        "right_pd": "svc_bge_grappler_pd"
+        "WS0003": "svc_boltzmann_brain",
+        "WS0004": "svc_boltzmann_brain"
       }
     },
     {
@@ -44,8 +44,14 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0003": "svc_boltzmann_brain",
-        "WS0004": "svc_boltzmann_brain"
+        "right_pd": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "left_pd": "svc_bge_grappler_pd"
       }
     }
   ],

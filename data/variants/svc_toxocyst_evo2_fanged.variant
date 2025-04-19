@@ -29,14 +29,6 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_pd": "svc_bge_grappler_pd",
-        "right_pd": "svc_bge_grappler_pd"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
         "WS0002": "svc_worm_colony_small",
         "WS0003": "svc_worm_colony_small"
       }
@@ -44,7 +36,16 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_pd": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "right_pd": "svc_bge_grappler_pd"
+      }
     }
   ],
   "modules": [],

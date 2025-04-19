@@ -21,8 +21,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0019": "svc_bge_grappler_pd",
-        "WS0020": "svc_bge_grappler_pd"
+        "WS0019": "svc_bge_grappler_pd"
       }
     },
     {
@@ -54,7 +53,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "WS0020": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,

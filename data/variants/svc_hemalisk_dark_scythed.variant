@@ -7,7 +7,9 @@
   "fluxVents": 10,
   "quality": 1,
   "permaMods": [],
-  "hullMods": ["svc_overdamage_res_hm"],
+  "hullMods": [
+    "svc_overdamage_res_hm"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -19,7 +21,7 @@
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "left_med_uni2": "svc_adv_med_scythe_r",
         "right_med_uni2": "svc_adv_med_scythe_r"
@@ -27,7 +29,7 @@
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "left_med_uni": "svc_adv_med_scythe_r",
         "right_med_uni": "svc_adv_med_scythe_r"
@@ -37,7 +39,6 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_pd": "svc_bge_grappler_pd",
         "right_pd": "svc_bge_grappler_pd"
       }
     },
@@ -52,7 +53,9 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_pd": "svc_bge_grappler_pd"
+      }
     },
     {
       "autofire": true,

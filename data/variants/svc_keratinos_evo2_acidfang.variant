@@ -7,23 +7,21 @@
   "fluxVents": 22,
   "quality": 1,
   "permaMods": [],
-  "hullMods": ["svc_shell_vulcanization"],
+  "hullMods": [
+    "svc_shell_vulcanization"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
         "WS0003": "svc_bioplasma_large",
-        "WS0004": "svc_bioplasma_large",
-        "left_lrg_uni": "svc_fangcluster",
-        "left_med_uni2": "svc_fangcluster",
-        "right_lrg_uni": "svc_fangcluster",
-        "right_med_uni": "svc_fangcluster"
+        "WS0004": "svc_bioplasma_large"
       }
     },
     {
       "autofire": true,
-      "mode": "LINKED",
+      "mode": "ALTERNATING",
       "weapons": {
         "left_grappler": "svc_bge_grappler_pd",
         "right_grappler": "svc_bge_grappler_pd"
@@ -40,7 +38,12 @@
     {
       "autofire": true,
       "mode": "LINKED",
-      "weapons": {}
+      "weapons": {
+        "left_lrg_uni": "svc_fangcluster",
+        "left_med_uni2": "svc_fangcluster",
+        "right_lrg_uni": "svc_fangcluster",
+        "right_med_uni": "svc_fangcluster"
+      }
     },
     {
       "autofire": true,

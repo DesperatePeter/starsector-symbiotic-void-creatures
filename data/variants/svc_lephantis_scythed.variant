@@ -7,7 +7,9 @@
   "fluxVents": 30,
   "quality": 0,
   "permaMods": [],
-  "hullMods": ["svc_overdamage_res_hm"],
+  "hullMods": [
+    "svc_overdamage_res_hm"
+  ],
   "weaponGroups": [
     {
       "autofire": true,
@@ -33,27 +35,9 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "lrg_mdl_kin_left": "svc_lrg_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "lrg_mdl_kin_right": "svc_lrg_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
-        "lrg_out_kin_left": "svc_lrg_scythe_r"
-      }
-    },
-    {
-      "autofire": true,
-      "mode": "LINKED",
-      "weapons": {
+        "lrg_mdl_kin_left": "svc_lrg_scythe_r",
+        "lrg_mdl_kin_right": "svc_lrg_scythe_r",
+        "lrg_out_kin_left": "svc_lrg_scythe_r",
         "lrg_out_kin_right": "svc_lrg_scythe_r"
       }
     },
@@ -61,12 +45,28 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "left_grappler": "svc_bge_grappler_pd",
-        "pd_in_left": "svc_bge_grappler_pd",
-        "pd_in_right": "svc_bge_grappler_pd",
-        "pd_out_left": "svc_bge_grappler_pd",
-        "pd_out_right": "svc_bge_grappler_pd",
-        "right_grappler": "svc_bge_grappler_pd"
+        "pd_out_right": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "pd_out_left": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "pd_in_left": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "pd_in_right": "svc_bge_grappler_pd"
       }
     }
   ],
