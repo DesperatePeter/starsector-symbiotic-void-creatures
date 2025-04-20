@@ -11,7 +11,7 @@ import tecrys.svc.weapons.GreiferEffectBase;
 
 import java.awt.*;
 
-public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireEffectPlugin, OnHitEffectPlugin {
+public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireEffectPlugin, OnHitEffectPlugin{
 
     private Color tentacleColor = new Color(173, 113, 156, 255);
     private float pullStrength = 100f;
@@ -79,24 +79,50 @@ public class svc_grappler_behaviour extends GreiferEffectBase implements OnFireE
 
             if (sourceShip.getHullSize().equals(ShipAPI.HullSize.FRIGATE))
             {
-                pullVector.scale((1000f/sourceShip.getMass()) * (Distance / 100f));
+
+                if (targetShip.getVelocity().length() >= 120 )
+                {
+                    pullVector.scale(Math.max((2000f/sourceShip.getMass()) * (Distance / 50f), 110f));
+                }
+                else
+                {
+                    pullVector.scale((1000f/sourceShip.getMass()) * (Distance / 100f));
+                }
             }
             if (sourceShip.getHullSize().equals(ShipAPI.HullSize.DESTROYER))
             {
-                pullVector.scale((2000f/sourceShip.getMass()) * (Distance / 50f));
+                if (targetShip.getVelocity().length() >= 100 )
+                {
+                    pullVector.scale(Math.max((2000f/sourceShip.getMass()) * (Distance / 50f), 50f));
+                }
+                else {
+                    pullVector.scale((1000f / sourceShip.getMass()) * (Distance / 100f));
+                }
             }
             if (sourceShip.getHullSize().equals(ShipAPI.HullSize.CRUISER))
             {
-                pullVector.scale((3400f/sourceShip.getMass()) * (Distance / 80f));
+                if (targetShip.getVelocity().length() >= 80 )
+                {
+                    pullVector.scale(Math.max((2000f/sourceShip.getMass()) * (Distance / 50f), 50f));
+                }
+                else {
+                    pullVector.scale((2000f / sourceShip.getMass()) * (Distance / 100f));
+                }
             }
             if (sourceShip.getHullSize().equals(ShipAPI.HullSize.CAPITAL_SHIP))
             {
-                pullVector.scale((4000f/sourceShip.getMass()) * (Distance / 100f));
+                if (targetShip.getVelocity().length() >= 90 )
+                {
+                    pullVector.scale(Math.max((2000f/sourceShip.getMass()) * (Distance / 50f), 40f));
+                }
+                else {
+                    pullVector.scale((1000f / sourceShip.getMass()) * (Distance / 100f));
+                }
             }
 
 
 
-            pullEnemiesVector.scale((Math.max(56f - sourceShip.getMass() / 20f, 15f)) * 0.6f);
+            //pullEnemiesVector.scale((Math.max(56f - sourceShip.getMass() / 20f, 15f)) * 0.7f);
 
             sourceShip.getVelocity().translate(pullVector.x, pullVector.y);
             targetShip.getVelocity().translate(-pullEnemiesVector.x, -pullEnemiesVector.y);

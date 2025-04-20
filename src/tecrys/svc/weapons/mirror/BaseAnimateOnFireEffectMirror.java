@@ -34,6 +34,14 @@ public class BaseAnimateOnFireEffectMirror extends tecrys.svc.weapons.BaseAnimat
             lastFrame = frame;
             mirroredFrames.add(frame);
         }
+        if (weapon.getCurrHealth() < weapon.getMaxHealth())
+        {
+            weapon.setCurrHealth(weapon.getMaxHealth());
+        }
+        if (weapon.isDisabled())
+        {
+            weapon.repair();
+        }
     }
 
     @Override

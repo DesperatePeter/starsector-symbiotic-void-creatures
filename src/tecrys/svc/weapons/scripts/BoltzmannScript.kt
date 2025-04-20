@@ -20,8 +20,8 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
     companion object{
         const val ARC_RANGE = 500f
         const val VISUAL_ARC_MIN_RANGE = 250f
-        const val ARC_DMG = 180f
-        const val ARC_EMP = 600f
+        const val ARC_DMG = 150f
+        const val ARC_EMP = 550f
         const val ARC_FREQUENCY_HZ = 5f
         const val ARC_THICKNESS = 5f
         const val MAX_CHARGES = 25

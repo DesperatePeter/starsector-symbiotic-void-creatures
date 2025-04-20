@@ -411,7 +411,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
         } else {
             FindShipFilter filter = s -> isValidLashTarget(ship, s);
 
-            if (target == null || target.getOwner() == ship.getOwner()) {
+            if (target == null || target.getOwner() != ship.getOwner()) {
                 if (player) {
                     target = Misc.findClosestShipTo(ship, ship.getMouseTarget(), HullSize.FIGHTER, range, true, false, filter);
                 } else {

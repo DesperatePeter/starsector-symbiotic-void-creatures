@@ -13,11 +13,10 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm",
+    "svc_no_fuel_hm",
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
-    "WS0001": "svc_bge_grappler",
     "WS0002": "svc_adv_med_scythe_r",
     "WS0003": "svc_adv_med_scythe_r",
     "antena_left": "svc_antena_right",
@@ -323,15 +322,6 @@
       "angle": 0,
       "locations": [68.5, -0],
       "renderOrderMod": 20
-    },
-    {
-      "id": "WS0001",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "TURRET",
-      "arc": 40,
-      "angle": 0,
-      "locations": [39, -0]
     },
     {
       "id": "WS0002",

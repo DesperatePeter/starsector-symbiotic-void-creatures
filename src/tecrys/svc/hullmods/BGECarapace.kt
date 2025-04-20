@@ -19,11 +19,11 @@ import java.awt.Color
 
 class BGECarapace : BaseHullMod() {
     companion object{
-        private const val ENGINE_DAMAGE_TAKEN = 0.1f
+        private const val ENGINE_DAMAGE_TAKEN = 0.2f
         private const val HULL_RESISTANCE = 30f
-        private const val POWER_SCALING_MIN_HULL = 0.3f
-        private const val POWER_SCALING_MAX_HULL = 0.9f
-        private const val POWER_SCALING_MIN_POWER = 0.6f
+        private const val POWER_SCALING_MIN_HULL = 0.1f
+        private const val POWER_SCALING_MAX_HULL = 0.5f
+        private const val POWER_SCALING_MIN_POWER = 0.7f
         private const val CONTROL_COLLAR_ID = "svc_controlcollar"
         private const val CONTROL_COLLAR_HULLMOD_ID = "svc_controlcollar_hm"
         private const val POWER_SCALING_MULT_KEY = "SVC_CARAPACE_POWER_SCALING"
@@ -44,7 +44,8 @@ class BGECarapace : BaseHullMod() {
         stats?.run {
             hullDamageTakenMult.modifyMult(id, 1f - HULL_RESISTANCE * 0.01f)
             combatWeaponRepairTimeMult.modifyMult(id,0.3f)
-            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.5f)
+            combatEngineRepairTimeMult.modifyMult(id,0.3f)
+            hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.6f)
             maxCombatHullRepairFraction.modifyFlat(id, 1f)
             zeroFluxSpeedBoost.modifyMult(id, 0f)
 //            dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
@@ -52,7 +53,6 @@ class BGECarapace : BaseHullMod() {
             minCrewMod.modifyMult(id, 0f)
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
-            weaponDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
         }
     }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
@@ -107,8 +107,7 @@ class BGECarapace : BaseHullMod() {
             ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.HARASS_MOVE_IN)
             }
 
-
-if (ship.fleetMember == null)
+            if (ship.fleetMember == null)
     return
 
             if (ship.fleetMember.isPhaseShip) {
@@ -124,7 +123,7 @@ if (ship.fleetMember == null)
 
         ship.mutableStats?.run {
             val mult = getPowerLevelBasedOnHullLevel(ship.hullLevel)
-            listOf(maxCombatHullRepairFraction, energyRoFMult, ballisticRoFMult, missileRoFMult).forEach {
+            listOf(maxCombatHullRepairFraction, ballisticWeaponDamageMult, energyWeaponDamageMult, missileWeaponDamageMult).forEach {
                 it.unmodify(POWER_SCALING_MULT_KEY)
                 it.modifyMult(POWER_SCALING_MULT_KEY, mult)
             }

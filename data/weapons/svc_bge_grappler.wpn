@@ -3,6 +3,7 @@
 	"id":"svc_bge_grappler",
 	"type":"ENERGY",
 	"size":"SMALL",
+	 "everyFrameEffect":"tecrys.svc.weapons.GrapplerUnDisabler",
   "spawnType":"BALLISTIC_AS_BEAM",
   "collisionClass":"RAY",
   "collisionClassByFighter":"RAY_FIGHTER",	

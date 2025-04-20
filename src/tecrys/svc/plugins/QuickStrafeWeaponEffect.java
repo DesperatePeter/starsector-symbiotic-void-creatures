@@ -45,7 +45,15 @@ public class QuickStrafeWeaponEffect implements EveryFrameWeaponEffectPlugin {
                 return; // Can't do anything if we don't know the ship.
             }
         }
+        if (this.ship.isAlive() && this.ship.getPhaseCloak() != null && this.ship.getPhaseCloak().getId().equals("svc_biomemetism")) {
+            if ((this.ship.getEngineController().isAccelerating() && this.ship.getEngineController().isAcceleratingBackwards())) {
+                this.ship.blockCommandForOneFrame(ShipCommand.TOGGLE_SHIELD_OR_PHASE_CLOAK);
+            }
+            if ((!this.ship.getEngineController().isStrafingLeft() && !this.ship.getEngineController().isStrafingRight())) {
+                this.ship.blockCommandForOneFrame(ShipCommand.TOGGLE_SHIELD_OR_PHASE_CLOAK);
+            }
 
+        }
         // Only apply to ships with the specific phase cloak.
         if (this.ship.isAlive() && this.ship.getPhaseCloak() != null && this.ship.getPhaseCloak().getId().equals("svc_dash")) {
             this.shotInterval.advance(amount);
