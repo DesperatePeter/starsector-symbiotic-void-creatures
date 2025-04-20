@@ -1,0 +1,17 @@
+{
+	"id":"svc_protect_mothership",
+	"type":"STAT_MOD",
+	"aiType":"RESERVE_DEPLOYMENT",
+	
+	"statsScript":"tecrys.svc.shipsystems.ProtectMothership",
+	
+	"useSound":"system_reserve_wing",
+	"outOfUsesSound":"gun_out_of_ammo",
+	
+	"aiHints":{
+	}
+}
+
+
+
+

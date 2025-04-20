@@ -12,3 +12,4 @@ Phase Submerge,svc_phasesubmerge,,,,,,,,,,0.5,,0.5,4,TRUE,,TRUE,TRUE,TRUE,,,,TRU
 Hyperdash,svc_dash,1,,,,,0.25,,3,0.04,,0.01,,1,,,,,,,,TRUE,,,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png
 Reflex Hypercognition,svc_biomemetism,1,,,,,0.25,,3,0.04,0.05,1.5,0.1,2,,,,,,,,TRUE,TRUE,TRUE,,"uses_damper_ai, movement",graphics/icons/hullsys/temporal_shell.png
 Fungal Flume,svc_phase_flume,1,,,,,0.2,,,,0.5,3,0.5,3,,,,,,,,,,,,"defensive, offensive",graphics/icons/hullsys/emp_emitter.png
+Meat Shield,svc_protect_mothership,,,,,,0.5,,,,0.1,15,3,60,,,,,,,,,,,,offensive,graphics/icons/hullsys/reserve_deployment.png
