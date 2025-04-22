@@ -42,6 +42,9 @@
 		"exotics": {
 			"VoidChitinPlating": "graphics/icons/exotics/voidchitinplating.png"
 		},
+				"misc": {
+			"svc_swarm": "graphics/weapons/deco/svc_swarm.png"
+		},
 		"illustrations": {
 			"svc_encounter": "graphics/backgrounds/svc_encounter.png",	
 			"svc_food": "graphics/backgrounds/svc_food.jpg",		
