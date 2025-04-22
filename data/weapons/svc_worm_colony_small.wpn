@@ -10,6 +10,7 @@
   "turretUnderSprite": "graphics/weapons/svc_wormgun_small_turret_under.png",
   "hardpointSprite": "graphics/weapons/svc_wormgun_small.png",
   "hardpointUnderSprite": "graphics/weapons/svc_wormgun_small_hardpoint_under.png",
+    "autocharge": true,
   "turretOffsets": [
     2,
     0,
