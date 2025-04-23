@@ -17,7 +17,7 @@
       }
     },
     {
-      "autofire": true,
+      "autofire": false,
       "mode": "LINKED",
       "weapons": {
         "Exploder": "svc_volatile_drone"

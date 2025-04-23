@@ -181,7 +181,7 @@ public class svcFragmentsHM extends BaseHullMod {
             //params.spawnOffsetMult = 0.5f;
 params.minDespawnTime = 1f;
 params.maxDespawnTime = 5f;
-params.despawnDist = 200f;
+params.despawnDist = 300f;
            // params.spawnOffsetMultForInitialSpawn = 0.1f;
             //params.baseDur = 4f;
             params.offsetRerollFractionOnMemberRespawn = 0.1f;
@@ -193,9 +193,9 @@ params.despawnDist = 200f;
             params.baseMembersToMaintain = 200;
             params.memberRespawnRate = 200;
             params.maxNumMembersToAlwaysRemoveAbove = params.baseMembersToMaintain * 2;
-
+params.swarmLeadsByFractionOfVelocity = 2f;
             //params.offsetRerollFractionOnMemberRespawn = 0.05f;
-            params.outspeedAttachedEntityBy = 50f;
+            params.outspeedAttachedEntityBy = 500f;
             //params.initialMembers = 0;
             params.initialMembers = 0;
             params.removeMembersAboveMaintainLevel = false;

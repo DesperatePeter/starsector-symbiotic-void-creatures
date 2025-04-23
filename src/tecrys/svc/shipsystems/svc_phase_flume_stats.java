@@ -32,7 +32,7 @@ import tecrys.svc.shipsystems.utils.VoidlingShroud;
 
 public class svc_phase_flume_stats extends BaseShipSystemScript {
 
-    public static float MAX_LASH_RANGE = 1500f;
+    public static float MAX_LASH_RANGE = 500f;
 
     public static float DAMAGE = 0;
     public static float EMP_DAMAGE = 1500;
@@ -156,6 +156,8 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
                 CombatEngineAPI engine = Global.getCombatEngine();
                 findSlots(ship);
 
+                if (mainSlot == null)
+                    return;
                 Vector2f slotLoc = mainSlot.computePosition(ship);
 
                 EmpArcParams params = new EmpArcParams();

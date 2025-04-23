@@ -13,9 +13,9 @@ import java.awt.*;
 public class svc_grappler_behaviour implements OnFireEffectPlugin, OnHitEffectPlugin {
 
     private final Color tentacleColor = new Color(173, 113, 156, 255);
-    private static final float BASE_FORCE = 500f;
-    private static final float FORCE_PER_DISTANCE = 1f;
-    private static final float ESCAPE_VELOCITY_SCALING = 0.5f;
+    private static final float BASE_FORCE = 9500f;
+    private static final float FORCE_PER_DISTANCE = 3f;
+    private static final float ESCAPE_VELOCITY_SCALING = 0.01f;
     public static int pluginCount = 0;
 
     @Override
@@ -50,7 +50,7 @@ public class svc_grappler_behaviour implements OnFireEffectPlugin, OnHitEffectPl
             float escapeVelocity = Vector2f.dot(pullDirection, targetShip.getVelocity());
 
             float force = BASE_FORCE + distance * FORCE_PER_DISTANCE;
-            float deltaV = force / sourceShip.getMass()  + escapeVelocity * ESCAPE_VELOCITY_SCALING;
+            float deltaV = force / sourceShip.getMass()  * Math.max(escapeVelocity * ESCAPE_VELOCITY_SCALING, 1f);
 
             sourceShip.getVelocity().translate(pullDirection.x * deltaV, pullDirection.y * deltaV);
         }

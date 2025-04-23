@@ -13,6 +13,8 @@
 	"hardpointAngleOffsets":[0],
 	"turretAngleOffsets":[0],
 	"barrelMode":"ALTERNATING",
+	  "autocharge": true,
+	  "requiresFullCharge": true,
 	"animationType":"SMOKE",
 	#"renderHints":[RENDER_LOADED_MISSILES],
 	"interruptibleBurst":false,
