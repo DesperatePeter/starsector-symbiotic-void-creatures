@@ -229,6 +229,7 @@ class FleetManager : EveryFrameScript {
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
             whales.follow(playerFleet,0f)
             whales.makeImportant("being hunted",10f)
+            whales.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_ALLOW_PLAYER_BATTLE_JOIN_TOFF, true)
             showNotificationOnCampaignUi("Your fleet encountered a whale herd", Global.getSettings().getSpriteName("intel", "whale_intel"))
         }
         whales.addEventListener(WhaleFleetListener)
