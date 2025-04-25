@@ -43,6 +43,7 @@ class FleetManager : EveryFrameScript {
         val spawner = FleetSpawner()
         private var attractorSystem by CampaignSettingDelegate<LocationAPI?>("\$SVC_ATTRACTOR_SYSTEM", null)
         const val MAX_NUM_ATTRACTOR_FLEETS = 50
+        const val HUNTER_FLEET_ID_MEM_KEY = "$${SVC_MOD_ID}_HUNTER_FLEET_ID"
         fun swarmSystemViaAttractor(system: LocationAPI){
             attractorSystem = system
         }
@@ -150,21 +151,18 @@ class FleetManager : EveryFrameScript {
     }
 
     fun spawnHunterFleet(loc: Vector2f = genHunterLocation(), forceSpawn: Boolean = false): Boolean {
-        val possibleHunters = hunterFleetsToSpawn.toList()
-        if(possibleHunters.isEmpty()) return false
+        if(hunterFleetsThatCanSpawn.isEmpty()) return false
         val playerFleet = Global.getSector().playerFleet ?: return false
         if(!shouldSpawnBasedOnLocation() && !forceSpawn) return false
 
         val svcParams = FleetSpawnParameterCalculator(svcSettings)
-        possibleHunters.forEach {
-            val hunterConfig = it.second
+        hunterFleetsThatCanSpawn.forEach { hunterConfig ->
             if(svcParams.spawnPower >= hunterConfig.minSpawnPower){
                 val hunterFleet = spawner.createFactionFleet(
                     SVC_FACTION_ID, svcParams,
                     hunterConfig.name, hunterConfig.rolesQuantity, hunterConfig.minDP)
 
                 hunterFleet?.run {
-                    hunterFleetsToSpawn.remove(hunterConfig.id)
                     addEventListener(SvcFleetListener)
 
                     playerFleet.containingLocation.addEntity(this)
@@ -174,6 +172,7 @@ class FleetManager : EveryFrameScript {
                     makeAlwaysHostile()
                     attackFleet(playerFleet)
                     memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
+                    markAsHunter(hunterConfig.id)
 
                     hunterConfig.fleetListener?.let { listener ->
                         addEventListener(listener)

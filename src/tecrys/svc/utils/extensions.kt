@@ -15,6 +15,7 @@ import com.fs.starfarer.api.util.Misc
 import org.lwjgl.input.Keyboard
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
+import tecrys.svc.world.fleets.FleetManager
 import kotlin.math.abs
 
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
@@ -37,6 +38,14 @@ fun CampaignFleetAPI.orbitClosestPlanet() {
         MAX_ORBIT_ASSIGNMENT_DURATION
     )
 }
+
+fun CampaignFleetAPI.markAsHunter(id: String){
+    memoryWithoutUpdate[FleetManager.HUNTER_FLEET_ID_MEM_KEY] = id
+}
+
+fun CampaignFleetAPI.getHunterIdIfHunter(): String? = memoryWithoutUpdate[FleetManager.HUNTER_FLEET_ID_MEM_KEY] as? String
+
+fun CampaignFleetAPI.isHunter(): Boolean = getHunterIdIfHunter() != null
 
 fun CampaignFleetAPI.attackFleet(opponent: CampaignFleetAPI, delay: Float = 0f) {
     this.addAssignment(

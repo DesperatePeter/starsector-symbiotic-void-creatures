@@ -5,13 +5,13 @@ import org.lazywizard.console.BaseCommand
 import org.lazywizard.console.Console
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.fleets.FleetSpawnParameterCalculator
-import tecrys.svc.world.fleets.hunterFleetsToSpawn
+import tecrys.svc.world.fleets.hunterFleetsThatCanSpawn
 import tecrys.svc.world.fleets.svcSettings
 
 class TrySpawnHunter: BaseCommand {
     override fun runCommand(args: String, ctx: BaseCommand.CommandContext): BaseCommand.CommandResult {
         if(ctx != BaseCommand.CommandContext.CAMPAIGN_MAP) return BaseCommand.CommandResult.WRONG_CONTEXT
-        if(hunterFleetsToSpawn.isEmpty()){
+        if(hunterFleetsThatCanSpawn.isEmpty()){
             Console.showMessage("No more hunter fleets available to spawn.")
             return BaseCommand.CommandResult.ERROR
         }
@@ -21,16 +21,16 @@ class TrySpawnHunter: BaseCommand {
         }
         val currentSpawnPower = FleetSpawnParameterCalculator(svcSettings).spawnPower
         Console.showMessage("The following hunter fleets are currently spawnable:")
-        hunterFleetsToSpawn.filter {
-            it.value.minSpawnPower <= currentSpawnPower
+        hunterFleetsThatCanSpawn.filter {
+            it.minSpawnPower <= currentSpawnPower
         }.forEach {
-            Console.showMessage(it.value.name)
+            Console.showMessage(it.name)
         }
         Console.showMessage("The following hunter fleets require more spawn power (current spawn power = $currentSpawnPower):")
-        hunterFleetsToSpawn.filter {
-            it.value.minSpawnPower > currentSpawnPower
+        hunterFleetsThatCanSpawn.filter {
+            it.minSpawnPower > currentSpawnPower
         }.forEach {
-            Console.showMessage("${it.value.name}: Required spawn power = ${it.value.minSpawnPower}")
+            Console.showMessage("${it.name}: Required spawn power = ${it.minSpawnPower}")
         }
         if(FleetManager.tryToSpawnHunterFleet()){
             Console.showMessage("Roll successful. Hunter fleet spawned! Expect company soon.")

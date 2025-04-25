@@ -9,13 +9,12 @@ import tecrys.svc.rulecmd.SvcShouldSpawnHunterBarEvent
 import tecrys.svc.rulecmd.SvcShouldSpawnHuntersDefeatedBarEvent
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.fleets.FleetSpawnParameterCalculator
-import tecrys.svc.world.fleets.hunterFleetsById
-import tecrys.svc.world.fleets.hunterFleetsToSpawn
+import tecrys.svc.world.fleets.hunterFleetsThatHaveBeenDefeated
 
 class ResetCommand: BaseCommand {
     override fun runCommand(args: String, ctx: BaseCommand.CommandContext): BaseCommand.CommandResult {
         if(ctx != BaseCommand.CommandContext.CAMPAIGN_MAP) return BaseCommand.CommandResult.WRONG_CONTEXT
-        hunterFleetsToSpawn = hunterFleetsById.toMutableMap()
+        hunterFleetsThatHaveBeenDefeated.clear()
         defeatedHunterFleets = 0
         internalWhaleReputation = 100f
         SvcShouldSpawnHuntersDefeatedBarEvent.hasAlreadyTriggered = false

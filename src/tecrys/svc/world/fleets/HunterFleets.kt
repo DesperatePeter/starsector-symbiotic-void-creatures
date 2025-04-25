@@ -1,8 +1,10 @@
 package tecrys.svc.world.fleets
 
+import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.SVC_MOD_ID
 import tecrys.svc.listeners.HuntersDefeatedListener
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.getHunterIdIfHunter
 
 val smallHunterFleetRolesQuantity = mapOf(
     "combatEliteSmall" to 3,
@@ -53,17 +55,18 @@ val mastermindFleet = HunterFleetConfig(mastermindFleetQuantity,
     "mastermind", "TODO", 250f, 0f, )
     // "mastermind", "TODO", 10f, 0f, )
 
-val hunterFleetsById = mapOf(
-    smallHunterFleet.id to smallHunterFleet,
-    mediumHunterFleet.id to mediumHunterFleet,
-    largeHunterFleet.id to largeHunterFleet
-)
+val hunterFleets = listOf(smallHunterFleet, mediumHunterFleet, largeHunterFleet)
 
-var hunterFleetsToSpawn: MutableMap<String, HunterFleetConfig>
-by CampaignSettingDelegate("$" + SVC_MOD_ID + "hunterFleetsToSpawn", hunterFleetsById.toMutableMap())
+var hunterFleetsThatHaveBeenDefeated by CampaignSettingDelegate("$${SVC_MOD_ID}defeatedHunters", mutableSetOf<String>())
 
-val hunterFleetsThatCanSpawn: Map<String, HunterFleetConfig>
-    get() = hunterFleetsToSpawn.filter {
+val hunterFleetsThatCanSpawn: List<HunterFleetConfig>
+    get() = hunterFleets.filterNot {
+        it.id in hunterFleetsThatHaveBeenDefeated
+    }.filter {
         val svcParams = FleetSpawnParameterCalculator(svcSettings)
-        svcParams.spawnPower >= it.value.minSpawnPower
+        svcParams.spawnPower >= it.minSpawnPower
+    }.filterNot {
+        FleetSpawner.getFactionFleets(SVC_FACTION_ID).any { svcFleet ->
+            svcFleet.getHunterIdIfHunter() == it.id
+        }
     }
