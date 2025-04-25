@@ -6,7 +6,9 @@
     }
   },
   "SymbioticVoidCreatures": {
-    "doNotAdjustRelationsWith": []
+    "doNotAdjustRelationsWith": [
+	"svc",
+	],
   },
   "MoreMilitaryMissions":{
         "DmReinforcementFactionBlacklist": [
