@@ -1,5 +1,6 @@
 package tecrys.svc.world.ghosts
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.Script
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.impl.campaign.ghosts.BaseSensorGhost
@@ -16,7 +17,7 @@ class HunterGhost(manager: SensorGhostManager, fleet: CampaignFleetAPI) : BaseSe
     }
     init {
         initEntity(genLargeSensorProfile(), genMediumRadius())
-        if(!placeNearPlayer(2000f, 2500f)){
+        if(!placeNearPlayer(2000f, 2500f) || !Global.getSector().playerFleet.isInHyperspace){
             setCreationFailed()
         }else{
             setDespawnRange(0f)
@@ -25,7 +26,6 @@ class HunterGhost(manager: SensorGhostManager, fleet: CampaignFleetAPI) : BaseSe
             addInterrupt(GBIRunScript(0f, this, true))
             NotificationShower.showNotificationOnce(NotificationShower.HUNTER_FLEET_APPROACHING_ID)
         }
-
     }
 
     override fun run() {
