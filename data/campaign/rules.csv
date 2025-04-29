@@ -47,13 +47,13 @@ svc_mod_hunters_defeated_bar_event2,DialogOptionSelected,$option == svcmod_hunte
 
 The man remains silent for a moment, thinking.
 
-""Y’know what? I have a feeling I might come to regret this decision, but I haven’t told you the full story before. Right when everything went to shit, I actually snatched some research data.""",svcmod_hunters_defeated_bar_event3:Continue,
-svc_mod_hunters_defeated_bar_event3,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event3,SvcMarkHuntersDefeatedBarEventFinished,"""It details some sort of breeding program. Makes it pretty clear these lovely little critters have been genetically tinkered with. Guess that pretty much rules out anyone without access to some pretty top-notch geneticists as the culprit behind this whole operation, huh?""
+""Y’know what? I have a feeling I might come to regret this decision, but I haven’t told you the full story before. Right when everything went to shit, I actually snatched a certain device.""",svcmod_hunters_defeated_bar_event3:Continue,
+svc_mod_hunters_defeated_bar_event3,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event3,SvcMarkHuntersDefeatedBarEventFinished,"""I believe it was meant as some kind of biological weapon but it might as well be used to save a great deal of innocent people. Makes it pretty clear somebody had the power and funding to research how to manipulate those lovely little critters. Guess that pretty much rules out anyone without access to some top-notch research department as the culprit behind this whole operation, huh?""
 
-The man briefly stares at you with a trouble look on his face.
+The man briefly stares at you with a troubled look on his face.
 
-""This data has been weighing heavily in my pockets for far too long. ‘Been constantly worried it might fall into the wrong hands. Not sure yours are the right ones, but at least it won’t be mine anymore.""",svcmod_hunters_defeated_bar_event_leave:Leave,
-svc_mod_hunters_defeated_bar_event_leave,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event_leave,BarCMD returnFromEvent false,"The man hands you a small datapad and sighs, gesturing for you to leave.
+""This thing has been weighing heavily on my conscience for far too long. ‘Been constantly worried it might fall into the wrong hands. Not sure yours are the right ones, but at least it won’t be mine anymore.""",svcmod_hunters_defeated_bar_event_leave:Leave,
+svc_mod_hunters_defeated_bar_event_leave,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event_leave,BarCMD returnFromEvent false,"The man hands you a small access stick to some kind of private safe deposit locker and sighs, gesturing for you to leave.
 
 ""And now let an old man drink in solitude""",,
 #initial Poison Dealer event,,,,,,
