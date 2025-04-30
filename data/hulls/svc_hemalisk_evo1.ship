@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm"
+    "svc_no_fuel_hm"
   ],
   "builtInWeapons": {
     "Eyes": "svc_koenig_eyes",
@@ -46,7 +46,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 21.038,
-      "locations": [22.5, -12.5],
+      "locations": [41.5, -12.5],
       "renderOrderMod": 2
     },
     {
@@ -56,7 +56,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": -21.038,
-      "locations": [22.5, 12.5],
+      "locations": [41.5, 12.5],
       "renderOrderMod": 2
     },
     {
@@ -66,7 +66,7 @@
       "mount": "HARDPOINT",
       "arc": 40.238998,
       "angle": -3.5,
-      "locations": [16, 27],
+      "locations": [35, 27],
       "renderOrderMod": 2
     },
     {
@@ -76,7 +76,7 @@
       "mount": "HARDPOINT",
       "arc": 40.238998,
       "angle": 3.5,
-      "locations": [16, -27],
+      "locations": [35, -27],
       "renderOrderMod": 2
     },
     {
@@ -86,7 +86,7 @@
       "mount": "HARDPOINT",
       "arc": 30.510237,
       "angle": -178.809998,
-      "locations": [-6, 34]
+      "locations": [13, 34]
     },
     {
       "id": "right_fin1",
@@ -95,7 +95,7 @@
       "mount": "HARDPOINT",
       "arc": 30.510237,
       "angle": 178.809998,
-      "locations": [-6, -34]
+      "locations": [13, -34]
     },
     {
       "id": "Eyes",
@@ -104,7 +104,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [8.5, -0],
+      "locations": [27.5, 0],
       "renderOrderMod": 2
     },
     {
@@ -114,7 +114,7 @@
       "mount": "HARDPOINT",
       "arc": 30.510237,
       "angle": -161.565048,
-      "locations": [-13, 33.5]
+      "locations": [6, 33.5]
     },
     {
       "id": "right_fin2",
@@ -123,7 +123,7 @@
       "mount": "HARDPOINT",
       "arc": 30.510237,
       "angle": 161.565048,
-      "locations": [-13, -33.5]
+      "locations": [6, -33.5]
     },
     {
       "id": "left_fin3",
@@ -132,7 +132,7 @@
       "mount": "HARDPOINT",
       "arc": 30.510237,
       "angle": -160.016891,
-      "locations": [-23.5, 33]
+      "locations": [-4.5, 33]
     },
     {
       "id": "right_fin3",
@@ -141,7 +141,7 @@
       "mount": "HARDPOINT",
       "arc": 30.510237,
       "angle": 160.016891,
-      "locations": [-23.5, -33]
+      "locations": [-4.5, -33]
     },
     {
       "id": "stinger_left",
@@ -150,7 +150,7 @@
       "mount": "TURRET",
       "arc": 40.11219,
       "angle": 62.927921,
-      "locations": [-4.5, 57.5]
+      "locations": [14.5, 57.5]
     },
     {
       "id": "stinger_right",
@@ -159,7 +159,7 @@
       "mount": "TURRET",
       "arc": 40.11219,
       "angle": -62.927921,
-      "locations": [-4.5, -57.5]
+      "locations": [14.5, -57.5]
     },
     {
       "id": "Krieger",
@@ -168,7 +168,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [0, -0],
+      "locations": [19, 0],
       "renderOrderMod": 1
     },
     {
@@ -178,7 +178,7 @@
       "mount": "TURRET",
       "arc": 40.11219,
       "angle": -93.012787,
-      "locations": [-25, 22]
+      "locations": [-6, 22]
     },
     {
       "id": "WS0002",
@@ -187,7 +187,7 @@
       "mount": "TURRET",
       "arc": 40.11219,
       "angle": 93.012787,
-      "locations": [-25, -22]
+      "locations": [-6, -22]
     },
     {
       "id": "right_pd",
@@ -196,7 +196,7 @@
       "mount": "TURRET",
       "arc": 180,
       "angle": -90,
-      "locations": [-5.5, -7.5]
+      "locations": [13.5, -7.5]
     },
     {
       "id": "left_pd",
@@ -205,7 +205,7 @@
       "mount": "TURRET",
       "arc": 180,
       "angle": 90,
-      "locations": [-5.5, 7.5]
+      "locations": [13.5, 7.5]
     },
     {
       "id": "svc_controlcollar",
@@ -214,7 +214,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [-5, 3],
+      "locations": [14, 3],
       "renderOrderMod": 20
     },
     {
@@ -224,7 +224,7 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": 0,
-      "locations": [-4, -0],
+      "locations": [15, 0],
       "renderOrderMod": 10
     },
     {
@@ -234,7 +234,7 @@
       "mount": "TURRET",
       "arc": 10,
       "angle": -23,
-      "locations": [29, -45]
+      "locations": [48, -45]
     },
     {
       "id": "WS0005",
@@ -243,7 +243,7 @@
       "mount": "TURRET",
       "arc": 10,
       "angle": 23,
-      "locations": [29, 45]
+      "locations": [48, 45]
     }
   ],
   "engineSlots": [
