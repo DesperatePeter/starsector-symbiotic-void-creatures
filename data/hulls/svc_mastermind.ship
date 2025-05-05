@@ -15,11 +15,14 @@
     "BGECarapace",
     "svc_no_fuel_hm"
   ],
+  "builtInWeapons": {
+    "WS0001": "svc_bioplasma_large"
+  },
   "weaponSlots": [
     {
       "id": "WS0001",
       "size": "LARGE",
-      "type": "UNIVERSAL",
+      "type": "BUILT_IN",
       "mount": "HIDDEN",
       "arc": 10,
       "angle": 0,
