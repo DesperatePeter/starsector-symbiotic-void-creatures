@@ -54,6 +54,9 @@ class BGECarapace : BaseHullMod() {
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
         }
+        if (stats?.fleetMember?.hullSpec?.baseHullId?.equals("svc_mastermind") == true) {
+            stats.weaponDamageTakenMult.modifyMult(id, 0f)
+        }
     }
     override fun advanceInCampaign(member: FleetMemberAPI?, amount: Float) {
         member?.let { fm ->

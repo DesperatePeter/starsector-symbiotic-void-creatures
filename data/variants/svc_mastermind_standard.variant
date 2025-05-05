@@ -1,9 +1,9 @@
 {
   "variantId": "svc_mastermind_standard",
   "hullId": "svc_mastermind",
-  "displayName": "Mastermind",
+  "displayName": "",
   "goalVariant": true,
-  "fluxCapacitors": 40,
+  "fluxCapacitors": 50,
   "fluxVents": 50,
   "quality": 1,
   "permaMods": [],
@@ -13,24 +13,23 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0002": "svc_bioplasma_large",
-        "WS0003": "svc_bioplasma_large"
+        "WS0001": "svc_bioplasma_large"
       }
     },
     {
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
-        "WS0004": "svc_fangcluster",
-        "WS0005": "svc_fangcluster"
+        "WS0002": "svc_bigbrain",
+        "WS0003": "svc_bigbrain"
       }
     },
     {
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "WS0006": "svc_bge_grappler_pd",
-        "WS0007": "svc_bge_grappler_pd"
+        "WS0004": "svc_boltzmann_brain",
+        "WS0005": "svc_boltzmann_brain"
       }
     },
     {
@@ -39,6 +38,14 @@
       "weapons": {
         "WS0008": "svc_bge_grappler_pd",
         "WS0009": "svc_bge_grappler_pd"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "svc_bge_grappler_pd",
+        "WS0007": "svc_bge_grappler_pd"
       }
     }
   ],

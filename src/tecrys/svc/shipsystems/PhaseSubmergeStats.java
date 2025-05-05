@@ -23,7 +23,7 @@ public class PhaseSubmergeStats extends BaseShipSystemScript {
     public static float INCOMING_DAMAGE_MULT = 0.25f;
 
 
-    public static float MAX_TIME_MULT = 3f;
+    public static float MAX_TIME_MULT = 3.0f;
 
 //	/**
 //	 * Top speed multiplier when at 100% disruption.  
@@ -44,7 +44,7 @@ public class PhaseSubmergeStats extends BaseShipSystemScript {
 //	public static float MASS_DAMAGE_MULT = 1f;
 
     public static boolean FLUX_LEVEL_AFFECTS_SPEED = true;
-    public static float MIN_SPEED_MULT = 0.33f;
+    public static float MIN_SPEED_MULT = 1.7f;
     public static float BASE_FLUX_LEVEL_FOR_MIN_SPEED = 0.5f;
 
     protected Object STATUSKEY1 = new Object();
