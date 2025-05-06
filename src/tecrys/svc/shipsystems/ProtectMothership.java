@@ -73,7 +73,7 @@ public class ProtectMothership extends BaseShipSystemScript {
                     //bay.setExtraDuration(99999999999f);
                 }
             }
-
+            ship.giveCommand(ShipCommand.PULL_BACK_FIGHTERS, null, 0);
         }
 
     }
