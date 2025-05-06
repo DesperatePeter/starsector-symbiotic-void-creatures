@@ -19,6 +19,7 @@ import kotlin.math.PI
 import kotlin.math.abs
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlin.random.Random
 
 const val degToRad: Float = PI.toFloat() / 180f
 fun vectorFromAngleDeg(angle: Float): Vector2f {
@@ -138,4 +139,13 @@ fun giveSpecialItemToPlayer(id: String, data: String, textPanel: TextPanelAPI?){
         setFontInsignia()
     }
     Global.getSector()?.playerFleet?.cargo?.addSpecial(item, 1f)
+}
+
+fun randomizeColor(color: Color, amount: Int): Color {
+    return Color(
+        (color.red + Random.nextInt(-amount, amount + 1)).coerceIn(0, 255),
+        (color.green + Random.nextInt(-amount, amount + 1)).coerceIn(0, 255),
+        (color.blue + Random.nextInt(-amount, amount + 1)).coerceIn(0, 255),
+        color.alpha
+    )
 }

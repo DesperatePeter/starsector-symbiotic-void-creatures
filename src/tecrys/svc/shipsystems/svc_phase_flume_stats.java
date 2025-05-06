@@ -22,6 +22,8 @@ import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.Misc.FindShipFilter;
 
+import static tecrys.svc.utils.UtilsKt.randomizeColor;
+
 
 public class svc_phase_flume_stats extends BaseShipSystemScript {
 
@@ -65,27 +67,18 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
 
         public void setTarget(ShipAPI target) {
             this.target = target;
-            System.out.println("Setting target to " + target);
         }
 
         public void setUser(ShipAPI user) {
             this.user = user;
-            this.duration = user.getSystem().getChargeActiveDur() + user.getSystem().getChargeUpDur();
+            this.duration = user.getSystem().getChargeActiveDur();
         }
 
         public void setActive(Boolean active) {
-            if (this.active && !active) {
-                System.out.println("It's Joever");
-            } else if (!this.active && active) {
-                System.out.println("We're so back");
-            }
-
-
             this.active = active;
 
-
             if (active) {
-
+                Global.getSoundPlayer().playSound("energy_lash_fire_at_enemy", 1f, 1f, user.getLocation(), user.getVelocity());
                 this.startTime = Global.getCombatEngine().getTotalElapsedTime(false);
             }
         }
@@ -109,7 +102,6 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
 
             // draw nebula particles
             if (lastRenderTime + interval < currentTime) {
-                System.out.println("Adding particle");
                 lastRenderTime = currentTime;
                 Global.getCombatEngine().addNebulaParticle(
                         target.getLocation(),
@@ -119,34 +111,51 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
                         0.6f, // rampUpFraction
                         2f, // fullBrightnessFraction
                         interval * 2 + 0.2f, // totalDuration
-                        Color.RED,
+                        randomizeColor(SHROUD_COLOR, 10),
                         false
                 );
             }
 
-            if (target == null || target.getOwner() == user.getOwner() || !target.isAlive()) {
+            if (target == null || target.getOwner() == user.getOwner()) {
                 this.setActive(false);
                 return;
+            }
+
+            if (!user.getSystem().isStateActive()){
+                return;
+            }
+
+            if (!target.isAlive()){
+                target = findTarget(user);
+
+                if (target == null) {
+                    this.setActive(false);
+                    return;
+                }
             }
 
             // deal damage
             int rand = rng.nextInt(1, CHANCE_TO_BYPASS_SHIELD);
 
-            System.out.println("dealing damage " + DAMAGE * amount);
-            System.out.println("amount " + amount);
+            DamageType damageType = DamageType.ENERGY;
+
+            if (user.getSystem().getSpecAPI().getDamageType() != null) {
+                damageType = user.getSystem().getSpecAPI().getDamageType();
+            }
 
             engine.applyDamage(
                     target,
                     target.getLocation(),
-                    DAMAGE * amount,
-                    DamageType.ENERGY,
-                    EMP_DAMAGE * amount,
+                    user.getSystem().getSpecAPI().getDamage() * amount,
+                    damageType,
+                    user.getSystem().getSpecAPI().getEmpDamage() * amount,
                     rand == CHANCE_TO_BYPASS_SHIELD,
                     true,
                     user,
                     false
             );
         }
+
     }
 
 
@@ -322,12 +331,21 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     public String getInfoText(ShipSystemAPI system, ShipAPI ship) {
         if (system.isOutOfAmmo()) return null;
         if (system.getState() != SystemState.IDLE) return null;
+        if (ship == null) return null;
+
 
         ShipAPI target = findTarget(ship);
-        if (target != null && target != ship) {
+
+        if(target == null || ship.getShipTarget() == null) {
+            return "NO TARGET";
+        }
+        if (ship.getShipTarget().getOwner() == ship.getOwner()) {
+            return "FRIENDLY TARGET";
+        }
+        if (target != ship) {
             return "READY";
         }
-        if ((target == null || target == ship) && ship.getShipTarget() != null) {
+        if (ship.getShipTarget() != null) {
             return "OUT OF RANGE";
         }
         return "NO TARGET";
@@ -340,7 +358,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
         return dist <= range + radSum;
     }
 
-    public boolean isValidLashTarget(ShipAPI ship, ShipAPI other) {
+    public static boolean isValidLashTarget(ShipAPI ship, ShipAPI other) {
         if (other == null) return false;
         if (other.isHulk() || other.getOwner() == 100) return false;
         if (other.isShuttlePod()) return false;
@@ -361,7 +379,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     }
 
 
-    protected ShipAPI findTarget(ShipAPI ship) {
+    public static ShipAPI findTarget(ShipAPI ship) {
         float range = getRange(ship);
         boolean player = ship == Global.getCombatEngine().getPlayerShip();
         ShipAPI target = ship.getShipTarget();
@@ -404,7 +422,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     @Override
     public boolean isUsable(ShipSystemAPI system, ShipAPI ship) {
         ShipAPI target = findTarget(ship);
-        return target != null && target != ship;
+        return target != null && target != ship && (target.getOwner() != ship.getOwner());
         //return super.isUsable(system, ship);
     }
 
