@@ -3,23 +3,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import java.awt.Color;
+import java.util.Random;
 
+import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.impl.combat.ShockwaveVisual;
 import com.fs.starfarer.api.impl.combat.threat.EnergyLashActivatedSystem;
 import com.fs.starfarer.api.impl.combat.threat.ThreatSwarmAI;
-import com.fs.starfarer.api.impl.combat.threat.VoltaicDischargeOnFireEffect;
-import org.lwjgl.util.vector.Vector2f;
+
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
-import com.fs.starfarer.api.combat.CombatEngineAPI;
-import com.fs.starfarer.api.combat.DamageType;
-import com.fs.starfarer.api.combat.EmpArcEntityAPI;
-import com.fs.starfarer.api.combat.EmpArcEntityAPI.EmpArcParams;
-import com.fs.starfarer.api.combat.MutableShipStatsAPI;
-import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
-import com.fs.starfarer.api.combat.ShipSystemAPI;
 import com.fs.starfarer.api.combat.ShipSystemAPI.SystemState;
 import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
 import com.fs.starfarer.api.combat.WeaponAPI.WeaponSize;
@@ -28,14 +21,15 @@ import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.Misc.FindShipFilter;
-import tecrys.svc.shipsystems.utils.VoidlingShroud;
+
+import static tecrys.svc.utils.UtilsKt.randomizeColor;
+
 
 public class svc_phase_flume_stats extends BaseShipSystemScript {
 
     public static float MAX_LASH_RANGE = 500f;
 
-    public static float DAMAGE = 0;
-    public static float EMP_DAMAGE = 1500;
+
 
     public static float MIN_COOLDOWN = 2f;
     public static float MAX_COOLDOWN = 10f;
@@ -50,53 +44,155 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     public static float PHASE_OVERLOAD_DUR = 1f;
 
     public static Color SHROUD_COLOR = new Color(151, 170, 25, 180);
-    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 180);
+    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 150);
+
+    public EffectPlugin effectPlugin;
+
+    public static class EffectPlugin extends BaseEveryFrameCombatPlugin {
+        private float duration = 1f;
 
 
-    public static class DelayedCombatActionPlugin extends BaseEveryFrameCombatPlugin {
-        float elapsed = 0f;
-        float delay;
-        Runnable r;
+        private static float DAMAGE = 10000;
+        private static float EMP_DAMAGE = 20000;
+        private ShipAPI target;
+        private ShipAPI user;
+        private float lastRenderTime = 0f;
+        private float startTime = 0f;
+        private Boolean active = false;
+        private float interval = 0.3f;
 
-        public DelayedCombatActionPlugin(float delay, Runnable r) {
-            this.delay = delay;
-            this.r = r;
+        private final Random rng = new Random();
+        // one in CHANCE_TO_BYPASS_SHIELD chance to bypass shield
+        private final int CHANCE_TO_BYPASS_SHIELD = 5;
+
+        public void setTarget(ShipAPI target) {
+            this.target = target;
+        }
+
+        public void setUser(ShipAPI user) {
+            this.user = user;
+            this.duration = user.getSystem().getChargeActiveDur();
+        }
+
+        public void setActive(Boolean active) {
+            this.active = active;
+
+            if (active) {
+                Global.getSoundPlayer().playSound("energy_lash_fire_at_enemy", 1f, 1f, user.getLocation(), user.getVelocity());
+                this.startTime = Global.getCombatEngine().getTotalElapsedTime(false);
+            }
         }
 
         @Override
         public void advance(float amount, List<InputEventAPI> events) {
-            if (Global.getCombatEngine().isPaused()) return;
-
-            elapsed += amount;
-            if (elapsed < delay) return;
-
-            r.run();
-
             CombatEngineAPI engine = Global.getCombatEngine();
-            engine.removePlugin(this);
+
+            if(engine.isPaused() || target == null){
+                this.setActive(false);
+                return;
+            }
+
+            float currentTime = engine.getTotalElapsedTime(false);
+            float maxTime = startTime + duration - currentTime;
+
+            if (maxTime <= 0f) {
+                this.setActive(false);
+                return;
+            }
+
+            // draw nebula particles
+            if (lastRenderTime + interval < currentTime) {
+                lastRenderTime = currentTime;
+                Global.getCombatEngine().addNebulaParticle(
+                        target.getLocation(),
+                        target.getVelocity(),
+                        target.getCollisionRadius() * 2f, // size
+                        1f, // endSizeMult
+                        0.6f, // rampUpFraction
+                        2f, // fullBrightnessFraction
+                        interval * 4 + 0.2f, // totalDuration
+                        randomizeColor(SHROUD_COLOR, 30),
+                        false
+                );
+                Global.getCombatEngine().addNebulaParticle(
+                        user.getLocation(),
+                        user.getVelocity(),
+                        user.getCollisionRadius() * 12f, // size
+                        1f, // endSizeMult
+                        0.6f, // rampUpFraction
+                        2f, // fullBrightnessFraction
+                        interval * 4 + 0.2f, // totalDuration
+                        randomizeColor(SHROUD_GLOW_COLOR, 30),
+                        false
+                );
+            }
+
+            if (target == null || target.getOwner() == user.getOwner()) {
+                this.setActive(false);
+                return;
+            }
+
+            if (!user.getSystem().isStateActive()){
+                return;
+            }
+
+            if (!target.isAlive()){
+                target = findTarget(user);
+
+                if (target == null) {
+                    this.setActive(false);
+                    return;
+                }
+            }
+
+            // deal damage
+            int rand = rng.nextInt(1, CHANCE_TO_BYPASS_SHIELD);
+
+            DamageType damageType = DamageType.ENERGY;
+
+            if (user.getSystem().getSpecAPI().getDamageType() != null) {
+                damageType = user.getSystem().getSpecAPI().getDamageType();
+            }
+
+            engine.applyDamage(
+                    target,
+                    target.getLocation(),
+                    user.getSystem().getSpecAPI().getDamage() * amount,
+                    damageType,
+                    user.getSystem().getSpecAPI().getEmpDamage() * amount,
+                    rand == CHANCE_TO_BYPASS_SHIELD,
+                    true,
+                    user,
+                    false
+            );
         }
+
     }
 
 
 
-    protected WeaponSlotAPI mainSlot;
-    protected List<WeaponSlotAPI> slots;
-    protected boolean readyToFire = true;
+//    protected WeaponSlotAPI mainSlot;
+//    protected List<WeaponSlotAPI> slots;
     protected float sinceSwarmTargeted = SWARM_TIMEOUT;
     protected float cooldownToSet = -1f;
 
-    protected void findSlots(ShipAPI ship) {
-        if (slots != null) return;
-        slots = new ArrayList<>();
-        for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy()) {
-            if (slot.isSystemSlot()) {
-                slots.add(slot);
-                if (slot.getSlotSize() == WeaponSize.MEDIUM) {
-                    mainSlot = slot;
-                }
-            }
-        }
+    public svc_phase_flume_stats() {
+        effectPlugin = new EffectPlugin();
+        Global.getCombatEngine().addPlugin(effectPlugin);
     }
+
+//    protected void findSlots(ShipAPI ship) {
+//        if (slots != null) return;
+//        slots = new ArrayList<>();
+//        for (WeaponSlotAPI slot : ship.getHullSpec().getAllWeaponSlotsCopy()) {
+//            if (slot.isSystemSlot()) {
+//                slots.add(slot);
+//                if (slot.getSlotSize() == WeaponSize.MEDIUM) {
+//                    mainSlot = slot;
+//                }
+//            }
+//        }
+//    }
 
     public void apply(MutableShipStatsAPI stats, String id, State state, float effectLevel) {
         ShipAPI ship = null;
@@ -108,6 +204,10 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
             return;
         }
 
+        if (effectPlugin.user == null) {
+            effectPlugin.setUser(ship);
+        }
+
         sinceSwarmTargeted += Global.getCombatEngine().getElapsedInLastFrame();
 
         if ((state == State.COOLDOWN || state == State.IDLE) && cooldownToSet >= 0f) {
@@ -117,158 +217,45 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
 
         }
 
-        if (state == State.IDLE || state == State.COOLDOWN || effectLevel <= 0f) {
-            readyToFire = true;
-        }
-
         if (state == State.IN || state == State.OUT) {
             float jitterLevel = effectLevel;
 
-            float maxRangeBonus = 150f;
-            //float jitterRangeBonus = jitterLevel * maxRangeBonus;
-            float jitterRangeBonus = (1f - effectLevel * effectLevel) * maxRangeBonus;
-
-            float brightness = 0f;
-            float threshold = 0.1f;
-            if (effectLevel < threshold) {
-                brightness = effectLevel / threshold;
-            } else {
-                brightness = 1f - (effectLevel - threshold) / (1f - threshold);
-            }
-            if (brightness < 0) brightness = 0;
-            if (brightness > 1) brightness = 1;
-            if (state == State.OUT) {
-                jitterRangeBonus = 0f;
-                brightness = effectLevel * effectLevel;
-            }
+            float jitterRangeBonus = getJitterRangeBonus(state, effectLevel);
             Color color = SHROUD_COLOR;
-            //color = VoltaicDischargeOnFireEffect.EMP_FRINGE_COLOR_BRIGHT;
-            //ship.setJitterUnder(this, color, jitterLevel, 21, 0f, 3f + jitterRangeBonus);
-            //ship.setJitter(this, JITTER_COLOR, jitterLevel, 4, 0f, 0 + jitterRangeBonus * 0.67f);
-            //ship.setJitter(this, color, jitterLevel, 1, 0f, 3f);
             ship.setJitter(this, color, jitterLevel, 5, 0f, 3f + jitterRangeBonus);
         }
 
-        if (effectLevel == 1 && readyToFire) {
+        if (effectLevel == 1 && !effectPlugin.active) {
             ShipAPI target = findTarget(ship);
-            readyToFire = false;
             if (target != null) {
-                CombatEngineAPI engine = Global.getCombatEngine();
-                findSlots(ship);
-
-                if (mainSlot == null)
-                    return;
-                Vector2f slotLoc = mainSlot.computePosition(ship);
-
-                EmpArcParams params = new EmpArcParams();
-                params.segmentLengthMult = 8f;
-                params.zigZagReductionFactor = 0.15f;
-                params.fadeOutDist = 500f;
-                params.minFadeOutMult = 2f;
-                params.flickerRateMult = 0.7f;
-
-                //params.movementDurMax = 0.1f;
-//				params.movementDurMin = 0.25f;
-//				params.movementDurMax = 0.25f;
-
-
-                if (ship.getOwner() == target.getOwner()) {
-                    //params.flickerRateMult = 0.6f;
-                    params.flickerRateMult = 0.3f;
-
-                    Color color = SHROUD_COLOR;
-                    if (ThreatSwarmAI.isAttackSwarm(target)) {
-                        color = SHROUD_COLOR;
-                    }
-                    float emp = 0;
-                    float dam = 0;
-                    EmpArcEntityAPI arc = (EmpArcEntityAPI)engine.spawnEmpArcPierceShields(ship, slotLoc, ship, target,
-                            DamageType.ENERGY,
-                            dam,
-                            emp, // emp
-                            100000f, // max range
-                            "energy_lash_friendly_impact",
-                            100f, // thickness
-                            //new Color(100,165,255,255),
-                            color,
-                            new Color(255,255,255,255),
-                            params
-                    );
-                    arc.setTargetToShipCenter(slotLoc, target);
-                    arc.setCoreWidthOverride(50f);
-
-                    arc.setSingleFlickerMode(true);
-                    //arc.setFadedOutAtStart(true);
-                    Global.getSoundPlayer().playSound("energy_lash_fire", 1f, 1f, ship.getLocation(), ship.getVelocity());
-                } else {
-                    params.flickerRateMult = 0.4f;
-
-                    int numArcs = slots.size();
-                    //numArcs = 1;
-
-                    float emp = EMP_DAMAGE;
-                    float dam = DAMAGE;
-
-                    for (int i = 0; i < numArcs; i++) {
-                        float delay = 0.03f * i;
-                        //delay = 0f;
-
-//						EmpArcParams params2 = new EmpArcParams();
-//						params2.segmentLengthMult = 8f;
-//						params2.zigZagReductionFactor = 0.15f;
-//						params2.fadeOutDist = 500f;
-//						params2.minFadeOutMult = 2f;
-//						params2.flickerRateMult = 0.8f - i * 0.1f;
-//						params2.flickerRateMult = 0.8f;
-
-                        int index = i;
-                        ShipAPI ship2 = ship;
-                        Runnable r = new Runnable() {
-                            @Override
-                            public void run() {
-                                Vector2f slotLoc = slots.get(index).computePosition(ship2);
-                                Color color = SHROUD_COLOR;
-                                Color core = SHROUD_GLOW_COLOR;
-                                if (target.isPhased()) {
-                                    color = SHROUD_COLOR;
-                                    core = SHROUD_GLOW_COLOR;
-                                }
-                                //color = Misc.interpolateColor(color, new Color(255,0,255), 0.25f);
-                                EmpArcEntityAPI arc = (EmpArcEntityAPI)engine.spawnEmpArc(ship2, slotLoc, ship2, target,
-                                        DamageType.ENERGY,
-                                        dam,
-                                        emp, // emp
-                                        100000f, // max range
-                                        "energy_lash_enemy_impact",
-                                        60f, // thickness
-                                        //new Color(100,165,255,255),
-                                        color,
-                                        core,
-                                        params
-                                );
-                                arc.setCoreWidthOverride(40f);
-                                arc.setSingleFlickerMode(true);
-                            }
-                        };
-                        if (delay <= 0f) {
-                            r.run();
-                        } else {
-                            Global.getCombatEngine().addPlugin(new DelayedCombatActionPlugin(delay, r));
-                        }
-
-                        Global.getSoundPlayer().playSound("energy_lash_fire_at_enemy", 1f, 1f, ship.getLocation(), ship.getVelocity());
-
-//						arc.setFadedOutAtStart(true);
-//						arc.setRenderGlowAtStart(false);
-                    }
-                }
-
+                System.out.println("setting active");
+                effectPlugin.setTarget(target);
+                effectPlugin.setActive(true);
                 applyEffectToTarget(ship, target);
             }
         }
     }
 
+    private static float getJitterRangeBonus(State state, float effectLevel) {
+        float maxRangeBonus = 150f;
+        //float jitterRangeBonus = jitterLevel * maxRangeBonus;
+        float jitterRangeBonus = (1f - effectLevel * effectLevel) * maxRangeBonus;
 
+        float brightness = 0f;
+        float threshold = 0.1f;
+        if (effectLevel < threshold) {
+            brightness = effectLevel / threshold;
+        } else {
+            brightness = 1f - (effectLevel - threshold) / (1f - threshold);
+        }
+        if (brightness < 0) brightness = 0;
+        if (brightness > 1) brightness = 1;
+        if (state == State.OUT) {
+            jitterRangeBonus = 0f;
+            brightness = effectLevel * effectLevel;
+        }
+        return jitterRangeBonus;
+    }
 
 
     protected void applyEffectToTarget(ShipAPI ship, ShipAPI target) {
@@ -355,12 +342,21 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     public String getInfoText(ShipSystemAPI system, ShipAPI ship) {
         if (system.isOutOfAmmo()) return null;
         if (system.getState() != SystemState.IDLE) return null;
+        if (ship == null) return null;
+
 
         ShipAPI target = findTarget(ship);
-        if (target != null && target != ship) {
+
+        if(target == null || ship.getShipTarget() == null) {
+            return "NO TARGET";
+        }
+        if (ship.getShipTarget().getOwner() == ship.getOwner()) {
+            return "FRIENDLY TARGET";
+        }
+        if (target != ship) {
             return "READY";
         }
-        if ((target == null || target == ship) && ship.getShipTarget() != null) {
+        if (ship.getShipTarget() != null) {
             return "OUT OF RANGE";
         }
         return "NO TARGET";
@@ -373,7 +369,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
         return dist <= range + radSum;
     }
 
-    public boolean isValidLashTarget(ShipAPI ship, ShipAPI other) {
+    public static boolean isValidLashTarget(ShipAPI ship, ShipAPI other) {
         if (other == null) return false;
         if (other.isHulk() || other.getOwner() == 100) return false;
         if (other.isShuttlePod()) return false;
@@ -394,7 +390,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     }
 
 
-    protected ShipAPI findTarget(ShipAPI ship) {
+    public static ShipAPI findTarget(ShipAPI ship) {
         float range = getRange(ship);
         boolean player = ship == Global.getCombatEngine().getPlayerShip();
         ShipAPI target = ship.getShipTarget();
@@ -437,7 +433,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     @Override
     public boolean isUsable(ShipSystemAPI system, ShipAPI ship) {
         ShipAPI target = findTarget(ship);
-        return target != null && target != ship;
+        return target != null && target != ship && (target.getOwner() != ship.getOwner());
         //return super.isUsable(system, ship);
     }
 
