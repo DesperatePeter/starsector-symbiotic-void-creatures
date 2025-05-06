@@ -44,7 +44,7 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
     public static float PHASE_OVERLOAD_DUR = 1f;
 
     public static Color SHROUD_COLOR = new Color(151, 170, 25, 180);
-    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 180);
+    public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 150);
 
     public EffectPlugin effectPlugin;
 
@@ -106,12 +106,23 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
                 Global.getCombatEngine().addNebulaParticle(
                         target.getLocation(),
                         target.getVelocity(),
-                        target.getCollisionRadius() * 1.5f, // size
+                        target.getCollisionRadius() * 2f, // size
                         1f, // endSizeMult
                         0.6f, // rampUpFraction
                         2f, // fullBrightnessFraction
                         interval * 4 + 0.2f, // totalDuration
                         randomizeColor(SHROUD_COLOR, 30),
+                        false
+                );
+                Global.getCombatEngine().addNebulaParticle(
+                        user.getLocation(),
+                        user.getVelocity(),
+                        user.getCollisionRadius() * 12f, // size
+                        1f, // endSizeMult
+                        0.6f, // rampUpFraction
+                        2f, // fullBrightnessFraction
+                        interval * 4 + 0.2f, // totalDuration
+                        randomizeColor(SHROUD_GLOW_COLOR, 30),
                         false
                 );
             }
