@@ -1,19 +1,18 @@
 {
 	"id":"svc_acid_shot",
 	"specClass":"projectile",
-	"spawnType":"BALLISTIC",
-        "onFireEffect":"tecrys.svc.weapons.AcidSprayEffect",
-	"collisionClass":"PROJECTILE_FF",
-	"collisionClassByFighter":"PROJECTILE_FIGHTER",
-	"length":1.0,
-	"width":1.0,
-	"hitGlowRadius":0,
-	"fadeTime":0.15,
-	#"fringeColor":[255,155,125,255],
-	#"coreColor":[255,255,200,150],
-	"fringeColor":[17,255,0,0],
-	"coreColor":[17,255,0,0],	
-	"textureScrollSpeed":64.0,
-	"pixelsPerTexel":5.0,
-	"bulletSprite":"graphics/missiles/flechette_sml.png"
+	"onHitEffect":"tecrys.svc.weapons.scripts.AcidJetEffect",
+	
+	"spawnType":"BALLISTIC_AS_BEAM",
+	"collisionClass":"RAY",
+	"collisionClassByFighter":"RAY_FIGHTER",
+	"length":80.0,
+	"width":60.0,
+	"hitGlowRadius":-1,
+	"fadeTime":0.25,
+	"fringeColor":[151, 170, 25, 80],
+	"coreColor":[92, 85, 24, 80],
+	"textureType":"ROUGH",  # only needed for BEAM spawnType
+	"textureScrollSpeed":-256,
+	"pixelsPerTexel":5.0
 }
