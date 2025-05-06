@@ -106,12 +106,12 @@ public class svc_phase_flume_stats extends BaseShipSystemScript {
                 Global.getCombatEngine().addNebulaParticle(
                         target.getLocation(),
                         target.getVelocity(),
-                        target.getCollisionRadius(), // size
+                        target.getCollisionRadius() * 1.5f, // size
                         1f, // endSizeMult
                         0.6f, // rampUpFraction
                         2f, // fullBrightnessFraction
-                        interval * 2 + 0.2f, // totalDuration
-                        randomizeColor(SHROUD_COLOR, 10),
+                        interval * 4 + 0.2f, // totalDuration
+                        randomizeColor(SHROUD_COLOR, 30),
                         false
                 );
             }

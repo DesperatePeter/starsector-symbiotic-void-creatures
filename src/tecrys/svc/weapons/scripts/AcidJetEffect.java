@@ -122,10 +122,10 @@ public class AcidJetEffect extends CryofluxTransducerEffect {
 		float b = proj.getBrightness();
 		b *= viewport.getAlphaMult();
 		
-		GL14.glBlendEquation(GL14.GL_BLEND_EQUATION);
+		GL14.glBlendEquation(GL14.GL_BLEND_DST_ALPHA);
 		
 		for (ParticleData p : negativeParticles) {
-			float size = proj.getProjectileSpec().getWidth() * 0.6f;
+			float size = proj.getProjectileSpec().getWidth() * 0.1f;
 			size *= p.scale;
 			
 			float alphaMult = 1f;
@@ -155,7 +155,7 @@ public class AcidJetEffect extends CryofluxTransducerEffect {
 		Color c =  new Color(92, 85, 24, 180);
 		c = Misc.setAlpha(c, 100);
 		float baseDuration = 1f;
-		float baseSize = projectile.getProjectileSpec().getLength() * 0.5f;
+		float baseSize = projectile.getProjectileSpec().getLength() * 0.01f;
 		float size = baseSize * 1.5f;
 		float sizeMult = Misc.getHitGlowSize(100f, projectile.getDamage().getBaseDamage(), damageResult) / 100f;
 		size *= sizeMult;

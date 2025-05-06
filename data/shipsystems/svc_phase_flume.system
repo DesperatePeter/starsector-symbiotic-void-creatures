@@ -1,11 +1,11 @@
 {
 	"id":"svc_phase_flume",
 	"type":"STAT_MOD",
-	"aiType":"EMP",
+	"aiType":"WEAPON_BOOST",
 		"range":500,
 	
-	"empDamage":400,
-	"damage":50,
+	"empDamage":1200,
+	"damage":300,
 	"damageType":ENERGY,
 		"runScriptWhileIdle":false,
 	"statsScript":"tecrys.svc.shipsystems.svc_phase_flume_stats",
@@ -16,7 +16,7 @@
 
 
 	"useSound":"system_emp_emitter_activate",
-	"loopSound":"svc_emp",
+	"loopSound":"svc_fungal_flume",
 	"impactSound":"system_emp_emitter_impact",
 	"outOfUsesSound":"gun_out_of_ammo",
 	
