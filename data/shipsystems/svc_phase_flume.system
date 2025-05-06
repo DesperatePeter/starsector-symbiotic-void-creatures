@@ -15,9 +15,9 @@
 	"effectColor2":[92, 85, 24, 180],
 
 
-	"useSound":"system_emp_emitter_activate",
+	#"useSound":"system_emp_emitter_activate",
 	"loopSound":"svc_fungal_flume",
-	"impactSound":"system_emp_emitter_impact",
+	#"impactSound":"system_emp_emitter_impact",
 	"outOfUsesSound":"gun_out_of_ammo",
 	
 	# see: EmpArcParams.loadFromSystemJson() for complete list of supported values
