@@ -205,7 +205,7 @@ public class AcidJetEffectOnHit extends BaseCombatLayeredRenderingPlugin impleme
 	}
 
 	protected void addParticle() {
-		ParticleData p = new ParticleData(10f, 0.5f + (float) Math.random() * 2f, 2f);
+		ParticleData p = new ParticleData(15f, 0.5f + (float) Math.random() * 2f, 2f);
 		particles.add(p);
 		p.offset = Misc.getPointWithinRadius(p.offset, 20f);
 	}
