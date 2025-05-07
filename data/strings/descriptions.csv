@@ -19,9 +19,9 @@ svc_adv_lrg_scythe_r,WEAPON,Gigantic scythe-like claws used to rend prey until i
 svc_bge_grappler,WEAPON,This orifice houses a tendril capable of extending quickly. Through unknown means it accelerates the creature when the tendril latches onto its prey.,,,,,
 svc_bge_grappler_pd,WEAPON,Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,,
 svc_bge_mini_grappler,WEAPON,Though similar to Grappler Tendrils this pseudopod is specialized to attack small fast moving targets with a whip-like slash causing very high impact force.,,,,,
-svc_acidthrower,WEAPON,"A mutated gland symbiote that emits acid capable of seeping behind shields. Extremely effective against certain hyperalloys commonly found within most types of armor but won't dissolve normal hull structure.
+svc_acidthrower,WEAPON,"A mutated gland symbiote that spits acid at enemies. Extremely effective against certain hyperalloys commonly found within most types of armor.
 ",,,,,
-svc_miniacidthrower,WEAPON,"A mutated gland symbiote that emits acid capable of seeping behind shields. Extremely effective against certain hyperalloys commonly found within most types of armor but won't dissolve normal hull structure.
+svc_miniacidthrower,WEAPON,"A mutated gland symbiote that spits acid at enemies. Extremely effective against certain hyperalloys commonly found within most types of armor.
 ",,,,,
 svc_fangcluster,WEAPON,"A mutated Voidling jaw functioning suspiciously similar to a common mass driver.
 Rapidly regrows fangs which are then accelerated by powerful muscles through a puzzling mechanism, somehow matching or even exceeding modern needler designs.",,,,,
@@ -33,8 +33,8 @@ svc_bioplasma_large,WEAPON,"This symbiote has the ability to fire balls of slime
 svc_bigbrain,WEAPON,Cerebral Symbiote capable of projecting massive amounts of psionic Energy in a helix pattern.,,,,,
 ,,,,,,,
 svc_hemalisk_berserk,SHIP_SYSTEM,"Activates berserker rage, increasing attack speed and adding life steal to attacks.",,,,,
-svc_aggressive_pheromones,SHIP_SYSTEM,"Increases speed, flux dissipation and fire rate for all allies by 50% in a large area around Lephantis.",,,,,
-svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasumbilical cord to an enemy, diverting a part of the damage taken to the enemy. Will break if the enemy moves out of range.",,,,,
+svc_aggressive_pheromones,SHIP_SYSTEM,An aura of p-space vibrations surrounds the creature compelling other Voidlings in the area to move and attack faster.,,,,"Increases speed, flux dissipation and fire rate for all allies by {{50%}} in a large area around Lephantis.",
+svc_parasumbilical_cord,SHIP_SYSTEM,"Attaches a parasitic umbilical cord to an enemy, diverting a part of the damage taken to the enemy. Will break if the enemy moves out of range.",,,,,
 svc_nervous_shunt,SHIP_SYSTEM,Negates all damage for a few seconds after which all damage received during that time is applied at once.,,,,,
 svc_volatile_void_drones,SHIP_SYSTEM,"Activates pain receptors in certain drones agitating them so much that they immediatly seek out the next enemy and ram themselves against them, dying in the process.",,,,,
 svc_torid_drones,SHIP_SYSTEM,Releases a defensive Torid drone to protect its host.,,,,,
@@ -43,7 +43,9 @@ svc_biomemetism,SHIP_SYSTEM,Impossibly swift neural connections let the creature
 svc_dash,SHIP_SYSTEM,A quick dash to the side that can be activated by double tapping a strafe key. Does not activate on right click if a strafe key is not held down at the same time.,,,,,
 svc_phasesubmerge,SHIP_SYSTEM,By unknown means the creature is able to enter p-space.,,,,,
 svc_skip_swim,SHIP_SYSTEM,Smaller Void Creatures move erratically.,,,,,
-svc_phase_flume,SHIP_SYSTEM,The creature taps into p-space to release dangerous short-lived particles dealing 400 EMP and 50 Energy damage per arc. Can also rip phased ships out of phase and can be used while phased.,,,,,
+svc_phase_flume,SHIP_SYSTEM,The creature taps into p-space to release dangerous fungal spores disabling ships in a small area around it and dealing light damage.,,,,"Deals {{300}} EMP and {{50}} Energy damage per tick. Can be used while phased and can rip other phase ships out of phase, overloading them for {{1}} second.",
+svc_protect_mothership,SHIP_SYSTEM,The creature releases additional smaller creatures forming a protective shield of living bodies in front of itself.,,,,,
+svc_spooky_action,SHIP_SYSTEM,NODESCRIPTION...YET,,,,,
 ,,,,,,,
 svc_arbiter,SHIP,"Arbiters provide shelter for smaller voidlings similar to seahorses.
 (placeholder description)",,,,,

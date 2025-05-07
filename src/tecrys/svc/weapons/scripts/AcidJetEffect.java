@@ -22,8 +22,13 @@ import com.fs.starfarer.api.impl.combat.RiftLanceEffect;
 import com.fs.starfarer.api.util.IntervalUtil;
 import com.fs.starfarer.api.util.Misc;
 
+import static tecrys.svc.utils.UtilsKt.randomizeColor;
+
 public class AcidJetEffect extends CryofluxTransducerEffect {
-	
+
+	public static Color SHROUD_COLOR = new Color(168,199,77, 180);
+	public static Color SHROUD_GLOW_COLOR = new Color(92, 85, 24, 150);
+
 	public static float PARTICLE_SCALE_MULT = 0.02f;
 	
 	protected IntervalUtil interval = new IntervalUtil(0.075f, 0.125f);
@@ -140,7 +145,7 @@ public class AcidJetEffect extends CryofluxTransducerEffect {
 			p.sprite.setAngle(p.angle);
 			p.sprite.setSize(size, size);
 			p.sprite.setAlphaMult(b * alphaMult * p.fader.getBrightness());
-			p.sprite.setColor( new Color(92, 85, 24, 180));
+			p.sprite.setColor( randomizeColor(SHROUD_COLOR, 50));
 			p.sprite.renderAtCenter(loc.x, loc.y);
 		}
 		
@@ -210,7 +215,7 @@ public class AcidJetEffect extends CryofluxTransducerEffect {
 		return 2;
 	}
 	public Color getParticleColor() {
-		Color color = proj.getProjectileSpec().getFringeColor();
+		Color color = randomizeColor(proj.getProjectileSpec().getFringeColor(), 50);
 		color = Misc.setAlpha(color, 75);
 		return color;
 	}

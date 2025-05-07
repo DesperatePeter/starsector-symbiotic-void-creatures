@@ -1,7 +1,7 @@
 {
 	"id":"svc_acid_shot",
 	"specClass":"projectile",
-	"onHitEffect":"tecrys.svc.weapons.scripts.AcidJetEffect",
+	"onHitEffect":"tecrys.svc.weapons.scripts.AcidJetEffectOnHit",
 	
 	"spawnType":"BALLISTIC_AS_BEAM",
 	"collisionClass":"RAY",

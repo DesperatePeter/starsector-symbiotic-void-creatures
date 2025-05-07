@@ -4,6 +4,7 @@
   "projectileSpecId": "svc_mini_acid_shot",
   "type": "ENERGY",
   "size": "MEDIUM",
+    "everyFrameEffect": "tecrys.svc.weapons.scripts.AcidJetEffect",
   "turretSprite": "graphics/weapons/animated/svc_acidspitter/svc_acidspitter_base00.png",
   "turretGunSprite": "graphics/weapons/animated/svc_acidspitter/svc_acidspitter_recoil.png",
   "hardpointSprite": "graphics/weapons/animated/svc_acidspitter/svc_acidspitter_base00.png",
@@ -18,17 +19,14 @@
     0
   ],
   "hardpointOffsets": [
-    24,
-    -3,
-    24,
-    3,
+
     24,
     0
   ],
   "hardpointAngleOffsets": [
     0
   ],
-  "barrelMode": "LINKED",
+  "barrelMode": "ALTERNATING",
   "animationType": "MUZZLE_FLASH",
   "numFrames": 20,
   "frameRate": 12,
@@ -47,5 +45,5 @@
       20
     ]
   },
-  "fireSoundOne": "svc_weapon_acid"
+  "noImpactSounds": true
 }
