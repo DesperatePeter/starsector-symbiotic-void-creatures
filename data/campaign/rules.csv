@@ -97,5 +97,6 @@ stable_build_Voidling_Lure_Build,DialogOptionSelected,$option == stable_build_Vo
 AddRemoveAnyItem SPECIAL svc_whale_oil -50
 RemoveCommodity food 1000
 $global.svcLureConstructed = true
-RemoveOption stable_build_Voidling_Lure_Build",,,
+RemoveOption stable_build_Voidling_Lure_Build
+ShowImageVisual svc_food",,,
 ,,,,,,

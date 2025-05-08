@@ -24,10 +24,10 @@
 		},
 		"backgrounds": {
 			"victory_notification_img": "graphics/backgrounds/dissectionbyNeoSpectra.png",
-			"svc_encounter": "graphics/backgrounds/BGE.jpg",
+			"svc_encounter": "graphics/backgrounds/svc_encounter_mini.png",
 			"whale_encounter": "graphics/backgrounds/Stjarwhal.png",
 			"hunter_fleet": "graphics/backgrounds/Pursuitsml2.png",
-			"mastermind_encounter_dialog": "graphics/backgrounds/BGE.jpg"
+			"mastermind_encounter_dialog": "graphics/backgrounds/svc_brain_encounter.png"
 		},
 		"fx": {
 			"svc_tentacle_trail": "graphics/fx/svc_tentacle_trail.png",
@@ -46,14 +46,14 @@
 			"svc_swarm": "graphics/weapons/deco/svc_swarm.png"
 		},
 		"illustrations": {
-			"svc_encounter": "graphics/backgrounds/svc_encounter.png",	
-			"svc_food": "graphics/backgrounds/svc_food.jpg",		
+			"svc_encounter": "graphics/backgrounds/svc_encounter_mini.png",	
+			"svc_food": "graphics/backgrounds/svc_food.png",		
 			"svc_hunter_bar_event_portrait": "graphics/illustrations/space_bar.jpg",
 			"svc_toxin": "graphics/icons/svc_toxin.png"			
 		},
 		"icons": {
-		    "svc_colony_crisis_icon" : "graphics/icons/void_chitin.png",
-		    "svc_hunter_intel_entry" : "graphics/hullmods/alpha.png",
+		    "svc_colony_crisis_icon" : "graphics/icons/svc_infestationoverlay.png",
+		    "svc_hunter_intel_entry" : "graphics/backgrounds/BGE.jpg",
 			"svc_mastermind_intel_icon" : "graphics/hullmods/alpha.png"
 		}
 	},
