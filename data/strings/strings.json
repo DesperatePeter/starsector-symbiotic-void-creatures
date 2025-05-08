@@ -33,10 +33,11 @@
     "tooltip" : "Void Creatures seem to be preying on each other.",
     "description2" : "Void Creatures",
     "threatFactor" : "Void Creatures",
-    "tooltip2" : "What are we doing here? (shown when hovering over previous text)",
+    "tooltip2" : "Voidling sightings complicate trade activity.",
     "event_description_title" : "Void Creatures Aggression",
     "event_description_text" : "Voidling swarms are probing your colony defenses. Their aggression is escalating.",
-    "event_bullet_point" : "Do we really exist? (shows up in the intel popup)",
+    #"event_bullet_point" : "Do we really exist? (shows up in the intel popup)",
+	"event_bullet_point" : "Void Creatures Aggression",
     "event_averted_bullet_point" : "Why are they suddenly gone? (shown when you reduce progress before the event triggers)",
     "main_event_title" : "Void Creatures Aggression",
     "main_event_text" : "Voidling swarms are probing your colony defenses. Their aggression is escalating. You wonder why they are converging on your colony."
