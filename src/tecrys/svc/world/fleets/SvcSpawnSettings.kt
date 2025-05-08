@@ -1,5 +1,7 @@
 package tecrys.svc.world.fleets
 
+import com.fs.starfarer.api.Global
+
 private val svcCombatRoleBaseWeights = mapOf(
     "combatSmall" to 0.2f,
     "combatMedium" to 0f,
@@ -28,7 +30,7 @@ val svcSettings = FleetSpawnParameterSettings(
     10f,
     1f,
     10f,
-    400f,
+    Global.getSettings().battleSize.toFloat(),
     5f,
     12,
     20,
