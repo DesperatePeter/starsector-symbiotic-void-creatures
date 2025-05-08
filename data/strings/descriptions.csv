@@ -50,7 +50,8 @@ svc_spooky_action,SHIP_SYSTEM,NODESCRIPTION...YET,,,,,
 svc_arbiter,SHIP,"Arbiters serve as p-space relays for the waves send out by Lephantis Tyrant Organisms and thus act as a beacon within a swarm or hunting party. They play a similar role to higher-ranking officers in human fleets, relaying orders and keeping their subordinates in check. This overseer ability goes so far that it can force smaller Voidlings to sacrifice themselves by forming living shields against incoming fire.",,,,,
 svc_embolist,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,,
 svc_hemalisk,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,,
-svc_keratinos,SHIP,"These lumbering titans apparently have harder shells than most heavily armored warships in the sector, making them ideal battering rams while fighting off would-be predators. Keratinos have no brains in the classical sense and instead have evolved nervous clusters distributed across their entire bodies making them extremely hard to disable; even appearing already dead specimens regained consciousness after receiving mortal wounds and continued fighting with literal tooth and nail.",,,,,
+svc_keratinos,SHIP,"This specimen sports an exceptionally resilient carapace, notably exceeding the armor density of most sector-standard warships. Additionally, Keratinos possess a decentralized nervous system analogous to a diffuse nerve net, reminiscent of ancient marine organisms. 
+Combat records shows how this distributed neural architecture severely complicates incapacitation efforts, with numerous recorded incidents of reanimation despite critical injury.",,,,,
 svc_lephantis,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce vibrations in phase space. These vibrations serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,,
 svc_pupacyst,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Mios paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,,
 svc_toxocyst,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
@@ -62,7 +63,8 @@ Even to this day these creatures remain elusive at best and most think they are 
 svc_arbiter_evo1,SHIP,"Arbiters serve as p-space relays for the waves send out by Lephantis Tyrant Organisms and thus act as a beacon within a swarm or hunting party. They play a similar role to higher-ranking officers in human fleets, relaying orders and keeping their subordinates in check. This overseer ability goes so far that it can force smaller Voidlings to sacrifice themselves by forming living shields against incoming fire.",,,,,
 svc_embolist_evo1,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,,
 svc_hemalisk_evo1,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,,
-svc_keratinos_evo1,SHIP,"These lumbering titans apparently have harder shells than most heavily armored warships in the sector, making them ideal battering rams while fighting off would-be predators. Keratinos have no brains in the classical sense and instead have evolved nervous clusters distributed across their entire bodies making them extremely hard to disable; even appearing already dead specimens regained consciousness after receiving mortal wounds and continued fighting with literal tooth and nail.",,,,,
+svc_keratinos_evo1,SHIP,"This specimen sports an exceptionally resilient carapace, notably exceeding the armor density of most sector-standard warships. Additionally, Keratinos possess a decentralized nervous system analogous to a diffuse nerve net, reminiscent of ancient marine organisms. 
+Combat records shows how this distributed neural architecture severely complicates incapacitation efforts, with numerous recorded incidents of reanimation despite critical injury.",,,,,
 svc_lephantis_evo1,SHIP,"The largest and most intricate symbiote currently documented, a Lephantis uses its massive lung-like appendages to produce vibrations in phase space. These vibrations serve a dual purpose, enhancing physical and mental capabilities while also guiding symbiotes and individuals with weaker perception.",,,,,
 svc_pupacyst_evo1,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Mios paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,,
 svc_toxocyst_evo1,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
@@ -74,7 +76,8 @@ Even to this day these creatures remain elusive at best and most think they are 
 svc_arbiter_evo2,SHIP,"Arbiters serve as p-space relays for the waves send out by Lephantis Tyrant Organisms and thus act as a beacon within a swarm or hunting party. They play a similar role to higher-ranking officers in human fleets, relaying orders and keeping their subordinates in check. This overseer ability goes so far that it can force smaller Voidlings to sacrifice themselves by forming living shields against incoming fire.",,,,,
 svc_embolist_evo2,SHIP,"This putrid creature, almost blind by nature, makes use of a mutated proboscis to prod targets it believes to be food. If the impailed object retaliates a heavy payload of digestive fluids and larvae are swiftly injected. Subsequent dissolved organic matter serves as excellent feed for both the host and emergent spawn.",,,,,
 svc_hemalisk_evo2,SHIP,"A particularly hostile monster even compared to its peers, Hemalisk's extreme metabolism and rabid aggression allows staggering physical abilities far beyond its size class. Some specimens have been observed feasting on non living matter such as hulls, likely due to its impossible energy requirements.",,,,,
-svc_keratinos_evo2,SHIP,"These lumbering titans apparently have harder shells than most heavily armored warships in the sector, making them ideal battering rams while fighting off would-be predators. Keratinos have no brains in the classical sense and instead have evolved nervous clusters distributed across their entire bodies making them extremely hard to disable; even appearing already dead specimens regained consciousness after receiving mortal wounds and continued fighting with literal tooth and nail.",,,,,
+svc_keratinos_evo2,SHIP,"This specimen sports an exceptionally resilient carapace, notably exceeding the armor density of most sector-standard warships. Additionally, Keratinos possess a decentralized nervous system analogous to a diffuse nerve net, reminiscent of ancient marine organisms. 
+Combat records shows how this distributed neural architecture severely complicates incapacitation efforts, with numerous recorded incidents of reanimation despite critical injury.",,,,,
 svc_pupacyst_evo2,SHIP,"This species, known as a cultivator or surrogate, is responsible for nest building, transporting, and nurturing of smaller symbiotes.  Its parallel evolution to the Mios paired with an overdeveloped brain for its size allows precise and adaptable tactics unlike what one would expect from such a creature.",,,,,
 svc_toxocyst_evo2,SHIP,"The Toxicus Cysta, also known as Toxocyst by spacers, was first found by the exploratory fleet Numinous-Exa-5 as they were traversing an unusual asteroid field in the [redacted] system, circa c+199. The species was discovered when one such specimen successfully ambushed and destroyed a lasher-class frigate, part of the expedition and acting as a forward scout, all 25 souls onboard were deemed lost.  
 
@@ -92,8 +95,11 @@ svc_keratinos_dark,SHIP,"""Subject-117's post-Hyperadrenal shunt readings are ex
   - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,,
 svc_lephantis_dark,SHIP,"""Gaze upon the intricacies of creation, a reflection of the balance woven into realities canvas. To tamper with the threads of life is to challenge the harmony crafted by the Creator, sowing discord in the symphony of being.""
   - Book of Ludd, Nature 6:3"," - Book of Ludd, Nature 6:3",,,,
-svc_pupacyst_dark,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,,
+svc_pupacyst_dark,SHIP,"""Sir, the alpha strike...it didn't hit. They...swarms of them, they took out every missile!"" 
+""Fire again, damn it!""
+""Flux is spiking, Sir! We can't sustain...a tactical retreat is our only option!"" 
+""Nonsense! Engage!""
+ - bridge recording recovered from an Executor black box", - bridge recording recovered from an Executor black box,,,,
 svc_toxocyst_dark,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""
   - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,,
 ,,,,,,,
@@ -107,8 +113,11 @@ svc_keratinos_dark_evo1,SHIP,"""Subject-117's post-Hyperadrenal shunt readings a
   - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,,
 svc_lephantis_dark_evo1,SHIP,"""Gaze upon the intricacies of creation, a reflection of the balance woven into realities canvas. To tamper with the threads of life is to challenge the harmony crafted by the Creator, sowing discord in the symphony of being.""
   - Book of Ludd, Nature 6:3"," - Book of Ludd, Nature 6:3",,,,
-svc_pupacyst_dark_evo1,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,,
+svc_pupacyst_dark_evo1,SHIP,"""Sir, the alpha strike...it didn't hit. They...swarms of them, they took out every missile!"" 
+""Fire again, damn it!""
+""Flux is spiking, Sir! We can't sustain...a tactical retreat is our only option!"" 
+""Nonsense! Engage!""
+ - bridge recording recovered from an Executor black box", - bridge recording recovered from an Executor black box,,,,
 svc_toxocyst_dark_evo1,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""
   - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,,
 ,,,,,,,
@@ -120,8 +129,11 @@ svc_hemalisk_dark_evo2,SHIP,"""That's impossible! Nothing shrugs off a Reaper li
   - unidentified Hegemony Captain", - unidentified Hegemony Captain,,,,
 svc_keratinos_dark_evo2,SHIP,"""Subject-117's post-Hyperadrenal shunt readings are extraordinary. Medical conditions disappear, muscle activity and cognitive abilities are off the charts. Urgent: Report results to ... ""
   - Degraded audiolog recovered from a wrecked Falcon-Class cruiser", - Degraded audiolog recovered from a wrecked Falcon-Class cruiser,,,,
-svc_pupacyst_dark_evo2,SHIP,"This is an Alpha male. Pupacysts act as surrogates and provide nutrients for smaller Voidlings.
-(placeholder description)",,,,,
+svc_pupacyst_dark_evo2,SHIP,"""Sir, the alpha strike...it didn't hit. They...swarms of them, they took out every missile!"" 
+""Fire again, damn it!""
+""Flux is spiking, Sir! We can't sustain...a tactical retreat is our only option!"" 
+""Nonsense! Engage!""
+ - bridge recording recovered from an Executor black box", - bridge recording recovered from an Executor black box,,,,
 svc_toxocyst_dark_evo2,SHIP,"""Knights on the CGR Commonwealth had recovered some sort of creature whilst in orbit. It acted frantic, as if it was in some sort of danger... Right as we got the go ahead to form the drive bubble we saw the Commonwealth go dark...I-I don't know how our sensors didn't see it coming.""
   - former Paladin Captain Jebediah Crops", - former Paladin Captain Jebediah Crops,,,,
 ,,,,,,,
