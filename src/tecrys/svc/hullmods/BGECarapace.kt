@@ -220,17 +220,18 @@ class BGECarapace : BaseHullMod() {
             "Void Creatures take %s reduced hull damage and regenerate slowly over time.", opad,h,
             "" + "${HULL_RESISTANCE.toInt()}%"
         )
-        tooltip.addPara("Voidlings do not explode and are unaffected by ship explosions", opad
+        tooltip.addPara("Voidlings do not explode and are unaffected by ship explosions.", opad
 
         )
-        tooltip.addSectionHeading("No Zero Flux Speed Increase", Alignment.MID, opad)
+
         tooltip.addSectionHeading("No Fuel", Alignment.MID, opad)
         tooltip.addPara(
-            "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace", opad
+            "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace.", opad
         )
         tooltip.addSectionHeading("Hullmod Incompatibility", Alignment.MID, opad)
         tooltip.addPara("Void Creatures cannot have hullmods designed for regular ships installed. Exception: %s", opad,h,
             "" + "Neural Interface"
             )
+        tooltip.addSectionHeading("No Zero Flux Speed Increase", Alignment.MID, opad)
     }
 }

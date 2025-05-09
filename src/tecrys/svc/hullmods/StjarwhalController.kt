@@ -89,13 +89,13 @@ class StjarwhalController: BaseHullMod() {
         val h = Misc.getHighlightColor()
         val bad = Misc.getNegativeHighlightColor()
 
-
+//        tooltip.addPara("If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good.\n" +
+//                "If your relation worsens, it will become progressively more difficult to control, increasing its maintenance.", opad)
         tooltip.addSectionHeading("Current maintenance multiplier: ${(computeMaintenanceFactor() * 100f).toInt()}%", Alignment.MID, opad)
 
         tooltip.addSectionHeading("Current relation: ${internalWhaleReputation.toInt()}", Alignment.MID, opad)
 
-        tooltip.addPara("If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good.\n" +
-                "If your relation worsens, it will become progressively more difficult to control, increasing its maintenance.", opad)
+
 
 
     }
