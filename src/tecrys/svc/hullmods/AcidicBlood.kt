@@ -6,11 +6,11 @@ import tecrys.svc.hullmods.listeners.AcidicBloodListener
 class AcidicBlood: BiologicalBaseHullmod() {
 
     companion object{
-        const val FIGHTER = 25f
-        const val FRIGATE = 50f
-        const val DESTROYER = 80f
-        const val CRUISER = 150f
-        const val CAPITAL_SHIP = 250f
+        const val FIGHTER = 50f
+        const val FRIGATE = 100f
+        const val DESTROYER = 200f
+        const val CRUISER = 350f
+        const val CAPITAL_SHIP = 500f
     }
     override fun applyEffectsAfterShipCreation(ship: ShipAPI?, id: String?) {
         ship?.run {

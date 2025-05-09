@@ -13,14 +13,14 @@ import java.awt.Color
 
 class AcidicBloodListener(private val ship: ShipAPI): DamageTakenModifier {
     companion object{
-        const val DAMAGE_TAKEN_FOR_GUARANTEED_TRIGGER = 500f
+        const val DAMAGE_TAKEN_FOR_GUARANTEED_TRIGGER = 400f
         const val MAX_ARC_RANGE = 300f
         val DAMAGE_DEALT = mapOf(
-            HullSize.FIGHTER to 25f,
-            HullSize.FRIGATE to 50f,
-            HullSize.DESTROYER to 80f,
-            HullSize.CRUISER to 150f,
-            HullSize.CAPITAL_SHIP to 250f
+            HullSize.FIGHTER to 50f,
+            HullSize.FRIGATE to 100f,
+            HullSize.DESTROYER to 200f,
+            HullSize.CRUISER to 350f,
+            HullSize.CAPITAL_SHIP to 500f
         )
         val ARC_CORE_COLOR = Color.GREEN
         val ARC_FRINGE_COLOR = Color.YELLOW

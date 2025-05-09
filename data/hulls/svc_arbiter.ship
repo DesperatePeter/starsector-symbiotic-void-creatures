@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_swarmHM",
+	#"svc_swarmHM",
 	"svc_no_fuel_hm"
   ],
   "builtInWings": [
