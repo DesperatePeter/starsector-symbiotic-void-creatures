@@ -43,7 +43,7 @@
       "mount": "HARDPOINT",
       "arc": 75.762001,
       "angle": -22.694,
-      "locations": [24, 23.5]
+      "locations": [38.5, 28]
     },
     {
       "id": "right_med_uni",
@@ -52,7 +52,7 @@
       "mount": "HARDPOINT",
       "arc": 75.762001,
       "angle": 22.694,
-      "locations": [24, -23.5]
+      "locations": [38.5, -28]
     },
     {
       "id": "right_grappler",
@@ -186,7 +186,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180,
+      "arc": 200,
       "angle": 90,
       "locations": [-5, 48]
     },
@@ -195,11 +195,11 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180,
+      "arc": 200,
       "angle": -90,
       "locations": [-5, -48]
     },
-	    {
+    {
       "id": "SYS1",
       "size": "MEDIUM",
       "type": "SYSTEM",

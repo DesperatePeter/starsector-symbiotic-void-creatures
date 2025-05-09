@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm",
+    "svc_no_fuel_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_koenig_eyes",
@@ -42,18 +42,18 @@
       "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 3,
+      "arc": 15,
       "angle": -4.5,
-      "locations": [25.5, 30]
+      "locations": [37, 28]
     },
     {
       "id": "right_med_uni",
       "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 3,
+      "arc": 15,
       "angle": 4.5,
-      "locations": [25.5, -30]
+      "locations": [37, -28]
     },
     {
       "id": "left_fin",
@@ -177,7 +177,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180,
+      "arc": 200,
       "angle": 90,
       "locations": [-5, 48]
     },
@@ -186,7 +186,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180,
+      "arc": 200,
       "angle": -90,
       "locations": [-5, -48]
     },
@@ -217,7 +217,7 @@
       "angle": -171.5,
       "locations": [-8.5, 35]
     },
-	    {
+    {
       "id": "SYS1",
       "size": "MEDIUM",
       "type": "SYSTEM",

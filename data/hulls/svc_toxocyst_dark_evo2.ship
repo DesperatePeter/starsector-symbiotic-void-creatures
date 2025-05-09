@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm",
+    "svc_no_fuel_hm",
     "svc_alpha_voidling"
   ],
   "builtInWeapons": {
@@ -81,7 +81,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180,
+      "arc": 200,
       "angle": -90,
       "locations": [-5, -54.5]
     },
@@ -90,7 +90,7 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "TURRET",
-      "arc": 180,
+      "arc": 200,
       "angle": 90,
       "locations": [-5, 54.5]
     },
@@ -232,7 +232,7 @@
       "locations": [-19, -0],
       "renderOrderMod": 30
     },
-	    {
+    {
       "id": "SYS1",
       "size": "MEDIUM",
       "type": "SYSTEM",

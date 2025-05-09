@@ -4,7 +4,7 @@
 	"aiType":"EMP",
 		"range":500,
 	
-	"empDamage":300,
+	"empDamage":200,
 	"damage":50,
 	"damageType":ENERGY,
 		"runScriptWhileIdle":false,
