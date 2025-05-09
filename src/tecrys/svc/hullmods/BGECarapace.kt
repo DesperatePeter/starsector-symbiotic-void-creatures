@@ -5,10 +5,12 @@ import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.ids.Personalities
-import com.fs.starfarer.campaign.fleet.FleetMember
+import com.fs.starfarer.api.impl.hullmods.HighScatterAmp.RANGE_THRESHOLD
+import com.fs.starfarer.api.ui.Alignment
+import com.fs.starfarer.api.ui.TooltipMakerAPI
+import com.fs.starfarer.api.util.Misc
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
-import org.magiclib.kotlin.createDefaultShipAI
 import org.magiclib.util.MagicIncompatibleHullmods
 import tecrys.svc.SVC_BASE_HULLMOD_ID
 import tecrys.svc.hullmods.listeners.ReduceExplosionListener
@@ -184,11 +186,51 @@ class BGECarapace : BaseHullMod() {
     }
     override fun getDescriptionParam(index: Int, hullSize: HullSize?): String? {
         return when(index){
-            0 -> "Every Voidling is unique and thus their statistics differ positively or negatively by up to 15%."
-            1 -> "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace."
-            2 -> "${HULL_RESISTANCE.toInt()}%"
-            3 -> "Neural Interface"
+//            0 -> "Every Voidling is unique and thus their statistics differ positively or negatively by up to 15%."
+//            1 -> "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace."
+//            2 -> "${HULL_RESISTANCE.toInt()}%"
+//            3 -> "Neural Interface"
+//            else -> null
+
+            0 -> "${HULL_RESISTANCE.toInt()}%"
+            1 -> "Neural Interface"
             else -> null
         }
+    }
+    override fun addPostDescriptionSection(
+        tooltip: TooltipMakerAPI,
+        hullSize: HullSize?,
+        ship: ShipAPI?,
+        width: Float,
+        isForModSpec: Boolean
+    ) {
+        val pad = 3f
+        val opad = 10f
+        val h = Misc.getHighlightColor()
+        val bad = Misc.getNegativeHighlightColor()
+
+
+        tooltip.addSectionHeading("Genetic Mutation", Alignment.MID, opad)
+        tooltip.addPara(
+            "Every Voidling is unique and thus their statistics differ positively or negatively by up to %s.", opad,h,
+            "" + "15%"
+        )
+        tooltip.addSectionHeading("Resistances", Alignment.MID, opad)
+        tooltip.addPara(
+            "Void Creatures take %s reduced hull damage and regenerate slowly over time.", opad,h,
+            "" + "${HULL_RESISTANCE.toInt()}%"
+        )
+        tooltip.addPara("Voidlings do not explode and are unaffected by ship explosions", opad
+
+        )
+        tooltip.addSectionHeading("No Zero Flux Speed Increase", Alignment.MID, opad)
+        tooltip.addSectionHeading("No Fuel", Alignment.MID, opad)
+        tooltip.addPara(
+            "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace", opad
+        )
+        tooltip.addSectionHeading("Hullmod Incompatibility", Alignment.MID, opad)
+        tooltip.addPara("Void Creatures cannot have hullmods designed for regular ships installed. Exception: %s", opad,h,
+            "" + "Neural Interface"
+            )
     }
 }

@@ -4,8 +4,12 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.ids.Stats
+import com.fs.starfarer.api.ui.Alignment
+import com.fs.starfarer.api.ui.TooltipMakerAPI
+import com.fs.starfarer.api.util.Misc
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import tecrys.svc.WHALE_REPUTATION_MIN
@@ -48,13 +52,13 @@ class StjarwhalController: BaseHullMod() {
         return 1f + (100f - internalWhaleReputation) / 100f
     }
 
-    override fun getDescriptionParam(index: Int, hullSize: ShipAPI.HullSize?): String? {
-        return when(index){
-            0 -> "${(computeMaintenanceFactor() * 100f).toInt()}%"
-            1 -> "${internalWhaleReputation.toInt()}"
-            else -> null
-        }
-    }
+//    override fun getDescriptionParam(index: Int, hullSize: ShipAPI.HullSize?): String? {
+//        return when(index){
+//            0 -> "${(computeMaintenanceFactor() * 100f).toInt()}%"
+//            1 -> "${internalWhaleReputation.toInt()}"
+//            else -> null
+//        }
+//    }
     override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.run {
             zeroFluxSpeedBoost.modifyMult(id, 0f)
@@ -72,5 +76,27 @@ class StjarwhalController: BaseHullMod() {
     override fun applyEffectsAfterShipCreation(ship: ShipAPI?, id: String?) {
         ShipDestructionEffects.suppressEffects(ship, true, false)
         ship?.explosionFlashColorOverride = Color.BLUE
+    }
+    override fun addPostDescriptionSection(
+        tooltip: TooltipMakerAPI,
+        hullSize: HullSize?,
+        ship: ShipAPI?,
+        width: Float,
+        isForModSpec: Boolean
+    ) {
+        val pad = 3f
+        val opad = 10f
+        val h = Misc.getHighlightColor()
+        val bad = Misc.getNegativeHighlightColor()
+
+
+        tooltip.addSectionHeading("Current maintenance multiplier: ${(computeMaintenanceFactor() * 100f).toInt()}%", Alignment.MID, opad)
+
+        tooltip.addSectionHeading("Current relation: ${internalWhaleReputation.toInt()}", Alignment.MID, opad)
+
+        tooltip.addPara("If this Stjarwhal is part of your fleet, it will follow your commands of its own volition if your relation with the Stjarwhales is good.\n" +
+                "If your relation worsens, it will become progressively more difficult to control, increasing its maintenance.", opad)
+
+
     }
 }
