@@ -4,6 +4,7 @@ import tecrys.svc.utils.CampaignSettingDelegate
 
 const val SVC_MOD_ID = "symbiotic_void_creatures"
 const val SVC_FACTION_ID = "svc"
+const val MMM_FACTION_ID = "mmm"
 const val VWL_FACTION_ID = "vwl"
 const val SVC_BASE_HULLMOD_ID = "BGECarapace"
 const val SVC_VARIANT_TAG = "svc"

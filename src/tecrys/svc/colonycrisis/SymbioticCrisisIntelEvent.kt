@@ -1,6 +1,7 @@
 package tecrys.svc.colonycrisis
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.LocationAPI
 import com.fs.starfarer.api.campaign.econ.MarketAPI
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
@@ -13,22 +14,24 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
+import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.listeners.CrisisFleetListener
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.makeAlwaysHostile
 import tecrys.svc.world.fleets.*
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
     companion object{
-        const val MAX_NUM_FLEETS = 10
+        const val MAX_NUM_FLEETS = 20
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
-        const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 2000f
+        const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 1000f
         const val PROGRESS_BLOWBACK_PER_FLEET = 10
-        const val FLEET_POWER_MODIFIER = 0.8f // Spawning lots of full power fleets is a bit overwhelming
+        const val FLEET_POWER_MODIFIER = 0.7f // Spawning lots of full power fleets is a bit overwhelming
         const val MEM_KEY = "\$SVC_COLONY_CRISIS_INTEL_EVENT_KEY"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
         const val MEM_KEY_DISABLE_TELEPATHY = "\$SVC_MASTERMIND_NO_TELEPATHY"
@@ -181,7 +184,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         )?.let { fleet ->
             fleet.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
             // emulate two sub-factions fighting against each other
-            if(Math.random() > 0.5f) Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f)
+            if(Math.random() > 0.5f) { fleet.setFaction(MMM_FACTION_ID)
+                Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f) }
             currentNumberOfFleets++
             return true
         }

@@ -40,7 +40,7 @@ He pours the rest of his schnapps into a shot glass, downs it and gestures towar
 svcmod_hunter_bar_event_leave,DialogOptionSelected,$option == svcmod_hunter_bar_event_leave,BarCMD returnFromEvent false,"You leave the table, ordering a new bottle of schnapps for the man.",,
 #Returning to bar after defeating hunters,,,,,,
 svcmod_spawn_hunters_defeated_bar_event,AddBarEvents,SvcShouldSpawnHuntersDefeatedBarEvent,"AddBarEvent svcmod_hunters_defeated_bar_event ""Approach the solemn drinker to talk about the hunter fleets."" ""You encountered, and defeated, multiple hunter fleets. It might be worth talking to the ex project member again.""",,,
-svc_mod_hunters_defeated_bar_event,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event,ShowPic svc_hunter_bar_event_portrait,"""Oh, Captain! Didn’t expect to see you again so soon! Or, well, ever, to be honest. You seemed like the kind of guy that would happily run off to the fringes of the sector to get eaten by one of the hunter fleets.""
+svc_mod_hunters_defeated_bar_event,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event,ShowPic svc_hunter_bar_event_portrait,"""Oh, Captain! Didn’t expect to see you again so soon! Or, well, ever, to be honest. You seemed like the kind of guy that would happily run off to the fringes of the sector to get eaten by one of the hunter swarms.""
 
 The man invites you to sit.",svcmod_hunters_defeated_bar_event2:Inform the man that you have done exactly that and won,
 svc_mod_hunters_defeated_bar_event2,DialogOptionSelected,$option == svcmod_hunters_defeated_bar_event2,,"""’That so? Well, I’ll be damned. Guess I owe you some amount of gratitude for cleaning up the mess I left behind. Not that it matters much.""
@@ -82,8 +82,8 @@ SvcMarkPoisonBarEventFinished","The face of the stranger bends into a toothy gri
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
 #stable position added Dialogue,,,,,,
 stable_build_Voidling_Attractor_Init,Stable_AddBuildOptions,,,,50:stable_build_Voidling_Attractor_Use:Let the system drown in Void Creatures!,
-stable_build_Voidling_Attractor_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Use,"AddRemoveAnyItem SPECIAL svc_attractor -1
-$global.svcAttractorUsed = true
+stable_build_Voidling_Attractor_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Use,"SvcAttractorPlaced
+AddRemoveAnyItem SPECIAL svc_attractor -1
 RemoveOption stable_build_Voidling_Attractor_Use
 SetEnabled stable_build_Voidling_Lure_Build false",,,
 stable_build_Voidling_Attractor_Afford,Stable_AddBuildOptions,!SvcDoesPlayerHaveAttractor,RemoveOption stable_build_Voidling_Attractor_Use,,,
