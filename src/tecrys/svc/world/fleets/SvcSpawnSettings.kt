@@ -26,9 +26,9 @@ private val svcCombatRoleFinalWeights = mapOf(
 )
 val svcSettings = FleetSpawnParameterSettings(
     Global.getSettings().battleSize.toFloat(),
-    0.5f,
+    0.6f,
     10f,
-    0.9f,
+    0.8f,
     15f,
     Global.getSettings().battleSize.toFloat(),
     5f,

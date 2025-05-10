@@ -52,7 +52,7 @@ val largeHunterFleet = HunterFleetConfig(largeHunterFleetRolesQuantity,
 
 const val MASTERMIND_FLEET_MEMKEY = "\$SVC_MASTERMIND_FLEET"
 val mastermindFleet = HunterFleetConfig(mastermindFleetQuantity,
-    "mastermind", "TODO", 250f, 0f, )
+    "mastermind", "Overlord", 250f, 0f, )
     // "mastermind", "TODO", 10f, 0f, )
 
 val hunterFleets = listOf(smallHunterFleet, mediumHunterFleet, largeHunterFleet)

@@ -54,7 +54,7 @@
 		"icons": {
 		    "svc_colony_crisis_icon" : "graphics/icons/svc_infestationoverlay.png",
 		    "svc_hunter_intel_entry" : "graphics/backgrounds/BGE.jpg",
-			"svc_mastermind_intel_icon" : "graphics/hullmods/alpha.png"
+			"svc_mastermind_intel_icon" : "graphics/portraits/SVC/special/Mastermind.jpg"
 		}
 	},
 	"ruleCommandPackages": [

@@ -2,17 +2,19 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.campaign.CampaignFleetAPI
-import com.fs.starfarer.api.campaign.CargoAPI
-import com.fs.starfarer.api.campaign.LocationAPI
-import com.fs.starfarer.api.campaign.SectorEntityToken
-import com.fs.starfarer.api.campaign.SpecialItemData
+import com.fs.starfarer.api.campaign.*
+import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ArrowData
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
+import com.fs.starfarer.api.impl.campaign.ids.Tags
+import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin
 import com.fs.starfarer.api.util.IntervalUtil
+import niko_SA.SA_miscUtils.getApproximateHyperspaceLoc
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
+import org.magiclib.bounty.MagicBountyIntel
 import org.magiclib.kotlin.*
 import tecrys.svc.*
+import tecrys.svc.colonycrisis.MastermindIntel
 import tecrys.svc.listeners.*
 import tecrys.svc.utils.*
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
@@ -124,10 +126,10 @@ class FleetManager : EveryFrameScript {
     }
 
     fun spawnMastermindFleet() : CampaignFleetAPI? {
-        val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
+//        val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
 //        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
-        // val loc = Global.getSector().playerFleet
-        val loc = Global.getSector().playerFleet.getNearestStarSystem().jumpPoints.get(1)
+         val loc = Global.getSector().playerFleet.getNearbyStarSystem().jumpPoints.get(1)
+      // val loc = Global.getSector().playerFleet.getNearestStarSystem().jumpPoints.get(1)
         val params = FleetSpawnParameterCalculator(svcSettings)
         val fleet = spawner.createFactionFleet(SVC_FACTION_ID, params, mastermindFleet.name, mastermindFleet.rolesQuantity, mastermindFleet.minDP) ?: return null
         fleet.run {
@@ -135,7 +137,7 @@ class FleetManager : EveryFrameScript {
             makeHostile()
             makeAlwaysHostile()
             addEventListener(MastermindFleetListener())
-            fleet.fleetData.membersListCopy.firstOrNull { it.hullId ==  MASTERMIND_HULL_ID}?.isFlagship = true
+            fleetData.membersListCopy.firstOrNull { it.hullId ==  MASTERMIND_HULL_ID}?.isFlagship = true
             loc.containingLocation.addEntity(this)
             setLocation(loc.location.x, loc.location.y)
             memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
@@ -145,6 +147,8 @@ class FleetManager : EveryFrameScript {
             makeNoRepImpact("INEEDNOREASON")
             shouldNotWantRunFromPlayerEvenIfWeaker()
             makeImportant("INEEDNOREASON", 999999f)
+            isPermaKnowsWhoPlayerIs()
+            addAssignment(FleetAssignment.INTERCEPT,Global.getSector().playerFleet,100f)
         }
         return fleet
     }

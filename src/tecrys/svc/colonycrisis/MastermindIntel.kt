@@ -3,13 +3,17 @@ package tecrys.svc.colonycrisis
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.SectorEntityToken
-import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin
 import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin
 import com.fs.starfarer.api.ui.SectorMapAPI
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import tecrys.svc.SVC_FACTION_ID
 
+
 class MastermindIntel(private val mastermindFleet: CampaignFleetAPI?): BaseIntelPlugin() {
+    companion object{
+        protected var entity: SectorEntityToken? = null
+
+    }
     override fun getIcon(): String = Global.getSettings().getSpriteName("icons", "svc_mastermind_intel_icon")
     override fun isDone(): Boolean = SymbioticCrisisIntelEvent.isBossObeyed || SymbioticCrisisIntelEvent.isBossDefeated
     override fun hasLargeDescription(): Boolean = false
@@ -25,6 +29,11 @@ class MastermindIntel(private val mastermindFleet: CampaignFleetAPI?): BaseIntel
     override fun canTurnImportantOff(): Boolean = false
     override fun getIntelTags(map: SectorMapAPI?): MutableSet<String> = mutableSetOf(SVC_FACTION_ID, "Colony threats")
     override fun shouldRemoveIntel(): Boolean = isDone()
-    override fun getMapLocation(map: SectorMapAPI?): SectorEntityToken? = mastermindFleet
+//    override fun getMapLocation(map: SectorMapAPI?): SectorEntityToken? = mastermindFleet
+override fun getMapLocation(map: SectorMapAPI?): SectorEntityToken? {
+
+        return mastermindFleet!!
+
+}
     override fun hasImportantButton(): Boolean = false
 }
