@@ -26,7 +26,7 @@ import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
     companion object{
-        const val MAX_NUM_FLEETS = 20
+        const val MAX_NUM_FLEETS = 30
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 1000f
