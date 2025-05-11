@@ -167,6 +167,8 @@ class BGECarapace : BaseHullMod() {
         hullMods.filterNot {
             ALLOWED_HULLMODS.contains(it)
                     || ALLOWED_HULLMODS_BY_PREFIX.any { prefix -> it.startsWith(prefix) }
+        }.filterNot {
+            Global.getSettings().getHullModSpec(it)?.run { isHidden || isHiddenEverywhere } ?: false
         }.forEach {
             MagicIncompatibleHullmods.removeHullmodWithWarning(variant, it, SVC_BASE_HULLMOD_ID)
         }
