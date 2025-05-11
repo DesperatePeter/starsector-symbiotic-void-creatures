@@ -8,7 +8,6 @@ import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin
 import com.fs.starfarer.api.util.IntervalUtil
-import niko_SA.SA_miscUtils.getApproximateHyperspaceLoc
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.bounty.MagicBountyIntel
@@ -65,7 +64,7 @@ class FleetManager : EveryFrameScript {
     }
 
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
-    private val attractorSpawnInterval = IntervalUtil(10f, 20f)
+    private val attractorSpawnInterval = IntervalUtil(3f, 10f)
     private val whaleSpawnInterval = IntervalUtil(WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
         2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier)
 

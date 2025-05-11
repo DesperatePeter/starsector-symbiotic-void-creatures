@@ -16,6 +16,7 @@ class SvcAttractorPlaced: BaseCommandPlugin() {
     ): Boolean {
         val system = Global.getSector().playerFleet.containingLocation
         FleetManager.swarmSystemViaAttractor(system)
+        Global.getSector().campaignUI.addMessage("The genie is very much out of the bottle. While there are no effects immediately visible to regular sensor equipment, you are fairly certain that ${system.nameWithTypeShort} won't be much more than a voidling infested wasteland within a few cycles.")
         return true
     }
 }
