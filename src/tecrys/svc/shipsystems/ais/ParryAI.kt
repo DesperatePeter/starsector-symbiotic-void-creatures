@@ -3,11 +3,12 @@ package tecrys.svc.shipsystems.ais
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.CollisionUtils
-import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import tecrys.svc.shipsystems.Parry
+import tecrys.svc.utils.getMissilesWithinRangeArc
+import tecrys.svc.utils.getProjectilesWithinRangeArc
 import tecrys.svc.utils.isUsable
 
 class ParryAI: ShipSystemAIScript {
@@ -34,10 +35,8 @@ class ParryAI: ShipSystemAIScript {
         val sys = (if(systemOpt?.id == "parry") systemOpt else ship.phaseCloak) ?: return// systemOpt ?: return
         if(!sys.isUsable()) return
 
-        val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE)
-        val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE).filter {
-            !it.isGuided
-        }
+        val projectiles = getProjectilesWithinRangeArc(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE, 180f, ship.facing)
+        val missiles = getMissilesWithinRangeArc(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE, 180f, ship.facing)
 
         var threat = 0f
 

@@ -1,26 +1,21 @@
 package tecrys.svc.shipsystems;
-import java.util.ArrayList;
-import java.util.List;
-
-import java.awt.Color;
-import java.util.Random;
-
-import com.fs.starfarer.api.combat.*;
-import com.fs.starfarer.api.impl.combat.ShockwaveVisual;
-import com.fs.starfarer.api.impl.combat.threat.EnergyLashActivatedSystem;
-import com.fs.starfarer.api.impl.combat.threat.ThreatSwarmAI;
-
 
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.ShipAPI.HullSize;
 import com.fs.starfarer.api.combat.ShipSystemAPI.SystemState;
 import com.fs.starfarer.api.combat.ShipwideAIFlags.AIFlags;
-import com.fs.starfarer.api.combat.WeaponAPI.WeaponSize;
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript;
+import com.fs.starfarer.api.impl.combat.ShockwaveVisual;
+import com.fs.starfarer.api.impl.combat.threat.EnergyLashActivatedSystem;
+import com.fs.starfarer.api.impl.combat.threat.ThreatSwarmAI;
 import com.fs.starfarer.api.input.InputEventAPI;
-import com.fs.starfarer.api.loading.WeaponSlotAPI;
 import com.fs.starfarer.api.util.Misc;
 import com.fs.starfarer.api.util.Misc.FindShipFilter;
+
+import java.awt.*;
+import java.util.List;
+import java.util.Random;
 
 import static tecrys.svc.utils.UtilsKt.randomizeColor;
 

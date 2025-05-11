@@ -3,17 +3,12 @@ package tecrys.svc.world.fleets
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
-import com.fs.starfarer.api.campaign.comm.IntelInfoPlugin.ArrowData
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
-import com.fs.starfarer.api.impl.campaign.ids.Tags
-import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin
 import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
-import org.magiclib.bounty.MagicBountyIntel
 import org.magiclib.kotlin.*
 import tecrys.svc.*
-import tecrys.svc.colonycrisis.MastermindIntel
 import tecrys.svc.listeners.*
 import tecrys.svc.utils.*
 import tecrys.svc.world.fleets.FleetSpawner.Companion.countFactionFleets
