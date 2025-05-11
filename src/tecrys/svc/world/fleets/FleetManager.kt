@@ -179,6 +179,9 @@ class FleetManager : EveryFrameScript {
                     hunterConfig.fleetListener?.let { listener ->
                         addEventListener(listener)
                     }
+
+                    addScript(DespawnFleetAfterTimeScript(this, 30))
+
                     return true
                 }
             }
