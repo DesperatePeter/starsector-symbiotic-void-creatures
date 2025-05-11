@@ -32,7 +32,9 @@ public class Phaseling extends BiologicalBaseHullmod {
 	
 	@Override
 	public boolean isApplicableToShip(ShipAPI ship) {
-		return ship.getHullSpec().isPhase();
+		if (ship.getVariant().hasHullMod("BGECarapace") && ship.getHullSpec().isPhase()) return true;
+		else return false;
+
 	}
 
 	@Override
