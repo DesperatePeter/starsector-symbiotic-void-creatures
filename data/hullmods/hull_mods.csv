@@ -22,3 +22,10 @@ Voidling Swarm,svc_swarmHM,,,,"codex_unlockable, fragment, no_drop_salvage","Wea
 The base number of fragments is %s/%s/%s/%s, and replacement fragments are launched %s/%s/%s/%s times a second, depending on hull size.
 
 This hullmod is required for fragment weapons to function, if the hullmod is not present or there are not enough fragments in the swarm, fragment weapons will be disabled.",A swarm of Threat fragments roils around the ship.,Reduces maximum combat readiness by %s and increases the maintenance cost by %s.,graphics/hullmods/fragment_swarm.png
+Adrenal Overstimulation,svc_adrenalglands,0,,Biological,"special, engines, offensive, merc, standard","Special, Engines",2500,,,,10,20,30,50,tecrys.svc.hullmods.AdrenalGlands,"The creature's hypersensitive adrenaline receptors increase the ship's top speed in combat by %s/%s/%s/%s (depending on ship size, with a corresponding increase in turn speed and acceleration). The flux dissipation rate, including that of additional vents, and regeneration rate are increased by a factor of %s.
+
+Melee weapon damage dealt is increased by %s.
+
+Reduces the peak performance time by a factor of %s, prevents the use of active venting, and drastically increases armor damage taken by %s.
+
+Can only be installed if the creature exclusively uses melee weapons including %s and %s.","Drastic improvement in performance, much lower peak time.",,graphics/hullmods/adrenalglands.png

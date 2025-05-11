@@ -13,7 +13,7 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm"
+    "svc_no_fuel_hm"
   ],
   "builtInWeapons": {
     "WS0001": "svc_fangcluster",
@@ -37,6 +37,7 @@
     "fin_right2": "svc_trans_fin_right_sml",
     "finleft": "svc_koenigfinleft",
     "finright": "svc_koenigfinright",
+    "left_grappler": "svc_bge_grappler_pd",
     "lrg_mand_left": "svc_lrg_mand_r",
     "lrg_mand_right": "svc_lrg_mand_r",
     "lrg_mdl_kin_left": "svc_lrg_scythe_r",
@@ -47,6 +48,7 @@
     "pd_in_right": "svc_bge_grappler_pd",
     "pd_out_left": "svc_bge_grappler_pd",
     "pd_out_right": "svc_bge_grappler_pd",
+    "right_grappler": "svc_bge_grappler_pd",
     "sml_mand_left": "svc_sml_mand_r",
     "sml_mand_right": "svc_sml_mand_r",
     "svc_controlcollar": "svc_ctrl_cllr_lrg"
@@ -127,7 +129,7 @@
     {
       "id": "right_grappler",
       "size": "SMALL",
-      "type": "BALLISTIC",
+      "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 250,
       "angle": -90,
@@ -136,7 +138,7 @@
     {
       "id": "left_grappler",
       "size": "SMALL",
-      "type": "BALLISTIC",
+      "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 250,
       "angle": 90,

@@ -61,12 +61,14 @@
       "autofire": true,
       "mode": "ALTERNATING",
       "weapons": {
+        "left_grappler": "svc_bge_grappler_pd",
         "lrg_out_kin_left": "svc_inksac",
         "lrg_out_kin_right": "svc_inksac",
         "pd_in_left": "svc_bge_grappler_pd",
         "pd_in_right": "svc_bge_grappler_pd",
         "pd_out_left": "svc_bge_grappler_pd",
-        "pd_out_right": "svc_bge_grappler_pd"
+        "pd_out_right": "svc_bge_grappler_pd",
+        "right_grappler": "svc_bge_grappler_pd"
       }
     },
     {

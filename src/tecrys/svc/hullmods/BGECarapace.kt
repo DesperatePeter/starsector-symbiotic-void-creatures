@@ -32,7 +32,8 @@ class BGECarapace : BaseHullMod() {
         private val ALLOWED_HULLMODS = setOf("BGECarapace", "svc_alpha_voidling", "svc_controlcollar_hm",
             "do_not_back_off", "ML_incompatibleHullmodWarning", "neural_interface", "svc_stjarwhal_hm",  "carrier_regroup",
             "never_detaches", "shared_flux_sink", "svc_scoliac_tail_turner", "always_detaches", "svc_acid_blood_hm", "svc_infestation_hm",
-            "svc_no_fuel_hm", "svc_more_alphas_hm", "svc_overdamage_res_hm", "svc_shell_vulcanization", "svc_rdm_stats", "svc_swarmHM")
+            "svc_no_fuel_hm", "svc_more_alphas_hm", "svc_overdamage_res_hm", "svc_shell_vulcanization", "svc_rdm_stats", "svc_swarmHM",
+            "svc_adrenalglands")
         private val ALLOWED_HULLMODS_BY_PREFIX = setOf("automated", "sun", "ehm","sms" )
         private var DestroAI: FleetMemberAPI? = null
     }

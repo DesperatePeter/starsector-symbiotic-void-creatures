@@ -2,7 +2,7 @@
   "id": "svc_bge_grappler_pd",
   "specClass": "projectile",
   "projectileSpecId": "svc_grappler_pd_shot",
-  "type": "ENERGY",
+  "type": "BALLISTIC",
   "size": "SMALL",
   	#"everyFrameEffect":"tecrys.svc.plugins.svcGuidedProjectile",
   "spawnType":"BALLISTIC_AS_BEAM",

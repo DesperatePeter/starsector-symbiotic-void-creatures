@@ -1,7 +1,7 @@
 {
 	"specClass":"projectile",
 	"id":"svc_bge_grappler",
-	"type":"ENERGY",
+	"type":"BALLISTIC",
 	"size":"SMALL",
 	 "everyFrameEffect":"tecrys.svc.weapons.GrapplerUnDisabler",
   "spawnType":"BALLISTIC_AS_BEAM",
