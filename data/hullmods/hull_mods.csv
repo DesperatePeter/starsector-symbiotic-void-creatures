@@ -29,3 +29,4 @@ Melee weapon damage dealt is increased by %s.
 Reduces the peak performance time by a factor of %s, prevents the use of active venting, and drastically increases armor damage taken by %s.
 
 Can only be installed if the creature exclusively uses melee weapons including %s and %s.","Drastic improvement in performance, much lower peak time.",,graphics/hullmods/adrenalglands.png
+Phaseling Mutation,svc_phaseling,0,,Biological,"special, engines, offensive, merc, standard","Special, Engines",2500,,,,8,16,24,40,tecrys.svc.hullmods.Phaseling,Almost entirely removes %s cooldown and activation cost. Decreases maximum Combat Readiness by %s.,"Drastic improvement in performance, much lower peak time.",,graphics/hullmods/phaseling.png

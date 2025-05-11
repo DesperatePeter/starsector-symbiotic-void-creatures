@@ -82,7 +82,10 @@ SvcMarkPoisonBarEventFinished","The face of the stranger bends into a toothy gri
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
 #stable position added Dialogue,,,,,,
 stable_build_Voidling_Attractor_Init,Stable_AddBuildOptions,,,,50:stable_build_Voidling_Attractor_Use:Let the system drown in Void Creatures!,
-stable_build_Voidling_Attractor_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Use,"SvcAttractorPlaced
+stable_build_Voidling_Attractor_Use,DialogOptionSelected,,,Are you sure?,"svcmod_poison_broker_dialogue_leave:No
+stable_build_Voidling_Attractor_Really_Use:Yes",
+stable_build_Voidling_Attractor_no,DialogOptionSelected,$option == stable_build_Voidling_Attractor_no,FireAll Stable_AddBuildOptions,,,
+stable_build_Voidling_Attractor_Really_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Really_Use,"SvcAttractorPlaced
 AddRemoveAnyItem SPECIAL svc_attractor -1
 RemoveOption stable_build_Voidling_Attractor_Use
 SetEnabled stable_build_Voidling_Lure_Build false",,,
