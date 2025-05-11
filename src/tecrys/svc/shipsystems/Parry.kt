@@ -121,10 +121,6 @@ class Parry: BaseShipSystemScript() {
         return -1f
     }
 
-    override fun getRegenOverride(ship: ShipAPI?): Float {
-        return 10f
-    }
-
     private fun isImproved(ship: ShipAPI): Boolean{
         return ship.variant?.hasHullMod(ShellVulcanization.HULLMOD_ID) == true
     }
