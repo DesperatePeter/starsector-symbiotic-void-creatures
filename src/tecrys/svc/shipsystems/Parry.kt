@@ -11,7 +11,8 @@ import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.hullmods.ShellVulcanization
 import tecrys.svc.utils.degToRad
-import tecrys.svc.utils.toFloat
+import tecrys.svc.utils.getMissilesWithinRangeArc
+import tecrys.svc.utils.getProjectilesWithinRangeArc
 import java.awt.Color
 import kotlin.math.cos
 import kotlin.math.sin
@@ -25,21 +26,13 @@ class Parry: BaseShipSystemScript() {
 
     private val affectedProjectiles = mutableSetOf<DamagingProjectileAPI>()
     private var afterImageShown = false
-    private var wasDurationExtended = false
-    private var mustReactivate = false
     private var initialActivationTimestamp = 0f
-    private var lastReactivation = 0f
-    private var totalDuration = 0f
-    private var activeDuration = 0f
+
     private val currentTime
         get() = Global.getCombatEngine().getTotalElapsedTime(false)
 
     private val durationSinceInitialActivation
         get() = currentTime - initialActivationTimestamp
-
-    private val durationUntilWouldEnd = lastReactivation - currentTime + activeDuration
-
-    private val remainingTotalDuration = totalDuration - durationSinceInitialActivation
 
     private var parryableDamage = 0f
 
@@ -57,34 +50,18 @@ class Parry: BaseShipSystemScript() {
         }
         if(state == ShipSystemStatsScript.State.IN){
             initialActivationTimestamp = currentTime
-            lastReactivation = currentTime
             parryableDamage = ship.variant.hullSpec.fleetPoints.toFloat() * MAX_PARRYABLE_DMG_PER_OP
             if(isImproved(ship)){
                 parryableDamage *= ShellVulcanization.PARRYABLE_DAMAGE_MULT
             }
             return
         }
+
         if(state != ShipSystemStatsScript.State.ACTIVE) return
-        val pc = ship.phaseCloak ?: return
-        activeDuration = pc.chargeActiveDur
-        totalDuration = activeDuration * ShellVulcanization.PARRY_DURATION_BUFF_MULT
-        kotlin.run {
-            if(!isImproved(ship)) return@run
-            if(durationSinceInitialActivation >= totalDuration) {
-                // abort
-                pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
-            }
-            if(durationUntilWouldEnd + durationSinceInitialActivation >= totalDuration) return@run
-            if(durationUntilWouldEnd > 0.1f) return@run
-            // reactivate
-            mustReactivate = true
-            createDistortion(ship)
-            pc.forceState(ShipSystemAPI.SystemState.COOLDOWN, 0f)
-        }
-        val projectiles = CombatUtils.getProjectilesWithinRange(ship.location, ship.collisionRadius + RANGE)
-        val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + RANGE).filter {
-            !it.isGuided
-        }
+
+        val projectiles = getProjectilesWithinRangeArc(ship.location, ship.collisionRadius + RANGE, 180f, ship.facing)
+        val missiles = getMissilesWithinRangeArc(ship.location, ship.collisionRadius + RANGE, 180f, ship.facing)
+
         (projectiles + missiles).filter {
             !affectedProjectiles.contains(it)
         }.filter {
@@ -92,7 +69,11 @@ class Parry: BaseShipSystemScript() {
         }.forEach { proj ->
             val dmg = proj.damageAmount * if(proj.damageType == DamageType.FRAGMENTATION) 0.25f else 1f
             val deltaV = Vector2f(proj.velocity.x * -2f, proj.velocity.y * -2f)
-            if(parryableDamage - dmg >= 0f){
+            if (proj is MissileAPI && proj.isGuided) {
+                proj.angularVelocity += 20f
+                proj.facing += 180f
+                Vector2f.add(proj.velocity, deltaV, proj.velocity)
+            }else if(parryableDamage - dmg >= 0f){
                 parryableDamage -= dmg
                 Vector2f.add(proj.velocity, deltaV, proj.velocity)
                 proj.facing += 180f
@@ -132,12 +113,18 @@ class Parry: BaseShipSystemScript() {
 
     private fun createDistortion(ship: ShipAPI){
         DistortionShader.addDistortion(RippleDistortion(ship.location, ship.velocity).apply {
-              size = ship.shieldRadiusEvenIfNoShield * 1.5f
-            //  intensity = ship.shieldRadiusEvenIfNoShield * 2f
-            // arcAttenuationWidth = 450f
+            size = ship.shieldRadiusEvenIfNoShield * 1.5f
             fadeInSize(0.15f)
             fadeOutIntensity(0.7f)
         })
+    }
+
+    override fun getActiveOverride(ship: ShipAPI?): Float {
+        if (ship != null && this.isImproved(ship)) {
+            return  Global.getSettings().getShipSystemSpec(SYSTEM_ID).active * ShellVulcanization.PARRY_DURATION_BUFF_MULT
+        }
+
+        return -1f
     }
 
     private fun isImproved(ship: ShipAPI): Boolean{
@@ -145,16 +132,7 @@ class Parry: BaseShipSystemScript() {
     }
 
     override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
-        super.unapply(stats, id)
-        if(mustReactivate){
-            (stats?.entity as? ShipAPI)?.phaseCloak?.forceState(ShipSystemAPI.SystemState.ACTIVE, 0f)
-            mustReactivate = false
-            lastReactivation = currentTime
-            return
-        }
         affectedProjectiles.clear()
         afterImageShown = false
-        wasDurationExtended = false
-        mustReactivate = false
     }
 }

@@ -6,6 +6,7 @@ import com.fs.starfarer.api.campaign.TextPanelAPI
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel
 import com.fs.starfarer.api.util.Misc
+import com.fs.starfarer.ui.impl.a
 import org.lazywizard.lazylib.FastTrig
 import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils
@@ -15,10 +16,7 @@ import org.magiclib.kotlin.getAngleDiff
 import org.magiclib.util.MagicRender
 import tecrys.svc.*
 import java.awt.Color
-import kotlin.math.PI
-import kotlin.math.abs
-import kotlin.math.cos
-import kotlin.math.sin
+import kotlin.math.*
 import kotlin.random.Random
 
 const val degToRad: Float = PI.toFloat() / 180f
@@ -99,7 +97,7 @@ fun ShipAPI.getEffectiveShipTarget(fallbackRange: Float = 600f): ShipAPI?{
 fun computeEffectiveArmorAroundIndex(armor: ArmorGridAPI, x: Int, y: Int) : Float{
     fun getWeighted(x2: Int, y2: Int): Float{
         val a = armor.getArmorValue(x2, y2)
-        val distance = (abs(x - x2) * abs(x - x2)) + (abs(y - y2) * abs(y - y2))
+        val distance = (abs(x - x2) * abs(y - y2)) + (abs(y - y2) * abs(y - y2))
         return when{
             distance <= 2 -> a
             distance <= 4 -> 0.5f * a
@@ -148,4 +146,84 @@ fun randomizeColor(color: Color, amount: Int): Color {
         (color.blue + Random.nextInt(-amount, amount + 1)).coerceIn(0, 255),
         color.alpha
     )
+}
+
+private fun generateArc(arc: Float, facing: Float): Pair<Float, Float>{
+    var startAngle = Misc.normalizeAngle(facing - arc / 2f)
+
+    if (startAngle < 0f) {
+        startAngle += 360f;
+    }
+
+    var endAngle = Misc.normalizeAngle(facing + arc / 2f)
+
+    if (endAngle > 360f) {
+        endAngle -= 360f;
+    }
+
+    return startAngle to endAngle
+}
+
+private fun calculateAngle(from: Vector2f, to: Vector2f): Float {
+    val dx = to.x - from.x
+    val dy = to.y - from.y
+    return Misc.normalizeAngle((atan2(dy.toDouble(), dx.toDouble()) * 180 / Math.PI).toFloat())
+}
+
+fun getProjectilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, facing: Float): MutableList<DamagingProjectileAPI> {
+    val projectiles: MutableList<DamagingProjectileAPI> = ArrayList()
+    val (startAngle, endAngle) = generateArc(arc, facing)
+
+    for (tmp in Global.getCombatEngine().projectiles) {
+        if (tmp !is MissileAPI && MathUtils.isWithinRange(tmp.location, location, range)) {
+            // Calculate angle from location to projectile
+            val angleToProjectile = calculateAngle(location, tmp.location)
+            
+            // For incoming projectiles, we need to check if they're coming towards us
+            // Which means they're in the opposite direction (180° difference)
+            val isInArc = if (startAngle > endAngle) {
+                // Arc wraps around 0/360
+                (angleToProjectile >= startAngle || angleToProjectile <= endAngle)
+            } else {
+                // Normal arc
+                (angleToProjectile >= startAngle && angleToProjectile <= endAngle)
+            }
+            
+            if (isInArc) {
+                projectiles.add(tmp)
+            }
+        }
+    }
+
+    return projectiles
+}
+
+fun getMissilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, facing: Float): MutableList<MissileAPI> {
+    val missiles: MutableList<MissileAPI> = arrayListOf()
+    val (startAngle, endAngle) = generateArc(arc, facing)
+    val iter = Global.getCombatEngine().missileGrid.getCheckIterator(location, range * 2.0f, range * 2.0f)
+
+    while (iter.hasNext()) {
+        val tmp = iter.next() as MissileAPI
+        if (MathUtils.isWithinRange(tmp.location, location, range)) {
+            // Calculate angle from location to missile
+            val angleToMissile = calculateAngle(location, tmp.location)
+            
+            // For incoming missiles, we need to check if they're coming towards us
+            // Which means they're in the opposite direction (180° difference)
+            val isInArc = if (startAngle > endAngle) {
+                // Arc wraps around 0/360
+                (angleToMissile >= startAngle || angleToMissile <= endAngle)
+            } else {
+                // Normal arc
+                (angleToMissile >= startAngle && angleToMissile <= endAngle)
+            }
+            
+            if (isInArc) {
+                missiles.add(tmp)
+            }
+        }
+    }
+
+    return missiles
 }
