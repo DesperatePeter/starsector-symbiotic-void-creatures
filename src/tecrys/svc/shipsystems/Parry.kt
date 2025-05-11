@@ -6,7 +6,6 @@ import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.dark.shaders.distortion.DistortionShader
 import org.dark.shaders.distortion.RippleDistortion
-import org.lazywizard.lazylib.combat.CombatUtils
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.hullmods.ShellVulcanization
@@ -16,6 +15,8 @@ import tecrys.svc.utils.getProjectilesWithinRangeArc
 import java.awt.Color
 import kotlin.math.cos
 import kotlin.math.sin
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 class Parry: BaseShipSystemScript() {
     companion object{
@@ -26,15 +27,8 @@ class Parry: BaseShipSystemScript() {
 
     private val affectedProjectiles = mutableSetOf<DamagingProjectileAPI>()
     private var afterImageShown = false
-    private var initialActivationTimestamp = 0f
-
-    private val currentTime
-        get() = Global.getCombatEngine().getTotalElapsedTime(false)
-
-    private val durationSinceInitialActivation
-        get() = currentTime - initialActivationTimestamp
-
     private var parryableDamage = 0f
+    private val rng = Random(Global.getCombatEngine().getTotalElapsedTime(true).toInt())
 
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -49,7 +43,6 @@ class Parry: BaseShipSystemScript() {
             afterImageShown = true
         }
         if(state == ShipSystemStatsScript.State.IN){
-            initialActivationTimestamp = currentTime
             parryableDamage = ship.variant.hullSpec.fleetPoints.toFloat() * MAX_PARRYABLE_DMG_PER_OP
             if(isImproved(ship)){
                 parryableDamage *= ShellVulcanization.PARRYABLE_DAMAGE_MULT
@@ -62,16 +55,17 @@ class Parry: BaseShipSystemScript() {
         val projectiles = getProjectilesWithinRangeArc(ship.location, ship.collisionRadius + RANGE, 180f, ship.facing)
         val missiles = getMissilesWithinRangeArc(ship.location, ship.collisionRadius + RANGE, 180f, ship.facing)
 
-        (projectiles + missiles).filter {
+        (projectiles + missiles).filter {it ->
             !affectedProjectiles.contains(it)
         }.filter {
             it.owner != 100 && it.owner != ship.owner
         }.forEach { proj ->
             val dmg = proj.damageAmount * if(proj.damageType == DamageType.FRAGMENTATION) 0.25f else 1f
             val deltaV = Vector2f(proj.velocity.x * -2f, proj.velocity.y * -2f)
+
             if (proj is MissileAPI && proj.isGuided) {
-                proj.angularVelocity += 20f
-                proj.facing += 180f
+                proj.angularVelocity += 200f * arrayListOf(-1, 1).random()
+                proj.facing += 180f + rng.nextInt(-5..5)
                 Vector2f.add(proj.velocity, deltaV, proj.velocity)
             }else if(parryableDamage - dmg >= 0f){
                 parryableDamage -= dmg
@@ -125,6 +119,10 @@ class Parry: BaseShipSystemScript() {
         }
 
         return -1f
+    }
+
+    override fun getRegenOverride(ship: ShipAPI?): Float {
+        return 10f
     }
 
     private fun isImproved(ship: ShipAPI): Boolean{

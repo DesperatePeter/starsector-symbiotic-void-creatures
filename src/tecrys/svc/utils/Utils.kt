@@ -97,7 +97,7 @@ fun ShipAPI.getEffectiveShipTarget(fallbackRange: Float = 600f): ShipAPI?{
 fun computeEffectiveArmorAroundIndex(armor: ArmorGridAPI, x: Int, y: Int) : Float{
     fun getWeighted(x2: Int, y2: Int): Float{
         val a = armor.getArmorValue(x2, y2)
-        val distance = (abs(x - x2) * abs(y - y2)) + (abs(y - y2) * abs(y - y2))
+        val distance = (abs(x - x2) * abs(x - x2)) + (abs(y - y2) * abs(y - y2))
         return when{
             distance <= 2 -> a
             distance <= 4 -> 0.5f * a
@@ -164,10 +164,25 @@ private fun generateArc(arc: Float, facing: Float): Pair<Float, Float>{
     return startAngle to endAngle
 }
 
-private fun calculateAngle(from: Vector2f, to: Vector2f): Float {
-    val dx = to.x - from.x
-    val dy = to.y - from.y
-    return Misc.normalizeAngle((atan2(dy.toDouble(), dx.toDouble()) * 180 / Math.PI).toFloat())
+private fun isInArc(ship: Vector2f, proj: Vector2f, startAngle: Float, endAngle: Float): Boolean{
+    var angleToProjectile = Misc.getAngleInDegrees(proj, ship) - 180f
+
+    if (angleToProjectile < 0) {
+        angleToProjectile += 360f;
+    } else if (angleToProjectile > 360f) {
+        angleToProjectile -= 360f;
+    }
+
+    // For incoming projectiles, we need to check if they're coming towards us
+    // Which means they're in the opposite direction (180° difference)
+    val isInArc = if (startAngle > endAngle) {
+        (angleToProjectile >= startAngle || angleToProjectile <= endAngle)
+    } else {
+        (angleToProjectile >= startAngle && angleToProjectile <= endAngle
+                || angleToProjectile <= startAngle && angleToProjectile >= endAngle)
+    }
+
+    return isInArc
 }
 
 fun getProjectilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, facing: Float): MutableList<DamagingProjectileAPI> {
@@ -176,20 +191,7 @@ fun getProjectilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, f
 
     for (tmp in Global.getCombatEngine().projectiles) {
         if (tmp !is MissileAPI && MathUtils.isWithinRange(tmp.location, location, range)) {
-            // Calculate angle from location to projectile
-            val angleToProjectile = calculateAngle(location, tmp.location)
-            
-            // For incoming projectiles, we need to check if they're coming towards us
-            // Which means they're in the opposite direction (180° difference)
-            val isInArc = if (startAngle > endAngle) {
-                // Arc wraps around 0/360
-                (angleToProjectile >= startAngle || angleToProjectile <= endAngle)
-            } else {
-                // Normal arc
-                (angleToProjectile >= startAngle && angleToProjectile <= endAngle)
-            }
-            
-            if (isInArc) {
+            if (isInArc(location, tmp.location, startAngle, endAngle)) {
                 projectiles.add(tmp)
             }
         }
@@ -206,20 +208,7 @@ fun getMissilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, faci
     while (iter.hasNext()) {
         val tmp = iter.next() as MissileAPI
         if (MathUtils.isWithinRange(tmp.location, location, range)) {
-            // Calculate angle from location to missile
-            val angleToMissile = calculateAngle(location, tmp.location)
-            
-            // For incoming missiles, we need to check if they're coming towards us
-            // Which means they're in the opposite direction (180° difference)
-            val isInArc = if (startAngle > endAngle) {
-                // Arc wraps around 0/360
-                (angleToMissile >= startAngle || angleToMissile <= endAngle)
-            } else {
-                // Normal arc
-                (angleToMissile >= startAngle && angleToMissile <= endAngle)
-            }
-            
-            if (isInArc) {
+            if (isInArc(location, tmp.location, startAngle, endAngle)) {
                 missiles.add(tmp)
             }
         }
