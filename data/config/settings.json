@@ -35,6 +35,7 @@
 		},
 				"intel":{
 			"whale_intel": "graphics/icons/whale_intel.png",
+			"hunter_intel": "graphics/icons/hunter_intel.png",
 		},
 		"beams": {
 			"svc_parasumbilical_beam": "graphics/weapons/beams/svc_parasumbilical_beam.png"

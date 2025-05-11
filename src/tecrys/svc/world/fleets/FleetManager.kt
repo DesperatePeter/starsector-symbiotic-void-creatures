@@ -176,6 +176,8 @@ class FleetManager : EveryFrameScript {
                     memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
                     markAsHunter(hunterConfig.id)
 
+                    showNotificationOnCampaignUi("You are being hunted", Global.getSettings().getSpriteName("intel", "hunter_intel"))
+
                     hunterConfig.fleetListener?.let { listener ->
                         addEventListener(listener)
                     }
