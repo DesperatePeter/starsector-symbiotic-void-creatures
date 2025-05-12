@@ -4,9 +4,9 @@
   "projectileSpecId": "svc_plasma_shot",
   "type": "BALLISTIC",
   "size": "LARGE",
-  "turretSprite": "graphics/weapons/svc_bioplasma_gun.png",
-  "turretGunSprite": "graphics/weapons/svc_bioplasma_barrels.png",
   "hardpointSprite": "graphics/weapons/svc_bioplasma_gun.png",
+  "turretGunSprite": "graphics/weapons/svc_bioplasma_barrels.png",
+  "turretSprite": "graphics/weapons/svc_bioplasma_gun.png",
   "hardpointGunSprite": "graphics/weapons/svc_bioplasma_barrels_hardpoint.png",
   "glowColor": [
     255,

@@ -4,6 +4,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.LocationAPI
 import com.fs.starfarer.api.campaign.econ.MarketAPI
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseOneTimeFactor
@@ -18,6 +19,7 @@ import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.listeners.CrisisFleetListener
+import tecrys.svc.listeners.VoidlingFIDConf
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.utils.makeAlwaysHostile
 import tecrys.svc.world.fleets.*
@@ -185,7 +187,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             fleet.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
             // emulate two sub-factions fighting against each other
             if(Math.random() > 0.5f) { fleet.setFaction(MMM_FACTION_ID)
-                Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f) }
+                Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f)
+                fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_NO_REP_IMPACT] = true
+                fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
+            }
             currentNumberOfFleets++
             return true
         }

@@ -11,6 +11,7 @@ import tecrys.svc.SVC_FLEET_DEFEATED_MEM_KEY
 import tecrys.svc.SVC_MOD_ID
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.getSpecialQuantity
 
 class SvcShouldSpawnPoisonBarEvent : BaseCommandPlugin() {
     companion object{
@@ -26,11 +27,12 @@ class SvcShouldSpawnPoisonBarEvent : BaseCommandPlugin() {
         params: MutableList<Misc.Token>?,
         memoryMap: MutableMap<String, MemoryAPI>?
     ): Boolean {
-        //if (!SymbioticCrisisIntelEvent.isCrisisActive) return false
+        if (SymbioticCrisisIntelEvent.isCrisisActive) return true
+        if ((Global.getSector()?.playerFleet?.cargo?.getSpecialQuantity("svc_poison") ?: 0f) > 0f) return false
         // if((SymbioticCrisisIntelEvent.get()?.fleetsDefeatedByPlayer ?: 0) <= 0 ) return false
-        if(!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)){
-            return false
-        }
+//        if(!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)){
+//            return false
+//        }
         if (isDone) return false
         return getMarket(memoryMap)?.factionId == "luddic_path"
     }

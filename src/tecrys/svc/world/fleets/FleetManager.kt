@@ -122,7 +122,7 @@ class FleetManager : EveryFrameScript {
     fun spawnMastermindFleet() : CampaignFleetAPI? {
 //        val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
 //        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
-         val loc = Global.getSector().playerFleet.getNearbyStarSystem().jumpPoints.get(1)
+         val loc = Global.getSector().playerFleet.getNearbyStarSystem().pickOuterEntityToSpawnNear()
       // val loc = Global.getSector().playerFleet.getNearestStarSystem().jumpPoints.get(1)
         val params = FleetSpawnParameterCalculator(svcSettings)
         val fleet = spawner.createFactionFleet(SVC_FACTION_ID, params, mastermindFleet.name, mastermindFleet.rolesQuantity, mastermindFleet.minDP) ?: return null
@@ -136,7 +136,7 @@ class FleetManager : EveryFrameScript {
             setLocation(loc.location.x, loc.location.y)
             memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
             memoryWithoutUpdate[MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER] = true
-            memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
+//            memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS] = true
             makeNoRepImpact("INEEDNOREASON")
             shouldNotWantRunFromPlayerEvenIfWeaker()

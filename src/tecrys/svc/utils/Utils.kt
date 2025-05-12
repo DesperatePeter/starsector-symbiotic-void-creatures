@@ -77,7 +77,7 @@ fun unlockVoidlingRecovery(){
     Global.getSettings().allShipHullSpecs.filter {
         it.tags.contains(SVC_VARIANT_TAG)
     }.filter {
-        !it.tags.contains(SVC_ALPHA_TAG) || canRecoverAlphas || !it.tags.contains(SVC_SPECIAL_TAG)
+        (!it.tags.contains(SVC_ALPHA_TAG) || (it.tags.contains(SVC_ALPHA_TAG) && canRecoverAlphas)) && !it.tags.contains(SVC_SPECIAL_TAG)
     }.forEach {
         it.hints.remove(ShipHullSpecAPI.ShipTypeHints.UNBOARDABLE)
     }
