@@ -4,15 +4,15 @@ import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
 import com.fs.starfarer.api.campaign.CampaignPlugin
+import com.fs.starfarer.api.campaign.RepLevel
 import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
-import com.fs.starfarer.api.combat.ShipHullSpecAPI
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.thoughtworks.xstream.XStream
 import org.dark.shaders.util.ShaderLib
+import org.magiclib.util.MagicSettings
 import tecrys.svc.colonycrisis.SymbioticCrisisCause
-import tecrys.svc.colonycrisis.SymbioticCrisisFactor
 import tecrys.svc.listeners.SvcCargoListener
 import tecrys.svc.modintegration.*
 import tecrys.svc.plugins.exotica.VoidChitinPlatingListener
@@ -27,6 +27,7 @@ import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.ghosts.HunterGhostCreator
 import tecrys.svc.world.notifications.NotificationShower
+import kotlin.collections.plus
 
 
 /**
@@ -39,6 +40,9 @@ class SvcBasePlugin : BaseModPlugin() {
 
     companion object{
         const val WORMS_LARGE_ID: String = "svc_worm_shot"
+            private const val RELATIONSHIP_TO_SET = -0.8f
+            val ignoredFactions = MagicSettings.getList(MAGIC_SETTINGS_MOD_KEY, MAGIC_SETTINGS_RELATIONS_KEY) +
+                    listOf(SVC_FACTION_ID)
     }
 
 
@@ -53,6 +57,8 @@ class SvcBasePlugin : BaseModPlugin() {
             giveCocktailToPirates()
         }
     }
+
+
 
     override fun onGameLoad(newGame: Boolean) {
         if(SensorGhostManager.CREATORS.none { it.javaClass == HunterGhostCreator::class.java }){
@@ -72,7 +78,21 @@ class SvcBasePlugin : BaseModPlugin() {
         }
         SymbioticCrisisCause.initializeEvent()
 
+        Global.getSector()?.run {
+            val svc = getFaction(SVC_FACTION_ID)
+            allFactions.filterNotNull().filterNot {
+                ignoredFactions.contains(it.id)
+            }.forEach {
+                svc.setRelationship(it.id, RepLevel.HOSTILE)
+                svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
+            }
+            val vwl = getFaction(VWL_FACTION_ID)
+            vwl.setRelationship(svc.id, RepLevel.HOSTILE)
+            vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
+            vwl.setRelationship("player", RepLevel.FRIENDLY)
+        }
     }
+
     override fun onApplicationLoad() {
         //add special items
 
