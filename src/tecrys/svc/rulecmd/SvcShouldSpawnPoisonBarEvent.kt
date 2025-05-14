@@ -27,12 +27,13 @@ class SvcShouldSpawnPoisonBarEvent : BaseCommandPlugin() {
         params: MutableList<Misc.Token>?,
         memoryMap: MutableMap<String, MemoryAPI>?
     ): Boolean {
-        if (SymbioticCrisisIntelEvent.isCrisisActive) return true
-        if ((Global.getSector()?.playerFleet?.cargo?.getSpecialQuantity("svc_poison") ?: 0f) > 0f) return false
+        if ((SymbioticCrisisIntelEvent.isCrisisActive) && ((Global.getSector()?.playerFleet?.cargo?.getSpecialQuantity("svc_poison") ?: 0f) == 0f)) return true
+
         // if((SymbioticCrisisIntelEvent.get()?.fleetsDefeatedByPlayer ?: 0) <= 0 ) return false
 //        if(!Global.getSector().memory.contains(SVC_FLEET_DEFEATED_MEM_KEY)){
 //            return false
 //        }
+
         if (isDone) return false
         return getMarket(memoryMap)?.factionId == "luddic_path"
     }

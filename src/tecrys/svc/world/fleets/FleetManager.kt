@@ -136,8 +136,9 @@ class FleetManager : EveryFrameScript {
             setLocation(loc.location.x, loc.location.y)
             memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
             memoryWithoutUpdate[MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER] = true
-//            memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
+            memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS] = true
+            memoryWithoutUpdate[MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
             makeNoRepImpact("INEEDNOREASON")
             shouldNotWantRunFromPlayerEvenIfWeaker()
             makeImportant("INEEDNOREASON", 999999f)
@@ -170,7 +171,7 @@ class FleetManager : EveryFrameScript {
                     attackFleet(playerFleet)
                     memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
                     markAsHunter(hunterConfig.id)
-
+                    memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
                     showNotificationOnCampaignUi("You are being hunted", Global.getSettings().getSpriteName("intel", "hunter_intel"))
 
                     hunterConfig.fleetListener?.let { listener ->
@@ -226,11 +227,15 @@ class FleetManager : EveryFrameScript {
         voidlings?.let {
             it.makeHostile()
             it.makeAlwaysHostile()
-            it.attackFleet(whales, 0.4f)
+            it.attackFleet(whales, 0.5f)
             it.addEventListener(SvcFleetListener)
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
+            it.memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
+            it.memoryWithoutUpdate?.set(MemFlags.TEMPORARILY_NOT_AVOIDING_ABYSSAL, true)
             whales.follow(playerFleet,0f)
             whales.makeImportant("being hunted",10f)
+            whales.memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
+            whales.memoryWithoutUpdate?.set(MemFlags.TEMPORARILY_NOT_AVOIDING_ABYSSAL, true)
             whales.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_ALLOW_PLAYER_BATTLE_JOIN_TOFF, true)
             showNotificationOnCampaignUi("Your fleet encountered a whale herd", Global.getSettings().getSpriteName("intel", "whale_intel"))
         }

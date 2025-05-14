@@ -17,8 +17,8 @@ class DefeatedMagicBountyDialog: NotificationDialogBase(
     }
     override fun addOptions(options: OptionPanelAPI) {
         options.run {
-            addOption("Toggle Spawning " + if (shouldSpawnVoidlings) "off" else "on", !shouldSpawnVoidlings)
-            setTooltip(!shouldSpawnVoidlings, "If you leave this GUI now, voidlings will ${if (shouldSpawnVoidlings) "" else "not "} spawn.")
+//            addOption("Toggle Spawning " + if (shouldSpawnVoidlings) "off" else "on", !shouldSpawnVoidlings)
+//            setTooltip(!shouldSpawnVoidlings, "If you leave this GUI now, voidlings will ${if (shouldSpawnVoidlings) "" else "not "} spawn.")
 
             // Options for blueprints
             addOption("Learn Ship Blueprint: Hemalisk", "svc_hemalisk")
