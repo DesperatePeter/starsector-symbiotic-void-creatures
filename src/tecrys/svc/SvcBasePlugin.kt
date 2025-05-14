@@ -25,6 +25,7 @@ import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.ContextBaseMusicPlayer
 import tecrys.svc.world.SectorGen
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import tecrys.svc.world.ghosts.HunterGhostCreator
 import tecrys.svc.world.notifications.NotificationShower
 import kotlin.collections.plus
@@ -78,18 +79,20 @@ class SvcBasePlugin : BaseModPlugin() {
         }
         SymbioticCrisisCause.initializeEvent()
 
-        Global.getSector()?.run {
-            val svc = getFaction(SVC_FACTION_ID)
-            allFactions.filterNotNull().filterNot {
-                ignoredFactions.contains(it.id)
-            }.forEach {
-                svc.setRelationship(it.id, RepLevel.HOSTILE)
-                svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
+        if (!MastermindInteractionDialog.isSubmission) {
+            Global.getSector()?.run {
+                val svc = getFaction(SVC_FACTION_ID)
+                allFactions.filterNotNull().filterNot {
+                    ignoredFactions.contains(it.id)
+                }.forEach {
+                    svc.setRelationship(it.id, RepLevel.HOSTILE)
+                    svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
+                }
+                val vwl = getFaction(VWL_FACTION_ID)
+                vwl.setRelationship(svc.id, RepLevel.HOSTILE)
+                vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
+                vwl.setRelationship("player", RepLevel.FRIENDLY)
             }
-            val vwl = getFaction(VWL_FACTION_ID)
-            vwl.setRelationship(svc.id, RepLevel.HOSTILE)
-            vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
-            vwl.setRelationship("player", RepLevel.FRIENDLY)
         }
     }
 
