@@ -189,7 +189,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             if(Math.random() > 0.5f) { fleet.setFaction(MMM_FACTION_ID)
                 Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f)
                 fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_NO_REP_IMPACT] = true
-                fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
+//                fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
             }
             currentNumberOfFleets++
             return true

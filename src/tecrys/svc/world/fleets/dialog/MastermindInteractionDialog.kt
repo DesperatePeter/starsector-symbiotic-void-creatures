@@ -12,6 +12,7 @@ import com.fs.starfarer.api.util.Misc
 import com.fs.starfarer.campaign.fleet.FleetMemberStatus
 import org.lwjgl.input.Keyboard
 import org.lwjgl.opengl.GL11
+import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.colonycrisis.SymbioticCrisisCause
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
@@ -130,6 +131,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             faction.setRelationship("player", RepLevel.HOSTILE)
         }
         Global.getSector()?.getFaction(SVC_FACTION_ID)?.setRelationship("player", RepLevel.COOPERATIVE)
+        Global.getSector()?.getFaction(MMM_FACTION_ID)?.setRelationship("player", RepLevel.COOPERATIVE)
+        Global.getSector()?.getFaction(MMM_FACTION_ID)?.setRelationship(SVC_FACTION_ID, RepLevel.COOPERATIVE)
     }
 
     private fun dissolveFleet(fleet: CampaignFleetAPI?){

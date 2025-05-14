@@ -2,6 +2,7 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.apache.log4j.Level
 import tecrys.svc.FLEET_ORIGINAL_STRENGTH_KEY
@@ -17,6 +18,7 @@ class FleetSpawner {
         fun getFactionFleets(faction: String): List<CampaignFleetAPI> {
             return Global.getSector().allLocations.map { getFactionFleetsInSystem(faction, it) }
                 .flatten()
+
         }
 
         fun getFactionFleetsInSystem(faction: String, system: LocationAPI):  List<CampaignFleetAPI>{

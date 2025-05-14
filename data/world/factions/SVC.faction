@@ -21,7 +21,7 @@
 	#"darkUIColor":[31,94,112,175],
 	#"gridUIColor":[70,200,255,75],
 	
-	"showInIntelTab":false,
+	"showInIntelTab":true,
 	
 	"shipNameSources":{
 		"BEASTS":1,

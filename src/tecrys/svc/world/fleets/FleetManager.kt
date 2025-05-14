@@ -105,9 +105,10 @@ class FleetManager : EveryFrameScript {
         fleet?.let {
             it.addEventListener(SvcFleetListener)
             it.orbitClosestPlanet()
-            it.makeHostile()
-            it.makeAlwaysHostile()
+//            it.makeHostile()
+//            it.makeAlwaysHostile()
             it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
             return it
         }
         return null
@@ -128,8 +129,8 @@ class FleetManager : EveryFrameScript {
         val fleet = spawner.createFactionFleet(SVC_FACTION_ID, params, mastermindFleet.name, mastermindFleet.rolesQuantity, mastermindFleet.minDP) ?: return null
         fleet.run {
             memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] = true
-            makeHostile()
-            makeAlwaysHostile()
+//            makeHostile()
+//            makeAlwaysHostile()
             addEventListener(MastermindFleetListener())
             fleetData.membersListCopy.firstOrNull { it.hullId ==  MASTERMIND_HULL_ID}?.isFlagship = true
             loc.containingLocation.addEntity(this)
@@ -138,7 +139,8 @@ class FleetManager : EveryFrameScript {
             memoryWithoutUpdate[MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS] = true
-            memoryWithoutUpdate[MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
+//            memoryWithoutUpdate[MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
+            memoryWithoutUpdate[MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON] = true
             makeNoRepImpact("INEEDNOREASON")
             shouldNotWantRunFromPlayerEvenIfWeaker()
             makeImportant("INEEDNOREASON", 999999f)
@@ -166,12 +168,13 @@ class FleetManager : EveryFrameScript {
                     playerFleet.containingLocation.addEntity(this)
                     setLocation(loc.x, loc.y)
 
-                    makeHostile()
-                    makeAlwaysHostile()
+//                    makeHostile()
+//                    makeAlwaysHostile()
                     attackFleet(playerFleet)
                     memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
                     markAsHunter(hunterConfig.id)
                     memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
+                    memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
                     showNotificationOnCampaignUi("You are being hunted", Global.getSettings().getSpriteName("intel", "hunter_intel"))
 
                     hunterConfig.fleetListener?.let { listener ->
@@ -225,13 +228,14 @@ class FleetManager : EveryFrameScript {
         }
 
         voidlings?.let {
-            it.makeHostile()
-            it.makeAlwaysHostile()
+//            it.makeHostile()
+//            it.makeAlwaysHostile()
             it.attackFleet(whales, 0.5f)
             it.addEventListener(SvcFleetListener)
             it.memoryWithoutUpdate?.set(MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN, VoidlingFIDConf())
             it.memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
             it.memoryWithoutUpdate?.set(MemFlags.TEMPORARILY_NOT_AVOIDING_ABYSSAL, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
             whales.follow(playerFleet,0f)
             whales.makeImportant("being hunted",10f)
             whales.memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
