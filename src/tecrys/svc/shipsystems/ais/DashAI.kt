@@ -42,7 +42,7 @@ class DashAI: ShipSystemAIScript {
         val missiles = CombatUtils.getMissilesWithinRange(ship.location, ship.collisionRadius + PROJECTILE_SCAN_RANGE)
         val ships = CombatUtils.getShipsWithinRange(ship.location, 270f)
         val enemies = ship.getNearbyEnemies(300f)
-        Global.getLogger(this::class.java).info(enemies)
+//        Global.getLogger(this::class.java).info(enemies)
         var threat = 0f
         var nearShips = 0f
 

@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
+import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.combat.getNearbyAllies
 import org.lazywizard.lazylib.ext.minus
 import org.lwjgl.util.vector.Vector2f
@@ -27,7 +28,6 @@ class AggressivePheromones : BaseShipSystemScript() {
         private val paramNames = listOf("Speed", "Rate of Fire")
     }
 
-    private var affectedShips = listOf<WeakReference<ShipAPI>>()
     private var rampUpAlphaMult = 0.2f
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -41,11 +41,11 @@ class AggressivePheromones : BaseShipSystemScript() {
             ShipSystemStatsScript.State.ACTIVE -> {
                 rampUpAlphaMult = min(rampUpAlphaMult + 0.005f, 1f)
                 renderAura(entity, rampUpAlphaMult)
-                removeBuffsFromOutOfRangeShips(entity.location, id)
+                applyBuffs(entity, id)
             }
             ShipSystemStatsScript.State.OUT -> {
                 renderAura(entity, effectLevel)
-                removeBuffsFromOutOfRangeShips(entity.location, id)
+                applyBuffs(entity, id)
             }
             else -> return
         }
@@ -58,47 +58,38 @@ class AggressivePheromones : BaseShipSystemScript() {
         ))
     }
 
-    private fun applyBuffs(entity: CombatEntityAPI, id: String?){
-        affectedShips = entity.getNearbyAllies(SYSTEM_RANGE).filter { s ->
-            s.variant.hasTag(SVC_VARIANT_TAG)
-        }.map { WeakReference(it) }
-        affectedShips.forEach {
-            it.get()?.mutableStats?.run {
+    private fun applyBuffs(entity: CombatEntityAPI, id: String?, removeBuffs: Boolean = false){
+        val alliedSVCShips = Global.getCombatEngine().ships.filter { s ->
+           s != entity && s.owner == entity.owner && s.hullSpec.hasTag(SVC_VARIANT_TAG)
+        }
+
+        alliedSVCShips.forEach {
+            val isInRange = Misc.getDistance(it.location, entity.location) <= SYSTEM_RANGE
+
+            it.mutableStats?.run {
                 listOf(ballisticRoFMult, energyRoFMult, missileRoFMult, fluxDissipation).forEach { b ->
-                    b.modifyMult(id, ROF_BUFF)
+                    if (isInRange && !removeBuffs) {
+                        b.modifyMult(id, ROF_BUFF)
+                    }else{
+                        b.unmodifyMult(id)
+                    }
                 }
                 listOf(maxSpeed, maxTurnRate, acceleration, turnAcceleration, deceleration).forEach { b ->
-                    b.modifyMult(id, SPEED_BUFF)
+                    if (isInRange && !removeBuffs) {
+                        b.modifyMult(id, SPEED_BUFF)
+                    }else{
+                        b.unmodifyMult(id)
+                    }
                 }
             }
         }
     }
 
-    private fun removeBuffsFromOutOfRangeShips(loc: Vector2f, id: String?){
-        val ships = affectedShips.map { it.get() }.filterNotNull().filter {
-            (it.location - loc).length() > SYSTEM_RANGE
-        }
-        ships.forEach { removeBuffsFromShip(it, id) }
-    }
 
-    private fun removeBuffsFromShip(ship: ShipAPI, id: String?){
-        ship.mutableStats?.run {
-            listOf(ballisticRoFMult, energyRoFMult, missileRoFMult, fluxDissipation,
-                maxSpeed, maxTurnRate, acceleration, turnAcceleration, deceleration).forEach { stat ->
-                stat.unmodify(id)
-            }
-        }
-        affectedShips = affectedShips.filterNot { it == ship}
-    }
 
     override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
         rampUpAlphaMult = 0.2f
-        affectedShips.forEach {
-            it.get()?.let { sh ->
-                removeBuffsFromShip(sh, id)
-            }
-        }
-        affectedShips = listOf()
+        applyBuffs(stats?.entity ?: return, id, true)
     }
 
     override fun getStatusData(
