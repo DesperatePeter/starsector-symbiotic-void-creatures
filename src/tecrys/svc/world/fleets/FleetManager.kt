@@ -26,6 +26,7 @@ class FleetManager : EveryFrameScript {
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         const val HUNTER_FLEET_DISTANCE = 2000f
         const val WHALE_FLEET_IDENTIFICATION_KEY = "$" + "SVC_WHALE_FLEET_TAG"
+        const val SVC_FLEET_IDENTIFICATION_KEY = "$" + "SVC_FLEET_TAG"
         // Distance between whale fleets and voidling fleets when they spawn. Needs to be low enough for them to see each other!
         const val WHALE_VOIDLING_DIST = 100f
         const val WHALE_VOIDLING_CHANCE = 0.8 // chance [0.0 .. 1.0] that a whale fleet spawns together with voidlings attacking it
@@ -109,6 +110,7 @@ class FleetManager : EveryFrameScript {
 //            it.makeAlwaysHostile()
             it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+                it.customData[SVC_FLEET_IDENTIFICATION_KEY] = true
             return it
         }
         return null

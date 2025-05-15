@@ -2,13 +2,10 @@ package tecrys.svc
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
-import com.fs.starfarer.api.campaign.BaseCampaignPlugin
-import com.fs.starfarer.api.campaign.CampaignFleetAPI
-import com.fs.starfarer.api.campaign.CampaignPlugin
-import com.fs.starfarer.api.campaign.InteractionDialogPlugin
-import com.fs.starfarer.api.campaign.SectorEntityToken
+import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
+import exerelin.console.commands.SpawnInvasionFleet.getFaction
 import tecrys.svc.industries.VoidlingHatchery
 import tecrys.svc.listeners.MastermindFleetListener
 import tecrys.svc.world.fleets.FleetManager
@@ -16,6 +13,7 @@ import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import tecrys.svc.world.notifications.HatchlingFleetInteraction
 import tecrys.svc.world.notifications.NeutralWhaleFleetInteraction
+import tecrys.svc.world.notifications.VoidlingFleetInteraction
 
 class SvcCampaignPlugin: BaseCampaignPlugin() {
     override fun pickInteractionDialogPlugin(interactionTarget: SectorEntityToken?): PluginPick<InteractionDialogPlugin>? {
@@ -30,6 +28,14 @@ class SvcCampaignPlugin: BaseCampaignPlugin() {
         if(fleet.customData?.containsKey(VoidlingHatchery.HATCHLING_FLEET_KEY) == true){
             return PluginPick(HatchlingFleetInteraction(fleet), CampaignPlugin.PickPriority.MOD_SPECIFIC)
         }
+        if(fleet.customData?.containsKey(FleetManager.SVC_FLEET_IDENTIFICATION_KEY) == true &&
+//            fleet.faction.relToPlayer.equals(RepLevel.COOPERATIVE)
+            Global.getSector().getFaction(SVC_FACTION_ID).relToPlayer.isAtWorst(RepLevel.COOPERATIVE)
+            )
+
+
+            return PluginPick(VoidlingFleetInteraction(fleet), CampaignPlugin.PickPriority.MOD_SPECIFIC)
+
         return null
     }
 
