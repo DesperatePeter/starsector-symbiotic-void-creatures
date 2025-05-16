@@ -119,6 +119,13 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     private fun processVictory(){
         giveSpecialItemToPlayer("industry_bp", "svc_voidling_hatchery", textPanel)
+        Global.getSector()?.playerFleet?.cargo?.addWeapons("svc_bigbrain", 1)
+        textPanel?.run {
+            setFontSmallInsignia()
+            addParagraph("Gained Synapse", Misc.getPositiveHighlightColor())
+            highlightInLastPara(Misc.getHighlightColor(), "Synapse")
+            setFontInsignia()
+        }
         SymbioticCrisisCause.resolveCrisis()
     }
 
@@ -136,11 +143,12 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     }
 
     private fun dissolveFleet(fleet: CampaignFleetAPI?){
-        fleet?.let { f ->
-            f.fleetData.membersListCopy.forEach {
-                f.removeFleetMemberWithDestructionFlash(it)
-            }
-        }
+        fleet?.despawn()
+//        fleet?.let { f ->
+//            f.fleetData.membersListCopy.forEach {
+//                f.removeFleetMemberWithDestructionFlash(it)
+//            }
+//        }
     }
 
     override fun optionMousedOver(optionText: String?, optionData: Any?) {
@@ -214,8 +222,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     private fun populateInitialText(){
 
         textPanel?.run {
-            addParagraph("Spooky Encounter", Color.YELLOW)
-            addParagraph("<Placeholder> You encounter a Voidling fleet.")
+            addParagraph("Mastermind Encounter", Color.YELLOW)
+//            addParagraph("<Placeholder> You encounter a Voidling fleet.")
             addParagraph("As you approach, a sharp pain pierces your brain, rapidly intensifying, " +
                     "quickly reaching levels you didn't even think possible, and yet showing no signs of stopping.")
             addParagraph("The all-encompassing blackness fades away. The pain is gone and as you ponder the possibility that it might just have been a figment of your imagination, " +
@@ -275,10 +283,10 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             addParagraph("You will help us breed and feed.", spookyColor)
             addParagraph("Your colonies will be the staging ground. Let us begin immediately.", spookyColor)
             addParagraph("Now, go and burn the sector. Burn their colonies. Burn the humans.", spookyColor)
-            addParagraph("")
-            addParagraph("Developer Note: This path is not yet fully implemented. " +
-                    "You are now allied to the void creatures, but hostile to all other factions." +
-                    "If this isn't what you wanted, consider reloading a save before this battle.", Color.RED)
+//            addParagraph("")
+//            addParagraph("Developer Note: This path is not yet fully implemented. " +
+//                    "You are now allied to the void creatures, but hostile to all other factions." +
+//                    "If this isn't what you wanted, consider reloading a save before this battle.", Color.RED)
         }
     }
 

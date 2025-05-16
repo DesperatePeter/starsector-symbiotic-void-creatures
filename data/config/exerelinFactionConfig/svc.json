@@ -4,7 +4,10 @@
 
     "crewExpereinceLevelIncreaseChance":0.0,
     "baseFleetCostMultiplier":1.0,
-
+    "dropPrisoners":false,
+    "noSyncRelations":true,
+    "allowAgentActions":false,
+    "allowPrisonerActions":false,
 	"invasionSupportFleetName":"Wild Hunt",
     "responseFleetName":"Hunter Pack",
     "defenceFleetName":"Nest Guardians",
@@ -12,7 +15,9 @@
 
     "disableDiplomacy":true,
 	"useConfigRelationshipsInNonRandomSector":true,
+
     "startRelationships":{
+		"bugmaster": 1,
 	    "tritachyon": -0.5, # mouth-watering
 	    "luddic_church": -0.5, # succulent
 	    "diableavionics": -0.5, # appetizing
@@ -40,7 +45,9 @@
 		"player": -5,  # player taste good!		
         "scalartech": -0.5, # into my tummy
             }, 
-	
+	    "minRelationships":{
+					"bugmaster": 1,
+		},
 
     "maxRelationships":{
 	    "tritachyon": -0.5, # mouth-watering

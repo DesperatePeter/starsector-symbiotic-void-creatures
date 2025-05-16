@@ -44,14 +44,17 @@ class SvcBasePlugin : BaseModPlugin() {
             private const val RELATIONSHIP_TO_SET = -0.8f
             val ignoredFactions = MagicSettings.getList(MAGIC_SETTINGS_MOD_KEY, MAGIC_SETTINGS_RELATIONS_KEY) +
                     listOf(SVC_FACTION_ID)
+        private var RelationIsDone: Boolean = false
     }
 
 
     private fun initSVC() {
         try {
             Global.getSettings().scriptClassLoader.loadClass("data.scripts.world.ExerelinGen")
+            RelationIsDone = true
         } catch (ex: ClassNotFoundException) {
             SectorGen().generate(Global.getSector())
+            RelationIsDone = false
         }
         if(isSubstanceAbuseEnabled()){
             addCocktailBreweryToRelevantMarkets()
@@ -79,7 +82,9 @@ class SvcBasePlugin : BaseModPlugin() {
         }
         SymbioticCrisisCause.initializeEvent()
 
-        if (!MastermindInteractionDialog.isSubmission) {
+        if ((!MastermindInteractionDialog.isSubmission
+            || (Global.getSector()?.getFaction(SVC_FACTION_ID)?.relToPlayer?.isAtWorst(RepLevel.FRIENDLY) == false))
+            && !RelationIsDone) {
             Global.getSector()?.run {
                 val svc = getFaction(SVC_FACTION_ID)
                 allFactions.filterNotNull().filterNot {
@@ -95,6 +100,7 @@ class SvcBasePlugin : BaseModPlugin() {
                 vwl.setRelationship("player", RepLevel.FRIENDLY)
                 val mmm = getFaction(MMM_FACTION_ID)
                 mmm.setRelationship("player", RepLevel.VENGEFUL)
+                RelationIsDone = true
             }
         }
     }

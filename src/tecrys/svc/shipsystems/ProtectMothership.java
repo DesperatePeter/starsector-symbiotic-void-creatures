@@ -60,9 +60,9 @@ public class ProtectMothership extends BaseShipSystemScript {
                 //int actualAdd = addForWing;
                 //actualAdd = Math.min(spec.getNumFighters(), actualAdd);
 
-                if (spec.getRole().equals(INTERCEPTOR)) {
-                    spec.setRole(SUPPORT);
-                }
+//                if (spec.getRole().equals(INTERCEPTOR)) {
+//                    spec.setRole(SUPPORT);
+//                }
 
 
                 if (actualAdd > 0) {
@@ -73,7 +73,7 @@ public class ProtectMothership extends BaseShipSystemScript {
                     //bay.setExtraDuration(99999999999f);
                 }
             }
-            ship.giveCommand(ShipCommand.PULL_BACK_FIGHTERS, null, 0);
+//            ship.giveCommand(ShipCommand.PULL_BACK_FIGHTERS, null, 0);
         }
 
     }
@@ -110,9 +110,9 @@ public class ProtectMothership extends BaseShipSystemScript {
             if (bay.getWing() == null) continue;
 
             FighterWingSpecAPI spec = bay.getWing().getSpec();
-            if (spec.getRole().equals(SUPPORT)) {
-                spec.setRole(INTERCEPTOR);
-            }
+//            if (spec.getRole().equals(SUPPORT)) {
+//                spec.setRole(INTERCEPTOR);
+//            }
         }
 
     }

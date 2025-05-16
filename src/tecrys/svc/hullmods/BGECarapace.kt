@@ -229,7 +229,7 @@ class BGECarapace : BaseHullMod() {
 
         tooltip.addSectionHeading("No Fuel", Alignment.MID, opad)
         tooltip.addPara(
-            "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace.", opad
+            "Void Creatures cannot carry and do not need antimatter fuel to travel through Hyperspace, except for Pupacysts which are able to carry fuel.", opad
         )
         tooltip.addSectionHeading("Hullmod Incompatibility", Alignment.MID, opad)
         tooltip.addPara("Void Creatures cannot have hullmods designed for regular ships installed. Exception: %s", opad,h,

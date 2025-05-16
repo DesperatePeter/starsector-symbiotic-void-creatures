@@ -3,14 +3,16 @@
 	"startingFaction":true,
     "corvusCompatible":true,
     "freeStart":true,
-	"spawnAsFactionId":"player",
+	    "dropPrisoners":false,
+    "noSyncRelations":true,
+    "allowAgentActions":false,
+    "allowPrisonerActions":false,
+	"spawnAsFactionId":"svc",
     "noRandomizeRelations":true,
 	    "difficultyString":"very hard",
     "ngcTooltip": "WANTED: Bugmaster. The notorious criminal Bugmaster. Wanted for banditry, raiding, mass-murder, cannibalism, genocide. EXTREMELY DANGEROUS. Attacks on sight, appears to have control of an army of [REDACTED]. Reasons for this ability are unknown, motivation unknown.",
 	
-	    "factionsLiked":[
-		"svc",
-    ],
+
 	"factionsDisliked":[
 	    # Vanilla Factions		 
 		"hegemony",                            
@@ -87,7 +89,9 @@
 		"air",                                    
 		"aic", 
 	],
-	
+		    "minRelationships":{
+					"svc": 1,
+		},
     "startRelationships":{
 	    # Vanilla Factions		 
 		"hegemony": -1,                            
@@ -392,7 +396,8 @@
      [["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],
      [["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],
      [["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],[["svc_human_teeth","svc_human_teeth"]],
-     [["svc_control_collar_bp","svc_control_collar_bp"]],[["svc_alpha_collar_bp","svc_alpha_collar_bp"]]
+     [["svc_control_collar_bp","svc_control_collar_bp"]],[["svc_alpha_collar_bp","svc_alpha_collar_bp"]], [["svc_whale_oil",""]], [["svc_whale_oil",""]], [["svc_whale_oil",""]], [["svc_whale_oil",""]],
+	 [["svc_whale_oil",""]], [["svc_whale_oil",""]], [["svc_whale_oil",""]], [["svc_whale_oil",""]], [["svc_whale_oil",""]], [["svc_whale_oil",""]]
 
 
 

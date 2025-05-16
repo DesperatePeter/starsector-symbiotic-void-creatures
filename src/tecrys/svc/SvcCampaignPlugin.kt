@@ -30,7 +30,7 @@ class SvcCampaignPlugin: BaseCampaignPlugin() {
         }
         if(fleet.customData?.containsKey(FleetManager.SVC_FLEET_IDENTIFICATION_KEY) == true &&
 //            fleet.faction.relToPlayer.equals(RepLevel.COOPERATIVE)
-            Global.getSector().getFaction(SVC_FACTION_ID).relToPlayer.isAtWorst(RepLevel.COOPERATIVE)
+            Global.getSector().getFaction(SVC_FACTION_ID).relToPlayer.isAtWorst(RepLevel.FRIENDLY)
             )
 
 
