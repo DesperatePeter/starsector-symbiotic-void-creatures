@@ -6,7 +6,7 @@ import org.lwjgl.input.Keyboard
 
 class StjarwhaleOilItemPlugin : BaseSpecialItemPlugin() {
     companion object{
-        const val FUEL_PER_OIL = 100f
+        const val FUEL_PER_OIL = 50f
     }
     override fun hasRightClickAction(): Boolean = true
     override fun shouldRemoveOnRightClickAction(): Boolean = false

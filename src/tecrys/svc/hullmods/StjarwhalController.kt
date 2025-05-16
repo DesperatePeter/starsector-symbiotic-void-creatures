@@ -18,6 +18,7 @@ import tecrys.svc.hullmods.VoidlingInfestation.Companion
 import tecrys.svc.internalWhaleReputation
 import tecrys.svc.utils.giveSpecialItemToPlayer
 import tecrys.svc.utils.removeDMods
+import tecrys.svc.utils.showNotificationOnCampaignUi
 import java.awt.Color
 import java.util.HashMap
 
@@ -75,8 +76,9 @@ class StjarwhalController: BaseHullMod() {
                     Global.getSector().clock.getElapsedDaysSince(Global.getSector().persistentData[member.id + "oiltimecheck"] as Long)
                 if (timeelapsed in 29f..31f) {
 
-
-                        Global.getSector().campaignUI.addMessage("Whale Oil received")
+                      val whalename = member.shipName.toString()
+                    showNotificationOnCampaignUi(whalename + " produced some Whale Oil", Global.getSettings().getSpriteName("intel", "whale_hm"))
+//                        Global.getSector().campaignUI.addMessage(whalename + " produced some Whale Oil")
                     if (member.hullSpec.hullSize.equals(HullSize.FRIGATE)) {
                         Global.getSector()?.playerFleet?.cargo?.addSpecial(item, 1f)
                     }
