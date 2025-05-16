@@ -6,7 +6,6 @@ import com.fs.starfarer.api.combat.DamageAPI
 import com.fs.starfarer.api.combat.DamageType
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.listeners.DamageTakenModifier
-import org.lazywizard.lazylib.CollisionUtils
 import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus

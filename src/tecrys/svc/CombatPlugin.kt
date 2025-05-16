@@ -117,6 +117,8 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         val viewMult = viewport?.viewMult ?: return
         preRender()
         aurasToRenderOneFrame.forEach {
+            val scaling = Global.getSettings().screenScaleMult
+
             val lineColor = it.color
             val fillColor = multiplyAlpha(
                 it.color,
@@ -124,17 +126,17 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
             )//it.color.setAlpha(20 + (7f * sin(5f * pulseTimer)).toInt())
             setColor(lineColor)
             DrawUtils.drawCircle(
-                viewport.convertWorldXtoScreenX(it.center.x),
-                viewport.convertWorldYtoScreenY(it.center.y),
-                it.radius / viewMult,
+                viewport.convertWorldXtoScreenX(it.center.x)  * scaling,
+                viewport.convertWorldYtoScreenY(it.center.y) * scaling,
+                it.radius / viewMult * scaling,
                 CIRCLE_POINTS,
                 false
             )
             setColor(fillColor)
             DrawUtils.drawCircle(
-                viewport.convertWorldXtoScreenX(it.center.x),
-                viewport.convertWorldYtoScreenY(it.center.y),
-                it.radius / viewMult,
+                viewport.convertWorldXtoScreenX(it.center.x) * scaling,
+                viewport.convertWorldYtoScreenY(it.center.y) * scaling,
+                it.radius / viewMult * scaling,
                 CIRCLE_POINTS,
                 true
             )
@@ -142,9 +144,9 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
                 val pulseColor = multiplyAlpha(it.color, 0.3f - i.toFloat() * 0.03f)
                 setColor(pulseColor)
                 DrawUtils.drawCircle(
-                    viewport.convertWorldXtoScreenX(it.center.x),
-                    viewport.convertWorldYtoScreenY(it.center.y),
-                    it.radius / viewMult * ((pulseTimer * i.toFloat() + 0.02f * Math.random().toFloat()) % 1f),
+                    viewport.convertWorldXtoScreenX(it.center.x) * scaling,
+                    viewport.convertWorldYtoScreenY(it.center.y) * scaling,
+                    it.radius / viewMult * ((pulseTimer * i.toFloat() + 0.02f * Math.random().toFloat()) % 1f) * scaling,
                     CIRCLE_POINTS,
                     false
                 )
