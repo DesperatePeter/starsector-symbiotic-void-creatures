@@ -1,6 +1,7 @@
 package tecrys.svc.hullmods
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
@@ -13,16 +14,28 @@ import com.fs.starfarer.api.util.Misc
 import org.dark.graphics.plugins.ShipDestructionEffects
 import org.lazywizard.lazylib.ext.campaign.contains
 import tecrys.svc.WHALE_REPUTATION_MIN
+import tecrys.svc.hullmods.VoidlingInfestation.Companion
 import tecrys.svc.internalWhaleReputation
+import tecrys.svc.utils.giveSpecialItemToPlayer
 import tecrys.svc.utils.removeDMods
 import java.awt.Color
+import java.util.HashMap
 
 
 class StjarwhalController: BaseHullMod() {
     companion object{
         private const val ENGINE_DAMAGE_TAKEN = 0.5f
         private const val DMODS_ALLOWED_TAG = "allow_dmods"
+        val item = SpecialItemData("svc_whale_oil", null)
+
+
+
     }
+
+
+
+
+        //Checks if the fleet is real and belongs to the player.
 
     override fun advanceInCombat(ship: ShipAPI, amount: Float) {
         val decos = ship.allWeapons
@@ -45,6 +58,43 @@ class StjarwhalController: BaseHullMod() {
             if(!Global.getSector().playerFleet.contains(it)) return
         } ?: return
         member.stats?.suppliesPerMonth?.modifyMult(this.javaClass.name, computeMaintenanceFactor())
+
+
+//        if (member.getFleetData().getFleet().getStarSystem() == null) {
+//            return
+//        }
+//        if (member.getFleetData().getFleet().getStarSystem().getStar() == null) {
+//            return
+//        }
+
+        if (!Global.getSector().persistentData.containsKey(member.id + "oiltimecheck")) {
+                    Global.getSector().persistentData[member.id + "oiltimecheck"] =
+                        Global.getSector().clock.timestamp
+                }
+                val timeelapsed =
+                    Global.getSector().clock.getElapsedDaysSince(Global.getSector().persistentData[member.id + "oiltimecheck"] as Long)
+                if (timeelapsed in 29f..31f) {
+
+
+                        Global.getSector().campaignUI.addMessage("Whale Oil received")
+                    if (member.hullSpec.hullSize.equals(HullSize.FRIGATE)) {
+                        Global.getSector()?.playerFleet?.cargo?.addSpecial(item, 1f)
+                    }
+                    if (member.hullSpec.hullSize.equals(HullSize.CRUISER)) {
+                        Global.getSector()?.playerFleet?.cargo?.addSpecial(item, 2f)
+                    }
+                    if (member.hullSpec.hullSize.equals(HullSize.CAPITAL_SHIP)) {
+                        Global.getSector()?.playerFleet?.cargo?.addSpecial(item, 3f)
+                    }
+                        Global.getSector().persistentData[member.id + "oiltimecheck"] =
+                            Global.getSector().clock.timestamp
+                    }
+                 else if (timeelapsed > 31f) {
+                    Global.getSector().persistentData[member.id + "oiltimecheck"] =
+                        Global.getSector().clock.timestamp
+                }
+
+
     }
 
     private fun computeMaintenanceFactor(): Float{
@@ -59,7 +109,7 @@ class StjarwhalController: BaseHullMod() {
 //            else -> null
 //        }
 //    }
-    override fun applyEffectsBeforeShipCreation(hullSize: ShipAPI.HullSize?, stats: MutableShipStatsAPI?, id: String?) {
+    override fun applyEffectsBeforeShipCreation(hullSize: HullSize?, stats: MutableShipStatsAPI?, id: String?) {
         stats?.run {
             zeroFluxSpeedBoost.modifyMult(id, 0f)
             dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)

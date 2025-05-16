@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.thoughtworks.xstream.XStream
+import exerelin.campaign.SectorManager
 import org.dark.shaders.util.ShaderLib
 import org.magiclib.util.MagicSettings
 import tecrys.svc.colonycrisis.SymbioticCrisisCause
@@ -24,6 +25,7 @@ import tecrys.svc.utils.unlockVoidlingRecovery
 import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.ContextBaseMusicPlayer
 import tecrys.svc.world.SectorGen
+import tecrys.svc.world.SectorGen.Companion.RelationIsDone
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import tecrys.svc.world.ghosts.HunterGhostCreator
@@ -44,17 +46,16 @@ class SvcBasePlugin : BaseModPlugin() {
             private const val RELATIONSHIP_TO_SET = -0.8f
             val ignoredFactions = MagicSettings.getList(MAGIC_SETTINGS_MOD_KEY, MAGIC_SETTINGS_RELATIONS_KEY) +
                     listOf(SVC_FACTION_ID)
-        private var RelationIsDone: Boolean = false
+
     }
 
 
     private fun initSVC() {
         try {
             Global.getSettings().scriptClassLoader.loadClass("data.scripts.world.ExerelinGen")
-            RelationIsDone = true
+
         } catch (ex: ClassNotFoundException) {
             SectorGen().generate(Global.getSector())
-            RelationIsDone = false
         }
         if(isSubstanceAbuseEnabled()){
             addCocktailBreweryToRelevantMarkets()
@@ -82,27 +83,31 @@ class SvcBasePlugin : BaseModPlugin() {
         }
         SymbioticCrisisCause.initializeEvent()
 
-        if ((!MastermindInteractionDialog.isSubmission
-            || (Global.getSector()?.getFaction(SVC_FACTION_ID)?.relToPlayer?.isAtWorst(RepLevel.FRIENDLY) == false))
-            && !RelationIsDone) {
-            Global.getSector()?.run {
-                val svc = getFaction(SVC_FACTION_ID)
-                allFactions.filterNotNull().filterNot {
-                    ignoredFactions.contains(it.id)
-                }.forEach {
-                    svc.setRelationship(it.id, RepLevel.VENGEFUL)
-//                    svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
-                }
-                svc.setRelationship(svc.id, RepLevel.VENGEFUL)
-                val vwl = getFaction(VWL_FACTION_ID)
-                vwl.setRelationship(svc.id, RepLevel.VENGEFUL)
-//                vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
-                vwl.setRelationship("player", RepLevel.FRIENDLY)
-                val mmm = getFaction(MMM_FACTION_ID)
-                mmm.setRelationship("player", RepLevel.VENGEFUL)
-                RelationIsDone = true
+
+            if (Global.getSector().getStarSystem("Viuoarg") == null) { //star id
+                initSVC()
             }
-        }
+//        if ((!MastermindInteractionDialog.isSubmission
+//            || (Global.getSector()?.getFaction(SVC_FACTION_ID)?.relToPlayer?.isAtWorst(RepLevel.FRIENDLY) == false))
+//            && !RelationIsDone) {
+//            Global.getSector()?.run {
+//                val svc = getFaction(SVC_FACTION_ID)
+//                allFactions.filterNotNull().filterNot {
+//                    ignoredFactions.contains(it.id)
+//                }.forEach {
+//                    svc.setRelationship(it.id, RepLevel.VENGEFUL)
+////                    svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
+//                }
+//                svc.setRelationship(svc.id, RepLevel.VENGEFUL)
+//                val vwl = getFaction(VWL_FACTION_ID)
+//                vwl.setRelationship(svc.id, RepLevel.VENGEFUL)
+////                vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
+//                vwl.setRelationship("player", RepLevel.FRIENDLY)
+//                val mmm = getFaction(MMM_FACTION_ID)
+//                mmm.setRelationship("player", RepLevel.VENGEFUL)
+//                RelationIsDone = true
+//            }
+//        }
     }
 
     override fun onApplicationLoad() {
