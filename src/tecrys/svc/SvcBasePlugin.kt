@@ -84,8 +84,8 @@ class SvcBasePlugin : BaseModPlugin() {
         SymbioticCrisisCause.initializeEvent()
 
 
-            if (Global.getSector().getStarSystem("Viuoarg") == null) { //star id
-                initSVC()
+            if (Global.getSector().getStarSystem("Viuoarg") == null) { //the entire purpose of this single-star system is to check if
+                initSVC()                                             //faction relations have been set up properly
             }
 //        if ((!MastermindInteractionDialog.isSubmission
 //            || (Global.getSector()?.getFaction(SVC_FACTION_ID)?.relToPlayer?.isAtWorst(RepLevel.FRIENDLY) == false))
