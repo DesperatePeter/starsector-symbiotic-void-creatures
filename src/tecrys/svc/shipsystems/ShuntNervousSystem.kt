@@ -7,8 +7,6 @@ import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import tecrys.svc.shipsystems.utils.ShuntedNervousListener
 
 class ShuntNervousSystem: BaseShipSystemScript() {
-    private var ship: ShipAPI? = null
-    private var listener: ShuntedNervousListener? = null
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
@@ -17,23 +15,35 @@ class ShuntNervousSystem: BaseShipSystemScript() {
     ) {
         when(state){
             ShipSystemStatsScript.State.IN -> {
-                ship = stats?.entity as? ShipAPI
-                if(listener == null){
-                    listener = ShuntedNervousListener()
-                    ship?.addListener(listener)
+                val ship = stats?.entity as? ShipAPI
+
+                if (ship == null) {
+                    return
+                }
+
+                if(!ship.hasListenerOfClass(ShuntedNervousListener::class.java)){
+                    ship.addListener(ShuntedNervousListener())
                 }
             }
             ShipSystemStatsScript.State.OUT -> {
+                val ship = stats?.entity as? ShipAPI
+
                 ship?.let {
+                    val listener = ship.getListeners(ShuntedNervousListener::class.java).getOrNull(0) as? ShuntedNervousListener?
+
+                    if(listener == null){
+                        return
+                    }
+
                     listener?.run {
                         it.removeListener(this)
-                        applyDelayedDamaged(it)
+                        listener.applyDelayedDamaged(it)
                     }
                     it.alphaMult = 1f
                 }
-                listener = null
             }
             ShipSystemStatsScript.State.ACTIVE -> {
+                val ship = stats?.entity as? ShipAPI
                 ship?.alphaMult = 0.5f
             }
             else -> {}

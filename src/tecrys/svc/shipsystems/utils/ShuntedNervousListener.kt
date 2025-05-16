@@ -11,6 +11,7 @@ import org.lazywizard.lazylib.VectorUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
+import tecrys.svc.utils.ExtraDamageInfo
 import java.awt.Color
 import kotlin.math.sqrt
 
@@ -51,7 +52,7 @@ class ShuntedNervousListener: DamageTakenModifier {
             ship.exactBounds.update(ship.location, ship.facing)
             val relPos = VectorUtils.rotate(it.relPoint, ship.facing - it.shipFacing)
             engine.addHitParticle(relPos + ship.location, ship.velocity, 10f + 2f*sqrt(it.damage), 10f, Color.YELLOW)
-            engine.applyDamage(ship, relPos + ship.location, it.damage, it.type, 0f, true, false, null, false)
+            engine.applyDamage(ExtraDamageInfo(MULT_ID), ship, relPos + ship.location, it.damage, it.type, 0f, true, false, null, false)
         }
         delayedDamageInstances.clear()
     }

@@ -8,7 +8,8 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.combat.listeners.DamageTakenModifier
 import org.lwjgl.util.vector.Vector2f
-import kotlin.math.max
+import tecrys.svc.shipsystems.utils.ShuntedNervousListener
+import tecrys.svc.utils.ExtraDamageInfo
 
 class DefensiveBloodListener(ship: ShipAPI) : DamageTakenModifier {
 
@@ -62,6 +63,11 @@ class DefensiveBloodListener(ship: ShipAPI) : DamageTakenModifier {
     ): String? {
         if(shieldHit) return null
         damage ?: return null
+        if (param != null) {
+            if (param is ExtraDamageInfo && param.modifiedBy == ShuntedNervousListener.MULT_ID) {
+                return null
+            }
+        }
         val deltaT = Global.getCombatEngine().getTotalElapsedTime(false) - lastClock
         lastClock = Global.getCombatEngine().getTotalElapsedTime(false)
         value = (value - deltaT * decay).coerceIn(0f, maxValue)
