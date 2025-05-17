@@ -86,7 +86,7 @@ class NeutralWhaleFleetInteraction(private val whales: SectorEntityToken) : Noti
                 (OIL_GAIN_REPUTATION_CAP - MIN_REPUTATION_FOR_OIL_FROM_FEEDING)).coerceIn(0f, 1f)
         val oilQuantity = (oilRepFactor * MAX_OIL_GAINED_FROM_FEEDING).toInt()
         if(oilQuantity > 0){
-            val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
+            val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, null)
             playerCargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity.toFloat())
             Global.getSector().campaignUI?.addMessage("Thankful for the food, the whales leave you a present: " +
                     "Gained $oilQuantity Stjarwhale Oil")
