@@ -160,11 +160,11 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             SymbioticCrisisCause.resolveCrisis()
         }
         if(isWhaleSacrifice){
-            FleetSpawner.getFactionFleets(SVC_FACTION_ID).forEach {
-                for (member in it.getFleetData().getMembersListCopy()) {
-                    it.removeFleetMemberWithDestructionFlash(member)
-                }
-            }
+//            FleetSpawner.getFactionFleets(SVC_FACTION_ID).forEach {
+//                for (member in it.getFleetData().getMembersListCopy()) {
+//                    it.removeFleetMemberWithDestructionFlash(member)
+//                }
+//            }
         }
     }
 
