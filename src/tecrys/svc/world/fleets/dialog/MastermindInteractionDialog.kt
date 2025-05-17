@@ -3,6 +3,9 @@ package tecrys.svc.world.fleets.dialog
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.InteractionDialogImageVisual
 import com.fs.starfarer.api.campaign.*
+import com.fs.starfarer.api.campaign.InteractionDialogPlugin
+import com.fs.starfarer.api.campaign.RuleBasedDialog
+import com.fs.starfarer.api.campaign.events.CampaignEventPlugin
 import com.fs.starfarer.api.campaign.rules.MemoryAPI
 import com.fs.starfarer.api.combat.BattleCreationContext
 import com.fs.starfarer.api.combat.EngagementResultAPI
@@ -25,7 +28,7 @@ import java.awt.Color
 import java.util.*
 import kotlin.random.Random
 
-class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?): FleetInteractionDialogPluginImpl(MastermindFIDConf().createConfig()) {
+class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?): InteractionDialogPlugin, RuleBasedDialog {
 
     companion object{
         enum class Stage{
@@ -45,6 +48,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         fun execute()
     }
 
+    private val fleetInteractionDialog = FleetInteractionDialogPluginImpl(MastermindFIDConf().createConfig() )
+
     private var dialog: InteractionDialogAPI? = null
     private var textPanel: TextPanelAPI? = null
     private var visualPanel: VisualPanelAPI? = null
@@ -56,7 +61,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         } ?: true
 
     override fun init(dialog: InteractionDialogAPI?) {
-        if(!isFirstEncounter) return super.init(dialog)
+        if(!isFirstEncounter) return fleetInteractionDialog.init(dialog)
         this.dialog = dialog
         textPanel = dialog?.textPanel
         visualPanel = dialog?.visualPanel
@@ -74,20 +79,19 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         (optionData as? RunnableOptionData)?.let { opt ->
             textPanel?.addParagraph(optionText, Color.YELLOW)
             opt.execute()
-        } ?: super.optionSelected(optionText, optionData)
+        } ?: fleetInteractionDialog.optionSelected(optionText, optionData)
         if(!shouldDelegateOptions) populateOptions()
     }
 
     override fun backFromEngagement(battleResult: EngagementResultAPI?) {
         stage = Stage.POST_BATTLE
-        if(shouldDelegateBackFromEngage) return super.backFromEngagement(battleResult)
+        if(shouldDelegateBackFromEngage) return fleetInteractionDialog.backFromEngagement(battleResult)
 
         fun setContinueOption(){
-            val superBackFromEngagement = { super.backFromEngagement(battleResult) }
             optionPanel?.clearOptions()
             optionPanel?.addOption("Continue", object : RunnableOptionData{
                 override fun execute() {
-                    superBackFromEngagement()
+                    fleetInteractionDialog.backFromEngagement(battleResult)
                 }
             })
         }
@@ -114,7 +118,15 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             return
         }
 
-        return super.backFromEngagement(battleResult)
+        return fleetInteractionDialog.backFromEngagement(battleResult)
+    }
+
+    override fun getContext(): Any? {
+        return fleetInteractionDialog.context
+    }
+
+    override fun getMemoryMap(): Map<String?, MemoryAPI?>? {
+        return fleetInteractionDialog.memoryMap
     }
 
     private fun processVictory(){
@@ -144,16 +156,15 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
 
     private fun dissolveFleet(fleet: CampaignFleetAPI?){
         fleet?.despawn()
-//        fleet?.let { f ->
-//            f.fleetData.membersListCopy.forEach {
-//                f.removeFleetMemberWithDestructionFlash(it)
-//            }
-//        }
     }
 
     override fun optionMousedOver(optionText: String?, optionData: Any?) {
         if(optionData is RunnableOptionData) return
-        super.optionMousedOver(optionText, optionData)
+        fleetInteractionDialog.optionMousedOver(optionText, optionData)
+    }
+
+    override fun advance(t: Float) {
+        fleetInteractionDialog.advance(t)
     }
 
     private fun populateText(){
@@ -164,14 +175,8 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         }
     }
 
-    private fun repopulate(){
-        populateOptions()
-        populateText()
-    }
-
     private fun populateOptions(){
         optionPanel?.clearOptions()
-        val superInit = { super.init(dialog) }
         when(stage){
             Stage.INITIAL -> {
                 optionPanel?.addOption("Try to focus your mind on the thought.", object : RunnableOptionData{
@@ -188,7 +193,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
                         dialog?.optionPanel?.clearOptions()
                         shouldDelegateOptions = true
                         isFirstEncounter = false
-                        superInit()
+                        fleetInteractionDialog.init(dialog)
                     }
                 })
                 val disableTelepathy = object : RunnableOptionData {
@@ -283,10 +288,9 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
             addParagraph("You will help us breed and feed.", spookyColor)
             addParagraph("Your colonies will be the staging ground. Let us begin immediately.", spookyColor)
             addParagraph("Now, go and burn the sector. Burn their colonies. Burn the humans.", spookyColor)
-//            addParagraph("")
-//            addParagraph("Developer Note: This path is not yet fully implemented. " +
-//                    "You are now allied to the void creatures, but hostile to all other factions." +
-//                    "If this isn't what you wanted, consider reloading a save before this battle.", Color.RED)
+            addParagraph("")
+            addParagraph("You are now allied to the void creatures, but hostile to all other factions." +
+                    "If this isn't what you wanted, consider reloading a save before this battle.", Color.RED)
         }
     }
 
@@ -297,5 +301,19 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
         }
     }
 
+    override fun notifyActivePersonChanged() {
+        fleetInteractionDialog.notifyActivePersonChanged()
+    }
 
+    override fun setActiveMission(p0: CampaignEventPlugin?) {
+        fleetInteractionDialog.setActiveMission(p0)
+    }
+
+    override fun updateMemory() {
+        fleetInteractionDialog.updateMemory()
+    }
+
+    override fun reinit(p0: Boolean) {
+        fleetInteractionDialog.reinit(p0)
+    }
 }
