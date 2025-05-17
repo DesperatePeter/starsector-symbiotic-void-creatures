@@ -1,10 +1,8 @@
 package tecrys.svc.colonycrisis
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.LocationAPI
 import com.fs.starfarer.api.campaign.econ.MarketAPI
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseOneTimeFactor
@@ -19,9 +17,7 @@ import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.listeners.CrisisFleetListener
-import tecrys.svc.listeners.VoidlingFIDConf
 import tecrys.svc.utils.CampaignSettingDelegate
-import tecrys.svc.utils.makeAlwaysHostile
 import tecrys.svc.world.fleets.*
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 
@@ -164,7 +160,11 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             SymbioticCrisisCause.resolveCrisis()
         }
         if(isWhaleSacrifice){
-            // TODO
+            FleetSpawner.getFactionFleets(SVC_FACTION_ID).forEach {
+                for (member in it.getFleetData().getMembersListCopy()) {
+                    it.removeFleetMemberWithDestructionFlash(member)
+                }
+            }
         }
     }
 

@@ -110,6 +110,7 @@ class FleetManager : EveryFrameScript {
 //            it.makeAlwaysHostile()
             it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SKIP_TRANSPONDER_STATUS_INFO, true)
                 it.customData[SVC_FLEET_IDENTIFICATION_KEY] = true
             return it
         }
@@ -162,7 +163,7 @@ class FleetManager : EveryFrameScript {
             if(svcParams.spawnPower >= hunterConfig.minSpawnPower){
                 val hunterFleet = spawner.createFactionFleet(
                     SVC_FACTION_ID, svcParams,
-                    hunterConfig.name, hunterConfig.rolesQuantity, hunterConfig.minDP)
+                    hunterConfig.name, hunterConfig.rolesQuantity)
 
                 hunterFleet?.run {
                     addEventListener(SvcFleetListener)
