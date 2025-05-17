@@ -10,7 +10,6 @@ import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.thoughtworks.xstream.XStream
-import exerelin.campaign.SectorManager
 import org.dark.shaders.util.ShaderLib
 import org.magiclib.util.MagicSettings
 import tecrys.svc.colonycrisis.SymbioticCrisisCause

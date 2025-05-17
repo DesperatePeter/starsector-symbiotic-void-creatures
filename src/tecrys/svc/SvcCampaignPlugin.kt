@@ -5,7 +5,6 @@ import com.fs.starfarer.api.PluginPick
 import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
-import exerelin.console.commands.SpawnInvasionFleet.getFaction
 import tecrys.svc.industries.VoidlingHatchery
 import tecrys.svc.listeners.MastermindFleetListener
 import tecrys.svc.world.fleets.FleetManager
