@@ -1,7 +1,11 @@
 package tecrys.svc.colonycrisis
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.Script
+import com.fs.starfarer.api.campaign.CampaignFleetAPI
+import com.fs.starfarer.api.campaign.FleetAssignment
 import com.fs.starfarer.api.campaign.LocationAPI
+import com.fs.starfarer.api.campaign.SectorEntityToken
 import com.fs.starfarer.api.campaign.econ.MarketAPI
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
@@ -13,6 +17,7 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
+import org.magiclib.kotlin.addGlowyParticle
 import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
@@ -20,6 +25,8 @@ import tecrys.svc.listeners.CrisisFleetListener
 import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.world.fleets.*
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
+import java.awt.Color
+import java.lang.ref.WeakReference
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
@@ -37,7 +44,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val INFESTATION_HULLMOD = "svc_infestation_hm"
         var isBossDefeated by CampaignSettingDelegate(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN, false)
         val isBossObeyed get() = MastermindInteractionDialog.isSubmission
-        val isWhaleSacrifice: Boolean get() = Global.getSector().memoryWithoutUpdate.contains("\$svcLureConstructed")
+        val isWhaleSacrifice: Boolean get() = poisonLureLocation != null
+        private var poisonLureLocation: SectorEntityToken? by CampaignSettingDelegate("\$svcLureConstructed", null)
         val isCrisisActive get() = (get() != null) && !SymbioticCrisisCause.isCrisisResolved()
         fun get() : SymbioticCrisisIntelEvent? = Global.getSector().memoryWithoutUpdate[MEM_KEY] as? SymbioticCrisisIntelEvent
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
@@ -75,9 +83,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     // by the player
     var fleetsDefeatedByPlayer = 0
         private set
-    private var currentNumberOfFleets = 0
+    private val currentNumberOfFleets get() = crisisFleets.size
     private val defeatedFleetIds = mutableSetOf<Long>()
     private val timer = IntervalUtil(20f, 40f)
+    private val crisisFleets = mutableMapOf<Long, WeakReference<CampaignFleetAPI>>()
 
     fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
         if(id in defeatedFleetIds) return
@@ -98,7 +107,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 }
             })
         }
-        currentNumberOfFleets--
+        crisisFleets.remove(id)
     }
 
     override fun getIcon(): String {
@@ -142,6 +151,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     override fun shouldRemoveIntel(): Boolean = SymbioticCrisisCause.isCrisisResolved()
 
     override fun advanceImpl(amount: Float) {
+        if(isBossDefeated || isBossObeyed || isWhaleSacrifice){
+            SymbioticCrisisCause.resolveCrisis()
+            return
+        }
         timer.advance(amount)
         if(timer.intervalElapsed() ) {
             if(currentNumberOfFleets < MAX_NUM_FLEETS) spawnFleetIfNecessary()
@@ -156,19 +169,25 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 Global.getSector().memoryWithoutUpdate[FleetManager.MASTERMIND_FLEET_MEM_KEY] = mastermindFleet
             }
         }
-        if(isBossDefeated || isBossObeyed || isWhaleSacrifice){
-            SymbioticCrisisCause.resolveCrisis()
-        }
-        if(isWhaleSacrifice){
-//            FleetSpawner.getFactionFleets(SVC_FACTION_ID).forEach {
-//                for (member in it.getFleetData().getMembersListCopy()) {
-//                    it.removeFleetMemberWithDestructionFlash(member)
-//                }
-//            }
-        }
     }
 
-
+    fun solveViaPoison(location: SectorEntityToken){
+        poisonLureLocation = location
+        val maxDistInLy = 10f
+        val affectedFleets = crisisFleets.values.mapNotNull { it.get() } +
+                FleetSpawner.getFactionFleets(SVC_FACTION_ID).filter {
+                    (it.locationInHyperspace - market.locationInHyperspace).length() < maxDistInLy
+                }
+        affectedFleets.forEach { fleet ->
+            fleet.clearAssignments()
+            fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, location, 999f) {
+                fleet.containingLocation.addGlowyParticle(
+                    fleet.location, fleet.velocity,
+                    2f * fleet.radius, 1f, 5f, Color.GREEN
+                )
+            }
+        }
+    }
 
     private fun spawnFleetIfNecessary(): Boolean {
         val pf = Global.getSector().playerFleet ?: return false
@@ -184,14 +203,15 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             location, true,
             FleetSpawnParameterCalculator(svcSettings).withModifiedPower(FLEET_POWER_MODIFIER)
         )?.let { fleet ->
-            fleet.addEventListener(CrisisFleetListener(random.nextLong())) // will call reportFleetDefeated to modify number of fleet values
+            val id = random.nextLong()
+            fleet.addEventListener(CrisisFleetListener(id)) // will call reportFleetDefeated to modify number of fleet values
             // emulate two sub-factions fighting against each other
             if(Math.random() > 0.5f) { fleet.setFaction(MMM_FACTION_ID)
                 Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f)
                 fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_NO_REP_IMPACT] = true
 //                fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
             }
-            currentNumberOfFleets++
+            crisisFleets[id] = WeakReference(fleet)
             return true
         }
         return false
