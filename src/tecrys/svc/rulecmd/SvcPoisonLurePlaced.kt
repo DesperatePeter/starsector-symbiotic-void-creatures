@@ -22,7 +22,7 @@ class SvcPoisonLurePlaced: BaseCommandPlugin() {
             val notificationText = "Your administrator reports that the void creatures that were harassing your colony" +
                     " appear to be leaving the system, heading towards the $system"
             // FIXME @ Tecrys (replace with Global.getSettings().getSprite call for actual sprite
-            val notificationSprite = Global.getSettings().getSpriteName("illustrations", "svc_food")
+            val notificationSprite = Global.getSettings().getSpriteName("icons", "svc_meat_icon")
             showNotificationOnCampaignUi(notificationText, notificationSprite)
             return true
         }
