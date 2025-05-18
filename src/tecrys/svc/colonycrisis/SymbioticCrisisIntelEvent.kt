@@ -60,9 +60,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
             get()?.reportFleetDefeated(defeatedByPlayer, id)
         }
-        fun reInit(){
-            val market = get()?.market ?: return
+        fun reInit(): Boolean{
+            val market = get()?.market ?: return false
             Global.getSector().memoryWithoutUpdate[MEM_KEY] = SymbioticCrisisIntelEvent(market)
+            return true
         }
         fun applyOrRemoveMarketConditions(){
             if(!SymbioticCrisisCause.isCrisisResolved()){

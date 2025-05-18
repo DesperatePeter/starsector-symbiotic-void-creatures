@@ -8,7 +8,10 @@ class ReinitCrisis: BaseCommand {
         p0: String,
         p1: BaseCommand.CommandContext
     ): BaseCommand.CommandResult? {
-        SymbioticCrisisIntelEvent.reInit()
-        return BaseCommand.CommandResult.SUCCESS
+        return if(SymbioticCrisisIntelEvent.reInit()) {
+            BaseCommand.CommandResult.SUCCESS
+        }else{
+            BaseCommand.CommandResult.ERROR
+        }
     }
 }
