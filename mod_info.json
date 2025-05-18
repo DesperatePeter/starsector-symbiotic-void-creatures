@@ -4,7 +4,7 @@
     "name": "SymbioticVoidCreatures",
     "author": "Graphics: Tecrys \n Coding & Writing: DesperatePeter \n Writing: MiniDeth3",
     "utility": "false",
-    "version": { "major":"0", "minor": "6", "patch": "0c" },
+    "version": { "major":"0", "minor": "6", "patch": "0d" },
     "description": "This mod introduces interstellar wildlife and more.",
     "gameVersion": "0.98a",
     "jars":["jars/SymbioticVoidCreatures.jar"],
