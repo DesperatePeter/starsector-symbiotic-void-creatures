@@ -17,7 +17,7 @@ Shell Vulcanization,svc_shell_vulcanization,,,Biological,defensive,Defenses,7000
 Whale Tail Cocktail,svc_booze,,,,,,,,TRUE,,0,0,0,0,com.fs.starfarer.api.combat.BaseHullMod,"Pirate spirit in a barrel, in the truest sense of the phrase. Unsurprisingly, there is no fixed recipe when distilling whatever drugs they have lying around.",Distilled Recreational Drugs,,graphics/icons/svc_booze.png
 Scoliac Tail,svc_scoliac_tail_turner,,,,,,,,TRUE,,0,0,0,0,tecrys.svc.hullmods.ScoliacModuleTurner,"The Scoliac can rotate it's tail in a 360° arc to attack its foes.
 The tail will try to face the ship target if available, otherwise the closest enemy.",A rotating tail.,,graphics/hullmods/carapace.png
-Voidling Swarm,svc_swarmHM,,,,"codex_unlockable, fragment, no_drop_salvage","Weapons, Special",30000,,,,6,12,18,30,tecrys.svc.hullmods.svcFragmentsHM,"A swarm of Threat fragments roils around the ship, providing a regenerating supply of fragments for fragment-based weapons.
+Voidling Swarm,svc_swarmHM,,,,"codex_unlockable, fragment, no_drop_salvage","Weapons, Special",30000,,,TRUE,6,12,18,30,tecrys.svc.hullmods.svcFragmentsHM,"A swarm of Threat fragments roils around the ship, providing a regenerating supply of fragments for fragment-based weapons.
 
 The base number of fragments is %s/%s/%s/%s, and replacement fragments are launched %s/%s/%s/%s times a second, depending on hull size.
 
