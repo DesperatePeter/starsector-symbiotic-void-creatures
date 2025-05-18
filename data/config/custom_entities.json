@@ -7,7 +7,7 @@
 		"icon":"graphics/icons/svc_meat.png",
 		"iconWidth":18,
 		"iconHeight":18,
-				"sprite":"graphics/icons/svc_meat.png",
+		"sprite":"graphics/icons/svc_meat.png",
 		"spriteWidth":89,
 		"spriteHeight":48,
 		"customDescriptionId":"svc_meat",
@@ -15,5 +15,6 @@
 		"interactionImage":"graphics/backgrounds/svc_food.png",
 		"tags":[],
 		"layers":[STATIONS, TERRAIN_8], # what layer(s) to render in. See CampaignEngineLayers.java for possible values
+		"pluginClass": "tecrys.svc.plugins.MeatEntityPlugin"
 	},
 }
