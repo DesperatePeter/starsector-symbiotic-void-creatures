@@ -6,7 +6,6 @@ import com.fs.starfarer.api.campaign.TextPanelAPI
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel
 import com.fs.starfarer.api.util.Misc
-import com.fs.starfarer.ui.impl.a
 import org.lazywizard.lazylib.FastTrig
 import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils

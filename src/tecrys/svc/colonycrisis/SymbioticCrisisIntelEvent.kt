@@ -4,9 +4,12 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.Script
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
+import com.fs.starfarer.api.campaign.JumpPointAPI
 import com.fs.starfarer.api.campaign.LocationAPI
 import com.fs.starfarer.api.campaign.SectorEntityToken
+import com.fs.starfarer.api.campaign.StarSystemAPI
 import com.fs.starfarer.api.campaign.econ.MarketAPI
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseEventIntel
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseFactorTooltip
 import com.fs.starfarer.api.impl.campaign.intel.events.BaseOneTimeFactor
@@ -17,16 +20,22 @@ import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import com.fs.starfarer.api.util.Misc
 import org.lazywizard.lazylib.ext.minus
+import org.lazywizard.lazylib.ext.plus
+import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.addGlowyParticle
+import org.magiclib.kotlin.findNearestJumpPointThatCouldBeExitedFrom
 import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.listeners.CrisisFleetListener
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.getToDestSystemAnd
 import tecrys.svc.world.fleets.*
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import java.awt.Color
 import java.lang.ref.WeakReference
+import kotlin.math.cos
+import kotlin.math.sin
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
@@ -174,18 +183,32 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     fun solveViaPoison(location: SectorEntityToken){
         poisonLureLocation = location
         val maxDistInLy = 10f
+
         val affectedFleets = crisisFleets.values.mapNotNull { it.get() } +
                 FleetSpawner.getFactionFleets(SVC_FACTION_ID).filter {
                     (it.locationInHyperspace - market.locationInHyperspace).length() < maxDistInLy
                 }
         affectedFleets.forEach { fleet ->
             fleet.clearAssignments()
-            fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, location, 999f) {
-                fleet.containingLocation.addGlowyParticle(
-                    fleet.location, fleet.velocity,
-                    2f * fleet.radius, 1f, 5f, Color.GREEN
-                )
+            fleet.memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
+            val onFinishScript = {
+                fleet.clearAssignments()
+                fleet.addAssignment(FleetAssignment.GO_TO_LOCATION_AND_DESPAWN, location, 999f) {
+                    for (i in 1..10) {
+                        val r = { Math.random().toFloat() }
+                        val loc = location.location + Vector2f(
+                            sin(i.toDouble()).toFloat() * 20f + r() * 40f,
+                            cos(i.toDouble()).toFloat() * 20f + r() * 40f
+                        )
+                        fleet.containingLocation.addGlowyParticle(
+                            loc, location.velocity,
+                            5f * fleet.radius * r(), 1f + 2f * r(), 1f + 5f * r(), Color.GREEN
+                        )
+                    }
+
+                }
             }
+            fleet.getToDestSystemAnd(location.starSystem, onFinishScript)
         }
     }
 

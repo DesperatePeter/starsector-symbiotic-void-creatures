@@ -1,10 +1,13 @@
 package tecrys.svc.utils
 
+import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.CampaignFleetAPI
 import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
+import com.fs.starfarer.api.campaign.JumpPointAPI
 import com.fs.starfarer.api.campaign.OptionPanelAPI
 import com.fs.starfarer.api.campaign.SpecialItemData
+import com.fs.starfarer.api.campaign.StarSystemAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.combat.ShipVariantAPI
@@ -12,10 +15,14 @@ import com.fs.starfarer.api.impl.campaign.DModManager
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.util.Misc
+import com.fs.starfarer.api.util.Misc.findNearestJumpPointThatCouldBeExitedFrom
 import org.lwjgl.input.Keyboard
+import org.magiclib.kotlin.findNearestJumpPointThatCouldBeExitedFrom
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
 import tecrys.svc.world.fleets.FleetManager
+import kotlin.collections.component1
+import kotlin.collections.component2
 import kotlin.math.abs
 
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
@@ -74,6 +81,42 @@ fun CampaignFleetAPI.makeAlwaysHostile(){
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_PATROL_FLEET, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_ALLOW_LONG_PURSUIT, true);
     this.memoryWithoutUpdate.set(MemFlags.MEMORY_KEY_MAKE_HOLD_VS_STRONGER, true);
+}
+
+fun CampaignFleetAPI.getIntoHyperspaceAnd(onFinishScript: () -> Unit){
+    if(isInHyperspace) {
+        Global.getLogger(this.javaClass).error("Tried to go from hyperspace to hyperspace")
+        return
+    }
+    val jp = findNearestJumpPointThatCouldBeExitedFrom() ?: return
+    val jd = jp.destinations.firstOrNull { it.destination.isInHyperspace } ?: return
+    clearAssignments()
+    addAssignment(FleetAssignment.GO_TO_LOCATION, jp, 999f){
+        Global.getSector().doHyperspaceTransition(this, jp, jd)
+        onFinishScript()
+    }
+}
+
+fun CampaignFleetAPI.getToDestSystemAnd (destSystem: StarSystemAPI, onFinishScript: () -> Unit) {
+    if(destSystem == starSystem){
+        onFinishScript()
+        return
+    }
+    if(!isInHyperspace){
+        getIntoHyperspaceAnd { getToDestSystemAnd(destSystem, onFinishScript) }
+    }
+    val (jp, jd)  = Global.getSector().hyperspace.jumpPoints.filterIsInstance<JumpPointAPI>().asSequence().associateWith {
+        it.destinations.firstOrNull { d ->
+            d.destination.starSystem == destSystem
+        }
+    }.filter { (_, v) ->
+        v != null
+    }.map { it.toPair() }.firstOrNull() ?: return
+    clearAssignments()
+    addAssignment(FleetAssignment.GO_TO_LOCATION, jp, 999f){
+        Global.getSector().doHyperspaceTransition(this, jp, jd)
+        onFinishScript()
+    }
 }
 
 fun ShipSystemAPI.isUsable(): Boolean{
