@@ -60,6 +60,15 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
             get()?.reportFleetDefeated(defeatedByPlayer, id)
         }
+
+        fun reInit(): Boolean{
+            val market = get()?.market ?: return false
+            Global.getSector().intelManager.removeIntel(get())
+            Global.getSector().memoryWithoutUpdate[MEM_KEY] = SymbioticCrisisIntelEvent(market)
+            Global.getSector().intelManager.addIntel(get())
+            return true
+        }
+
         fun applyOrRemoveMarketConditions(){
             if(!SymbioticCrisisCause.isCrisisResolved()){
                 Misc.getPlayerMarkets(false).filterNotNull().forEach { market ->
@@ -71,6 +80,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                 }
             }
         }
+
         fun applyOrRemoveVoidlingInfestationToShipsInSystem(system: LocationAPI?){
             system?.fleets?.flatMap { it.fleetData.membersListCopy }?.forEach { member ->
                 if(!SymbioticCrisisCause.isCrisisResolved()) {
