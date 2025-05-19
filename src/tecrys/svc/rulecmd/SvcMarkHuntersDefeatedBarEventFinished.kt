@@ -16,7 +16,7 @@ class SvcMarkHuntersDefeatedBarEventFinished: BaseCommandPlugin() {
         memoryMap: MutableMap<String, MemoryAPI>?
     ): Boolean {
         SvcShouldSpawnHuntersDefeatedBarEvent.hasAlreadyTriggered = true
-        val item = SpecialItemData("industry_bp", "svc_voidling_hatchery")
+        val item = SpecialItemData("svc_attractor", null)
         val fakeCargo = Global.getFactory().createCargo(true)
         fakeCargo.addSpecial(item, 1f)
         val itemName = fakeCargo.stacksCopy[0]?.displayName ?: "Voidling Hatchery Blueprint"
