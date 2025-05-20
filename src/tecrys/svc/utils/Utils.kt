@@ -6,7 +6,6 @@ import com.fs.starfarer.api.campaign.TextPanelAPI
 import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.impl.campaign.intel.MessageIntel
 import com.fs.starfarer.api.util.Misc
-import com.fs.starfarer.ui.impl.a
 import org.lazywizard.lazylib.FastTrig
 import org.lazywizard.lazylib.MathUtils
 import org.lazywizard.lazylib.combat.CombatUtils
@@ -215,4 +214,8 @@ fun getMissilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, faci
     }
 
     return missiles
+}
+
+fun isAnyVoidlingFleetInDistanceHyperspace(lightYears: Float): Boolean {
+    return Global.getSector().hyperspace.fleets.any { (it.faction.id === SVC_FACTION_ID || it.faction.id === MMM_FACTION_ID) && Misc.getDistanceToPlayerLY(it.locationInHyperspace) <= lightYears }
 }

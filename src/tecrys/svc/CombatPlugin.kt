@@ -6,9 +6,7 @@ import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.ViewportAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.mission.FleetSide
-import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.opengl.DrawUtils
-import org.lwjgl.opengl.GL11
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.shipsystems.spooky.GlitchRenderer
@@ -79,7 +77,7 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
             wasFirstSuccessfulAdvanceCall = enemyFaction != null
             if (enemyFaction == Global.getSector().getFaction(SVC_FACTION_ID)) {
                 Global.getSoundPlayer().playCustomMusic(1, 1, "svc_voidling_battle_theme", true)
-                Global.getSector().memoryWithoutUpdate[IS_BATTLE_THEME_PLAYING_MEM_KEY] = true
+                Global.getSector().memoryWithoutUpdate.set(IS_BATTLE_THEME_PLAYING_MEM_KEY, true)
             }
         }
     }
