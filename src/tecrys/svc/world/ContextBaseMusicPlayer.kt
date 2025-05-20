@@ -34,9 +34,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 _music[MusicID.valueOf((key as String).uppercase())] = arr
-            }
-
-            println("done")
+            }`
         }
 
         fun isMusicPlaying(musicID: MusicID): Boolean {
