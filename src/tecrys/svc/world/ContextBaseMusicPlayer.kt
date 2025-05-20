@@ -34,7 +34,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 _music[MusicID.valueOf((key as String).uppercase())] = arr
-            }`
+            }
         }
 
         fun isMusicPlaying(musicID: MusicID): Boolean {
@@ -75,7 +75,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 stopBattleTheme()
 
                 if(Global.getSector().playerFleet.isInHyperspace) {
-                    if (isAnyVoidlingFleetInDistanceHyperspace(10f)){
+                    if (isAnyVoidlingFleetInDistanceHyperspace(100f)){
                         playExplorationTheme()
                     } else {
                         stopExplorationTheme()
@@ -102,12 +102,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                     return
                 }
 
-                if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                    ?.firstOrNull()?.fleetData?.fleet?.faction == Global.getSector().getFaction(MMM_FACTION_ID)){
-                    if (!music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED)) {
-                        playBattleTheme(true)
-                    }
-                }else if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+               if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
                         ?.firstOrNull()?.fleetData?.fleet?.faction == Global.getSector().getFaction(SVC_FACTION_ID)){
                     if (!music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME)) {
                         playBattleTheme()
