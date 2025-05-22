@@ -25,28 +25,21 @@ class ShuntNervousSystem: BaseShipSystemScript() {
                     ship.addListener(ShuntedNervousListener())
                 }
             }
-            ShipSystemStatsScript.State.OUT -> {
-                val ship = stats?.entity as? ShipAPI
-
-                ship?.let {
-                    val listener = ship.getListeners(ShuntedNervousListener::class.java).getOrNull(0) as? ShuntedNervousListener?
-
-                    if(listener == null){
-                        return
-                    }
-
-                    listener?.run {
-                        it.removeListener(this)
-                        listener.applyDelayedDamaged(it)
-                    }
-                    it.alphaMult = 1f
-                }
-            }
             ShipSystemStatsScript.State.ACTIVE -> {
                 val ship = stats?.entity as? ShipAPI
                 ship?.alphaMult = 0.5f
             }
             else -> {}
         }
+    }
+
+    override fun unapply(stats: MutableShipStatsAPI?, id: String?) {
+        val ship = stats?.entity as? ShipAPI ?: return
+        val listener = ship.getListeners(ShuntedNervousListener::class.java).getOrNull(0) as? ShuntedNervousListener ?: return
+        listener.run {
+            ship.removeListener(this)
+            applyDelayedDamaged(ship)
+        }
+        ship.alphaMult = 1f
     }
 }
