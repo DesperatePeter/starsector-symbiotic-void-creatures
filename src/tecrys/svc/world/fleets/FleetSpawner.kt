@@ -2,7 +2,6 @@ package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
-import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import org.apache.log4j.Level
 import tecrys.svc.FLEET_ORIGINAL_STRENGTH_KEY
@@ -11,6 +10,7 @@ class FleetSpawner {
 
     companion object {
         const val SYSTEM_HIDDEN_TAG = "hidden"
+        val SYSTEM_NAME_BLOCKLIST = listOf("Limbo", "Prism") // don't spawn in systems where the name contains any of these words
         fun countFactionFleets(faction: String): Int {
             return getFactionFleets(faction).count()
         }
@@ -21,7 +21,7 @@ class FleetSpawner {
 
         }
 
-        fun getFactionFleetsInSystem(faction: String, system: LocationAPI):  List<CampaignFleetAPI>{
+        fun getFactionFleetsInSystem(faction: String, system: LocationAPI): List<CampaignFleetAPI> {
             return system.fleets.filter { fleet -> fleet.faction.id == faction }
         }
 
@@ -62,14 +62,15 @@ class FleetSpawner {
         }?.filter { loc ->
             !loc.hasTag(Tags.SYSTEM_CUT_OFF_FROM_HYPER) && !loc.hasTag(SYSTEM_HIDDEN_TAG)
                     && loc.planets.none { it.hasTag(SYSTEM_HIDDEN_TAG) || it.hasTag(Tags.SYSTEM_CUT_OFF_FROM_HYPER) }
-        }
-            ?.filter {
-                it.fleets.none { loc -> loc.faction.id == faction }
-            }?.filterNotNull()?.shuffled()?.mapNotNull { loc ->
-                loc.allEntities?.filter {
-                    isValidSpawnableEntity(it)
-                }
-            }?.flatten()?.randomOrNull()
+        }?.filter { loc ->
+            SYSTEM_NAME_BLOCKLIST.none { loc.name.contains(it) }
+        }?.filter {
+            it.fleets.none { loc -> loc.faction.id == faction }
+        }?.filterNotNull()?.shuffled()?.mapNotNull { loc ->
+            loc.allEntities?.filter {
+                isValidSpawnableEntity(it)
+            }
+        }?.flatten()?.randomOrNull()
     }
 
     fun createFactionFleet(
@@ -88,8 +89,8 @@ class FleetSpawner {
         val fleet = Global.getFactory().createEmptyFleet(factionId, n, true)
 
         guaranteedRolesWithQuantity?.forEach { (role, quantity) ->
-            for(i in 0 until quantity){
-                if(faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f){
+            for (i in 0 until quantity) {
+                if (faction.pickShipAndAddToFleet(role, FactionAPI.ShipPickParams(), fleet) <= 0.001f) {
                     Global.getLogger(this.javaClass).log(Level.ERROR, "Fleet pick null")
                 }
             }
