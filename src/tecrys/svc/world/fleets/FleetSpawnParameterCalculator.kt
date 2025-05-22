@@ -26,9 +26,11 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
 
     /**
      * a number roughly in the magnitude of 10~1000
+     * For instance, a regular 12 DP medusa has a strength rating of ~45
+     * So, very roughly, DP * 4 for combat ships and close to 0 for non-combat ships
      */
     private val playerFleetStrength: Float
-        get() = Global.getSector()?.playerFleet?.effectiveStrength ?: 0f
+        get() = min(Global.getSector()?.playerFleet?.effectiveStrength ?: 0f, Global.getSettings().battleSize.toFloat() * 3f)
     private val campaignCyclesElapsed: Float
         get() = Global.getSector()?.clock?.cycle?.minus(CYCLE_ZERO)?.toFloat() ?: 0f
     val spawnPower: Float
