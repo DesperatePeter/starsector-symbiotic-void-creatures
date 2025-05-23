@@ -4,8 +4,10 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseHullMod
 import com.fs.starfarer.api.combat.ShipAIConfig
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import org.lazywizard.lazylib.ext.plus
 import org.magiclib.kotlin.createDefaultShipAI
+import tecrys.svc.hullmods.listeners.InfestationListener
 import tecrys.svc.hullmods.listeners.KillSwitch
 import tecrys.svc.utils.vectorFromAngleDeg
 import java.awt.Color
@@ -26,47 +28,13 @@ class VoidlingInfestation: BaseHullMod() {
         const val CLOUD_DURATION = 2f
     }
 
-    private val alreadyTriggered = mutableSetOf<String>()
-    override fun advanceInCombat(ship: ShipAPI?, amount: Float) {
-        val id = ship?.id ?: return
-        if(id in alreadyTriggered) return
-        if(ship.hullLevel <= TRIGGER_HULL_LEVEL){
-            spawnFighters(ship)
-            alreadyTriggered.add(ship.id)
+    override fun applyEffectsAfterShipCreation(ship: ShipAPI?, id: String?) {
+        ship?.run {
+            addListener(InfestationListener(this))
         }
     }
 
-    private fun spawnFighters(ship: ShipAPI){
-        val fleetMan = Global.getCombatEngine().getFleetManager(ship.originalOwner)
-        val wasSpawnMsgSuppressed = fleetMan.isSuppressDeploymentMessages
-        fleetMan.isSuppressDeploymentMessages = true
-        for(i in 0 until (NUMBER_OF_FIGHTERS[ship.hullSize] ?: 0)){
-            val facing = Math.random().toFloat() * 360f
-            val offset = vectorFromAngleDeg(facing)
-            offset.scale(ship.collisionRadius * 0.75f)
-            val loc = ship.location + offset
-            val fighter = fleetMan.spawnShipOrWing(
-                FIGHTER_ID, loc, facing
-            )
-
-//            fighter.shipAI = fighter.createDefaultShipAI(ShipAIConfig())
-            fighter.resetDefaultAI()
-            Global.getCombatEngine().addPlugin(KillSwitch(fighter, 30f))
-            Global.getCombatEngine().addNebulaParticle(
-                loc, ship.velocity, CLOUD_RADIUS, 2f, 0.5f, 0.8f, CLOUD_DURATION, CLOUD_COLOR
-            )
-
-        }
-        fleetMan.isSuppressDeploymentMessages = wasSpawnMsgSuppressed
-    }
     override fun getDescriptionParam(index: Int, hullSize: ShipAPI.HullSize?): String? {
-        return when(index){
-            0 -> "${(1)}"
-            1 -> "${(2)}"
-            2 -> "${(4)}"
-            3 -> "${(7)}"
-            4 -> "${(11)}"
-            else -> null
-        }
+        return NUMBER_OF_FIGHTERS.values.toList().getOrNull(index)?.toString()
     }
 }
