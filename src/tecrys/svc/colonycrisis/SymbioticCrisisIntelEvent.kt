@@ -50,7 +50,6 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
         const val MEM_KEY_DISABLE_TELEPATHY = "\$SVC_MASTERMIND_NO_TELEPATHY"
         const val MARKET_CONDITION = "svc_voidling_infestation"
-        const val INFESTATION_HULLMOD = "svc_infestation_hm"
         var isBossDefeated by CampaignSettingDelegate(MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN, false)
         val isBossObeyed get() = MastermindInteractionDialog.isSubmission
         val isWhaleSacrifice: Boolean get() = poisonLureLocation != null
@@ -60,6 +59,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
             get()?.reportFleetDefeated(defeatedByPlayer, id)
         }
+        val isInfestationActive get() = isCrisisActive && Global.getSector().playerFleet.containingLocation == get()?.market?.containingLocation
 
         fun reInit(): Boolean{
             val market = get()?.market ?: return false
@@ -77,16 +77,6 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             }else{
                 Misc.getPlayerMarkets(false).filterNotNull().forEach { market ->
                     if(market.hasCondition(MARKET_CONDITION)) market.removeCondition(MARKET_CONDITION)
-                }
-            }
-        }
-
-        fun applyOrRemoveVoidlingInfestationToShipsInSystem(system: LocationAPI?){
-            system?.fleets?.flatMap { it.fleetData.membersListCopy }?.forEach { member ->
-                if(!SymbioticCrisisCause.isCrisisResolved()) {
-                    member.variant.addMod(INFESTATION_HULLMOD)
-                }else{
-                    member.variant.removeMod(INFESTATION_HULLMOD)
                 }
             }
         }
@@ -178,7 +168,6 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         if(timer.intervalElapsed() ) {
             if(currentNumberOfFleets < MAX_NUM_FLEETS) spawnFleetIfNecessary()
             applyOrRemoveMarketConditions()
-            applyOrRemoveVoidlingInfestationToShipsInSystem(market.containingLocation)
         }
         setProgress(fleetsDefeatedByPlayer)
         if(progress >= FLEETS_DEFEATED_UNTIL_SECOND_CLUE){

@@ -27,7 +27,6 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     private var blackoutProgress = 0f
     private var glitchRenderer: GlitchRenderer? = null
 
-
     companion object {
 
         // constants
@@ -51,7 +50,6 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     }
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
-
         // skip when on title screen
         if (Global.getCurrentState() == GameState.TITLE) wasFirstSuccessfulAdvanceCall = true
         shouldPreventPauseFor -= amount
@@ -83,8 +81,6 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
             }
         }
     }
-
-
 
     private fun advanceBlackout(amount: Float) {
         if(Global.getCombatEngine()?.isPaused == true) return
@@ -165,6 +161,4 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         DrawUtils.drawCircle(100f, 100f, 10000f, 10, true)
         postRender()
     }
-
-
 }

@@ -17,9 +17,6 @@ import tecrys.svc.utils.vectorFromAngleDeg
 
 // Note: A DamageTaken listener might be better, but this is tried and tested
 class InfestationListener(private val ship: ShipAPI): DamageTakenModifier {
-    companion object{
-        const val ALREADY_TRIGGERED_MEM_KEY = "svc_infestation_has_triggered"
-    }
     override fun modifyDamageTaken(
         param: Any?,
         target: CombatEntityAPI?,
@@ -30,7 +27,6 @@ class InfestationListener(private val ship: ShipAPI): DamageTakenModifier {
         if(ship.hullLevel < TRIGGER_HULL_LEVEL){
             spawnFighters()
             ship.removeListener(this)
-            ship.setCustomData(ALREADY_TRIGGERED_MEM_KEY, true)
         }
         return null
     }
