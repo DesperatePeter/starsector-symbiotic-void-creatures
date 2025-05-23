@@ -4,16 +4,16 @@ import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.Global
 
 class DelayedMusicPlayer(
-    private val musicId: String?,
     private val fadeIn: Int,
     private val fadeOut: Int,
+    private val musicId: String?,
     private val shouldLoop: Boolean
 ): EveryFrameScript {
 
     companion object{
-        fun playDelayedMusic(musicId: String?, fadeIn: Int, fadeOut: Int, shouldLoop: Boolean){
+        fun playDelayedMusic( fadeIn: Int, fadeOut: Int, musicId: String?, shouldLoop: Boolean){
             Global.getSector().addTransientScript(
-                DelayedMusicPlayer(musicId, fadeIn, fadeOut, shouldLoop)
+                DelayedMusicPlayer(fadeIn, fadeOut,musicId,  shouldLoop)
             )
         }
     }
@@ -28,7 +28,7 @@ class DelayedMusicPlayer(
         if(counter++ >= 2){
             isDone = true
             musicId?.let { m ->
-                Global.getSoundPlayer().playCustomMusic(1, 1, m, shouldLoop)
+                Global.getSoundPlayer().playCustomMusic(fadeIn, fadeOut, m, shouldLoop)
             }
         }
     }
