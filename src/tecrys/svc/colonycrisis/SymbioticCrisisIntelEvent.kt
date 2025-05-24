@@ -35,12 +35,13 @@ import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import java.awt.Color
 import java.lang.ref.WeakReference
 import kotlin.math.cos
+import kotlin.math.min
 import kotlin.math.sin
 
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
     companion object{
-        const val MAX_NUM_FLEETS = 30
+        val MAX_NUM_FLEETS get() = min(10 + Global.getSector().clock.cycle - 206, 30)
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 1000f
@@ -70,7 +71,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         }
 
         fun applyOrRemoveMarketConditions(){
-            if(!SymbioticCrisisCause.isCrisisResolved()){
+            if(isCrisisActive){
                 Misc.getPlayerMarkets(false).filterNotNull().forEach { market ->
                     if(!market.hasCondition(MARKET_CONDITION)) market.addCondition(MARKET_CONDITION)
                 }
@@ -94,7 +95,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         private set
     private val currentNumberOfFleets get() = crisisFleets.size
     private val defeatedFleetIds = mutableSetOf<Long>()
-    private val timer = IntervalUtil(20f, 40f)
+    private val timer = IntervalUtil(5f, 15f)
     private val crisisFleets = mutableMapOf<Long, WeakReference<CampaignFleetAPI>>()
 
     fun reportFleetDefeated(defeatedByPlayer: Boolean, id: Long){
@@ -164,7 +165,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             SymbioticCrisisCause.resolveCrisis()
             return
         }
-        timer.advance(amount)
+        timer.advance(Global.getSector().clock.convertToDays(amount))
         if(timer.intervalElapsed() ) {
             if(currentNumberOfFleets < MAX_NUM_FLEETS) spawnFleetIfNecessary()
             applyOrRemoveMarketConditions()
@@ -241,6 +242,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
     override fun reportRemovedIntel() {
         Global.getSector().memoryWithoutUpdate.unset(MEM_KEY)
+        applyOrRemoveMarketConditions()
+
     }
 
     override fun getIntelTags(map: SectorMapAPI?): MutableSet<String> {
