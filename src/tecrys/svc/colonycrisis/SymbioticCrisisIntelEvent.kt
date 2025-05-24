@@ -94,6 +94,9 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     var fleetsDefeatedByPlayer = 0
         private set
     private val currentNumberOfFleets get() = crisisFleets.size
+    private fun numberOfCrisisFleetsByFaction(factionId: String): Int{
+        return crisisFleets.values.mapNotNull { it.get() }.count { it.faction.id == factionId }
+    }
     private val defeatedFleetIds = mutableSetOf<Long>()
     private val timer = IntervalUtil(5f, 15f)
     private val crisisFleets = mutableMapOf<Long, WeakReference<CampaignFleetAPI>>()
@@ -229,7 +232,13 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
             val id = random.nextLong()
             fleet.addEventListener(CrisisFleetListener(id)) // will call reportFleetDefeated to modify number of fleet values
             // emulate two sub-factions fighting against each other
-            if(Math.random() > 0.5f) { fleet.setFaction(MMM_FACTION_ID)
+            val factionDiff = numberOfCrisisFleetsByFaction(SVC_FACTION_ID) - numberOfCrisisFleetsByFaction(MMM_FACTION_ID)
+            val shouldConvertToMMM = when {
+                factionDiff == 0 -> Math.random() > 0.5f
+                factionDiff < 0 -> false
+                else -> true
+            }
+            if(shouldConvertToMMM) { fleet.setFaction(MMM_FACTION_ID)
                 Misc.makeHostileToFaction(fleet, SVC_FACTION_ID, 999999f)
                 fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_NO_REP_IMPACT] = true
 //                fleet.memoryWithoutUpdate[com.fs.starfarer.api.impl.campaign.ids.MemFlags.MEMORY_KEY_MAKE_HOSTILE] = true
