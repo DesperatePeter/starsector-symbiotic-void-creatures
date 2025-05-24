@@ -9,7 +9,7 @@ import tecrys.svc.hullmods.listeners.InfestationListener
 
 class InfestationCombatPlugin: BaseEveryFrameCombatPlugin(){
     companion object{
-        val isActive get() = SymbioticCrisisIntelEvent.Companion.isInfestationActive
+        val isActive get() = SymbioticCrisisIntelEvent.Companion.isInfestationActive && !Global.getCombatEngine().isSimulation
         const val ALREADY_HAS_LISTENER_MEM_KEY = "svc_crisis_infestation_already_listener"
     }
     private val interval = IntervalUtil(10f, 10f)
