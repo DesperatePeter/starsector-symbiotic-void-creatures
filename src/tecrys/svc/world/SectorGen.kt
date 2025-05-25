@@ -20,7 +20,7 @@ class SectorGen {
                 val svc = getFaction(SVC_FACTION_ID)
                 val vwl = getFaction(VWL_FACTION_ID)
                 allFactions.filterNotNull().filterNot {
-                    SvcBasePlugin.ignoredFactions.contains(it.id)
+                    ignoredFactions.contains(it.id)
                 }.forEach {
                     svc.setRelationship(it.id, RepLevel.VENGEFUL)
                     mmm.setRelationship(it.id, RepLevel.VENGEFUL)

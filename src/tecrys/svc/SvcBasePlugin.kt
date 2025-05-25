@@ -39,8 +39,6 @@ class SvcBasePlugin : BaseModPlugin() {
 
     companion object{
         const val WORMS_LARGE_ID: String = "svc_worm_shot"
-            val ignoredFactions = MagicSettings.getList(MAGIC_SETTINGS_MOD_KEY, MAGIC_SETTINGS_RELATIONS_KEY) +
-                    listOf(SVC_FACTION_ID)
         var relationInitIsDone: Boolean by CampaignSettingDelegate("$${SVC_MOD_ID}isRelationshipIniDone", false)
     }
 
