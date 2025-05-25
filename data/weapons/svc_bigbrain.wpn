@@ -4,6 +4,7 @@
   "projectileSpecId": "svc_bigbrain_shot",
   "type": "ENERGY",
   "size": "LARGE",
+  "everyFrameEffect":"tecrys.svc.weapons.scripts.SinGunEffectPlayer",
   # "onFireEffect":"tecrys.svc.weapons.SinGunOnFireEffect",
   "turretSprite": "graphics/weapons/svc_bigbrain_gun_turret.png",
   "turretGlowSprite": "graphics/weapons/svc_bigbrain_gun_turret_glow.png",

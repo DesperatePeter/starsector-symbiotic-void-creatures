@@ -23,8 +23,5 @@ class SinGunOnFireEffect: OnFireEffectPlugin {
             engine.addPlugin(looseProjectilesByWeapon[weapon]?.let { SinGunProjectileScript(it, weapon.currAngle) })
             looseProjectilesByWeapon[weapon] = mutableListOf()
         }
-        if(!SinGunEffectPlayer.isSoundPlayerAlreadyPresent(weapon)){
-            engine.addPlugin(SinGunEffectPlayer(weapon))
-        }
     }
 }
