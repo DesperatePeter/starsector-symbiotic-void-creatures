@@ -28,7 +28,7 @@ abstract class NotificationDialogBase(
     }
     override fun init(dialog: InteractionDialogAPI?) {
         music?.let { m ->
-            DelayedMusicPlayer.playDelayedMusic(m, 1, 1, true)
+            DelayedMusicPlayer.playDelayedMusic( 1, 1, m, true)
         }
         this.dialog = dialog
         spriteName?.let {
@@ -39,7 +39,6 @@ abstract class NotificationDialogBase(
         dialog?.textPanel?.addParagraph(title)
         dialog?.textPanel?.addParagraph(text)
         dialog?.optionPanel?.let { addOptions(it) }
-
     }
 
     abstract fun addOptions(options: OptionPanelAPI)

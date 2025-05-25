@@ -16,7 +16,6 @@ class HunterGhostCreator : BaseSensorGhostCreator() {
         val pf = Global.getSector().playerFleet ?: return null
         val ghosts = mutableListOf(HunterGhost(manager, pf) as SensorGhost)
         return if (ghosts.firstOrNull()?.isCreationFailed == false){
-            DelayedMusicPlayer.playDelayedMusic("svc_voidling_exploration_theme", 2, 1, false)
             ghosts
         } else null
     }
