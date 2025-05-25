@@ -6,12 +6,14 @@ import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
 import com.fs.starfarer.api.campaign.JumpPointAPI
 import com.fs.starfarer.api.campaign.OptionPanelAPI
+import com.fs.starfarer.api.campaign.PlanetAPI
 import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.campaign.StarSystemAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.impl.campaign.DModManager
+import com.fs.starfarer.api.impl.campaign.ids.Conditions
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.util.Misc
@@ -28,6 +30,20 @@ import kotlin.math.abs
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
 const val MAX_GOTO_ASSIGNMENT_DURATION = 1000f
 const val MAX_ATTACK_DURATION = 100f
+
+fun PlanetAPI.hasVolatiles(): Boolean{
+    return hasCondition(Conditions.VOLATILES_TRACE) ||
+           hasCondition(Conditions.VOLATILES_DIFFUSE) ||
+           hasCondition(Conditions.VOLATILES_PLENTIFUL) ||
+           hasCondition(Conditions.VOLATILES_ABUNDANT)
+}
+
+fun PlanetAPI.hasOrganics(): Boolean{
+    return hasCondition(Conditions.ORGANICS_TRACE) ||
+            hasCondition(Conditions.ORGANICS_COMMON) ||
+            hasCondition(Conditions.ORGANICS_ABUNDANT) ||
+            hasCondition(Conditions.ORGANICS_PLENTIFUL)
+}
 
 fun OptionPanelAPI.addLeaveOption(){
     addOption("Leave", "Leave")

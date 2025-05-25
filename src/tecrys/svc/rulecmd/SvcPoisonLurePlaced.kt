@@ -8,6 +8,7 @@ import com.fs.starfarer.api.impl.campaign.ids.Factions
 import com.fs.starfarer.api.impl.campaign.rulecmd.BaseCommandPlugin
 import com.fs.starfarer.api.util.Misc
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
+import tecrys.svc.utils.giveSpecialItemToPlayer
 import tecrys.svc.utils.showNotificationOnCampaignUi
 
 class SvcPoisonLurePlaced: BaseCommandPlugin() {
@@ -27,6 +28,7 @@ class SvcPoisonLurePlaced: BaseCommandPlugin() {
                     " appear to be leaving the system, heading towards the $system"
             val notificationSprite = Global.getSettings().getSpriteName("icons", "svc_meat_icon")
             showNotificationOnCampaignUi(notificationText, notificationSprite)
+            giveSpecialItemToPlayer("svc_enriched_fungus", null, dialog.textPanel)
             return true
         }
         return false
