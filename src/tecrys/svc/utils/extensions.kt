@@ -23,6 +23,7 @@ import org.magiclib.kotlin.findNearestJumpPointThatCouldBeExitedFrom
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 import kotlin.collections.component1
 import kotlin.collections.component2
 import kotlin.math.abs
@@ -61,6 +62,8 @@ fun CampaignFleetAPI.orbitClosestPlanet() {
         MAX_ORBIT_ASSIGNMENT_DURATION
     )
 }
+
+fun CampaignFleetAPI.isMastermindFleet(): Boolean = memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)
 
 fun CampaignFleetAPI.markAsHunter(id: String){
     memoryWithoutUpdate[FleetManager.HUNTER_FLEET_ID_MEM_KEY] = id
