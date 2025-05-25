@@ -4,6 +4,7 @@ import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.GameState
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.mission.FleetSide
+import com.fs.starfarer.api.util.Misc
 import org.json.JSONObject
 import org.magiclib.kotlin.forEach
 import tecrys.svc.MMM_FACTION_ID
@@ -42,6 +43,9 @@ class ContextBaseMusicPlayer: EveryFrameScript {
         }
 
     }
+
+    val DISTANCE_TO_TRIGGER_MUSIC_SYSTEM = 2000f
+    val DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE = 1.5f
 
     private val music: Music = try {
         Music(Global.getSettings().loadJSON("data/config/sounds.json", "symbiotic_void_creatures").getJSONObject("music"));
@@ -82,7 +86,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 if(isInHyperspace) {
-                    if (isAnyVoidlingFleetInDistanceHyperspace(1.5f)){
+                    if (isAnyVoidlingFleetInDistanceHyperspace(DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE)){
                         playExplorationTheme()
                     } else {
                         stopExplorationTheme()
@@ -91,7 +95,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 if(FleetSpawner.getFactionFleets(SVC_FACTION_ID).any {
-                    it.containingLocation == Global.getSector().playerFleet.containingLocation
+                    it.containingLocation == Global.getSector().playerFleet.containingLocation && Misc.getDistance(it, Global.getSector().playerFleet) <= DISTANCE_TO_TRIGGER_MUSIC_SYSTEM
                 }){
                     playExplorationTheme()
                 } else if(music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME)){
@@ -105,15 +109,19 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                     return
                 }
 
-                if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                        ?.firstOrNull()?.fleetData?.fleet?.memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] == true){
+                val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+                    ?.firstOrNull()?.fleetData?.fleet
+
+                if (fleet == null) {
+                    return
+                }
+
+                if (fleet.memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] == true){
                     playBattleTheme(true)
-                } else if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                        ?.firstOrNull()?.fleetData?.fleet?.faction == Global.getSector().getFaction(SVC_FACTION_ID)){
-                        playBattleTheme()
-                } else if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                       ?.firstOrNull()?.fleetData?.fleet?.faction == Global.getSector().getFaction(MMM_FACTION_ID)) {
-                        playBattleTheme(false)
+                } else if (fleet.faction == Global.getSector().getFaction(SVC_FACTION_ID)){
+                    playBattleTheme()
+                } else if (fleet.faction == Global.getSector().getFaction(MMM_FACTION_ID)) {
+                    playBattleTheme(false)
                 }else {
                         stopBattleTheme()
                 }
