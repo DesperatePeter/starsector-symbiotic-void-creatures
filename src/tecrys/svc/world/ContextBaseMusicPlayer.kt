@@ -50,40 +50,43 @@ class ContextBaseMusicPlayer: EveryFrameScript {
         throw Exception("Failed to load music files for Symbiotic Void Creatures")
     }
 
-    var lastCheckTime = -10f;
     var lastCheckState: GameState = GameState.TITLE
+    var isInHyperspace = false
+    var timer = 0f;
 
     override fun isDone(): Boolean = false
 
     override fun runWhilePaused(): Boolean = false
 
     override fun advance(amount: Float) {
+        timer += amount
+
         if (Global.getCurrentState() == GameState.TITLE) {
             return
         }
 
-        val currentTime = Global.getCombatEngine().getTotalElapsedTime(true)
         val currentState = Global.getCurrentState()
 
-        if (lastCheckState != currentState) {
-            lastCheckTime = currentTime - 10f
+        if (lastCheckState != currentState || Global.getSector().playerFleet.isInHyperspace != isInHyperspace) {
             lastCheckState = currentState
+            isInHyperspace = Global.getSector().playerFleet.isInHyperspace
+            timer = 10f // set it to a high number to trigger the checks below
         }
 
         when(currentState){
             GameState.CAMPAIGN -> {
                 stopBattleTheme()
 
-                if(Global.getSector().playerFleet.isInHyperspace) {
+                if (music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME) || 5f > timer){
+                    return
+                }
+
+                if(isInHyperspace) {
                     if (isAnyVoidlingFleetInDistanceHyperspace(100f)){
                         playExplorationTheme()
                     } else {
                         stopExplorationTheme()
                     }
-                    return
-                }
-
-                if (music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME) && lastCheckTime + 5f > currentTime){
                     return
                 }
 
@@ -95,10 +98,10 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                     stopExplorationTheme()
                 }
 
-                lastCheckTime = currentTime
+                timer = 0f
             }
             GameState.COMBAT -> {
-                if (lastCheckTime + 5f > currentTime){
+                if (5f > timer){
                     return
                 }
 
@@ -111,7 +114,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                     stopBattleTheme()
                 }
 
-                lastCheckTime = currentTime
+                timer = 0f
             }
             else -> return
         }
@@ -119,7 +122,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
 
     private fun playExplorationTheme(){
         if (!music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME)){
-            DelayedMusicPlayer.playDelayedMusic(1, 1, MusicID.SVC_VOIDLING_EXPLORATION_THEME.toMusicPlayerFormat(), false)
+            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_EXPLORATION_THEME.toMusicPlayerFormat(), false)
         }
     }
 
@@ -138,10 +141,10 @@ class ContextBaseMusicPlayer: EveryFrameScript {
     private fun playBattleTheme(glitched: Boolean = false){
         if(glitched){
             if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED)) return
-            DelayedMusicPlayer.playDelayedMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED.toMusicPlayerFormat(), true)
+            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED.toMusicPlayerFormat(), true)
         } else {
             if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME)) return
-            DelayedMusicPlayer.playDelayedMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME.toMusicPlayerFormat(), true)
+            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME.toMusicPlayerFormat(), true)
         }
     }
 }
