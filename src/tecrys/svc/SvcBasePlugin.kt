@@ -4,7 +4,6 @@ import com.fs.starfarer.api.BaseModPlugin
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
 import com.fs.starfarer.api.campaign.CampaignPlugin
-import com.fs.starfarer.api.campaign.RepLevel
 import com.fs.starfarer.api.combat.MissileAIPlugin
 import com.fs.starfarer.api.combat.MissileAPI
 import com.fs.starfarer.api.combat.ShipAPI
@@ -24,13 +23,10 @@ import tecrys.svc.utils.unlockVoidlingRecovery
 import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.ContextBaseMusicPlayer
 import tecrys.svc.world.SectorGen
-import tecrys.svc.world.SectorGen.Companion.RelationIsDone
 import tecrys.svc.world.fleets.FleetManager
-import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import tecrys.svc.world.ghosts.HunterGhostCreator
 import tecrys.svc.world.notifications.NotificationShower
 import kotlin.collections.plus
-
 
 /**
  * A Kotlin version of ExampleModPlugin.java.
