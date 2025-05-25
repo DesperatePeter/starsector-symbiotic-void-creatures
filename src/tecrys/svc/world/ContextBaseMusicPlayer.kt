@@ -8,9 +8,9 @@ import org.json.JSONObject
 import org.magiclib.kotlin.forEach
 import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_FACTION_ID
-import tecrys.svc.utils.DelayedMusicPlayer
 import tecrys.svc.utils.isAnyVoidlingFleetInDistanceHyperspace
 import tecrys.svc.world.fleets.FleetSpawner
+import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 
 class ContextBaseMusicPlayer: EveryFrameScript {
     enum class MusicID(val id: String) {
@@ -82,7 +82,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 if(isInHyperspace) {
-                    if (isAnyVoidlingFleetInDistanceHyperspace(100f)){
+                    if (isAnyVoidlingFleetInDistanceHyperspace(1.5f)){
                         playExplorationTheme()
                     } else {
                         stopExplorationTheme()
@@ -105,13 +105,17 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                     return
                 }
 
-               if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+                if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+                        ?.firstOrNull()?.fleetData?.fleet?.memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] == true){
+                    playBattleTheme(true)
+                } else if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
                         ?.firstOrNull()?.fleetData?.fleet?.faction == Global.getSector().getFaction(SVC_FACTION_ID)){
-                    if (!music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME)) {
                         playBattleTheme()
-                    }
-                } else {
-                    stopBattleTheme()
+                } else if (Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+                       ?.firstOrNull()?.fleetData?.fleet?.faction == Global.getSector().getFaction(MMM_FACTION_ID)) {
+                        playBattleTheme(false)
+                }else {
+                        stopBattleTheme()
                 }
 
                 timer = 0f
