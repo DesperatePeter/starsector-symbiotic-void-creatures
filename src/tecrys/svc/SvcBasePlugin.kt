@@ -39,7 +39,7 @@ class SvcBasePlugin : BaseModPlugin() {
 
     companion object{
         const val WORMS_LARGE_ID: String = "svc_worm_shot"
-        var relationInitIsDone: Boolean by CampaignSettingDelegate("$${SVC_MOD_ID}isRelationshipIniDone", false)
+        var relationInitIsDone: Boolean by CampaignSettingDelegate("$${SVC_MOD_ID}isRelationshipInitDone", false)
     }
 
 
