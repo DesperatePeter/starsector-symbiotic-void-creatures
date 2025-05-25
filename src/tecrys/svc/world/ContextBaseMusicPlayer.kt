@@ -60,7 +60,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
 
     override fun isDone(): Boolean = false
 
-    override fun runWhilePaused(): Boolean = false
+    override fun runWhilePaused(): Boolean = true
 
     override fun advance(amount: Float) {
         timer += amount
@@ -81,7 +81,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
             GameState.CAMPAIGN -> {
                 stopBattleTheme()
 
-                if (music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME) || 5f > timer){
+                if (5f > timer){
                     return
                 }
 
