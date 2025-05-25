@@ -19,6 +19,7 @@ import tecrys.svc.plugins.substanceabuse.addCocktailBreweryToRelevantMarkets
 import tecrys.svc.plugins.substanceabuse.disableSubstanceAbuse
 import tecrys.svc.plugins.substanceabuse.giveCocktailToPirates
 import tecrys.svc.plugins.substanceabuse.loadSubstanceAbuse
+import tecrys.svc.utils.CampaignSettingDelegate
 import tecrys.svc.utils.unlockVoidlingRecovery
 import tecrys.svc.weapons.scripts.pWormAI
 import tecrys.svc.world.ContextBaseMusicPlayer
@@ -38,27 +39,23 @@ class SvcBasePlugin : BaseModPlugin() {
 
     companion object{
         const val WORMS_LARGE_ID: String = "svc_worm_shot"
-            private const val RELATIONSHIP_TO_SET = -0.8f
             val ignoredFactions = MagicSettings.getList(MAGIC_SETTINGS_MOD_KEY, MAGIC_SETTINGS_RELATIONS_KEY) +
                     listOf(SVC_FACTION_ID)
-
+        var relationInitIsDone: Boolean by CampaignSettingDelegate("$${SVC_MOD_ID}isRelationshipIniDone", false)
     }
 
 
     private fun initSVC() {
         try {
             Global.getSettings().scriptClassLoader.loadClass("data.scripts.world.ExerelinGen")
-
-        } catch (ex: ClassNotFoundException) {
-            SectorGen().generate(Global.getSector())
+        } catch (_: ClassNotFoundException) {
+            SectorGen().initializeRelationships()
         }
         if(isSubstanceAbuseEnabled()){
             addCocktailBreweryToRelevantMarkets()
             giveCocktailToPirates()
         }
     }
-
-
 
     override fun onGameLoad(newGame: Boolean) {
         if(SensorGhostManager.CREATORS.none { it.javaClass == HunterGhostCreator::class.java }){
@@ -73,36 +70,11 @@ class SvcBasePlugin : BaseModPlugin() {
         }
         Global.getSector().listenerManager.addListener(SvcCargoListener)
         unlockVoidlingRecovery()
-        if(newGame){
+        if(!relationInitIsDone){
             initSVC()
+            relationInitIsDone = true
         }
         SymbioticCrisisCause.initializeEvent()
-
-
-            if (Global.getSector().getStarSystem("Viuoarg") == null) { //the entire purpose of this single-star system is to check if
-                initSVC()                                             //faction relations have been set up properly
-            }
-//        if ((!MastermindInteractionDialog.isSubmission
-//            || (Global.getSector()?.getFaction(SVC_FACTION_ID)?.relToPlayer?.isAtWorst(RepLevel.FRIENDLY) == false))
-//            && !RelationIsDone) {
-//            Global.getSector()?.run {
-//                val svc = getFaction(SVC_FACTION_ID)
-//                allFactions.filterNotNull().filterNot {
-//                    ignoredFactions.contains(it.id)
-//                }.forEach {
-//                    svc.setRelationship(it.id, RepLevel.VENGEFUL)
-////                    svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
-//                }
-//                svc.setRelationship(svc.id, RepLevel.VENGEFUL)
-//                val vwl = getFaction(VWL_FACTION_ID)
-//                vwl.setRelationship(svc.id, RepLevel.VENGEFUL)
-////                vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
-//                vwl.setRelationship("player", RepLevel.FRIENDLY)
-//                val mmm = getFaction(MMM_FACTION_ID)
-//                mmm.setRelationship("player", RepLevel.VENGEFUL)
-//                RelationIsDone = true
-//            }
-//        }
     }
 
     override fun onApplicationLoad() {
