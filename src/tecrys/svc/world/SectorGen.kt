@@ -32,11 +32,13 @@ class SectorGen : SectorGeneratorPlugin {
             && !RelationIsDone
         ) {
             Global.getSector()?.run {
+                val mmm = getFaction(MMM_FACTION_ID)
                 val svc = getFaction(SVC_FACTION_ID)
                 allFactions.filterNotNull().filterNot {
                     SvcBasePlugin.ignoredFactions.contains(it.id)
                 }.forEach {
                     svc.setRelationship(it.id, RepLevel.VENGEFUL)
+                    mmm.setRelationship(it.id, RepLevel.VENGEFUL)
 //                    svc.setRelationship(it.id, RELATIONSHIP_TO_SET)
                 }
                 svc.setRelationship(svc.id, RepLevel.VENGEFUL)
@@ -44,7 +46,6 @@ class SectorGen : SectorGeneratorPlugin {
                 vwl.setRelationship(svc.id, RepLevel.VENGEFUL)
 //                vwl.setRelationship(svc.id, RELATIONSHIP_TO_SET)
                 vwl.setRelationship("player", RepLevel.FRIENDLY)
-                val mmm = getFaction(MMM_FACTION_ID)
                 mmm.setRelationship("player", RepLevel.VENGEFUL)
                 RelationIsDone = true
             }
