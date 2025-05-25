@@ -24,9 +24,8 @@
 	"showInIntelTab":false,
 	
 	"shipNameSources":{
-		"BEASTS":1,
-		"ABRAHAMIC":1,
-		"AZTEC":1,
+		"VOIDLINGS":1,
+
 	},
 	"names":{
 		"BEASTS":1,
