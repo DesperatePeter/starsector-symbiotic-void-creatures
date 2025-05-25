@@ -3,7 +3,6 @@ package tecrys.svc.weapons.scripts
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.DamagingProjectileAPI
-import com.fs.starfarer.api.combat.EmpArcEntityAPI
 import com.fs.starfarer.api.combat.EmpArcEntityAPI.EmpArcParams
 import com.fs.starfarer.api.combat.WeaponAPI
 import com.fs.starfarer.api.input.InputEventAPI
@@ -14,9 +13,9 @@ import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import tecrys.svc.utils.randomlyVaried
 import tecrys.svc.utils.times
-import tecrys.svc.weapons.scripts.SinGunSoundPlayer.Companion.PITCH
-import tecrys.svc.weapons.scripts.SinGunSoundPlayer.Companion.SOUND_ID
-import tecrys.svc.weapons.scripts.SinGunSoundPlayer.Companion.VOLUME
+import tecrys.svc.weapons.scripts.SinGunEffectPlayer.Companion.PITCH
+import tecrys.svc.weapons.scripts.SinGunEffectPlayer.Companion.SOUND_ID
+import tecrys.svc.weapons.scripts.SinGunEffectPlayer.Companion.VOLUME
 import java.awt.Color
 
 
@@ -33,11 +32,27 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         const val SPAWN_VARIANT1_ARCS = false
         const val SPAWN_VARIANT2_ARCS = false
         const val SPAWN_VARIANT3_ARCS = true
-        private var ARC_COLOR: Color = Color(255, 4, 203, 180)
-        private var ARC_GLOW_COLOR: Color = Color(104, 242, 255, 155)
-        private val colorVariation: Float = 500f
-        protected val color = ARC_COLOR.randomlyVaried(colorVariation / 2f)
+        val ARC_COLOR: Color = Color(255, 4, 203, 180)
+        val ARC_GLOW_COLOR: Color = Color(104, 242, 255, 155)
+        const val colorVariation: Float = 500f
+        val color = ARC_COLOR.randomlyVaried(colorVariation / 2f)
         private val shotInterval = IntervalUtil(1f, 1.6f)
+
+        fun createEmpParams(): EmpArcParams {
+            val params = EmpArcParams()
+            params.fadeOutDist = 1f
+            params.glowAlphaMult = 0f
+            //params.glowColorOverride = Color(0, 0, 0, 0)
+            params.maxZigZagMult = 2f
+            params.segmentLengthMult = 0.1f
+            //params.flickerRateMult = 3f
+            params.flickerRateMult = 2f
+            params.minFadeOutMult = 100f
+            params.movementDurOverride = -1f
+            params.movementDurMax = 0.1f
+            params.movementDurMin = 0f
+            return params
+        }
 
         fun computeDamageMult(distance: Float): Float{
             return (2f - distance/ DIST_SCALE_CONST).coerceIn(0.5f, 2f)
@@ -195,28 +210,12 @@ class SinGunProjectileScript(projs: List<DamagingProjectileAPI>, weaponAngle: Fl
         val thickness = EMP_ARC_THICKNESS_MULT
         val params = createEmpParams()
         if((projectile.location - projectile.weapon.location).length() > 150f) return
-        Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile, projectile.weapon.location, projectile.weapon.ship,
+        Global.getCombatEngine()?.spawnEmpArcVisual(projectile.location, projectile,
+            projectile.weapon.location, projectile.weapon.ship,
             thickness, ARC_GLOW_COLOR, ARC_COLOR,  params) //?.setFadedOutAtStart(true)
 
 
     }
-
-    private fun createEmpParams(): EmpArcParams {
-        val params = EmpArcParams()
-        params.fadeOutDist = 1f
-        params.glowAlphaMult = 0f
-        //params.glowColorOverride = Color(0, 0, 0, 0)
-        params.maxZigZagMult = 2f
-        params.segmentLengthMult = 0.1f
-        //params.flickerRateMult = 3f
-        params.flickerRateMult = 2f
-        params.minFadeOutMult = 100f
-        params.movementDurOverride = -1f
-        params.movementDurMax = 0.1f
-        params.movementDurMin = 0f
-        return params
-    }
-
 
     private fun modifyProjectileDamage(projectilePair: Pair<DamagingProjectileAPI, DamagingProjectileAPI>){
         val dist = (projectilePair.first.location - projectilePair.second.location).length()

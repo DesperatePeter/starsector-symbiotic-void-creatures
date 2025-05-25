@@ -18,10 +18,14 @@ import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.util.Misc
 import com.fs.starfarer.api.util.Misc.findNearestJumpPointThatCouldBeExitedFrom
+import org.lazywizard.lazylib.ext.minus
+import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.input.Keyboard
+import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.findNearestJumpPointThatCouldBeExitedFrom
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
+import tecrys.svc.utils.times
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 import kotlin.collections.component1
@@ -61,6 +65,14 @@ fun CampaignFleetAPI.orbitClosestPlanet() {
         this.findNearestPlanetTo(requireGasGiant = false, allowStars = false),
         MAX_ORBIT_ASSIGNMENT_DURATION
     )
+}
+
+fun ShipAPI.getRandomPointOnShipOutline(): Vector2f{
+    val bounds = exactBounds ?: return Vector2f()
+    bounds.update(location, facing)
+    bounds.segments.random().let { s ->
+        return s.p1 + Math.random().toFloat() * (s.p2 - s.p1)
+    }
 }
 
 fun CampaignFleetAPI.isMastermindFleet(): Boolean = memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)
