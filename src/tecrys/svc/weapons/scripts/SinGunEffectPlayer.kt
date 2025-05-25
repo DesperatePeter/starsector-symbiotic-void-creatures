@@ -19,10 +19,10 @@ class SinGunEffectPlayer() : EveryFrameWeaponEffectPlugin {
     companion object {
         const val SOUND_ID = "svc_emp"
         const val PITCH = 1f
-        const val VOLUME = 0.5f
+        const val VOLUME = 0.7f
     }
 
-    private val chargeUpInterval = IntervalUtil(0.01f, 0.05f)
+    private val chargeUpInterval = IntervalUtil(0.01f, 0.03f)
 
     fun spawnChargeUpArc(weapon: WeaponAPI){
         Global.getCombatEngine().spawnEmpArcVisual(weapon.location, weapon.ship,
@@ -40,7 +40,7 @@ class SinGunEffectPlayer() : EveryFrameWeaponEffectPlugin {
     ) {
         if (Global.getCombatEngine().isPaused) return
         // charging up, not down
-        if(weapon.cooldownRemaining < 0.01f && weapon.chargeLevel > 0.01f && weapon.chargeLevel < 0.8f){
+        if(weapon.cooldownRemaining < 0.01f && weapon.chargeLevel > 0.01f && weapon.chargeLevel <= 0.99f){
             chargeUpInterval.advance(amount)
             if(chargeUpInterval.intervalElapsed()) spawnChargeUpArc(weapon)
         }
