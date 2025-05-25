@@ -193,9 +193,9 @@
 		{"file": "sounds/svc_emp1.ogg", "pitch": 1.2, "volume":  0.5},
 	],
 		"svc_chargeup" : [
-		{"file": "sounds/svc_chargeup.ogg", "pitch": 1, "volume":  1.2}
+		{"file": "sounds/svc_chargeup.ogg", "pitch": 1, "volume":  1.4}
 	],
 			"svc_beam" : [
-		{"file": "sounds/svc_beam.ogg", "pitch": 0.9, "volume":  0.7}
+		{"file": "sounds/svc_beam.ogg", "pitch": 0.9, "volume":  0.9}
 	],
 }
