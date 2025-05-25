@@ -149,7 +149,11 @@ class FleetManager : EveryFrameScript {
 
     fun spawnMastermindFleet(): CampaignFleetAPI? {
         val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(MMM_FACTION_ID) }
-        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
+        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: run {
+            showNotificationOnCampaignUi("INTERNAL ERROR: Failed to spawn crisis boss fleet. This means the SVC crisis is broken.",
+                Global.getSettings().getSpriteName("intel", "hunter_intel"))
+            return null
+        }
         // val loc = Global.getSector().playerFleet.getNearbyStarSystem().pickOuterEntityToSpawnNear()
         // val loc = Global.getSector().playerFleet.getNearestStarSystem().jumpPoints.get(1)
         val params = FleetSpawnParameterCalculator(svcSettings)
