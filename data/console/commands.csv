@@ -6,3 +6,4 @@ svc_roll_for_hunter_fleet,tecrys.svc.console.TrySpawnHunter,"campaign",svc_roll_
 svc_reset_memory_state,tecrys.svc.console.ResetCommand,"campaign",svc_reset_memory_state,"Reset the state of most memory flags (quests etc.). Does not reset magic bounties"
 svc_roll_for_whales,tecrys.svc.console.SpawnWhales,"campaign",svc_roll_for_whales,"Roll to roll for spawning a whale fleet."
 svc_start_mastermind_encounter,tecrys.svc.console.StartMastermindEncounter,"campaign",svc_start_mastermind_encounter,"Start the colony crisis boss encounter. Only meant for testing, might break stuff!"
+svc_reinit_crisis,tecrys.svc.console.ReinitCrisis,"campaign",svc_reinit_crisis,"For troubleshooting only."

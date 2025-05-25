@@ -25,7 +25,7 @@ class ProtectedWhalesDialog(private val whales: CampaignFleetAPI?) : Notificatio
         const val SLAUGHTER_OIL_PER_DP = 1f
         fun slaughterWhales(whales: CampaignFleetAPI?){
             val oilQuantity = ((whales?.fleetData?.fleetPointsUsed ?: 0f) * SLAUGHTER_OIL_PER_DP).toInt()
-            val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, WHALE_OIL_ITEM_ID)
+            val oilItem = SpecialItemData(WHALE_OIL_ITEM_ID, null)
             Global.getSector().playerFleet.cargo.addItems(CargoAPI.CargoItemType.SPECIAL, oilItem, oilQuantity.toFloat())
             Global.getSector().campaignUI?.addMessage("Received $oilQuantity Stjarwhal-oil! The Stjarwhales are upset.")
             internalWhaleReputation -= oilQuantity

@@ -4,7 +4,8 @@
 		#"ProtectionTracker":"data.scripts.plugins.ProtectionTracker",
 		"BloodEffect":"tecrys.svc.plugins.BloodEffect",
 		"SvcCombatPlugin":"tecrys.svc.CombatPlugin",
-		"tentacle_render":"tecrys.svc.plugins.tentacle_render",		
+		"tentacle_render":"tecrys.svc.plugins.tentacle_render",
+		"SvcInfestationPlugin":"tecrys.svc.plugins.InfestationCombatPlugin",
 		 #"svc_dash": "tecrys.svc.plugins.QuickStrafeSystemActivatorPlugin",
 		 #"svcGuidedTentacle": "tecrys.svc.plugins.svcGuidedProjectile",
 		 #"svc_tentacles": "tecrys.svc.plugins.GrapplerRopePlugin",
@@ -54,6 +55,7 @@
 			"svc_toxin": "graphics/icons/svc_toxin.png"			
 		},
 		"icons": {
+					    "svc_meat_icon" : "graphics/icons/svc_meat.png",
 		    "svc_colony_crisis_icon" : "graphics/icons/svc_infestationoverlay.png",
 		    "svc_hunter_intel_entry" : "graphics/backgrounds/BGE.jpg",
 			"svc_mastermind_intel_icon" : "graphics/portraits/SVC/special/Mastermind.jpg"

@@ -26,7 +26,7 @@ val modFolderName = modName.replace(" ", "-")
 /** Set below to `true` to automatically create mod_info.json and Version Checker files. */
 val shouldAutomaticallyCreateMetadataFiles = true
 // Then, if above is set to true, update the rest of the information below in SECTION B.
-val modVersion = "0.6.0c"
+val modVersion = "0.6.0d"
 val jarFileName = "${modName.replace(" ", "-")}.jar"
 val modId = "symbiotic_void_creatures"
 val modAuthor = "Graphics: Tecrys \\n Coding & Writing: DesperatePeter \\n Writing: MiniDeth3"

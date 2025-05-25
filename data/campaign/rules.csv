@@ -102,7 +102,7 @@ stable_build_Voidling_Lure_cantAfford,Stable_AddBuildOptions,!SvcDoesPlayerHaveL
 stable_build_Voidling_Lure_Build,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build,"AddRemoveAnyItem SPECIAL svc_poison -1
 AddRemoveAnyItem SPECIAL svc_whale_oil -50
 RemoveCommodity food 1000
-$global.svcLureConstructed = true
+SvcPoisonLurePlaced
 RemoveOption stable_build_Voidling_Lure_Build
 ShowImageVisual svc_food",,,
 ,,,,,,

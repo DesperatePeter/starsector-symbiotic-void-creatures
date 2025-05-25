@@ -52,12 +52,6 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
         return Global.getSector().getFaction(SVC_FACTION_ID).color
     }
 
-    override fun rollEvent(intel: HostileActivityEventIntel?, stage: BaseEventIntel.EventStageData?) {
-        val data = HAERandomEventData(this, stage)
-        stage?.rollData = HAERandomEventData(this, stage)
-        intel?.sendUpdateIfPlayerHasIntel(data, false)
-    }
-
     override fun getStageTooltipImpl(intel: HostileActivityEventIntel?, stage: BaseEventIntel.EventStageData): TooltipMakerAPI.TooltipCreator? {
         return object : BaseFactorTooltip() {
             override fun createTooltip(tooltip: TooltipMakerAPI?, expanded: Boolean, tooltipParam: Any?) {
@@ -65,6 +59,16 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
                 tooltip?.addPara(Global.getSettings().getString(SVC_COLONY_CRISIS_TEXT_KEY, "event_description_text"), 1f)
             }
         }
+    }
+
+    override fun rollEvent(intel: HostileActivityEventIntel?, stage: BaseEventIntel.EventStageData?) {
+        val data = HAERandomEventData(this, stage)
+        stage?.rollData = HAERandomEventData(this, stage)
+        intel?.sendUpdateIfPlayerHasIntel(data, false)
+    }
+
+    override fun resetEvent(intel: HostileActivityEventIntel?, stage: EventStageData?) {
+        super.resetEvent(intel, stage)
     }
 
     override fun fireEvent(intel: HostileActivityEventIntel?, stage: BaseEventIntel.EventStageData?): Boolean {
