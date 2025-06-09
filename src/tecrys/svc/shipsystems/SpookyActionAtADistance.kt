@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import tecrys.svc.shipsystems.spooky.SpookyEnemyImpl
+import tecrys.svc.shipsystems.spooky.SpookyPlaceholderImpl
 
 class SpookyActionAtADistance : BaseShipSystemScript() {
 
@@ -47,7 +48,9 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
             SpookyMode.ENEMY -> {
                 impl = SpookyEnemyImpl()
             }
-            else -> TODO("YOUCANNOTCONTROLME YOUSHOULDNOTHAVETHISSHIP")
+            SpookyMode.PLAYER -> impl = SpookyPlaceholderImpl("This system has no implementation for the player faction")
+            SpookyMode.ALLY -> impl = SpookyPlaceholderImpl("This system has no implementation for the ally faction")
+            else -> impl = SpookyPlaceholderImpl("System has not been initialized properly. This is an internal error.")
         }
     }
 

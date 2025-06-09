@@ -44,7 +44,7 @@ class SpookyEnemyImpl: SpookyActionAtADistance.SpookyImpl {
                 guiShower.gui = SpookyEnemyGuiSabotageStage(guiShower, true)
                 guiShower.start()
             }
-            else -> TODO("Not yet implemented")
+            else -> TODO("The Mastermind system reached a state that should not be reachable. This is a bug.")
         }
     }
 }
