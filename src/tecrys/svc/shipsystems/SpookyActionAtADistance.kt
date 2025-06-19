@@ -44,13 +44,11 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
             ship == Global.getCombatEngine()?.playerShip -> SpookyMode.PLAYER
             else -> SpookyMode.ALLY
         }
-        when(mode){
-            SpookyMode.ENEMY -> {
-                impl = SpookyEnemyImpl()
-            }
-            SpookyMode.PLAYER -> impl = SpookyPlaceholderImpl("This system has no implementation for the player faction")
-            SpookyMode.ALLY -> impl = SpookyPlaceholderImpl("This system has no implementation for the ally faction")
-            else -> impl = SpookyPlaceholderImpl("System has not been initialized properly. This is an internal error.")
+        impl = when(mode){
+            SpookyMode.ENEMY -> SpookyEnemyImpl(ship)
+            SpookyMode.PLAYER -> SpookyPlaceholderImpl("This system has no implementation for the player faction")
+            SpookyMode.ALLY -> SpookyPlaceholderImpl("This system has no implementation for the ally faction")
+            else -> SpookyPlaceholderImpl("System has not been initialized properly. This is an internal error.")
         }
     }
 

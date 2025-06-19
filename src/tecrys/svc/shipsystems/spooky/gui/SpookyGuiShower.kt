@@ -2,6 +2,7 @@ package tecrys.svc.shipsystems.spooky.gui
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
+import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ViewportAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
@@ -10,7 +11,7 @@ import org.dark.shaders.distortion.RippleDistortion
 import org.magiclib.combatgui.MagicCombatGuiBase
 import tecrys.svc.CombatPlugin
 
-class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombatPlugin() {
+class SpookyGuiShower(private val ship: ShipAPI, var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombatPlugin() {
 
     var isRunning = false
     var shouldDistort = false
@@ -24,7 +25,10 @@ class SpookyGuiShower(var gui: MagicCombatGuiBase? = null): BaseEveryFrameCombat
         gui?.render()
     }
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
-
+        if(!ship.isAlive){
+            exit()
+            return
+        }
         Global.getCombatEngine().viewport.isExternalControl = true;
         gui?.advance()
         if(shouldDistort){

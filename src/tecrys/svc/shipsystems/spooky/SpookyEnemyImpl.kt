@@ -2,6 +2,7 @@ package tecrys.svc.shipsystems.spooky
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
+import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.shipsystems.SpookyActionAtADistance
@@ -10,9 +11,9 @@ import tecrys.svc.shipsystems.spooky.gui.SpookyEnemyGuiNegotiationStage
 import tecrys.svc.shipsystems.spooky.gui.SpookyEnemyGuiSabotageStage
 import tecrys.svc.shipsystems.spooky.gui.SpookyGuiShower
 
-class SpookyEnemyImpl: SpookyActionAtADistance.SpookyImpl {
+class SpookyEnemyImpl(ship: ShipAPI): SpookyActionAtADistance.SpookyImpl {
     private var stage = 0
-    private val guiShower = SpookyGuiShower()
+    private val guiShower = SpookyGuiShower(ship)
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
