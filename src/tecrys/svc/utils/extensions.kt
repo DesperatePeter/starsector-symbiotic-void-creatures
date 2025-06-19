@@ -17,7 +17,8 @@ import com.fs.starfarer.api.impl.campaign.ids.Conditions
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.util.Misc
-import com.fs.starfarer.api.util.Misc.findNearestJumpPointThatCouldBeExitedFrom
+import org.lazywizard.lazylib.CollisionUtils
+import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.input.Keyboard
@@ -25,13 +26,13 @@ import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.findNearestJumpPointThatCouldBeExitedFrom
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
-import tecrys.svc.utils.times
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 import kotlin.collections.component1
 import kotlin.collections.component2
 import kotlin.math.abs
 
+const val DAMAGE_SCAN_RANGE = 250f
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
 const val MAX_GOTO_ASSIGNMENT_DURATION = 1000f
 const val MAX_ATTACK_DURATION = 100f
@@ -65,6 +66,28 @@ fun CampaignFleetAPI.orbitClosestPlanet() {
         this.findNearestPlanetTo(requireGasGiant = false, allowStars = false),
         MAX_ORBIT_ASSIGNMENT_DURATION
     )
+}
+
+fun ShipAPI.estimateProjectileDamageToBeTaken(t: Float = 1f): Float{
+    return CombatUtils.getProjectilesWithinRange(location, DAMAGE_SCAN_RANGE).filter {
+        CollisionUtils.getCollides(it.location, it.location + t * it.velocity, location, collisionRadius)
+    }.mapNotNull { it.damageAmount }.sum()
+}
+
+fun ShipAPI.estimateBeamDamageToBeTaken(t: Float = 1f): Float{
+    return t * (Global.getCombatEngine()?.beams?.filter { it.damageTarget == this }?.map { it.damage.damage }?.sum() ?: 0f)
+}
+
+fun ShipAPI.estimateMissileDamageToBeTaken(t: Float = 1f): Float{
+    return CombatUtils.getMissilesWithinRange(location, DAMAGE_SCAN_RANGE).filter {
+        it.isArmed
+    }.filter {
+        it.isGuided || CollisionUtils.getCollides(it.location, it.location + t * it.velocity, location, collisionRadius)
+    }.mapNotNull { it.damageAmount }.sum()
+}
+
+fun ShipAPI.estimateDamageToBeTaken(t: Float = 1f): Float{
+    return estimateBeamDamageToBeTaken(t) + estimateProjectileDamageToBeTaken(t) + estimateMissileDamageToBeTaken(t)
 }
 
 fun ShipAPI.getRandomPointOnShipOutline(): Vector2f{
