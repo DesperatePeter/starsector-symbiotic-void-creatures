@@ -10,6 +10,7 @@ import org.magiclib.kotlin.forEach
 import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.utils.isAnyVoidlingFleetInDistanceHyperspace
+import tecrys.svc.utils.isMastermindFleet
 import tecrys.svc.world.fleets.FleetSpawner
 import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 
@@ -110,13 +111,9 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                    ?.firstOrNull()?.fleetData?.fleet
+                    ?.firstOrNull()?.fleetData?.fleet ?: return
 
-                if (fleet == null) {
-                    return
-                }
-
-                if (fleet.memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] == true){
+                if (fleet.isMastermindFleet()){
                     playBattleTheme(true)
                 } else if (fleet.faction == Global.getSector().getFaction(SVC_FACTION_ID)){
                     playBattleTheme()
