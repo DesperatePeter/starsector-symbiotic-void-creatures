@@ -6,9 +6,7 @@ import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin
 import com.fs.starfarer.api.combat.ViewportAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.mission.FleetSide
-import com.fs.starfarer.api.util.IntervalUtil
 import org.lazywizard.lazylib.opengl.DrawUtils
-import org.lwjgl.opengl.GL11
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.shipsystems.spooky.GlitchRenderer
@@ -24,7 +22,6 @@ import kotlin.math.sin
 class CombatPlugin : BaseEveryFrameCombatPlugin() {
 
     private var pulseTimer = 0f
-    private var wasFirstSuccessfulAdvanceCall = false
     private var blackoutProgress = 0f
     private var glitchRenderer: GlitchRenderer? = null
 
@@ -52,7 +49,6 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
         // skip when on title screen
-        if (Global.getCurrentState() == GameState.TITLE) wasFirstSuccessfulAdvanceCall = true
         shouldPreventPauseFor -= amount
         if(shouldPreventPauseFor > 0f && Global.getCombatEngine().isPaused){
             Global.getCombatEngine().isPaused = false
@@ -72,22 +68,6 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
             glitchRenderer = null
         }
         glitchRenderer?.advance(amount)
-        if (!wasFirstSuccessfulAdvanceCall) {
-            val enemyFleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                ?.firstOrNull()?.fleetData?.fleet ?: return
-            val enemyFaction = enemyFleet.faction ?: return
-            wasFirstSuccessfulAdvanceCall = true
-            if(enemyFleet.isMastermindFleet()){
-                Global.getSoundPlayer().playCustomMusic(1, 1, "svc_voidling_battle_theme_glitched", true)
-                Global.getSector().memoryWithoutUpdate[IS_BATTLE_THEME_PLAYING_MEM_KEY] = true
-                return
-            }
-            if (enemyFaction == Global.getSector().getFaction(SVC_FACTION_ID) || enemyFaction == Global.getSector().getFaction(MMM_FACTION_ID)) {
-                Global.getSoundPlayer().playCustomMusic(1, 1, "svc_voidling_battle_theme", true)
-                Global.getSector().memoryWithoutUpdate[IS_BATTLE_THEME_PLAYING_MEM_KEY] = true
-                return
-            }
-        }
     }
 
     private fun advanceBlackout(amount: Float) {

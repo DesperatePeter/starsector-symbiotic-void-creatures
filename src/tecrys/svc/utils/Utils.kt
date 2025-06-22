@@ -215,3 +215,7 @@ fun getMissilesWithinRangeArc(location: Vector2f, range: Float, arc: Float, faci
 
     return missiles
 }
+
+fun isAnyVoidlingFleetInDistanceHyperspace(lightYears: Float): Boolean {
+    return Global.getSector().hyperspace.fleets.any { (it.faction.id == SVC_FACTION_ID || it.faction.id == MMM_FACTION_ID) && Misc.getDistanceToPlayerLY(it.locationInHyperspace) <= lightYears }
+}
