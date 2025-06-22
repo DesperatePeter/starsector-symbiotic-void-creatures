@@ -30,16 +30,16 @@ class SpookyEnemyGuiNegotiationStage(private val guiShower: SpookyGuiShower): Ma
             }
         }
         guiShower.shouldDistort = true
-        val resistX = (0..4).random()
-        val resistY = (0..4).random()
+        val resistYToX = (0..2).map { _ -> (0..4).random() }.associateWith { (0..4).random() }
         for(y in 0..4){
             val nameList = mutableListOf("", "", "", "", "")
             val tooltipList = mutableListOf("", "", "", "", "")
             tooltipList.fill("OBEY")
             val valueList = mutableListOf(NegotiateResult.OBEY, NegotiateResult.OBEY, NegotiateResult.OBEY, NegotiateResult.OBEY, NegotiateResult.OBEY)
-            if(y == resistY){
-                tooltipList[resistX] = "RESIST"
-                valueList[resistX] = NegotiateResult.RESIST
+            if(y in resistYToX){
+                val idx = resistYToX[y] ?: 0
+                tooltipList[idx] = "RESIST"
+                valueList[idx] = NegotiateResult.RESIST
             }
             addButtonGroup(
                 negotiateAction,

@@ -5,6 +5,7 @@ import org.lazywizard.lazylib.CollisionUtils
 import org.lazywizard.lazylib.combat.CombatUtils
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
+import tecrys.svc.utils.estimateDamageToBeTaken
 
 class NervousShuntAI: ShipSystemAIScript {
 
@@ -29,25 +30,7 @@ class NervousShuntAI: ShipSystemAIScript {
         ship?.run {
             if(hullLevel > MAX_HULL_LEVEL_FOR_ACTIVATION) return
             if(system?.state != ShipSystemAPI.SystemState.IDLE) return
-
-            fun computeProjectileDamageWithinNextSecond(): Float{
-                return CombatUtils.getProjectilesWithinRange(location, SCAN_RANGE).filter {
-                    CollisionUtils.getCollides(it.location, it.location + /*1s * */it.velocity, location, collisionRadius)
-                }.mapNotNull { it.damageAmount }.sum()
-            }
-
-            fun computeBeamDamageWithinNextSecond(): Float{
-                return engine?.beams?.filter { it.damageTarget == this }?.map { it.damage.damage }?.sum() ?: 0f
-            }
-
-            fun computeMissileDamageWithinApproxNextSecond(): Float{
-                return CombatUtils.getMissilesWithinRange(location, SCAN_RANGE).filter {
-                    it.damageTarget == this
-                }.mapNotNull { it.damageAmount }.sum()
-            }
-
-            val damageInNextSecond = computeBeamDamageWithinNextSecond() + computeMissileDamageWithinApproxNextSecond() + computeProjectileDamageWithinNextSecond()
-            if(damageInNextSecond > hitpoints) useSystem()
+            if(estimateDamageToBeTaken() > hitpoints) useSystem()
         }
     }
 }

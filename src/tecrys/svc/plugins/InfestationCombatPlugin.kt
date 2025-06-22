@@ -26,6 +26,8 @@ class InfestationCombatPlugin: BaseEveryFrameCombatPlugin(){
             }
             Global.getCombatEngine().ships.filterNot {
                 ship -> ship.customData.contains(ALREADY_HAS_LISTENER_MEM_KEY)
+            }.filterNot {
+                it.isFighter
             }.filterNotNull().forEach { ship ->
                 ship.addListener(InfestationListener(ship))
                 ship.setCustomData(ALREADY_HAS_LISTENER_MEM_KEY, true)

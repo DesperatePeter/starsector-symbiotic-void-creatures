@@ -83,26 +83,36 @@ RemoveOption svcmod_poison_broker_dialogue","The face of the stranger bends into
 svcmod_poison_broker_dialogue_leave,DialogOptionSelected,$option == svcmod_poison_broker_dialogue_leave,BarCMD returnFromEvent false,,,
 #stable position added Dialogue,,,,,,
 stable_build_Voidling_Attractor_Init,Stable_AddBuildOptions,,,,50:stable_build_Voidling_Attractor_Use:Let the system drown in Void Creatures!,
-stable_build_Voidling_Attractor_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Use,,"Warning: This is irreversible!
+stable_build_Voidling_Attractor_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Use,,"An inconspicuous status panel on the Voidling Attractor first turns yellow and then starts flashing green, a single word appearing: ARMED.
+Your science officer looks at the device. With crackling voice, he lets you know that he believes the device is signaling that this would be a fitting place to activate it. If the device functions as advertised, which it might or might not, void creatures will be attracted to this system, which in turn will significantly reduce void creature activity in other systems.
 
-Are you sure?","stable_build_Voidling_Attractor_no:No
-stable_build_Voidling_Attractor_Really_Use:Yes",
+The device comes with a single charge and its effects are irreversible.
+
+Your science officer shoots you a glance, seeking confirmation, his hand shaking as it hovers over the switch.
+
+Do you wish to proceed?","stable_build_Voidling_Attractor_no:Abort
+stable_build_Voidling_Attractor_Really_Use:Proceed",
 stable_build_Voidling_Attractor_no,DialogOptionSelected,$option == stable_build_Voidling_Attractor_no,FireAll Stable_AddBuildOptions,,,
 stable_build_Voidling_Attractor_Really_Use,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Really_Use,"SvcAttractorPlaced
 AddRemoveAnyItem SPECIAL svc_attractor -1
 RemoveOption stable_build_Voidling_Attractor_Use
-SetEnabled stable_build_Voidling_Lure_Build false
-DismissDialog",,,
+SetEnabled stable_build_Voidling_Lure_Build false","The device emits a barely audible hum for a few seconds, before going dark, emitting a thin puff of smoke in the process. Your science officer runs some scans as minutes pass like hours.
+He seems almost relieved as he reports that the device does not appear to have produced the advertised effect. Mid sentence, he is interrupted by your sensor officer, who reports that multiple peculiar subspace signatures, easily mistakable for sensor malfunctions, seem to have appeared in the system.",stable_build_Voidling_Attractor_Really_Finish:Order your science officer to return.,
+stable_build_Voidling_Attractor_Really_Finish,DialogOptionSelected,$option == stable_build_Voidling_Attractor_Really_Finish,DismissDialog,,,
 stable_build_Voidling_Attractor_Afford,Stable_AddBuildOptions,!SvcDoesPlayerHaveAttractor,RemoveOption stable_build_Voidling_Attractor_Use,,,
 ,,,,,,
 stable_build_Voidling_Lure_Init,Stable_AddBuildOptions,,"SetTooltip stable_build_Voidling_Lure_Build ""Requires 1000 food, 50 Stjarwhal Oil and the Fungal Toxin""
 SetTooltipHighlights stable_build_Voidling_Lure_Build 1000 50 Fungal Toxin",,60:stable_build_Voidling_Lure_Build:Prepare Voidling lure.,
 stable_build_Voidling_Lure,Stable_AddBuildOptions,!SvcDoesPlayerHavePoison,RemoveOption stable_build_Voidling_Lure_Build,,,
 stable_build_Voidling_Lure_cantAfford,Stable_AddBuildOptions,!SvcDoesPlayerHaveLureItems,SetEnabled stable_build_Voidling_Lure_Build false,,,
-stable_build_Voidling_Lure_Build,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build,"AddRemoveAnyItem SPECIAL svc_poison -1
+stable_build_Voidling_Lure_Build,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build,,"A mind-boggling assortment of half-rotten meats, different kinds of organic refuse and whatever produce you were able to cheaply buy in bulk fill your cargo holds with a less than pleasant odor.
+All that is left to do, is to fill the emergency sprinkler system with a mixture of Stjarwhale oil and the fungal toxin you acquired, turn it on and then eject the contents of your cargo holds into space.","stable_build_Voidling_Lure_Build_No:Abort
+stable_build_Voidling_Lure_Build_Yes:Proceed",
+stable_build_Voidling_Lure_Build_Yes,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build_Yes,"AddRemoveAnyItem SPECIAL svc_poison -1
 AddRemoveAnyItem SPECIAL svc_whale_oil -50
 RemoveCommodity food 1000
 SvcPoisonLurePlaced
 RemoveOption stable_build_Voidling_Lure_Build
-ShowImageVisual svc_food",,,
-,,,,,,
+ShowImageVisual svc_food
+FireAll Stable_AddBuildOptions",,,
+stable_build_Voidling_Lure_Build_No,DialogOptionSelected,$option == stable_build_Voidling_Lure_Build_No,FireAll Stable_AddBuildOptions,,,

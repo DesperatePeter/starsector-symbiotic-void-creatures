@@ -10,6 +10,7 @@ import org.lazywizard.lazylib.opengl.DrawUtils
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.setAlpha
 import tecrys.svc.shipsystems.spooky.GlitchRenderer
+import tecrys.svc.utils.isMastermindFleet
 import tecrys.svc.utils.postRender
 import tecrys.svc.utils.preRender
 import tecrys.svc.utils.setColor
@@ -70,12 +71,19 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
         }
         glitchRenderer?.advance(amount)
         if (!wasFirstSuccessfulAdvanceCall) {
-            val enemyFaction = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                ?.firstOrNull()?.fleetData?.fleet?.faction
-            wasFirstSuccessfulAdvanceCall = enemyFaction != null
-            if (enemyFaction == Global.getSector().getFaction(SVC_FACTION_ID)) {
+            val enemyFleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+                ?.firstOrNull()?.fleetData?.fleet ?: return
+            val enemyFaction = enemyFleet.faction ?: return
+            wasFirstSuccessfulAdvanceCall = true
+            if(enemyFleet.isMastermindFleet()){
+                Global.getSoundPlayer().playCustomMusic(1, 1, "svc_voidling_battle_theme_glitched", true)
+                Global.getSector().memoryWithoutUpdate[IS_BATTLE_THEME_PLAYING_MEM_KEY] = true
+                return
+            }
+            if (enemyFaction == Global.getSector().getFaction(SVC_FACTION_ID) || enemyFaction == Global.getSector().getFaction(MMM_FACTION_ID)) {
                 Global.getSoundPlayer().playCustomMusic(1, 1, "svc_voidling_battle_theme", true)
-                Global.getSector().memoryWithoutUpdate.set(IS_BATTLE_THEME_PLAYING_MEM_KEY, true)
+                Global.getSector().memoryWithoutUpdate[IS_BATTLE_THEME_PLAYING_MEM_KEY] = true
+                return
             }
         }
     }

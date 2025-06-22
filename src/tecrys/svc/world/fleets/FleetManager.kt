@@ -11,6 +11,7 @@ import org.magiclib.kotlin.isPermaKnowsWhoPlayerIs
 import org.magiclib.kotlin.makeImportant
 import org.magiclib.kotlin.makeNoRepImpact
 import org.magiclib.kotlin.shouldNotWantRunFromPlayerEvenIfWeaker
+import tecrys.svc.MMM_FACTION_ID
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.SVC_MOD_ID
 import tecrys.svc.VWL_FACTION_ID
@@ -147,13 +148,17 @@ class FleetManager : EveryFrameScript {
     }
 
     fun spawnMastermindFleet(): CampaignFleetAPI? {
-        val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(SVC_FACTION_ID) }
-        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: return null
+        val possibleLocations = (0..10).mapNotNull { _ -> spawner.getRandomSpawnableLocation(MMM_FACTION_ID) }
+        val loc = possibleLocations.maxByOrNull { it.location.length() } ?: run {
+            showNotificationOnCampaignUi("INTERNAL ERROR: Failed to spawn crisis boss fleet. This means the SVC crisis is broken.",
+                Global.getSettings().getSpriteName("intel", "hunter_intel"))
+            return null
+        }
         // val loc = Global.getSector().playerFleet.getNearbyStarSystem().pickOuterEntityToSpawnNear()
         // val loc = Global.getSector().playerFleet.getNearestStarSystem().jumpPoints.get(1)
         val params = FleetSpawnParameterCalculator(svcSettings)
         val fleet = spawner.createFactionFleet(
-            SVC_FACTION_ID,
+            MMM_FACTION_ID,
             params,
             mastermindFleet.name,
             mastermindFleet.rolesQuantity,

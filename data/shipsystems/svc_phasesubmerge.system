@@ -1,8 +1,8 @@
 {
 	"id":"svc_phasesubmerge",
 	"type":"PHASE_CLOAK",
-	"aiType":"PHASE_CLOAK",
-	
+	"aiType":"CUSTOM",
+	"aiScript":"tecrys.svc.shipsystems.ais.PhaseSubmergeAI",
 	"statsScript":"tecrys.svc.shipsystems.PhaseSubmergeStats",
 	"runScriptWhilePaused":true, # only for the player's ship
 	"runScriptWhileIdle":true,  # this means unapply() never gets called

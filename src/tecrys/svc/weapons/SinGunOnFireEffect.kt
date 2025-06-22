@@ -5,7 +5,7 @@ import com.fs.starfarer.api.combat.DamagingProjectileAPI
 import com.fs.starfarer.api.combat.OnFireEffectPlugin
 import com.fs.starfarer.api.combat.WeaponAPI
 import tecrys.svc.weapons.scripts.SinGunProjectileScript
-import tecrys.svc.weapons.scripts.SinGunSoundPlayer
+import tecrys.svc.weapons.scripts.SinGunEffectPlayer
 
 class SinGunOnFireEffect: OnFireEffectPlugin {
     private var looseProjectilesByWeapon = mutableMapOf<WeaponAPI, MutableList<DamagingProjectileAPI>>()
@@ -22,9 +22,6 @@ class SinGunOnFireEffect: OnFireEffectPlugin {
         if((looseProjectilesByWeapon[weapon]?.size ?: 0) >= 4 ){
             engine.addPlugin(looseProjectilesByWeapon[weapon]?.let { SinGunProjectileScript(it, weapon.currAngle) })
             looseProjectilesByWeapon[weapon] = mutableListOf()
-        }
-        if(!SinGunSoundPlayer.isSoundPlayerAlreadyPresent(weapon)){
-            engine.addPlugin(SinGunSoundPlayer(weapon))
         }
     }
 }

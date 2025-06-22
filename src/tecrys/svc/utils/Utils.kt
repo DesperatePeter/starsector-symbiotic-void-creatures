@@ -124,7 +124,7 @@ fun adjustFacing(currentFacing: Float, targetFacing: Float, maxDelta: Float): Fl
     return Misc.normalizeAngle(facing)
 }
 
-fun giveSpecialItemToPlayer(id: String, data: String, textPanel: TextPanelAPI?){
+fun giveSpecialItemToPlayer(id: String, data: String?, textPanel: TextPanelAPI?){
     val item = SpecialItemData(id, data)
     val fakeCargo = Global.getFactory().createCargo(true)
     fakeCargo.addSpecial(item, 1f)

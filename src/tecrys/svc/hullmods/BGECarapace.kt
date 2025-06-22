@@ -5,6 +5,7 @@ import com.fs.starfarer.api.combat.*
 import com.fs.starfarer.api.combat.ShipAPI.HullSize
 import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.ids.Personalities
+import com.fs.starfarer.api.impl.campaign.ids.Stats
 import com.fs.starfarer.api.impl.hullmods.HighScatterAmp.RANGE_THRESHOLD
 import com.fs.starfarer.api.ui.Alignment
 import com.fs.starfarer.api.ui.TooltipMakerAPI
@@ -51,8 +52,8 @@ class BGECarapace : BaseHullMod() {
             hullCombatRepairRatePercentPerSecond.modifyFlat(id, 0.6f)
             maxCombatHullRepairFraction.modifyFlat(id, 1f)
             zeroFluxSpeedBoost.modifyMult(id, 0f)
-//            dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
-//            dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
+            dynamic.getStat(Stats.EXPLOSION_DAMAGE_MULT).modifyMult(id, 0f)
+            dynamic.getStat(Stats.EXPLOSION_RADIUS_MULT).modifyMult(id, 0f)
             minCrewMod.modifyMult(id, 0f)
             maxCrewMod.modifyMult(id, 0f)
             engineDamageTakenMult.modifyMult(id, ENGINE_DAMAGE_TAKEN)
@@ -87,10 +88,10 @@ class BGECarapace : BaseHullMod() {
         val player = Global.getCombatEngine().playerShip
         modifyPowerLevel(ship)
         hideControlCollarIfNotPlayer(ship)
-        ship.setExplosionScale(0.001f)
-        ship.setNoDamagedExplosions(true);
-        ship.setShipCollisionSoundOverride("dweller_collision_ships");
-        ship.setAsteroidCollisionSoundOverride("dweller_collision_asteroid_ship");
+        ship.explosionScale = 0.001f
+        ship.isNoDamagedExplosions = true;
+        ship.shipCollisionSoundOverride = "dweller_collision_ships";
+        ship.asteroidCollisionSoundOverride = "dweller_collision_asteroid_ship";
 /*        ship.captain?.setPersonality("reckless")*/
         erraticPropulsion.advanceInCombat(ship, amount)
 //        if ( ship.areSignificantEnemiesInRange() && (ship != player || !Global.getCombatEngine().isUIAutopilotOn()))
@@ -106,19 +107,19 @@ class BGECarapace : BaseHullMod() {
                 config.backingOffWhileNotVentingAllowed = false
                 config.turnToFaceWithUndamagedArmor = false
                 config.burnDriveIgnoreEnemies = true
-            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF)
-            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF_EVEN_WHILE_VENTING)
+            ship.aiFlags.setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF)
+            ship.aiFlags.setFlag(ShipwideAIFlags.AIFlags.DO_NOT_BACK_OFF_EVEN_WHILE_VENTING)
             if (ship.hullSize == HullSize.FRIGATE)
             {
-            ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.HARASS_MOVE_IN)
+            ship.aiFlags.setFlag(ShipwideAIFlags.AIFlags.HARASS_MOVE_IN)
             }
 
             if (ship.fleetMember == null)
     return
 
             if (ship.fleetMember.isPhaseShip) {
-                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.PHASE_BRAWLER_DUMPING_FLUX)
-                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.ESCORT_OTHER_SHIP)
+                ship.aiFlags.setFlag(ShipwideAIFlags.AIFlags.PHASE_BRAWLER_DUMPING_FLUX)
+                ship.aiFlags.setFlag(ShipwideAIFlags.AIFlags.ESCORT_OTHER_SHIP)
 //                ship.getAIFlags().setFlag(ShipwideAIFlags.AIFlags.STAY_PHASED)
             }
 
@@ -156,8 +157,9 @@ class BGECarapace : BaseHullMod() {
 //		stats.getArmorDamageTakenMult().unmodify(id);
 //		stats.getEmpDamageTakenMult().unmodify(id);
         if (ship.hullSpec.baseHullId.startsWith("svc_tox") || ship.hullSpec.baseHullId.startsWith("svc_mas")) {
-            var shroud = VoidlingShroud.getShroudFor(ship)
-            if (shroud == null) shroud = VoidlingShroud(ship)
+            if(VoidlingShroud.getShroudFor(ship) == null){
+                VoidlingShroud(ship)
+            }
         }
 
     }

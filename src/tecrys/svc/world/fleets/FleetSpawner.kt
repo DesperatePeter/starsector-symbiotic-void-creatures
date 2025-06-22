@@ -57,20 +57,23 @@ class FleetSpawner {
     }
 
     fun getRandomSpawnableLocation(faction: String): SectorEntityToken? {
-        return Global.getSector().allLocations?.filter { loc ->
+        val possibleLocations = Global.getSector().allLocations?.filter { loc -> // no colonized planets
             loc.planets?.all { it.faction.id == "neutral" } ?: false
-        }?.filter { loc ->
+        }?.filter { loc -> // not hidden of cut off from hyperspace
             !loc.hasTag(Tags.SYSTEM_CUT_OFF_FROM_HYPER) && !loc.hasTag(SYSTEM_HIDDEN_TAG)
                     && loc.planets.none { it.hasTag(SYSTEM_HIDDEN_TAG) || it.hasTag(Tags.SYSTEM_CUT_OFF_FROM_HYPER) }
-        }?.filter { loc ->
-            SYSTEM_NAME_BLOCKLIST.none { loc.name.contains(it) }
-        }?.filter {
+        }?.filter { loc -> // name doesn't contain a word from the blocklist ("Prism" or "Limbo")
+            SYSTEM_NAME_BLOCKLIST.none {
+                blockedSystem -> loc.name.contains(blockedSystem)
+            }
+        }?.filter { // no fleet of the chosen faction present
             it.fleets.none { loc -> loc.faction.id == faction }
-        }?.filterNotNull()?.shuffled()?.mapNotNull { loc ->
+        }?.filterNotNull()?.shuffled()?.mapNotNull { loc -> // is a reasonable place for the fleet to spawn (a planet/asteroid etc.)
             loc.allEntities?.filter {
                 isValidSpawnableEntity(it)
             }
-        }?.flatten()?.randomOrNull()
+        }?.flatten()
+        return possibleLocations?.randomOrNull()
     }
 
     fun createFactionFleet(

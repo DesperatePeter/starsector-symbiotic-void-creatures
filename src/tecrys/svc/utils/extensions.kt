@@ -6,28 +6,50 @@ import com.fs.starfarer.api.campaign.CargoAPI
 import com.fs.starfarer.api.campaign.FleetAssignment
 import com.fs.starfarer.api.campaign.JumpPointAPI
 import com.fs.starfarer.api.campaign.OptionPanelAPI
+import com.fs.starfarer.api.campaign.PlanetAPI
 import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.campaign.StarSystemAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.combat.ShipVariantAPI
 import com.fs.starfarer.api.impl.campaign.DModManager
+import com.fs.starfarer.api.impl.campaign.ids.Conditions
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import com.fs.starfarer.api.util.Misc
-import com.fs.starfarer.api.util.Misc.findNearestJumpPointThatCouldBeExitedFrom
+import org.lazywizard.lazylib.CollisionUtils
+import org.lazywizard.lazylib.combat.CombatUtils
+import org.lazywizard.lazylib.ext.minus
+import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.input.Keyboard
+import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.findNearestJumpPointThatCouldBeExitedFrom
 import org.magiclib.kotlin.findNearestPlanetTo
 import org.magiclib.kotlin.getAngleDiff
 import tecrys.svc.world.fleets.FleetManager
+import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 import kotlin.collections.component1
 import kotlin.collections.component2
 import kotlin.math.abs
 
+const val DAMAGE_SCAN_RANGE = 250f
 const val MAX_ORBIT_ASSIGNMENT_DURATION = 1e9f
 const val MAX_GOTO_ASSIGNMENT_DURATION = 1000f
 const val MAX_ATTACK_DURATION = 100f
+
+fun PlanetAPI.hasVolatiles(): Boolean{
+    return hasCondition(Conditions.VOLATILES_TRACE) ||
+           hasCondition(Conditions.VOLATILES_DIFFUSE) ||
+           hasCondition(Conditions.VOLATILES_PLENTIFUL) ||
+           hasCondition(Conditions.VOLATILES_ABUNDANT)
+}
+
+fun PlanetAPI.hasOrganics(): Boolean{
+    return hasCondition(Conditions.ORGANICS_TRACE) ||
+            hasCondition(Conditions.ORGANICS_COMMON) ||
+            hasCondition(Conditions.ORGANICS_ABUNDANT) ||
+            hasCondition(Conditions.ORGANICS_PLENTIFUL)
+}
 
 fun OptionPanelAPI.addLeaveOption(){
     addOption("Leave", "Leave")
@@ -45,6 +67,38 @@ fun CampaignFleetAPI.orbitClosestPlanet() {
         MAX_ORBIT_ASSIGNMENT_DURATION
     )
 }
+
+fun ShipAPI.estimateProjectileDamageToBeTaken(t: Float = 1f): Float{
+    return CombatUtils.getProjectilesWithinRange(location, DAMAGE_SCAN_RANGE).filter {
+        CollisionUtils.getCollides(it.location, it.location + t * it.velocity, location, collisionRadius)
+    }.mapNotNull { it.damageAmount }.sum()
+}
+
+fun ShipAPI.estimateBeamDamageToBeTaken(t: Float = 1f): Float{
+    return t * (Global.getCombatEngine()?.beams?.filter { it.damageTarget == this }?.map { it.damage.damage }?.sum() ?: 0f)
+}
+
+fun ShipAPI.estimateMissileDamageToBeTaken(t: Float = 1f): Float{
+    return CombatUtils.getMissilesWithinRange(location, DAMAGE_SCAN_RANGE).filter {
+        it.isArmed
+    }.filter {
+        it.isGuided || CollisionUtils.getCollides(it.location, it.location + t * it.velocity, location, collisionRadius)
+    }.mapNotNull { it.damageAmount }.sum()
+}
+
+fun ShipAPI.estimateDamageToBeTaken(t: Float = 1f): Float{
+    return estimateBeamDamageToBeTaken(t) + estimateProjectileDamageToBeTaken(t) + estimateMissileDamageToBeTaken(t)
+}
+
+fun ShipAPI.getRandomPointOnShipOutline(): Vector2f{
+    val bounds = exactBounds ?: return Vector2f()
+    bounds.update(location, facing)
+    bounds.segments.random().let { s ->
+        return s.p1 + Math.random().toFloat() * (s.p2 - s.p1)
+    }
+}
+
+fun CampaignFleetAPI.isMastermindFleet(): Boolean = memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)
 
 fun CampaignFleetAPI.markAsHunter(id: String){
     memoryWithoutUpdate[FleetManager.HUNTER_FLEET_ID_MEM_KEY] = id
