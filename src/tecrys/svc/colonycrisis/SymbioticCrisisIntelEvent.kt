@@ -256,6 +256,6 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     }
 
     override fun getIntelTags(map: SectorMapAPI?): MutableSet<String> {
-        return mutableSetOf("Major Event", "Colony threats")
+        return mutableSetOf("Major events", "Colony threats")
     }
 }
