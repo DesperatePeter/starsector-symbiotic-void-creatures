@@ -42,6 +42,7 @@
         "unitedpamed": -0.5, # treat
         "metelson": -0.5, # delicious
 		"vwl": -1,  # yummy whale oil!
+		"mmm": -1,  # fight the powa!
 		"player": -5,  # player taste good!		
         "scalartech": -0.5, # into my tummy
             }, 
@@ -74,6 +75,7 @@
         "unitedpamed": -0.5, # treat
         "metelson": -0.5, # delicious
 		"vwl": -1,  # yummy whale oil!
+		"mmm": -1,  # fight the powa!		
 		"player": -5,
         "scalartech": -0.5, # into my tummy
             }, 
