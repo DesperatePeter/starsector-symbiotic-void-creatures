@@ -28,7 +28,7 @@ class BoltzmannScript(private val missile: MissileAPI): BaseEveryFrameCombatPlug
         val EMP_COLOR = Color(0, 255, 201, 150)
         const val EMP_SOUND_ID = "svc_emp"
         const val COLOR_VARIATION = 100f
-        const val NUM_VISUAL_ARCS = 12
+        const val NUM_VISUAL_ARCS = 6
     }
     private val engine = Global.getCombatEngine()
     private var timer = 0f
