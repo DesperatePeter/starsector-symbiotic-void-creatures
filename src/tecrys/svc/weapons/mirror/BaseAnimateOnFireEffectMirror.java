@@ -24,16 +24,6 @@ public class BaseAnimateOnFireEffectMirror extends tecrys.svc.weapons.BaseAnimat
 
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
-        super.advance(amount, engine, weapon);
-        if (weapon.getAnimation() == null) {
-            return;
-        }
-        int frame = weapon.getAnimation().getFrame();
-        if(frame != lastFrame && !mirroredFrames.contains(frame)){
-            mirrorIfNecessary(weapon);
-            lastFrame = frame;
-            mirroredFrames.add(frame);
-        }
         if (weapon.getCurrHealth() < weapon.getMaxHealth())
         {
             weapon.setCurrHealth(weapon.getMaxHealth());
@@ -42,6 +32,18 @@ public class BaseAnimateOnFireEffectMirror extends tecrys.svc.weapons.BaseAnimat
         {
             weapon.repair();
         }
+        super.advance(amount, engine, weapon);
+        if (weapon.getAnimation() == null) {
+            return;
+        }
+        int frame = weapon.getAnimation().getFrame();
+        if(//frame != lastFrame
+        frame != 0 && !mirroredFrames.contains(frame)){
+            mirrorIfNecessary(weapon);
+            lastFrame = frame;
+            mirroredFrames.add(frame);
+        }
+
     }
 
     @Override
@@ -52,7 +54,8 @@ public class BaseAnimateOnFireEffectMirror extends tecrys.svc.weapons.BaseAnimat
     }
 
     private void mirrorIfNecessary(WeaponAPI weapon) {
-        if (DecoUtils.isOnLeft(weapon) && DecoUtils.isFacingForward(weapon)) {
+        if (DecoUtils.isOnLeft(weapon) //&& DecoUtils.isFacingForward(weapon)
+        ) {
             DecoUtils.mirror(weapon, false);
         }
     }
