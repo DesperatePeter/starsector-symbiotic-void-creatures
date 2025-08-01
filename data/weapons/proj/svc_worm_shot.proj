@@ -30,11 +30,11 @@
 						"contrailWidthMult":12,
 						"contrailWidthAddedFractionAtEnd":-1,  # can be negative. makes trail spread out/narrow at the end
 						"contrailMinSeg":3, # min segment length, in pixels
-						"contrailMaxSpeedMult":.0f,
+						"contrailMaxSpeedMult":0f,
 						"contrailAngularVelocityMult":1f,
 						"contrailSpawnDistMult":0, # how far away from engine it starts
 						"contrailColor":[183, 0, 195,150],
-						"type":"SMOKE" # GLOW or SMOKE; additive or regular blend mode
+						"type":"GLOW" # GLOW or SMOKE; additive or regular blend mode
 					},
 				    "width":1,
 				    "length":20.0,

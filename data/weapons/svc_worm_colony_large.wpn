@@ -3,7 +3,7 @@
   "specClass": "projectile",
   "projectileSpecId": "svc_worm_shot",
   "type": "MISSILE",
-  "size": "LARGE",
+  "size": "MEDIUM",
   "everyFrameEffect": "tecrys.svc.weapons.mirror.MirrorQuadRight",
   "displayArcRadius": 1000,
   "turretSprite": "graphics/weapons/svc_wormgun_large.png",
