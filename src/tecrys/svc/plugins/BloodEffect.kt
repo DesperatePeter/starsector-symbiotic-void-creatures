@@ -23,7 +23,7 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
         private const val AVERAGE_SMOKE_SIZE = 7f
         private const val SMOKE_SIZE_VARIANCE = 5f
         private const val VELOCITY_MAGNITUDE = 6f
-        private const val NUMBER_OF_PARTICLES = 4
+        private const val NUMBER_OF_PARTICLES = 1
         private const val PARTICLE_DURATION = 8f
         private const val PARTICLE_OPACITY = 0.3f
         private val PARTICLE_COLOR = Color(200, 0, 0, 200)
@@ -41,7 +41,7 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
     }
 
     var engine: CombatEngineAPI? = null
-    private val interval = IntervalUtil(0.1f, 0.3f)
+    private val interval = IntervalUtil(0.2f, 0.5f)
 
     override fun init(engine: CombatEngineAPI?) {
         this.engine = engine

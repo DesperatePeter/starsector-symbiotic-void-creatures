@@ -22,7 +22,7 @@ public class svc_grappler_behaviour implements OnFireEffectPlugin, OnHitEffectPl
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine) {
         GrapplerRopePlugin plugin = new GrapplerRopePlugin(pluginCount++, 15, 8f, false, weapon, projectile);
         plugin.setBaseColor(tentacleColor);
-        plugin.setSegmentLength(15f);
+        plugin.setSegmentLength(10f);
 
         projectile.setCustomData("grappler", plugin);
         Global.getCombatEngine().addPlugin(plugin);

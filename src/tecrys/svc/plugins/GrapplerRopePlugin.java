@@ -63,7 +63,7 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
         }
 
         if (deadAndFading) {
-            fadeLevel = fadeLevel * 0.98f;
+            fadeLevel = fadeLevel * 0.9f;
             if (fadeLevel < 0.01f) {
                 Global.getCombatEngine().removePlugin(this);
             }
@@ -173,39 +173,40 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
 
     @Override
     protected Color computeColorForSegment(int renderPointIndex) {
-        //TODO: figure out how to not have to recompute angles
-        ArrayList<Double> angles = new ArrayList<>();
+//        //TODO: figure out how to not have to recompute angles
+//        ArrayList<Double> angles = new ArrayList<>();
+//
+//        if (renderPointIndex - 1 >= 0) { //if previous exists
+//            Vector2f point1 = new Vector2f(renderPoints.get(renderPointIndex - 1));
+//            Vector2f point2 = new Vector2f(renderPoints.get(renderPointIndex));
+//            Vector2f delta = Vector2f.sub(point2, point1, null);
+//            float angle = VectorUtils.getFacing(delta);
+//            angles.add((double) angle);
+//        }
+//        if (renderPointIndex + 1 < renderPoints.size()) { //if next exists
+//            Vector2f point1 = new Vector2f(renderPoints.get(renderPointIndex));
+//            Vector2f point2 = new Vector2f(renderPoints.get(renderPointIndex + 1));
+//            Vector2f delta = Vector2f.sub(point2, point1, null);
+//            float angle = VectorUtils.getFacing(delta);
+//            angles.add((double) angle);
+//        }
+//
+//        double[] d = new double[angles.size()];
+//        for (int j = 0; j < angles.size(); j++) {
+//            d[j] = angles.get(j);
+//        }
+//        float meanAngle = (float) getMeanAngle(d);
 
-        if (renderPointIndex - 1 >= 0) { //if previous exists
-            Vector2f point1 = new Vector2f(renderPoints.get(renderPointIndex - 1));
-            Vector2f point2 = new Vector2f(renderPoints.get(renderPointIndex));
-            Vector2f delta = Vector2f.sub(point2, point1, null);
-            float angle = VectorUtils.getFacing(delta);
-            angles.add((double) angle);
-        }
-        if (renderPointIndex + 1 < renderPoints.size()) { //if next exists
-            Vector2f point1 = new Vector2f(renderPoints.get(renderPointIndex));
-            Vector2f point2 = new Vector2f(renderPoints.get(renderPointIndex + 1));
-            Vector2f delta = Vector2f.sub(point2, point1, null);
-            float angle = VectorUtils.getFacing(delta);
-            angles.add((double) angle);
-        }
-
-        double[] d = new double[angles.size()];
-        for (int j = 0; j < angles.size(); j++) {
-            d[j] = angles.get(j);
-        }
-        float meanAngle = (float) getMeanAngle(d);
-
-        int amount = (int) (255 * Math.sin(Math.toRadians(meanAngle * 10f)));
-        amount = amount / 5;
-        int red = baseColor.getRed() + amount;
+//        int amount = (int) (255 * Math.sin(Math.toRadians(meanAngle * 10f)));
+//        amount = amount / 5;
+        int red = baseColor.getRed() ;//+ amount;
         red = Math.max(0,Math.min(red, 255));
-        int green = baseColor.getGreen() + amount;
+        int green = baseColor.getGreen() ;//+ amount;
         green = Math.max(0,Math.min(green, 255));
-        int blue = baseColor.getBlue() + amount;
+        int blue = baseColor.getBlue() ;//+ amount;
         blue = Math.max(0,Math.min(blue, 255));
         return new Color(red, green, blue, (int) Math.max(0, Math.min(fadeLevel * 255f, 255)));
+
     }
 
     public void setBaseColor(Color baseColor) {

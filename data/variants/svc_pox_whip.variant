@@ -13,7 +13,7 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
-        "Whip": "svc_bge_mini_grappler"
+ #       "Whip": "svc_bge_mini_grappler"
       }
     },
     {

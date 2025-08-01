@@ -171,17 +171,17 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
             }
             float meanAngle = (float) getMeanAngle(d);
 
-            if (debug) {
-                if (i % 2 == 0)
-                    Global.getCombatEngine().addFloatingTextAlways(segmentPoints.get(i / 2).getLocation(), String.valueOf(i / 2), 10f, Color.WHITE, null, 1f, 1f, 0.01f, 0f, 0f, 1f);
-                //Global.getCombatEngine().addSmoothParticle(renderPoints.get(i), new Vector2f(), 10f, 10f, 0.01f, Color.MAGENTA);
-
-                //debug render angle markers
-                Vector2f v = new Vector2f(10f, 0f);
-                v = VectorUtils.rotate(v, meanAngle);
-                v = Vector2f.add(v, renderPoints.get(i), null);
-                //Global.getCombatEngine().addSmoothParticle(v, new Vector2f(), 10f, 10f, 0.01f, Color.GREEN);
-            }
+//            if (debug) {
+//                if (i % 2 == 0)
+//                    Global.getCombatEngine().addFloatingTextAlways(segmentPoints.get(i / 2).getLocation(), String.valueOf(i / 2), 10f, Color.WHITE, null, 1f, 1f, 0.01f, 0f, 0f, 1f);
+//                //Global.getCombatEngine().addSmoothParticle(renderPoints.get(i), new Vector2f(), 10f, 10f, 0.01f, Color.MAGENTA);
+//
+//                //debug render angle markers
+//                Vector2f v = new Vector2f(10f, 0f);
+//                v = VectorUtils.rotate(v, meanAngle);
+//                v = Vector2f.add(v, renderPoints.get(i), null);
+//                //Global.getCombatEngine().addSmoothParticle(v, new Vector2f(), 10f, 10f, 0.01f, Color.GREEN);
+//            }
 
             Color color = computeColorForSegment(i);
      if (is_pd)       {

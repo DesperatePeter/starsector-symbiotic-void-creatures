@@ -37,7 +37,7 @@ public class svc_grappler_pd_behaviour extends GreiferEffectBase implements OnFi
     }
     @Override
     public void onFire(DamagingProjectileAPI projectile, WeaponAPI weapon, CombatEngineAPI engine) {
-        GrapplerRopePlugin plugin = new GrapplerRopePlugin(pluginCount++, 20, 4f, true, weapon, projectile);
+        GrapplerRopePlugin plugin = new GrapplerRopePlugin(pluginCount++, 15, 4f, true, weapon, projectile);
         plugin.setBaseColor(tentacleColor);
         plugin.setSegmentLength(5f);
 

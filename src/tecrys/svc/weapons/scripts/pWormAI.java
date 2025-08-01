@@ -36,7 +36,7 @@ public class pWormAI implements MissileAIPlugin, GuidedMissileAI {
     private final boolean OVERSTEER = false;  //REQUIRE NO OVERSHOOT ANGLE!
 
     //Does the missile switch its target if it has been destroyed?
-    private final boolean TARGET_SWITCH = true;
+    private final boolean TARGET_SWITCH = false;
 
     //Does the missile find a random target or aways tries to hit the ship's one?    
     /*
@@ -69,7 +69,7 @@ public class pWormAI implements MissileAIPlugin, GuidedMissileAI {
 
     //Arc to look for targets into
     //set to 360 or more to ignore
-    private final int SEARCH_CONE = 270;
+    private final int SEARCH_CONE = 70;
 
     //range in which the missile seek a target in game units.
     private final int MAX_SEARCH_RANGE = 2000;
@@ -82,7 +82,7 @@ public class pWormAI implements MissileAIPlugin, GuidedMissileAI {
     private float PRECISION_RANGE = 500;
 
     //Is the missile lead the target or tailchase it?
-    private final boolean LEADING = true;
+    private final boolean LEADING = false;
 
     //Leading loss without ECCM hullmod. The higher, the less accurate the leading calculation will be.
     //   1: perfect leading with and without ECCM
@@ -105,7 +105,7 @@ public class pWormAI implements MissileAIPlugin, GuidedMissileAI {
     private CombatEntityAPI target;
     private Vector2f lead = new Vector2f();
     private boolean launch = true;
-    private float timer = 0, check = 0f;
+    private float timer = 0, check = 1f;
 
     //////////////////////
     //  DATA COLLECTING //

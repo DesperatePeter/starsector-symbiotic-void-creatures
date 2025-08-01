@@ -86,7 +86,7 @@ public class svcGuidedProjectile extends BaseEveryFrameCombatPlugin {
 
     //The maximum range a target can be re-acquired at, in SU.
     //Note that this is counted from the *original* target by default, not the projectile itself (use _PROJ) for that behaviour
-    private static final float TARGET_REACQUIRE_RANGE = 250f;
+    private static final float TARGET_REACQUIRE_RANGE = 300f;
 
     //The maximum angle a target can be re-acquired at, in degrees.
     //90 means 90 degrees to either side, I.E. a hemisphere in front of the projectile. Values 180 and above turns off the limitation altogether
