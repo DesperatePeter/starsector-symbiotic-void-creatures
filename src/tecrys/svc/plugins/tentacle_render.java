@@ -86,6 +86,7 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
 
     public static List<SegmentData> makeSegmentsBezierCurve(Vector4f start, Vector4f end, Vector2f width, float segmentLength){
         List<SegmentData> result = new ArrayList<>();
+
         float len= getBezierLength(start,end);
         int numSegments = (int)Math.ceil(len/segmentLength);
         float SL = len/numSegments;
@@ -150,6 +151,7 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
             List<Vector2f> widthWaveformParams
     ){
         List<SegmentData> result = new ArrayList<>();
+
         float totalLength = getTotalLength(points);
         //Global.getLogger(tentacle1.class).info(totalLength);
         float filledLength = segmentLength;
@@ -349,10 +351,40 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
         }
     }
 
+    public static boolean screen(
+            float distance,
+            Vector2f point
+    ) {
+        try{
+            ViewportAPI v = getViewport();
+            Vector2f center = v.getCenter();
+            float h1 = v.getVisibleHeight()/2f+distance;
+            float w1 = v.getVisibleWidth()/2f+distance;
+            Vector2f dif = vsub(point, center);
+            if(Math.abs(dif.getX())>w1)return false;
+            if(Math.abs(dif.getY())>h1)return false;
+            return true;
+        }catch (Exception ex){}
+        return false;
+    }
 
 
+    public static ViewportAPI getViewport(){
+        try{
+            ViewportAPI v = Global.getCombatEngine().getViewport();
+            if(v!=null)return v;
+        }catch (Exception ex){}
+        try{
+            ViewportAPI v = Global.getSector().getViewport();
+            if(v!=null)return v;
+        }catch (Exception ex){}
+        return null;
+    }
+    public static Vector2f vsub(Vector2f v1, Vector2f v2){
+        return new Vector2f(v1.getX()-v2.getX(), v1.getY()-v2.getY());
+    }
     private void renderQuadStripSingleframe(renderData data){
-
+        if(!screen(500f, data.origin))return;
 
         float len = 0f;
         for(SegmentData seg:data.points){
@@ -388,8 +420,8 @@ public class tentacle_render extends BaseEveryFrameCombatPlugin {
         float texHeight = texture.getTextureHeight();
         float imageHeight = texture.getHeight();
 
-                float leftTX = texWidth*((data.texShift.y+0f)/imageWidth);
-        
+        float leftTX = texWidth*((data.texShift.y+0f)/imageWidth);
+
         float texProgress = 0f;
         float FL = 0f;
         for(SegmentData seg:data.points){

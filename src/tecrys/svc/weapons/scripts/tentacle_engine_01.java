@@ -42,9 +42,10 @@ public class tentacle_engine_01 extends BaseCombatLayeredRenderingPlugin impleme
 
 
 
-        if(weapon.getSlot().isHidden())return;
-	    if(engine.isPaused())return;
-		if(!weapon.getShip().isAlive())return;
+		if(weapon.getSlot().isHidden())return;
+		if(engine.isPaused())return;
+//		if(!weapon.getShip().isAlive())return;
+		if(!tentacle_render.screen(size.y, weapon.getLocation()))return;
 
 		if(!runOnce){
 			size = weapon.getSpec().getTurretFireOffsets().get(0);
@@ -140,7 +141,7 @@ public class tentacle_engine_01 extends BaseCombatLayeredRenderingPlugin impleme
 		}
 
 ///work the engine
-		///actual rotation
+///actual rotation
 		weapon.setCurrAngle(DC+amount*Math.signum(MathUtils.getShortestRotation(DC, DP))*turnrate);
 
 		counter1+=amount*animSpeed*animSpeedMult;

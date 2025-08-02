@@ -40,9 +40,10 @@ public class tentacle_engine_03 extends BaseCombatLayeredRenderingPlugin impleme
 
 
 
-        if(weapon.getSlot().isHidden())return;
-	    if(engine.isPaused())return;
-		if(!weapon.getShip().isAlive())return;
+		if(weapon.getSlot().isHidden())return;
+		if(engine.isPaused())return;
+//		if(!weapon.getShip().isAlive())return;
+		if(!tentacle_render.screen(size.y, weapon.getLocation()))return;
 
 		if(!runOnce){
 			size = weapon.getSpec().getTurretFireOffsets().get(0);

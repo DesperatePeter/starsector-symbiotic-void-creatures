@@ -20,6 +20,8 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static tecrys.svc.plugins.tentacle_render.screen;
+
 public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
     protected WeaponAPI attachedWeapon;
     protected DamagingProjectileAPI attachedProj;

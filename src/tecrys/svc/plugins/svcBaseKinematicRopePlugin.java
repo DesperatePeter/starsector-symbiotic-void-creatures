@@ -7,6 +7,7 @@ package tecrys.svc.plugins;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.BaseEveryFrameCombatPlugin;
 import com.fs.starfarer.api.combat.CombatEngineLayers;
+import com.fs.starfarer.api.combat.DamagingProjectileAPI;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.util.Misc;
@@ -18,6 +19,8 @@ import org.magiclib.plugins.MagicTrailPlugin;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static tecrys.svc.plugins.tentacle_render.screen;
 
 public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
 
@@ -115,8 +118,9 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
         // you generally want to set the velocity to the same as whatever you're attaching it to
         for (SegmentPoint segmentPoint : segmentPoints) {
             segmentPoint.advance(amount);
-        }
 
+        }
+        if(!screen(0f, segmentPoints.get(0).location))return;
         drawTrail(); //draw a single-frame trail
     }
 
@@ -124,6 +128,10 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
         //curve smoothing method
         //TODO: look at Chaikin's algorithm as alternate
         //first double the number of points by getting the midpoint of each segment
+
+
+
+
         ArrayList<Vector2f> extraPoints = new ArrayList<>();
         for (int i = 0; i < segmentPoints.size() - 1; i++) {
             extraPoints.add(segmentPoints.get(i).getLocation());
@@ -255,6 +263,7 @@ public class svcBaseKinematicRopePlugin extends BaseEveryFrameCombatPlugin {
     //String physics ported from: http://web.archive.org/web/20160418004153/http://freespace.virgin.net/hugo.elias/models/m_string.htm
     protected void computeStringPhysics(float amount) {
         for (int i = 0; i < segmentPoints.size(); i++) {
+            if(!screen(0f, segmentPoints.get(i).location))return;
             Vector2f result = new Vector2f();
             for (int j = 1; j <= ropeParams.neighbors; j++) {
                 Vector2f previous;
