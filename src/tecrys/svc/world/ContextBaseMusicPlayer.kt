@@ -45,8 +45,8 @@ class ContextBaseMusicPlayer: EveryFrameScript {
 
     }
 
-    val DISTANCE_TO_TRIGGER_MUSIC_SYSTEM = 2000f
-    val DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE = 1.5f
+    val DISTANCE_TO_TRIGGER_MUSIC_SYSTEM = 4000f
+    val DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE = 0.5f
 
     private val music: Music = try {
         Music(Global.getSettings().loadJSON("data/config/sounds.json", "symbiotic_void_creatures").getJSONObject("music"));
@@ -87,12 +87,12 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 }
 
                 if(isInHyperspace) {
-                    if (isAnyVoidlingFleetInDistanceHyperspace(DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE)){
-                        playExplorationTheme()
-                    } else {
-                        stopExplorationTheme()
-                    }
-                    return
+//                    if (isAnyVoidlingFleetInDistanceHyperspace(DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE)){
+//                        playExplorationTheme()
+//                    } else {
+//                        stopExplorationTheme()
+//                    }
+//                    return
                 }
 
                 if(FleetSpawner.getFactionFleets(SVC_FACTION_ID).any {
