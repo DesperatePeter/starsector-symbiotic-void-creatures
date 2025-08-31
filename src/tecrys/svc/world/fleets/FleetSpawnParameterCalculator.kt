@@ -55,7 +55,8 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
 
     val maxFleetCount: Int
         get() {
-            if (Global.getSettings().isDevMode) return 80
+//            if (Global.getSettings().isDevMode) return 80
+            // Todo: Increased number of fleets seems obsolete by now and it was interfering with bug reports
             return s.baseMaxFleetCount + ((spawnPower / s.maxSpawnPower) * (s.finalMaxFleetCount - s.baseMaxFleetCount)).toInt()
         }
     val combatRole: String
