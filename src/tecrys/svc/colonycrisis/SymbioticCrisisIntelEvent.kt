@@ -41,7 +41,7 @@ import kotlin.math.sin
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
     companion object{
-        val MAX_NUM_FLEETS get() = min(10 + Global.getSector().clock.cycle - 206, 30)
+        val MAX_NUM_FLEETS get() = min(6 + Global.getSector().clock.cycle - 206, 15)
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 1000f
