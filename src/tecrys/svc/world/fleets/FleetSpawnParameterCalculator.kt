@@ -1,10 +1,12 @@
 package tecrys.svc.world.fleets
 
 import com.fs.starfarer.api.Global
+import lunalib.lunaSettings.LunaSettings.getString
 import org.lazywizard.lazylib.MathUtils
 import tecrys.svc.SVC_MOD_ID
 import tecrys.svc.utils.CampaignSettingDelegate
 import kotlin.math.min
+
 
 class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) {
     companion object {
@@ -55,9 +57,26 @@ class FleetSpawnParameterCalculator(private val s: FleetSpawnParameterSettings) 
 
     val maxFleetCount: Int
         get() {
-//            if (Global.getSettings().isDevMode) return 80
-            // Todo: Increased number of fleets seems obsolete by now and it was interfering with bug reports
-            return s.baseMaxFleetCount + ((spawnPower / s.maxSpawnPower) * (s.finalMaxFleetCount - s.baseMaxFleetCount)).toInt()
+            var maxFleetNumberCap: Int? = null;
+            if (Global.getSettings().modManager.isModEnabled("lunalib")) {
+                val fleetCapSetting = getString("symbiotic_void_creatures", "svc_spawnCap");
+
+                maxFleetNumberCap = when (fleetCapSetting) {
+                    "Low" -> 10
+                    "Normal" -> 20
+                    "High" -> 30
+                    "Uncapped" -> null
+                    else -> null
+                }
+            }
+
+            val maxFleetCalc = s.baseMaxFleetCount + ((spawnPower / s.maxSpawnPower) * (s.finalMaxFleetCount - s.baseMaxFleetCount)).toInt()
+
+            if (maxFleetNumberCap == null) {
+                return maxFleetCalc
+            }
+
+            return min(maxFleetCalc, maxFleetNumberCap)
         }
     val combatRole: String
         get() {

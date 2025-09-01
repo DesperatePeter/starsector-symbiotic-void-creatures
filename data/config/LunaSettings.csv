@@ -1,0 +1,3 @@
+fieldID,fieldName,fieldType,defaultValue,secondaryValue,fieldDescription,minValue,maxValue,tab
+svc_settingsHeader,Settings,Header,Settings,,,,,
+svc_spawnCap,Voidling Spawn Cap,Radio,Uncapped,"Low,Normal,High,Uncapped",Sets the maximum voidlings fleets that can be spawned,,,
