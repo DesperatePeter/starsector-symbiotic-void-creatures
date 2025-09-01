@@ -12,7 +12,7 @@ import kotlin.math.sin
 
 class InkSprayEffect : OnFireEffectPlugin {
     companion object{
-        const val EFFECT_DURATION = 6f
+        const val EFFECT_DURATION = 4f
         const val EFFECT_RADIUS = 200f
         const val EFFECT_SPEED = 50f
         const val EFFECT_SPAWN_DISTANCE = EFFECT_RADIUS / 2f
