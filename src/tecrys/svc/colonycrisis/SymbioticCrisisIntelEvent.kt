@@ -19,6 +19,7 @@ import com.fs.starfarer.api.ui.SectorMapAPI
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import com.fs.starfarer.api.util.Misc
+import lunalib.lunaSettings.LunaSettings.getString
 import org.lazywizard.lazylib.ext.minus
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
@@ -41,7 +42,23 @@ import kotlin.math.sin
 class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel() {
 
     companion object{
-        val MAX_NUM_FLEETS get() = min(6 + Global.getSector().clock.cycle - 206, 15)
+        val MAX_NUM_FLEETS: Int
+            get() {
+                var crisisFleetCap = 15
+
+                if (Global.getSettings().modManager.isModEnabled("lunalib")) {
+                    val fleetCapSetting = getString("symbiotic_void_creatures", "svc_crisisSpawnCap");
+
+                     when (fleetCapSetting) {
+                        "Low" -> crisisFleetCap = 10
+                        "Normal" -> crisisFleetCap = 15
+                        "High" -> crisisFleetCap = 20
+                        else -> null
+                    }
+                }
+
+                return min(6 + Global.getSector().clock.cycle - 206, crisisFleetCap)
+            }
         const val FLEETS_DEFEATED_UNTIL_CLUE = 2
         const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 1000f
@@ -224,6 +241,8 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                         (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
                     else true
         }.randomOrNull() ?: return false
+
+
 
         FleetManager().spawnSvcFleet(
             location, true,
