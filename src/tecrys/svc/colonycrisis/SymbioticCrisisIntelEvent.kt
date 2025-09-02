@@ -241,7 +241,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
                         (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
                     else true
         }.randomOrNull() ?: return false
-        
+
         FleetManager().spawnSvcFleet(
             location, true,
             FleetSpawnParameterCalculator(svcSettings).withModifiedPower(FLEET_POWER_MODIFIER)

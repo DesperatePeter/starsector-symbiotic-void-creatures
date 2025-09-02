@@ -5,6 +5,7 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.*
 import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.util.IntervalUtil
+import lunalib.lunaSettings.LunaSettings.getString
 import org.lazywizard.lazylib.ext.plus
 import org.lwjgl.util.vector.Vector2f
 import org.magiclib.kotlin.isPermaKnowsWhoPlayerIs
@@ -29,7 +30,6 @@ class FleetManager : EveryFrameScript {
     companion object {
         const val WHALE_RAND_DIST = 600f
         const val WHALE_PLAYER_FLEET_DIRECTION_DIST = 1300f
-        const val WHALE_SPAWN_BASE_INTERVAL = 250f
         const val WHALE_OIL_PER_DP_IN_CARGO = 0.1f
         const val HUNTER_FLEET_DISTANCE = 2000f
         const val WHALE_FLEET_IDENTIFICATION_KEY = "$" + "SVC_WHALE_FLEET_TAG"
@@ -72,12 +72,29 @@ class FleetManager : EveryFrameScript {
         }
     }
 
+    var WHALE_SPAWN_BASE_INTERVAL: Float = this.getWhaleSpawnInterval()
+        private set
     private val svcSpawnInterval = IntervalUtil(10f, 30f)
     private val attractorSpawnInterval = IntervalUtil(3f, 10f)
     private val whaleSpawnInterval = IntervalUtil(
         WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
         2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier
     )
+
+    private fun getWhaleSpawnInterval(): Float {
+        return if (Global.getSettings().modManager.isModEnabled("lunalib")) {
+            val fleetCapSetting = getString("symbiotic_void_creatures", "svc_whaleSpawnInterval");
+
+            when (fleetCapSetting) {
+                "Abundant" -> 65f
+                "Often" -> 125f
+                "Rarely" -> 250f
+                else -> 250f
+            }
+        } else {
+            250f
+        }
+    }
 
     override fun isDone(): Boolean = false
 
@@ -95,6 +112,7 @@ class FleetManager : EveryFrameScript {
         }
         if (whaleSpawnInterval.intervalElapsed()) {
             spawnWhaleEncounter()
+            WHALE_SPAWN_BASE_INTERVAL = this.getWhaleSpawnInterval()
             whaleSpawnInterval.setInterval(
                 WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier,
                 2f * WHALE_SPAWN_BASE_INTERVAL * whaleSpawnIntervalMultiplier
