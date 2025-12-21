@@ -74,6 +74,7 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
     override fun fireEvent(intel: HostileActivityEventIntel?, stage: BaseEventIntel.EventStageData?): Boolean {
         Global.getLogger(this.javaClass).info(">>>>>>>SVC COLONY CRISIS EVENT HAS FIRED<<<<<<<")
         val market = pickTargetMarket() ?: return false
+        if(SymbioticCrisisIntelEvent.isCrisisActive) return false
         Global.getSector().intelManager.addIntel(SymbioticCrisisIntelEvent(market))
         return true
     }
