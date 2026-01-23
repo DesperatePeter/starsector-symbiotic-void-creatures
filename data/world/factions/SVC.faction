@@ -9,8 +9,8 @@
 	"personNamePrefixAOrAn":"a",
 	"displayNameIsOrAre":"are",
 	
-	"logo":"graphics/factions/ai_remnant.png",
-	"crest":"graphics/factions/crest_ai_remnant.png",
+	"logo":"graphics/factions/flag_svc.png",
+	"crest":"graphics/factions/crest_svc.png",
 	"shipNamePrefix":"",
 	
 	"color":[173,130,2,255],

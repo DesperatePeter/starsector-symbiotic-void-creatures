@@ -148,7 +148,9 @@ class FleetManager : EveryFrameScript {
 //            it.makeHostile()
 //            it.makeAlwaysHostile()
             it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
-            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+      //      it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SKIP_TRANSPONDER_STATUS_INFO, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_IGNORE_PLAYER_COMMS, true)
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_PATROL_ALLOW_TOFF, true)
             it.customData[SVC_FLEET_IDENTIFICATION_KEY] = true
             return it
@@ -191,6 +193,8 @@ class FleetManager : EveryFrameScript {
             loc.containingLocation.addEntity(this)
             setLocation(loc.location.x, loc.location.y)
             memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = MastermindFIDConf()
+            memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SKIP_TRANSPONDER_STATUS_INFO, true)
+            memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_PATROL_ALLOW_TOFF, true)
             memoryWithoutUpdate[MemFlags.CAN_ONLY_BE_ENGAGED_WHEN_VISIBLE_TO_PLAYER] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORES_OTHER_FLEETS] = true
             memoryWithoutUpdate[MemFlags.FLEET_IGNORED_BY_OTHER_FLEETS] = true
@@ -230,7 +234,9 @@ class FleetManager : EveryFrameScript {
                     memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
                     markAsHunter(hunterConfig.id)
                     memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
+                    memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_PATROL_ALLOW_TOFF, true)
                     memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+                    memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_IGNORE_PLAYER_COMMS, true)
                     showNotificationOnCampaignUi(
                         "You are being hunted",
                         Global.getSettings().getSpriteName("intel", "hunter_intel")
@@ -301,11 +307,15 @@ class FleetManager : EveryFrameScript {
             it.memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
             it.memoryWithoutUpdate?.set(MemFlags.TEMPORARILY_NOT_AVOIDING_ABYSSAL, true)
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_IGNORE_PLAYER_COMMS, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SKIP_TRANSPONDER_STATUS_INFO, true)
+            it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_PATROL_ALLOW_TOFF, true)
             whales.follow(playerFleet, 0f)
             whales.makeImportant("being hunted", 10f)
             whales.memoryWithoutUpdate?.set(MemFlags.MAY_GO_INTO_ABYSS, true)
             whales.memoryWithoutUpdate?.set(MemFlags.TEMPORARILY_NOT_AVOIDING_ABYSSAL, true)
             whales.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_ALLOW_PLAYER_BATTLE_JOIN_TOFF, true)
+            whales.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_IGNORE_PLAYER_COMMS, true)
             showNotificationOnCampaignUi(
                 "Your fleet encountered a whale herd",
                 Global.getSettings().getSpriteName("intel", "whale_intel")

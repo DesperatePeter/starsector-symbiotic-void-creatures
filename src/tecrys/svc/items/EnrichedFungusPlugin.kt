@@ -35,7 +35,7 @@ class EnrichedFungusPlugin: BaseSpecialItemPlugin() {
         val pf = Global.getSector().playerFleet ?: return null
         if(pf.isInHyperspace) return null
         val closestPlanet = pf.containingLocation?.planets?.filter {
-            it.hasCondition(Conditions.HABITABLE)
+            !it.hasCondition(Conditions.NO_ATMOSPHERE)
         }?.filterNot {
             it.hasVolatiles() && it.hasOrganics()
         }?.minByOrNull {

@@ -82,6 +82,9 @@ public class AdrenalGlands extends BiologicalBaseHullmod {
 //			   !ship.getVariant().getHullMods().contains("augmented_engines");
 
 		List<WeaponAPI> wep = ship.getAllWeapons();
+		if (wep.isEmpty()) {
+			return false;
+		}
 		for (WeaponAPI weprange : wep) {
 			if (
 			!weprange.getOriginalSpec().hasTag("melee") && !weprange.getType().equals(WeaponAPI.WeaponType.DECORATIVE)

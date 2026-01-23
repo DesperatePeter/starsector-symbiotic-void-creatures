@@ -1,2 +1,2 @@
 name,id,planetary,decivRemove,script,desc,icon,order
-Voidling Infestetation,svc_voidling_infestation,,TRUE,tecrys.svc.econ.VoidlingInfestation,Swarms of voidlings in the system make trade very difficult,graphics/icons/markets/alien_life.png,1221
+Voidling Infestation,svc_voidling_infestation,,TRUE,tecrys.svc.econ.VoidlingInfestation,Swarms of voidlings in the system make trade very difficult,graphics/icons/markets/alien_life.png,1221

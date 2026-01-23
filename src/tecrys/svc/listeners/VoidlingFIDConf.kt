@@ -12,11 +12,11 @@ class VoidlingFIDConf: FIDConfigGen {
     override fun createConfig(): FIDConfig {
         val config = FIDConfig()
         config.run {
-            alwaysPursue = true
-            showCommLinkOption = false
+     //       alwaysPursue = true
+            showCommLinkOption = true
             // straightToEngage = true
 //            alwaysAttackVsAttack = true
-       //     leaveAlwaysAvailable = true
+            leaveAlwaysAvailable = true
         }
         return config
     }
