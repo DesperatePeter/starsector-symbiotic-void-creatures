@@ -86,6 +86,10 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                     return
                 }
 
+                if (Global.getSector().campaignUI.isShowingDialog){
+                    return;
+                }
+
                 if(isInHyperspace) {
 //                    if (isAnyVoidlingFleetInDistanceHyperspace(DISTANCE_TO_TRIGGER_MUSIC_HYPERSPACE)){
 //                        playExplorationTheme()
@@ -120,7 +124,7 @@ class ContextBaseMusicPlayer: EveryFrameScript {
                 } else if (fleet.faction == Global.getSector().getFaction(MMM_FACTION_ID)) {
                     playBattleTheme(false)
                 }else {
-                        stopBattleTheme()
+                    stopBattleTheme()
                 }
 
                 timer = 0f
