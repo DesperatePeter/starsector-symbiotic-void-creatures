@@ -16,7 +16,7 @@ class VoidlingFIDConf: FIDConfigGen {
             showCommLinkOption = true
             // straightToEngage = true
 //            alwaysAttackVsAttack = true
-            leaveAlwaysAvailable = true
+ //           leaveAlwaysAvailable = true
         }
         return config
     }

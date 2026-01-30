@@ -13,6 +13,7 @@ import com.fs.starfarer.api.fleet.FleetMemberAPI
 import com.fs.starfarer.api.impl.campaign.FleetInteractionDialogPluginImpl
 import com.fs.starfarer.api.util.Misc
 import com.fs.starfarer.campaign.fleet.FleetMemberStatus
+import org.lazywizard.lazylib.ext.campaign.addShip
 import org.lwjgl.input.Keyboard
 import org.lwjgl.opengl.GL11
 import tecrys.svc.MMM_FACTION_ID
@@ -144,6 +145,7 @@ class MastermindInteractionDialog(private val mastermindFleet: CampaignFleetAPI?
     private fun processSubmission(){
         giveSpecialItemToPlayer("industry_bp", "svc_voidling_hatchery", textPanel)
         SymbioticCrisisCause.resolveCrisis()
+        Global.getSector()?.playerFleet?.fleetData?.addFleetMember("svc_mastermind_standard")
         Global.getSector()?.allFactions?.filterNotNull()?.filterNot {
             SectorGen.ignoredFactions.contains(it.id)
         }?.forEach { faction ->

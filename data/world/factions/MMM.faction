@@ -167,13 +167,13 @@
 	"illegalCommodities":[
 	],
 	"music":{
-		"theme":"svc_voidling_exploration_theme",
-		"market_neutral":"svc_voidling_exploration_theme",
-		"market_hostile":"svc_voidling_exploration_theme",
-		"market_friendly":"svc_voidling_exploration_theme",
-		"encounter_neutral":"svc_voidling_exploration_theme",
-		"encounter_hostile":"svc_voidling_exploration_theme",
-		"encounter_friendly":"svc_voidling_exploration_theme",
+		"theme":"svc_voidling_battle_theme_glitched",
+		"market_neutral":"svc_voidling_battle_theme_glitched",
+		"market_hostile":"svc_voidling_battle_theme_glitched",
+		"market_friendly":"svc_voidling_battle_theme_glitched",
+		"encounter_neutral":"svc_voidling_battle_theme_glitched",
+		"encounter_hostile":"svc_voidling_battle_theme_glitched",
+		"encounter_friendly":"svc_voidling_battle_theme_glitched",
 	},	
 	#"internalComms":"hegemony_internal",
 	"portraits":{

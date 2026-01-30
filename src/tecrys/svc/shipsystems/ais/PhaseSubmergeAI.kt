@@ -18,7 +18,7 @@ class PhaseSubmergeAI: ShipSystemAIScript {
         const val SYNAPSE_ID = "svc_bigbrain"
         const val ACTIVATE_AT_DANGER = 2000f
         const val DANGER_PER_DAMAGE = 1f
-        const val DANGER_REDUCTION_IF_SYNAPSE_FIRING = 5000f
+        const val DANGER_REDUCTION_IF_SYNAPSE_FIRING = 15000f
         const val DANGER_PER_COOLDOWN = 1000f
     }
 

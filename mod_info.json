@@ -23,6 +23,10 @@
             "id": "advanced_gunnery_control_dbeaa06e",
             "name": "AdvancedGunneryControl"
         },
+			{
+		"id": "lunalib",
+		"name": "LunaLib",
+	},
         {
             "id" : "MagicLib",
             "name" : "MagicLib"

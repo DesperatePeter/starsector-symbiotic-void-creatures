@@ -154,10 +154,10 @@ class ContextBaseMusicPlayer: EveryFrameScript {
     private fun playBattleTheme(glitched: Boolean = false){
         if(glitched){
             if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED)) return
-            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED.toMusicPlayerFormat(), true)
+            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED.toMusicPlayerFormat(), false)
         } else {
             if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME)) return
-            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME.toMusicPlayerFormat(), true)
+            Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME.toMusicPlayerFormat(), false)
         }
     }
 }

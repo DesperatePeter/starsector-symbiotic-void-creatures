@@ -33,7 +33,7 @@
       "size": "LARGE",
       "type": "UNIVERSAL",
       "mount": "TURRET",
-      "arc": 90,
+      "arc": 120,
       "angle": -40.5,
       "locations": [9, -102]
     },
@@ -42,7 +42,7 @@
       "size": "LARGE",
       "type": "UNIVERSAL",
       "mount": "TURRET",
-      "arc": 90,
+      "arc": 120,
       "angle": 40.5,
       "locations": [9, 102]
     },
