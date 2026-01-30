@@ -3,6 +3,10 @@ package tecrys.svc.world
 import com.fs.starfarer.api.EveryFrameScript
 import com.fs.starfarer.api.GameState
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.combat.CombatEngineAPI
+import com.fs.starfarer.api.combat.EveryFrameCombatPlugin
+import com.fs.starfarer.api.combat.ViewportAPI
+import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.mission.FleetSide
 import com.fs.starfarer.api.util.Misc
 import org.json.JSONObject
@@ -14,7 +18,7 @@ import tecrys.svc.utils.isMastermindFleet
 import tecrys.svc.world.fleets.FleetSpawner
 import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 
-class ContextBaseMusicPlayer: EveryFrameScript {
+class ContextBaseMusicPlayer: EveryFrameScript, EveryFrameCombatPlugin {
     enum class MusicID(val id: String) {
         SVC_WHALE_THEME("svc_whale_theme"),
         SVC_VOIDLING_EXPLORATION_THEME("svc_voidling_exploration_theme"),
@@ -141,13 +145,13 @@ class ContextBaseMusicPlayer: EveryFrameScript {
 
     private fun stopExplorationTheme(){
         if(music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME)){
-            Global.getSoundPlayer().pauseCustomMusic()
+            Global.getSoundPlayer().pauseMusic()
         }
     }
 
     private fun stopBattleTheme(){
         if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME) || music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED)){
-            Global.getSoundPlayer().pauseCustomMusic()
+            Global.getSoundPlayer().pauseMusic()
         }
     }
 
@@ -159,5 +163,28 @@ class ContextBaseMusicPlayer: EveryFrameScript {
             if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME)) return
             Global.getSoundPlayer().playCustomMusic(1, 1, MusicID.SVC_VOIDLING_BATTLE_THEME.toMusicPlayerFormat(), true)
         }
+    }
+
+    override fun processInputPreCoreControls(
+        p0: Float,
+        p1: List<InputEventAPI?>?
+    ) {
+        return
+    }
+
+    override fun advance(p0: Float, p1: List<InputEventAPI?>?) {
+        this.advance(p0)
+    }
+
+    override fun renderInWorldCoords(p0: ViewportAPI?) {
+        return
+    }
+
+    override fun renderInUICoords(p0: ViewportAPI?) {
+        return
+    }
+
+    override fun init(p0: CombatEngineAPI?) {
+        return
     }
 }

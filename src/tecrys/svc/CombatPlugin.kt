@@ -14,6 +14,7 @@ import tecrys.svc.utils.isMastermindFleet
 import tecrys.svc.utils.postRender
 import tecrys.svc.utils.preRender
 import tecrys.svc.utils.setColor
+import tecrys.svc.world.ContextBaseMusicPlayer
 import java.awt.Color
 import kotlin.math.sin
 
@@ -48,6 +49,12 @@ class CombatPlugin : BaseEveryFrameCombatPlugin() {
     }
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
+        if (Global.getCurrentState() == GameState.COMBAT) {
+            if (!Global.getCombatEngine().hasPluginOfClass(ContextBaseMusicPlayer::class.java)){
+                Global.getCombatEngine().addPlugin(ContextBaseMusicPlayer())
+            }
+        }
+
         // skip when on title screen
         shouldPreventPauseFor -= amount
         if(shouldPreventPauseFor > 0f && Global.getCombatEngine().isPaused){
