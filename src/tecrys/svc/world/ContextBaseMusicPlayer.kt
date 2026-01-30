@@ -73,9 +73,10 @@ class ContextBaseMusicPlayer: EveryFrameScript, EveryFrameCombatPlugin {
         if (Global.getCurrentState() == GameState.TITLE) {
             return
         }
-
+        val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+            ?.firstOrNull()?.fleetData?.fleet ?: return
         val currentState = Global.getCurrentState()
-
+if (fleet == null)stopBattleTheme()
         if (lastCheckState != currentState || Global.getSector().playerFleet.isInHyperspace != isInHyperspace) {
             lastCheckState = currentState
             isInHyperspace = Global.getSector().playerFleet.isInHyperspace
@@ -118,8 +119,7 @@ class ContextBaseMusicPlayer: EveryFrameScript, EveryFrameCombatPlugin {
                     return
                 }
 
-                val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-                    ?.firstOrNull()?.fleetData?.fleet ?: return
+
 
                 if (fleet.isMastermindFleet()){
                     playBattleTheme(true)
