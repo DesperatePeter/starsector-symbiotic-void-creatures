@@ -73,10 +73,9 @@ class ContextBaseMusicPlayer: EveryFrameScript, EveryFrameCombatPlugin {
         if (Global.getCurrentState() == GameState.TITLE) {
             return
         }
-        val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
-            ?.firstOrNull()?.fleetData?.fleet ?: return
+
         val currentState = Global.getCurrentState()
-if (fleet == null)stopBattleTheme()
+
         if (lastCheckState != currentState || Global.getSector().playerFleet.isInHyperspace != isInHyperspace) {
             lastCheckState = currentState
             isInHyperspace = Global.getSector().playerFleet.isInHyperspace
@@ -85,7 +84,7 @@ if (fleet == null)stopBattleTheme()
 
         when(currentState){
             GameState.CAMPAIGN -> {
-                stopBattleTheme()
+
 
                 if (5f > timer){
                     return
@@ -119,7 +118,8 @@ if (fleet == null)stopBattleTheme()
                     return
                 }
 
-
+                val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+                    ?.firstOrNull()?.fleetData?.fleet ?: return
 
                 if (fleet.isMastermindFleet()){
                     playBattleTheme(true)
@@ -135,6 +135,9 @@ if (fleet == null)stopBattleTheme()
             }
             else -> return
         }
+        val fleet = Global.getCombatEngine()?.getFleetManager(FleetSide.ENEMY)?.deployedCopy?.filterNotNull()
+            ?.firstOrNull()?.fleetData?.fleet ?: return
+        if (fleet == null)stopBattleTheme()
     }
 
     private fun playExplorationTheme(){
@@ -145,13 +148,13 @@ if (fleet == null)stopBattleTheme()
 
     private fun stopExplorationTheme(){
         if(music.isMusicPlaying(MusicID.SVC_VOIDLING_EXPLORATION_THEME)){
-            Global.getSoundPlayer().pauseMusic()
+            Global.getSoundPlayer().pauseCustomMusic()
         }
     }
 
     private fun stopBattleTheme(){
         if(music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME) || music.isMusicPlaying(MusicID.SVC_VOIDLING_BATTLE_THEME_GLITCHED)){
-            Global.getSoundPlayer().pauseMusic()
+            Global.getSoundPlayer().pauseCustomMusic()
         }
     }
 
