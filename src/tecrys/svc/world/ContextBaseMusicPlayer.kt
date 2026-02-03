@@ -76,7 +76,7 @@ class ContextBaseMusicPlayer: EveryFrameScript, EveryFrameCombatPlugin {
 
         val currentState = Global.getCurrentState()
 
-        if (lastCheckState != currentState || Global.getSector().playerFleet.isInHyperspace != isInHyperspace) {
+        if ((lastCheckState != currentState || Global.getSector().playerFleet.isInHyperspace != isInHyperspace) && Global.getSector().playerFleet != null) {
             lastCheckState = currentState
             isInHyperspace = Global.getSector().playerFleet.isInHyperspace
             timer = 10f // set it to a high number to trigger the checks below
