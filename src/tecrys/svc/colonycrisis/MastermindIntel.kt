@@ -24,7 +24,7 @@ class MastermindIntel(private val mastermindFleet: CampaignFleetAPI?): BaseIntel
     override fun isImportant(): Boolean = true
     override fun canTurnImportantOff(): Boolean = false
     override fun getIntelTags(map: SectorMapAPI?): MutableSet<String> = mutableSetOf(SVC_FACTION_ID, "Colony threats")
-    override fun shouldRemoveIntel(): Boolean = isDone() || !Global.getSector().doesMastermindFleetExist()
+    override fun shouldRemoveIntel(): Boolean = isDone() || !Global.getSector().doesMastermindFleetExist() || mastermindFleet?.isAlive == false
     override fun getMapLocation(map: SectorMapAPI?): SectorEntityToken? = mastermindFleet
     override fun hasImportantButton(): Boolean = false
 }
