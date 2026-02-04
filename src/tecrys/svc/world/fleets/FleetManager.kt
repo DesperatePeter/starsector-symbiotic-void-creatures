@@ -185,7 +185,7 @@ class FleetManager : EveryFrameScript {
             mastermindFleet.minDP
         ) ?: return null
         fleet.run {
-            memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] = true
+            markAsMastermind()
 //            makeHostile()
 //            makeAlwaysHostile()
             addEventListener(MastermindFleetListener())

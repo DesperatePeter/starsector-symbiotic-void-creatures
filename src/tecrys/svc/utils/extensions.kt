@@ -7,6 +7,7 @@ import com.fs.starfarer.api.campaign.FleetAssignment
 import com.fs.starfarer.api.campaign.JumpPointAPI
 import com.fs.starfarer.api.campaign.OptionPanelAPI
 import com.fs.starfarer.api.campaign.PlanetAPI
+import com.fs.starfarer.api.campaign.SectorAPI
 import com.fs.starfarer.api.campaign.SpecialItemData
 import com.fs.starfarer.api.campaign.StarSystemAPI
 import com.fs.starfarer.api.combat.ShipAPI
@@ -98,7 +99,23 @@ fun ShipAPI.getRandomPointOnShipOutline(): Vector2f{
     }
 }
 
+fun SectorAPI.doesMastermindFleetExist(): Boolean{
+    return memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)
+}
+
+/**
+ * pass null to unset
+ */
+fun SectorAPI.setMastermind(value: CampaignFleetAPI?){
+    value?.let { memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] = it }
+        ?: memoryWithoutUpdate.unset(MASTERMIND_FLEET_MEMKEY)
+}
+
 fun CampaignFleetAPI.isMastermindFleet(): Boolean = memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)
+
+fun CampaignFleetAPI.markAsMastermind(){
+    memoryWithoutUpdate[MASTERMIND_FLEET_MEMKEY] = true
+}
 
 fun CampaignFleetAPI.markAsHunter(id: String){
     memoryWithoutUpdate[FleetManager.HUNTER_FLEET_ID_MEM_KEY] = id

@@ -7,6 +7,7 @@ import com.fs.starfarer.api.impl.campaign.ids.MemFlags
 import com.fs.starfarer.api.impl.campaign.ids.Tags
 import tecrys.svc.industries.VoidlingHatchery
 import tecrys.svc.listeners.MastermindFleetListener
+import tecrys.svc.utils.isMastermindFleet
 import tecrys.svc.world.fleets.FleetManager
 import tecrys.svc.world.fleets.MASTERMIND_FLEET_MEMKEY
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
@@ -18,7 +19,7 @@ class SvcCampaignPlugin: BaseCampaignPlugin() {
     override fun pickInteractionDialogPlugin(interactionTarget: SectorEntityToken?): PluginPick<InteractionDialogPlugin>? {
         val fleet = interactionTarget as? CampaignFleetAPI ?: return null
         if(fleet.battle != null) return null
-        if(fleet.memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)){
+        if(fleet.isMastermindFleet()){
             return PluginPick(MastermindInteractionDialog(fleet), CampaignPlugin.PickPriority.HIGHEST)
         }
         if(fleet.customData?.containsKey(FleetManager.WHALE_FLEET_IDENTIFICATION_KEY) == true){

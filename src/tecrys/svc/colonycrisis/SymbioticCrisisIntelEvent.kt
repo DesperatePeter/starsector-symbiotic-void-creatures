@@ -30,7 +30,9 @@ import tecrys.svc.SVC_COLONY_CRISIS_INTEL_TEXT_KEY
 import tecrys.svc.SVC_FACTION_ID
 import tecrys.svc.listeners.CrisisFleetListener
 import tecrys.svc.utils.CampaignSettingDelegate
+import tecrys.svc.utils.doesMastermindFleetExist
 import tecrys.svc.utils.getToDestSystemAnd
+import tecrys.svc.utils.setMastermind
 import tecrys.svc.world.fleets.*
 import tecrys.svc.world.fleets.dialog.MastermindInteractionDialog
 import java.awt.Color
@@ -192,10 +194,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         }
         setProgress(fleetsDefeatedByPlayer)
         if(progress >= FLEETS_DEFEATED_UNTIL_SECOND_CLUE){
-            if(!Global.getSector().memoryWithoutUpdate.contains(MASTERMIND_FLEET_MEMKEY)){
+            if(!Global.getSector().doesMastermindFleetExist()){
                 val mastermindFleet = FleetManager().spawnMastermindFleet()
                 Global.getSector().intelManager.addIntel(MastermindIntel(mastermindFleet))
-                Global.getSector().memoryWithoutUpdate[FleetManager.MASTERMIND_FLEET_MEM_KEY] = mastermindFleet
+                Global.getSector().setMastermind(mastermindFleet)
             }
         }
     }

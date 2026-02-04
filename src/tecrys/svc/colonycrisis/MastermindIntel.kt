@@ -7,6 +7,7 @@ import com.fs.starfarer.api.impl.campaign.intel.BaseIntelPlugin
 import com.fs.starfarer.api.ui.SectorMapAPI
 import com.fs.starfarer.api.ui.TooltipMakerAPI
 import tecrys.svc.SVC_FACTION_ID
+import tecrys.svc.utils.doesMastermindFleetExist
 
 
 class MastermindIntel(private val mastermindFleet: CampaignFleetAPI?): BaseIntelPlugin() {
@@ -23,7 +24,7 @@ class MastermindIntel(private val mastermindFleet: CampaignFleetAPI?): BaseIntel
     override fun isImportant(): Boolean = true
     override fun canTurnImportantOff(): Boolean = false
     override fun getIntelTags(map: SectorMapAPI?): MutableSet<String> = mutableSetOf(SVC_FACTION_ID, "Colony threats")
-    override fun shouldRemoveIntel(): Boolean = isDone()
+    override fun shouldRemoveIntel(): Boolean = isDone() || !Global.getSector().doesMastermindFleetExist()
     override fun getMapLocation(map: SectorMapAPI?): SectorEntityToken? = mastermindFleet
     override fun hasImportantButton(): Boolean = false
 }
