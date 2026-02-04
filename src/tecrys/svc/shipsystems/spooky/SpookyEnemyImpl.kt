@@ -3,6 +3,7 @@ package tecrys.svc.shipsystems.spooky
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
 import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import tecrys.svc.colonycrisis.SymbioticCrisisIntelEvent
 import tecrys.svc.shipsystems.SpookyActionAtADistance
@@ -48,4 +49,6 @@ class SpookyEnemyImpl(ship: ShipAPI): SpookyActionAtADistance.SpookyImpl {
             else -> TODO("The Mastermind system reached a state that should not be reachable. This is a bug.")
         }
     }
+
+    override fun isUsable(system: ShipSystemAPI?, ship: ShipAPI?): Boolean = true
 }

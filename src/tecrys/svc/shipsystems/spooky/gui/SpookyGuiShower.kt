@@ -47,8 +47,8 @@ class SpookyGuiShower(private val ship: ShipAPI, var gui: MagicCombatGuiBase? = 
         }
     }
 
-    fun exit(){
-        // Global.getCombatEngine().isPaused = false;
+    fun exit() {
+
         Global.getCombatEngine().viewport.isExternalControl = false;
         Global.getCombatEngine()?.removePlugin(this)
         shouldDistort = false
@@ -56,7 +56,8 @@ class SpookyGuiShower(private val ship: ShipAPI, var gui: MagicCombatGuiBase? = 
         gui = null
     }
 
-    fun start(){
+    fun start(shouldPause: Boolean = false){
+        if(shouldPause) Global.getCombatEngine().isPaused = true;
         isRunning = true
         CombatPlugin.shouldRenderLowIntensityGlitch = true
         Global.getCombatEngine()?.addPlugin(this)

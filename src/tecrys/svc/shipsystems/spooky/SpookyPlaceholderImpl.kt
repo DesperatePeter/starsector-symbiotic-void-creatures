@@ -2,6 +2,8 @@ package tecrys.svc.shipsystems.spooky
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.MutableShipStatsAPI
+import com.fs.starfarer.api.combat.ShipAPI
+import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import tecrys.svc.shipsystems.SpookyActionAtADistance
 import java.awt.Color
@@ -18,5 +20,10 @@ class SpookyPlaceholderImpl(private val reason: String): SpookyActionAtADistance
                     reason,
             20f, Color.RED, stats?.entity, 1f, 5f)
     }
+
+    override fun isUsable(
+        system: ShipSystemAPI?,
+        ship: ShipAPI?
+    ): Boolean = false
 
 }
