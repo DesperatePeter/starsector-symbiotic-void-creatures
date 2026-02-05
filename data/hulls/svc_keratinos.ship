@@ -13,11 +13,11 @@
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm"
+    "svc_no_fuel_hm"
   ],
   "builtInWeapons": {
     "Eyes": "svc_waechter_eyes",
-    "WS0001": "svc_trans_fin_left_sml2",
+    "WS0001": "svc_trans_fin_right_sml2",
     "WS0002": "svc_trans_fin_right_sml2",
     "left_antenna": "svc_antena_right",
     "left_grappler": "svc_bge_grappler_pd",
@@ -37,10 +37,10 @@
     "right_grappler": "svc_bge_grappler_pd",
     "right_grappler2": "svc_bge_grappler",
     "right_grappler3": "svc_bge_grappler",
-    "right_long_fin": "svc_trans_fin_left_sml2",
-    "right_long_fin2": "svc_trans_fin_left_sml2",
-    "right_long_fin3": "svc_trans_fin_left_sml2",
-    "right_long_fin4": "svc_trans_fin_left_sml2",
+    "right_long_fin": "svc_trans_fin_right_sml2",
+    "right_long_fin2": "svc_trans_fin_right_sml2",
+    "right_long_fin3": "svc_trans_fin_right_sml2",
+    "right_long_fin4": "svc_trans_fin_right_sml2",
     "right_lrg_uni": "svc_lrg_scythe_r",
     "right_med_uni": "svc_med_scythe_r",
     "right_med_uni_1": "svc_med_scythe_r",
@@ -229,8 +229,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": -137,
+      "arc": 50,
+      "angle": -100,
       "locations": [-21, -14.5]
     },
     {
@@ -238,8 +238,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": 137,
+      "arc": 50,
+      "angle": 100,
       "locations": [-21, 14.5]
     },
     {
@@ -247,8 +247,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": -146.5,
+      "arc": 50,
+      "angle": -100,
       "locations": [-27.5, -14]
     },
     {
@@ -256,8 +256,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": 146.5,
+      "arc": 50,
+      "angle": 100,
       "locations": [-27.5, 14]
     },
     {
@@ -265,8 +265,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": -135,
+      "arc": 50,
+      "angle": -100,
       "locations": [-12, -15.5]
     },
     {
@@ -274,8 +274,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": 135,
+      "arc": 50,
+      "angle": 100,
       "locations": [-12, 15.5]
     },
     {
@@ -292,8 +292,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": -153.5,
+      "arc": 50,
+      "angle": -117.5,
       "locations": [-34.5, -13]
     },
     {
@@ -301,8 +301,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": 153.5,
+      "arc": 50,
+      "angle": 117.5,
       "locations": [-34.5, 13]
     },
     {
@@ -348,8 +348,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": 160.5,
+      "arc": 50,
+      "angle": 137.5,
       "locations": [-40.5, 10.5]
     },
     {
@@ -357,8 +357,8 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 180,
-      "angle": -160.5,
+      "arc": 50,
+      "angle": -137.5,
       "locations": [-40.5, -10.5]
     },
     {
