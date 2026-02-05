@@ -5,41 +5,38 @@ import com.fs.starfarer.api.combat.ShipAPI
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
 import tecrys.svc.shipsystems.spooky.SpookyMindControl
+import tecrys.svc.shipsystems.spooky.SpookyPlayerImpl
+import tecrys.svc.shipsystems.spooky.mindControl
+import tecrys.svc.shipsystems.spooky.sabotageCrew
+import tecrys.svc.shipsystems.spooky.sabotageDrive
+import tecrys.svc.shipsystems.spooky.sabotageWeapons
 import java.awt.Color
 
 class SpookyPlayerGui(private val guiShower: SpookyGuiShower, private val targetShip: ShipAPI): MagicCombatGuiBase(spookyGuiLayout) {
 
     init {
-        fun floatyText(txt: String){
-            Global.getCombatEngine()?.addFloatingText(targetShip.location, txt,
-                28f, Color.RED, targetShip, 2f, 4.0f)
-        }
         val mindControlAction = object : MagicCombatButtonAction {
             override fun execute() {
-                Global.getCombatEngine()?.addPlugin(SpookyMindControl(targetShip))
-                floatyText("Insane Captain")
-                guiShower.exit()
+                mindControl(targetShip, durationMultiplier = 1.0f)
+                guiShower.exit(SpookyPlayerImpl.SHOULD_UNPAUSE_ON_FINISH)
             }
         }
         val sabotageWeaponsAction = object : MagicCombatButtonAction {
             override fun execute() {
-                targetShip.allWeapons?.filter { Math.random() > 0.5f }?.forEach { w -> targetShip.applyCriticalMalfunction(w, false) }
-                floatyText("Weapons Crew Compromised")
-                guiShower.exit()
+                sabotageWeapons(targetShip, chance = 0.7f)
+                guiShower.exit(SpookyPlayerImpl.SHOULD_UNPAUSE_ON_FINISH)
             }
         }
         val sabotageDriveAction = object : MagicCombatButtonAction {
             override fun execute() {
-                targetShip.engineController?.shipEngines?.forEach { e -> targetShip.applyCriticalMalfunction(e, false) }
-                floatyText("Rogue Engineer")
-                guiShower.exit()
+                sabotageDrive(targetShip, chance = 1.0f)
+                guiShower.exit(SpookyPlayerImpl.SHOULD_UNPAUSE_ON_FINISH)
             }
         }
         val sabotageCrewAction = object : MagicCombatButtonAction {
             override fun execute() {
-                targetShip.currentCR = targetShip.currentCR.minus(0.25f).coerceIn(0f, 100f)
-                floatyText("Violent Mutiny")
-                guiShower.exit()
+                sabotageCrew(targetShip, amount = 0.4f)
+                guiShower.exit(SpookyPlayerImpl.SHOULD_UNPAUSE_ON_FINISH)
             }
         }
         addButton(sabotageDriveAction, "Drive", "Fire in the reactor room!")
@@ -53,6 +50,6 @@ class SpookyPlayerGui(private val guiShower: SpookyGuiShower, private val target
     }
 
     override fun getMessageString(): String {
-        return "Choose an effect to apply"
+        return ""
     }
 }

@@ -13,7 +13,8 @@ import tecrys.svc.utils.getEffectiveShipTarget
 class SpookyPlayerImpl(private val ship: ShipAPI): SpookyActionAtADistance.SpookyImpl {
     private val guiShower = SpookyGuiShower(ship)
     companion object{
-        const val SYSTEM_RANGE = 1000f
+        const val SHOULD_PAUSE_ON_ACTIVATION = true
+        const val SHOULD_UNPAUSE_ON_FINISH = true
     }
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -24,7 +25,7 @@ class SpookyPlayerImpl(private val ship: ShipAPI): SpookyActionAtADistance.Spook
         if(state != ShipSystemStatsScript.State.ACTIVE) return
         if(guiShower.isRunning) return
         guiShower.gui = ship.getEffectiveShipTarget()?.let { SpookyPlayerGui(guiShower, it) } ?: return
-        guiShower.start(false)
+        guiShower.start(SHOULD_PAUSE_ON_ACTIVATION)
     }
 
     override fun isUsable(
@@ -34,6 +35,6 @@ class SpookyPlayerImpl(private val ship: ShipAPI): SpookyActionAtADistance.Spook
         val tgt = ship?.shipTarget ?: return false
         if (ship.isPhased) return false
         if (tgt.isHulk) return false
-        return (tgt.location - ship.location).length() <= SYSTEM_RANGE
+        return (tgt.location - ship.location).length() <= SpookyActionAtADistance.SYSTEM_RANGE
     }
 }

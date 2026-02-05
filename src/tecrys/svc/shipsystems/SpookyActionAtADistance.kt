@@ -6,12 +6,17 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.impl.combat.BaseShipSystemScript
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
+import tecrys.svc.shipsystems.spooky.SpookyAllyImpl
 import tecrys.svc.shipsystems.spooky.SpookyEnemyImpl
 import tecrys.svc.shipsystems.spooky.SpookyPlaceholderImpl
 import tecrys.svc.shipsystems.spooky.SpookyPlayerImpl
 import tecrys.svc.utils.getEffectiveShipTarget
 
 class SpookyActionAtADistance : BaseShipSystemScript() {
+
+    companion object {
+        const val SYSTEM_RANGE = 1000f
+    }
 
     interface SpookyImpl {
         fun apply(
@@ -55,7 +60,7 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
         impl = when(mode){
             SpookyMode.ENEMY -> SpookyEnemyImpl(ship)
             SpookyMode.PLAYER -> SpookyPlayerImpl(ship)
-            SpookyMode.ALLY -> SpookyPlaceholderImpl("This system has no implementation for the ally faction")
+            SpookyMode.ALLY -> SpookyAllyImpl(ship)
             else -> SpookyPlaceholderImpl("System has not been initialized properly. This is an internal error.")
         }
     }

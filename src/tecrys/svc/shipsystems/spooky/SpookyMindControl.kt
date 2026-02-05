@@ -6,7 +6,7 @@ import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import kotlin.math.max
 
-class SpookyMindControl(private val ship: ShipAPI) : BaseEveryFrameCombatPlugin() {
+class SpookyMindControl(private val ship: ShipAPI, durationMultiplier: Float) : BaseEveryFrameCombatPlugin() {
     companion object {
         const val DURATION_DP_TIMES_SECONDS = 50f
         const val MIN_DURATION = 0.5f
@@ -20,7 +20,7 @@ class SpookyMindControl(private val ship: ShipAPI) : BaseEveryFrameCombatPlugin(
     private var durationRemaining =
         (DURATION_DP_TIMES_SECONDS / max((ship.fleetMember?.deploymentPointsCost ?: 1f), 1f)).coerceIn(
             MIN_DURATION, MAX_DURATION
-        )
+        ) * durationMultiplier
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
         durationRemaining -= amount

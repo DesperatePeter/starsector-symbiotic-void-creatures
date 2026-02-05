@@ -6,6 +6,10 @@ import com.fs.starfarer.api.mission.FleetSide
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
 import tecrys.svc.shipsystems.spooky.SpookyMindControl
+import tecrys.svc.shipsystems.spooky.mindControl
+import tecrys.svc.shipsystems.spooky.sabotageCrew
+import tecrys.svc.shipsystems.spooky.sabotageDrive
+import tecrys.svc.shipsystems.spooky.sabotageWeapons
 import java.util.Locale
 
 class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAltText: Boolean): MagicCombatGuiBase(spookyGuiLayout) {
@@ -27,21 +31,21 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
             sabotages.forEach { s ->
                 when(s){
                     Sabotage.WEAPONS -> {
-                        pf?.allWeapons?.filter { Math.random() > 0.5f }?.forEach { w -> pf.applyCriticalMalfunction(w, false) }
+                        sabotageWeapons(pf)
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your weapons have suffered damage")
                     }
                     Sabotage.DRIVE -> {
-                        pf?.engineController?.shipEngines?.forEach { e -> pf.applyCriticalMalfunction(e, false) }
+                        sabotageDrive(pf)
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your engines have suffered damage")
                     }
                     Sabotage.CREW -> {
-                        pf?.currentCR = pf?.currentCR?.minus(0.25f) ?: 0f
+                        sabotageCrew(pf)
                         Global.getCombatEngine().combatUI?.addMessage(0, "You have lost combat readiness")
                     }
                 }
             }
             randomPlayerShip()?.let { ship ->
-                Global.getCombatEngine()?.addPlugin(SpookyMindControl(ship))
+                mindControl(ship)
                 Global.getCombatEngine().combatUI?.addMessage(0, "${ship.name}: What is going on?? SHOOTTHETRAITORS!!")
             }
             guiShower.exit()

@@ -47,10 +47,11 @@ class SpookyGuiShower(private val ship: ShipAPI, var gui: MagicCombatGuiBase? = 
         }
     }
 
-    fun exit() {
-
-        Global.getCombatEngine().viewport.isExternalControl = false;
-        Global.getCombatEngine()?.removePlugin(this)
+    fun exit(shouldUnPause: Boolean = false) {
+        if(shouldUnPause) Global.getCombatEngine().isPaused = false;
+        val ce = Global.getCombatEngine()
+        ce.viewport.isExternalControl = false
+        ce.removePlugin(this)
         shouldDistort = false
         isRunning = false
         gui = null

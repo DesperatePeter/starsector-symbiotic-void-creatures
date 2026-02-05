@@ -1,7 +1,8 @@
 {
 	"id":"svc_spooky_action",
 	"type":"STAT_MOD",
-	"aiType":"WEAPON_BOOST",
+    "aiType":"CUSTOM",
+    "aiScript":"tecrys.svc.shipsystems.ais.SpookyActionAI",
 	"statsScript":"tecrys.svc.shipsystems.SpookyActionAtADistance",
 	"useSound":"system_quantumdisruptor",
     "outOfUsesSound":"gun_out_of_ammo",
