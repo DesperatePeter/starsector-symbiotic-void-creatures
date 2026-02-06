@@ -10,22 +10,13 @@ import tecrys.svc.utils.getEffectiveShipTarget
 import java.awt.Color
 
 class SpookyAllyImpl(private val ship: ShipAPI?): SpookyActionAtADistance.SpookyImpl {
-    private var alreadyTriggered = false
     override fun apply(
         stats: MutableShipStatsAPI?,
         id: String?,
         state: ShipSystemStatsScript.State?,
         effectLevel: Float
     ) {
-        when (state) {
-            ShipSystemStatsScript.State.ACTIVE -> {
-                if(!alreadyTriggered) {
-                    alreadyTriggered = true
-                    applyEffect()
-                }
-            }
-            else -> alreadyTriggered = false
-        }
+        applyEffect()
     }
 
     private fun applyEffect() {

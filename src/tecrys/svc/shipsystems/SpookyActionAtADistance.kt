@@ -15,7 +15,7 @@ import tecrys.svc.utils.getEffectiveShipTarget
 class SpookyActionAtADistance : BaseShipSystemScript() {
 
     companion object {
-        const val SYSTEM_RANGE = 1000f
+        const val SYSTEM_RANGE = 1500f
     }
 
     interface SpookyImpl {
@@ -34,7 +34,7 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
 
     private var mode = SpookyMode.UNINITIALIZED
     private var impl: SpookyImpl? = null
-    private var lastActivationTime: Float = 0f
+    private var shouldActivate = false
 
     override fun apply(
         stats: MutableShipStatsAPI?,
@@ -43,20 +43,29 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
         effectLevel: Float
     ) {
         val thisShip = stats?.entity as? ShipAPI ?: return
-        initMode(thisShip)
-        if((Global.getCombatEngine().getTotalElapsedTime(false) - lastActivationTime) <= 0.1f) return
-        impl?.apply(stats, id, state, effectLevel)
-        lastActivationTime = Global.getCombatEngine().getTotalElapsedTime(false)
+        when(state){
+            ShipSystemStatsScript.State.IN -> {
+                initMode(thisShip)
+                shouldActivate = true
+            }
+            ShipSystemStatsScript.State.ACTIVE -> {
+                if(shouldActivate){
+                    shouldActivate = false
+                    impl?.apply(stats, id, state, effectLevel)
+                }
+            }
+            else -> return
+        }
     }
 
-    private fun initMode(ship: ShipAPI?) {
-        ship ?: return
-        if(mode != SpookyMode.UNINITIALIZED) return
-        mode = when {
+    private fun initMode(ship: ShipAPI) {
+        val newMode = when {
             ship.originalOwner == 1 -> SpookyMode.ENEMY
             ship == Global.getCombatEngine()?.playerShip -> SpookyMode.PLAYER
             else -> SpookyMode.ALLY
         }
+        if (newMode == mode) return
+        mode = newMode
         impl = when(mode){
             SpookyMode.ENEMY -> SpookyEnemyImpl(ship)
             SpookyMode.PLAYER -> SpookyPlayerImpl(ship)
@@ -66,7 +75,7 @@ class SpookyActionAtADistance : BaseShipSystemScript() {
     }
 
     override fun isUsable(system: ShipSystemAPI?, ship: ShipAPI?): Boolean {
-        initMode(ship)
+        ship?.let { initMode(it) }
         return impl?.isUsable(system, ship) == true
     }
 
