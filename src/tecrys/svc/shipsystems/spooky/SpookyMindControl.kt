@@ -23,6 +23,7 @@ class SpookyMindControl(private val ship: ShipAPI, durationMultiplier: Float) : 
         ) * durationMultiplier
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
+        if (Global.getCombatEngine()?.isPaused == true) return
         durationRemaining -= amount
         if(durationRemaining <= 0f){
             onComplete()
