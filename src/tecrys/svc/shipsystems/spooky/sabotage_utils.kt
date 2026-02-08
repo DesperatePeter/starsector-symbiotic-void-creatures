@@ -10,7 +10,7 @@ private fun floatyText(txt: String, targetShip: ShipAPI?){
 }
 
 fun sabotageDrive(targetShip: ShipAPI?, chance: Float = 1.0f) {
-    targetShip?.engineController?.shipEngines?.filter{Math.random() > chance}?.forEach { e -> targetShip.applyCriticalMalfunction(e, false) }
+    targetShip?.engineController?.shipEngines?.filter{Math.random() < chance}?.forEach { e -> targetShip.applyCriticalMalfunction(e, false) }
     floatyText("Rogue Engineer", targetShip)
 }
 
@@ -20,7 +20,7 @@ fun sabotageCrew(targetShip: ShipAPI?, amount: Float = 0.25f){
 }
 
 fun sabotageWeapons(targetShip: ShipAPI?, chance: Float = 0.5f){
-    targetShip?.allWeapons?.filter { Math.random() > chance }?.forEach { w -> targetShip.applyCriticalMalfunction(w, false) }
+    targetShip?.allWeapons?.filter { Math.random() < chance }?.forEach { w -> targetShip.applyCriticalMalfunction(w, false) }
     floatyText("Weapons Crew Compromised", targetShip)
 }
 
