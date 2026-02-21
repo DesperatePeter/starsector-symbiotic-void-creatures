@@ -6,6 +6,7 @@ import com.fs.starfarer.api.combat.ShipSystemAPI
 import com.fs.starfarer.api.plugins.ShipSystemStatsScript
 import org.lazywizard.lazylib.ext.minus
 import tecrys.svc.shipsystems.SpookyActionAtADistance
+import tecrys.svc.shipsystems.spooky.plugins.Sabotage
 import tecrys.svc.utils.getEffectiveShipTarget
 import java.awt.Color
 
@@ -16,16 +17,12 @@ class SpookyAllyImpl(private val ship: ShipAPI?): SpookyActionAtADistance.Spooky
         state: ShipSystemStatsScript.State?,
         effectLevel: Float
     ) {
-        applyEffect()
-    }
-
-    private fun applyEffect() {
-        val target = ship?.getEffectiveShipTarget() ?: return
+        val targetShip = ship?.getEffectiveShipTarget() ?: return
         listOf(
-            {sabotageCrew(target)},
-            {sabotageWeapons(target)},
-            {sabotageDrive(target)},
-            {mindControl(target)}
+            {Sabotage.applyMindControl(targetShip)},
+            {Sabotage.applyWeaponSabotage(targetShip)},
+            {Sabotage.applyDriveSabotage(targetShip)},
+            {Sabotage.applyCrewSabotage(targetShip)}
         ).random()()
         ship.setJitter(ship, Color.PINK, 0.5f, 4, 10f)
     }

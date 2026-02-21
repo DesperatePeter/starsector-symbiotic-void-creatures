@@ -21,6 +21,7 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
     }
 
     val spritesToRenderOneFrame = mutableListOf<RenderableSprite>()
+    val spritesToRenderEveryFrame = mutableListOf<RenderableSprite>()
 
     data class RenderableSprite(val sprite: SpriteAPI, val alpha: Float, val width: Float, val height: Float, val angleDeg: Float, val pos: Vector2f)
 
@@ -32,7 +33,7 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
             if(counter + TEX_WIDTH > 1f) counter = 0f
         }
         val viewMult = 1f //
-        spritesToRenderOneFrame.forEach { s->
+        (spritesToRenderOneFrame + spritesToRenderEveryFrame).forEach { s->
             s.sprite.run {
                 alphaMult = s.alpha
                 setSize(s.width / viewMult, (s.height + 60f)  / viewMult)

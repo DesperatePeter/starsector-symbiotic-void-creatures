@@ -2,19 +2,14 @@ package tecrys.svc.shipsystems.spooky.gui
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.combat.ShipAPI
-import com.fs.starfarer.api.mission.FleetSide
 import org.magiclib.combatgui.MagicCombatGuiBase
 import org.magiclib.combatgui.buttons.MagicCombatButtonAction
-import tecrys.svc.shipsystems.spooky.SpookyMindControl
-import tecrys.svc.shipsystems.spooky.mindControl
-import tecrys.svc.shipsystems.spooky.sabotageCrew
-import tecrys.svc.shipsystems.spooky.sabotageDrive
-import tecrys.svc.shipsystems.spooky.sabotageWeapons
+import tecrys.svc.shipsystems.spooky.plugins.Sabotage
 import java.util.Locale
 
 class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAltText: Boolean): MagicCombatGuiBase(spookyGuiLayout) {
 
-    enum class Sabotage{
+    enum class SabotageType{
         WEAPONS, DRIVE, CREW
     }
 
@@ -22,7 +17,7 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
         fun randomPlayerShip(): ShipAPI? = Global.getCombatEngine().ships.filter { it.owner == 0 && it != Global.getCombatEngine().playerShip }.randomOrNull()
     }
 
-    class SabotageAction(private val guiShower: SpookyGuiShower, private val sabotages: List<Sabotage>) : MagicCombatButtonAction{
+    class SabotageAction(private val guiShower: SpookyGuiShower, private val sabotages: List<SabotageType>) : MagicCombatButtonAction{
         private val pf: ShipAPI? = kotlin.run {
             val toReturn = Global.getCombatEngine().playerShip
             if(toReturn.fleetMember == null) randomPlayerShip() else toReturn
@@ -30,22 +25,22 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
         override fun execute() {
             sabotages.forEach { s ->
                 when(s){
-                    Sabotage.WEAPONS -> {
-                        sabotageWeapons(pf)
+                    SabotageType.WEAPONS -> {
+                        Sabotage.applyWeaponSabotage(pf)
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your weapons have suffered damage")
                     }
-                    Sabotage.DRIVE -> {
-                        sabotageDrive(pf)
+                    SabotageType.DRIVE -> {
+                        Sabotage.applyDriveSabotage(pf)
                         Global.getCombatEngine().combatUI?.addMessage(0, "Your engines have suffered damage")
                     }
-                    Sabotage.CREW -> {
-                        sabotageCrew(pf)
+                    SabotageType.CREW -> {
+                        Sabotage.applyCrewSabotage(pf)
                         Global.getCombatEngine().combatUI?.addMessage(0, "You have lost combat readiness")
                     }
                 }
             }
             randomPlayerShip()?.let { ship ->
-                mindControl(ship)
+                Sabotage.applyMindControl(pf)
                 Global.getCombatEngine().combatUI?.addMessage(0, "${ship.name}: What is going on?? SHOOTTHETRAITORS!!")
             }
             guiShower.exit()
@@ -54,9 +49,9 @@ class SpookyEnemyGuiSabotageStage(guiShower: SpookyGuiShower, private val useAlt
 
     init {
         guiShower.shouldDistort = true
-        addButton(SabotageAction(guiShower, listOf(Sabotage.DRIVE, Sabotage.CREW)), "Protect bridge", "IAMINVINCIBLE")
-        addButton(SabotageAction(guiShower, listOf(Sabotage.WEAPONS, Sabotage.CREW)), "Protect engineering", "YOUCANNOTRUN")
-        addButton(SabotageAction(guiShower, listOf(Sabotage.WEAPONS, Sabotage.DRIVE)), "Protect crew", "YOUWILLBECONSUMED")
+        addButton(SabotageAction(guiShower, listOf(SabotageType.DRIVE, SabotageType.CREW)), "Protect bridge", "IAMINVINCIBLE")
+        addButton(SabotageAction(guiShower, listOf(SabotageType.WEAPONS, SabotageType.CREW)), "Protect engineering", "YOUCANNOTRUN")
+        addButton(SabotageAction(guiShower, listOf(SabotageType.WEAPONS, SabotageType.DRIVE)), "Protect crew", "YOUWILLBECONSUMED")
     }
 
     override fun getTitleString(): String {
