@@ -24,14 +24,14 @@ abstract class Sabotage(protected val targetShip: ShipAPI,
         }
 
         @JvmStatic
-        public fun applyWeaponSabotage(targetShip: ShipAPI?, intensity: Float = 0.6f) {
+        public fun applyWeaponSabotage(targetShip: ShipAPI?, intensity: Float = 0.4f) {
             targetShip ?: return
             Global.getCombatEngine()?.addPlugin(SabotageWeapons(targetShip, intensity))
             floatyText("Weapons Crew Compromised", targetShip)
         }
 
         @JvmStatic
-        public fun applyDriveSabotage(targetShip: ShipAPI?, intensity: Float = 1.0f) {
+        public fun applyDriveSabotage(targetShip: ShipAPI?, intensity: Float = 0.7f) {
             targetShip ?: return
             Global.getCombatEngine()?.addPlugin(SabotageDrive(targetShip, intensity))
             floatyText("Rogue Engineer", targetShip)
