@@ -25,7 +25,7 @@ class SabotageDrive(targetShip: ShipAPI, intensity: Float = 1.0f) : Sabotage(tar
 
     override fun periodicTick() {
         sabotageDrive(targetShip,
-            chance = intensity * SECONDARY_TICK_INTENSITY_MULTIPLIER * (1f - progress)
+            chance = intensity * SECONDARY_TICK_INTENSITY_MULTIPLIER * (1f - progress) * TICK_PERIOD
         )
     }
 }

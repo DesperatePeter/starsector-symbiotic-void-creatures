@@ -24,7 +24,7 @@ class SabotageWeapons(targetShip: ShipAPI, intensity: Float = 0.5f) : Sabotage(t
 
     override fun periodicTick() {
         sabotageWeapons(targetShip,
-            chance = intensity * SECONDARY_TICK_INTENSITY_MULTIPLIER * (1f - progress)
+            chance = intensity * SECONDARY_TICK_INTENSITY_MULTIPLIER * (1f - progress) * TICK_PERIOD
         )
     }
 }
