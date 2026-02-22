@@ -11,7 +11,7 @@ import tecrys.svc.shipsystems.spooky.gui.SpookyPlayerGui
 import tecrys.svc.utils.getEffectiveShipTarget
 
 class SpookyPlayerImpl(private val ship: ShipAPI): SpookyActionAtADistance.SpookyImpl {
-    private val guiShower = SpookyGuiShower(ship)
+    private val guiShower = SpookyGuiShower(ship, shouldSuppressLeftMouse = true)
     companion object{
         const val SHOULD_PAUSE_ON_ACTIVATION = true
         const val SHOULD_UNPAUSE_ON_FINISH = true
