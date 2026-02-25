@@ -4,9 +4,9 @@ import com.fs.starfarer.api.impl.campaign.econ.BaseMarketConditionPlugin
 
 class VoidlingInfestation: BaseMarketConditionPlugin() {
     companion object{
-        const val ACCESSIBILITY_PENALTY = 0.25f
+        const val ACCESSIBILITY_PENALTY = 0.1f
         const val INCOME_PENALTY = 0.1f
-        const val ADDITIONAL_HAZARD = 0.25f
+        const val ADDITIONAL_HAZARD = 0.1f
     }
 
     override fun apply(id: String?) {
