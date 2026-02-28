@@ -37,7 +37,7 @@ class SymbioticCrisisFactor(intel: HostileActivityEventIntel?) : BaseHostileActi
 
     override fun getEventFrequency(intel: HostileActivityEventIntel?, stage: BaseEventIntel.EventStageData?): Float {
         if (SymbioticCrisisCause.isCrisisResolved()) return 0f
-        return 10000f // FIXME: This insanely high value is just for testing
+        return 10f // FIXME: What is a reasonable value here?
     }
 
     override fun getNameColorForThreatList(): Color {

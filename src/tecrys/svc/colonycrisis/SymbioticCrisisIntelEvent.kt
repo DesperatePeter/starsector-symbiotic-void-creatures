@@ -61,10 +61,10 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
                 return min(6 + Global.getSector().clock.cycle - 206, crisisFleetCap)
             }
-        const val FLEETS_DEFEATED_UNTIL_CLUE = 2
-        const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 4
+        const val FLEETS_DEFEATED_UNTIL_CLUE = 1
+        const val FLEETS_DEFEATED_UNTIL_SECOND_CLUE = 2
         const val MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET = 1000f
-        const val PROGRESS_BLOWBACK_PER_FLEET = 10
+        const val PROGRESS_BLOWBACK_PER_FLEET = 0
         const val FLEET_POWER_MODIFIER = 0.7f // Spawning lots of full power fleets is a bit overwhelming
         const val MEM_KEY = "\$SVC_COLONY_CRISIS_INTEL_EVENT_KEY"
         const val MEM_KEY_RESOLUTION_BOSS_FIGHT_WIN = "\$SVC_COLONY_CRISIS_RESOLVED_BOSS_FIGHT_WIN"
@@ -125,19 +125,21 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
         defeatedFleetIds.add(id)
         if(defeatedByPlayer) {
             fleetsDefeatedByPlayer++
-            HostileActivityEventIntel.get()?.addFactor(object : BaseOneTimeFactor(-PROGRESS_BLOWBACK_PER_FLEET) {
-                override fun getDesc(intel: BaseEventIntel?): String {
-                    return "Voidling fleets defeated"
-                }
+            if(PROGRESS_BLOWBACK_PER_FLEET > 0){
+                HostileActivityEventIntel.get()?.addFactor(object : BaseOneTimeFactor(-PROGRESS_BLOWBACK_PER_FLEET) {
+                    override fun getDesc(intel: BaseEventIntel?): String {
+                        return "Voidling fleets defeated"
+                    }
 
-                override fun getMainRowTooltip(intel: BaseEventIntel?): TooltipMakerAPI.TooltipCreator {
-                    return object : BaseFactorTooltip() {
-                        override fun createTooltip(tooltip: TooltipMakerAPI?, expanded: Boolean, tooltipParam: Any?) {
-                            tooltip?.addPara("If you are able to destroy enough fleets, you might be able to dissuade the void creatures.", 0f)
+                    override fun getMainRowTooltip(intel: BaseEventIntel?): TooltipMakerAPI.TooltipCreator {
+                        return object : BaseFactorTooltip() {
+                            override fun createTooltip(tooltip: TooltipMakerAPI?, expanded: Boolean, tooltipParam: Any?) {
+                                tooltip?.addPara("If you are able to destroy enough fleets, you might be able to dissuade the void creatures.", 0f)
+                            }
                         }
                     }
-                }
-            })
+                })
+            }
         }
         crisisFleets.remove(id)
     }
