@@ -27,7 +27,7 @@ class EnrichedFungusPlugin: BaseSpecialItemPlugin() {
             }
             planet.market?.reapplyIndustries()
         } ?: run {
-            showNotificationOnCampaignUi("Must be used while next to a habitable planet that doesn't already have both volatiles and organics.", "graphics/icons/svc_fungus.png")
+            showNotificationOnCampaignUi("Must be used while next to a planet with atmosphere that doesn't already have both volatiles and organics.", "graphics/icons/svc_fungus.png")
         }
     }
 

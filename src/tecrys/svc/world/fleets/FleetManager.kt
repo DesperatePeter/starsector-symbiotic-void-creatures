@@ -148,7 +148,7 @@ class FleetManager : EveryFrameScript {
 //            it.makeHostile()
 //            it.makeAlwaysHostile()
             it.memoryWithoutUpdate[MemFlags.FLEET_INTERACTION_DIALOG_CONFIG_OVERRIDE_GEN] = VoidlingFIDConf()
-      //      it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SAW_PLAYER_WITH_TRANSPONDER_ON, true)
+     //       it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_EVERYONE_JOINS_BATTLE_AGAINST, true)
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_SKIP_TRANSPONDER_STATUS_INFO, true)
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_IGNORE_PLAYER_COMMS, true)
             it.memoryWithoutUpdate?.set(MemFlags.MEMORY_KEY_PATROL_ALLOW_TOFF, true)
