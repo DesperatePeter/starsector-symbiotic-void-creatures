@@ -44,7 +44,7 @@ class SymbioticCrisisCause(intel: HostileActivityEventIntel?) : BaseHostileActiv
 
         fun getMarketContribution(market: MarketAPI): Float {
             return ( CONTRIBUTION_MULTIPLIER *
-                    (market.locationInHyperspace.length() - MIN_DIST_FROM_CENTER_TO_CONTRIBUTE) /
+                    ((market.locationInHyperspace?.length() ?: 0f) - MIN_DIST_FROM_CENTER_TO_CONTRIBUTE) /
                     DIST_FROM_CENTER_SCALING * (market.size - MIN_COLONY_SIZE_FOR_CONTRIBUTION).toFloat()
                     ).coerceIn(MIN_CONTRIBUTION_PER_MARKET, MAX_CONTRIBUTION_PER_MARKET)
         }

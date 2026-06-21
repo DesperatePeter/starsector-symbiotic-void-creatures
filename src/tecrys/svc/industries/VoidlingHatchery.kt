@@ -33,7 +33,7 @@ class VoidlingHatchery: BaseIndustry() {
         if (Global.getSector().playerPerson?.faction?.knowsIndustry(getId()) != true) {
             return false;
         }
-        return market.planetEntity?.hasCondition(Conditions.LOW_GRAVITY) == true
+        return market?.planetEntity?.hasCondition(Conditions.LOW_GRAVITY) == true
     }
 
     override fun showWhenUnavailable(): Boolean = Global.getSector().playerPerson?.faction?.knowsIndustry(getId()) == true

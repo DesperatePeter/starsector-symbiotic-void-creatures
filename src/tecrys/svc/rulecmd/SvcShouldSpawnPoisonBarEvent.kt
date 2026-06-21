@@ -18,7 +18,7 @@ class SvcShouldSpawnPoisonBarEvent : BaseCommandPlugin() {
         var isDone: Boolean by CampaignSettingDelegate("$" + SVC_MOD_ID + "poisonAlreadyDone", false)
         fun getMarket(memoryMap: MutableMap<String, MemoryAPI>?): MarketAPI? {
             val marketId = memoryMap?.get("market")?.get("\$id") ?: return null
-            return Global.getSector().allFactions.flatMap { it.getMarketsCopy() }.firstOrNull { it.id == marketId }
+            return Global.getSector().allFactions?.flatMap { it.getMarketsCopy() }?.firstOrNull { it.id == marketId }
         }
     }
     override fun execute(

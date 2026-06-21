@@ -210,7 +210,7 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
 
         val affectedFleets = crisisFleets.values.mapNotNull { it.get() } +
                 FleetSpawner.getFactionFleets(SVC_FACTION_ID).filter {
-                    (it.locationInHyperspace - market.locationInHyperspace).length() < maxDistInLy
+                    (it.locationInHyperspace - (market.locationInHyperspace ?: Vector2f(0f, 0f))).length() < maxDistInLy
                 }
         affectedFleets.forEach { fleet ->
             fleet.clearAssignments()
@@ -239,12 +239,12 @@ class SymbioticCrisisIntelEvent(private val market: MarketAPI) : BaseEventIntel(
     private fun spawnFleetIfNecessary(): Boolean {
         val pf = Global.getSector().playerFleet ?: return false
 
-        val location = market.containingLocation.allEntities.filterNotNull().filter {
+        val location = market.containingLocation?.allEntities?.filterNotNull()?.filter {
             FleetSpawner.isValidSpawnableEntity(it) &&
                     if (pf.containingLocation == market.containingLocation)
                         (it.location - pf.location).length() > MIN_SPAWN_DISTANCE_FROM_PLAYER_FLEET
                     else true
-        }.randomOrNull() ?: return false
+        }?.randomOrNull() ?: return false
 
         FleetManager().spawnSvcFleet(
             location, true,

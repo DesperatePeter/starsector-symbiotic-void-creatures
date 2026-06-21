@@ -10,14 +10,14 @@ class VoidlingInfestation: BaseMarketConditionPlugin() {
     }
 
     override fun apply(id: String?) {
-        market.accessibilityMod.modifyFlat(id, -ACCESSIBILITY_PENALTY, "Voidlings are disrupting trade")
-        market.incomeMult.modifyFlat(id, -INCOME_PENALTY, "Voidlings are disrupting operations")
-        market.hazard.modifyFlat(id, ADDITIONAL_HAZARD, "Swarms of voidlings make life more dangerous")
+        market?.accessibilityMod?.modifyFlat(id, -ACCESSIBILITY_PENALTY, "Voidlings are disrupting trade")
+        market?.incomeMult?.modifyFlat(id, -INCOME_PENALTY, "Voidlings are disrupting operations")
+        market?.hazard?.modifyFlat(id, ADDITIONAL_HAZARD, "Swarms of voidlings make life more dangerous")
     }
 
     override fun unapply(id: String?) {
-        market.accessibilityMod.unmodify(id)
-        market.incomeMult.unmodify(id)
-        market.hazard.unmodify(id)
+        market?.accessibilityMod?.unmodify(id)
+        market?.incomeMult?.unmodify(id)
+        market?.hazard?.unmodify(id)
     }
 }
