@@ -4,16 +4,16 @@
   "hullSize": "CRUISER",
   "spriteName": "graphics/ships/Arbiter.png",
   "style": "BIOLOGICAL",
-  "height": 247,
-  "width": 308,
-  "center": [154, 127.5],
+  "height": 263,
+  "width": 292,
+  "center": [146, 131],
   "collisionRadius": 163.726151,
-  "shieldCenter": [0, -0],
-  "shieldRadius": 172.261429,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 156.5,
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm"
+    "svc_no_fuel_hm"
   ],
   "builtInWings": [
     "svc_pox_whip_wing",
@@ -21,7 +21,7 @@
     "svc_mios_mandibles_wing"
   ],
   "builtInWeapons": {
-    "Arbiter": "svc_arbiter",
+      "Arbiter": "svc_koenigfinleft",
     "WS0001": "svc_acidthrower",
     "WS0002": "svc_boltzmann_brain",
     "WS0003": "svc_boltzmann_brain",
@@ -52,7 +52,7 @@
       "mount": "HARDPOINT",
       "arc": 124.872002,
       "angle": 8.027,
-      "locations": [87.5, -40.5]
+      "locations": [75, -79.5]
     },
     {
       "id": "left_lrg_uni",
@@ -61,7 +61,7 @@
       "mount": "HARDPOINT",
       "arc": 124.872002,
       "angle": -8.027,
-      "locations": [87.5, 40.5]
+      "locations": [75, 79.5]
     },
     {
       "id": "right_lrg_mand",
@@ -70,7 +70,7 @@
       "mount": "HARDPOINT",
       "arc": 43.997917,
       "angle": -0,
-      "locations": [94, -19]
+      "locations": [73.5, -17.5]
     },
     {
       "id": "left_lrg_mand",
@@ -79,7 +79,7 @@
       "mount": "HARDPOINT",
       "arc": 43.997917,
       "angle": 0,
-      "locations": [94, 19]
+      "locations": [73.5, 17.5]
     },
     {
       "id": "right_sml_pd",
@@ -98,24 +98,6 @@
       "arc": 223.653,
       "angle": 110.556,
       "locations": [-52, 12]
-    },
-    {
-      "id": "left_sml_mand",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 43.997917,
-      "angle": -8.027238,
-      "locations": [103, 11.5]
-    },
-    {
-      "id": "right_sml_mand",
-      "size": "SMALL",
-      "type": "BUILT_IN",
-      "mount": "HARDPOINT",
-      "arc": 43.997917,
-      "angle": 8.027238,
-      "locations": [103, -11.5]
     },
     {
       "id": "LB 1",
@@ -166,24 +148,42 @@
       ]
     },
     {
+      "id": "left_sml_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 43.997917,
+      "angle": -8.027238,
+      "locations": [84, 14]
+    },
+    {
+      "id": "right_sml_mand",
+      "size": "SMALL",
+      "type": "BUILT_IN",
+      "mount": "HARDPOINT",
+      "arc": 43.997917,
+      "angle": 8.027238,
+      "locations": [84, -14]
+    },
+    {
       "id": "left_long_fin",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 223.653,
-      "angle": -174.710007,
-      "locations": [36.5, 9],
-      "renderOrderMod": 30
+      "arc": 70,
+      "angle": -178.5,
+      "locations": [-2, 79],
+      "renderOrderMod": 5
     },
     {
       "id": "right_long_fin",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 223.653,
-      "angle": 174.710007,
-      "locations": [36.5, -9],
-      "renderOrderMod": 30
+      "arc": 70,
+      "angle": 178.5,
+      "locations": [-2, -79],
+      "renderOrderMod": 5
     },
     {
       "id": "eyes",
@@ -191,8 +191,8 @@
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
       "arc": 0,
-      "angle": 180,
-      "locations": [103.5, -0],
+      "angle": 0,
+      "locations": [74.5, 0],
       "renderOrderMod": 6
     },
     {
@@ -236,9 +236,9 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 223.653,
-      "angle": -165.378998,
-      "locations": [43, 39.5],
+      "arc": 60,
+      "angle": 168.5,
+      "locations": [-58.5, 7.5],
       "renderOrderMod": 5
     },
     {
@@ -246,9 +246,9 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 223.653,
-      "angle": 165.378998,
-      "locations": [43, -39.5],
+      "arc": 60,
+      "angle": -168.5,
+      "locations": [-58.5, -7.5],
       "renderOrderMod": 5
     },
     {
@@ -256,9 +256,9 @@
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 223.653,
+      "arc": 10,
       "angle": 0,
-      "locations": [98.5, -0],
+      "locations": [-49, 0],
       "renderOrderMod": 5
     },
     {
@@ -268,7 +268,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 180,
-      "locations": [99, -0],
+      "locations": [85.5, 0],
       "renderOrderMod": 20
     },
     {
@@ -278,7 +278,7 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": 0,
-      "locations": [74.5, -0]
+      "locations": [64, 0]
     },
     {
       "id": "WS0002",
@@ -286,8 +286,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 18.054001,
-      "angle": -151.5,
-      "locations": [57.5, -34],
+      "angle": 157.5,
+      "locations": [20, -66.5],
       "renderOrderMod": 20
     },
     {
@@ -296,135 +296,123 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 18.054001,
-      "angle": 151.5,
-      "locations": [57.5, 34],
+      "angle": -157.5,
+      "locations": [20, 66.5],
       "renderOrderMod": 20
     }
   ],
   "engineSlots": [
     {
-      "location": [29.5, 37],
+      "location": [-3.5, 39],
       "length": 4,
       "width": 9,
-      "angle": -146.768295,
+      "angle": -119,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [29.5, -37],
+      "location": [-3.5, -39],
       "length": 4,
       "width": 9,
-      "angle": 146.768295,
+      "angle": 119,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [34.5, -29.5],
+      "location": [8, -31],
       "length": 4,
       "width": 9,
-      "angle": 146.768295,
+      "angle": 131.5,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [34.5, 29.5],
+      "location": [8, 31],
       "length": 4,
       "width": 9,
-      "angle": -146.768295,
+      "angle": -131.5,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [43, -15],
+      "location": [15.5, -15],
       "length": 4,
       "width": 9,
-      "angle": -146.309937,
+      "angle": -156,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [43, 15],
+      "location": [15.5, 15],
       "length": 4,
       "width": 9,
-      "angle": 146.309937,
+      "angle": 156,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [71, 40],
+      "location": [39, 42],
       "length": 4,
       "width": 9,
-      "angle": 112.380135,
+      "angle": 127,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [71, -40],
+      "location": [39, -42],
       "length": 4,
       "width": 9,
-      "angle": -112.380135,
+      "angle": -127,
       "contrailSize": 9,
       "style": "CUSTOM",
       "styleId": "BGE"
     }
   ],
   "bounds": [
-    -121, 2.5,
-    -86.5, 9.5,
-    -27, 17,
-    22, 17.5,
-    40, 3.5,
-    49.5, 21,
-    25.5, 38,
-    65, 47,
-    36, 63,
-    -11, 65,
-    -58.5, 52.5,
-    -101, 28,
-    -113, 28.5,
-    -56, 56.5,
-    -23.5, 71.5,
-    49, 86.5,
-    89.5, 75,
-    30, 149,
-    69, 123,
-    107, 79,
-    94, 50,
-    105.5, 22,
-    89, 23.5,
-    89.5, 7.5,
-    109.5, 2.5,
-    109.5, -2.5,
-    89.5, -7.5,
-    89, -23.5,
-    105.5, -22,
-    94, -50,
-    107, -79,
-    69, -123,
-    30, -149,
-    89.5, -75,
-    49, -86.5,
-    -23.5, -71.5,
-    -56, -56.5,
-    -113, -28.5,
-    -101, -28,
-    -58.5, -52.5,
-    -11, -65,
-    36, -63,
-    65, -47,
-    25.5, -38,
-    49.5, -21,
-    40, -3.5,
-    22, -17.5,
-    -27, -17,
-    -86.5, -9.5,
-    -121, -2.5
+    -132, 2.5,
+    -97.5, 9.5,
+    -44, 16,
+    -42, 28.5,
+    -24, 47.5,
+    42, 48,
+    -31, 64,
+    -108, 38.5,
+    -63.5, 66.5,
+    23, 96,
+    31, 119,
+    16, 141.5,
+    70, 116,
+    130, 45,
+    83, 50,
+    92.5, 16,
+    78, 23.5,
+    78.5, 7.5,
+    98.5, 2.5,
+    98.5, -2.5,
+    78.5, -7.5,
+    78, -23.5,
+    92.5, -16,
+    83, -50,
+    130, -45,
+    70, -116,
+    16, -141.5,
+    31, -119,
+    23, -96,
+    -63.5, -66.5,
+    -108, -38.5,
+    -31, -64,
+    42, -48,
+    -24, -47.5,
+    -42, -28.5,
+    -44, -16,
+    -97.5, -9.5,
+    -132, -2.5
   ]
 }

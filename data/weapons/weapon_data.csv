@@ -5,7 +5,8 @@ large Mandible,svc_lrg_mand_l,2,,2500,60,,90,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,
 large Mandible,svc_lrg_mand_r,2,,2500,60,,90,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,24
 Scythe,svc_med_scythe_r,2,,1500,115,,400,,500,60,0,,,,FRAGMENTATION,100,,0,1,,,,,,,,300,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,28
 Scythe Claw,svc_lrg_scythe_r,2,,2500,140,,1600,,1000,60,0,,,,FRAGMENTATION,300,,0,1,,,,,,,,300,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,25
-Umbra small Mandible,svc_adv_sml_mand_l,2,,2500,60,,70,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,68
+Scythe Claw New,svc_lrg_scythe_new,2,,2500,140,,1600,,1000,60,0,,,,FRAGMENTATION,300,,0.3,1.5,,,,,,,,600,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,25
+Umbra small Mandible,svc_adv_sml_mand_l,2,,2500,60,,70,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,,,,,,,150,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,68
 Umbra small Mandible,svc_adv_sml_mand_r,2,,2500,60,,70,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,68
 Umbra large Mandible,svc_adv_lrg_mand_l,2,,2500,60,,100,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,66
 Umbra large Mandible,svc_adv_lrg_mand_r,2,,2500,60,,100,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,66
@@ -88,7 +89,7 @@ right Antena,svc_antena_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,
 right long fin,svc_long_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,34
 right long fin2,svc_long_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,36
 Koenig eyes,svc_koenig_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,37
-Koenig fin left,svc_koenigfinleft,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,38
+Arbiter Tail,svc_koenigfinleft,,,,,,,,,,,,,,ENERGY,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,38
 Koenig fin right,svc_koenigfinright,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,39
 Arbiter Head,svc_arbiter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,53
 Embolist Head,svc_flusskrebs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,55
@@ -113,6 +114,7 @@ left tiny translucent fin,svc_trans_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 right tiny translucent fin2,svc_trans_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
 left tiny translucent fin2,svc_trans_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
 W�chter Shell,svc_waechtershell,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
+Embolist Tail,svc_waechtershell2,,,,,,,,,,,,,,ENERGY,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
 right translucent fin,svc_trans_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4400
 left translucent fin,svc_trans_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4401
 Umbra Arbiter Head,svc_Arbiter_dark_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66

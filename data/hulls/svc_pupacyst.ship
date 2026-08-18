@@ -4,16 +4,16 @@
   "hullSize": "DESTROYER",
   "spriteName": "graphics/ships/Zophe2.png",
   "style": "BIOLOGICAL",
-  "height": 219,
-  "width": 165,
-  "center": [82.5, 109.5],
-  "collisionRadius": 103.84243,
-  "shieldCenter": [0, -0],
-  "shieldRadius": 113.491188,
+  "height": 218,
+  "width": 168,
+  "center": [84, 115.5],
+  "collisionRadius": 109,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 102,
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm"
+    "svc_no_fuel_hm"
   ],
   "builtInWings": [
     "svc_mios_mandibles_wing",
@@ -45,7 +45,7 @@
       "mount": "HARDPOINT",
       "arc": 26.784996,
       "angle": 0,
-      "locations": [81, -15.5]
+      "locations": [75, -14]
     },
     {
       "id": "left_lrg_mand",
@@ -54,7 +54,7 @@
       "mount": "HARDPOINT",
       "arc": 26.784996,
       "angle": -0,
-      "locations": [81, 15.5]
+      "locations": [75, 17]
     },
     {
       "id": "right_sml_mand",
@@ -63,7 +63,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": -0,
-      "locations": [86, -9]
+      "locations": [80, -7.5]
     },
     {
       "id": "left_sml_mand",
@@ -72,7 +72,7 @@
       "mount": "HARDPOINT",
       "arc": 29.241749,
       "angle": 0,
-      "locations": [86, 9]
+      "locations": [80, 10.5]
     },
     {
       "id": "left_med_uni",
@@ -81,7 +81,7 @@
       "mount": "HARDPOINT",
       "arc": 108.421997,
       "angle": -0,
-      "locations": [73.5, 21]
+      "locations": [67.5, 22.5]
     },
     {
       "id": "right_med_uni",
@@ -90,7 +90,7 @@
       "mount": "HARDPOINT",
       "arc": 108.421997,
       "angle": 0,
-      "locations": [73.5, -21]
+      "locations": [67.5, -19.5]
     },
     {
       "id": "grappler",
@@ -99,7 +99,7 @@
       "mount": "TURRET",
       "arc": 60,
       "angle": 0,
-      "locations": [41.5, 8]
+      "locations": [35.5, 9.5]
     },
     {
       "id": "left_sml_pd",
@@ -108,7 +108,7 @@
       "mount": "TURRET",
       "arc": 149.903,
       "angle": 117.531998,
-      "locations": [-42.5, 26.5]
+      "locations": [-48.5, 28]
     },
     {
       "id": "right_sml_pd",
@@ -117,7 +117,7 @@
       "mount": "TURRET",
       "arc": 149.903,
       "angle": -117.531998,
-      "locations": [-42.5, -26.5]
+      "locations": [-48.5, -25]
     },
     {
       "id": "left_long_fin",
@@ -126,7 +126,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": 178.531204,
-      "locations": [19.5, 13]
+      "locations": [13.5, 14.5]
     },
     {
       "id": "right_long_fin",
@@ -135,7 +135,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": -178.531204,
-      "locations": [19.5, -13]
+      "locations": [13.5, -11.5]
     },
     {
       "id": "eyes",
@@ -144,7 +144,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 180,
-      "locations": [75, -0.5]
+      "locations": [69, 1]
     },
     {
       "id": "grappler2",
@@ -153,7 +153,7 @@
       "mount": "TURRET",
       "arc": 60,
       "angle": 0,
-      "locations": [41.5, -8]
+      "locations": [35.5, -6.5]
     },
     {
       "id": "left_sml_fin",
@@ -162,7 +162,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": 178.531204,
-      "locations": [2.5, 11]
+      "locations": [-3.5, 12.5]
     },
     {
       "id": "right_sml_fin",
@@ -171,7 +171,7 @@
       "mount": "HARDPOINT",
       "arc": 40,
       "angle": -178.531204,
-      "locations": [2.5, -11]
+      "locations": [-3.5, -9.5]
     },
     {
       "id": "svc_controlcollar",
@@ -180,13 +180,13 @@
       "mount": "TURRET",
       "arc": 40,
       "angle": 0,
-      "locations": [55.5, -0.5],
+      "locations": [49.5, 1],
       "renderOrderMod": 20
     }
   ],
   "engineSlots": [
     {
-      "location": [43.5, 14.5],
+      "location": [37.5, 16],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 133.876694,
@@ -195,7 +195,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [43.5, -14.5],
+      "location": [37.5, -13],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -133.876694,
@@ -204,7 +204,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [25, -12.5],
+      "location": [19, -11],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -133.876694,
@@ -213,7 +213,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [25, 12.5],
+      "location": [19, 14],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 133.876694,
@@ -222,7 +222,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [68.5, 16.5],
+      "location": [62.5, 18],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 163.009171,
@@ -231,7 +231,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [68.5, -16.5],
+      "location": [62.5, -15],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -163.009171,
@@ -240,7 +240,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-68, 15],
+      "location": [-74, 16.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": 167.735229,
@@ -249,7 +249,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-68, -15],
+      "location": [-74, -13.5],
       "length": 4.865623,
       "width": 8.677722,
       "angle": -167.735229,
@@ -259,35 +259,35 @@
     }
   ],
   "bounds": [
-    -86, 1.5,
-    -74, 8.5,
-    -71.5, 20.5,
-    -61, 28.5,
-    -37, 29.5,
-    -3.5, 12,
-    45.5, 17,
-    56.5, 13.5,
-    68, 21.5,
-    -9.5, 64.5,
-    9.5, 64.5,
-    55.5, 47.5,
-    94.5, 20.5,
-    80.5, 15.5,
-    84, 5,
-    84, -5,
-    80.5, -15.5,
-    94.5, -20.5,
-    55.5, -47.5,
-    9.5, -64.5,
-    -9.5, -64.5,
-    68, -21.5,
-    56.5, -13.5,
-    45.5, -17,
-    -3.5, -12,
-    -37, -29.5,
-    -61, -28.5,
-    -71.5, -20.5,
-    -74, -8.5,
-    -86, -1.5
+    -92, 3,
+    -80, 10,
+    -77.5, 22,
+    -67, 30,
+    -43, 31,
+    -9.5, 13.5,
+    39.5, 18.5,
+    50.5, 15,
+    62, 23,
+    -15.5, 66,
+    3.5, 66,
+    49.5, 49,
+    88.5, 22,
+    74.5, 17,
+    78, 6.5,
+    78, -3.5,
+    74.5, -14,
+    88.5, -19,
+    49.5, -46,
+    3.5, -63,
+    -15.5, -63,
+    62, -20,
+    50.5, -12,
+    39.5, -15.5,
+    -9.5, -10.5,
+    -43, -28,
+    -67, -27,
+    -77.5, -19,
+    -80, -7,
+    -92, 0
   ]
 }

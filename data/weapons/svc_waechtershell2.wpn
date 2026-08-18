@@ -2,9 +2,9 @@
 	"specClass":"beam",
 	"id":"svc_waechtershell2",
 	"type":"DECORATIVE",
-	"size":"MEDIUM",
+	"size":"SMALL",
         "height": 1.0,
-
+	         "everyFrameEffect":"tecrys.svc.plugins.FinBenderSpeedBasedTail",  
 	"turretSprite":"graphics/weapons/deco/waechtershell2.png",
 	"hardpointSprite":"graphics/weapons/deco/waechtershell2.png",
         "renderBelowAllWeapons": true,

@@ -4,7 +4,7 @@
 	"type":"DECORATIVE",
 	"size":"SMALL",
         "height": 1.0,
-	"everyFrameEffect":"tecrys.svc.plugins.RotatingDishArc",
+	         "everyFrameEffect":"tecrys.svc.plugins.FinBenderSpeedBasedTail",  
 
 	"turretSprite":"graphics/weapons/deco/koenigfinleft.png",
 	"hardpointSprite":"graphics/weapons/deco/koenigfinleft.png",

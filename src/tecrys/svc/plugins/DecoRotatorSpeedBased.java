@@ -15,7 +15,7 @@ public class DecoRotatorSpeedBased implements EveryFrameWeaponEffectPlugin {
 
     // Settings
     private static final float BASE_ROTATION_SPEED = 10.0f; // Degrees per second at standstill
-    private static final float SPEED_SCALAR = 1f;           // Extra rotation speed per unit of ship velocity
+    private static final float SPEED_SCALAR = 0.5f;           // Extra rotation speed per unit of ship velocity
 
     // State
     private float currentDirection = 1f; // 1 for CW, -1 for CCW

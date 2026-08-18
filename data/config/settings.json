@@ -17,6 +17,11 @@
 		"Biological":[112,135,1,255],
 		},
 	"graphics": {
+		"svc_weapons":{
+            "scythe_base": "graphics/weapons/largeclaw/svc_largeclaw1.png",
+            "scythe_arm": "graphics/weapons/largeclaw/svc_largeclaw2.png",
+            "scythe_blade": "graphics/weapons/largeclaw/svc_largeclaw3.png"
+        },
 		"glows": {
 			"shipID1":"graphics/ships/Vergifter_glow1.png",
 			"shipID2":"graphics/ships/Vergifter_glow2.png",
