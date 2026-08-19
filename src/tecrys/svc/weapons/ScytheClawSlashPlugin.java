@@ -39,14 +39,14 @@ public class ScytheClawSlashPlugin extends BaseCombatLayeredRenderingPlugin impl
     private static final float BASE_MAX_JOINT_DEFLECTION = 160f;
 
     private static final float BASE_DYNAMIC_TIP_X_SHIFT = 40f;
-    private static final float BASE_DYNAMIC_TIP_Y_SHIFT = 20f;
+    private static final float BASE_DYNAMIC_TIP_Y_SHIFT = 40f;
 
     // ----------------------------------------------------------------------------------
     // INSTANCE VARIABLES (Safe per-weapon properties)
     // ----------------------------------------------------------------------------------
     private final Vector2f jointRed = new Vector2f(0f, 0f);      // Base joint (Weapon Mount)
-    private final Vector2f jointGreen = new Vector2f(6f, 49f);   // Elbow joint
-    private final Vector2f jointBlue = new Vector2f(27f, 28f);   // Wrist joint
+    private final Vector2f jointGreen = new Vector2f(16f, 37f);   // Elbow joint
+    private final Vector2f jointBlue = new Vector2f(35f, 17f);   // Wrist joint
     private final Vector2f jointPink = new Vector2f(0f, 125f);   // Damage point / Scythe Tip
 
     private float retractSpeed;

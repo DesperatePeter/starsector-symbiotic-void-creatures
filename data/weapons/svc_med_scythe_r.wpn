@@ -4,33 +4,40 @@
   "projectileSpecId": "svc_lrg_mand_left_shot",
   "type": "BALLISTIC",
   "size": "SMALL",
-  "everyFrameEffect": "tecrys.svc.weapons.mirror.BaseAnimateOnFireEffectMirror",
-  "turretSprite": "graphics/weapons/animated/med_scythe_right/lrg_scythe_right_00.png",
-  "hardpointSprite": "graphics/weapons/animated/med_scythe_right/lrg_scythe_right_00.png",
-  	"displayArcRadius":1,
+  "everyFrameEffect": "tecrys.svc.weapons.SmallScytheClawSlashPlugin",
+  "displayArcRadius": 1,
+  "turretSprite": "graphics/weapons/largeclaw/svc_claw2.png",
+  "turretGunSprite": "graphics/weapons/largeclaw/svc_claw3.png",
+  "turretUnderSprite": "graphics/weapons/largeclaw/svc_claw1.png",
+  "hardpointSprite": "graphics/weapons/largeclaw/svc_claw2hp.png",
+  "hardpointGunSprite": "graphics/weapons/largeclaw/svc_claw3hp.png",
+  "hardpointUnderSprite": "graphics/weapons/largeclaw/svc_claw1hp.png",
   "glowColor": [
     255,
     255,
     255,
     255
   ],
+  "visualRecoil": 1,
+  "renderHints": [
+    "RENDER_BARREL_BELOW"
+  ],
   "turretOffsets": [
-    0,
-    0
+    61,
+    1.5
   ],
   "turretAngleOffsets": [
     0
   ],
   "hardpointOffsets": [
-    0,
-    0
+    61.5,
+    1.5
   ],
   "hardpointAngleOffsets": [
     0
   ],
   "barrelMode": "ALTERNATING",
   "animationType": "GLOW",
-  "numFrames": 20,
-  "frameRate": 34,
+  "autocharge": true,
   "fireSoundTwo": "svc_weapon_scythe"
 }

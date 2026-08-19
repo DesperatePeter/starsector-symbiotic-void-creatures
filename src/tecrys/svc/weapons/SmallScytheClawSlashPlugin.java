@@ -38,18 +38,18 @@ public class SmallScytheClawSlashPlugin extends BaseCombatLayeredRenderingPlugin
     private static final float BASE_MIN_JOINT_DEFLECTION = 10f;
     private static final float BASE_MAX_JOINT_DEFLECTION = 160f;
 
-    private static final float BASE_DYNAMIC_TIP_X_SHIFT = 40f;
-    private static final float BASE_DYNAMIC_TIP_Y_SHIFT = 20f;
+    private static final float BASE_DYNAMIC_TIP_X_SHIFT = 10f;
+    private static final float BASE_DYNAMIC_TIP_Y_SHIFT = -35f;
 
     // ----------------------------------------------------------------------------------
     // INSTANCE VARIABLES (Safe per-weapon properties)
     // ----------------------------------------------------------------------------------
 
     // Adjusted estimates for the smaller claw sprites
-    private final Vector2f jointRed = new Vector2f(0f, 0f);      // Base joint (Weapon Mount)
-    private final Vector2f jointGreen = new Vector2f(3f, 25f);   // Elbow joint
-    private final Vector2f jointBlue = new Vector2f(14f, 14f);   // Wrist joint
-    private final Vector2f jointPink = new Vector2f(20f, 40f);   // Damage point / Scythe Tip
+    private final Vector2f jointRed = new Vector2f(-3f, 3f);      // Base joint (Weapon Mount)
+    private final Vector2f jointGreen = new Vector2f(8f, 22f);   // Elbow joint
+    private final Vector2f jointBlue = new Vector2f(18f, 10f);   // Wrist joint
+    private final Vector2f jointPink = new Vector2f(4f, 60f);   // Damage point / Scythe Tip
 
     private float retractSpeed;
     private float strikeChaseSpeed;
@@ -67,7 +67,7 @@ public class SmallScytheClawSlashPlugin extends BaseCombatLayeredRenderingPlugin
     private static final Color VISIBLE = new Color(255, 255, 255, 255);
 
     // OPTIMIZATION: Cache the layer set to prevent 12,000 object allocations per second
-    private static final EnumSet<CombatEngineLayers> ACTIVE_LAYERS = EnumSet.of(CombatEngineLayers.ABOVE_SHIPS_LAYER);
+    private static final EnumSet<CombatEngineLayers> ACTIVE_LAYERS = EnumSet.of(CombatEngineLayers.STATION_WEAPONS_LAYER);
 
     private boolean setupComplete = false;
     private boolean initialized = false;
