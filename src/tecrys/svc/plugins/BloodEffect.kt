@@ -13,7 +13,7 @@ import tecrys.svc.WHALE_HULLMOD_ID
 import java.awt.Color
 
 class BloodEffect : BaseEveryFrameCombatPlugin() {
-    companion object{
+    companion object {
         private val magnitudeBySize = mapOf(
             WeaponSize.SMALL to 1f,
             WeaponSize.MEDIUM to 1.5f,
@@ -29,14 +29,21 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
         private val PARTICLE_COLOR = Color(200, 0, 0, 200)
         private val PARTICLE_COLOR_WHALES = Color(60, 0, 180, 200)
 
-        fun getRandomizedSmokeSize(weapon: WeaponAPI, multiplier: Float = 1f) : Float {
-            return multiplier * (magnitudeBySize[weapon.size] ?: 1f) * (AVERAGE_SMOKE_SIZE + SMOKE_SIZE_VARIANCE * (Math.random() - 0.5f)).toFloat()
+        // Cache a scratch vector to prevent constant Vector2f allocation
+        private val scratchVelocity = Vector2f()
+
+        fun getRandomizedSmokeSize(weapon: WeaponAPI, multiplier: Float = 1f): Float {
+            val sizeMult = magnitudeBySize[weapon.size] ?: 1f
+            return multiplier * sizeMult * (AVERAGE_SMOKE_SIZE + SMOKE_SIZE_VARIANCE * (Math.random() - 0.5f)).toFloat()
         }
-        fun getRandomizedVelocity() : Vector2f {
-            val toReturn = Vector2f(Math.random().toFloat() - 0.5f, Math.random().toFloat() - 0.5f)
-            toReturn.normalise()
-            toReturn.scale(VELOCITY_MAGNITUDE)
-            return toReturn
+
+        // Mutate the scratch vector instead of returning a new one
+        fun randomizeVelocity(vec: Vector2f) {
+            vec.set(Math.random().toFloat() - 0.5f, Math.random().toFloat() - 0.5f)
+            if (vec.lengthSquared() > 0) {
+                vec.normalise()
+                vec.scale(VELOCITY_MAGNITUDE)
+            }
         }
     }
 
@@ -49,27 +56,53 @@ class BloodEffect : BaseEveryFrameCombatPlugin() {
 
     override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
         val eng = this.engine ?: return
-        if(eng.isPaused) return
-        interval.advance(amount)
-        if(!interval.intervalElapsed()) return
-        eng.ships?.filter { it.variant.hasHullMod(SVC_BASE_HULLMOD_ID) }?.filterNotNull()?.forEach { ship ->
-            spawnBlood(ship, PARTICLE_COLOR, eng)
-        }
-        eng.ships?.filter { it.variant.hasHullMod(WHALE_HULLMOD_ID) }?.filterNotNull()?.forEach { ship ->
-            spawnBlood(ship, PARTICLE_COLOR_WHALES, eng)
-        }
-    }
+        if (eng.isPaused) return
 
-    private fun spawnBlood(ship: ShipAPI, color: Color, eng: CombatEngineAPI){
-        ship.allWeapons?.filterNotNull()?.filter {
-            it.isDisabled || ship.isHulk || ship.hullLevel < 0.5f
-        }?.forEach { w ->
-            for (i in 0 until NUMBER_OF_PARTICLES){
-                eng.addSmokeParticle(w.location, getRandomizedVelocity(), getRandomizedSmokeSize(w, 1f - ship.hullLevel),
-                    PARTICLE_OPACITY, PARTICLE_DURATION, color)
+        interval.advance(amount)
+        if (!interval.intervalElapsed()) return
+
+        val ships = eng.ships
+        val numShips = ships.size
+
+        // Single pass over the engine's ship array
+        for (i in 0 until numShips) {
+            val ship = ships[i]
+            val variant = ship.variant ?: continue
+
+            // Assuming a ship only has one of these hullmods, an else-if saves a redundant check
+            if (variant.hasHullMod(SVC_BASE_HULLMOD_ID)) {
+                spawnBlood(ship, PARTICLE_COLOR, eng)
+            } else if (variant.hasHullMod(WHALE_HULLMOD_ID)) {
+                spawnBlood(ship, PARTICLE_COLOR_WHALES, eng)
             }
         }
     }
 
+    private fun spawnBlood(ship: ShipAPI, color: Color, eng: CombatEngineAPI) {
+        val weapons = ship.allWeapons ?: return
+        val numWeapons = weapons.size
 
+        // Cache ship-level stats outside the weapon loop
+        val hullLevel = ship.hullLevel
+        val isHulk = ship.isHulk
+        val hullMult = 1f - hullLevel
+
+        for (i in 0 until numWeapons) {
+            val w = weapons[i] ?: continue
+
+            if (w.isDisabled || isHulk || hullLevel < 0.5f) {
+                for (j in 0 until NUMBER_OF_PARTICLES) {
+                    randomizeVelocity(scratchVelocity)
+                    eng.addSmokeParticle(
+                        w.location,
+                        scratchVelocity,
+                        getRandomizedSmokeSize(w, hullMult),
+                        PARTICLE_OPACITY,
+                        PARTICLE_DURATION,
+                        color
+                    )
+                }
+            }
+        }
+    }
 }

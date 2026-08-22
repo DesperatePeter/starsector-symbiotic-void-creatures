@@ -26,6 +26,10 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
     private boolean deadAndFading = false;
     private float fadeLevel = 1.0f;
 
+    // Cache the sprite so we don't query the settings every frame and cause a freeze
+    private static SpriteAPI breachSprite = null;
+
+    // Scratch vector to prevent object churn during advance()
     private final Vector2f scratchVector = new Vector2f();
 
     public GrapplerRopePlugin(int pluginID, int elementCount, float trailWidth, boolean is_pd, WeaponAPI attachedWeapon, DamagingProjectileAPI attachedProj) {
@@ -61,13 +65,17 @@ public class GrapplerRopePlugin extends svcBaseKinematicRopePlugin {
 
         if (target != null) {
             ropeParams.segmentGoalLength = Math.max(3f, ropeParams.segmentGoalLength * 0.99f);
-            SpriteAPI sprite = Global.getSettings().getSprite("graphics/missiles/breach_srm.png");
+
+            // Use the cached sprite to prevent IO/HashMap lookup hitches
+            if (breachSprite == null) {
+                breachSprite = Global.getSettings().getSprite("graphics/missiles/breach_srm.png");
+            }
 
             scratchVector.set(offset);
             VectorUtils.rotate(scratchVector, target.getFacing(), scratchVector);
             Vector2f.add(scratchVector, target.getLocation(), scratchVector);
 
-            MagicRender.singleframe(sprite, scratchVector, new Vector2f(sprite.getWidth(), sprite.getHeight()), impactFacing + target.getFacing() - 90f, Color.white, false);
+            MagicRender.singleframe(breachSprite, scratchVector, new Vector2f(breachSprite.getWidth(), breachSprite.getHeight()), impactFacing + target.getFacing() - 90f, Color.white, false);
         }
 
         segmentPoints.get(0).getLocation().set(attachedWeapon.getLocation());
