@@ -65,7 +65,7 @@ public class ScytheClawSlashPlugin extends BaseCombatLayeredRenderingPlugin impl
     private static final Color VISIBLE = new Color(255, 255, 255, 255);
 
     // OPTIMIZATION: Cache the layer set to prevent 12,000 object allocations per second
-    private static final EnumSet<CombatEngineLayers> ACTIVE_LAYERS = EnumSet.of(CombatEngineLayers.ABOVE_SHIPS_LAYER);
+    private static final EnumSet<CombatEngineLayers> ACTIVE_LAYERS = EnumSet.of(CombatEngineLayers.CONTRAILS_LAYER);
 
     private boolean setupComplete = false;
     private boolean initialized = false;

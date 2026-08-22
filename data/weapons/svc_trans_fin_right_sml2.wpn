@@ -5,7 +5,7 @@
 	"size":"MEDIUM",
         "height": 1.0,
         "everyFrameEffect":"tecrys.svc.plugins.FinSweepBenderSpeedBased",
-	"turretSprite":"graphics/weapons/animated/trans_fin_right_sml/trans_fin_right_00.png",
+	"turretSprite":"graphics/weapons/animated/trans_fin_right_sml/trans_fin_right_00turret.png",
 	"hardpointSprite":"graphics/weapons/animated/trans_fin_right_sml/trans_fin_right_00.png",
 #	"numFrames":30,	
 #	"frameRate":20,

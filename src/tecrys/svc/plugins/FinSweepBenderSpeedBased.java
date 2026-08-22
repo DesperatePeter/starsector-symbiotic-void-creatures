@@ -10,6 +10,7 @@ import com.fs.starfarer.api.combat.ViewportAPI;
 import com.fs.starfarer.api.combat.WeaponAPI;
 import com.fs.starfarer.api.graphics.SpriteAPI;
 import org.lwjgl.opengl.GL11;
+import org.lazywizard.lazylib.FastTrig;
 import tecrys.svc.utils.DecoUtils;
 import org.lazywizard.lazylib.MathUtils;
 import org.lazywizard.lazylib.VectorUtils;
@@ -22,19 +23,27 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
     private boolean isInitialized = false;
     private static final Color VISIBLE_COLOR = new Color(255, 255, 255, 255);
     private static final Color HIDDEN_COLOR = new Color(255, 255, 255, 0);
-    // --- SWAY CONTROLS (Reactive Movement) ---
+
+    // --- SWAY CONTROLS ---
     private static final float STRAFE_SWAY_MULTIPLIER = 1.5f;
     private static final float TURN_SWAY_MULTIPLIER = 0.6f;
     private static final float SWAY_SMOOTHNESS = 7.0f;
 
-    // --- SWEEP CONTROLS (Continuous Swimming) ---
-    private static final float BASE_SWEEP_RATE = 1.5f;
-    private static final float MAX_SWEEP_BONUS_RATE = 4.0f;
-    private static final float SWEEP_ARC_MULTIPLIER = 0.6f;
+    // --- SWIVEL SYNC CONTROLS ---
+    // Controls how much of the weapon's arc is used for the continuous swivel.
+    // 1.0f uses the entire arc. 0.5f uses half of the arc.
+    private static final float SWIVEL_ARC_FRACTION = 0.5f;
 
-    private float currentSwayOffset = 0f;
-    private float sweepPhase = 0f;
-    private float sweepPhaseOffset = 0f;
+    // Offsets the rotation phase from the bend phase.
+    // PI / 2 (90 degrees) ensures that when the rotation is swinging the fastest,
+    // the fin is bent at its maximum, perfectly simulating drag against water.
+    private static final float SWIVEL_SYNC_OFFSET = (float) (Math.PI / 2f);
+
+    private float currentRotOffset = 0f;
+    private float swivelDir = 1f;
+
+    // We now store the renderer so we can read its exact phase and lock them together
+    private BendingFinRenderer renderer;
 
     @Override
     public void advance(float amount, CombatEngineAPI engine, WeaponAPI weapon) {
@@ -46,19 +55,23 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
         if (!isInitialized) {
             boolean isMirrored = DecoUtils.isOnLeft(weapon) != DecoUtils.isFacingForward(weapon);
 
-            if (isMirrored) {
-                if (isRefit) DecoUtils.mirror(weapon, false);
-                sweepPhaseOffset = (float) Math.PI;
-            } else {
-                sweepPhaseOffset = 0f;
+            if (isRefit && isMirrored) {
+                DecoUtils.mirror(weapon, false);
             }
 
-            BendingFinRenderer renderer = new BendingFinRenderer(weapon, isMirrored);
+            // Determine direction to rotate towards the front of the ship initially.
+            float toFrontAngle = MathUtils.getShortestRotation(weapon.getArcFacing(), 0f);
+            swivelDir = (toFrontAngle >= 0) ? 1f : -1f;
+
+            if (Math.abs(toFrontAngle) < 1f || Math.abs(toFrontAngle) > 179f) {
+                swivelDir = 1f;
+            }
+
+            renderer = new BendingFinRenderer(weapon, isMirrored);
             engine.addLayeredRenderingPlugin(renderer);
             isInitialized = true;
         }
 
-// In advance()
         if (isRefit) {
             weapon.getSprite().setColor(VISIBLE_COLOR);
             weapon.getSprite().setAlphaMult(1f);
@@ -70,49 +83,45 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
         if (engine.isPaused()) return;
 
         float arcCenterAbsolute = ship.getFacing() + weapon.getArcFacing();
-        float finalRotOffset = 0f;
 
+        // Organic Swivel Logic
         if (!isRefit) {
             float maxSpeed = ship.getMutableStats().getMaxSpeed().getModifiedValue();
             float speed = ship.getVelocity().length();
             float halfArc = weapon.getArc() / 2f;
 
-            float speedPct = 0f;
+            float speedFraction = 0f;
             if (maxSpeed > 1f) {
-                speedPct = Math.min(1f, Math.max(0f, speed / maxSpeed));
+                speedFraction = Math.max(0f, Math.min(1f, speed / maxSpeed));
             }
 
-            float currentSweepRate = BASE_SWEEP_RATE + (speedPct * MAX_SWEEP_BONUS_RATE);
-            sweepPhase += currentSweepRate * amount;
-            if (sweepPhase > Math.PI * 2) {
-                sweepPhase -= (float) (Math.PI * 2);
-            }
-            float sweepOffset = (float) Math.sin(sweepPhase + sweepPhaseOffset) * (halfArc * SWEEP_ARC_MULTIPLIER);
+            // 1. Synchronized Back-and-Forth Swivel
+            // We fetch the exact phase from the renderer to keep the rotation and the fin bend perfectly locked.
+            float currentSwivelPhase = renderer.getPhase() + SWIVEL_SYNC_OFFSET;
+            float swivelAmplitude = halfArc * SWIVEL_ARC_FRACTION;
+            float swivelOffset = (float) (swivelAmplitude * FastTrig.sin(currentSwivelPhase) * swivelDir);
 
+            // 2. Strafe and Turn Sway
             float strafeOffset = 0f;
             if (speed > 1f && maxSpeed > 1f) {
                 float velDir = VectorUtils.getFacing(ship.getVelocity());
                 float angleDiff = MathUtils.getShortestRotation(ship.getFacing(), velDir);
-                float lateralFraction = (float) Math.sin(Math.toRadians(angleDiff)) * (speedPct);
+                float lateralFraction = (float) (FastTrig.sin(Math.toRadians(angleDiff)) * speedFraction);
                 strafeOffset = lateralFraction * halfArc * STRAFE_SWAY_MULTIPLIER;
             }
 
             float turnOffset = -ship.getAngularVelocity() * TURN_SWAY_MULTIPLIER;
 
-            float targetSway = strafeOffset + turnOffset;
-            targetSway = Math.max(-halfArc, Math.min(halfArc, targetSway));
+            // Combine all offsets, but rigorously clamp the final result to the weapon's hard max limits
+            float targetOffset = swivelOffset + strafeOffset + turnOffset;
+            targetOffset = Math.max(-halfArc, Math.min(halfArc, targetOffset));
 
-            currentSwayOffset += (targetSway - currentSwayOffset) * (amount * SWAY_SMOOTHNESS);
-
-            finalRotOffset = sweepOffset + currentSwayOffset;
-            finalRotOffset = Math.max(-halfArc, Math.min(halfArc, finalRotOffset));
-
+            currentRotOffset += (targetOffset - currentRotOffset) * (amount * SWAY_SMOOTHNESS);
         } else {
-            currentSwayOffset = 0f;
-            sweepPhase = 0f;
+            currentRotOffset = 0f;
         }
 
-        weapon.setCurrAngle(arcCenterAbsolute + finalRotOffset);
+        weapon.setCurrAngle(arcCenterAbsolute + currentRotOffset);
     }
 
     public static class BendingFinRenderer extends BaseCombatLayeredRenderingPlugin {
@@ -123,21 +132,14 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
         private final boolean isMirrored;
 
         // --- RENDERER SETTINGS ---
+        // These now dictate the speed of BOTH the visual bend and the physical base rotation
         private static final float BASE_SWIM_RATE = 2.0f;
-        private static final float MAX_SPEED_BONUS_RATE = 7.0f;
+        private static final float MAX_SPEED_BONUS_RATE = 6.0f;
         private static final int SEGMENTS = 16;
-
-        private static final float MAX_BEND_PIXELS = 16f;
+        private static final float MAX_BEND_PIXELS = 22f;
         private static final float WAVE_FREQUENCY = 1.5f;
 
-        // --- ANCHOR & PIVOT CONTROLS ---
-        private static final float PIVOT_FRACTION = 0.26f;
-        private static final float PIVOT_STIFFNESS = 0.2f;
-
-        // Tunes how much the Y-axis retracts to compensate for X-axis bending.
-        // Start around 0.25f. Higher = pulls in more. 0f = no compensation (bobbing).
-        private static final float LENGTH_COMPENSATION_FACTOR = 0.25f;
-
+        // --- ANCHOR CONTROLS ---
         private static final float ANCHOR_X_OFFSET = 0f;
         private static final float ANCHOR_Y_OFFSET = 0f;
 
@@ -156,6 +158,11 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
             } else {
                 phaseOffset = 0f;
             }
+        }
+
+        // Getter allows the outer class to synchronize physical rotation with this visual phase
+        public float getPhase() {
+            return phase;
         }
 
         @Override
@@ -188,7 +195,6 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
             boolean isRefit = (ship.getOriginalOwner() == -1);
             if (isRefit) return;
 
-// In render()
             sprite.setColor(HIDDEN_COLOR);
             sprite.setAlphaMult(0f);
 
@@ -196,6 +202,9 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
             float width = sprite.getWidth();
             float centerX = sprite.getCenterX();
             float centerY = sprite.getCenterY();
+
+            // DYNAMIC PIVOT: This forces the wave anchor to be exactly on the weapon slot
+            float pivotFraction = centerY / length;
 
             float texX = sprite.getTexX();
             float texY = sprite.getTexY();
@@ -221,33 +230,16 @@ public class FinSweepBenderSpeedBased implements EveryFrameWeaponEffectPlugin {
             GL11.glBegin(GL11.GL_QUAD_STRIP);
 
             for (int i = 0; i <= SEGMENTS; i++) {
+
                 float fraction = (float) i / SEGMENTS;
+                float localY = (length * fraction) - centerY + ANCHOR_Y_OFFSET;
 
-                float distFromPivot = fraction - PIVOT_FRACTION;
-                float absDist = Math.abs(distFromPivot);
-
-                float amplitudeMultiplier;
-                if (absDist <= PIVOT_STIFFNESS) {
-                    float normalizedDist = absDist / PIVOT_STIFFNESS;
-                    amplitudeMultiplier = normalizedDist * normalizedDist;
-                } else {
-                    amplitudeMultiplier = 1f;
-                }
+                float distFromPivot = fraction - pivotFraction;
 
                 float waveDir = REVERSE_WAVE_DIRECTION ? 1f : -1f;
                 float wavePropagation = (float) (distFromPivot * Math.PI * waveDir * WAVE_FREQUENCY);
 
-                float bendOffset = (float) Math.sin(phase + phaseOffset + wavePropagation)
-                        * MAX_BEND_PIXELS
-                        * distFromPivot
-                        * amplitudeMultiplier;
-
-                // --- NEW: Y-Axis Arc Length Compensation ---
-                // Pulls the Y coordinate inward toward the pivot based on how aggressively it is bent on the X axis.
-                // Math.signum ensures points above the pivot pull down, and points below the pivot pull up.
-                float yCompensation = Math.abs(bendOffset) * LENGTH_COMPENSATION_FACTOR * Math.signum(-distFromPivot);
-                float localY = (length * fraction) - centerY + ANCHOR_Y_OFFSET + yCompensation;
-                // -------------------------------------------
+                float bendOffset = (float) (FastTrig.sin(phase + phaseOffset + wavePropagation) * MAX_BEND_PIXELS * distFromPivot);
 
                 float leftX = -centerX + bendOffset + ANCHOR_X_OFFSET;
                 float rightX = width - centerX + bendOffset + ANCHOR_X_OFFSET;

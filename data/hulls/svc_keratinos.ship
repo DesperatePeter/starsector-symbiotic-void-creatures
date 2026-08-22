@@ -73,9 +73,9 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 107.797997,
-      "angle": -49.398998,
-      "locations": [53.5, 34],
+      "arc": 35,
+      "angle": -0,
+      "locations": [56.5, 34.5],
       "renderOrderMod": 4
     },
     {
@@ -83,9 +83,9 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 107.797997,
-      "angle": 49.398998,
-      "locations": [53.5, -34],
+      "arc": 35,
+      "angle": 0,
+      "locations": [56.5, -34.5],
       "renderOrderMod": 4
     },
     {
@@ -93,9 +93,9 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 87.809998,
-      "angle": -37.404999,
-      "locations": [54, 49.5],
+      "arc": 35,
+      "angle": -0,
+      "locations": [50, 47],
       "renderOrderMod": 5
     },
     {
@@ -103,9 +103,9 @@
       "size": "SMALL",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 87.809998,
-      "angle": 37.404999,
-      "locations": [54, -49.5],
+      "arc": 35,
+      "angle": 0,
+      "locations": [50, -47],
       "renderOrderMod": 5
     },
     {
@@ -113,9 +113,9 @@
       "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 121.491997,
-      "angle": -53.745998,
-      "locations": [51.5, 71.5],
+      "arc": 35,
+      "angle": -0,
+      "locations": [34.5, 64.5],
       "renderOrderMod": 6
     },
     {
@@ -123,9 +123,9 @@
       "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
-      "arc": 121.491997,
-      "angle": 53.745998,
-      "locations": [51.5, -71.5],
+      "arc": 35,
+      "angle": 0,
+      "locations": [34.5, -64.5],
       "renderOrderMod": 6
     },
     {
@@ -228,54 +228,54 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": -152,
-      "locations": [-58.5, -24.5]
+      "arc": 40,
+      "angle": -147,
+      "locations": [-40.5, -13.5]
     },
     {
       "id": "right_long_fin",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": 152,
-      "locations": [-58.5, 24.5]
+      "arc": 40,
+      "angle": 147,
+      "locations": [-40.5, 13.5]
     },
     {
       "id": "left_long_fin2",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": -147,
-      "locations": [-66.5, -15.5]
+      "arc": 40,
+      "angle": -155.5,
+      "locations": [-49.5, -10.5]
     },
     {
       "id": "right_long_fin2",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": 147,
-      "locations": [-66.5, 15.5]
+      "arc": 40,
+      "angle": 155.5,
+      "locations": [-49.5, 10.5]
     },
     {
       "id": "left_long_fin3",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": -143.5,
-      "locations": [-48.5, -30.5]
+      "arc": 40,
+      "angle": -143,
+      "locations": [-30, -17.5]
     },
     {
       "id": "right_long_fin3",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": 143.5,
-      "locations": [-48.5, 30.5]
+      "arc": 40,
+      "angle": 143,
+      "locations": [-30, 17.5]
     },
     {
       "id": "waechtershell2",
@@ -291,18 +291,18 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": -155.5,
-      "locations": [-75, -9]
+      "arc": 40,
+      "angle": -165.5,
+      "locations": [-59.5, -6.5]
     },
     {
       "id": "right_long_fin4",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": 155.5,
-      "locations": [-75, 9]
+      "arc": 40,
+      "angle": 165.5,
+      "locations": [-59.5, 6.5]
     },
     {
       "id": "right_grappler2",
@@ -347,18 +347,18 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": -166.5,
-      "locations": [-81, -2]
+      "arc": 40,
+      "angle": -179,
+      "locations": [-69.5, -4]
     },
     {
       "id": "WS0002",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 20,
-      "angle": 166.5,
-      "locations": [-81, 2]
+      "arc": 40,
+      "angle": 179,
+      "locations": [-69.5, 4]
     },
     {
       "id": "svc_controlcollar",

@@ -3,12 +3,10 @@ package tecrys.svc.weapons.scripts;
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.combat.*;
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI;
-import com.fs.starfarer.api.util.Misc;
-import org.lazywizard.lazylib.MathUtils;
 import org.lwjgl.util.vector.Vector2f;
 import tecrys.svc.plugins.GrapplerRopePlugin;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class svc_grappler_behaviour implements OnFireEffectPlugin, OnHitEffectPlugin {
 
@@ -23,36 +21,36 @@ public class svc_grappler_behaviour implements OnFireEffectPlugin, OnHitEffectPl
         GrapplerRopePlugin plugin = new GrapplerRopePlugin(pluginCount++, 15, 8f, false, weapon, projectile);
         plugin.setBaseColor(tentacleColor);
         plugin.setSegmentLength(10f);
-
         projectile.setCustomData("grappler", plugin);
-        Global.getCombatEngine().addPlugin(plugin);
-
+        engine.addPlugin(plugin);
     }
 
     @Override
     public void onHit(DamagingProjectileAPI projectile, CombatEntityAPI target, Vector2f point, boolean shieldHit, ApplyDamageResultAPI damageResult, CombatEngineAPI engine) {
-        Global.getLogger(this.getClass()).info("target: " + target.getClass());
         GrapplerRopePlugin plugin = (GrapplerRopePlugin) projectile.getCustomData().get("grappler");
         if (target instanceof DamagingProjectileAPI) {
             plugin.kill();
         } else {
             plugin.attach(target, point, projectile.getFacing());
         }
-        if (projectile.getSource() != null && target instanceof ShipAPI targetShip) {
+
+        if (projectile.getSource() != null && target instanceof ShipAPI) {
             ShipAPI sourceShip = projectile.getSource();
-
             Vector2f sourceLoc = sourceShip.getLocation();
-            Vector2f targetLoc = targetShip.getLocation();
+            Vector2f targetLoc = target.getLocation();
 
-            Vector2f pullDirection = Misc.getUnitVectorAtDegreeAngle(Misc.getAngleInDegrees(sourceLoc, targetLoc));
-            float distance = MathUtils.getDistance(targetLoc, sourceLoc);
+            Vector2f pullDirection = new Vector2f();
+            Vector2f.sub(targetLoc, sourceLoc, pullDirection);
+            float distanceSquared = pullDirection.lengthSquared();
 
-            float escapeVelocity = Vector2f.dot(pullDirection, targetShip.getVelocity());
-
-            float force = BASE_FORCE + distance * FORCE_PER_DISTANCE;
-            float deltaV = force / sourceShip.getMass()  * Math.max(escapeVelocity * ESCAPE_VELOCITY_SCALING, 1f);
-
-            sourceShip.getVelocity().translate(pullDirection.x * deltaV, pullDirection.y * deltaV);
+            if (distanceSquared > 0) {
+                float distance = (float) Math.sqrt(distanceSquared);
+                pullDirection.normalise();
+                float escapeVelocity = Vector2f.dot(pullDirection, target.getVelocity());
+                float force = BASE_FORCE + distance * FORCE_PER_DISTANCE;
+                float deltaV = force / sourceShip.getMass() * Math.max(escapeVelocity * ESCAPE_VELOCITY_SCALING, 1f);
+                sourceShip.getVelocity().translate(pullDirection.x * deltaV, pullDirection.y * deltaV);
+            }
         }
     }
 }

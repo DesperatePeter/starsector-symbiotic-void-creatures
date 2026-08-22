@@ -84,8 +84,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 40.238998,
-      "angle": -43.264,
-      "locations": [34.5, 27],
+      "angle": -32,
+      "locations": [37, 29],
       "renderOrderMod": 2
     },
     {
@@ -94,8 +94,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 40.238998,
-      "angle": 43.264,
-      "locations": [34.5, -27],
+      "angle": 32,
+      "locations": [37, -29],
       "renderOrderMod": 2
     },
     {
@@ -104,7 +104,7 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 40.112,
-      "angle": -42.709,
+      "angle": -32.5,
       "locations": [25, 51],
       "renderOrderMod": 2
     },
@@ -114,7 +114,7 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 40.112,
-      "angle": 42.709,
+      "angle": 32.5,
       "locations": [25, -51],
       "renderOrderMod": 2
     },
