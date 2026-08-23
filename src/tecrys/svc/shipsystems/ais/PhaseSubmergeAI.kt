@@ -25,32 +25,41 @@ class PhaseSubmergeAI: ShipSystemAIScript {
     private var ship: ShipAPI? = null
     private var system: ShipSystemAPI? = null
     private var engine: CombatEngineAPI? = null
+    private var synapses: List<WeaponAPI> = emptyList()
 
     override fun init(ship: ShipAPI?, system: ShipSystemAPI?, flags: ShipwideAIFlags?, engine: CombatEngineAPI?) {
         this.ship = ship
         this.system = system
         this.engine = engine
-    }
-
-    private fun getSynapses(): List<WeaponAPI>{
-        return ship?.allWeapons?.filter { it.id == SYNAPSE_ID } ?: listOf()
+        // Cache the list of synapse weapons once
+        this.synapses = ship?.allWeapons?.filter { it.id == SYNAPSE_ID } ?: emptyList()
     }
 
     override fun advance(amount: Float, missileDangerDir: Vector2f?, collisionDangerDir: Vector2f?, target: ShipAPI?) {
         val sys = (if(system?.id == SYSTEM_ID) system else ship?.phaseCloak) ?: return
         if(!sys.isUsable()) return
+
         ship?.run {
-            // damage about to be taken, minus some value if synapse is firing or charging up, plus some value if cooling down
             val damage = estimateDamageToBeTaken()
-            val synapseFiring =  getSynapses().count {
-                it.cooldownRemaining < 0.01f && it.chargeLevel > 0.01f
+
+            var synapseFiringCount = 0
+            var synapsesReloadingPenalty = 0f
+
+            // Do all the math in a single pass over our cached list
+            for (i in 0 until synapses.size) {
+                val w = synapses[i]
+                if (w.cooldownRemaining < 0.01f && w.chargeLevel > 0.01f) {
+                    synapseFiringCount++
+                }
+                synapsesReloadingPenalty += (w.cooldownRemaining / Math.max(0.01f, w.cooldown))
             }
-            val synapsesReloading = getSynapses().map{
-                it.cooldownRemaining / it.cooldown
-            }.sum() * DANGER_PER_COOLDOWN
+
+            synapsesReloadingPenalty *= DANGER_PER_COOLDOWN
+
             val danger = damage * DANGER_PER_DAMAGE -
-                    synapseFiring * DANGER_REDUCTION_IF_SYNAPSE_FIRING +
-                    synapsesReloading * DANGER_PER_COOLDOWN
+                    synapseFiringCount * DANGER_REDUCTION_IF_SYNAPSE_FIRING +
+                    synapsesReloadingPenalty
+
             if(danger > ACTIVATE_AT_DANGER){
                 sys.forceState(ShipSystemAPI.SystemState.IN, 0f)
             }

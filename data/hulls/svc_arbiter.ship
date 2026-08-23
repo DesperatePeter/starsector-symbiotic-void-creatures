@@ -189,7 +189,7 @@
       "mount": "TURRET",
       "arc": 33.174999,
       "angle": 0,
-      "locations": [70, 10.5]
+      "locations": [49.5, 19.5]
     },
     {
       "id": "right_grappler3",
@@ -198,7 +198,7 @@
       "mount": "TURRET",
       "arc": 33.174999,
       "angle": -0,
-      "locations": [70, -10.5]
+      "locations": [49.5, -19.5]
     },
     {
       "id": "left_grappler2",

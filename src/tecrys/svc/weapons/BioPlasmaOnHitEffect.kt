@@ -1,18 +1,16 @@
 package tecrys.svc.weapons
 
 import com.fs.starfarer.api.combat.*
+import com.fs.starfarer.api.combat.listeners.AdvanceableListener
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI
-import com.fs.starfarer.api.input.InputEventAPI
 import org.lwjgl.util.vector.Vector2f
 
-class BioPlasmaOnHitEffect(): OnHitEffectPlugin {
-    companion object{
+class BioPlasmaOnHitEffect : OnHitEffectPlugin {
+    companion object {
         const val DURATION = 5f
         const val EFFECT_MULT = 0.7f
         const val EFFECT_ID = "BioPlasmaOnHitEffect"
     }
-
-    private var remainingDuration = DURATION
 
     override fun onHit(
         projectile: DamagingProjectileAPI?,
@@ -22,24 +20,45 @@ class BioPlasmaOnHitEffect(): OnHitEffectPlugin {
         damageResult: ApplyDamageResultAPI?,
         engine: CombatEngineAPI?
     ) {
-        if(shieldHit) return
+        if (shieldHit) return
         val ship = target as? ShipAPI ?: return
-        engine ?: return
-        engine.addPlugin(BioPlasmaOnHitScript(ship, engine))
+
+        // Prevent stacking plugins: refresh the timer if it already exists
+        if (ship.hasListenerOfClass(BioPlasmaListener::class.java)) {
+            val listener = ship.getListeners(BioPlasmaListener::class.java).firstOrNull()
+            if (listener != null) {
+                listener.remainingDuration = DURATION
+            }
+        } else {
+            ship.addListener(BioPlasmaListener(ship))
+        }
     }
 
-    inner class BioPlasmaOnHitScript(private var ship: ShipAPI, private var engine: CombatEngineAPI?): BaseEveryFrameCombatPlugin() {
-        private val statsToModify = ship.mutableStats.run {
-            listOf(acceleration, turnAcceleration, maxTurnRate, ballisticRoFMult, energyRoFMult, missileRoFMult)
-        }
-        override fun advance(amount: Float, events: MutableList<InputEventAPI>?) {
+    class BioPlasmaListener(private val ship: ShipAPI) : AdvanceableListener {
+        var remainingDuration = DURATION
+
+        override fun advance(amount: Float) {
             remainingDuration -= amount
-            if(remainingDuration <= 0f){
-                statsToModify.forEach { it.unmodify(EFFECT_ID) }
-                engine?.removePlugin(this)
+            val stats = ship.mutableStats
+
+            // Direct stat modification prevents generating List/Iterator objects every frame
+            if (remainingDuration <= 0f) {
+                stats.acceleration.unmodify(EFFECT_ID)
+                stats.turnAcceleration.unmodify(EFFECT_ID)
+                stats.maxTurnRate.unmodify(EFFECT_ID)
+                stats.ballisticRoFMult.unmodify(EFFECT_ID)
+                stats.energyRoFMult.unmodify(EFFECT_ID)
+                stats.missileRoFMult.unmodify(EFFECT_ID)
+                ship.removeListener(this)
                 return
             }
-            statsToModify.forEach { it.modifyMult(EFFECT_ID, EFFECT_MULT) }
+
+            stats.acceleration.modifyMult(EFFECT_ID, EFFECT_MULT)
+            stats.turnAcceleration.modifyMult(EFFECT_ID, EFFECT_MULT)
+            stats.maxTurnRate.modifyMult(EFFECT_ID, EFFECT_MULT)
+            stats.ballisticRoFMult.modifyMult(EFFECT_ID, EFFECT_MULT)
+            stats.energyRoFMult.modifyMult(EFFECT_ID, EFFECT_MULT)
+            stats.missileRoFMult.modifyMult(EFFECT_ID, EFFECT_MULT)
         }
     }
 }

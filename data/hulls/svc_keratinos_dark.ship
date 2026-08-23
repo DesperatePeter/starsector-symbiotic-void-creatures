@@ -4,7 +4,7 @@
   "hullSize": "CRUISER",
   "spriteName": "graphics/ships/Gewalt.png",
   "style": "BIOLOGICAL",
-  "height": 144,
+  "height": 154,
   "width": 266,
   "center": [133, 68],
   "collisionRadius": 140,
@@ -77,8 +77,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 83.973999,
-      "angle": -49.398998,
-      "locations": [57.5, 39.5],
+      "angle": -35,
+      "locations": [65.5, 34],
       "renderOrderMod": 300
     },
     {
@@ -87,8 +87,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 83.973999,
-      "angle": 49.398998,
-      "locations": [57.5, -39.5],
+      "angle": 35,
+      "locations": [65.5, -34],
       "renderOrderMod": 300
     },
     {
@@ -97,8 +97,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 69.574997,
-      "angle": -37.404999,
-      "locations": [49.5, 58.5],
+      "angle": -36.5,
+      "locations": [66.5, 62],
       "renderOrderMod": 300
     },
     {
@@ -107,8 +107,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 69.574997,
-      "angle": 37.404999,
-      "locations": [49.5, -58.5],
+      "angle": 36.5,
+      "locations": [66.5, -62],
       "renderOrderMod": 300
     },
     {
@@ -117,8 +117,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 91.763,
-      "angle": -39,
-      "locations": [39.5, 85.5],
+      "angle": -45,
+      "locations": [41.5, 92.5],
       "renderOrderMod": 300
     },
     {
@@ -127,8 +127,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 91.763,
-      "angle": 39,
-      "locations": [39.5, -85.5],
+      "angle": 45,
+      "locations": [41.5, -92.5],
       "renderOrderMod": 300
     },
     {
@@ -156,7 +156,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [-32, 0],
+      "locations": [-29.5, 0],
       "renderOrderMod": 100
     },
     {
@@ -186,7 +186,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -5.5,
-      "locations": [52.5, 15]
+      "locations": [57, 13.5]
     },
     {
       "id": "right_sml_mand2",
@@ -195,7 +195,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 5.5,
-      "locations": [52.5, -15]
+      "locations": [57, -13.5]
     },
     {
       "id": "left_sml_mand3",
@@ -204,7 +204,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 11.5,
-      "locations": [40, 12.5]
+      "locations": [51, 12]
     },
     {
       "id": "right_sml_mand3",
@@ -213,7 +213,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -11.5,
-      "locations": [40, -12.5]
+      "locations": [51, -12]
     },
     {
       "id": "left_long_fin",
@@ -384,7 +384,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [-15.5, -63],
+      "locations": [-10.5, -63],
       "renderOrderMod": 300
     },
     {
@@ -394,13 +394,13 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": -0,
-      "locations": [-15.5, 63],
+      "locations": [-10.5, 63],
       "renderOrderMod": 300
     }
   ],
   "engineSlots": [
     {
-      "location": [-6, 67],
+      "location": [-23.5, 67],
       "length": 5.5,
       "width": 14,
       "angle": 180,
@@ -409,7 +409,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-6, -65],
+      "location": [-23.5, -67],
       "length": 5.5,
       "width": 14,
       "angle": -180,
@@ -418,7 +418,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-9, 84.5],
+      "location": [-17.5, 90],
       "length": 5.5,
       "width": 14,
       "angle": 180,
@@ -427,7 +427,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-9, -82.5],
+      "location": [-17.5, -90],
       "length": 5.5,
       "width": 14,
       "angle": -180,
@@ -436,55 +436,55 @@
       "styleId": "BGE"
     },
     {
-      "location": [-10, 100.5],
+      "location": [-1.5, 107],
       "length": 8.315647,
       "width": 13.76227,
-      "angle": 143,
+      "angle": 161.5,
       "contrailSize": 13.76227,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [-10, -98.5],
+      "location": [-1.5, -107],
       "length": 8.315647,
       "width": 13.76227,
-      "angle": -143,
+      "angle": -161.5,
       "contrailSize": 13.76227,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [-7.5, 124.5],
+      "location": [-8.5, 123],
       "length": 8.763899,
       "width": 9.632047,
-      "angle": 155.660004,
+      "angle": -164,
       "contrailSize": 9.632047,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [-7.5, -122.5],
+      "location": [-8.5, -123],
       "length": 8.763899,
       "width": 9.632047,
-      "angle": -155.660004,
+      "angle": 164,
       "contrailSize": 9.632047,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [-4, 48],
+      "location": [-14.5, 39],
       "length": 6.681146,
       "width": 12.627318,
-      "angle": -159,
+      "angle": -169.5,
       "contrailSize": 12.627318,
       "style": "CUSTOM",
       "styleId": "BGE"
     },
     {
-      "location": [-4, -46],
+      "location": [-14.5, -39],
       "length": 6.681146,
       "width": 12.627318,
-      "angle": 159,
+      "angle": 169.5,
       "contrailSize": 12.627318,
       "style": "CUSTOM",
       "styleId": "BGE"

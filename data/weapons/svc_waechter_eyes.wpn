@@ -7,8 +7,8 @@
 	"everyFrameEffect":"tecrys.svc.plugins.DecoWeaponSpeedBasedeyes",
 	"turretSprite":"graphics/weapons/animated/koenig_eyes/kingeyes_00.png",
 	"hardpointSprite":"graphics/weapons/animated/koenig_eyes/kingeyes_00.png",
-        "numFrames":24,	
-	"frameRate":1,
+   #     "numFrames":24,	
+	#"frameRate":1,
 	        "renderBelowAllWeapons": true,
 	"turretOffsets": [
 20,

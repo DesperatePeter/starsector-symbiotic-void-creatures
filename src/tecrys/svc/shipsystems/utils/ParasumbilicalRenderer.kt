@@ -32,8 +32,20 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
             counter += TEX_SCROLL_SPEED
             if(counter + TEX_WIDTH > 1f) counter = 0f
         }
-        val viewMult = 1f //
-        (spritesToRenderOneFrame + spritesToRenderEveryFrame).forEach { s->
+        val viewMult = 1f
+
+        // Render both lists directly without allocating a third combined list
+        renderList(spritesToRenderOneFrame, viewMult)
+        renderList(spritesToRenderEveryFrame, viewMult)
+
+        if(Global.getCombatEngine()?.isPaused != true)
+            spritesToRenderOneFrame.clear()
+    }
+
+    private fun renderList(list: List<RenderableSprite>, viewMult: Float) {
+        val size = list.size
+        for (i in 0 until size) {
+            val s = list[i]
             s.sprite.run {
                 alphaMult = s.alpha
                 setSize(s.width / viewMult, (s.height + 60f)  / viewMult)
@@ -47,8 +59,6 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
                 renderAtCenter(s.pos.x, s.pos.y)
             }
         }
-        if(Global.getCombatEngine()?.isPaused != true)
-            spritesToRenderOneFrame.clear()
     }
 
     override fun render(layer: CombatEngineLayers?, viewport: ViewportAPI?) {
@@ -56,7 +66,6 @@ class ParasumbilicalRenderer: BaseCombatLayeredRenderingPlugin() {
         viewport?.let {
             renderSprites(viewport)
         }
-
     }
 
     override fun getRenderRadius(): Float = 10000.0f

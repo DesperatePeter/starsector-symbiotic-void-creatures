@@ -4,12 +4,13 @@ import com.fs.starfarer.api.combat.*
 import org.lwjgl.util.vector.Vector2f
 import java.awt.Color
 
-// Note: The terminator script for some reason uses a rendering plugin to handle the drone,
-//       so who am I to question Alex's wisdom? xD
 class VolatileDroneHandler(private val drone: ShipAPI, private val missile: MissileAPI, private val engine: CombatEngineAPI):
     BaseCombatLayeredRenderingPlugin() {
     private var isDone = false
     override fun isExpired(): Boolean = isDone
+
+    // Cache a single vector to prevent per-frame object allocation
+    private val scratchVel = Vector2f()
 
     companion object{
         const val VELOCITY_RANDOMNESS = 50f
@@ -20,7 +21,13 @@ class VolatileDroneHandler(private val drone: ShipAPI, private val missile: Miss
         if(isDone) return
         missile.eccmChanceOverride = 1f
         missile.owner = drone.originalOwner
-        missile.velocity.set(randomlyOffsetVelocity(missile.velocity))
+
+        // Mutate the scratch vector instead of returning a new one
+        scratchVel.set(missile.velocity)
+        scratchVel.x += (Math.random().toFloat() - 0.5f) * 2f * VELOCITY_RANDOMNESS
+        scratchVel.y += (Math.random().toFloat() - 0.5f) * 2f * VELOCITY_RANDOMNESS
+        missile.velocity.set(scratchVel)
+
         drone.location.set(missile.location)
         drone.velocity.set(missile.velocity)
         drone.facing = missile.facing
@@ -30,8 +37,8 @@ class VolatileDroneHandler(private val drone: ShipAPI, private val missile: Miss
 
         val isDroneDestroyed = drone.isHulk || drone.hitpoints <= 0f
         if(isDroneDestroyed || missile.didDamage() || missile.isFizzling || missile.hitpoints <= 0f){
-            drone.velocity.set(Vector2f(0f, 0f))
-            missile.velocity.set(Vector2f(0f, 0f))
+            drone.velocity.set(0f, 0f)
+            missile.velocity.set(0f, 0f)
             if(!isDroneDestroyed){
                 engine.applyDamage(drone, drone.location, 1000000f, DamageType.ENERGY, 0f, true, false, drone, false)
             }
@@ -44,10 +51,5 @@ class VolatileDroneHandler(private val drone: ShipAPI, private val missile: Miss
             }
             isDone = true
         }
-    }
-
-    private fun randomlyOffsetVelocity(vel: Vector2f): Vector2f{
-        return Vector2f(vel.x + (Math.random().toFloat() - 0.5f)*2f* VELOCITY_RANDOMNESS,
-            vel.y + (Math.random().toFloat() - 0.5f)*2f* VELOCITY_RANDOMNESS)
     }
 }

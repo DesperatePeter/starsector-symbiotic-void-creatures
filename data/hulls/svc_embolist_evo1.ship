@@ -4,23 +4,24 @@
   "hullSize": "DESTROYER",
   "spriteName": "graphics/ships/Lobsterdestropinksharp.png",
   "style": "BIOLOGICAL",
-  "height": 220,
-  "width": 123,
-  "center": [61.5, 110],
-  "collisionRadius": 110.136276,
-  "shieldCenter": [0, -0],
+  "height": 224,
+  "width": 128,
+  "center": [64, 111.5],
+  "collisionRadius": 121.5,
+  "shieldCenter": [0, 0],
   "shieldRadius": 117.920525,
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
-	"svc_no_fuel_hm"
+    "svc_no_fuel_hm"
   ],
   "builtInWeapons": {
-    "WS0001": "svc_acidthrower",
+    "WS0001": "svc_waechtershell2",
     "WS0002": "svc_boltzmann_brain",
+    "WS0004": "svc_acidthrower",
     "eyes": "svc_koenig_eyes",
-    "left_fin": "svc_trans_fin_left_sml",
-    "left_fin2": "svc_trans_fin_left_sml2",
+    "left_fin": "svc_trans_fin_right_sml2",
+    "left_fin2": "svc_trans_fin_right_sml2",
     "left_grappler": "svc_bge_grappler",
     "left_long_fin": "svc_long_fin_right_sml",
     "left_mand1": "svc_sml_mand_r",
@@ -28,7 +29,7 @@
     "left_med_uni": "svc_med_scythe_r",
     "left_med_uni2": "svc_fangcluster",
     "left_pd": "svc_bge_grappler_pd",
-    "right_fin": "svc_trans_fin_right_sml",
+    "right_fin": "svc_trans_fin_right_sml2",
     "right_fin2": "svc_trans_fin_right_sml2",
     "right_grappler": "svc_bge_grappler",
     "right_long_fin": "svc_long_fin_right_sml",
@@ -46,7 +47,7 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 122.699997,
-      "angle": 33.341,
+      "angle": 23,
       "locations": [62, -25],
       "renderOrderMod": 5
     },
@@ -56,7 +57,7 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 122.699997,
-      "angle": -33.341,
+      "angle": -23,
       "locations": [62, 25],
       "renderOrderMod": 5
     },
@@ -66,8 +67,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 87.752998,
-      "angle": 7,
-      "locations": [43.5, -33],
+      "angle": 0,
+      "locations": [48, -29.5],
       "renderOrderMod": 5
     },
     {
@@ -76,8 +77,8 @@
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 87.752998,
-      "angle": -7,
-      "locations": [43.5, 33],
+      "angle": -0,
+      "locations": [48, 29.5],
       "renderOrderMod": 5
     },
     {
@@ -121,20 +122,18 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": 161.565002,
-      "locations": [9.5, -16],
-      "renderOrderMod": 10
+      "arc": 60,
+      "angle": -162.5,
+      "locations": [20.5, -38]
     },
     {
       "id": "left_long_fin",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": -161.565002,
-      "locations": [9.5, 16],
-      "renderOrderMod": 10
+      "arc": 60,
+      "angle": 162.5,
+      "locations": [20.5, 38]
     },
     {
       "id": "eyes",
@@ -143,7 +142,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [53, -0.5],
+      "locations": [51, 0],
       "renderOrderMod": 2
     },
     {
@@ -168,46 +167,46 @@
       "id": "right_fin",
       "size": "MEDIUM",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": -177.510452,
-      "locations": [-8, -53]
+      "mount": "TURRET",
+      "arc": 30,
+      "angle": -159,
+      "locations": [-14, -35]
     },
     {
       "id": "left_fin",
       "size": "MEDIUM",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": 177.510452,
-      "locations": [-8, 53]
+      "mount": "TURRET",
+      "arc": 30,
+      "angle": 159,
+      "locations": [-14, 35]
     },
     {
       "id": "right_fin2",
       "size": "MEDIUM",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": -174.472458,
-      "locations": [-21.5, -44.5]
+      "mount": "TURRET",
+      "arc": 30,
+      "angle": -177,
+      "locations": [-23.5, -23]
     },
     {
       "id": "left_fin2",
       "size": "MEDIUM",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": 174.472458,
-      "locations": [-21.5, 44.5]
+      "mount": "TURRET",
+      "arc": 30,
+      "angle": 177,
+      "locations": [-23.5, 23]
     },
     {
       "id": "svc_controlcollar",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 43.369,
+      "arc": 43.368999,
       "angle": 180,
-      "locations": [41, -0.5],
+      "locations": [39, 0],
       "renderOrderMod": 20
     },
     {
@@ -229,13 +228,13 @@
       "locations": [8.5, 36.5]
     },
     {
-      "id": "WS0001",
+      "id": "WS0004",
       "size": "MEDIUM",
       "type": "BUILT_IN",
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": 0,
-      "locations": [34.5, -0.5],
+      "locations": [43.5, 0],
       "renderOrderMod": 10
     },
     {
@@ -246,11 +245,20 @@
       "arc": 0,
       "angle": 180,
       "locations": [2, -0]
+    },
+    {
+      "id": "WS0001",
+      "size": "SMALL",
+      "type": "DECORATIVE",
+      "mount": "TURRET",
+      "arc": 32,
+      "angle": 0,
+      "locations": [-49.5, 0]
     }
   ],
   "engineSlots": [
     {
-      "location": [-23.5, 15],
+      "location": [-25, 17.5],
       "length": 4.354815,
       "width": 9.007904,
       "angle": 162.645981,
@@ -259,7 +267,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-23.5, -15],
+      "location": [-25, -12.5],
       "length": 4.354815,
       "width": 9.007904,
       "angle": -162.645981,
@@ -268,7 +276,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-15, 30],
+      "location": [-16.5, 32.5],
       "length": 4.960145,
       "width": 7.041864,
       "angle": 154.093491,
@@ -277,7 +285,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [-15, -30],
+      "location": [-16.5, -27.5],
       "length": 4.960145,
       "width": 7.041864,
       "angle": -154.093491,
@@ -287,24 +295,23 @@
     }
   ],
   "bounds": [
-    -72.5, 13,
-    -63.5, 4,
-    -28, 11,
-    -14, 33.5,
-    1.5, 41,
+    -109.5, 0,
+    -39, 13,
+    -9, 43,
+    9, 42.5,
     24.5, 33.5,
-    52.5, 38,
-    99.5, 12.5,
-    64.5, 19.5,
-    72, -0.5,
-    64.5, -19.5,
-    99.5, -12.5,
-    52.5, -38,
-    23.5, -37.5,
-    1.5, -41,
-    -14, -33.5,
-    -28, -11,
-    -63.5, -4,
-    -72.5, -13
+    55, 40,
+    86, 29.5,
+    109, 9.5,
+    76, 11.5,
+    70, 0,
+    76, -11.5,
+    109, -9.5,
+    86, -29.5,
+    55, -40,
+    24.5, -33.5,
+    9, -42.5,
+    -9, -43,
+    -39, -13
   ]
 }

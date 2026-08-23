@@ -5,11 +5,11 @@
   "spriteName": "graphics/ships/Krieger.png",
   "style": "BIOLOGICAL",
   "height": 88,
-  "width": 112,
-  "center": [56, 25],
-  "collisionRadius": 66,
-  "shieldCenter": [0, -0],
-  "shieldRadius": 65,
+  "width": 116,
+  "center": [58, 36.5],
+  "collisionRadius": 59.5,
+  "shieldCenter": [0, 0],
+  "shieldRadius": 59,
   "viewOffset": 0,
   "builtInMods": [
     "BGECarapace",
@@ -18,23 +18,23 @@
   "builtInWeapons": {
     "Eyes": "svc_koenig_eyes",
     "WS0001": "svc_stinger_right",
-    "WS0002": "svc_stinger_left",
+    "WS0002": "svc_stinger_right",
     "WS0003": "svc_inksac",
     "WS0004": "svc_worm_colony_small",
     "WS0005": "svc_worm_colony_small",
-    "left_fin1": "svc_long_fin_right_sml2",
+    "left_fin1": "svc_long_fin_right_sml",
     "left_fin2": "svc_long_fin_right_sml",
-    "left_fin3": "svc_long_fin_right_sml2",
+    "left_fin3": "svc_long_fin_right_sml",
     "left_mand": "svc_sml_mand_r",
     "left_med_uni2": "svc_fangcluster",
     "left_pd": "svc_bge_grappler_pd",
-    "right_fin1": "svc_long_fin_right_sml2",
+    "right_fin1": "svc_long_fin_right_sml",
     "right_fin2": "svc_long_fin_right_sml",
-    "right_fin3": "svc_long_fin_right_sml2",
+    "right_fin3": "svc_long_fin_right_sml",
     "right_mand": "svc_sml_mand_r",
     "right_med_uni2": "svc_fangcluster",
     "right_pd": "svc_bge_grappler_pd",
-    "stinger_left": "svc_stinger_left",
+    "stinger_left": "svc_stinger_right",
     "stinger_right": "svc_stinger_right",
     "svc_controlcollar": "svc_ctrl_cllr_sml"
   },
@@ -46,7 +46,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 21.038,
-      "locations": [41.5, -12.5],
+      "locations": [30, -12.5],
       "renderOrderMod": 2
     },
     {
@@ -56,7 +56,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": -21.038,
-      "locations": [41.5, 12.5],
+      "locations": [30, 12.5],
       "renderOrderMod": 2
     },
     {
@@ -84,18 +84,18 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 30.510237,
+      "arc": 60,
       "angle": -178.809998,
-      "locations": [13, 34]
+      "locations": [1.5, 31]
     },
     {
       "id": "right_fin1",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 30.510237,
+      "arc": 60,
       "angle": 178.809998,
-      "locations": [13, -34]
+      "locations": [1.5, -31]
     },
     {
       "id": "Eyes",
@@ -104,7 +104,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [27.5, 0],
+      "locations": [16, 0],
       "renderOrderMod": 2
     },
     {
@@ -112,54 +112,54 @@
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 30.510237,
-      "angle": -161.565048,
-      "locations": [6, 33.5]
+      "arc": 60,
+      "angle": -161.565002,
+      "locations": [-6.5, 31]
     },
     {
       "id": "right_fin2",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 30.510237,
-      "angle": 161.565048,
-      "locations": [6, -33.5]
+      "arc": 60,
+      "angle": 161.565002,
+      "locations": [-6.5, -31]
     },
     {
       "id": "left_fin3",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 30.510237,
-      "angle": -160.016891,
-      "locations": [-4.5, 33]
+      "arc": 60,
+      "angle": -160.016998,
+      "locations": [-16.5, 30.5]
     },
     {
       "id": "right_fin3",
       "size": "MEDIUM",
       "type": "DECORATIVE",
       "mount": "HARDPOINT",
-      "arc": 30.510237,
-      "angle": 160.016891,
-      "locations": [-4.5, -33]
+      "arc": 60,
+      "angle": 160.016998,
+      "locations": [-16.5, -30.5]
     },
     {
       "id": "stinger_left",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 40.11219,
-      "angle": 62.927921,
-      "locations": [14.5, 57.5]
+      "arc": 40.112,
+      "angle": 170.5,
+      "locations": [26.5, 47.5]
     },
     {
       "id": "stinger_right",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 40.11219,
-      "angle": -62.927921,
-      "locations": [14.5, -57.5]
+      "arc": 40.112,
+      "angle": -170.5,
+      "locations": [26.5, -47.5]
     },
     {
       "id": "Krieger",
@@ -168,7 +168,7 @@
       "mount": "TURRET",
       "arc": 0,
       "angle": 0,
-      "locations": [19, 0],
+      "locations": [7.5, 0],
       "renderOrderMod": 1
     },
     {
@@ -176,18 +176,18 @@
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 40.11219,
-      "angle": -93.012787,
-      "locations": [-6, 22]
+      "arc": 40.112,
+      "angle": -167.5,
+      "locations": [14, 25.5]
     },
     {
       "id": "WS0002",
       "size": "SMALL",
       "type": "DECORATIVE",
       "mount": "TURRET",
-      "arc": 40.11219,
-      "angle": 93.012787,
-      "locations": [-6, -22]
+      "arc": 40.112,
+      "angle": 167.5,
+      "locations": [14, -25.5]
     },
     {
       "id": "right_pd",
@@ -196,7 +196,7 @@
       "mount": "TURRET",
       "arc": 180,
       "angle": -90,
-      "locations": [13.5, -7.5]
+      "locations": [1.5, -7.5]
     },
     {
       "id": "left_pd",
@@ -205,7 +205,7 @@
       "mount": "TURRET",
       "arc": 180,
       "angle": 90,
-      "locations": [13.5, 7.5]
+      "locations": [1.5, 7.5]
     },
     {
       "id": "svc_controlcollar",
@@ -214,7 +214,7 @@
       "mount": "HARDPOINT",
       "arc": 0,
       "angle": 0,
-      "locations": [14, 3],
+      "locations": [2.5, 3],
       "renderOrderMod": 20
     },
     {
@@ -224,7 +224,7 @@
       "mount": "HARDPOINT",
       "arc": 10,
       "angle": 0,
-      "locations": [15, 0],
+      "locations": [9, 0],
       "renderOrderMod": 10
     },
     {
@@ -233,8 +233,8 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 10,
-      "angle": -23,
-      "locations": [48, -45]
+      "angle": -128.5,
+      "locations": [25.5, -46.5]
     },
     {
       "id": "WS0005",
@@ -242,13 +242,13 @@
       "type": "BUILT_IN",
       "mount": "TURRET",
       "arc": 10,
-      "angle": 23,
-      "locations": [48, 45]
+      "angle": 128.5,
+      "locations": [25.5, 46.5]
     }
   ],
   "engineSlots": [
     {
-      "location": [10, 50],
+      "location": [19.5, 50],
       "length": 30,
       "width": 10,
       "angle": 145.840302,
@@ -257,7 +257,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [10, -50],
+      "location": [19.5, -50],
       "length": 30,
       "width": 10,
       "angle": -145.840302,
@@ -266,7 +266,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [9.5, -37.5],
+      "location": [19, -37.5],
       "length": 30,
       "width": 10,
       "angle": -145.840302,
@@ -275,7 +275,7 @@
       "styleId": "BGE"
     },
     {
-      "location": [9.5, 37.5],
+      "location": [19, 37.5],
       "length": 30,
       "width": 10,
       "angle": 145.840302,
@@ -285,33 +285,33 @@
     }
   ],
   "bounds": [
-    -5, -8,
-    3.5, -16,
-    -5.5, -18,
-    -8.5, -26.5,
-    -37.5, -32.5,
-    -8, -33.5,
-    5.5, -38,
-    8, -33.5,
-    14.5, -34,
-    10, -44.5,
-    13, -52,
-    28, -46,
-    35, -14.5,
-    21.5, -10,
-    21.5, 10,
-    35, 14.5,
-    28, 46,
-    13, 52,
-    10, 44.5,
-    14.5, 34,
-    8, 33.5,
-    5.5, 38,
-    -8, 33.5,
-    -37.5, 32.5,
-    -8.5, 26.5,
-    -5.5, 18,
-    3.5, 16,
-    -5, 8
+    2.5, -8,
+    11, -16,
+    2, -18,
+    -1, -26.5,
+    -30, -32.5,
+    -0.5, -33.5,
+    13, -38,
+    15.5, -33.5,
+    22, -34,
+    17.5, -44.5,
+    20.5, -52,
+    35.5, -46,
+    42.5, -14.5,
+    29, -10,
+    29, 10,
+    42.5, 14.5,
+    35.5, 46,
+    20.5, 52,
+    17.5, 44.5,
+    22, 34,
+    15.5, 33.5,
+    13, 38,
+    -0.5, 33.5,
+    -30, 32.5,
+    -1, 26.5,
+    2, 18,
+    11, 16,
+    2.5, 8
   ]
 }

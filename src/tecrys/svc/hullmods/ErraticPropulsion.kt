@@ -12,23 +12,27 @@ class ErraticPropulsion: BaseHullMod() {
         const val INTERVAL_MAX = 4.5f
         const val BUFF_ID = "svc_erratic_propulsion"
         const val EXCLUSION_TAG = "no_burst_of_speed"
+        const val HULLMOD_STATE_KEY = "svc_erratic_timer"
         val addedSpeedBuffByRoll = mapOf(
-            0.2f to 0.25f, // when roll below 0.2f, add 0.25f
-            0.1f to 0.15f, // when roll below 0.1f, add additional 0.15f for total of 0.4f
+            0.2f to 0.25f,
+            0.1f to 0.15f,
             0.05f to 0.35f,
             0.01f to 0.5f
         )
     }
 
-    // In Starsector, hullmods are only instantiated once and each ship shares the same class instance
-    private val timerByShip = mutableMapOf<String, IntervalUtil>()
     override fun advanceInCombat(ship: ShipAPI?, amount: Float) {
         super.advanceInCombat(ship, amount)
-        ship ?: return
-        if(ship.engineController?.isDisabled == true || !ship.isAlive) return
-        if(ship.hullSpec.hasTag(EXCLUSION_TAG)) return
-        if(!timerByShip.contains(ship.id)) timerByShip[ship.id] = IntervalUtil(INTERVAL_MIN, INTERVAL_MAX)
-        val timer = timerByShip[ship.id] ?: return
+        val currentShip = ship ?: return
+        if(currentShip.engineController?.isDisabled == true || !currentShip.isAlive) return
+        if(currentShip.hullSpec.hasTag(EXCLUSION_TAG)) return
+
+        var timer = currentShip.customData[HULLMOD_STATE_KEY] as? IntervalUtil
+        if (timer == null) {
+            timer = IntervalUtil(INTERVAL_MIN, INTERVAL_MAX)
+            currentShip.setCustomData(HULLMOD_STATE_KEY, timer)
+        }
+
         timer.advance(amount)
         if(timer.intervalElapsed()){
             val roll = Math.random()
@@ -38,12 +42,12 @@ class ErraticPropulsion: BaseHullMod() {
             }
             if(speedBuff >= 1.5f){
                 val col = if(speedBuff >= 2f) Color.RED else Color.BLUE
-                Global.getCombatEngine().addFloatingText(ship.location, "Burst of Speed!", 20f, col, ship, 1f, 3f)
+                Global.getCombatEngine().addFloatingText(currentShip.location, "Burst of Speed!", 20f, col, currentShip, 1f, 3f)
             }
-            ship.mutableStats?.run {
-                listOf(maxSpeed, acceleration, turnAcceleration).forEach {
-                    it?.modifyMult(BUFF_ID, speedBuff)
-                }
+            currentShip.mutableStats?.run {
+                maxSpeed.modifyMult(BUFF_ID, speedBuff)
+                acceleration.modifyMult(BUFF_ID, speedBuff)
+                turnAcceleration.modifyMult(BUFF_ID, speedBuff)
             }
         }
     }

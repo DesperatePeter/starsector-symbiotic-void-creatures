@@ -3,16 +3,14 @@ small Mandible,svc_sml_mand_l,2,,2500,60,,60,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,
 small Mandible,svc_sml_mand_r,2,,2500,60,,60,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES, GROUP_LINKED","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,41
 large Mandible,svc_lrg_mand_l,2,,2500,60,,90,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES, GROUP_LINKED","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,24
 large Mandible,svc_lrg_mand_r,2,,2500,60,,90,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES, GROUP_LINKED","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,24
-Scythe Claw,svc_lrg_scythe_r,2,,2500,140,,1600,,1000,60,0,,,,FRAGMENTATION,300,,0.3,1.5,,,,,,,,600,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, GROUP_ALTERNATING","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,25
+Scythe Claw,svc_lrg_scythe_r,2,,2500,140,,1600,,1000,60,0,,,,FRAGMENTATION,300,,0.3,1.5,,,,,,,,800,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, GROUP_ALTERNATING","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,25
 Scythe,svc_med_scythe_r,2,,1500,115,,400,,1000,60,0,,,,FRAGMENTATION,300,,0.3,1.5,,,,,,,,600,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, GROUP_ALTERNATING","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,25
 Umbra small Mandible,svc_adv_sml_mand_l,2,,2500,60,,70,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,,,,,,,150,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,68
 Umbra small Mandible,svc_adv_sml_mand_r,2,,2500,60,,70,,50,0,0,,,,FRAGMENTATION,4,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,68
 Umbra large Mandible,svc_adv_lrg_mand_l,2,,2500,60,,100,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,66
 Umbra large Mandible,svc_adv_lrg_mand_r,2,,2500,60,,100,,50,0,0,,,,FRAGMENTATION,6,,0,0.5,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, DO_NOT_AIM, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,66
-Umbra Scythe,svc_adv_med_scythe_r,2,,1500,115,,500,,500,60,0,,,,FRAGMENTATION,100,,0,1,,,,,,,,300,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,64
-Umbra Scythe Claw,svc_adv_lrg_scythe_r,2,,2500,140,,2000,,1000,60,0,,,,FRAGMENTATION,300,,0,1,,,,,,,,300,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,61
-Pincer,svc_med_pincer_r,2,,5500,115,,80,120,2000,60,0,,,,FRAGMENTATION,80,,0,2,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,46
-Pincer Claw,svc_lrg_pincer_r,2,,6500,150,,450,250,2000,60,0,,,,FRAGMENTATION,150,,0,2,,,,,,,,300,,0.5,30,,,"SYSTEM, FIRE_WHEN_INEFFICIENT","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,44
+Umbra Scythe,svc_adv_med_scythe_r,2,,1500,115,,500,,500,60,0,,,,FRAGMENTATION,100,,0.3,1.5,,,,,,,,600,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, GROUP_ALTERNATING","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,64
+Umbra Scythe Claw,svc_adv_lrg_scythe_r,2,,2500,140,,2000,,1000,60,0,,,,FRAGMENTATION,300,,0.3,1.5,,,,,,,,800,,0.5,30,,,"SYSTEM, PD, FIRE_WHEN_INEFFICIENT, FIRE_WHEN_INEFFICIENT, GROUP_ALTERNATING","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Melee,,,,,,,,,,61
 Grappler Tendril,svc_bge_grappler,2,,1000,1000,,15,15,0,20,0,,,,FRAGMENTATION,10,,0,1,1,0.3,0,0,0,0,,1500,,,30,200,,"SYSTEM, GROUP_LINKED, STRIKE, USE_VS_FRIGATES","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Prey Catching,,,,,Voidlings use Grappler Tentacles to pull themselves closer to enemies. Pull strength is stronger for greater distances or if the target attempts to flee.,,,,,1006
 Ripper Tendril,svc_bge_grappler_reverse,2,,1000,900,25,,0,0,20,0,,,,FRAGMENTATION,,10,0,0.15,0.5,2,0,0,0,0,4500,,,,,,,SYSTEM,"no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Prey Catching,,,,,,,,,,1006
 Tentacle Whip,svc_bge_grappler_pd,2,,1000,450,,120,50,7000,100,0,,,,FRAGMENTATION,60,,0,3,1,0.6,0,0,0,0,4500,350,,,30,200,,"SYSTEM, PD, PD_ONLY, ANTI_FTR, GROUP_ALTERNATING, DO_NOT_AIM","no_sell, no_dealer, no_drop_salvage, restricted, melee, codex_unlockable",,Biological,,Prey Catching,,,,,,,,,,1010
@@ -72,19 +70,13 @@ dark_fin_right_tiny,svc_dark_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTE
 Scoliac Tail Deco,svc_scoliactaildeco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,69
 Scoliac Deco,svc_scoliac_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,69
 Shade Deco,svc_shade_deco,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,69
-Trauer,svc_trauer,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,69
 Verzweiflung,svc_verzweiflung,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,70
 Gewalt,svc_gewalt,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,71
-Zorn,svc_zorn,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,65
 Zorn Head,svc_zorn_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,66
-Rache,svc_rache,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,67
-Rache Head,svc_rache_head,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,68
 right Antena,svc_antena_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,30
-right long fin,svc_long_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,34
 right long fin2,svc_long_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,36
 Koenig eyes,svc_koenig_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,37
 Arbiter Tail,svc_koenigfinleft,,,,,,,,,,,,,,ENERGY,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,38
-Koenig fin right,svc_koenigfinright,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,39
 Arbiter Head,svc_arbiter,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,53
 Embolist Head,svc_flusskrebs,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,55
 Pupacyst Head,svc_zophe,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,58
@@ -92,16 +84,13 @@ Waechter eyes,svc_waechter_eyes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,
 Voidling Heart,svc_heart,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,59
 Heart Cover,svc_heart_cover,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,59
 right Stinger,svc_stinger_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4408
-left Stinger,svc_stinger_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4409
 right long fin small,svc_long_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,49
-right long fin small2,svc_long_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,51
 left long fin tiny,svc_long_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 right long fin tiny,svc_long_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 left long fin tiny2,svc_long_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 right long fin tiny2,svc_long_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,
 right translucent fin2,svc_trans_fin_right2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4402
 left translucent fin2,svc_trans_fin_left2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4403
-right small translucent fin,svc_trans_fin_right_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4404
 left small translucent fin,svc_trans_fin_left_sml,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4405
 right small translucent fin2,svc_trans_fin_right_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4406
 left small translucent fin2,svc_trans_fin_left_sml2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
@@ -109,7 +98,7 @@ right tiny translucent fin,svc_trans_fin_right_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 left tiny translucent fin,svc_trans_fin_left_tiny,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
 right tiny translucent fin2,svc_trans_fin_right_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
 left tiny translucent fin2,svc_trans_fin_left_tiny2,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4407
-W�chter Shell,svc_waechtershell,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
+Pupacyst Wings,svc_pupacystwings,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
 Embolist Tail,svc_waechtershell2,,,,,,,,,,,,,,ENERGY,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,42
 right translucent fin,svc_trans_fin_right,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4400
 left translucent fin,svc_trans_fin_left,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,SYSTEM,,,,,,,,,,,,,,,4401

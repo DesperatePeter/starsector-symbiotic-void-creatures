@@ -47,7 +47,6 @@
     "right_sml_mand": "svc_sml_mand_r",
     "right_sml_mand2": "svc_sml_mand_r",
     "right_sml_mand3": "svc_sml_mand_r",
-    "shell": "svc_waechtershell",
     "svc_controlcollar": "svc_ctrl_cllr_lrg"
   },
   "weaponSlots": [
