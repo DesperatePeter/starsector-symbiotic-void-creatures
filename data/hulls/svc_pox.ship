@@ -16,49 +16,49 @@
   ],
   "builtInWeapons": {
     "Exploder": "svc_volatile_drone",
-    "WS0001": "svc_tentacle_left_tiny_barbed",
-    "WS0002": "svc_tentacle_right_tiny_barbed",
+    "WS0001": "svc_sweeping_tentacle_barbed_tiny_reverse",
+    "WS0002": "svc_sweeping_tentacle_barbed_tiny_reverse",
     "Whip": "svc_bge_mini_grappler",
-    "tentacleleft1": "svc_tentacle_left_tiny",
-    "tentacleright1": "svc_tentacle_right_tiny"
+    "tentacleleft1": "svc_sweeping_tentacle_barbed_tiny",
+    "tentacleright1": "svc_sweeping_tentacle_barbed_tiny"
   },
   "weaponSlots": [
     {
       "id": "tentacleright1",
       "size": "SMALL",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": 176.5,
-      "locations": [-17.5, -2.5]
+      "mount": "TURRET",
+      "arc": 106,
+      "angle": -173.5,
+      "locations": [-8.5, -1.5]
     },
     {
       "id": "tentacleleft1",
       "size": "SMALL",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": -176.5,
-      "locations": [-17.5, 2.5]
+      "mount": "TURRET",
+      "arc": 106,
+      "angle": 173.5,
+      "locations": [-8.5, 1.5]
     },
     {
       "id": "WS0001",
       "size": "SMALL",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": -176.5,
-      "locations": [-11, 4.5],
+      "mount": "TURRET",
+      "arc": 103,
+      "angle": 165,
+      "locations": [-2, 3],
       "renderOrderMod": 5
     },
     {
       "id": "WS0002",
       "size": "SMALL",
       "type": "DECORATIVE",
-      "mount": "HARDPOINT",
-      "arc": 0,
-      "angle": 176.5,
-      "locations": [-11, -4.5],
+      "mount": "TURRET",
+      "arc": 103,
+      "angle": -165,
+      "locations": [-2, -3],
       "renderOrderMod": 5
     },
     {
