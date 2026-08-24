@@ -38,11 +38,11 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
 
     // --- PERFORMANCE CACHES ---
     private static final Map<String, Float> sizeMultCache = new HashMap<>();
-    private static final Map<String, Boolean> invertWaveCache = new HashMap<>();
+    private static final Map<String, Float> tierPhaseCache = new HashMap<>();
 
     private float currentRotOffset = 0f;
     private float swivelDir = 1f;
-    private boolean invertWave = false;
+    private float tierPhase = 0f;
 
     private BendingTentacleRenderer renderer;
 
@@ -75,16 +75,16 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
 
             if (!sizeMultCache.containsKey(targetId)) {
                 float sizeMult = 1.0f;
-                boolean localInvertWave = false;
+                float localTierPhase = 0f;
                 try {
                     org.json.JSONArray spreadsheet = Global.getSettings().getMergedSpreadsheetDataForMod("id", "data/weapons/weapon_data.csv", "starsector");
                     for (int i = 0; i < spreadsheet.length(); i++) {
                         JSONObject row = spreadsheet.getJSONObject(i);
                         if (targetId.equals(row.optString("id"))) {
                             sizeMult = (float) row.optDouble("rarity", 1.0);
-                            if (row.optInt("tier", 0) == 1) {
-                                localInvertWave = true;
-                            }
+
+                            // Map values like 0.5 directly from the tier column
+                            localTierPhase = (float) row.optDouble("tier", 0.0);
                             break;
                         }
                     }
@@ -92,13 +92,11 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
                     Global.getLogger(MultiTentacleSweeperSpeedBased.class).error("Could not read CSV columns for tentacle: " + targetId, e);
                 }
                 sizeMultCache.put(targetId, sizeMult);
-                invertWaveCache.put(targetId, localInvertWave);
+                tierPhaseCache.put(targetId, localTierPhase);
             }
 
             float sizeMult = sizeMultCache.get(targetId);
-            this.invertWave = invertWaveCache.get(targetId);
-
-            // Sprite scaling removed so refit viewport perfectly matches the static UI cards
+            this.tierPhase = tierPhaseCache.get(targetId);
 
             boolean isMirrored = DecoUtils.isOnLeft(weapon) != DecoUtils.isFacingForward(weapon);
 
@@ -113,7 +111,7 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
                 swivelDir = 1f;
             }
 
-            renderer = new BendingTentacleRenderer(weapon, isMirrored, sizeMult, invertWave);
+            renderer = new BendingTentacleRenderer(weapon, isMirrored, sizeMult, this.tierPhase);
             engine.addLayeredRenderingPlugin(renderer);
             isInitialized = true;
         }
@@ -139,9 +137,8 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
 
         float currentSwivelPhase = renderer.getPhase() + SWIVEL_SYNC_OFFSET;
 
-        if (this.invertWave) {
-            currentSwivelPhase += (float) Math.PI;
-        }
+        // Apply fractional phase offsets dynamically (1.0 = PI)
+        currentSwivelPhase += this.tierPhase * (float) Math.PI;
 
         float swivelAmplitude = halfArc * SWIVEL_ARC_FRACTION;
         float swivelOffset = (float) (swivelAmplitude * FastTrig.sin(currentSwivelPhase) * swivelDir);
@@ -174,7 +171,7 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
         private static final float BASE_SWIM_RATE = 2.0f;
         private static final float MAX_SPEED_BONUS_RATE = 6.0f;
         private static final int SEGMENTS = 16;
-        private static final float MAX_BEND_PIXELS = 100f;
+        private static final float MAX_BEND_RATIO = 0.35f;
         private static final float WAVE_FREQUENCY = 1.5f;
 
         // --- ANCHOR CONTROLS ---
@@ -192,11 +189,11 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
         private final float[] spineX = new float[SEGMENTS + 1];
         private final float[] spineY = new float[SEGMENTS + 1];
 
-        // Trigonometry caches to avoid calling slow Math functions inside the render loop
+        // Trigonometry caches
         private final float[] segSin = new float[SEGMENTS + 1];
         private final float[] segCos = new float[SEGMENTS + 1];
 
-        // Immutable Pre-Allocated Values (Dramatically reduces CPU load per frame)
+        // Immutable Pre-Allocated Values
         private final float[] distFromPivots = new float[SEGMENTS + 1];
         private final float[] wavePropagations = new float[SEGMENTS + 1];
         private final float[] vCoords = new float[SEGMENTS + 1];
@@ -204,14 +201,16 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
         private final float uRight;
         private final EnumSet<CombatEngineLayers> cachedLayer;
 
-        public BendingTentacleRenderer(WeaponAPI weapon, boolean isMirrored, float sizeMult, boolean invertWave) {
+        public BendingTentacleRenderer(WeaponAPI weapon, boolean isMirrored, float sizeMult, float tierPhase) {
             this.weapon = weapon;
             this.sprite = weapon.getSprite();
             this.sizeMult = sizeMult;
 
             float pOffset = 0f;
             if (isMirrored) pOffset += (float) Math.PI;
-            if (invertWave) pOffset += (float) Math.PI;
+
+            // Map the float value directly onto the Math.PI offset modifier
+            pOffset += tierPhase * (float) Math.PI;
             this.phaseOffset = pOffset;
 
             if (weapon.getSlot().isTurret()) {
@@ -273,13 +272,14 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
             ShipAPI ship = weapon.getShip();
             if (ship == null || !ship.isAlive() || ship.isHulk()) return;
 
-            // Apply the size multiplier purely to the OpenGL dimensions, leaving the true sprite unaffected
             float length = sprite.getHeight() * sizeMult;
             float width = sprite.getWidth() * sizeMult;
             float centerX = sprite.getCenterX() * sizeMult;
 
+            float dynamicMaxBend = length * MAX_BEND_RATIO;
+
             for (int i = 0; i <= SEGMENTS; i++) {
-                float bendOffset = (float) (FastTrig.sin(phase + phaseOffset + wavePropagations[i]) * (MAX_BEND_PIXELS * sizeMult) * distFromPivots[i]);
+                float bendOffset = (float) (FastTrig.sin(phase + phaseOffset + wavePropagations[i]) * dynamicMaxBend * distFromPivots[i]);
                 targetX[i] = bendOffset;
                 targetY[i] = length * ((float) i / SEGMENTS);
             }
@@ -313,7 +313,6 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
                 }
             }
 
-            // Pivot uses the unscaled native ratio, so it aligns perfectly regardless of the size multiplier
             float exactPivotI = (sprite.getCenterY() / sprite.getHeight()) * SEGMENTS;
             int indexA = (int) Math.floor(exactPivotI);
             int indexB = (int) Math.ceil(exactPivotI);
@@ -345,7 +344,6 @@ public class MultiTentacleSweeperSpeedBased implements EveryFrameWeaponEffectPlu
             GL11.glBegin(GL11.GL_QUAD_STRIP);
 
             for (int i = 0; i <= SEGMENTS; i++) {
-
                 float leftX = spineX[i] - centerX * segCos[i] + ANCHOR_X_OFFSET;
                 float leftY = spineY[i] + centerX * segSin[i] + ANCHOR_Y_OFFSET;
 

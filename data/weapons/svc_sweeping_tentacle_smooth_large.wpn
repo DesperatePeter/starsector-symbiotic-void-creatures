@@ -1,12 +1,12 @@
 {
 	"specClass":"beam",
-	"id":"svc_sweeping_tentacle_smooth_huge",
+	"id":"svc_sweeping_tentacle_smooth_large",
 	"type":"DECORATIVE",
 	"size":"MEDIUM",
         "height": 1.0,
         "everyFrameEffect":"tecrys.svc.plugins.MultiTentacleSweeperSpeedBased",
-	"turretSprite":"graphics/weapons/animated/tentacle_long_smooth_huge00.png",
-	"hardpointSprite":"graphics/weapons/animated/tentacle_long_smooth_huge00.png",
+	"turretSprite":"graphics/weapons/animated/tentacle_long_smooth_large00.png",
+	"hardpointSprite":"graphics/weapons/animated/tentacle_long_smooth_large00.png",
 	"numFrames":2,	
 	"frameRate":0,
         "turretOffsets": [

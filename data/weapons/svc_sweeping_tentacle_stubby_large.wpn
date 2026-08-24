@@ -5,10 +5,10 @@
 	"size":"MEDIUM",
         "height": 1.0,
         "everyFrameEffect":"tecrys.svc.plugins.MultiTentacleSweeperSpeedBased",
-	"turretSprite":"graphics/weapons/animated/tentacle_black_stubby_large.png",
-	"hardpointSprite":"graphics/weapons/animated/tentacle_black_stubby_large.png",
-#	"numFrames":30,	
-#	"frameRate":20,
+	"turretSprite":"graphics/weapons/animated/tentacle_black_stubby_large00.png",
+	"hardpointSprite":"graphics/weapons/animated/tentacle_black_stubby_large00.png",
+	"numFrames":2,	
+	"frameRate":0,
         "turretOffsets": [
 20,
 
